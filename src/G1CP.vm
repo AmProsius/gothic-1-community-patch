@@ -1,0 +1,21 @@
+[BEGINVDF]
+Comment=Gothic 1 Community Patch
+BaseDir=.\
+VDFName=.\..\build\G1CP.vdf
+
+[FILES]
+; Resources (list the specific files from _work here)
+_work\* -r
+
+; Script files
+Ninja\G1CP\* -r
+
+[EXCLUDE]
+_work\Data\Scripts\* -r
+*.vm
+*.vdf
+*.bat
+
+[INCLUDE]
+
+[ENDVDF]
