@@ -1,0 +1,8 @@
+export PATCHNAME=G1CP
+export LONGNAME=Gothic 1 Community Patch
+export VBASE=0
+export VMAJOR=0
+export VMINOR=1
+export WEBSITE=https://github.com/AmProsius/gothic-1-community-patch
+export SUPPORT=
+export AUTHOR=
