@@ -7,3 +7,8 @@ The patch should be compatible with the following software:
 * Union
 * D3D11 Renderer
 * Spine
+## Contributors
+* AmProsius
+* Bonne
+* catalinux
+* mud-freak
