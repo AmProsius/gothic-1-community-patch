@@ -1,8 +1,8 @@
 
 //////////////////////////////////////
 //
-// 	Particle-Effects
-//	Instance-Definitions
+//   Particle-Effects
+//   Instance-Definitions
 //
 //////////////////////////////////////
 
@@ -670,7 +670,7 @@ INSTANCE BFX_DEMON_DEAD (C_PARTICLEFX)
      trltexture_s = "=";
 };
 
-INSTANCE BFX_ZOMBIE_DEAD	(C_PARTICLEFX)
+INSTANCE BFX_ZOMBIE_DEAD (C_PARTICLEFX)
 {
      ppsvalue = 50.000000000;
      ppsscalekeys_s = "2 3 2 1";
@@ -2678,7 +2678,7 @@ INSTANCE GROUNDFOG (C_PARTICLEFX)
 
 
 
-INSTANCE CS_MILTENFOG (C_PARTICLEFX)		// disabled by value
+INSTANCE CS_MILTENFOG (C_PARTICLEFX)         // disabled by value
 {
      ppsvalue = 2.000000000;
      ppsscalekeys_s = "1";
@@ -3186,7 +3186,7 @@ INSTANCE CPFX_STONE (C_PARTICLEFX)
      visalphaend = 100.000000000;
 };
 
-INSTANCE CPFX_Wood	(C_PARTICLEFX)
+INSTANCE CPFX_Wood  (C_PARTICLEFX)
 {
      ppsvalue = 200.000000000;
      ppsscalekeys_s = "1";
@@ -3682,7 +3682,7 @@ INSTANCE FIRE_MENU (C_PARTICLEFX)
      ppsissmooth = 1;
      shptype_s = "MESH";
      shpfor_s = "MESH";
-	 shpmesh_s = "special_sword.3ds";
+      shpmesh_s = "special_sword.3ds";
      shpoffsetvec_s = "0 0 0";
      shpdistribtype_s = "RAND";
      shpisvolume = 1;
@@ -4178,7 +4178,7 @@ INSTANCE SS_UD (C_PARTICLEFX)
 // Collision PFX
 ///////////////////////////////
 
-//	Model Attacks Model (Angriff ohne Waffen)
+//   Model Attacks Model (Angriff ohne Waffen)
 
 
 INSTANCE GESCHOSS (C_PARTICLEFX)

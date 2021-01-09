@@ -1,122 +1,122 @@
 //KURZBOGEN//
 INSTANCE ItRw_Bow_Small_01 (C_Item)
 {
-	name 				=	"Short Bow";
+    name                =   "Short Bow";
 
-	mainflag 			=	ITEM_KAT_FF;
-	flags 				=	ITEM_BOW;
-	material 			=	MAT_WOOD;
+    mainflag            =   ITEM_KAT_FF;
+    flags               =   ITEM_BOW;
+    material            =   MAT_WOOD;
 
-	value 				=	40;//20;
+    value               =   40;//20;
 
-	damageTotal			=	20;
-	damagetype			=	DAM_POINT;
-	munition			=	ItAmArrow;
+    damageTotal         =   20;
+    damagetype          =   DAM_POINT;
+    munition            =   ItAmArrow;
 
-	cond_atr[2]   		= 	ATR_DEXTERITY;
-	cond_value[2]  		= 	10;
-	visual 				=	"ItRw_Bow_Small_01.mms";
+    cond_atr[2]         =   ATR_DEXTERITY;
+    cond_value[2]       =   10;
+    visual              =   "ItRw_Bow_Small_01.mms";
 
-	description			= name;
-	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
-	TEXT[3] 			= NAME_Dex_needed;				COUNT[3]	= cond_value[2];
-	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+    description         = name;
+    TEXT[2]             = NAME_Damage;                  COUNT[2]    = damageTotal;
+    TEXT[3]             = NAME_Dex_needed;              COUNT[3]    = cond_value[2];
+    TEXT[5]             = NAME_Value;                   COUNT[5]    = value;
 };
 
 /******************************************************************************************/
 INSTANCE ItRw_Bow_Small_02 (C_Item)
 {
-	name 				=	"Rider's Bow";
+    name                =   "Rider's Bow";
 
-	mainflag 			=	ITEM_KAT_FF;
-	flags 				=	ITEM_BOW;
-	material 			=	MAT_WOOD;
+    mainflag            =   ITEM_KAT_FF;
+    flags               =   ITEM_BOW;
+    material            =   MAT_WOOD;
 
-	value 				=	80;//40;
+    value               =   80;//40;
 
-	damageTotal			=	24;
-	damagetype			=	DAM_POINT;
-	munition			=	ItAmArrow;
-	cond_atr[2]   		= 	ATR_DEXTERITY;
-	cond_value[2]  		= 	12;
-	visual 				=	"ItRw_Bow_Small_02.mms";
+    damageTotal         =   24;
+    damagetype          =   DAM_POINT;
+    munition            =   ItAmArrow;
+    cond_atr[2]         =   ATR_DEXTERITY;
+    cond_value[2]       =   12;
+    visual              =   "ItRw_Bow_Small_02.mms";
 
-	description			= name;
-	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
-	TEXT[3] 			= NAME_Dex_needed;				COUNT[3]	= cond_value[2];
-	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+    description         = name;
+    TEXT[2]             = NAME_Damage;                  COUNT[2]    = damageTotal;
+    TEXT[3]             = NAME_Dex_needed;              COUNT[3]    = cond_value[2];
+    TEXT[5]             = NAME_Value;                   COUNT[5]    = value;
 };
 
 /******************************************************************************************/
 INSTANCE ItRw_Bow_Small_03 (C_Item)
 {
-	name 				=	"Field bow";
+    name                =   "Field bow";
 
-	mainflag 			=	ITEM_KAT_FF;
-	flags 				=	ITEM_BOW;
-	material 			=	MAT_WOOD;
+    mainflag            =   ITEM_KAT_FF;
+    flags               =   ITEM_BOW;
+    material            =   MAT_WOOD;
 
-	value 				=	120;//60;
+    value               =   120;//60;
 
-	damageTotal			=	28;
-	damagetype			=	DAM_POINT;
-	munition			=	ItAmArrow;
-	cond_atr[2]   		= 	ATR_DEXTERITY;
-	cond_value[2]  		= 	14;
-	visual 				=	"ItRw_Bow_Small_03.mms";
+    damageTotal         =   28;
+    damagetype          =   DAM_POINT;
+    munition            =   ItAmArrow;
+    cond_atr[2]         =   ATR_DEXTERITY;
+    cond_value[2]       =   14;
+    visual              =   "ItRw_Bow_Small_03.mms";
 
-	description			= name;
-	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
-	TEXT[3] 			= NAME_Dex_needed;				COUNT[3]	= cond_value[2];
-	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+    description         = name;
+    TEXT[2]             = NAME_Damage;                  COUNT[2]    = damageTotal;
+    TEXT[3]             = NAME_Dex_needed;              COUNT[3]    = cond_value[2];
+    TEXT[5]             = NAME_Value;                   COUNT[5]    = value;
 };
 
 /******************************************************************************************/
 INSTANCE ItRw_Bow_Small_04 (C_Item)
 {
-	name 				=	"Hunting Bow";
+    name                =   "Hunting Bow";
 
-	mainflag 			=	ITEM_KAT_FF;
-	flags 				=	ITEM_BOW;
-	material 			=	MAT_WOOD;
+    mainflag            =   ITEM_KAT_FF;
+    flags               =   ITEM_BOW;
+    material            =   MAT_WOOD;
 
-	value 				=	160;//80;
+    value               =   160;//80;
 
-	damageTotal			=	32;
-	damagetype			=	DAM_POINT;
-	munition			=	ItAmArrow;
-	cond_atr[2]   		= 	ATR_DEXTERITY;
-	cond_value[2]  		= 	16;
-	visual 				=	"ItRw_Bow_Small_04.mms";
+    damageTotal         =   32;
+    damagetype          =   DAM_POINT;
+    munition            =   ItAmArrow;
+    cond_atr[2]         =   ATR_DEXTERITY;
+    cond_value[2]       =   16;
+    visual              =   "ItRw_Bow_Small_04.mms";
 
-	description			= name;
-	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
-	TEXT[3] 			= NAME_Dex_needed;				COUNT[3]	= cond_value[2];
-	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+    description         = name;
+    TEXT[2]             = NAME_Damage;                  COUNT[2]    = damageTotal;
+    TEXT[3]             = NAME_Dex_needed;              COUNT[3]    = cond_value[2];
+    TEXT[5]             = NAME_Value;                   COUNT[5]    = value;
 };
 
 /******************************************************************************************/
 INSTANCE ItRw_Bow_Small_05 (C_Item)
 {
-	name 				=	"Bone Bow";
+    name                =   "Bone Bow";
 
-	mainflag 			=	ITEM_KAT_FF;
-	flags 				=	ITEM_BOW;
-	material 			=	MAT_WOOD;
+    mainflag            =   ITEM_KAT_FF;
+    flags               =   ITEM_BOW;
+    material            =   MAT_WOOD;
 
-	value 				=	200;//100;
+    value               =   200;//100;
 
-	damageTotal			=	36;
-	damagetype			=	DAM_POINT;
-	munition			=	ItAmArrow;
-	cond_atr[2]   		=	ATR_DEXTERITY;
-	cond_value[2]  		=	18;
-	visual 				=	"ItRw_Bow_Small_05.mms";
+    damageTotal         =   36;
+    damagetype          =   DAM_POINT;
+    munition            =   ItAmArrow;
+    cond_atr[2]         =   ATR_DEXTERITY;
+    cond_value[2]       =   18;
+    visual              =   "ItRw_Bow_Small_05.mms";
 
-	description			= name;
-	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
-	TEXT[3] 			= NAME_Dex_needed;				COUNT[3]	= cond_value[2];
-	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+    description         = name;
+    TEXT[2]             = NAME_Damage;                  COUNT[2]    = damageTotal;
+    TEXT[3]             = NAME_Dex_needed;              COUNT[3]    = cond_value[2];
+    TEXT[5]             = NAME_Value;                   COUNT[5]    = value;
 };
 
 /******************************************************************************************/
@@ -125,216 +125,216 @@ INSTANCE ItRw_Bow_Small_05 (C_Item)
 // Org & SLD
 INSTANCE ItRw_Bow_Long_01 (C_Item)
 {
-	name 				=	"Longbow";
+    name                =   "Longbow";
 
-	mainflag 			=	ITEM_KAT_FF;
-	flags 				=	ITEM_BOW;
-	material 			=	MAT_WOOD;
+    mainflag            =   ITEM_KAT_FF;
+    flags               =   ITEM_BOW;
+    material            =   MAT_WOOD;
 
-	value 				=	240;//120;
+    value               =   240;//120;
 
-	damageTotal			=	40;
-	damagetype			=	DAM_POINT;
-	munition			=	ItAmArrow;
-	cond_atr[2]   		= 	ATR_DEXTERITY;
-	cond_value[2]  		= 	20;
-	visual 				=	"ItRw_Bow_Long_01.mms";
+    damageTotal         =   40;
+    damagetype          =   DAM_POINT;
+    munition            =   ItAmArrow;
+    cond_atr[2]         =   ATR_DEXTERITY;
+    cond_value[2]       =   20;
+    visual              =   "ItRw_Bow_Long_01.mms";
 
-	description			= name;
-	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
-	TEXT[3] 			= NAME_Dex_needed;				COUNT[3]	= cond_value[2];
-	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+    description         = name;
+    TEXT[2]             = NAME_Damage;                  COUNT[2]    = damageTotal;
+    TEXT[3]             = NAME_Dex_needed;              COUNT[3]    = cond_value[2];
+    TEXT[5]             = NAME_Value;                   COUNT[5]    = value;
 };
 
 /******************************************************************************************/
 INSTANCE ItRw_Bow_Long_02 (C_Item)
 {
-	name 				=	"Hedge Bow";
+    name                =   "Hedge Bow";
 
-	mainflag 			=	ITEM_KAT_FF;
-	flags 				=	ITEM_BOW;
-	material 			=	MAT_WOOD;
+    mainflag            =   ITEM_KAT_FF;
+    flags               =   ITEM_BOW;
+    material            =   MAT_WOOD;
 
-	value 				=	280;//140;
+    value               =   280;//140;
 
-	damageTotal			=	44;
-	damagetype			=	DAM_POINT;
-	munition			=	ItAmArrow;
-	cond_atr[2]   		= 	ATR_DEXTERITY;
-	cond_value[2]  		= 	22;
-	visual 				=	"ItRw_Bow_Long_02.mms";
+    damageTotal         =   44;
+    damagetype          =   DAM_POINT;
+    munition            =   ItAmArrow;
+    cond_atr[2]         =   ATR_DEXTERITY;
+    cond_value[2]       =   22;
+    visual              =   "ItRw_Bow_Long_02.mms";
 
-	description			= name;
-	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
-	TEXT[3] 			= NAME_Dex_needed;				COUNT[3]	= cond_value[2];
-	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+    description         = name;
+    TEXT[2]             = NAME_Damage;                  COUNT[2]    = damageTotal;
+    TEXT[3]             = NAME_Dex_needed;              COUNT[3]    = cond_value[2];
+    TEXT[5]             = NAME_Value;                   COUNT[5]    = value;
 };
 
 /******************************************************************************************/
 INSTANCE ItRw_Bow_Long_03 (C_Item)
 {
-	name 				=	"Willow Bow";
+    name                =   "Willow Bow";
 
-	mainflag 			=	ITEM_KAT_FF;
-	flags 				=	ITEM_BOW;
-	material 			=	MAT_WOOD;
+    mainflag            =   ITEM_KAT_FF;
+    flags               =   ITEM_BOW;
+    material            =   MAT_WOOD;
 
-	value 				=	320;//160;
+    value               =   320;//160;
 
-	damageTotal			=	48;
-	damagetype			=	DAM_POINT;
-	munition			=	ItAmArrow;
-	cond_atr[2]   		= 	ATR_DEXTERITY;
-	cond_value[2]  		= 	24;
-	visual 				=	"ItRw_Bow_Long_03.mms";
+    damageTotal         =   48;
+    damagetype          =   DAM_POINT;
+    munition            =   ItAmArrow;
+    cond_atr[2]         =   ATR_DEXTERITY;
+    cond_value[2]       =   24;
+    visual              =   "ItRw_Bow_Long_03.mms";
 
-	description			= name;
-	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
-	TEXT[3] 			= NAME_Dex_needed;				COUNT[3]	= cond_value[2];
-	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+    description         = name;
+    TEXT[2]             = NAME_Damage;                  COUNT[2]    = damageTotal;
+    TEXT[3]             = NAME_Dex_needed;              COUNT[3]    = cond_value[2];
+    TEXT[5]             = NAME_Value;                   COUNT[5]    = value;
 };
 
 /******************************************************************************************/
 INSTANCE ItRw_Bow_Long_04 (C_Item)
 {
-	name 				=	"Oak Bow";
+    name                =   "Oak Bow";
 
-	mainflag 			=	ITEM_KAT_FF;
-	flags 				=	ITEM_BOW;
-	material 			=	MAT_WOOD;
+    mainflag            =   ITEM_KAT_FF;
+    flags               =   ITEM_BOW;
+    material            =   MAT_WOOD;
 
-	value 				=	360;//180;
+    value               =   360;//180;
 
-	damageTotal			=	52;
-	damagetype			=	DAM_POINT;
-	munition			=	ItAmArrow;
-	cond_atr[2]   		= 	ATR_DEXTERITY;
-	cond_value[2]  		= 	26;
-	visual 				=	"ItRw_Bow_Long_04.mms";
+    damageTotal         =   52;
+    damagetype          =   DAM_POINT;
+    munition            =   ItAmArrow;
+    cond_atr[2]         =   ATR_DEXTERITY;
+    cond_value[2]       =   26;
+    visual              =   "ItRw_Bow_Long_04.mms";
 
-	description			= name;
-	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
-	TEXT[3] 			= NAME_Dex_needed;				COUNT[3]	= cond_value[2];
-	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+    description         = name;
+    TEXT[2]             = NAME_Damage;                  COUNT[2]    = damageTotal;
+    TEXT[3]             = NAME_Dex_needed;              COUNT[3]    = cond_value[2];
+    TEXT[5]             = NAME_Value;                   COUNT[5]    = value;
 };
 
 /******************************************************************************************/
 INSTANCE ItRw_Bow_Long_05 (C_Item)
 {
-	name 				=	"Wolfshredder";
+    name                =   "Wolfshredder";
 
-	mainflag 			=	ITEM_KAT_FF;
-	flags 				=	ITEM_BOW;
-	material 			=	MAT_WOOD;
+    mainflag            =   ITEM_KAT_FF;
+    flags               =   ITEM_BOW;
+    material            =   MAT_WOOD;
 
-	value 				=	440;//220;
+    value               =   440;//220;
 
-	damageTotal			=	56;
-	damagetype			=	DAM_POINT;
-	munition			=	ItAmArrow;
-	cond_atr[2]   		= 	ATR_DEXTERITY;
-	cond_value[2]  		= 	28;
-	visual 				=	"ItRw_Bow_Long_05.mms";
+    damageTotal         =   56;
+    damagetype          =   DAM_POINT;
+    munition            =   ItAmArrow;
+    cond_atr[2]         =   ATR_DEXTERITY;
+    cond_value[2]       =   28;
+    visual              =   "ItRw_Bow_Long_05.mms";
 
-	description			= name;
-	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
-	TEXT[3] 			= NAME_Dex_needed;				COUNT[3]	= cond_value[2];
-	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+    description         = name;
+    TEXT[2]             = NAME_Damage;                  COUNT[2]    = damageTotal;
+    TEXT[3]             = NAME_Dex_needed;              COUNT[3]    = cond_value[2];
+    TEXT[5]             = NAME_Value;                   COUNT[5]    = value;
 };
 
 /******************************************************************************************/
 INSTANCE ItRw_Bow_Long_06 (C_Item)
 {
-	name 				=	"Wind Breaker";
+    name                =   "Wind Breaker";
 
-	mainflag 			=	ITEM_KAT_FF;
-	flags 				=	ITEM_BOW;
-	material 			=	MAT_WOOD;
+    mainflag            =   ITEM_KAT_FF;
+    flags               =   ITEM_BOW;
+    material            =   MAT_WOOD;
 
-	value 				=	480;//240;
+    value               =   480;//240;
 
-	damageTotal			=	60;
-	damagetype			=	DAM_POINT;
-	munition			=	ItAmArrow;
-	cond_atr[2]   		= 	ATR_DEXTERITY;
-	cond_value[2]  		= 	30;
-	visual 				=	"ItRw_Bow_Long_06.mms";
+    damageTotal         =   60;
+    damagetype          =   DAM_POINT;
+    munition            =   ItAmArrow;
+    cond_atr[2]         =   ATR_DEXTERITY;
+    cond_value[2]       =   30;
+    visual              =   "ItRw_Bow_Long_06.mms";
 
-	description			= name;
-	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
-	TEXT[3] 			= NAME_Dex_needed;				COUNT[3]	= cond_value[2];
-	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+    description         = name;
+    TEXT[2]             = NAME_Damage;                  COUNT[2]    = damageTotal;
+    TEXT[3]             = NAME_Dex_needed;              COUNT[3]    = cond_value[2];
+    TEXT[5]             = NAME_Value;                   COUNT[5]    = value;
 };
 /******************************************************************************************/
 INSTANCE ItRw_Bow_Long_07 (C_Item)
 {
-	name 				=	"Army Bow";
+    name                =   "Army Bow";
 
-	mainflag 			=	ITEM_KAT_FF;
-	flags 				=	ITEM_BOW;
-	material 			=	MAT_WOOD;
+    mainflag            =   ITEM_KAT_FF;
+    flags               =   ITEM_BOW;
+    material            =   MAT_WOOD;
 
-	value 				=	520;//260;
+    value               =   520;//260;
 
-	damageTotal			=	64;
-	damagetype			=	DAM_POINT;
-	munition			=	ItAmArrow;
-	cond_atr[2]   		= 	ATR_DEXTERITY;
-	cond_value[2]  		= 	32;
-	visual 				=	"ItRw_Bow_Long_07.mms";
+    damageTotal         =   64;
+    damagetype          =   DAM_POINT;
+    munition            =   ItAmArrow;
+    cond_atr[2]         =   ATR_DEXTERITY;
+    cond_value[2]       =   32;
+    visual              =   "ItRw_Bow_Long_07.mms";
 
-	description			= name;
-	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
-	TEXT[3] 			= NAME_Dex_needed;				COUNT[3]	= cond_value[2];
-	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+    description         = name;
+    TEXT[2]             = NAME_Damage;                  COUNT[2]    = damageTotal;
+    TEXT[3]             = NAME_Dex_needed;              COUNT[3]    = cond_value[2];
+    TEXT[5]             = NAME_Value;                   COUNT[5]    = value;
 };
 
 /******************************************************************************************/
 INSTANCE ItRw_Bow_Long_08 (C_Item)
 {
-	name 				=	"Horn Bow";
+    name                =   "Horn Bow";
 
-	mainflag 			=	ITEM_KAT_FF;
-	flags 				=	ITEM_BOW;
-	material 			=	MAT_WOOD;
+    mainflag            =   ITEM_KAT_FF;
+    flags               =   ITEM_BOW;
+    material            =   MAT_WOOD;
 
-	value 				=	560;//280;
+    value               =   560;//280;
 
-	damageTotal			=	68;
-	damagetype			=	DAM_POINT;
-	munition			=	ItAmArrow;
-	cond_atr[2]   		= 	ATR_DEXTERITY;
-	cond_value[2]  		= 	34;
-	visual 				=	"ItRw_Bow_Long_08.mms";
+    damageTotal         =   68;
+    damagetype          =   DAM_POINT;
+    munition            =   ItAmArrow;
+    cond_atr[2]         =   ATR_DEXTERITY;
+    cond_value[2]       =   34;
+    visual              =   "ItRw_Bow_Long_08.mms";
 
-	description			= name;
-	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
-	TEXT[3] 			= NAME_Dex_needed;				COUNT[3]	= cond_value[2];
-	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+    description         = name;
+    TEXT[2]             = NAME_Damage;                  COUNT[2]    = damageTotal;
+    TEXT[3]             = NAME_Dex_needed;              COUNT[3]    = cond_value[2];
+    TEXT[5]             = NAME_Value;                   COUNT[5]    = value;
 };
 
 /******************************************************************************************/
 INSTANCE ItRw_Bow_Long_09 (C_Item)
 {
-	name 				=	"Nimrod Bow";
+    name                =   "Nimrod Bow";
 
-	mainflag 			=	ITEM_KAT_FF;
-	flags 				=	ITEM_BOW;
-	material 			=	MAT_WOOD;
+    mainflag            =   ITEM_KAT_FF;
+    flags               =   ITEM_BOW;
+    material            =   MAT_WOOD;
 
-	value 				=	600;//300;
+    value               =   600;//300;
 
-	damageTotal			=	72;
-	damagetype			=	DAM_POINT;
-	munition			=	ItAmArrow;
-	cond_atr[2]   		= 	ATR_DEXTERITY;
-	cond_value[2]  		= 	36;
-	visual 				=	"ItRw_Bow_Long_08.mms";
+    damageTotal         =   72;
+    damagetype          =   DAM_POINT;
+    munition            =   ItAmArrow;
+    cond_atr[2]         =   ATR_DEXTERITY;
+    cond_value[2]       =   36;
+    visual              =   "ItRw_Bow_Long_08.mms";
 
-	description			= name;
-	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
-	TEXT[3] 			= NAME_Dex_needed;				COUNT[3]	= cond_value[2];
-	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+    description         = name;
+    TEXT[2]             = NAME_Damage;                  COUNT[2]    = damageTotal;
+    TEXT[3]             = NAME_Dex_needed;              COUNT[3]    = cond_value[2];
+    TEXT[5]             = NAME_Value;                   COUNT[5]    = value;
 };
 
 /******************************************************************************************/
@@ -342,121 +342,121 @@ INSTANCE ItRw_Bow_Long_09 (C_Item)
 /******************************************************************************************/
 INSTANCE ItRw_Bow_War_01 (C_Item)
 {
-	name 				=	"War Bow";
+    name                =   "War Bow";
 
-	mainflag 			=	ITEM_KAT_FF;
-	flags 				=	ITEM_BOW;
-	material 			=	MAT_WOOD;
+    mainflag            =   ITEM_KAT_FF;
+    flags               =   ITEM_BOW;
+    material            =   MAT_WOOD;
 
-	value 				=	640;//320;
+    value               =   640;//320;
 
-	damageTotal			=	76;
-	damagetype			=	DAM_POINT;
-	munition			=	ItAmArrow;
-	cond_atr[2]   		= 	ATR_DEXTERITY;
-	cond_value[2]  		= 	38;
-	visual 				=	"ItRw_Bow_War_01.mms";
+    damageTotal         =   76;
+    damagetype          =   DAM_POINT;
+    munition            =   ItAmArrow;
+    cond_atr[2]         =   ATR_DEXTERITY;
+    cond_value[2]       =   38;
+    visual              =   "ItRw_Bow_War_01.mms";
 
-	description			= name;
-	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
-	TEXT[3] 			= NAME_Dex_needed;				COUNT[3]	= cond_value[2];
-	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+    description         = name;
+    TEXT[2]             = NAME_Damage;                  COUNT[2]    = damageTotal;
+    TEXT[3]             = NAME_Dex_needed;              COUNT[3]    = cond_value[2];
+    TEXT[5]             = NAME_Value;                   COUNT[5]    = value;
 };
 
 /******************************************************************************************/
 INSTANCE ItRw_Bow_War_02 (C_Item)
 {
-	name 				=	"Orc Chaser";
+    name                =   "Orc Chaser";
 
-	mainflag 			=	ITEM_KAT_FF;
-	flags 				=	ITEM_BOW;
-	material 			=	MAT_WOOD;
+    mainflag            =   ITEM_KAT_FF;
+    flags               =   ITEM_BOW;
+    material            =   MAT_WOOD;
 
-	value 				=	680;//340;
+    value               =   680;//340;
 
-	damageTotal			=	79;
-	damagetype			=	DAM_POINT;
-	munition			=	ItAmArrow;
-	cond_atr[2]   		= 	ATR_DEXTERITY;
-	cond_value[2]  		= 	40;
-	visual 				=	"ItRw_Bow_War_02.mms";
+    damageTotal         =   79;
+    damagetype          =   DAM_POINT;
+    munition            =   ItAmArrow;
+    cond_atr[2]         =   ATR_DEXTERITY;
+    cond_value[2]       =   40;
+    visual              =   "ItRw_Bow_War_02.mms";
 
-	description			= name;
-	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
-	TEXT[3] 			= NAME_Dex_needed;				COUNT[3]	= cond_value[2];
-	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+    description         = name;
+    TEXT[2]             = NAME_Damage;                  COUNT[2]    = damageTotal;
+    TEXT[3]             = NAME_Dex_needed;              COUNT[3]    = cond_value[2];
+    TEXT[5]             = NAME_Value;                   COUNT[5]    = value;
 };
 
 /******************************************************************************************/
 INSTANCE ItRw_Bow_War_03 (C_Item)
 {
-	name 				=	"Storm Bow";
+    name                =   "Storm Bow";
 
-	mainflag 			=	ITEM_KAT_FF;
-	flags 				=	ITEM_BOW;
-	material 			=	MAT_WOOD;
+    mainflag            =   ITEM_KAT_FF;
+    flags               =   ITEM_BOW;
+    material            =   MAT_WOOD;
 
-	value 				=	720;//360;
+    value               =   720;//360;
 
-	damageTotal			=	82;
-	damagetype			=	DAM_POINT;
-	munition			=	ItAmArrow;
-	cond_atr[2]   		= 	ATR_DEXTERITY;
-	cond_value[2]  		= 	42;
-	visual 				=	"ItRw_Bow_War_03.mms";
+    damageTotal         =   82;
+    damagetype          =   DAM_POINT;
+    munition            =   ItAmArrow;
+    cond_atr[2]         =   ATR_DEXTERITY;
+    cond_value[2]       =   42;
+    visual              =   "ItRw_Bow_War_03.mms";
 
-	description			= name;
-	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
-	TEXT[3] 			= NAME_Dex_needed;				COUNT[3]	= cond_value[2];
-	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+    description         = name;
+    TEXT[2]             = NAME_Damage;                  COUNT[2]    = damageTotal;
+    TEXT[3]             = NAME_Dex_needed;              COUNT[3]    = cond_value[2];
+    TEXT[5]             = NAME_Value;                   COUNT[5]    = value;
 };
 
 /******************************************************************************************/
 INSTANCE ItRw_Bow_War_04 (C_Item)
 {
-	name 				=	"Demon Bow";
+    name                =   "Demon Bow";
 
-	mainflag 			=	ITEM_KAT_FF;
-	flags 				=	ITEM_BOW;
-	material 			=	MAT_WOOD;
+    mainflag            =   ITEM_KAT_FF;
+    flags               =   ITEM_BOW;
+    material            =   MAT_WOOD;
 
-	value 				=	760;//380;
+    value               =   760;//380;
 
-	damageTotal			=	85;
-	damagetype			=	DAM_POINT;
-	munition			=	ItAmArrow;
-	cond_atr[2]   		= 	ATR_DEXTERITY;
-	cond_value[2]  		= 	44;
-	visual 				=	"ItRw_Bow_War_04.mms";
+    damageTotal         =   85;
+    damagetype          =   DAM_POINT;
+    munition            =   ItAmArrow;
+    cond_atr[2]         =   ATR_DEXTERITY;
+    cond_value[2]       =   44;
+    visual              =   "ItRw_Bow_War_04.mms";
 
-	description			= name;
-	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
-	TEXT[3] 			= NAME_Dex_needed;				COUNT[3]	= cond_value[2];
-	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+    description         = name;
+    TEXT[2]             = NAME_Damage;                  COUNT[2]    = damageTotal;
+    TEXT[3]             = NAME_Dex_needed;              COUNT[3]    = cond_value[2];
+    TEXT[5]             = NAME_Value;                   COUNT[5]    = value;
 };
 
 /******************************************************************************************/
 INSTANCE ItRw_Bow_War_05 (C_Item)
 {
-	name 				=	"Bow of Death";
+    name                =   "Bow of Death";
 
-	mainflag 			=	ITEM_KAT_FF;
-	flags 				=	ITEM_BOW;
-	material 			=	MAT_WOOD;
+    mainflag            =   ITEM_KAT_FF;
+    flags               =   ITEM_BOW;
+    material            =   MAT_WOOD;
 
-	value 				=	1000;//500;
+    value               =   1000;//500;
 
-	damageTotal			=	88;
-	damagetype			=	DAM_POINT;
-	munition			=	ItAmArrow;
-	cond_atr[2]   		= 	ATR_DEXTERITY;
-	cond_value[2]  		= 	50;
-	visual 				=	"ItRw_Bow_War_04.mms";
+    damageTotal         =   88;
+    damagetype          =   DAM_POINT;
+    munition            =   ItAmArrow;
+    cond_atr[2]         =   ATR_DEXTERITY;
+    cond_value[2]       =   50;
+    visual              =   "ItRw_Bow_War_04.mms";
 
-	description			= name;
-	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
-	TEXT[3] 			= NAME_Dex_needed;				COUNT[3]	= cond_value[2];
-	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+    description         = name;
+    TEXT[2]             = NAME_Damage;                  COUNT[2]    = damageTotal;
+    TEXT[3]             = NAME_Dex_needed;              COUNT[3]    = cond_value[2];
+    TEXT[5]             = NAME_Value;                   COUNT[5]    = value;
 };
 
 /******************************************************************************************/
@@ -464,98 +464,98 @@ INSTANCE ItRw_Bow_War_05 (C_Item)
 /******************************************************************************************/
 INSTANCE ItRw_Crossbow_01(C_Item)
 {
-	name 				=	"Light Crossbow";
+    name                =   "Light Crossbow";
 
-	mainflag 			=	ITEM_KAT_FF;
-	flags 				=	ITEM_CROSSBOW;
-	material 			=	MAT_WOOD;
+    mainflag            =   ITEM_KAT_FF;
+    flags               =   ITEM_CROSSBOW;
+    material            =   MAT_WOOD;
 
-	value 				=	180;
+    value               =   180;
 
-	damageTotal			= 	50;
-	damagetype			=	DAM_POINT;
-	munition			=	ItAmBolt;
-	cond_atr[2]   		= 	ATR_DEXTERITY;
-	cond_value[2]  		= 	25;
-	visual 				=	"ItRwCrossbow1.mms";
+    damageTotal         =   50;
+    damagetype          =   DAM_POINT;
+    munition            =   ItAmBolt;
+    cond_atr[2]         =   ATR_DEXTERITY;
+    cond_value[2]       =   25;
+    visual              =   "ItRwCrossbow1.mms";
 
-	description			= name;
-	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
-	TEXT[3] 			= NAME_Dex_needed;				COUNT[3]	= cond_value[2];
-	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+    description         = name;
+    TEXT[2]             = NAME_Damage;                  COUNT[2]    = damageTotal;
+    TEXT[3]             = NAME_Dex_needed;              COUNT[3]    = cond_value[2];
+    TEXT[5]             = NAME_Value;                   COUNT[5]    = value;
 };
 
 /******************************************************************************************/
 INSTANCE ItRw_Crossbow_02(C_Item)
 {
-	name 				=	"Crossbow";
+    name                =   "Crossbow";
 
-	mainflag 			=	ITEM_KAT_FF;
-	flags 				=	ITEM_CROSSBOW;
-	material 			=	MAT_WOOD;
+    mainflag            =   ITEM_KAT_FF;
+    flags               =   ITEM_CROSSBOW;
+    material            =   MAT_WOOD;
 
-	value 				=	780;//390;
+    value               =   780;//390;
 
-	damageTotal			= 	85;
-	damagetype			=	DAM_POINT;
-	munition			=	ItAmBolt;
-	cond_atr[2]   		= 	ATR_DEXTERITY;
-	cond_value[2]  		= 	42;
-	visual 				=	"ItRwCrossbow2.mms";
+    damageTotal         =   85;
+    damagetype          =   DAM_POINT;
+    munition            =   ItAmBolt;
+    cond_atr[2]         =   ATR_DEXTERITY;
+    cond_value[2]       =   42;
+    visual              =   "ItRwCrossbow2.mms";
 
-	description			= name;
-	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
-	TEXT[3] 			= NAME_Dex_needed;				COUNT[3]	= cond_value[2];
-	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
-	TEXT[5]					= NAME_Value;			COUNT[5]	= value;
+    description         = name;
+    TEXT[2]             = NAME_Damage;                  COUNT[2]    = damageTotal;
+    TEXT[3]             = NAME_Dex_needed;              COUNT[3]    = cond_value[2];
+    TEXT[5]             = NAME_Value;                   COUNT[5]    = value;
+    TEXT[5]                 = NAME_Value;           COUNT[5]    = value;
 };
 
 /******************************************************************************************/
 INSTANCE ItRw_Crossbow_03(C_Item)
 {
-	name 				=	"Heavy Crossbow";
+    name                =   "Heavy Crossbow";
 
-	mainflag 			=	ITEM_KAT_FF;
-	flags 				=	ITEM_CROSSBOW;
-	material 			=	MAT_WOOD;
+    mainflag            =   ITEM_KAT_FF;
+    flags               =   ITEM_CROSSBOW;
+    material            =   MAT_WOOD;
 
-	value 				=	1000;//500;
+    value               =   1000;//500;
 
-	damageTotal			= 	90;
-	damagetype			=	DAM_POINT;
-	munition			=	ItAmBolt;
-	cond_atr[2]   		= 	ATR_DEXTERITY;
-	cond_value[2]  		= 	45;
-	visual 				=	"ItRwCrossbow3.mms";
+    damageTotal         =   90;
+    damagetype          =   DAM_POINT;
+    munition            =   ItAmBolt;
+    cond_atr[2]         =   ATR_DEXTERITY;
+    cond_value[2]       =   45;
+    visual              =   "ItRwCrossbow3.mms";
 
-	description			= name;
-	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
-	TEXT[3] 			= NAME_Dex_needed;				COUNT[3]	= cond_value[2];
-	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+    description         = name;
+    TEXT[2]             = NAME_Damage;                  COUNT[2]    = damageTotal;
+    TEXT[3]             = NAME_Dex_needed;              COUNT[3]    = cond_value[2];
+    TEXT[5]             = NAME_Value;                   COUNT[5]    = value;
 };
 
 /******************************************************************************************/
 INSTANCE ItRw_Crossbow_04(C_Item)
 {
-	name 				=	"Crossbow of War";
+    name                =   "Crossbow of War";
 
-	mainflag 			=	ITEM_KAT_FF;
-	flags 				=	ITEM_CROSSBOW;
-	material 			=	MAT_WOOD;
+    mainflag            =   ITEM_KAT_FF;
+    flags               =   ITEM_CROSSBOW;
+    material            =   MAT_WOOD;
 
-	value 				=	1300;//650;
+    value               =   1300;//650;
 
-	damageTotal			= 	100;
-	damagetype			=	DAM_POINT;
-	munition			=	ItAmBolt;
-	cond_atr[2]   		= 	ATR_DEXTERITY;
-	cond_value[2]  		= 	55;
-	visual 				=	"ItRwCrossbow4.mms";
+    damageTotal         =   100;
+    damagetype          =   DAM_POINT;
+    munition            =   ItAmBolt;
+    cond_atr[2]         =   ATR_DEXTERITY;
+    cond_value[2]       =   55;
+    visual              =   "ItRwCrossbow4.mms";
 
-	description			= name;
-	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
-	TEXT[3] 			= NAME_Dex_needed;				COUNT[3]	= cond_value[2];
-	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+    description         = name;
+    TEXT[2]             = NAME_Damage;                  COUNT[2]    = damageTotal;
+    TEXT[3]             = NAME_Dex_needed;              COUNT[3]    = cond_value[2];
+    TEXT[5]             = NAME_Value;                   COUNT[5]    = value;
 };
 
 
@@ -564,43 +564,43 @@ INSTANCE ItRw_Crossbow_04(C_Item)
 /******************************************************************************************/
 INSTANCE ItAmArrow(C_Item)
 {
-	name 				=	"Arrow";
+    name                =   "Arrow";
 
-	mainflag 			=	ITEM_KAT_MUN;
-	flags 				=	ITEM_BOW|ITEM_MULTI;
+    mainflag            =   ITEM_KAT_MUN;
+    flags               =   ITEM_BOW|ITEM_MULTI;
 
-	value 				=	1;
+    value               =   1;
 
-	visual 				=	"ItAm_Arrow_01.3ds";
-	material 			=	MAT_WOOD;
+    visual              =   "ItAm_Arrow_01.3ds";
+    material            =   MAT_WOOD;
 
-	description			= name;
-	//TEXT[0]			= "";					COUNT[0]	= ;
-	//TEXT[1]			= "";					COUNT[1]	= ;
-	//TEXT[2]			= NAME_Damage;			COUNT[2]	= damageTotal;
-	//TEXT[3] 			= NAME_Dex_needed;		COUNT[3]	= cond_value[2];
-	//TEXT[4]			= ""; 					COUNT[4]	= ;
-	TEXT[5]				= NAME_Value;			COUNT[5]	= value;
+    description         = name;
+    //TEXT[0]           = "";                   COUNT[0]    = ;
+    //TEXT[1]           = "";                   COUNT[1]    = ;
+    //TEXT[2]           = NAME_Damage;          COUNT[2]    = damageTotal;
+    //TEXT[3]           = NAME_Dex_needed;      COUNT[3]    = cond_value[2];
+    //TEXT[4]           = "";                   COUNT[4]    = ;
+    TEXT[5]             = NAME_Value;           COUNT[5]    = value;
 };
 
 /******************************************************************************************/
 INSTANCE ItAmBolt(C_Item)
 {
-	name 				=	"Bolt";
+    name                =   "Bolt";
 
-	mainflag 			=	ITEM_KAT_MUN;
-	flags 				=	ITEM_CROSSBOW|ITEM_MULTI;
+    mainflag            =   ITEM_KAT_MUN;
+    flags               =   ITEM_CROSSBOW|ITEM_MULTI;
 
-	value 				=	1;
+    value               =   1;
 
-	visual 				=	"ItAm_Bolt_01.3ds";
-	material 			=	MAT_WOOD;
+    visual              =   "ItAm_Bolt_01.3ds";
+    material            =   MAT_WOOD;
 
-	description			= name;
-	//TEXT[0]			= "";					COUNT[0]	= ;
-	//TEXT[1]			= "";					COUNT[1]	= ;
-	//TEXT[2]			= NAME_Damage;			COUNT[2]	= damageTotal;
-	//TEXT[3] 			= NAME_Dex_needed;		COUNT[3]	= cond_value[2];
-	//TEXT[4]			= ""; 					COUNT[4]	= ;
-	TEXT[5]				= NAME_Value;			COUNT[5]	= value;
+    description         = name;
+    //TEXT[0]           = "";                   COUNT[0]    = ;
+    //TEXT[1]           = "";                   COUNT[1]    = ;
+    //TEXT[2]           = NAME_Damage;          COUNT[2]    = damageTotal;
+    //TEXT[3]           = NAME_Dex_needed;      COUNT[3]    = cond_value[2];
+    //TEXT[4]           = "";                   COUNT[4]    = ;
+    TEXT[5]             = NAME_Value;           COUNT[5]    = value;
 };
