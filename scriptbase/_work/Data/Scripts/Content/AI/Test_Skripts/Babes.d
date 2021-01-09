@@ -274,7 +274,3 @@ instance Babe7 (Npc_Default)
 
     //-------------Daily Routine-------------
 };
-
-
-
-

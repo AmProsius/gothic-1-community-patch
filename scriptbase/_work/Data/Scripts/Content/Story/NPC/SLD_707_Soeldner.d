@@ -67,13 +67,3 @@ FUNC VOID Rtn_start_707 ()
     TA_GuardPalisade  (06,30,22,15,"NC_LO_05");
     TA_GuardPalisade  (22,15,06,30,"NC_LO_05");
 };
-
-
-
-
-
-
-
-
-
-

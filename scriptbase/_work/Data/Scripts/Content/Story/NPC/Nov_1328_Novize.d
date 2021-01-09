@@ -49,6 +49,3 @@ FUNC VOID Rtn_start_1328 () //Sumpfkraut-Sammler
     TA_PickRice (07,00,19,00,"PATH_TAKE_HERB_2_1");
     TA_PickRice (19,00,07,00,"PATH_TAKE_HERB_2_1");
 };
-
-
-

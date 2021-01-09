@@ -101,28 +101,3 @@ func int ZS_GuidePC_End ()
     self.senses_range    = hero.senses_range;
     self.senses          = hero.senses;
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

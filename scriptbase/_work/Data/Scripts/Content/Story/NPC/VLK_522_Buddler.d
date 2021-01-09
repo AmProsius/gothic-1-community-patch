@@ -53,10 +53,3 @@ FUNC VOID Rtn_start_522 () //Roaster Marktplatz
     TA_RoastScavenger   (11,00,17,00,"OCR_OUTSIDE_HUT_55");
     TA_Sitaround        (17,00,23,00,"OCR_MARKETPLACE_HANGAROUND");
 };
-
-
-
-
-
-
-

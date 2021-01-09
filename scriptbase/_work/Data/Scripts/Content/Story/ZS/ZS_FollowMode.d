@@ -318,7 +318,3 @@ func void ZS_FollowModeWait_End ()
 {
     PrintDebugNpc       (PD_ZS_CHECK,   "ZS_FollowModeWait_End");
 };
-
-
-
-

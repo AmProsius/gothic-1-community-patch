@@ -147,5 +147,3 @@ FUNC VOID  DIA_BaalTyon_Vision_Info()
 
     AI_StopProcessInfos (self);
 };
-
-

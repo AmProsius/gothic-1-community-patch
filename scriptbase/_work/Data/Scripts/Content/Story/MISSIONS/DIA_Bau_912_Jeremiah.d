@@ -111,4 +111,3 @@ FUNC VOID  DIA_Jeremiah_Horatio_Info()
     AI_Output (self, other,"DIA_Jeremiah_Horatio_04_03"); //Ich hab' mal gehört, wie er gesagt hat, er würde dem Reislord gerne den Schädel einschlagen, aber das würde er nie tun.
     AI_Output (self, other,"DIA_Jeremiah_Horatio_04_04"); //Seine Überzeugung hält ihn davon ab.
 };
-

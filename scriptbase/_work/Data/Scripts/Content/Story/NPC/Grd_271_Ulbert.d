@@ -58,7 +58,3 @@ FUNC VOID Rtn_away_271 ()
     TA_Guard (00,00,12,00,"OM_CAVE1_49");
     TA_Guard (12,00,24,00,"OM_CAVE1_49");
 };
-
-
-
-

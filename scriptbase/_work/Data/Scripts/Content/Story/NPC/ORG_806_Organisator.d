@@ -64,16 +64,3 @@ FUNC VOID Rtn_start_806 ()
     TA_Sleep        (00,00,07,30,"NC_HUT20_IN");
     TA_Smalltalk    (07,30,00,00,"NC_PLACE06");
 };
-
-
-
-
-
-
-
-
-
-
-
-
-

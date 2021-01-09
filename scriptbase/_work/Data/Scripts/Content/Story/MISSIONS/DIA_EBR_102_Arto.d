@@ -102,4 +102,3 @@ FUNC VOID DIA_ARTO_PERM_Info()
     AI_Output (other, self,"DIA_ARTO_PERM_15_00"); //Du redest nicht viel, was?
     AI_Output (self, other,"DIA_ARTO_PERM_13_01"); //Nein.
 };
-

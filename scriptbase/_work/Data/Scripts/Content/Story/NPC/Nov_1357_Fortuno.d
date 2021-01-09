@@ -50,4 +50,3 @@ FUNC VOID Rtn_start_1357 ()
     TA_Sleep    (01,00,06,00,"PSI_32_HUT_IN");
     TA_Stand    (06,00,01,00,"PSI_HERB_SHOP");
 };
-

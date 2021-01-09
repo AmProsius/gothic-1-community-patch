@@ -251,6 +251,3 @@ FUNC VOID DIA_Orry_Waffe_Info()
     AI_Output (self, other,"DIA_Orry_Waffe_06_03"); //Ein ungeübter Kämpfer sollte sie nur im Notfall benutzen.
 
 };
-
-
-

@@ -53,13 +53,3 @@ FUNC VOID Rtn_start_502 ()
     TA_Cook         (07,00,17,00,"OCR_COOK_AT_HUT_10");
     TA_PlayTune     (17,00,22,00,"OCR_OUTSIDE_HUT_10");
 };
-
-
-
-
-
-
-
-
-
-

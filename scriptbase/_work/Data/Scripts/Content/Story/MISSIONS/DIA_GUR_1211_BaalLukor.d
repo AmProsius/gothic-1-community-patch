@@ -672,8 +672,3 @@ FUNC VOID Info_BaalLukor_ALTAR_Info()
 
     AI_StartState       (self,  ZS_Attack,  1,  "");
 };
-
-
-
-
-

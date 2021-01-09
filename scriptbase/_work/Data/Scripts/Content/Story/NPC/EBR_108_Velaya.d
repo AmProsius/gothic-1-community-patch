@@ -49,14 +49,3 @@ FUNC VOID Rtn_start_108 () //Gomez Zimmer 24h
     TA_Babe_SitAround   (19,00,01,00,   "OCC_BARONS_UPSTAIRS_LEFT_BACK_ROOM_FRONT");
 
 };
-
-
-
-
-
-
-
-
-
-
-

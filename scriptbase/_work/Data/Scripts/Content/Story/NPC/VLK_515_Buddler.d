@@ -54,12 +54,3 @@ FUNC VOID Rtn_start_515 ()
     TA_SitAround        (17,00,19,00,"OCR_HUT_23");
     TA_ArenaSpectator   (19,00,23,00,"OCR_ARENA_06");
 };
-
-
-
-
-
-
-
-
-

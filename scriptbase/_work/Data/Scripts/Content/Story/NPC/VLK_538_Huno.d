@@ -154,11 +154,3 @@ FUNC VOID Rtn_start_538 ()
     TA_Smith_Cool   (21,40,21,50,"OCR_HUT_34");
     TA_Smith_Anvil  (21,50,22,00,"OCR_HUT_34");
 };
-
-
-
-
-
-
-
-

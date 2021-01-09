@@ -59,4 +59,3 @@ FUNC VOID Rtn_FoundUrShak_605 ()
     TA_PracticeMagic    (01,00,05,00,"NC_KDW_CAVE_STAIRS_MOVEMENT2");
     TA_PracticeMagic    (05,00,01,00,"NC_KDW_CAVE_STAIRS_MOVEMENT2");
 };
-

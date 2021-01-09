@@ -69,9 +69,3 @@ FUNC VOID Rtn_OMFull_858 ()
     TA_StandAround      (13,00,14,00,"LOCATION_11_13");
     TA_StandAround      (14,00,13,00,"LOCATION_11_13");
 };
-
-
-
-
-
-

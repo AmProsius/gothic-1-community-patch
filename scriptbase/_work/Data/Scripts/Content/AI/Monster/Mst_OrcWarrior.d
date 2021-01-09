@@ -167,4 +167,3 @@ INSTANCE OrcWarrior4    (Mst_Default_OrcWarrior)
     //-------- inventory --------
     EquipItem (self, ItMw2hOrcaxe04);
 };
-

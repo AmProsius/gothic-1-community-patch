@@ -111,4 +111,3 @@ INSTANCE FA_MY_G_FK_NOFOCUS_11 (C_FightAI)
 {
     move[0] = MOVE_TURN;
 };
-

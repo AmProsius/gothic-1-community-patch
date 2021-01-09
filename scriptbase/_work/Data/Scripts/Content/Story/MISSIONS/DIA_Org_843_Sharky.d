@@ -108,12 +108,3 @@ FUNC void  Org_843_Sharky_GREET_Info()
     Log_CreateTopic (GE_TraderNC,LOG_NOTE);
     B_LogEntry      (GE_TraderNC,"Sharky der Bandit, handelt mit WAFFEN und anderen Waren. Er hält sich meistens irgendwo im Neuen Lager auf.");
 };
-
-
-
-
-
-
-
-
-

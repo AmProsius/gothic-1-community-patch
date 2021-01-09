@@ -59,12 +59,3 @@ FUNC VOID Rtn_start_527 ()
     TA_StandAround  (08,30,18,00,"OCR_OUTSIDE_HUT_77");
     TA_SitCampfire  (18,00,23,00,"OCR_OUTSIDE_HUT_77");
 };
-
-
-
-
-
-
-
-
-

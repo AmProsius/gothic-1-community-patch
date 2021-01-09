@@ -53,12 +53,3 @@ FUNC VOID Rtn_start_912 ()
     TA_Sleep            (22,00,08,00,"NC_TAVERN_BACKROOM05");
     TA_PotionAlchemy    (08,00,22,00,"NC_TAVERN_BACKROOM01");
 };
-
-
-
-
-
-
-
-
-

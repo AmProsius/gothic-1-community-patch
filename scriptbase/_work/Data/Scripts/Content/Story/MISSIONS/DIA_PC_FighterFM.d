@@ -102,6 +102,3 @@ func VOID Info_GornFM_FOLLOW_Info()
     self.aivar[AIV_PARTYMEMBER] = TRUE;
     Npc_ExchangeRoutine (self,  "follow");
 };
-
-
-

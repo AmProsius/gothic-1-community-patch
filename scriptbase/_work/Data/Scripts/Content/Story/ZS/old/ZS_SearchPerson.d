@@ -19,4 +19,3 @@ func void ZS_SearchPerson_End ()
 {
     PrintDebugNpc(PD_TA_FRAME,"ZS_SearchPerson_End");
 };
-

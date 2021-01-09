@@ -53,12 +53,3 @@ FUNC VOID Rtn_start_514 () //Arenaplatz
     TA_Smalltalk    (08,00,19,00,"OCR_OUTSIDE_HUT_17");
     TA_ArenaSpectator(19,00,23,00,"OCR_ARENA_09");
 };
-
-
-
-
-
-
-
-
-

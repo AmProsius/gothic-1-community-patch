@@ -53,13 +53,3 @@ FUNC VOID Rtn_start_576 ()
     TA_Sleep        (22,00,08,30,"OCR_HUT_30");
     TA_Smith_Sharp  (08,30,22,05,"OCR_HUT_34");
 };
-
-
-
-
-
-
-
-
-
-

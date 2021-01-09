@@ -49,5 +49,3 @@ FUNC VOID Rtn_start_1415 ()
     TA_Guard    (08,00,20,00,"PSI_GATE_GUARD_1");
     TA_Guard    (20,00,08,00,"PSI_GATE_GUARD_1");
 };
-
-

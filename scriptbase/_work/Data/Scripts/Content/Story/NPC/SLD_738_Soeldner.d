@@ -59,12 +59,3 @@ FUNC VOID Rtn_start_738 ()
     TA_GuardWheelOpen  (07,55,19,55,"NC_MAINGATE_VWHEEL");
     TA_GuardWheelOpen  (19,55,07,55,"NC_MAINGATE_VWHEEL");
 };
-
-
-
-
-
-
-
-
-

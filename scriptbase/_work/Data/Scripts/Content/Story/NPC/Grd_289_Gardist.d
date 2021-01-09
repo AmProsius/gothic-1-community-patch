@@ -49,5 +49,3 @@ FUNC VOID Rtn_FMstart_289 ()    //FM
     TA_Guard (0,00,13,00,  "FM_18");
     TA_Guard (13,00,00,00, "FM_18");
 };
-
-

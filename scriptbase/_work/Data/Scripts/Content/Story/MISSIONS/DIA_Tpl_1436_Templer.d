@@ -44,9 +44,3 @@ FUNC void  Tpl_1436_Templer_CRAWLER_Info()
     AI_Output (self, other,"Tpl_1436_Templer_CRAWLER_Info_13_02"); //Wir sind hier, um die Crawler zu jagen. Das wir damit gleichzeitig die Buddler beschützen, kann allen Beteiligten ja nur Recht sein.
     AI_Output (self, other,"Tpl_1436_Templer_CRAWLER_Info_13_03"); //Was wir aber wirklich wollen, ist das Sekret der Crawler. Aus dem Sekret der Minecrawler-Zangen braut unser Guru Cor Kalom magische Tränke.
 };
-
-
-
-
-
-

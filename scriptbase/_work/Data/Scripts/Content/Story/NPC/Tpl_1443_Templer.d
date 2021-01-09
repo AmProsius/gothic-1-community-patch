@@ -50,4 +50,3 @@ FUNC VOID Rtn_start_1443 ()
     TA_SittingDuck  (00,00,12,00,"GRYD_025");
     TA_SittingDuck  (12,00,24,00,"GRYD_025");
 };
-

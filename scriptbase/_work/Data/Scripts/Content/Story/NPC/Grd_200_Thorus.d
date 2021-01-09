@@ -58,4 +58,3 @@ FUNC VOID Rtn_Start_200 ()
     TA_Boss     (08,00,23,00,"OCR_THORUS");
     TA_Sleep    (23,00,08,00,"OCC_BARONS_UPPER_RIGHT_ROOM_BED1");
 };
-

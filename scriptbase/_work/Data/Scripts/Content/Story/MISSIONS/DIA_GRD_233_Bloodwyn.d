@@ -441,4 +441,3 @@ FUNC VOID Info_Bloodwyn_DIE_Info()
 
     AI_StopProcessInfos (self);
 };
-

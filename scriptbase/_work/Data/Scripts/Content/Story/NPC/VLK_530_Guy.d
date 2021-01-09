@@ -55,12 +55,3 @@ FUNC VOID Rtn_start_530 ()
     TA_SitAround    (17,00,19,05,"OCR_OUTSIDE_ARENA_BENCH_2");
     TA_ArenaSpectator(19,05,23,00,"OCR_ARENA_07");
 };
-
-
-
-
-
-
-
-
-

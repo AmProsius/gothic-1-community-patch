@@ -48,11 +48,3 @@ FUNC VOID Rtn_start_604 ()
     TA_Sleep        (23,00,08,00,"NC_PATH_TO_PIT_03");
     TA_Orepile      (08,00,23,00,"NC_PATH_TO_PIT_03");
 };
-
-
-
-
-
-
-
-

@@ -52,13 +52,3 @@ FUNC VOID Rtn_start_584 ()
     TA_StandAround  (00,00,12,00,"OM_CAVE1_37");
     TA_SitAround    (12,00,24,00,"OM_CAVE1_37");
 };
-
-
-
-
-
-
-
-
-
-

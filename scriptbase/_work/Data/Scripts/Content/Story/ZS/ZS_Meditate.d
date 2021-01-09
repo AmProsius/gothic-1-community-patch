@@ -52,4 +52,3 @@ func void ZS_Meditate_End ()
 
     PrintDebugNpc(PD_TA_FRAME,"ZS_Meditate_End");
 };
-

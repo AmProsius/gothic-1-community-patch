@@ -77,7 +77,3 @@ FUNC VOID  DIA_Gilbert_Hallo_Info()
     AI_Output (self, other,"DIA_Gilbert_Hallo_04_01"); //Ich hatte die Schnauze voll vom alten Lager. Hatte Ärger mit Gomez Leuten. Ist aber schon ne Weile her.
     AI_Output (self, other,"DIA_Gilbert_Hallo_04_02"); //Schätze, jetzt kräht kein Hahn mehr danach. Aber ich bleibe hier. Im alten Lager rennen mir zu viele Schwachköpfe rum.
 };
-
-
-
-

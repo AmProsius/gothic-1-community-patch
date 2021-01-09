@@ -63,13 +63,3 @@ FUNC VOID Rtn_start_840 () //vor Lares Hütte
     TA_GuardPassage (23,00,07,00,"NC_HUT22_OUT_MOVEMENT");
     TA_GuardPassage (07,00,23,00,"NC_HUT22_OUT_MOVEMENT");
 };
-
-
-
-
-
-
-
-
-
-

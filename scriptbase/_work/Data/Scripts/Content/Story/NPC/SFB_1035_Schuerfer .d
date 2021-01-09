@@ -55,10 +55,3 @@ FUNC VOID Rtn_FMCstart_1035 ()
     TA_PickOre  (01,00,13,00, "FMC_ORE_07");
     TA_PickOre  (13,00,01,00, "FMC_ORE_07");
 };
-
-
-
-
-
-
-

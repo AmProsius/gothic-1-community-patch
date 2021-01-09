@@ -1562,4 +1562,3 @@ func void  KDW_600_Saturas_HogeAUFNAHMETeil2_Info()
 
     AI_StopProcessInfos (self);
 };
-

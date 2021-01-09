@@ -67,15 +67,3 @@ FUNC VOID Rtn_Busy_585 ()
     TA_PickOre  (04,00,16,00,"OM_PICKORE_05");
 
 };
-
-
-
-
-
-
-
-
-
-
-
-

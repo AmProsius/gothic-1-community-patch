@@ -50,10 +50,3 @@ FUNC VOID Rtn_start_1437 ()
     TA_SitAround    (00,00,12,00,"OM_207");
     TA_SitAround    (12,00,24,00,"OM_207");
 };
-
-
-
-
-
-
-

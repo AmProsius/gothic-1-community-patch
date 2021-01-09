@@ -66,15 +66,3 @@ FUNC VOID Rtn_start_823 ()
     TA_Cook         (10,00,10,00,"NC_HUT21_OUT");
     TA_SitAround    (20,00,00,00,"NC_HUT21_OUT");
 };
-
-
-
-
-
-
-
-
-
-
-
-

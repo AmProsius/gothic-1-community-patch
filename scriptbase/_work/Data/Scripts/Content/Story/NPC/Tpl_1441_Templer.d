@@ -51,4 +51,3 @@ FUNC VOID Rtn_start_1441 ()
     TA_GuardPassage (06,00,18,00,"PSI_TEMPLE_LEFT_GUARD");
     TA_GuardPassage (18,00,06,00,"PSI_TEMPLE_LEFT_GUARD");
 };
-

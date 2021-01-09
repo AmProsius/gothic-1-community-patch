@@ -283,6 +283,3 @@ INSTANCE SummonedByNPC_SkeletonWarrior (Mst_Default_Skeleton)
 //------------------------------------------
     start_aistate   =   ZS_MM_Summoned;
 };
-
-
-

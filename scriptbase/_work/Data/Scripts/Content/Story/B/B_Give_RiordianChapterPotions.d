@@ -101,4 +101,3 @@ func void B_GiveRiordianChapter6Potions ()
   CreateInvItems (npc,ItFo_Potion_Haste_03 ,24);
 
 };
-

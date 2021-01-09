@@ -82,6 +82,3 @@ func void B_GetBackBelongingsThreat ()
     self.aivar [AIV_PCISSTRONGER] = 1;
     AI_ContinueRoutine  ( self);
 };
-
-
-

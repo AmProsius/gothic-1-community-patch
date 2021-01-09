@@ -54,4 +54,3 @@ FUNC VOID ZS_RepairHut_End()
 
     AI_UseMob           (self,  "REPAIR",   -1);        // Verlasse das Mobsi, um den State zu wechseln
 };
-

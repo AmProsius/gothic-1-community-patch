@@ -124,7 +124,3 @@ func void DIA_SLD_751_Soeldner_INMINE_INFO()
     AI_Output (self, other,"DIA_SLD_751_Soeldner_INMINE_INFO_01_02");//Ich glaube kaum, dass dir dass gelingen wird. Aber sprich mal mit Okyl.
 
 };
-
-
-
-

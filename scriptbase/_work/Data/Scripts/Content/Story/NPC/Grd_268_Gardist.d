@@ -54,4 +54,3 @@ FUNC VOID Rtn_start_268 ()
     TA_Guard    (06,00,23,00,"OM_CAVE1_66");
     TA_Guard    (23,00,06,00,"OM_CAVE1_66");
 };
-

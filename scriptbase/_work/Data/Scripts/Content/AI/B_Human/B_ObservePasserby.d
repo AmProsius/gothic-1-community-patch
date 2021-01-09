@@ -4,5 +4,3 @@ func void B_ObservePasserby()
         C_StopLookAt( self );
     };
 };
-
-

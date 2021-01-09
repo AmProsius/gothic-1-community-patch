@@ -60,4 +60,3 @@ FUNC VOID Rtn_Gate_1401 ()
     TA_Guard    (00,00,12,00,"OM_CAVE3_19");
     TA_Guard    (12,00,24,00,"OM_CAVE3_19");
 };
-

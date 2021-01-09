@@ -68,10 +68,3 @@ FUNC VOID Rtn_WAITFORSC_402 ()
     TA_Position         (08,00,20,00,"OCC_CHAPEL_HALL");
     TA_Position         (20,00,08,00,"OCC_CHAPEL_HALL");
 };
-
-
-
-
-
-
-

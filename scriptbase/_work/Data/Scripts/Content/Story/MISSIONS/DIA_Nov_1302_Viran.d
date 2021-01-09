@@ -252,11 +252,3 @@ FUNC VOID  DIA_Viran_RipOff_Info()
     CreateInvItems (self, ItMi_Plants_Swampherb_01, 50);
     B_GiveInvItems (self, hero, ItMi_Plants_Swampherb_01, 50);
 };
-
-
-
-
-
-
-
-

@@ -61,9 +61,3 @@ FUNC VOID Rtn_trick_262 ()
     TA_Stay         (00,00,12,00,"OM_CAVE1_47");
     TA_Stay         (12,00,24,00,"OM_CAVE1_47");
 };
-
-
-
-
-
-

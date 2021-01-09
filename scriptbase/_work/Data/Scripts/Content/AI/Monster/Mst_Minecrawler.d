@@ -69,5 +69,3 @@ INSTANCE Minecrawler    (Mst_Default_Minecrawler)
     Set_Minecrawler_Visuals();
     Npc_SetToFistMode(self);
 };
-
-

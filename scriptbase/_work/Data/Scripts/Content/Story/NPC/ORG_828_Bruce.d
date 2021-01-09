@@ -61,14 +61,3 @@ FUNC VOID Rtn_start_828 ()
     TA_Sleep        (07,30,01,00,"NC_HUT27_IN");
     TA_SitCampfire  (01,00,07,30,"NC_PLACE07");
 };
-
-
-
-
-
-
-
-
-
-
-

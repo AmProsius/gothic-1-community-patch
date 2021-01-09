@@ -64,16 +64,3 @@ FUNC VOID Rtn_start_708 ()
     TA_Sleep            (00,00,08,00,"NC_HUT07_IN");
     TA_SitAround        (08,00,00,00,"NC_PLACE03");
 };
-
-
-
-
-
-
-
-
-
-
-
-
-

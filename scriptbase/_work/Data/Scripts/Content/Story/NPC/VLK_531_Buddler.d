@@ -52,13 +52,3 @@ FUNC VOID Rtn_start_531 ()
     TA_Sleep        (23,00,08,00,"OCR_HUT_42");
     TA_Smalltalk    (08,00,22,00,"OCR_TO_HUT_51_SMALLTALK");
 };
-
-
-
-
-
-
-
-
-
-

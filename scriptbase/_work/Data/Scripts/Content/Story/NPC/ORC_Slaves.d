@@ -104,10 +104,3 @@ func void rtn_stonemill_2002()
     TA_Orc_Stonemill (00,00,12,00,"OM_CAVE1_BELLOWS");
     TA_Orc_Stonemill (12,00,00,00,"OM_CAVE1_BELLOWS");
 };
-
-
-
-
-
-
-

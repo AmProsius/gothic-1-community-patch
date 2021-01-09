@@ -58,4 +58,3 @@ func void Rtn_Gate_1433 ()
     TA_Guard (00,00,12,00,"OM_CAVE3_21");
     TA_Guard (12,00,24,00,"OM_CAVE3_21");
 };
-

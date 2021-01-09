@@ -136,5 +136,3 @@ FUNC VOID Info_Swiney_PERM_Info()
     AI_Output (self, other,"Info_Swiney_PERM_09_01"); //Die Magier sagen, viel brauchen wir nicht mehr. Geh ins Neue Lager und sieh dir den Haufen an.
     AI_StopProcessInfos (self);
 };
-
-

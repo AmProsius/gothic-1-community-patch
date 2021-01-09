@@ -60,10 +60,3 @@ FUNC VOID Rtn_start_564 ()
     TA_Smalltalk    (12,00,17,00,"OCR_OUTSIDE_HUT_63_COOK");
     TA_SitCampfire  (17,00,23,00,"OCR_CAMPFIRE_E_2_MOVEMENT");
 };
-
-
-
-
-
-
-

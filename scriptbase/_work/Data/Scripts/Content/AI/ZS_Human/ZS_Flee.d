@@ -85,4 +85,3 @@ func void ZS_Flee_End ()
     B_LookAround        ();
     AI_StartState       (self,  ZS_HealSelf,    1,  "");
 };
-

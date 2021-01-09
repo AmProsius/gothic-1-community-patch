@@ -197,4 +197,3 @@ INSTANCE MENUITEM_GRA_BACK(C_MENU_ITEM_DEF)
     onSelAction[0]  =   SEL_ACTION_BACK;
     flags = flags | IT_TXT_CENTER;
 };
-

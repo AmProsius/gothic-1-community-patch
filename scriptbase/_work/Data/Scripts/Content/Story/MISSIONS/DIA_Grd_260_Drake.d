@@ -203,4 +203,3 @@ func void  Grd_260_Drake_GARDEAUFNAHME_Info()
     Log_CreateTopic (GE_BecomeGuard,LOG_NOTE);
     B_LogEntry (GE_BecomeGuard,"Wenn ich die Eier zurückgebracht habe, sollte ich mal mit Thorus reden. Vielleicht nimmt er mich in die Reihen der Gardisten auf.");
 };
-

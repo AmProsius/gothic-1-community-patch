@@ -51,4 +51,3 @@ FUNC VOID Rtn_start_1409 ()
     TA_SmallTalk    (00,00,08,00,"PSI_SMITH_TALK");
     TA_SmallTalk    (08,00,24,00,"PSI_SMITH_TALK");
 };
-

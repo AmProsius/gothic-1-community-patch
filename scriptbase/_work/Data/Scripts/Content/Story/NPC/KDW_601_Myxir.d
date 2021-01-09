@@ -56,4 +56,3 @@ FUNC VOID Rtn_start_601 ()
     TA_Sleep        (01,00,04,00,"NC_KDW03_IN");
     TA_ReadBook     (04,00,01,00,"NC_KDW03_IN");
 };
-

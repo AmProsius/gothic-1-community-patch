@@ -425,4 +425,3 @@ CONST INT LOG_NOTE                                      = 1                     
 //
 CONST INT TIME_INFINITE                                 = -1000000 / 1000       ;
 const int NPC_VOICE_VARIATION_MAX                       = 10                    ;
-

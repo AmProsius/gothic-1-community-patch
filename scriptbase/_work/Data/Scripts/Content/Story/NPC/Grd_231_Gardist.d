@@ -48,5 +48,3 @@ FUNC VOID Rtn_start_231 ()
     TA_Sleep        (01,40,07,50,"OCC_MERCS_UPPER_LEFT_ROOM_BED7");
     TA_Standaround  (07,50,01,40,"OCC_WELL_RIGHT_MOVEMENT3");
 };
-
-

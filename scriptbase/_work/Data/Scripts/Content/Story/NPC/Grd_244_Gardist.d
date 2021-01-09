@@ -67,4 +67,3 @@ FUNC VOID Rtn_FMTaken2_244 ()
     TA_Stay         (07,00,20,00, "OCR_MAINGATE_OUTSIDE");
     TA_Stay         (20,00,07,00, "OCR_MAINGATE_OUTSIDE");
 };
-

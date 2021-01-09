@@ -53,16 +53,3 @@ FUNC VOID Rtn_start_534 ()
     TA_SitCampfire  (10,00,22,00,"OC_ROUND_22_CF_2");
     TA_SitCampfire  (10,00,22,00,"OC_ROUND_22_CF_2");
 };
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -56,15 +56,3 @@ FUNC VOID Rtn_start_536 ()
     TA_Sleep        (22,00,08,00,"OCR_HUT_68");
     TA_Stand        (08,00,22,00,"OCR_HUT_68_BACK");
 };
-
-
-
-
-
-
-
-
-
-
-
-

@@ -29,9 +29,3 @@ func void ZS_Babe_AssessPlayer_End ()
 {
     PrintDebugNpc( PD_ZS_FRAME, "ZS_Babe_AssessPlayer_End" );
 };
-
-
-
-
-
-

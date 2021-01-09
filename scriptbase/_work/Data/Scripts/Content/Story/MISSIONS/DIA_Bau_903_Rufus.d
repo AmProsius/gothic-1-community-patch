@@ -164,22 +164,3 @@ FUNC VOID DIA_Rufus_Ricelord_Info()
     var C_NPC Ricelord;         Ricelord    = Hlp_GetNpc(Bau_900_Ricelord);
     Ricelord.aivar[AIV_FINDABLE] = TRUE;
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

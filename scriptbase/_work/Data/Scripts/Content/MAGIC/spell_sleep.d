@@ -26,6 +26,3 @@ func int Spell_Logic_Sleep      (var int manaInvested)
     };
 
 };
-
-
-

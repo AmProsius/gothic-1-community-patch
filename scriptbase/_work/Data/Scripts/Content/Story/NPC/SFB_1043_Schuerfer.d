@@ -55,5 +55,3 @@ FUNC VOID Rtn_FMCstart_1043 ()
     TA_Smoke    (01,00,13,00,   "FMC_HUT04_OUT");
     TA_Smoke    (01,00,13,00,   "FMC_HUT04_OUT");
 };
-
-

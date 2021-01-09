@@ -2244,7 +2244,3 @@ INSTANCE SVM_17 (C_SVM)                         //Ork-Stimme (alle SVMs werden a
 // ***********************
 
 CONST INT SVM_MODULES = 18;
-
-
-
-

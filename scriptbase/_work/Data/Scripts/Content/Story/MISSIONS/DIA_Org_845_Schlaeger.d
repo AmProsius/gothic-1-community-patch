@@ -52,5 +52,3 @@ FUNC VOID DIA_845_Hello_Info()
         AI_Output (self, other,"DIA_845_Hello_13_02"); //Wenn du was willst, rede mit Lefty.
     };
 };
-
-

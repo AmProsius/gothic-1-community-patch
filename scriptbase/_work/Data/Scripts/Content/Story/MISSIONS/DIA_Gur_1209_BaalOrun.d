@@ -245,6 +245,3 @@ FUNC VOID  DIA_BaalOrun_Perm_Info()
     AI_Output (self, other,"DIA_BaalOrun_Perm_12_01"); //Wir belasten jeden Mann bis ans Äußerste, um genug für uns UND den Handel mit den anderen Lagern herzustellen.
     AI_Output (self, other,"DIA_BaalOrun_Perm_12_02"); //Aber es ist ein Opfer für den Schläfer, und so bringen es die Novizen gerne.
 };
-
-
-

@@ -316,31 +316,3 @@ FUNC VOID DIA_Whistler_StandardKap1_Info()
     AI_Output (other,self,"DIA_Whistler_StandardKap1_15_00"); //Wie sieht's aus ...
     AI_Output (self,other,"DIA_Whistler_StandardKap1_11_01"); //Gut! Du hast mir einen Gefallen getan, ich tue dir einen. Ich werd Diego erzählen, dass du ein zuverlässiger Mann bist.
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

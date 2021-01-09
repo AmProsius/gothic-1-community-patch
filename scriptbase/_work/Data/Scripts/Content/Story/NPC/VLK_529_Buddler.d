@@ -53,14 +53,3 @@ FUNC VOID Rtn_start_529 () //Kyle-Platz
     TA_Smalltalk    (13,00,16,00,"OCR_OUTSIDE_HUT_69"); //mit 554 von UNTEN
     TA_Standaround  (16,00,22,00,"OCR_OUTSIDE_HUT_69");
 };
-
-
-
-
-
-
-
-
-
-
-

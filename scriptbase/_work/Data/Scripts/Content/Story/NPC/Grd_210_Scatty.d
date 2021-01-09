@@ -59,8 +59,3 @@ FUNC VOID Rtn_start_210 ()
     TA_Stand        (16,00,20,00,"OCR_STAND_WETT");
     TA_SitAround    (20,00,00,00,"OCR_ARENABATTLE_BENCH");
 };
-
-
-
-
-

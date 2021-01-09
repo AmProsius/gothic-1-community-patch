@@ -452,4 +452,3 @@ func void B_SelectWeapon(var C_NPC slf, var C_NPC oth)
     return;
 };
 //--------------------------------------------------------------------------
-

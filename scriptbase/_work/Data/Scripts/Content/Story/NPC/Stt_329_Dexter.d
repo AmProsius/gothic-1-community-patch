@@ -69,5 +69,3 @@ FUNC VOID Rtn_start_329 ()
     TA_Smalltalk        (11,00,17,00,"OCR_OUTSIDE_HUT_47_SMALT1");
     TA_StandAround      (17,00,23,30,"OCR_MARKETPLACE_SCAVENGER");
 };
-
-

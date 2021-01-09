@@ -62,4 +62,3 @@ FUNC VOID Rtn_FMTaken_250 ()
     TA_GuardWheelClosed (22,00,08,00,"OW_OM_ENTRANCE02_WHEEL_USE");
     TA_GuardWheelClosed (08,00,22,00,"OW_OM_ENTRANCE02_WHEEL_USE");
 };
-

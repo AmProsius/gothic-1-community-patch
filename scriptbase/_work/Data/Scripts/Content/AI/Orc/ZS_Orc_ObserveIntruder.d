@@ -981,6 +981,3 @@ func void ZS_OrcShaman_ObserveIntruder_End()
     AI_StopLookAt( self );
     AI_ContinueRoutine( self );
 };
-
-
-

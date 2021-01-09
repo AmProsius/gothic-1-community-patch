@@ -55,4 +55,3 @@ FUNC VOID Rtn_start_336 ()
     TA_Sleep        (23,00,06,30,"OW_CAVALORN_01");
     TA_StandAround  (06,30,23,00,"OW_SAWHUT_SLEEP_01");
 };
-

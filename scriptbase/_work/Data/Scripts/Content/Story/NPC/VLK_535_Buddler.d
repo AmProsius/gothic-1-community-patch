@@ -58,10 +58,3 @@ FUNC VOID Rtn_start_535 () // Kyle-Platz UNTEN
     TA_SitAround    (11,30,16,30,"OCR_OUTSIDE_HUT_71");
     TA_SitCampfire  (16,30,22,30,"OCR_OUTSIDE_HUT_71");
 };
-
-
-
-
-
-
-

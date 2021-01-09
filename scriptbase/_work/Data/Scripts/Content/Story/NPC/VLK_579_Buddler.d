@@ -52,17 +52,3 @@ FUNC VOID Rtn_start_579 ()
     TA_PickOre      (21,00,04,00,"OM_PICKORE_01B");
     TA_PickOre      (04,00,21,00,"OM_PICKORE_01B");
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-

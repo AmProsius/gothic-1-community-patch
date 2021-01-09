@@ -65,13 +65,3 @@ FUNC VOID Rtn_start_836 ()
     TA_Sleep        (00,00,07,30,"NC_HUT26_IN");
     TA_SitCampfire  (07,30,00,00,"NC_PATH17_MOVEMENT2");
 };
-
-
-
-
-
-
-
-
-
-

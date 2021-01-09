@@ -671,8 +671,3 @@ FUNC VOID Info_FreemineOrc_EVERYULUMULU_Info()
 
     AI_StopProcessInfos (self);
 };
-
-
-
-
-

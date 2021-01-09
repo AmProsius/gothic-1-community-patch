@@ -262,5 +262,3 @@ FUNC VOID Rtn_OrcAssault_1316 ()
 {
 
 };
-
-

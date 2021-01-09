@@ -136,6 +136,3 @@ func void DIA_SLD_760_Soeldner_INMINE_INFO()
     AI_Output (self, other,"DIA_SLD_760_Soeldner_INMINE_INFO_13_06");//Also ein wenig mehr Respekt, wenn ich bitten darf.
     AI_Output (self, other,"DIA_SLD_760_Soeldner_INMINE_INFO_13_07");//Ich weiﬂ zwar nicht, wo er gerade ist, aber wenn du ihm begegnest. solltest du das immer im Hinterkopf haben.
 };
-
-
-

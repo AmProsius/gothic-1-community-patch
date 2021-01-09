@@ -34,7 +34,3 @@ func string B_BuildLearnString (var string text, var int lp, var int ore)
 
     return msg;
 };
-
-
-
-

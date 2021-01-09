@@ -418,6 +418,3 @@ FUNC VOID DIA_Horatio_Thanks_Info()
     AI_Output (other, self,"DIA_Horatio_Thanks_15_00"); //Danke für deine Hilfe!
     AI_Output (self, other,"DIA_Horatio_Thanks_09_01"); //Nutze dein Wissen für die gerechte Sache! Und NUR DAFÜR.
 };
-
-
-

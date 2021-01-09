@@ -1603,11 +1603,3 @@ func VOID Info_Gorn_FOUNDULUMULU_Info()
 
     AI_StopProcessInfos (self);
 };
-
-
-
-
-
-
-
-

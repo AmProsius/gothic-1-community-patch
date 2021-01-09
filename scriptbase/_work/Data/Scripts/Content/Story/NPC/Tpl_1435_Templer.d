@@ -54,7 +54,3 @@ FUNC VOID Rtn_PrepareRitual_1435 ()
      TA_MCHunting   (00,00,12,00,"OM_031");
     TA_MCHunting    (12,00,24,00,"OM_031");
 };
-
-
-
-

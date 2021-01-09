@@ -65,12 +65,3 @@ FUNC VOID Rtn_start_831 ()
     TA_Smalltalk    (20,00,08,00,"OW_PATH_067");
     TA_Smalltalk    (08,00,20,00,"OW_PATH_067");
 };
-
-
-
-
-
-
-
-
-

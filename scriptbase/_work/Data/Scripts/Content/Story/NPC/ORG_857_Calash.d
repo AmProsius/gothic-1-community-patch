@@ -72,9 +72,3 @@ FUNC VOID Rtn_OMFull_857 ()
     TA_Position (00,00,12,00,"OM_85");
     TA_Position (12,00,24,00,"OM_85");
 };
-
-
-
-
-
-

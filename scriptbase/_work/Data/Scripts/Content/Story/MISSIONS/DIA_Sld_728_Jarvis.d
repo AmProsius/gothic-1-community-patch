@@ -259,12 +259,3 @@ func void  Sld_728_Jarvis_AUFNAHMESOLDIER_Info()
     Log_CreateTopic (GE_BecomeMercenary,LOG_NOTE);
     B_LogEntry (GE_BecomeMercenary,"Ich sollte mal mit Lee reden. Vielleicht nimmt er mich in die Reihen der Söldner auf.");
 };
-
-
-
-
-
-
-
-
-

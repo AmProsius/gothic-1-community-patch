@@ -127,5 +127,3 @@ FUNC VOID DIA_Herek_Anlegen_Info()
     Npc_SetTarget(self,other);
     AI_StartState(self,ZS_ATTACK,1,"");
 };
-
-

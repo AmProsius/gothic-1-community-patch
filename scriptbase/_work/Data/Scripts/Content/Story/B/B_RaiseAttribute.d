@@ -15,5 +15,3 @@ func void B_RaiseAttribute (var int attribute,  var int value)
 
     PrintScreen (msg, -1,-1,"FONT_OLD_20_WHITE.TGA",_TIME_MESSAGE_RAISEATTRIBUTE);
 };
-
-

@@ -414,19 +414,3 @@ func void DIA_BaalKagan_SUCCESS_TakeScrolls_Charme()
         Info_ClearChoices   (DIA_BaalKagan_SUCCESS);
     };
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -54,13 +54,3 @@ FUNC VOID Rtn_start_505 ()
     TA_RoastScavenger   (11,00,20,00,"OCR_COOK_AT_HUT_10");
     TA_Smalltalk        (20,00,22,00,"OCR_OUTSIDE_HUT_7");
 };
-
-
-
-
-
-
-
-
-
-

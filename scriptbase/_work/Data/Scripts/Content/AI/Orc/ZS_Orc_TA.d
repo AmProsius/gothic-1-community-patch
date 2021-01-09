@@ -798,4 +798,3 @@ func void ZS_Orc_SitOnFloor_End ()
     Npc_ClearAIQueue( self );
     AI_PlayAniBS ( self, "T_GUARDSIT_2_STAND", BS_STAND );
 };
-

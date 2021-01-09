@@ -80,4 +80,3 @@ FUNC VOID Rtn_OrcAssault_864 ()
     TA_StandAround      (13,00,14,00,"LOCATION_11_14");
     TA_StandAround      (14,00,13,00,"LOCATION_11_14");
 };
-

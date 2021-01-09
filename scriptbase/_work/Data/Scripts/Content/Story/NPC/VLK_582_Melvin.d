@@ -50,12 +50,3 @@ FUNC VOID Rtn_start_582 () //ST: Joru-Schüler
     TA_Sleep        (00,00,08,00,"PSI_12_HUT_IN_BED");
     TA_Listen       (08,00,00,00,"PSI_12_HUT_EX_TEACH");
 };
-
-
-
-
-
-
-
-
-

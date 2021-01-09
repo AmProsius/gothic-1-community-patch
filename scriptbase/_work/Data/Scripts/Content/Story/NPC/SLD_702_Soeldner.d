@@ -62,4 +62,3 @@ FUNC VOID Rtn_start_702 ()
     TA_Guard    (06,00,23,00,"NC_SMALL_CAVE_ENTRANCE_GUARD");
     TA_Guard    (23,00,06,00,"NC_SMALL_CAVE_ENTRANCE_GUARD");
 };
-

@@ -68,9 +68,3 @@ FUNC VOID Rtn_PrepareRitual_524 ()
     TA_Sleep    (23,00,07,45,"PSI_25_HUT_IN");
     TA_Listen   (07,45,23,00,"PSI_PLATFORM_1");
 };
-
-
-
-
-
-

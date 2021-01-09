@@ -27,4 +27,3 @@ CLASS C_FightAI
 {
     VAR INT move[MAX_MOVE];
 };
-

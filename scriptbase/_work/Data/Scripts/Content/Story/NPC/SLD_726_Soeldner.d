@@ -70,11 +70,3 @@ FUNC VOID Rtn_loadsword_726 ()
     TA_Guard        (23,00,07,00,"NC_PLACE02");
     TA_Guard        (07,00,23,00,"NC_PLACE02");
 };
-
-
-
-
-
-
-
-

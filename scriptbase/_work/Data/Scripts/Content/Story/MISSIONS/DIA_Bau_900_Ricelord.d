@@ -187,5 +187,3 @@ FUNC VOID DIA_Ricelord_GetWater_Info()
         AI_StopProcessInfos (self);
     };
 };
-
-

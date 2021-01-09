@@ -291,11 +291,3 @@ FUNC VOID DIA_BaalTondral_SendToKalom_Info()
 
     B_LogEntry(CH1_JoinPsi, "Baal Tondral hält mich für würdig, die Robe eines Novizen zu tragen!");
 };
-
-
-
-
-
-
-
-

@@ -59,5 +59,3 @@ FUNC VOID Rtn_start_511 ()
     TA_Smith_Sharp  (12,00,17,00,"OCR_OUTSIDE_HUT_63_SMALLTALK");
     TA_SitAround    (17,00,22,00,"OCR_OUTSIDE_HUT_62");
 };
-
-

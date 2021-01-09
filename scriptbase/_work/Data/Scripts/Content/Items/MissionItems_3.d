@@ -421,4 +421,3 @@ INSTANCE Focus_5(C_Item)
     TEXT[1]             =   "Einer der fünf Foki, die zur Erschaffung";
     TEXT[2]             =   "der magischen Barriere benutzt wurden.";
 };
-

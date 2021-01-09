@@ -345,10 +345,3 @@ func void Stt_311_Fisk_ARMOR_M()
         B_GiveInvItems  (self,hero, VLK_ARMOR_M, 1);
     };
 };
-
-
-
-
-
-
-

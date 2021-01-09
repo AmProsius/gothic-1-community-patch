@@ -726,4 +726,3 @@ INSTANCE Heerscherstab (C_Item)
     TEXT[4]             = NAME_TwoHanded;
     TEXT[5]             = NAME_Value;                   COUNT[5]    = value;
 };
-

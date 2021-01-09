@@ -70,15 +70,3 @@ FUNC VOID Rtn_OMFull_867 ()
     TA_Guard        (13,00,14,00,"LOCATION_11_02");
     TA_Guard        (14,00,13,00,"LOCATION_11_02");
 };
-
-
-
-
-
-
-
-
-
-
-
-

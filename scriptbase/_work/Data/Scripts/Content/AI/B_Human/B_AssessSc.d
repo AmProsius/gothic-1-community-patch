@@ -140,5 +140,3 @@ func void B_AssessSc ()
         };
     };
 };
-
-

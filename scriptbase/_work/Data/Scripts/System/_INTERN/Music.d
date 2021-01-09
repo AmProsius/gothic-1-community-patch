@@ -88,5 +88,3 @@ PROTOTYPE C_MUSICJINGLE_DEF(C_MUSICJINGLE)
         loop                    = 0;
         transSubType            = TRANSITION_SUB_TYPE_BEAT;
 };
-
-

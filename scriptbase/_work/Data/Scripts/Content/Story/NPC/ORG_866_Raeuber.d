@@ -68,16 +68,3 @@ FUNC VOID Rtn_OMFull_866 ()
      TA_PracticeBow     (13,00,14,00,"LOCATION_11_14");
     TA_PracticeBow      (14,00,13,00,"LOCATION_11_14");
 };
-
-
-
-
-
-
-
-
-
-
-
-
-

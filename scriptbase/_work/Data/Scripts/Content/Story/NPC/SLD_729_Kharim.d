@@ -74,8 +74,3 @@ func VOID Rtn_Guide_729 ()
     TA_GuidePC (08,00,20,00,"OCR_ARENABATTLE_TRAIN");
     TA_GuidePC (20,00,08,00,"OCR_ARENABATTLE_TRAIN");
 };
-
-
-
-
-

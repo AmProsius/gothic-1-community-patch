@@ -90,12 +90,3 @@ PROTOTYPE CCamSys_Def(CCamSys) {
     veloRot             = 2;                    // velocity while rotating to best orientation
 
 };
-
-
-
-
-
-
-
-
-

@@ -66,14 +66,3 @@ FUNC VOID Rtn_start_838 ()
     TA_Smalltalk        (08,05,18,05,"NC_HUT31_OUT");
     TA_Smalltalk        (18,05,02,35,"NC_TAVERN_TOP02");
 };
-
-
-
-
-
-
-
-
-
-
-

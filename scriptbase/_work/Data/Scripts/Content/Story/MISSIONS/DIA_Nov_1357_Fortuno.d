@@ -151,7 +151,3 @@ FUNC VOID  DIA_Fortuno_BuyJoints_Info()
     AI_Output (other, self,"DIA_Fortuno_BuyJoints_15_00"); //Ich will handeln.
     AI_Output (self, other,"DIA_Fortuno_BuyJoints_05_01"); //Was willst du haben? Oder willst du was verkaufen?
 };
-
-
-
-

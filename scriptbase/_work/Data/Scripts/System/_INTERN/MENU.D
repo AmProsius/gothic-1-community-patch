@@ -148,5 +148,3 @@ PROTOTYPE C_MENU_DEF(C_MENU)
     defaultOutGame  = -1;       // no item is default
     defaultInGame   = -1;       // no item is default
 };
-
-

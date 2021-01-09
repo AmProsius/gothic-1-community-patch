@@ -83,5 +83,3 @@ FUNC VOID  DIA_Ghorim_SUCCESS_Info()
     AI_Output (other, self,"DIA_Ghorim_SUCCESS_15_00"); //Na? Endlich abgelöst worden?
     AI_Output (self, other,"DIA_Ghorim_SUCCESS_02_01"); //Ja - jetzt kann ich endlich mal wieder richtig ausschlafen. Danke, Mann!
 };
-
-

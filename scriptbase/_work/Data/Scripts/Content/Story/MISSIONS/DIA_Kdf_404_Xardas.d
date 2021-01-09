@@ -977,5 +977,3 @@ func void  Info_Xardas_LOADSWORD09_Info()
         AI_StopProcessInfos ( self );
     };
 };
-
-

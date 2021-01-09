@@ -216,4 +216,3 @@ FUNC VOID DIA_Homer_PERM_Info()
     AI_Output (other, self,"DIA_Homer_PERM_15_00"); //Alles klar beim Damm?
     AI_Output (self, other,"DIA_Homer_PERM_02_01"); //Steht wie 'ne Festung, den kriegt so schnell nichts klein.
 };
-

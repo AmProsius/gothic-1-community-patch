@@ -95,6 +95,3 @@ FUNC VOID Rtn_FMTaken2_255 ()
     TA_Stay         (07,00,20,00, "OC1");
     TA_Stay         (20,00,07,00, "OC1");
 };
-
-
-

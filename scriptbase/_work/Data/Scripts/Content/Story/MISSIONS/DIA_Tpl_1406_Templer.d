@@ -48,4 +48,3 @@ FUNC VOID  DIA_KalomsGuard_PERM_Info()
     AI_Output (self, other,"DIA_KalomsGuard_PERM_13_01"); //Wenn du meinem Meister keinen Respekt entgegen bringst, werde ich dich töten.
     AI_StopProcessInfos ( self );
 };
-

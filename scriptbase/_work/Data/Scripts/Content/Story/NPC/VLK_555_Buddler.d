@@ -53,10 +53,3 @@ FUNC VOID Rtn_start_555 ()
     TA_RepairHut    (11,00,17,00,"OCR_OUTSIDE_HUT_29");
     TA_SitAround    (17,00,22,45,"OCR_OUTSIDE_HUT_29");
 };
-
-
-
-
-
-
-

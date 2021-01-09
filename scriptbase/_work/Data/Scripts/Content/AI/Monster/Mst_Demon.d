@@ -150,4 +150,3 @@ INSTANCE OTDemon (Mst_Default_Demon)
     Set_Demon_Visuals();
     Npc_SetToFistMode(self);
 };
-

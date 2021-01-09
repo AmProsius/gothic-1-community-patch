@@ -65,11 +65,3 @@ FUNC VOID Rtn_start_801 ()
     TA_Sleep        (01,00,07,00,"NC_HUT22_IN");
     TA_StandAround  (07,00,01,00,"NC_HUT22_IN_MOVEMENT2");
 };
-
-
-
-
-
-
-
-

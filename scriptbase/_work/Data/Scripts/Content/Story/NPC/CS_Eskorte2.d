@@ -53,6 +53,3 @@ FUNC VOID Rtn_start_3023 ()
 TA_Position     (00,00,24,00,"WP_INTRO07");
 
 };
-
-
-

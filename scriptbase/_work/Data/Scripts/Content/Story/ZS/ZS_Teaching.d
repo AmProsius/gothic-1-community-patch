@@ -60,4 +60,3 @@ func void ZS_Teaching_End ()
 {
     PrintDebugNpc       (PD_TA_FRAME,   "ZS_Teaching_End");
 };
-

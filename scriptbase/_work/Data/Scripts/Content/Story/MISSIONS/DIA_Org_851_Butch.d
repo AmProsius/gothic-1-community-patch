@@ -48,5 +48,3 @@ func void  DIA_Butch_Hello_Info()
     AI_Output (self, other,"DIA_Butch_Hello_13_01"); //Das geht dich einen Dreck an! Deine Fresse gefällt mir nicht!
     AI_StopProcessInfos ( self );
 };
-
-

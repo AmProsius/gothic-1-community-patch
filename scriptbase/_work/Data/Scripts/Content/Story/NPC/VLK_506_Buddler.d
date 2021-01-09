@@ -54,8 +54,3 @@ FUNC VOID Rtn_start_506 ()
     TA_RepairHut    (11,00,17,00,"OCR_Hut_15");
     TA_SitCampfire  (17,00,23,00,"OCR_OUTSIDE_HUT_15");
 };
-
-
-
-
-

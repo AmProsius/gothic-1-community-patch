@@ -12,4 +12,3 @@ func void B_AssessRemoveWeapon ()
 
     AI_ContinueRoutine  (self);
 };
-

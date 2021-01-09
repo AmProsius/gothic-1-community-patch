@@ -65,13 +65,3 @@ FUNC VOID Rtn_start_720 ()
     TA_RoastScavenger   (08,00,22,00,"NC_PLACE03_MOVEMENT");
     TA_SitAround        (22,00,00,30,"NC_PLACE03_MOVEMENT");
 };
-
-
-
-
-
-
-
-
-
-

@@ -55,6 +55,3 @@ func void ZS_Listen_End ()
         C_StopLookAt        (self);
     };
 };
-
-
-

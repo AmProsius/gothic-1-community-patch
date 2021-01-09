@@ -45,7 +45,3 @@ FUNC void  Vlk_587_Garp_ORK_Info()
     AI_Output (other, self,"Vlk_587_Garp_ORK_Info_15_03"); //Er ist ja noch nicht mal angekettet. Warum haut er nicht einfach ab?
     AI_Output (self, other,"Vlk_587_Garp_ORK_Info_01_04"); //Er hat es einmal versucht. Die Gardisten haben ihm so stark zugesetzt, dass er ein paar Wochen nicht laufen konnte. Seitdem hat er nie wieder versucht zu fliehen.
 };
-
-
-
-

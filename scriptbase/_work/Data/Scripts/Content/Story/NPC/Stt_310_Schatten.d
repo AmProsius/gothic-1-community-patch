@@ -55,6 +55,3 @@ FUNC VOID Rtn_start_310 ()
     TA_StandAround      (11,00,20,05,"OCR_COOK_AT_HUT_10");
     TA_Smalltalk        (20,05,22,00,"OCR_OUTSIDE_HUT_7");
 };
-
-
-

@@ -270,4 +270,3 @@ FUNC VOID Info_Jackal_PAYDAY_Info()
 
     B_Story_JackalFight ();
 };
-

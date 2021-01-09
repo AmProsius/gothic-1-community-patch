@@ -54,5 +54,3 @@ FUNC VOID Rtn_start_600 ()
     TA_ReadBook     (01,00,05,00,"NC_KDW_CAVE_CENTER");
     TA_ReadBook     (05,00,01,00,"NC_KDW_CAVE_CENTER");
 };
-
-

@@ -223,5 +223,3 @@ FUNC VOID  GRD_262_Aaron_SELLNOW_Info()
     B_LogEntry      (CH2_SnipesDeal,    "Ich habe Aaron seinen eigenen Schlüssel verkauft. Alles in allem habe ich bei der ganzen Sache ordentlich Profit gemacht!");
     Log_SetTopicStatus  (CH2_SnipesDeal,    LOG_SUCCESS);
 };
-
-

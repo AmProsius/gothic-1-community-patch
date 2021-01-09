@@ -58,7 +58,3 @@ func void Rtn_Follow_574 ()
     TA_FollowPC (23,00,16,00,"OCR_HUT_13");
     TA_FollowPC (16,00,23,00,"OCR_HUT_13");
 };
-
-
-
-

@@ -64,4 +64,3 @@ FUNC VOID Rtn_start_859 ()
     TA_StandAround  (07,00,22,00,"OW_WOODRUIN_WOLF_SPAWN");
     TA_SitCampfire  (22,00,07,00,"OW_WOODRUIN_WOLF_SPAWN");
 };
-

@@ -65,16 +65,3 @@ FUNC VOID Rtn_start_843 ()
     TA_SitAround        (08,00,00,00,"NC_HUT25_OUT");
     TA_StandAround      (00,00,03,00,"NC_TAVERN_BAR"); //trifft Cipher
 };
-
-
-
-
-
-
-
-
-
-
-
-
-

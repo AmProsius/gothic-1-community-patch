@@ -137,5 +137,3 @@ instance Bathbabe (C_NPC)
     start_aistate   =   ZS_Bathing_Babe;
 
 };
-
-

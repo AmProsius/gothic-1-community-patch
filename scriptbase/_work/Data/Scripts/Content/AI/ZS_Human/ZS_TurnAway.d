@@ -50,5 +50,3 @@ func int ZS_TurnAway_Loop()
     AI_TurnAway         (self,  hero);
     return              LOOP_CONTINUE;
 };
-
-

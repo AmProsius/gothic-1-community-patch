@@ -54,4 +54,3 @@ FUNC VOID Rtn_start_1422 ()
     TA_PracticeSword(16,00,17,15,"OCR_ARENABATTLE");
     TA_SitCampfire  (17,15,23,45,"OCR_CAMPFIRE_I_1");
 };
-

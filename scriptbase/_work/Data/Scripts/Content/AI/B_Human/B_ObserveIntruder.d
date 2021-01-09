@@ -76,6 +76,3 @@ func void B_ObserveIntruder ()
         };
     };
 };
-
-
-

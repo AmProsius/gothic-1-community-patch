@@ -64,7 +64,3 @@ FUNC VOID Rtn_start_830 ()
     TA_Smoke    (08,00,20,00,"OW_PATH_07_21_GUARD_LEFT");
     TA_Smoke    (20,00,08,00,"OW_PATH_07_21_GUARD_LEFT");
 };
-
-
-
-

@@ -176,8 +176,3 @@ FUNC VOID  DIA_Harlok_Angry_Info()
 
     AI_StopProcessInfos (self);
 };
-
-
-
-
-

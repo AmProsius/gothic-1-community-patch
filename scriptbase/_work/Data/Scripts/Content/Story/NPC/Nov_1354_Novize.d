@@ -49,5 +49,3 @@ FUNC VOID Rtn_start_1354 ()
     TA_Smalltalk    (07,35,02,00,"PSI_19_HUT_EX");
 
 };
-
-

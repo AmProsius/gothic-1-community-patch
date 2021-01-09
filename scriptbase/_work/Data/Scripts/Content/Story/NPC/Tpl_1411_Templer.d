@@ -49,4 +49,3 @@ FUNC VOID Rtn_start_1411 ()
     TA_Sleep            (00,00,06,00,"PSI_16_HUT_IN");
     TA_PracticeSword    (06,00,00,00,"PSI_PATH_6_8");
 };
-

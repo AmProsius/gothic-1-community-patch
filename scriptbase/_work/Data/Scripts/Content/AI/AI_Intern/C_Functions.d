@@ -885,4 +885,3 @@ func void B_TolerateEnemy(var C_NPC slf, var C_NPC oth)
         };
     };
 };
-

@@ -42,4 +42,3 @@ func void ZS_Erpresser_End()
 {
     PrintDebugNpc   (PD_TA_FRAME,   "ZS_Erpresser_End");
 };
-

@@ -65,8 +65,3 @@ FUNC VOID Rtn_start_1500 ()
     TA_SitAround        (22,00,05,00,"LOCATION_01_07");
     TA_SitAround        (05,00,22,00,"LOCATION_01_07");
 };
-
-
-
-
-

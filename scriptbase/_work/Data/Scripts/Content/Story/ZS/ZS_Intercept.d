@@ -87,4 +87,3 @@ func void B_InterceptAssessMagic ()
         B_AssessMagic   ();
     };
 };
-

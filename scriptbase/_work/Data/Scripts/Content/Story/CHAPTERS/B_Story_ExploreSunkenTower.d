@@ -71,4 +71,3 @@ func void B_Story_ExploreSunkenTower ()
     //-------- globale Variable --------
     ExploreSunkenTower = TRUE;
 };
-

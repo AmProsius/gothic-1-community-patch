@@ -121,4 +121,3 @@ INSTANCE OrcScoutGYD (Mst_Default_OrcScout)
     Set_OrcScout_Visuals    ();
     EquipItem               (self, ItMw2hOrcSword01);
 };
-

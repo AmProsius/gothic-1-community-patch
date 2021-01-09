@@ -55,11 +55,3 @@ FUNC VOID Rtn_start_516 () //Marktplatz
     TA_Smalltalk    (11,00,17,00,"OCR_OUTSIDE_HUT_47_SMALT1");
     TA_Standaround  (17,00,22,30,"OCR_OUTSIDE_HUT_48");
 };
-
-
-
-
-
-
-
-

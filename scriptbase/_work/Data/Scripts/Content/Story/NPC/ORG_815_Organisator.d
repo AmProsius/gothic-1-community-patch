@@ -63,15 +63,3 @@ FUNC VOID Rtn_start_815 ()
     TA_Sleep            (00,00,08,00,"NC_HUT29_IN");
     TA_Smalltalk        (08,00,00,00,"NC_PATH18");
 };
-
-
-
-
-
-
-
-
-
-
-
-

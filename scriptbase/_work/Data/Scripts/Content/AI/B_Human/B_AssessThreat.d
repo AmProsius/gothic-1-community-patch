@@ -44,4 +44,3 @@ func void B_AssessThreat ()
         Npc_PercDisable         (self,  PERC_ASSESSTHREAT);     // in jedem Fall Wn ausschalten, da sie MG-artig eintrifft!
     };
 };
-

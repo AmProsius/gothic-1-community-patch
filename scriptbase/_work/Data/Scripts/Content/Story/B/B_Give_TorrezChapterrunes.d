@@ -105,5 +105,3 @@ func void B_Give_TorrezChapter3Runes ()
     CreateInvItems (npc,ItFo_Potion_Haste_01 ,12);
     CreateInvItems (npc,ItFo_Potion_Haste_02 ,6);
 };
-
-

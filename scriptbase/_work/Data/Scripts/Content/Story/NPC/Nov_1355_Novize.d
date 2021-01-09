@@ -50,4 +50,3 @@ FUNC VOID Rtn_start_1355 ()
     TA_Sleep        (02,05,07,30,"PSI_19_HUT_IN");
     TA_Smalltalk    (07,30,02,05,"PSI_TEACH_1");
 };
-

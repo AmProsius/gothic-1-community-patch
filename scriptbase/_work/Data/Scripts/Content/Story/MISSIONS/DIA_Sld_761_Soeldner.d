@@ -154,4 +154,3 @@ func void DIA_SLD_761_Soeldner_Bribe_INFO()
     AI_Output (other, self,"DIA_SLD_761_Soeldner_Bribe_INFO_15_05");//Ich glaub', ich geh' dann besser.
     AI_StopProcessInfos (self);
 };
-

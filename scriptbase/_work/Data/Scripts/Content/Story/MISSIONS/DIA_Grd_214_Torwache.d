@@ -113,4 +113,3 @@ func void  Grd_214_Torwache_NODUSTY_Info()
     dusty.aivar[AIV_PARTYMEMBER] = FALSE;
     dusty.flags = 0;    // Immortal löschen
 };
-

@@ -68,5 +68,3 @@ func void B_InExtremoStopMusic()
 
     InExtremoPlaying = FALSE;
 };
-
-

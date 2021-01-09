@@ -78,6 +78,3 @@ FUNC VOID  DIA_Sld_702_PERM_Info()
     AI_Output (self, other,"DIA_Sld_702_PERM_04_03"); //Er braucht keine Armee von Schergen, hinter denen er sich verstecken kann. Er kann sich selber verteidigen.
     AI_Output (self, other,"DIA_Sld_702_PERM_04_04"); //WIR sind nur hier, falls er uns braucht.
 };
-
-
-

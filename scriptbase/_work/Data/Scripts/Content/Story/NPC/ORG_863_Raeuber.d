@@ -83,17 +83,3 @@ FUNC VOID Rtn_OrcAssault_863 ()
     TA_RoastScavenger       (13,00,14,00,"LOCATION_11_12");
     TA_RoastScavenger       (14,00,13,00,"LOCATION_11_12");
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -79,5 +79,3 @@ FUNC VOID DIA_Melvin_MetDusty_Info()
     AI_Output (self, other,"DIA_Melvin_MetDusty_03_01"); //Wenn du ihn noch mal triffst, sag ihm, er ist schön blöd, dass er dageblieben ist. Wenn das hier nicht zehnmal besser ist, als sich im Alten Lager von den Gardisten schikanieren zu lassen, dann weiß ich's auch nicht mehr.
     AI_Output (other, self,"DIA_Melvin_MetDusty_15_02"); //Werd's ihm ausrichten, wenn ich ihn noch mal sehe.
 };
-
-

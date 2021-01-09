@@ -144,4 +144,3 @@ PROTOTYPE CFx_Base_Proto(CFx_Base) {
     sendAssessMagic         = 0;
     secsPerDamage           = -1;
 };
-

@@ -51,4 +51,3 @@ FUNC VOID Rtn_start_1408 () //Auf Klotz bei Tempelplatz
     TA_GuardPalisade        (08,00,22,00,"PSI_GUARD_TEMPLE_5_2");
     TA_GuardPalisade        (22,00,08,00,"PSI_GUARD_TEMPLE_5_2");
 };
-

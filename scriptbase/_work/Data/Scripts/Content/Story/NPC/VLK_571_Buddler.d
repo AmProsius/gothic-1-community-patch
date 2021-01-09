@@ -54,15 +54,3 @@ FUNC VOID Rtn_start_571 ()
     TA_StandAround  (05,00,21,00,"OM_023A");
     TA_StandAround  (21,00,05,00,"OM_023A");
 };
-
-
-
-
-
-
-
-
-
-
-
-

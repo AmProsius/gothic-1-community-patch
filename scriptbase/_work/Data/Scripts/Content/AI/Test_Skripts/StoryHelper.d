@@ -837,4 +837,3 @@ func void StoryHelper_BACK5()
 {
     Info_ClearChoices       (StoryHelper_INFO5);
 };
-

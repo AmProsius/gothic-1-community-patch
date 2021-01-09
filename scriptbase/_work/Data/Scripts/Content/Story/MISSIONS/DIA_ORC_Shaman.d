@@ -734,4 +734,3 @@ FUNC void  Info_OrcShaman_IDOL_Info()
         B_LogEntry  (CH4_EnterTemple,   "Es gibt noch einen weiteren Weg in den Tempel zu gelangen. Auf der heiligen Säule der Orkschamanen steht eine Schläferfigur, die das Tor zum Tempel öffnet. Allerdings werden Ur-Shak's Brüder wenig begeistert sein, wenn sie bemerken, dass ich mich ihrer heiligen Ikone bediene.");
     };
 };
-

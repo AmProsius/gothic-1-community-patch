@@ -234,14 +234,3 @@ func void DIA_STT_315_Sly_AfterSuccess_Info()
     AI_Output (other, self,"DIA_STT_315_Sly_AfterSuccess_15_02"); //Eine Hand wäscht die andere, denke ich.
     AI_Output (self, other,"DIA_STT_315_Sly_AfterSuccess_10_03"); //So ist es.
 };
-
-
-
-
-
-
-
-
-
-
-

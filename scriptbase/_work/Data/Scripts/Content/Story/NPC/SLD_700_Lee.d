@@ -74,7 +74,3 @@ FUNC VOID Rtn_PCSLD_700 () // AUFNAHME SLD KAPITEL 3
     TA_GuidePc      (23,00,06,00,"NC_DAM");
     TA_GuidePC      (06,00,23,00,"NC_DAM");
 };
-
-
-
-

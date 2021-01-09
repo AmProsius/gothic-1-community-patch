@@ -51,5 +51,3 @@ FUNC VOID Rtn_start_1307 ()
     TA_Smoke    (07,30,01,00,"PSI_PATH_1_3_BLUBBER");
     TA_Sleep    (01,00,07,30,"PSI_2_HUT_IN");
 };
-
-

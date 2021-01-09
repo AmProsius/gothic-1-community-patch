@@ -32,4 +32,3 @@ func void ZS_Pray_End ()
 
     PrintDebugNpc (PD_TA_FRAME,"ZS_Pray_End");
 };
-

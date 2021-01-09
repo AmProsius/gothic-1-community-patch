@@ -94,5 +94,3 @@ FUNC VOID DIA_ORG_833_Buster_Back()
 {
     Info_ClearChoices   ( DIA_ORG_833_Buster3 );
 };
-
-

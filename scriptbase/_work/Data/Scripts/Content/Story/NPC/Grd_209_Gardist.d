@@ -56,6 +56,3 @@ FUNC VOID Rtn_start_209 ()
     TA_Smalltalk    (07,20,21,20,"OCC_GATE_INSIDE_SMALLTALK");
     TA_Smalltalk    (21,20,00,20,"OCC_SHADOWS_CORNER_MOVEMENT4");
 };
-
-
-

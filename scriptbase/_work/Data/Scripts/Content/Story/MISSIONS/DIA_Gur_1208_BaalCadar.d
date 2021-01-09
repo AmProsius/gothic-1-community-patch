@@ -420,10 +420,3 @@ FUNC void  Gur_1208_BaalCadar_SELLSTUFF_Info()
     AI_Output (other, self,"Gur_1208_BaalCadar_SELLSTUFF_Info_15_01"); //Ich möchte Schriften über Magie erwerben.
 
 };
-
-
-
-
-
-
-

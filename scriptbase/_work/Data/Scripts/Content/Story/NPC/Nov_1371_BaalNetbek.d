@@ -47,4 +47,3 @@ FUNC VOID Rtn_start_1371 ()
     TA_Stay (24,00,06,00,"PATH_TAKE_HERB_08");
     TA_Stay (06,00,24,00,"PATH_TAKE_HERB_08");
 };
-

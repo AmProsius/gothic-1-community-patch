@@ -55,7 +55,3 @@ FUNC VOID Rtn_PrepareRitual_1434 ()
      TA_StandAround (00,00,12,00,"OM_CAVE1_85");
     TA_StandAround  (12,00,24,00,"OM_CAVE1_85");
 };
-
-
-
-

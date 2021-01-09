@@ -64,13 +64,3 @@ FUNC VOID Rtn_start_845 ()
     TA_Stand        (08,10,20,20,"NC_PATH69");
     TA_SitCampfire  (20,20,08,10,"NC_PATH53");
 };
-
-
-
-
-
-
-
-
-
-

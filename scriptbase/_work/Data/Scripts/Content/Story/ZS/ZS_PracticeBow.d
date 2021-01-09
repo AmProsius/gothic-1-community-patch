@@ -32,5 +32,3 @@ func void ZS_PracticeBow_End ()
 {
     PrintDebugNpc(PD_TA_FRAME,"ZS_PracticeBow_End");
 };
-
-

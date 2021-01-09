@@ -52,5 +52,3 @@ FUNC VOID Rtn_FMstart_298 ()    //FM
     TA_GuardPalisade (0,00,13,00,  "FM_07");
     TA_GuardPalisade (13,00,00,00, "FM_07");
 };
-
-

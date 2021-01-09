@@ -56,9 +56,3 @@ instance ORG_889_CoErpresser (Npc_Default)
     //-------------Daily Routine-------------
     //start_aistate = ZS_Erpresser;
 };
-
-
-
-
-
-

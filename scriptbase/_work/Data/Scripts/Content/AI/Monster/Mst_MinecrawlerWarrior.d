@@ -106,7 +106,3 @@ instance OTMinecrawler(Mst_Default_MinecrawlerWarrior)
 //  damage      [DAM_INDEX_FLY]     =   0;
 //  damage      [DAM_INDEX_MAGIC]   =   0;
 };
-
-
-
-

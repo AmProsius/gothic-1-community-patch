@@ -156,4 +156,3 @@ FUNC void  Tpl_1433_GorNavid_VICTORY_Info()
     AI_Output (self, other,"Tpl_1433_GorNavid_VICTORY_Info_13_02"); //Im Namen der gesamten Bruderschaft danke ich dir dafür!
     AI_Output (self, other,"Tpl_1433_GorNavid_VICTORY_Info_13_03"); //Möge der Schläfer auch weiterhin seine schützende Hand über dich halten!
 };
-

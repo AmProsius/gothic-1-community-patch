@@ -61,14 +61,3 @@ FUNC VOID Rtn_arbeitslos_860 ()
     TA_Standaround      (20,00,08,00,"LOCATION_11_08");
     TA_Standaround      (08,00,20,00,"LOCATION_11_08");
 };
-
-
-
-
-
-
-
-
-
-
-

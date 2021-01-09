@@ -136,4 +136,3 @@ FUNC VOID DIA_SCAR_PERM_Info()
     AI_Output (self, other,"DIA_SCAR_PERM_08_01"); //Über ihn musst du nur wissen, dass er der mächtigste Mann der Kolonie ist.
     AI_Output (self, other,"DIA_SCAR_PERM_08_02"); //Er kann alles haben, was er will, aber das einzige, was ihn WIRKLICH interessiert, ist Einfluss.
 };
-

@@ -40,6 +40,3 @@ func void B_ResetFaceExpression (var C_NPC slf)
 
     Mdl_StartFaceAni    (self,  "S_NEUTRAL",    1,  -1);
 };
-
-
-

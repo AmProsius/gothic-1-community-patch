@@ -46,4 +46,3 @@ FUNC VOID DIA_GRD_245_Hello_Info()
     AI_Output (other, self,"DIA_GRD_245_Hello_15_00"); //Was ist in diesem Haus?
     AI_Output (self, other,"DIA_GRD_245_Hello_13_01"); //Das ist das Haus der Erzbarone. Also wenn du hier reingehst, benimm dich!
 };
-

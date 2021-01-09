@@ -54,16 +54,3 @@ FUNC VOID Rtn_FMstart_5006 ()   //FM
     TA_PickOre      (00,00,23,00,"FM_136");
     TA_PickOre      (23,00,24,00,"FM_136");
 };
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -292,8 +292,3 @@ FUNC VOID Info_XardasDemon_FIREHEART_Info()
 
     B_XardasDemon_GiveHeart();
 };
-
-
-
-
-

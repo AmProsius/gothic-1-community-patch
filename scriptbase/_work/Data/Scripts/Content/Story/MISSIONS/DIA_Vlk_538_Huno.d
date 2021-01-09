@@ -187,5 +187,3 @@ FUNC VOID DIA_Huno_BUYSMITH_Info()
     if  (Npc_HasItems(self,ItMiSwordBladeHot) < 5)      {   CreateInvItems(self,ItMiSwordBladeHot,  5); };
     if  (Npc_HasItems(self,ItMiSwordBlade   ) < 5)      {   CreateInvItems(self,ItMiSwordBlade,     5); };
 };
-
-

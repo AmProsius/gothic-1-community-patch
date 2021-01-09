@@ -63,15 +63,3 @@ FUNC VOID Rtn_start_817 ()
     TA_Sleep        (23,00,08,00,"NC_HUT13_IN");
     TA_Cook         (08,00,23,00,"NC_HUT13_OUT");
 };
-
-
-
-
-
-
-
-
-
-
-
-

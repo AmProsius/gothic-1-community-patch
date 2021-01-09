@@ -158,10 +158,3 @@ FUNC void  ORG_860_Renyu_LOST_Info()
 
 
 */
-
-
-
-
-
-
-

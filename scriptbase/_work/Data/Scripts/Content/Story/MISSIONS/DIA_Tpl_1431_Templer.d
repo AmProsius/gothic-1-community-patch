@@ -29,4 +29,3 @@ FUNC void  Tpl_1431_Templer_CALLSLEEPER_Info()
     AI_StopProcessInfos (self);
     B_Kapitelwechsel    (3);
 };
-

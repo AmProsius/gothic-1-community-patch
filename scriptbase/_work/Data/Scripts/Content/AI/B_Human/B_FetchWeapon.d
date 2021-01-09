@@ -35,4 +35,3 @@ func int B_FetchWeapon ()
 
     return 0;
 };
-

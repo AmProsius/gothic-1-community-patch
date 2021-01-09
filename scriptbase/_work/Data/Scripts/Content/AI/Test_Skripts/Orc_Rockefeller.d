@@ -334,4 +334,3 @@ INSTANCE UdShaman_Rockefeller (Mst_Default_OrcWarrior)
     CreateInvItems  (self,  ItArScrollSummonGolem,  20);
     CreateInvItem   (self,  ItArRuneFireball);
 };
-

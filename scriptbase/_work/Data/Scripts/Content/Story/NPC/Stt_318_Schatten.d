@@ -55,5 +55,3 @@ FUNC VOID Rtn_start_318 ()
     TA_RepairHut    (15,00,17,00,"OCR_OUTSIDE_HUT_60");
     TA_StandAround  (17,25,23,00,"OCR_CAMPFIRE_F_2");
 };
-
-

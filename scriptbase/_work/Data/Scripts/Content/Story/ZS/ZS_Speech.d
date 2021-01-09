@@ -34,4 +34,3 @@ func void ZS_Speech_End ()
 {
     PrintDebugNpc(PD_TA_FRAME,"ZS_Speech_End");
 };
-

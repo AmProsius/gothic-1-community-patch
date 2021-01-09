@@ -67,12 +67,3 @@ FUNC VOID Rtn_start_701 ()
     TA_Boss         (19,00,00,00,"NC_HUT05_OUT");
     TA_Sleep        (00,00,07,00,"NC_HUT05_IN");
 };
-
-
-
-
-
-
-
-
-

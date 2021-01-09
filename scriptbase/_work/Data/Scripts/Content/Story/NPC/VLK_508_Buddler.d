@@ -54,5 +54,3 @@ FUNC VOID Rtn_start_508 ()
     TA_Sleep        (15,00,17,00,"OCR_HUT_37");
     TA_SitCampfire  (17,00,22,30,"OCR_TO_LADDER_TOP_01");
 };
-
-

@@ -80,27 +80,3 @@ FUNC VOID DIA_Kyle_Problem_Info()
     AI_Output (self, other,"DIA_Kyle_Problem_10_06"); //Diese Schweine. Ich hasse sie. Ich kann dir gar nicht sagen, wie ich sie hasse!
     AI_Output (self, other,"DIA_Kyle_Problem_10_07"); //Jetzt rennt jeder durch meine Hütte. Jeder Arsch.
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

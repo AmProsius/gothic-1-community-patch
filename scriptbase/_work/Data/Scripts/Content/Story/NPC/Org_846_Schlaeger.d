@@ -67,14 +67,3 @@ FUNC VOID Rtn_start_846 ()
     TA_Smalltalk    (08,15,20,15,"NC_PATH53");
 
 };
-
-
-
-
-
-
-
-
-
-
-

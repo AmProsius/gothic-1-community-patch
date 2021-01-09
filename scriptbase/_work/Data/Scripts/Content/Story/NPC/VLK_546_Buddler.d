@@ -52,14 +52,3 @@ FUNC VOID Rtn_start_546 ()
     TA_PickOre      (00,00,23,00,"OM_057B");
     TA_PickOre      (23,00,24,00,"OM_057B");
 };
-
-
-
-
-
-
-
-
-
-
-

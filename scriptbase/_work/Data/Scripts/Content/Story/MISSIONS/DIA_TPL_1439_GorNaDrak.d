@@ -166,7 +166,3 @@ FUNC VOID  DIA_GorNaDrak_Permanent_Info()
     AI_Output (other, self,"DIA_GorNaDrak_Permanent_15_00"); //Habt ihr schon genug Elixier für die große Anrufung des Schläfers?
     AI_Output (self, other,"DIA_GorNaDrak_Permanent_09_01"); //Nein - Wir müssen noch 'ne Menge sammeln - in der Alten Mine sind unsere Minecrawler-Jagdtrupps Tag und Nacht im Einsatz.
 };
-
-
-
-

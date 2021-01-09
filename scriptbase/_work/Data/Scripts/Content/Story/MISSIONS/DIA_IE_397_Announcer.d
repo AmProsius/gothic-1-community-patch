@@ -55,6 +55,3 @@ FUNC void  IE_397_Announcer_ANNOUNCE_Info()
 
     AI_StopProcessInfos (self);
 };
-
-
-
