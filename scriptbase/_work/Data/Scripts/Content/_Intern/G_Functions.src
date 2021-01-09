@@ -1,0 +1,7 @@
+G_Functions\G_Constants.d
+G_Functions\G_PrintScreen.d
+G_Functions\G_CanSteal.d
+G_Functions\G_CanNotCast.d
+G_Functions\G_CanNotUse.d
+G_Functions\G_PickLock.d
+
