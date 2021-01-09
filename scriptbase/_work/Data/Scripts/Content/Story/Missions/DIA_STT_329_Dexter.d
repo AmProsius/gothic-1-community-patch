@@ -313,4 +313,3 @@ FUNC VOID DIA_Dexter_KalomsRecipeSuccess_Info()
     };
     B_GiveXP (XP_DexterKalom);
 };
-

@@ -57,9 +57,3 @@ FUNC VOID Rtn_start_554 () //Kyle-PLatz UNTEN
     TA_Smalltalk        (13,00,16,00,"OCR_OUTSIDE_HUT_68_BENCH"); //mit 529
     TA_SitCampfire      (16,00,22,15,"OCR_OUTSIDE_HUT_72");
 };
-
-
-
-
-
-

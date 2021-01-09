@@ -44,9 +44,3 @@ FUNC void  Tpl_1436_Templer_CRAWLER_Info()
     AI_Output (self, other,"Tpl_1436_Templer_CRAWLER_Info_13_02"); //We're here to hunt the crawlers. The side effect of protecting the diggers is quite popular as well.
     AI_Output (self, other,"Tpl_1436_Templer_CRAWLER_Info_13_03"); //What we really want is the secretion of the crawlers, though. Our Guru Cor Kalom brews magic potions from the secretion of the minecrawlers' mandibles.
 };
-
-
-
-
-
-

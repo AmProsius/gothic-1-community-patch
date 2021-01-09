@@ -64,13 +64,3 @@ FUNC VOID Rtn_start_824 ()
     TA_Sleep        (02,05,09,05,"NC_HUT24_IN");
     TA_Smalltalk    (09,05,02,05,"NC_TAVERN_TOP05");
 };
-
-
-
-
-
-
-
-
-
-

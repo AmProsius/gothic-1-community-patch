@@ -47,5 +47,3 @@ FUNC VOID Rtn_start_1322 ()
     TA_Sleep        (23,00,07,30,"PSI_7_HUT_IN");
     TA_SitCampfire  (07,30,23,00,"PSI_PATH_2_14_1");
 };
-
-

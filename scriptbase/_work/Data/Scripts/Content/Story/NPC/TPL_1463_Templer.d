@@ -47,4 +47,3 @@ FUNC VOID Rtn_start_1463 ()
     TA_SittingDuck  (00,00,12,00,"OW_PATH_198_ORCGRAVEYARD8");
     TA_SittingDuck  (12,00,24,00,"OW_PATH_198_ORCGRAVEYARD8");
 };
-

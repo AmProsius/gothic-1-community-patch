@@ -17,4 +17,3 @@ func void B_Story_LoadSword ()
     //-------- globale Variable --------
     LoadSword = TRUE;
 };
-

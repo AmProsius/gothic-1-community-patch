@@ -48,4 +48,3 @@ func void ZS_Preach_YBerion_End ()
 {
     PrintDebugNpc(PD_TA_FRAME,"ZS_Preach_YBerion_End");
 };
-

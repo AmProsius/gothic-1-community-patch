@@ -34,4 +34,3 @@ prototype Npc_Default (C_NPC)
     Npc_SetTalentValue  (self, NPC_TALENT_PICKLOCK,     90);
     Npc_SetTalentValue  (self, NPC_TALENT_PICKPOCKET,   90);
 };
-

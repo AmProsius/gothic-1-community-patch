@@ -39,4 +39,3 @@ func void ZS_CookForMe_End ()
     AI_UseMob (self,"PAN",-1);          // Stell die Pfanne weg
     AI_UseItem (self,ItFoMutton);
 };
-

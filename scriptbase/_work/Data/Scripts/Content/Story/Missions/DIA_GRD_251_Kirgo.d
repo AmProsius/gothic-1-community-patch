@@ -216,21 +216,3 @@ func VOID Info_Kirgo_InArena_Info()
     };
 
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

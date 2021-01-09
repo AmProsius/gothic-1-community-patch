@@ -67,13 +67,3 @@ FUNC VOID Rtn_start_706 ()
     TA_StandAround  (07,30,00,00,"NC_HUT02_OUT");
     TA_Sleep        (00,00,07,30,"NC_HUT02_IN");
 };
-
-
-
-
-
-
-
-
-
-

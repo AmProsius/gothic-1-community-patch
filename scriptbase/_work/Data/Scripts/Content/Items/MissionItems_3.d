@@ -421,4 +421,3 @@ INSTANCE Focus_5(C_Item)
     TEXT[1]             =   "One of the five focus stones which were used";
     TEXT[2]             =   "to create the Magic Barrier.";
 };
-

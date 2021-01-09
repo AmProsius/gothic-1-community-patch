@@ -165,11 +165,3 @@ FUNC VOID B_AssignAmbientInfos_Bau_9(var c_NPC slf)
 
     Info_Bau_9_Wasser.npc               = Hlp_GetInstanceID(slf);
 };
-
-
-
-
-
-
-
-

@@ -1018,4 +1018,3 @@
         Npc_ChangeAttribute(self,ATR_STRENGTH,- 4);
         Npc_ChangeAttribute(self,ATR_DEXTERITY, -4);
     };
-

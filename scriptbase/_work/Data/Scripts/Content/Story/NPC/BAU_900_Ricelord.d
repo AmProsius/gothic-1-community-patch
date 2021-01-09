@@ -55,13 +55,3 @@ FUNC VOID Rtn_start_900 ()
     TA_SitAround    (20,00,24,00,"NC_RICELORD_SIT");
     TA_Sleep        (24,00,07,00,"NC_RICEBUNKER_10");
 };
-
-
-
-
-
-
-
-
-
-

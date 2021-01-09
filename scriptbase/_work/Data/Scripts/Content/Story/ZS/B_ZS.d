@@ -514,4 +514,3 @@ func void B_StopUseMob (var C_NPC slf, var string mobname)
 
     AI_UseMob           (slf,   mobname,    -1);
 };
-

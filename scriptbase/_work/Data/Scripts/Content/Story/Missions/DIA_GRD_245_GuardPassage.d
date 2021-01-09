@@ -46,4 +46,3 @@ FUNC VOID DIA_GRD_245_Hello_Info()
     AI_Output (other, self,"DIA_GRD_245_Hello_15_00"); //What's in this house?
     AI_Output (self, other,"DIA_GRD_245_Hello_13_01"); //That's the Ore Barons' house. You'd better behave yourself if you go in there!
 };
-

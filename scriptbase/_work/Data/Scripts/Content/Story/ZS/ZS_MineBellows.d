@@ -32,4 +32,3 @@ FUNC VOID ZS_MineBellows_End()
 
     AI_UseMob (self,"BELLOW",-1);   //Verlassen sie bitte ihr Mobsi
 };
-

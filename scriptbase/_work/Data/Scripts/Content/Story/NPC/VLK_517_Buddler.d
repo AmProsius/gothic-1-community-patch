@@ -56,13 +56,3 @@ FUNC VOID Rtn_start_517 () //Marktplatz Bank
     TA_Smalltalk    (13,00,16,00,"OCR_OUTSIDE_HUT_47_SMALT2");
     TA_SitAround    (16,00,23,30,"OCR_OUTSIDE_MCAMP_01");
 };
-
-
-
-
-
-
-
-
-
-

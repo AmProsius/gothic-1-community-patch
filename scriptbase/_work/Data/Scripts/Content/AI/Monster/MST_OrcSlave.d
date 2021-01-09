@@ -116,4 +116,3 @@ INSTANCE OrcPeasantDrum (Mst_Default_OrcSlave)
     start_aistate   = ZS_Orc_Drum;
 
 };
-

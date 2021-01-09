@@ -230,4 +230,3 @@ func void B_SetPerception (VAR C_NPC self)
         ObservingPerception();
 //  };
 };
-

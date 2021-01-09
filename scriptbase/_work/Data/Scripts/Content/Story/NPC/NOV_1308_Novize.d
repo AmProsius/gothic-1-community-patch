@@ -47,7 +47,3 @@ FUNC VOID Rtn_start_1308 ()
     TA_HerbAlchemy  (07,05,00,05,"PSI_HERB_PLACE_3");
     TA_Sleep        (00,05,07,05,"PSI_6_HUT_IN_BED1");
 };
-
-
-
-

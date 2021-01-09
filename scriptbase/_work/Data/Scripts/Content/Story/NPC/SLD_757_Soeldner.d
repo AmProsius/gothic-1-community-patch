@@ -65,13 +65,3 @@ FUNC VOID Rtn_FMCstart_757 ()
     TA_GuardPalisade    (01,00,13,00,   "FMC_PATH12");
     TA_GuardPalisade    (13,00,01,00,   "FMC_PATH12");
 };
-
-
-
-
-
-
-
-
-
-

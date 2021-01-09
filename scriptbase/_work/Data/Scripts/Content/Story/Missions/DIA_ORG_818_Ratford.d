@@ -244,14 +244,3 @@ FUNC VOID  Org_818_Ratford_Thanks_Info()
     AI_Output (self, other,"Org_818_Ratford_Thanks_07_02"); //There may not be much in a newcomer's pockets, but some folks would even beat you up for a pickaxe.
     AI_Output (other, self,"Org_818_Ratford_Thanks_15_04"); //I'll keep it in mind.
 };
-
-
-
-
-
-
-
-
-
-
-

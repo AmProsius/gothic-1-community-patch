@@ -203,4 +203,3 @@ func void  Grd_260_Drake_GARDEAUFNAHME_Info()
     Log_CreateTopic (GE_BecomeGuard,LOG_NOTE);
     B_LogEntry (GE_BecomeGuard,"As soon as I've returned the eggs, I should have a word with Thorus. Maybe he'll let me join the guards.");
 };
-

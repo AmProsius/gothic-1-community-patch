@@ -54,5 +54,3 @@ FUNC VOID Rtn_start_316 ()
     TA_Smalltalk    (08,00,19,00,"OCR_OUTSIDE_HUT_18");
     TA_ArenaSpectator(19,00,23,00,"OCR_ARENA_09");
 };
-
-

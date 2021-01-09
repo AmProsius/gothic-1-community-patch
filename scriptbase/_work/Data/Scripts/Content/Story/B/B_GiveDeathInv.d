@@ -68,13 +68,3 @@ func void B_GiveDeathInv ()
     //-------- Merken --------
     self.aivar[AIV_MM_DEATHINVGIVEN] = TRUE;
 };
-
-
-
-
-
-
-
-
-
-

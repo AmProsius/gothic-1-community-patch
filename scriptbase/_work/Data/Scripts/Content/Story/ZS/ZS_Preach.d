@@ -34,4 +34,3 @@ func void ZS_Preach_End ()
 {
     PrintDebugNpc(PD_TA_FRAME,"ZS_Preach_End");
 };
-

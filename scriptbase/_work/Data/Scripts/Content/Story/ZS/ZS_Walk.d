@@ -44,4 +44,3 @@ FUNC VOID ZS_Walk_End()
 {
     PrintDebugNpc(PD_TA_FRAME,"ZS_Walk_End");
 };
-

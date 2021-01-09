@@ -100,4 +100,3 @@ FUNC void  Tpl_1437_Templer_LEAVENOW_Info()
     AI_Output (self, other,"Tpl_1437_Templer_LEAVENOW_Info_13_07"); //GET LOST!!
     AI_StopProcessInfos ( self );
 };
-

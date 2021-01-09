@@ -53,9 +53,3 @@ FUNC VOID Rtn_start_521 () //Marktplatz Playtune
     TA_Smalltalk    (13,00,16,00,"OCR_OUTSIDE_HUT_47_SMALT2");
     TA_PlayTune     (16,00,22,30,"OCR_OUTSIDE_HUT_48");
 };
-
-
-
-
-
-

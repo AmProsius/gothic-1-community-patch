@@ -46,16 +46,3 @@ FUNC VOID Rtn_start_924 ()
     TA_SitCampfire  (20,20,08,20,"NC_PATH_PEASANT_OUTSIDE20");
     TA_PickRice     (08,20,20,20,"NC_PATH83");
 };
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -49,4 +49,3 @@ FUNC VOID Rtn_start_1332 ()
     TA_Standaround  (00,00,07,30,"NC_PATH_PEASANT_OUTSIDE11");
     TA_Smalltalk    (07,30,00,00,"NC_PLACE06");
 };
-

@@ -107,4 +107,3 @@ INSTANCE YScavenger (Mst_Default_Scavenger)
 
     CreateInvItems (self, ItFoMuttonRaw, 1);
 };
-

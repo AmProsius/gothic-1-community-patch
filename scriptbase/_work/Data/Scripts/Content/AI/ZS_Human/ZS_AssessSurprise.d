@@ -38,6 +38,3 @@ func void ZS_AssessSurprise ()
     };
     AI_ContinueRoutine      (self);
 };
-
-
-

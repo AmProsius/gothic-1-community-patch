@@ -22,4 +22,3 @@ func void ZS_TestFinishMove_Loop ()
 func void ZS_TestFinishMove_End ()
 {
 };
-

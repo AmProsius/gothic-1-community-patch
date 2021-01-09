@@ -80,27 +80,3 @@ FUNC VOID DIA_Kyle_Problem_Info()
     AI_Output (self, other,"DIA_Kyle_Problem_10_06"); //Those pigs. I hate them. I can't tell you how much I hate them.
     AI_Output (self, other,"DIA_Kyle_Problem_10_07"); //Now everybody runs through my hut. Every idiot.
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

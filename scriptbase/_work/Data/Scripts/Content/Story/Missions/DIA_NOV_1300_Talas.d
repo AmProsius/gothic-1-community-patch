@@ -287,5 +287,3 @@ FUNC void  Nov_1300_Talas_BACKAGAIN_Info()
     Npc_ExchangeRoutine (self,"ReturnToCampAgain");
 
 };
-
-

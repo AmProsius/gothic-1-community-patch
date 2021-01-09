@@ -251,6 +251,3 @@ FUNC VOID DIA_Orry_Waffe_Info()
     AI_Output (self, other,"DIA_Orry_Waffe_06_03"); //An inexperienced fighter should never use one of them unless it's an emergency.
 
 };
-
-
-

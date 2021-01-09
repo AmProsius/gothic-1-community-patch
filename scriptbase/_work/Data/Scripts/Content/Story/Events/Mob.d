@@ -241,4 +241,3 @@ FUNC int MC_OrcCity_Sunctum_OuterGate ()    // heiﬂt absichtlich "Sunctum"
         return          FALSE;
     };
 };
-

@@ -55,5 +55,3 @@ FUNC VOID Rtn_start_218 ()
     TA_GuardPassage (06,00,21,00,"OCC_BARONS_RIGHT_GUARD");
     TA_GuardPassage (21,00,06,00,"OCC_BARONS_RIGHT_GUARD");
 };
-
-

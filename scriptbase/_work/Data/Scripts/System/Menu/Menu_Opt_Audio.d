@@ -337,4 +337,3 @@ func int Apply_AudioResolution()
     Apply_Options_Audio();
     return 0;
 };
-

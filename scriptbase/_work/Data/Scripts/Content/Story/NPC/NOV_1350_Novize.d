@@ -48,5 +48,3 @@ FUNC VOID Rtn_start_1350 () //Kaloms PrivatHausWache
     TA_GuardPassage (08,00,20,00,"PSI_22_HUT_EX_GUARD");
     TA_GuardPassage (20,00,08,00,"PSI_22_HUT_EX_GUARD");
 };
-
-

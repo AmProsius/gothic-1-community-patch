@@ -119,6 +119,3 @@ FUNC VOID Rtn_FMTaken_1 ()
 FUNC VOID Rtn_OrcAssault_1 ()
 {
 };
-
-
-

@@ -96,4 +96,3 @@ FUNC void  Stt_302_Viper_BUY_Info()
     AI_Output (other, self,"Stt_302_Viper_BUY_Info_15_01"); //Can you give me ore?
     AI_Output (self, other,"Stt_302_Viper_BUY_Info_11_02"); //If you can give me any goods.
 };
-

@@ -65,16 +65,3 @@ FUNC VOID Rtn_start_841 ()
     TA_Boss         (10,00,03,00,"NC_TAVERN_ROOM04");
     TA_Sleep        (03,00,10,00,"NC_TAVERN_BACKROOM09");
 };
-
-
-
-
-
-
-
-
-
-
-
-
-

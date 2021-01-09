@@ -25,4 +25,3 @@ func void ZS_PC_Controlling_End()
     AI_StandUp          ( self );       // normale Ani wieder abspielen
     AI_ContinueRoutine  ( self );
 };
-

@@ -731,4 +731,3 @@ func void B_PrintGuildCondition (var int level)
 
     PrintScreen     (msg, -1,_YPOS_MESSAGE_Joincamp,"font_old_10_white.tga",_TIME_MESSAGE_Joincamp);
 };
-

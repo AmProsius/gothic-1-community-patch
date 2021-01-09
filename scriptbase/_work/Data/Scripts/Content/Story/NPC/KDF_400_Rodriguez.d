@@ -64,16 +64,3 @@ FUNC VOID Rtn_KDFRITUAL_400 ()
     TA_Position         (08,00,20,00,"OCC_CHAPEL_MAGE_01");
     TA_Position         (20,00,08,00,"OCC_CHAPEL_MAGE_01");
 };
-
-
-
-
-
-
-
-
-
-
-
-
-

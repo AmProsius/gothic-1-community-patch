@@ -51,12 +51,3 @@ FUNC VOID Rtn_start_578 () //Kyle-Platz Koch
     TA_Cook         (12,00,17,30,"OCR_OUTSIDE_HUT_68");
     TA_SitCampfire  (17,30,23,00,"OCR_OUTSIDE_CAMPFIRE_D_3");
 };
-
-
-
-
-
-
-
-
-

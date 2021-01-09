@@ -464,6 +464,3 @@ func void B_ReactToMemory ()
         Npc_DeleteNews  ( self,theft_news);
     };
 };
-
-
-

@@ -53,5 +53,3 @@ FUNC VOID Rtn_FMstart_336 ()
     TA_SitAround (0,00,13,00,  "FM_162");
     TA_SitAround (13,00,00,00, "FM_162");
 };
-
-

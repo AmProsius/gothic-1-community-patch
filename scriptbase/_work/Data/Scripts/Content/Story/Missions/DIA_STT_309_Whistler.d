@@ -316,31 +316,3 @@ FUNC VOID DIA_Whistler_StandardKap1_Info()
     AI_Output (other,self,"DIA_Whistler_StandardKap1_15_00"); //How's it going...
     AI_Output (self,other,"DIA_Whistler_StandardKap1_11_01"); //Good! You've done me a favor, I'll do you one. I'll tell Diego that you're a reliable man.
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

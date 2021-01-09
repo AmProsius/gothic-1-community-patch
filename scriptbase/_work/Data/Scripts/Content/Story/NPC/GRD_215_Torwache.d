@@ -63,4 +63,3 @@ FUNC VOID Rtn_FMTaken2_215 ()
     TA_Guard        (06,00,21,00,"OCR_MAINGATE_RIGHT_GUARD");
     TA_Guard        (21,00,06,00,"OCR_MAINGATE_RIGHT_GUARD");
 };
-

@@ -682,4 +682,3 @@ FUNC VOID Info_CorAngar_TELEPORT_Info()
     //-------- Spieler wird losgeschickt --------
     B_Story_SentToNC    ();
 };
-

@@ -24,5 +24,3 @@ func void TA_Orc_Guard          ( var int start_h, var int start_m, var int stop
 //func void TA_Orc_Lookout          ( var int start_h, var int start_m, var int stop_h, var int stop_m, VAR string waypoint)    {TA_Min (self,  start_h,start_m, stop_h, stop_m, ZS_Orc_Lookout,        waypoint); };
 //func void TA_Orc_LookoutWithDog   ( var int start_h, var int start_m, var int stop_h, var int stop_m, VAR string waypoint)    {TA_Min (self,  start_h,start_m, stop_h, stop_m, ZS_Orc_LookoutWithDog, waypoint); };
 //func void TA_Orc_Listen           ( var int start_h, var int start_m, var int stop_h, var int stop_m, VAR string waypoint)    {TA_Min (self,  start_h,start_m, stop_h, stop_m, ZS_Orc_Listen,         waypoint); };
-
-

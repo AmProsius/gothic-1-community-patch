@@ -155,4 +155,3 @@ func void ZS_SitAround_End ()
         self.aivar[AIV_HangAroundStatus] = 0;
     };
 };
-

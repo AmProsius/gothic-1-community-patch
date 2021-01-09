@@ -66,13 +66,3 @@ FUNC VOID Rtn_FMCstart_753 ()
     TA_GuardPalisade    (01,00,13,00, "FMC_HUT07_OUT");
     TA_GuardPalisade    (13,00,01,00, "FMC_HUT07_OUT");
 };
-
-
-
-
-
-
-
-
-
-

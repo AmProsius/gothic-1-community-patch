@@ -92,4 +92,3 @@ func void  DIA_Shrike_GetLost_Info()
 
     Npc_ExchangeRoutine(self, "start");
 };
-

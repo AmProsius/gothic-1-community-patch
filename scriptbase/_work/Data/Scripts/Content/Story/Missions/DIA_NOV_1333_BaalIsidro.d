@@ -332,4 +332,3 @@ FUNC VOID DIA_BaalIsidro_RUNNING_Info()
         AI_StopProcessInfos (self);
     };
 };
-

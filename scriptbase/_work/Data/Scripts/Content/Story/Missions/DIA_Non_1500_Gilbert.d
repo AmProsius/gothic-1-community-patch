@@ -77,7 +77,3 @@ FUNC VOID  DIA_Gilbert_Hallo_Info()
     AI_Output (self, other,"DIA_Gilbert_Hallo_04_01"); //Oh, I'm fed up with the Old Camp. I had trouble with Gomez' folks. That was some time ago.
     AI_Output (self, other,"DIA_Gilbert_Hallo_04_02"); //I guess nobody remembers that now. But I'm staying here. There's too many blockheads running about in the Old Camp for my liking.
 };
-
-
-
-

@@ -136,6 +136,3 @@ func void DIA_SLD_760_Soeldner_INMINE_INFO()
     AI_Output (self, other,"DIA_SLD_760_Soeldner_INMINE_INFO_13_06");//So show a bit more respect, please.
     AI_Output (self, other,"DIA_SLD_760_Soeldner_INMINE_INFO_13_07");//I don't know where he is, but if you meet him you should have that story in the back of your mind.
 };
-
-
-

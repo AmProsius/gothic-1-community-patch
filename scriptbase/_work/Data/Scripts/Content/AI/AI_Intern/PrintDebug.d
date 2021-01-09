@@ -228,6 +228,3 @@ func void PrintDebugString (var int channel, var string preText, var string text
 {
     PrintDebugNpc   (channel,   ConcatStrings(preText, text));
 };
-
-
-

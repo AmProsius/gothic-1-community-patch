@@ -48,4 +48,3 @@ FUNC VOID  DIA_KalomsGuard_PERM_Info()
     AI_Output (self, other,"DIA_KalomsGuard_PERM_13_01"); //If you're disrespectful to my master, I'll kill you.
     AI_StopProcessInfos ( self );
 };
-

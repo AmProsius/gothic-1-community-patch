@@ -55,9 +55,3 @@ FUNC VOID Rtn_start_512 () //Durchgangshütte Bloodwyn/Markt
     TA_SitAround    (12,00,16,00,"OCR_OUTSIDE_HUT_63");
     TA_SitAround    (16,00,23,00,"OCR_OUTSIDE_HUT_64");
 };
-
-
-
-
-
-

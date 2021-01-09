@@ -1587,5 +1587,3 @@ func void CH_Training_Thievery_BACK()
 {
     Info_ClearChoices   (CH_Training_Thievery);
 };
-
-

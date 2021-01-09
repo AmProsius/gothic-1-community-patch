@@ -151,19 +151,3 @@ FUNC VOID DIA_Graham_BuyMaps_Info()
     AI_Output (other, self,"DIA_Graham_BuyMaps_15_00"); //I'd like to buy a map.
     AI_Output (self, other,"DIA_Graham_BuyMaps_02_01"); //Sure... What are you thinking of? The more you can see on a map, the more expensive it is..
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

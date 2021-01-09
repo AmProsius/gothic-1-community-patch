@@ -55,5 +55,3 @@ FUNC VOID Rtn_start_302 ()
     TA_MineBellows  (18,00,08,00,"OM_CAVE1_82");
 
 };
-
-

@@ -212,4 +212,3 @@ func void ZS_AssessFighterWait_End ()
 {
     PrintDebugNpc       (PD_ZS_FRAME, "ZS_AssessFighterWait_End");
 };
-

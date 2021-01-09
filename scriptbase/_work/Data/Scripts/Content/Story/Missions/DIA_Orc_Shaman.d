@@ -734,4 +734,3 @@ FUNC void  Info_OrcShaman_IDOL_Info()
         B_LogEntry  (CH4_EnterTemple,"There is another way to the temple. There is a figure of the Sleeper on the sacred column of the Orc shamans which opens the door to the temple. Ur-Shak's brothers won't be delighted when they discover that I'm using their holy icon.");
     };
 };
-

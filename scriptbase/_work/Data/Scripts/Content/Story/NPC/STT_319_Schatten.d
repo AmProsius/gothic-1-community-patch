@@ -52,6 +52,3 @@ FUNC VOID Rtn_start_319 ()
     TA_SitAround    (06,30,10,30,"OCR_OUTSIDE_HUT_9");
     TA_StandAround  (10,30,22,30,"OCR_OUTSIDE_HUT_9");
 };
-
-
-

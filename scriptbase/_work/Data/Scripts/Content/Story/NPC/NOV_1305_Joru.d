@@ -52,5 +52,3 @@ FUNC VOID Rtn_start_1305 () //ST: Teach-Platz 1 (Joru-Platz)
     TA_Sleep    (23,55,08,05,"PSI_14_HUT_IN");
     TA_Teaching (08,05,23,55,"PSI_11_HUT_EX");
 };
-
-

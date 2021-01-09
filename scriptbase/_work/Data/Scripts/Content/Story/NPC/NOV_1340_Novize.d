@@ -51,4 +51,3 @@ FUNC VOID Rtn_start_1340 ()
     TA_Sleep    (02,00,08,05,"PSI_24_HUT_IN");
     TA_Listen   (08,05,02,00,"PSI_TEACH_CADAR");
 };
-

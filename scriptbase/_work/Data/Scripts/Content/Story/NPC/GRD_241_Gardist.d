@@ -73,5 +73,3 @@ FUNC VOID Rtn_FMTaken_241 ()
 FUNC VOID Rtn_OrcAssault_241 ()
 {
 };
-
-

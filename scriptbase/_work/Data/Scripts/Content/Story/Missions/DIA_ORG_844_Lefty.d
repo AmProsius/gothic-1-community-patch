@@ -294,12 +294,3 @@ func void DIA_Lefty_PERM_Nothing()
     AI_Output (other, self,"DIA_Lefty_PERM_Nothing_15_00"); //Just wanted to see how you are.
     AI_StopProcessInfos (self);
 };
-
-
-
-
-
-
-
-
-

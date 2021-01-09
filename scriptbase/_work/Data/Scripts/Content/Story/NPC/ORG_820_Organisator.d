@@ -63,12 +63,3 @@ FUNC VOID Rtn_start_820 ()
     TA_Sleep        (00,30,08,30,"NC_HUT12_IN");
     TA_StandAround  (08,30,00,30,"NC_PATH11");
 };
-
-
-
-
-
-
-
-
-

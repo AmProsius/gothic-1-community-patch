@@ -33,4 +33,3 @@ FUNC VOID ZS_RoastScavenger_End()
     PrintDebugNpc (PD_TA_FRAME,"ZS_RoastScavenger_End");
     AI_UseMob (self,"BARBQ",-1);        //Verlassen sie bitte ihr Mobsi
 };
-

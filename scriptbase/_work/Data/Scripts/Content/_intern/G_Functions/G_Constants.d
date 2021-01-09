@@ -8,4 +8,3 @@ const string _STR_SOUND_PICKLOCK_SUCCESS    = "PICKLOCK_SUCCESS"                
 const string _STR_SOUND_PICKLOCK_FAILURE    = "PICKLOCK_FAILURE"                                ;
 const string _STR_SOUND_PICKLOCK_UNLOCK     = "PICKLOCK_UNLOCK"                                 ;
 const string _STR_SOUND_PICKLOCK_BROKEN     = "PICKLOCK_BROKEN"                                 ;
-

@@ -529,4 +529,3 @@ INSTANCE CamModShoulder(CCamSys_Def)
     minAzimuth          = 0.0;
     maxAzimuth          = 0.0;
 };
-

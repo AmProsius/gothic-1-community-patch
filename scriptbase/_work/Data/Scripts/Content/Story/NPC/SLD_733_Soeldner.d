@@ -67,13 +67,3 @@ FUNC VOID Rtn_start_733 ()
     TA_Boss     (06,30,22,15,"NC_LO_11");
     TA_Boss     (22,15,06,30,"NC_LO_11");
 };
-
-
-
-
-
-
-
-
-
-

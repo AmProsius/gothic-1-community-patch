@@ -71,17 +71,3 @@ FUNC VOID Rtn_start_888 ()
     TA_StandAround  (11,00,03,00,"NC_PATH42");
 };
 */
-
-
-
-
-
-
-
-
-
-
-
-
-
-

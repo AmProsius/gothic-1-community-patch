@@ -477,6 +477,3 @@ instance SFB_Test_Schuerfer (Npc_TestDefault)
     //-------------Daily Routine-------------
     start_aistate =  ZS_PickOre;
 };
-
-
-

@@ -67,17 +67,3 @@ FUNC VOID Rtn_start_804 () //Wache: Durchgang zu Lares
     TA_GuardPassage (20,00,08,00,"NC_HUT23_OUT_GUARD");
     TA_GuardPassage (08,00,20,00,"NC_HUT23_OUT_GUARD");
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-

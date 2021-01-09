@@ -307,16 +307,3 @@ FUNC VOID DIA_Snaf_WhereNek_Info()
     };
     B_LogEntry          (CH1_LostNek,"Snaf, the cook, last saw Nek when he went to gather mushrooms.");
 };
-
-
-
-
-
-
-
-
-
-
-
-
-

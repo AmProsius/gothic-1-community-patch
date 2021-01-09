@@ -50,8 +50,3 @@ FUNC VOID Rtn_start_510 ()
     TA_Sleep        (22,30,08,15,"OCR_HUT_28");
     TA_Smalltalk    (08,15,22,30,"OCR_OUTSIDE_HUT_29");
 };
-
-
-
-
-

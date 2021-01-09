@@ -31,4 +31,3 @@ func void ZS_Ebr_HangAround_End ()
 
     AI_UseMob           (self,"THRONE",-1);
 };
-

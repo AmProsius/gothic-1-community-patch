@@ -64,13 +64,3 @@ FUNC VOID Rtn_start_829 ()
     TA_GuardPassage (08,00,20,00,"OW_PATH_07_21_GUARD_RIGHT");
     TA_GuardPassage (20,00,08,00,"OW_PATH_07_21_GUARD_RIGHT");
 };
-
-
-
-
-
-
-
-
-
-

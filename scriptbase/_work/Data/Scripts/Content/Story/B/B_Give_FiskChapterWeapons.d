@@ -56,5 +56,3 @@ func void B_Give_FiskChapter3Weapons ()
     //-------- Munition --------
 
 };
-
-

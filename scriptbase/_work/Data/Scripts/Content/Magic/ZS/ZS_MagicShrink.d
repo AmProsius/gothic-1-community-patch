@@ -81,4 +81,3 @@ func int ZS_MagicShrunk_Loop ()
     AI_Flee                 (self);
     return                  LOOP_CONTINUE;
 };
-

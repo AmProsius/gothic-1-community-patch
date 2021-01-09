@@ -32,4 +32,3 @@ FUNC VOID Info_HighPriest3_Info()
     Npc_SetAttitude     (self, ATT_HOSTILE);
     Npc_SetTempAttitude (self, ATT_HOSTILE);
 };
-

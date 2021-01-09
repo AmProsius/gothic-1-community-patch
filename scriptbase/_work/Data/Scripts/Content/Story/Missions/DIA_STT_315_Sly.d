@@ -234,14 +234,3 @@ func void DIA_STT_315_Sly_AfterSuccess_Info()
     AI_Output (other, self,"DIA_STT_315_Sly_AfterSuccess_15_02"); //You scratch my back, I'll scratch yours, eh?
     AI_Output (self, other,"DIA_STT_315_Sly_AfterSuccess_10_03"); //That's the way it is.
 };
-
-
-
-
-
-
-
-
-
-
-

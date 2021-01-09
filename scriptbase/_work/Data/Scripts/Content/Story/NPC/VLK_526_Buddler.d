@@ -54,16 +54,3 @@ FUNC VOID Rtn_start_526 () //Bloodwyn-Platz
     TA_SitAround    (17,00,18,00,"OCR_HUT_67");
     TA_SitCampfire  (18,00,23,30,"OCR_CAMPFIRE_E_1_MOVEMENT");
 };
-
-
-
-
-
-
-
-
-
-
-
-
-

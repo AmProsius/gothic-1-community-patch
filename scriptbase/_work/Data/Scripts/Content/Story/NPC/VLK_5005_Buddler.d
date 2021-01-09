@@ -55,14 +55,3 @@ FUNC VOID Rtn_FMstart_5005 ()   //FM
     TA_MineBellows      (00,00,23,00,"FM_159");
     TA_MineBellows      (23,00,24,00,"FM_159");
 };
-
-
-
-
-
-
-
-
-
-
-

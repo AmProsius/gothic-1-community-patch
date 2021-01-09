@@ -501,20 +501,3 @@ INSTANCE PC_Rockefeller(NPC_DEFAULT)
     CreateInvItems(self,ItAt_Meatbug_01,5);
 
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

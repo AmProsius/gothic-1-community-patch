@@ -54,14 +54,3 @@ FUNC VOID Rtn_start_533 ()
     TA_Cook         (11,00,17,00,"OCR_OUTSIDE_HUT_61");
     TA_SitCampfire  (17,00,22,45,"OCR_OUTSIDE_HUT_61");
 };
-
-
-
-
-
-
-
-
-
-
-

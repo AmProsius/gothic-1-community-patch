@@ -72,4 +72,3 @@ INSTANCE UndeadOrcShaman    (Mst_Default_UndeadOrcShaman)
     CreateInvItems  (self,  ItArScrollSummonGolem,  20);
 
 };
-

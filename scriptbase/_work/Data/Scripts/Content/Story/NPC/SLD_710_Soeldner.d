@@ -66,13 +66,3 @@ FUNC VOID Rtn_start_710 ()
     TA_Sleep        (22,55,07,35,"NC_HUT10_IN");
     TA_Smalltalk    (07,35,22,55,"NC_HUT10_OUT");
 };
-
-
-
-
-
-
-
-
-
-

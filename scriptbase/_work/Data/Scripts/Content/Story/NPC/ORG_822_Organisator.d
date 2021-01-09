@@ -62,18 +62,3 @@ FUNC VOID Rtn_start_822 ()
     TA_Sleep        (00,05,08,05,"NC_HUT16_IN");
     TA_SitCampfire  (08,05,00,05,"NC_HUT16_OUT");
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

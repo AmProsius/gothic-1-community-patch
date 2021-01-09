@@ -119,5 +119,3 @@ PROTOTYPE C_Spell_Proto(C_Spell) {
     targetCollectAzi    =   60;
     targetCollectElev   =   60;
 };
-
-

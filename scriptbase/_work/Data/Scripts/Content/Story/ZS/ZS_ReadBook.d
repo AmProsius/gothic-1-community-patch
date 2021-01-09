@@ -35,4 +35,3 @@ func void ZS_ReadBook_End ()
 
     AI_UseMob           (self,"BOOK",-1);           // Nimm den Verlassen State ein
 };
-

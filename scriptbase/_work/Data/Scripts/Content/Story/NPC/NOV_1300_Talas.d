@@ -81,5 +81,3 @@ FUNC VOID Rtn_ReturnToCampAgain_1300 ()
    TA_Smoke (24,00,06,00,"PSI_PATH_TEMPLE_4_MOVEMENT");
    TA_Smoke (06,00,24,00,"PSI_PATH_TEMPLE_4_MOVEMENT");
 };
-
-

@@ -52,4 +52,3 @@ FUNC VOID Rtn_start_225 ()
     TA_GuardPalisade (00,00,12,00,"OCC_PALISADE_WALLCRACK");
     TA_GuardPalisade (12,00,00,00,"OCC_PALISADE_WALLCRACK");
 };
-

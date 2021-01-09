@@ -47,15 +47,3 @@ FUNC VOID Rtn_start_905 ()
     TA_WashSelf     (07,05,07,25,"NC_PATH_PEASANT5");
     TA_PickRice     (07,25,20,05,"NC_PATH69");
 };
-
-
-
-
-
-
-
-
-
-
-
-

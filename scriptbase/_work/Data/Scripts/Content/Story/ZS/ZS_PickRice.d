@@ -91,5 +91,3 @@ func void ZS_PickRice_End ()
 {
     PrintDebugNpc(PD_TA_FRAME,"ZS_PickRice_End");
 };
-
-

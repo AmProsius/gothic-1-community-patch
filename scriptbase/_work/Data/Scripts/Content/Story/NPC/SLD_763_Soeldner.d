@@ -65,12 +65,3 @@ FUNC VOID Rtn_FMCstart_763 ()
     TA_Guard    (01,00,13,00,   "FMC_PATH05");
     TA_Guard    (13,00,01,00,   "FMC_PATH05");
 };
-
-
-
-
-
-
-
-
-

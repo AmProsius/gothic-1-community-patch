@@ -156,4 +156,3 @@ FUNC void  Tpl_1433_GorNavid_VICTORY_Info()
     AI_Output (self, other,"Tpl_1433_GorNavid_VICTORY_Info_13_02"); //I thank you in the name of the entire Brotherhood!
     AI_Output (self, other,"Tpl_1433_GorNavid_VICTORY_Info_13_03"); //May the Sleeper continue to hold his protective hand over you!
 };
-

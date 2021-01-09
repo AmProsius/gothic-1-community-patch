@@ -54,15 +54,3 @@ FUNC VOID Rtn_start_528 ()
     TA_Smalltalk        (07,30,12,00,"OCR_OUTSIDE_HUT_74");
     TA_SitAround        (12,00,21,00,"OCR_OUTSIDE_HUT_74");
 };
-
-
-
-
-
-
-
-
-
-
-
-

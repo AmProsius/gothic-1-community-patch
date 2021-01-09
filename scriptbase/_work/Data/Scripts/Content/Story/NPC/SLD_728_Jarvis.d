@@ -70,12 +70,3 @@ FUNC VOID Rtn_start_728 ()
     TA_Guard (08,00,20,00,"NC_PATH_JARVIS");
     TA_Guard (20,00,08,00,"NC_PATH_JARVIS");
 };
-
-
-
-
-
-
-
-
-

@@ -40,4 +40,3 @@ func void B_CombatAssessMurder ()
         B_AssessAndMemorize (NEWS_MURDER,NEWS_SOURCE_WITNESS, self, NULL, victim);
     };
 };
-

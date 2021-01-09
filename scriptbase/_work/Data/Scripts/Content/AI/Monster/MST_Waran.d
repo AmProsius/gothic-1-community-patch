@@ -70,5 +70,3 @@ INSTANCE Waran  (Mst_Default_Waran)
     Npc_SetToFistMode(self);
 
 };
-
-

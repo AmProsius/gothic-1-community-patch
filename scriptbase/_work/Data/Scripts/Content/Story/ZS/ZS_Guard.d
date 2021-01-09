@@ -47,7 +47,3 @@ func void ZS_Guard_End ()
 
     B_ExitArmor();
 };
-
-
-
-

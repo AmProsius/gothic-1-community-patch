@@ -38,4 +38,3 @@ func void ZS_MCHunting_End ()
 {
     PrintDebugNpc (PD_TA_FRAME,"ZS_MCHunting_End" );
 };
-

@@ -152,5 +152,3 @@ func void ZS_HealSelfMana_End ()
 {
     PrintDebugNpc       (PD_ZS_FRAME,   "ZS_HealSelfMana_End");
 };
-
-

@@ -15,4 +15,3 @@ FUNC VOID STARTUP_WORLD_DEMO ()
     Knows_GetBFSting        = TRUE;
     Knows_GetUluMulu        = TRUE;
 };
-

@@ -87,7 +87,3 @@ FUNC VOID Rtn_FMTaken_230 ()
     TA_GuardWheelClosed     (07,00,20,00, "OCC_MAINGATE_VWHEEL");
     TA_GuardWheelClosed     (20,00,07,00, "OCC_MAINGATE_VWHEEL");
 };
-
-
-
-

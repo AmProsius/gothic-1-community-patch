@@ -57,7 +57,3 @@ FUNC VOID Rtn_start_572 ()
     TA_StandAround  (15,00,17,00,"OCR_OUTSIDE_HUT_4_INSERT");
     TA_SitAround    (17,00,22,30,"OCR_AUDIENCE_01");
 };
-
-
-
-

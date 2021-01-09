@@ -259,12 +259,3 @@ func void  Sld_728_Jarvis_AUFNAHMESOLDIER_Info()
     Log_CreateTopic (GE_BecomeMercenary,LOG_NOTE);
     B_LogEntry (GE_BecomeMercenary,"I should speak to Lee. Maybe he'll let me join the mercenaries.");
 };
-
-
-
-
-
-
-
-
-

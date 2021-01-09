@@ -56,9 +56,3 @@ FUNC VOID Rtn_FMCstart_1040 ()
     TA_SitAround    (01,00,13,00,   "FMC_HUT01_OUT");
     TA_SitAround    (13,00,01,00,   "FMC_HUT01_OUT");
 };
-
-
-
-
-
-

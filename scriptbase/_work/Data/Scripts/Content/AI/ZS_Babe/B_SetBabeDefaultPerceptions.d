@@ -16,4 +16,3 @@ func void B_SetBabeDefaultPerceptions()
 //  Npc_PercEnable( self, PERC_ASSESSSURPRISE    , ZS_Babe_Flee             );
 
 };
-

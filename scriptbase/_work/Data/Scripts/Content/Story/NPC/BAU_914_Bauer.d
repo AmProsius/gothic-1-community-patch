@@ -46,19 +46,3 @@ FUNC VOID Rtn_start_914 ()
     TA_Sleep        (20,20,07,20,"NC_PATH_PEASANT2");
     TA_PickRice     (07,20,20,20,"NC_PATH81");
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

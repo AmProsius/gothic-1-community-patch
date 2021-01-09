@@ -468,4 +468,3 @@ FUNC VOID  DIA_Grim_INEXTREMOAWAY_Info()
 
     AI_StopProcessInfos (self);
 };
-

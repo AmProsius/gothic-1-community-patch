@@ -201,13 +201,3 @@ func void B_Give_BaalCadarChapter5Runes ()
     CreateInvItems (npc,ItFo_Potion_Haste_02 ,24);
     CreateInvItems (npc,ItFo_Potion_Haste_03 ,12);
 };
-
-
-
-
-
-
-
-
-
-

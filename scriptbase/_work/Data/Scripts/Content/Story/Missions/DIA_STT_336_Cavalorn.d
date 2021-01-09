@@ -196,11 +196,3 @@ FUNC void  STT_336_cavalorn_TRADE_Info()
     AI_Output (other, self,"STT_336_cavalorn_TRADE_Info_15_01"); //Show me your goods.
 
 };
-
-
-
-
-
-
-
-

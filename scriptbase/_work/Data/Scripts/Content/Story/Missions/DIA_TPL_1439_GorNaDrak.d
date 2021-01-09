@@ -166,7 +166,3 @@ FUNC VOID  DIA_GorNaDrak_Permanent_Info()
     AI_Output (other, self,"DIA_GorNaDrak_Permanent_15_00"); //Have you enough of the potion for the great invocation of the Sleeper?
     AI_Output (self, other,"DIA_GorNaDrak_Permanent_09_01"); //No - We still have to collect much more - our minecrawler hunting units are in action day and night.
 };
-
-
-
-

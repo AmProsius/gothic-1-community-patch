@@ -40,4 +40,3 @@ func void ZS_Babe_Flee_End ()
 {
     PrintDebugNpc( PD_ZS_FRAME, "ZS_Babe_Flee_End" );
 };
-

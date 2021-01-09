@@ -193,4 +193,3 @@ FUNC VOID DIA_Pock_ForgotAll_Info()
     AI_Output (self, other,"DIA_Pock_ForgotAll_04_03"); //No! No, we can't have done. I've never seen you before in my life.
     AI_Output (other, self,"DIA_Pock_ForgotAll_15_04"); //Sure...
 };
-

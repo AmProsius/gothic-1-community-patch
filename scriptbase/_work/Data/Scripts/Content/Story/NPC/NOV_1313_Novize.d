@@ -47,6 +47,3 @@ FUNC VOID Rtn_start_1313 ()
     TA_Sleep        (23,55,08,05,"PSI_12_HUT_IN_BED2");
     TA_Listen       (08,05,23,55,"PSI_12_HUT_EX_TEACH2");
 };
-
-
-

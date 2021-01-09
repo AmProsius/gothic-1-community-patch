@@ -51,7 +51,3 @@ FUNC VOID Rtn_start_276 ()
     TA_Guard    (06,00,21,00,"OW_PATH_1_1");
     TA_Guard    (21,00,06,00,"OW_PATH_1_1");
 };
-
-
-
-

@@ -57,12 +57,3 @@ FUNC VOID Rtn_start_513 () //Arenaplatz
     TA_Sitaround    (17,00,19,00,"OCR_OUTSIDE_ARENA_BENCH1");
     TA_ArenaSpectator(19,00,23,00,"OCR_ARENA_05");
 };
-
-
-
-
-
-
-
-
-

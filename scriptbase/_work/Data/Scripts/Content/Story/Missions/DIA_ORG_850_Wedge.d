@@ -239,4 +239,3 @@ func VOID DIA_Wedge_Lehrer_BACK()
 {
     Info_ClearChoices   ( DIA_Wedge_Lehrer );
 };
-

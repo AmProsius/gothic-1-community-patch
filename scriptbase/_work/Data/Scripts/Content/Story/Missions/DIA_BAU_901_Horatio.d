@@ -418,6 +418,3 @@ FUNC VOID DIA_Horatio_Thanks_Info()
     AI_Output (other, self,"DIA_Horatio_Thanks_15_00"); //Thanks for your help!
     AI_Output (self, other,"DIA_Horatio_Thanks_09_01"); //Use your knowledge for a just cause, and for NOTHING ELSE.
 };
-
-
-

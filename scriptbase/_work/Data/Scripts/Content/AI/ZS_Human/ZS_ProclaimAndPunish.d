@@ -160,7 +160,3 @@ func void ZS_ProclaimAndPunish_End ()
     Npc_SetTarget       (self,  hero);
     AI_StartState       (self,  ZS_Attack, 0, "");
 };
-
-
-
-

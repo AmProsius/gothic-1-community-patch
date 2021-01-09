@@ -79,5 +79,3 @@ FUNC VOID DIA_Melvin_MetDusty_Info()
     AI_Output (self, other,"DIA_Melvin_MetDusty_03_01"); //If you meet him again, tell him that he was dumb to stay there. It's ten times better than getting harassed by the guards in the Old Camp.
     AI_Output (other, self,"DIA_Melvin_MetDusty_15_02"); //I'll tell him if I see him again.
 };
-
-

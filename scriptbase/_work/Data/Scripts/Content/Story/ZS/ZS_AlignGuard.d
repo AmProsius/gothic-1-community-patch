@@ -39,7 +39,3 @@ func void ZS_AlignGuard_End ()
 
     B_ExitArmor();
 };
-
-
-
-

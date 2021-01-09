@@ -241,4 +241,3 @@ FUNC VOID Rtn_Wait_5 ()
     TA_Stay (00,00, 23,00,"FM_02");
     TA_Stay (23,00, 24,00,"FM_02");
 };
-

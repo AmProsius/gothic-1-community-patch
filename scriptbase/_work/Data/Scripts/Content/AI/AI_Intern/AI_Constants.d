@@ -201,5 +201,3 @@ const int   HAI_TIME_PURSUIT                = 20;                           // Z
 const int   HAI_TIME_FOLLOW                 = 10;                           // Anzahl der 3s-Abschnitte die sich das Opfer des NSCs maximal in BS_RUN befinden darf, um noch weiter verfolgt zu werden
 const int   HAI_TIME_UNCONSCIOUS            = 20;                           // Zeit in Sekunden, die der SC und NSCs bewuﬂtlos bleiben
 const int   HAI_TIME_TURNAWAY               = 20;                           // Zeit in Sekunden, die sich der feige Wach-NSC vor dem siegreichen SC (der gerade was anstellt) abdreht und ihn ignoriert
-
-

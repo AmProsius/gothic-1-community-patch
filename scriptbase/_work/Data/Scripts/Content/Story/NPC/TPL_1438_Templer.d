@@ -52,4 +52,3 @@ FUNC VOID Rtn_start_1438 ()
     TA_StandAround  (12,00,24,00,"OM_CAVE1_02");
 
 };
-

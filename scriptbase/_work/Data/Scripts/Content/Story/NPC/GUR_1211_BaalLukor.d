@@ -80,4 +80,3 @@ FUNC VOID Rtn_Meditate_1211 ()
     TA_Meditate (23,00,16,00,"GRYD_082");
     TA_Meditate (16,00,23,00,"GRYD_082");
 };
-

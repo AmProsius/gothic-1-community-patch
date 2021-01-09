@@ -54,17 +54,3 @@ FUNC VOID Rtn_Start_586 ()
     TA_RoastScavenger(18,00,23,00,"OM_CAVE1_48");
     TA_SitAround     (23,00,08,00,"OM_CAVE1_48");
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-

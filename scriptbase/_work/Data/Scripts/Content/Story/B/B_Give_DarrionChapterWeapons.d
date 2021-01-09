@@ -119,4 +119,3 @@ func void B_Give_DarrionChapter6Weapons ()
     //-------- Munition --------
 
 };
-

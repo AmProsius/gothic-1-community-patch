@@ -78,6 +78,3 @@ FUNC VOID  DIA_Sld_702_PERM_Info()
     AI_Output (self, other,"DIA_Sld_702_PERM_04_03"); //He doesn't need an army of henchmen to hide behind. He can defend himself.
     AI_Output (self, other,"DIA_Sld_702_PERM_04_04"); //WE are only here in case he needs us.
 };
-
-
-

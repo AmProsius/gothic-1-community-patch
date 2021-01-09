@@ -216,4 +216,3 @@ FUNC VOID DIA_Homer_PERM_Info()
     AI_Output (other, self,"DIA_Homer_PERM_15_00"); //Everything okay with the dam?
     AI_Output (self, other,"DIA_Homer_PERM_02_01"); //It's strong as a fortress, nothing can knock it down.
 };
-

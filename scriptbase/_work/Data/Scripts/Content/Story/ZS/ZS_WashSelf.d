@@ -36,4 +36,3 @@ func void ZS_WashSelf_End ()
 
     AI_PlayAni (self,"T_WASH_2_STAND");
 };
-

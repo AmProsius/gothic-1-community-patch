@@ -67,13 +67,3 @@ FUNC VOID Rtn_FMCstart_761 ()
     TA_GuardPassage (01,00,13,00,   "FMC_PATH27");
     TA_GuardPassage (13,00,01,00,   "FMC_PATH27");
 };
-
-
-
-
-
-
-
-
-
-

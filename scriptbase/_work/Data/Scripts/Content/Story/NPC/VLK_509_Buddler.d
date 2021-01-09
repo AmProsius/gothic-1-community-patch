@@ -53,6 +53,3 @@ FUNC VOID Rtn_start_509 ()
     TA_Sleep            (23,00,08,00,"OCR_HUT_56");
     TA_SitAround        (08,00,23,00,"OCR_OUTSIDE_HUT_56");
 };
-
-
-

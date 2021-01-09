@@ -55,7 +55,3 @@ FUNC VOID Rtn_start_1342 ()
     TA_Sleep    (23,10,07,30,"PSI_27_HUT_IN");
     TA_Listen   (07,30,23,10,"PSI_PLATFORM_1");
 };
-
-
-
-

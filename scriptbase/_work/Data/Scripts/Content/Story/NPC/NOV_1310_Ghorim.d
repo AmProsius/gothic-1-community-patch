@@ -56,4 +56,3 @@ func void Rtn_start_1310 ()
     TA_Sleep        (06,55,23,55,"PSI_6_HUT_IN_BED3");
     TA_Sleep        (23,55,06,55,"PSI_6_HUT_IN_BED3");
 };
-

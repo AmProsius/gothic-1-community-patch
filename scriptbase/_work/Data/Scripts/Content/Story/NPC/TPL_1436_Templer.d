@@ -49,8 +49,3 @@ FUNC VOID Rtn_start_1436 ()
     TA_SmallTalk    (00,00,12,00,"OM_CAVE1_56");
     TA_SmallTalk    (12,00,24,00,"OM_CAVE1_56");
 };
-
-
-
-
-

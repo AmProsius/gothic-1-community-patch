@@ -71,8 +71,3 @@ FUNC VOID Rtn_FMTaken_709 ()
     TA_Stay     (00,00, 23,00,"OW_PATH_075");
     TA_Stay     (23,00, 24,00,"OW_PATH_075");
 };
-
-
-
-
-

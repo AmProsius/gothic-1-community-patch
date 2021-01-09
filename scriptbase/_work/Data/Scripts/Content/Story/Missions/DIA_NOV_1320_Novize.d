@@ -30,4 +30,3 @@ FUNC void  NOV_1320_Novize_CALLSLEEPER_Info()
     AI_StopProcessInfos (self);
     B_Kapitelwechsel    (3);
 };
-

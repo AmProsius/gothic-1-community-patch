@@ -136,4 +136,3 @@ FUNC VOID DIA_SCAR_PERM_Info()
     AI_Output (self, other,"DIA_SCAR_PERM_08_01"); //All you need to know is that he's the most powerful man in the colony.
     AI_Output (self, other,"DIA_SCAR_PERM_08_02"); //He gets what he wants, but all he really wants is power.
 };
-

@@ -50,11 +50,3 @@ FUNC VOID Rtn_start_566 ()
     TA_PickOre      (23,00,06,00,"OM_CAVE3_04B");
     TA_PickOre      (06,00,23,00,"OM_CAVE3_04B");
 };
-
-
-
-
-
-
-
-

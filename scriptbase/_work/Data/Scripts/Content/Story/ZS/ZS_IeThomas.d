@@ -124,10 +124,3 @@ func void ZS_IETHOMAS_End ()
 
     PrintDebugNpc(PD_TA_FRAME,"ZS_IETHOMAS_End");
 };
-
-
-
-
-
-
-

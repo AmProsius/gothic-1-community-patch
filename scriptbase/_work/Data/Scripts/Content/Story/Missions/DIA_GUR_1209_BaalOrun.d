@@ -245,6 +245,3 @@ FUNC VOID  DIA_BaalOrun_Perm_Info()
     AI_Output (self, other,"DIA_BaalOrun_Perm_12_01"); //We're putting maximum strain on every man to produce enough for ourselves AND trade with the other camps.
     AI_Output (self, other,"DIA_BaalOrun_Perm_12_02"); //But it's a sacrifice for the Sleeper, one our novices willingly make.
 };
-
-
-

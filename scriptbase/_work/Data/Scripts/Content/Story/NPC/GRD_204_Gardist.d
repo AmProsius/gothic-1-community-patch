@@ -57,5 +57,3 @@ FUNC VOID Rtn_start_204 ()
     TA_StandAround      (20,00,00,00,"OCC_SHADOWS_CORNER_MOVEMENT4"); //CF1
     TA_Sleep            (00,00,07,30,"OCC_MERCS_UPPER_RIGHT_ROOM_BED1");
 };
-
-

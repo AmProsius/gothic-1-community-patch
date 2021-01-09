@@ -136,5 +136,3 @@ FUNC VOID Info_Swiney_PERM_Info()
     AI_Output (self, other,"Info_Swiney_PERM_09_01"); //The mages say that we won't need much more. Go to the New Camp and have a look at the mound.
     AI_StopProcessInfos (self);
 };
-
-

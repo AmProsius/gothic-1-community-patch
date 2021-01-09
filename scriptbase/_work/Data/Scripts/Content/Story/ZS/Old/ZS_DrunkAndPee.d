@@ -105,4 +105,3 @@ func void ZS_DrunkandPee_End ()
 
     B_ClearItem(self);
 };
-

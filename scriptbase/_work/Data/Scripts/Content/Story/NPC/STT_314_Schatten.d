@@ -54,6 +54,3 @@ FUNC VOID Rtn_start_314 ()
     TA_SitAround    (15,30,17,00,"OCR_HUT_38");
     TA_SitCampfire  (17,00,22,45,"OCR_OUTSIDE_HUT_39");
 };
-
-
-

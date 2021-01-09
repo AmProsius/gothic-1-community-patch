@@ -58,5 +58,3 @@ FUNC VOID Rtn_Ritual_1341 ()
     TA_Stay (18,00,21,00,"PSI_TEMPLE_NOVIZE_PR2");
     TA_Stay (21,00,18,00,"PSI_TEMPLE_NOVIZE_PR2");
 };
-
-

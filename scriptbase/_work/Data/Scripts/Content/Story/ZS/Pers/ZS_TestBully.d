@@ -48,5 +48,3 @@ func void ZS_TestBully_End ()
 
     B_ClearItem(self);
 };
-
-

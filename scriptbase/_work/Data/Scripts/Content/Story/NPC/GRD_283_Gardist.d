@@ -63,4 +63,3 @@ FUNC VOID Rtn_FMTaken2_283 ()
     TA_Stay     (01,00,13,00,   "FMC_PATH27");
     TA_Stay     (13,00,01,00,   "FMC_PATH27");
 };
-

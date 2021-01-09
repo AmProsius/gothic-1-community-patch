@@ -55,4 +55,3 @@ FUNC VOID Rtn_start_331 ()
     TA_Sleep    (23,00,07,00,"OCR_HUT_20");
     TA_Boss     (07,00,23,00,"OCR_OUTSIDE_HUT_20");
 };
-

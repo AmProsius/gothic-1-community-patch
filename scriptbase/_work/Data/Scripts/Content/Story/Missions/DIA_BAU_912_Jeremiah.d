@@ -111,4 +111,3 @@ FUNC VOID  DIA_Jeremiah_Horatio_Info()
     AI_Output (self, other,"DIA_Jeremiah_Horatio_04_03"); //I did once hear him say he'd love to smash the Rice Lord's head in, but he'd never really do it.
     AI_Output (self, other,"DIA_Jeremiah_Horatio_04_04"); //It'd go against his beliefs.
 };
-

@@ -116,4 +116,3 @@ func void ZS_Unconscious_End ()
     //-------- Heilen ! --------
     AI_StartState           (self,  ZS_HealSelf,    1,  "");
 };
-

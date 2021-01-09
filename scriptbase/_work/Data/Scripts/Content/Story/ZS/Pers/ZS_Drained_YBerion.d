@@ -21,11 +21,3 @@ func void ZS_Drained_YBerion_End ()
 {
     PrintDebugNpc   (PD_TA_FRAME,   "ZS_Drained_YBerion_End");
 };
-
-
-
-
-
-
-
-

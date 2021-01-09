@@ -48,5 +48,3 @@ FUNC VOID Rtn_start_1318 ()
     TA_Sleep        (00,00,08,00,"PSI_10_HUT_IN_BED");
     TA_SmallTalk    (08,00,24,00,"PSI_TALK_AT_11_HUT");
 };
-
-

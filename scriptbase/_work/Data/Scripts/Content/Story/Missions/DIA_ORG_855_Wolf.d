@@ -705,8 +705,3 @@ FUNC void  Org_855_Wolf_SELLBOW_Info()
     B_LogEntry          (GE_TraderNC,"Wolf, the rogue, trades BOWS.");
 
 };
-
-
-
-
-

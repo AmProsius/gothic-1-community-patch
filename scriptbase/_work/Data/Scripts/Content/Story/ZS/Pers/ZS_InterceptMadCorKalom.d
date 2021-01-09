@@ -99,4 +99,3 @@ func void B_InterceptMadCorKalomAssessMagic ()
         B_AssessMagic   ();
     };
 };
-

@@ -64,14 +64,3 @@ FUNC VOID Rtn_start_875 ()
     TA_GuardPassage (23,00,08,00,"NC_TAVERN_OUT_GUARD1");
     TA_GuardPassage (08,00,23,00,"NC_TAVERN_OUT_GUARD1");
 };
-
-
-
-
-
-
-
-
-
-
-

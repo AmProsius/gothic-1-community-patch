@@ -65,14 +65,3 @@ FUNC VOID Rtn_start_834 ()
     TA_GuardWheelOpen   (23,30,08,00,"OW_PATH_067_WHEEL");
     TA_GuardWheelOpen   (08,00,23,30,"OW_PATH_067_WHEEL");
 };
-
-
-
-
-
-
-
-
-
-
-

@@ -85,11 +85,3 @@ INSTANCE GreenGobboSword (Mst_Default_GreenGobbo)
     Npc_SetToFightMode (self, ItMw_1H_Sword_Old_01); //+10
     attribute[ATR_STRENGTH] = attribute [ATR_STRENGTH] + 10; // da technisch im Faustkampf
 };
-
-
-
-
-
-
-
-

@@ -68,4 +68,3 @@ FUNC VOID Rtn_Start_842 ()
     TA_Sleep            (23,30,08,00,"NC_HUT18_IN");
     TA_Smoke            (08,00,23,30,"NC_PATH09");  //auf Stand-FP
 };
-

@@ -78,4 +78,3 @@ FUNC VOID Rtn_OrcAssault_1403 ()
     TA_GuardPalisade    (00,00,22,00,"PSI_GUARD2");
     TA_GuardPalisade    (22,00,24,00,"PSI_GUARD2");
 };
-

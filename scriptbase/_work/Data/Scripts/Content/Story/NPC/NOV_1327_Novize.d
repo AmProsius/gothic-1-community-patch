@@ -47,5 +47,3 @@ FUNC VOID Rtn_start_1327 ()
     TA_Sleep    (00,00,07,00,"PSI_31_HUT_IN");
     TA_Stand    (07,00,00,00,"PSI_31_HUT_EX");
 };
-
-

@@ -51,5 +51,3 @@ FUNC VOID Rtn_start_266 ()
     TA_Guard    (08,00,20,00,"OM_050");
     TA_Guard    (20,00,08,00,"OM_050");
 };
-
-

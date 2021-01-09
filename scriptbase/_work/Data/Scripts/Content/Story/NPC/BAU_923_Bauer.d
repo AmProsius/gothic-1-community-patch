@@ -48,4 +48,3 @@ FUNC VOID Rtn_start_923 ()
     TA_WashSelf     (07,05,07,23,"NC_PATH_PEASANT_OUTSIDE8_WASH");
     TA_PickRice     (07,23,20,05,"NC_PATH83_MOVEMENT");
 };
-

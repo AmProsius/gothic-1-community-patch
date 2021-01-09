@@ -55,4 +55,3 @@ FUNC VOID Rtn_start_603 ()
     TA_PracticeMagic(23,00,04,00,"NC_PLACE02"); //NC_KDW_CAVE_STAIRS
     //TA_Sleep      (23,00,04,00,"NC_KDW05_IN");
 };
-

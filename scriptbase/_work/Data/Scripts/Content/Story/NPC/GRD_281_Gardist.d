@@ -55,5 +55,3 @@ FUNC VOID Rtn_start_281 ()
     TA_GuardWheelOpen   (07,55,19,55,"OW_PATH_1_16_C");
     TA_GuardWheelOpen   (19,55,07,55,"OW_PATH_1_16_C");
 };
-
-

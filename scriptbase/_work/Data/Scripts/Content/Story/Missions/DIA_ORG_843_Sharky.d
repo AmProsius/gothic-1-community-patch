@@ -108,12 +108,3 @@ FUNC void  Org_843_Sharky_GREET_Info()
     Log_CreateTopic (GE_TraderNC,LOG_NOTE);
     B_LogEntry      (GE_TraderNC,"Sharky, the rogue, deals with WEAPONS and other goods. He is usually somewhere in the New Camp.");
 };
-
-
-
-
-
-
-
-
-

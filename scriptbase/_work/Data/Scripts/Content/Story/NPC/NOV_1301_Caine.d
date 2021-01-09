@@ -68,4 +68,3 @@ FUNC VOID Rtn_start_1301 ()
     TA_Smoke        (21,00,22,00,"PSI_21_HUT_EX");
     TA_PotionAlchemy(22,00,23,00,"PSI_LABOR_BASEMENT_1");
 };
-

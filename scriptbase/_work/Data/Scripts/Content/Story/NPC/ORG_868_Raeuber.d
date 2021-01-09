@@ -82,15 +82,3 @@ FUNC VOID Rtn_OrcAssault_868 ()
      TA_GuardPalisade       (13,00,14,00,"LOCATION_11_16");
     TA_GuardPalisade        (14,00,13,00,"LOCATION_11_16");
 };
-
-
-
-
-
-
-
-
-
-
-
-

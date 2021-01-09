@@ -54,17 +54,3 @@ FUNC VOID Rtn_start_1000 ()
     TA_StandAround  (10,05,03,05,"NC_TAVERN_ROOM06");
     TA_StandAround  (03,05,10,05,"NC_TAVERN_ROOM06");
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -66,13 +66,3 @@ FUNC VOID Rtn_start_723 ()
     TA_GuardPassage (08,00,22,00,"NC_GUARD_MAGES_LEFT");
     TA_GuardPassage (22,00,08,00,"NC_GUARD_MAGES_LEFT");
 };
-
-
-
-
-
-
-
-
-
-

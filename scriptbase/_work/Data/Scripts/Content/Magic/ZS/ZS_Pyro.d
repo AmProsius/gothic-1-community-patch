@@ -65,5 +65,3 @@ func void ZS_Pyro_End()
 {
     PrintDebugNpc       ( PD_ZS_FRAME, "ZS_Pyro_End" );
 };
-
-

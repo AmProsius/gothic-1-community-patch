@@ -53,15 +53,3 @@ FUNC VOID Rtn_start_560 ()
     TA_WashSelf     (11,00,11,20,"OCR_TO_HUT_17");
     TA_SitCampfire  (11,20,23,00,"OCR_OUTSIDE_HUT_16");
 };
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1011,4 +1011,3 @@ func void ZS_MM_MoveNpc ()
 };
 
 */
-

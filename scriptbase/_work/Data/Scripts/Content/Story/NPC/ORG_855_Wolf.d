@@ -65,14 +65,3 @@ FUNC VOID Rtn_start_855 ()
     TA_RoastScavenger   (10,30,20,30,"NC_PLACE04");
     TA_SitAround        (20,30,01,00,"NC_PLACE04");
 };
-
-
-
-
-
-
-
-
-
-
-

@@ -67,10 +67,3 @@ FUNC VOID Rtn_start_705()
     TA_Smith_Sharp  (08,00,00,00,"NC_HUT03_OUT_MOVEMENT");
     TA_Sleep        (00,00,08,00,"NC_HUT03_IN");
 };
-
-
-
-
-
-
-

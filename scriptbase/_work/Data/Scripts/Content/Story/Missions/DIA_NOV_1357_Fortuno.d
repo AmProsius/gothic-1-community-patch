@@ -151,7 +151,3 @@ FUNC VOID  DIA_Fortuno_BuyJoints_Info()
     AI_Output (other, self,"DIA_Fortuno_BuyJoints_15_00"); //I want to trade.
     AI_Output (self, other,"DIA_Fortuno_BuyJoints_05_01"); //What do you want from me? Or do you want to sell something?
 };
-
-
-
-

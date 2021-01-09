@@ -53,7 +53,3 @@ FUNC VOID Rtn_start_278 ()
     TA_GuardPalisade        (20,00,07,00,"OM_CAVE3_30");
     TA_GuardPalisade        (07,00,20,00,"OM_CAVE3_30");
 };
-
-
-
-

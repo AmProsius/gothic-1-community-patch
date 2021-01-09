@@ -37,4 +37,3 @@ FUNC VOID ZS_Cook_End()
     PrintDebugNpc (PD_TA_FRAME,"ZS_Cook_End");
     AI_UseMob (self,"CAULDRON",-1);     //Verlassen sie bitte ihr Mobsi
 };
-

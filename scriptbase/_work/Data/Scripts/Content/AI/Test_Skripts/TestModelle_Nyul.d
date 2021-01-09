@@ -292,15 +292,3 @@ INSTANCE Nyul_21(NPC_DEFAULT)
     CreateInvItems  (self,ItFo_Potion_Mana_03,          20);
     CreateInvItems  (self,ItFo_Potion_Health_03,        20);
 };
-
-
-
-
-
-
-
-
-
-
-
-

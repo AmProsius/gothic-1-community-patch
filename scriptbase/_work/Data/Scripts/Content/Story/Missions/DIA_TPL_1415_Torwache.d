@@ -199,13 +199,3 @@ func void Tpl_1415_Templer_ROCK_BUY()
     };
 
 };
-
-
-
-
-
-
-
-
-
-

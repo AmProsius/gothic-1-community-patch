@@ -718,4 +718,3 @@ INSTANCE  Schutzamulett_Feuer(C_Item)
     };
 
 */
-

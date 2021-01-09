@@ -48,5 +48,3 @@ func void  DIA_Butch_Hello_Info()
     AI_Output (self, other,"DIA_Butch_Hello_13_01"); //It's none of your business! I don't like your mug!
     AI_StopProcessInfos ( self );
 };
-
-

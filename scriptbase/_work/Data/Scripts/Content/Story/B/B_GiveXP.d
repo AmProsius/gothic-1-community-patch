@@ -64,12 +64,3 @@ func void B_UnconciousXP()
         B_GiveXP (self.level * XP_PER_LEVEL_DEAD);      // die vollen XP beim Sieg vergeben, da finishing-Move keine XPs mehr ergibt!
     };
 };
-
-
-
-
-
-
-
-
-

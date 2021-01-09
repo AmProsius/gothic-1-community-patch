@@ -67,8 +67,3 @@ FUNC VOID Rtn_Start_300 ()
     TA_Stay (18,03,00,00,"OM_203");
 
 };
-
-
-
-
-

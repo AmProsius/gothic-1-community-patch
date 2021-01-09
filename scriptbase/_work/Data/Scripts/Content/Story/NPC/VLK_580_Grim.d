@@ -73,15 +73,3 @@ func void Rtn_InExtremo_580 ()
     TA_WatchInextremo (10,00,22,00,"OCR_AUDIENCE_01");
     TA_WatchInextremo (22,00,10,00,"OCR_AUDIENCE_01");
 };
-
-
-
-
-
-
-
-
-
-
-
-

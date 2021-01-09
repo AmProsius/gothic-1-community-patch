@@ -741,4 +741,3 @@ INSTANCE Gil_Values(C_GILVALUES)
     BLOOD_AMOUNT            [GIL_ZOMBIE] = 10;
     BLOOD_MAX_DISTANCE      [GIL_ZOMBIE] = 100;
 };
-

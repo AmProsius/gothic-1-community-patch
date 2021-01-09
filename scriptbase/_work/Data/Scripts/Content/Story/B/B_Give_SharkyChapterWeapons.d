@@ -111,4 +111,3 @@ func void B_Give_SharkyChapter6Weapons ()
     //-------- Munition --------
 
 };
-

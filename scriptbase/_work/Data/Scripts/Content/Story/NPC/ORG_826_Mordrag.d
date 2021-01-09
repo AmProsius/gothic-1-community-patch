@@ -77,15 +77,3 @@ FUNC VOID Rtn_Start_826 ()
     TA_Stand (23,00,08,00,"NC_TAVERN_BAR");
     //TA_Sleep (23,00,08,00,"NC_HUT21_IN");
 };
-
-
-
-
-
-
-
-
-
-
-
-

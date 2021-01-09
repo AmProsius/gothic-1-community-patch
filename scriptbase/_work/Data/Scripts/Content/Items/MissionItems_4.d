@@ -233,4 +233,3 @@ INSTANCE UluMulu(C_Item)
     TEXT[4]         =   NAME_Str_needed;        COUNT[4]    = cond_value[2];
     TEXT[5]         =   NAME_Value;             COUNT[5]    = value;
 };
-

@@ -52,4 +52,3 @@ FUNC VOID Rtn_start_325 ()
     TA_Cook     (08,05,18,05,"OCC_BARONS_RIGHT_ROOM_FRONT");
     TA_Cook     (18,05,08,05,"OCC_KITCHEN");
 };
-

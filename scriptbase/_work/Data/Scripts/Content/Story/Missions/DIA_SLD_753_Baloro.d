@@ -394,4 +394,3 @@ FUNC VOID DIA_SLD_753_Baloro_Angebotdochannehmen_Info()
             AI_StopProcessInfos (self);
 
         };
-

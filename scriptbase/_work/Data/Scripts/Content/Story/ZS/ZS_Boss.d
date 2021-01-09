@@ -40,5 +40,3 @@ func void ZS_Boss_end()
 {
     AI_PlayAni (self,"T_HGUARD_2_STAND");
 };
-
-

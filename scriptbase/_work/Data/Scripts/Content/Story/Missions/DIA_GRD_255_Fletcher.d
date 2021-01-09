@@ -408,4 +408,3 @@ FUNC VOID Info_Fletcher_DIE_Info()
 
     AI_StopProcessInfos (self);
 };
-

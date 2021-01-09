@@ -1895,5 +1895,3 @@ INSTANCE CONTROL_RETURN         (C_SFX_DEF) {file= "Magic_6.wav" ;              
                 INSTANCE SVM_13_BERZERK                 (C_SFX_DEF) {file= "svm_1_berzerk.wav";             vol = 110;          };
                 INSTANCE SVM_14_BERZERK                 (C_SFX_DEF) {file= "svm_2_berzerk.wav";             vol = 110;          };
                 INSTANCE SVM_15_BERZERK                 (C_SFX_DEF) {file= "svm_3_berzerk.wav";             vol = 110;          };
-
-

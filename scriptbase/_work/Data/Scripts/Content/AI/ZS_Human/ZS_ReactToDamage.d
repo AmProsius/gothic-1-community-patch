@@ -86,5 +86,3 @@ func void ZS_ReactToDamage ()
         AI_StartState               (self,  ZS_AssessMonster,   0, "" );
     };
 };
-
-

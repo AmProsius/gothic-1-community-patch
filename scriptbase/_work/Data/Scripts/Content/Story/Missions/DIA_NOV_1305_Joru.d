@@ -311,16 +311,3 @@ Komm zu uns in die Gemeinschaft der Erwachten und gleichzeitig Erwecker. Teile m
 Mach dich frei von Suche und beginne zu finden. Entdecke die Wahrheit. Das alles kannst du erreichen, wenn du zu uns kommst.
 
 */
-
-
-
-
-
-
-
-
-
-
-
-
-
