@@ -4,9 +4,12 @@
 func void Ninja_G1CP_Menu(var int menuPtr) {
     MEM_InitAll();
 
+    // Initialize one-time-per-session fixes
+    const int once = 0;
+    if (!once) {
 
-    // WRITE YOUR INITIALIZATIONS HERE
-
+        once = 1;
+    };
 };
 
 
@@ -15,9 +18,6 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
  */
 func void Ninja_G1CP_Init() {
     // Wrapper for "LeGo_Init" to ensure correct LeGo initialization without breaking the mod
-    LeGo_MergeFlags( /* DESIRED LEGO PACKAGES */ );
-
-
-    // WRITE YOUR INITIALIZATIONS HERE
+    // LeGo_MergeFlags( /* DESIRED LEGO PACKAGES */ ); // Not in use yet
 
 };
