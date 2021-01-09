@@ -7,6 +7,7 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
     // Initialize one-time-per-session fixes
     const int once = 0;
     if (!once) {
+        FixEquipBestWeapons_Init(); // #59
 
         once = 1;
     };
