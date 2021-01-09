@@ -1,5 +1,5 @@
 // ************************************************************
-// 			  				   EXIT 
+// 			  				   EXIT
 // ************************************************************
 
 INSTANCE DIA_Rufus_EXIT (C_INFO)
@@ -10,7 +10,7 @@ INSTANCE DIA_Rufus_EXIT (C_INFO)
 	information	= DIA_Rufus_EXIT_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC INT DIA_Rufus_EXIT_Condition()
 {
@@ -18,7 +18,7 @@ FUNC INT DIA_Rufus_EXIT_Condition()
 };
 
 FUNC VOID DIA_Rufus_EXIT_Info()
-{	
+{
 	AI_StopProcessInfos	(self);
 };
 
@@ -34,7 +34,7 @@ INSTANCE Info_Rufus_Wasser(C_INFO) // E1
 	information	= Info_Rufus_Wasser_Info;
 	permanent	= 1;
 	description = "Lefty schickt mich. Ich hab' Wasser für dich.";
-};                       
+};
 
 FUNC INT Info_Rufus_Wasser_Condition()
 {
@@ -83,7 +83,7 @@ INSTANCE DIA_Rufus_Hello (C_INFO)
 	information	= DIA_Rufus_Hello_Info;
 	permanent	= 0;
 	description	= "Hi! Ich bin neu hier. Wollte mal fragen, was hier so läuft.";
-};                       
+};
 
 FUNC INT DIA_Rufus_Hello_Condition()
 {
@@ -91,7 +91,7 @@ FUNC INT DIA_Rufus_Hello_Condition()
 };
 
 FUNC VOID DIA_Rufus_Hello_Info()
-{	
+{
 	AI_Output (other, self,"DIA_Rufus_Hello_15_00"); //Hi! Ich bin neu hier. Wollte mal fragen, was hier so läuft.
 	AI_Output (self, other,"DIA_Rufus_Hello_02_01"); //Frag jemand anderen. Ich arbeite den ganzen Tag auf den Feldern und krieg nichts von dem mit, was hier läuft.
 	AI_Output (self, other,"DIA_Rufus_Hello_02_02"); //Mann, wie gerne würd' ich zum Reislord gehen und ihm sagen, er soll seinen Scheiß alleine machen!
@@ -109,7 +109,7 @@ INSTANCE DIA_Rufus_Why (C_INFO)
 	information	= DIA_Rufus_Why_Info;
 	permanent	= 0;
 	description	= "Wenn's dir nicht gefällt, warum arbeitest du dann hier? ";
-};                       
+};
 
 FUNC INT DIA_Rufus_Why_Condition()
 {
@@ -120,7 +120,7 @@ FUNC INT DIA_Rufus_Why_Condition()
 };
 
 FUNC VOID DIA_Rufus_Why_Info()
-{	
+{
 	AI_Output (other, self,"DIA_Rufus_Why_15_00"); //Wenn's dir nicht gefällt, warum arbeitest du dann hier?
 	AI_Output (self, other,"DIA_Rufus_Why_02_01"); //Es war am ersten Tag als ich hier war. Lefty, einer der Schläger, die für den Reislord arbeiten, kam zu mir und fragte mich, ob ich mal kurz auf den Reisfeldern helfen könnte.
 	AI_Output (self, other,"DIA_Rufus_Why_02_02"); //Klar, hab' ich gesagt. Ich war neu und wollte mich nützlich machen.
@@ -131,7 +131,7 @@ FUNC VOID DIA_Rufus_Why_Info()
 	AI_Output (self, other,"DIA_Rufus_Why_02_07"); //Seit dem Tag stand er jeden Morgen vor meiner Tür - irgendwann bin ich dann von alleine gekommen - ich wollte keinen Ärger mit den Typen.
 	AI_Output (self, other,"DIA_Rufus_Why_02_08"); //Das sind richtige Halsabschneider, mit denen legst du dich besser nicht an.
 	var C_NPC Ricelord;			Ricelord	= Hlp_GetNpc(Bau_900_Ricelord);
-	Ricelord.aivar[AIV_FINDABLE] = TRUE;	
+	Ricelord.aivar[AIV_FINDABLE] = TRUE;
 };
 
 // ************************************************************
@@ -146,7 +146,7 @@ INSTANCE DIA_Rufus_Ricelord (C_INFO)
 	information	= DIA_Rufus_Ricelord_Info;
 	permanent	= 1;
 	description	= "Wer ist der Reislord?";
-};                       
+};
 
 FUNC INT DIA_Rufus_Ricelord_Condition()
 {
@@ -157,12 +157,12 @@ FUNC INT DIA_Rufus_Ricelord_Condition()
 };
 
 FUNC VOID DIA_Rufus_Ricelord_Info()
-{	
+{
 	AI_Output (other, self,"DIA_Rufus_Ricelord_15_00"); //Wer ist der Reislord?
 	AI_Output (self, other,"DIA_Rufus_Ricelord_02_01"); //Er war einer der Ersten hier. Hat das Lager mit gegründet und die Reisfelder angelegt.
 	AI_Output (self, other,"DIA_Rufus_Ricelord_02_02"); //Heute steht er nur noch vor seinem Lagerhaus und streckt seine Wampe raus, der alte Fettsack!
 	var C_NPC Ricelord;			Ricelord	= Hlp_GetNpc(Bau_900_Ricelord);
-	Ricelord.aivar[AIV_FINDABLE] = TRUE;	
+	Ricelord.aivar[AIV_FINDABLE] = TRUE;
 };
 
 
@@ -182,4 +182,4 @@ FUNC VOID DIA_Rufus_Ricelord_Info()
 
 
 
-	
+

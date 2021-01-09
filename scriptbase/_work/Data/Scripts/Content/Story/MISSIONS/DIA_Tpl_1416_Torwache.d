@@ -1,5 +1,5 @@
 // **************************************************
-// 						 EXIT 
+// 						 EXIT
 // **************************************************
 
 INSTANCE DIA_Tpl_1416_Torwache_Exit (C_INFO)
@@ -10,7 +10,7 @@ INSTANCE DIA_Tpl_1416_Torwache_Exit (C_INFO)
 	information	= DIA_Tpl_1416_Torwache_Exit_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC INT DIA_Tpl_1416_Torwache_Exit_Condition()
 {
@@ -37,7 +37,7 @@ INSTANCE DIA_Tpl_1416_Torwache_Life (C_INFO)
 };
 
 FUNC INT DIA_Tpl_1416_Torwache_Life_Condition()
-{	
+{
 	return 1;
 };
 

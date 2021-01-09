@@ -1,12 +1,12 @@
 instance SLD_760_Soeldner (Npc_Default)
 {
 	//-------- primary data --------
-	
+
 	name =					Name_Soeldner;
 	Npctype =				NPCTYPE_MINE_GUARD;
-	guild =					GIL_SLD;       
+	guild =					GIL_SLD;
 	level =					18;
-	
+
 	voice =					13;
 	id =					760;
 
@@ -24,22 +24,22 @@ instance SLD_760_Soeldner (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Militia.mds");
-	//				body mesh,				head mesh,			53	hairmesh,	face-tex,	hair-tex,	skin	
+	//				body mesh,				head mesh,			53	hairmesh,	face-tex,	hair-tex,	skin
 	Mdl_SetVisualBody (self,"hum_body_Naked0",0, 1,"Hum_Head_Pony", 104,  1,SLD_ARMOR_M);
-	
+
 	B_Scale (self);
 	Mdl_SetModelFatness (self, 0);
 
-	
-	fight_tactic	=	FAI_HUMAN_STRONG; 
-	
+
+	fight_tactic	=	FAI_HUMAN_STRONG;
+
 	//-------- Talente --------
 
 	Npc_SetTalentSkill (self, NPC_TALENT_1H,1);
 	Npc_SetTalentSkill (self, NPC_TALENT_2H,1);
-	Npc_SetTalentSkill (self, NPC_TALENT_BOW,1);	
+	Npc_SetTalentSkill (self, NPC_TALENT_BOW,1);
 
-	//-------- inventory --------                                    
+	//-------- inventory --------
 
 	EquipItem (self, ItMw_1H_Mace_War_03);
 	EquipItem (self, ItRw_Bow_Long_01);
@@ -53,11 +53,11 @@ instance SLD_760_Soeldner (Npc_Default)
 	CreateInvItems (self, ItFo_Potion_Health_02,8);
 	CreateInvItem (self, ItMi_Stuff_Barbknife_01);
 	CreateInvItem (self, ItMi_Stuff_Amphore_01);
-		
+
 	//-------------Daily Routine-------------
 
 	daily_routine = Rtn_FMCstart_760;
-	
+
 	//-------------Misions-------------------
 
 };

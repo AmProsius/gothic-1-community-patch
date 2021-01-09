@@ -8,10 +8,10 @@ INSTANCE DIA_Butch_Exit (C_INFO)
 	nr			= 999;
 	condition	= DIA_Butch_Exit_Condition;
 	information	= DIA_Butch_Exit_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC INT DIA_Butch_Exit_Condition()
 {
@@ -38,7 +38,7 @@ instance DIA_Butch_Hello (C_INFO)
 };
 
 FUNC int  DIA_Butch_Hello_Condition()
-{	
+{
 	return 1;
 };
 

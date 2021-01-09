@@ -7,10 +7,10 @@
 FUNC VOID ZS_RepairHut ()
 {
     PrintDebugNpc 		(PD_TA_FRAME,	"ZS_RepairHut");
-    
-	B_SetPerception 	(self);    
+
+	B_SetPerception 	(self);
 	AI_SetWalkmode 		(self,	NPC_WALK);		// Walkmode für den Zustand
-	
+
 	if !(C_BodyStateContains(self,BS_MOBINTERACT_INTERRUPT))
 	{
 	    AI_GotoWP		(self, 	self.wp);
@@ -27,18 +27,18 @@ FUNC VOID ZS_RepairHut_Loop ()
 	{
     	var int repairreaktion;
     	repairreaktion = Hlp_Random (100);
-    	
+
     	if 		(repairreaktion >= 90)
     	{
-    		AI_PlayAniBS(self,"T_REPAIR_RANDOM_1",BS_MOBINTERACT_INTERRUPT); 
+    		AI_PlayAniBS(self,"T_REPAIR_RANDOM_1",BS_MOBINTERACT_INTERRUPT);
     	}
     	else if (repairreaktion >= 85)
     	{
     		B_Pee		(self);
-    	};	
+    	};
 	};
-	
-	
+
+
  	var int randomizer;
  	randomizer = Hlp_Random	(20);
     if (Npc_GetStateTime ( self ) >= 100 + randomizer)

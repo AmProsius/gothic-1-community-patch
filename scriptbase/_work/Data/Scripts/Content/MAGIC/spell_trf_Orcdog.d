@@ -9,7 +9,7 @@ func int Spell_Logic_Trf_Orcdog(var int manaInvested)
 {
 	PrintDebugNpc		(PD_MAGIC,	"Spell_Logic_Transform");
 
-	if (manaInvested >= SPL_SENDCAST_TRF_ORCDOG) 
+	if (manaInvested >= SPL_SENDCAST_TRF_ORCDOG)
 	{
 		Npc_SetActiveSpellInfo(self, Orcdog);
 		return SPL_SENDCAST;

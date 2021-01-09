@@ -1,10 +1,10 @@
 instance KDF_401_Damarok (Npc_Default)
 {
 	//-------- primary data --------
-	
+
 	name 		=	"Damarok";
 	npctype		=	npctype_main;
-	guild 		=	GIL_KDF;      
+	guild 		=	GIL_KDF;
 	level 		=	27;
 	voice 		=	14;
 	id 			=	401;
@@ -21,28 +21,28 @@ instance KDF_401_Damarok (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Mage.mds");
-	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
+	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin
 	Mdl_SetVisualBody (self,"hum_body_Naked0",0,0,"Hum_Head_FatBald", 5, 1, KDF_ARMOR_L);
 
 	B_Scale (self);
 	Mdl_SetModelFatness (self, 0);
-    	
+
     	self.aivar[AIV_IMPORTANT] = TRUE;
-	
+
 	fight_tactic	=	FAI_HUMAN_MAGE;
 
-	//-------- Talente --------                                    
+	//-------- Talente --------
 	Npc_SetTalentSkill		( self, NPC_TALENT_MAGE,		6);
 
 
-	//-------- Spells--------                                    
+	//-------- Spells--------
 	CreateInvItem(self,ItArRuneFireball);
 
-	//-------- inventory --------                                    
+	//-------- inventory --------
 	CreateInvItems(self, ItFo_Potion_Health_02, 3);
 	CreateInvItems(self, ItFo_Potion_Health_01, 4);
 	EquipItem (self, Schutzamulett_Geschosse);
-	CreateInvItem	(self,ItMi_Stuff_OldCoin_02);	
+	CreateInvItem	(self,ItMi_Stuff_OldCoin_02);
 
 	//-------------Daily Routine-------------
 

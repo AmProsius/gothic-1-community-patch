@@ -1,12 +1,12 @@
 instance ORG_842_Shrike (Npc_Default)
 {
 	//-------- primary data --------
-	
+
 	name =					"Shrike";
 	Npctype =				Npctype_Main;
-	guild =					GIL_ORG;      
+	guild =					GIL_ORG;
 	level =					6;
-	
+
 	voice =					7;
 	id =					842;
 
@@ -23,22 +23,22 @@ instance ORG_842_Shrike (Npc_Default)
 	//-------- visuals --------
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
-	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
+	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin
 	Mdl_SetVisualBody (self,"hum_body_Naked0",0, 2,"Hum_Head_Thief", 9,  1, ORG_ARMOR_L);
-	
-	B_Scale (self);	
-	Mdl_SetModelFatness (self, 0);		
-	
+
+	B_Scale (self);
+	Mdl_SetModelFatness (self, 0);
+
 	fight_tactic	=	FAI_HUMAN_STRONG;
-	
+
 	//-------- Talente ----------
 	Npc_SetTalentSkill (self, NPC_TALENT_BOW,1);
 	Npc_SetTalentSkill (self, NPC_TALENT_1H,1);
-	
-	
-	//-------- inventory --------   
-	                                 
-	CreateInvItems (self, ItKeLockpick,2);		
+
+
+	//-------- inventory --------
+
+	CreateInvItems (self, ItKeLockpick,2);
 	CreateInvItems(self, ItMiNugget, 15);
 	CreateInvItems (self, ItFoRice,7);
 	CreateInvItems (self, ItFoBooze, 3);
@@ -52,7 +52,7 @@ instance ORG_842_Shrike (Npc_Default)
 	EquipItem (self, ItMw_1H_Mace_02);
 	EquipItem (self, ItRw_Bow_Small_02);
 	CreateInvItems (self, ItAmArrow, 20);
-	
+
 	//-------------Daily Routine-------------
 	daily_routine = Rtn_PreStart_842;
 };

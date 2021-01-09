@@ -8,7 +8,7 @@ instance NOV_1314_Novize (Npc_Default)
 
 	voice 		=		2;
 	id 			=		1310;
-		
+
 	//-------- abilities --------
 	attribute[ATR_STRENGTH] 		=	15;
 	attribute[ATR_DEXTERITY] 		=	15;
@@ -26,18 +26,18 @@ instance NOV_1314_Novize (Npc_Default)
 
 	B_Scale (self);
 	Mdl_SetModelFatness(self,-1);
-	
+
 	fight_tactic	=	FAI_HUMAN_COWARD;
 
 	//-------- Talente --------
-	
+
 	//-------- inventory --------
 
 	EquipItem (self, ItMw_1H_Axe_Old_01);
 	//CreateInvItem (self, ItFoSoup);
 	//CreateInvItem (self, ItMiJoint);
- 
-	
+
+
 	//-------------Daily Routine-------------
 	daily_routine = Rtn_start_1314;
 };
@@ -45,5 +45,5 @@ instance NOV_1314_Novize (Npc_Default)
 FUNC VOID Rtn_start_1314 ()
 {
     TA_Sleep	(00,30,07,30,"PSI_13_HUT_IN");
-    TA_Smoke	(07,30,00,30,"PSI_PATH_4_2");	
+    TA_Smoke	(07,30,00,30,"PSI_PATH_4_2");
 };

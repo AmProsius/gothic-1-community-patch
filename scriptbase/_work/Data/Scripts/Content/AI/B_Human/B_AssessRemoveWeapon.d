@@ -1,7 +1,7 @@
 func void B_AssessRemoveWeapon ()
 {
-	PrintDebugNpc		(PD_ZS_FRAME, "B_AssessRemoveWeapon" );	
-	
+	PrintDebugNpc		(PD_ZS_FRAME, "B_AssessRemoveWeapon" );
+
 	C_StopLookAt		(self);
 	B_RemoveWeapon	 	(self);
 

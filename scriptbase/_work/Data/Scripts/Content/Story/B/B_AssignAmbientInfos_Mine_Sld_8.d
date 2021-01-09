@@ -9,13 +9,13 @@
 
 INSTANCE Info_Mine_Sld_8_EXIT(C_INFO)
 {
-	
+
 	nr			= 999;
 	condition	= Info_Mine_Sld_8_EXIT_Condition;
 	information	= Info_Mine_Sld_8_EXIT_Info;
 	permanent	= 1;
 	description = "ENDE";
-};                       
+};
 
 FUNC INT Info_Mine_Sld_8_EXIT_Condition()
 {
@@ -23,7 +23,7 @@ FUNC INT Info_Mine_Sld_8_EXIT_Condition()
 };
 
 FUNC VOID Info_Mine_Sld_8_EXIT_Info()
-{	
+{
 	AI_StopProcessInfos	(self);
 };
 
@@ -38,7 +38,7 @@ INSTANCE Info_Mine_Sld_8_EinerVonEuchWerden (C_INFO) // E1
 	information	= Info_Mine_Sld_8_EinerVonEuchWerden_Info;
 	permanent	= 1;
 	description = "Wie kann ich diesem Trupp hier beitreten?";
-};                       
+};
 
 FUNC INT Info_Mine_Sld_8_EinerVonEuchWerden_Condition()
 {
@@ -69,7 +69,7 @@ INSTANCE Info_Mine_Sld_8_WichtigePersonen(C_INFO)
 	information	= Info_Mine_Sld_8_WichtigePersonen_Info;
 	permanent	= 1;
 	description = "Wer hat hier das Sagen?";
-};                       
+};
 
 FUNC INT Info_Mine_Sld_8_WichtigePersonen_Condition()
 {
@@ -94,7 +94,7 @@ INSTANCE Info_Mine_Sld_8_DasLager(C_INFO)
 	information	= Info_Mine_Sld_8_DasLager_Info;
 	permanent	= 1;
 	description = "Was gibt es hier im Camp?";
-};                       
+};
 
 FUNC INT Info_Mine_Sld_8_DasLager_Condition()
 {
@@ -119,7 +119,7 @@ INSTANCE Info_Mine_Sld_8_DieLage(C_INFO) // E1
 	information	= Info_Mine_Sld_8_DieLage_Info;
 	permanent	= 1;
 	description = "Alles klar?";
-};                       
+};
 
 FUNC INT Info_Mine_Sld_8_DieLage_Condition()
 {
@@ -131,14 +131,14 @@ FUNC VOID Info_Mine_Sld_8_DieLage_Info()
 	AI_Output(other,self,"Info_Mine_Sld_8_DieLage_15_00"); //Alles klar?
 	AI_Output(self,other,"Info_Mine_Sld_8_DieLage_08_01"); //Was soll die Frage? Wir haben alles unter Kontrolle.
 };
-	
+
 // *************************************************************************
 // -------------------------------------------------------------------------
 
 FUNC VOID B_AssignAmbientInfos_Mine_Sld_8(var c_NPC slf)
 {
 	//B_AssignFindNpcInfos(slf);
-	
+
 	Info_Mine_Sld_8_EXIT.npc					= Hlp_GetInstanceID(slf);
 	Info_Mine_Sld_8_EinerVonEuchWerden.npc	= Hlp_GetInstanceID(slf);
 	Info_Mine_Sld_8_WichtigePersonen.npc		= Hlp_GetInstanceID(slf);

@@ -1,18 +1,18 @@
 func void ZS_Attack ()
-{	
-	PrintDebugNpc		(PD_ZS_FRAME, "ZS_Attack" );		
+{
+	PrintDebugNpc		(PD_ZS_FRAME, "ZS_Attack" );
 	C_ZSInit			();
 
 	PrintGlobals		(PD_ZS_FRAME);
-	Npc_PercEnable  	(self,	PERC_ASSESSMURDER,			B_CombatAssessMurder	);	
+	Npc_PercEnable  	(self,	PERC_ASSESSMURDER,			B_CombatAssessMurder	);
 	Npc_PercEnable  	(self,	PERC_ASSESSDEFEAT,			B_CombatAssessDefeat	);
 	Npc_PercEnable  	(self,	PERC_ASSESSDAMAGE,			B_CombatReactToDamage	);
 	Npc_PercEnable  	(self, 	PERC_ASSESSSURPRISE	,		ZS_AssessSurprise		);
-	Npc_PercEnable  	(self, 	PERC_ASSESSMAGIC,			B_AssessMagic			);			
+	Npc_PercEnable  	(self, 	PERC_ASSESSMAGIC,			B_AssessMagic			);
 	Npc_PercEnable		(self,	PERC_ASSESSREMOVEWEAPON	,	B_CombatRemoveWeapon	);
 	Npc_PercEnable		(self,	PERC_ASSESSENTERROOM	,	B_CombatAssessEnterRoom	);
 	Npc_PercEnable		(self,	PERC_CATCHTHIEF			,	B_CombatCatchThief		);
-    
+
 	Npc_GetTarget		(self);
 	B_WhirlAround		(self,	other);
 	B_SelectWeapon		(self,	other);
@@ -21,11 +21,11 @@ func void ZS_Attack ()
 
 func int ZS_Attack_Loop()
 {
-	PrintDebugNpc		(PD_ZS_LOOP,	"ZS_Attack_Loop");		
+	PrintDebugNpc		(PD_ZS_LOOP,	"ZS_Attack_Loop");
 
 	Npc_GetTarget		(self);
 	PrintGlobals		(PD_ZS_DETAIL);
-		
+
 	//-------- Wenn Gegner Bewußtlos oder Tod... --------
 	if (C_NpcIsDown(other) || !Hlp_IsValidNpc(other))
 	{
@@ -62,44 +62,44 @@ func int ZS_Attack_Loop()
 		&&	(!Npc_IsInFightMode(other,	FMODE_FAR)	&&	!Npc_IsInFightMode(other,	FMODE_MAGIC))	)
 		{
 			PrintDebugNpc		(PD_ZS_CHECK,	"...WEDER NSC noch Gegner führen Fernkampfwaffen!" );
-		
+
 			if ( (Npc_GetDistToNpc(self, other)>HAI_DIST_ABORT_MELEE) && (self.aivar[AIV_LASTHITBYRANGEDWEAPON]==FALSE) )
 			{
 				PrintDebugNpc			(PD_ZS_CHECK,	"...Gegner außerhalb Nahkampfreichweite & letzter Treffer nicht durch Fernkampfwaffe!");
-					
+
 				B_FullStop 				(self);
 				PrintGlobals			(PD_ZS_CHECK);
 				if (C_NpcIsHuman(other))
 				{
 					B_AssessAndMemorize (NEWS_DEFEAT,NEWS_SOURCE_WITNESS, self, self, other);
-					
+
 					if (Npc_GetPermAttitude (self, other) != ATT_HOSTILE) //MH: sonst kommt SVM püntig!
 					{
 						AI_PointAtNpc		(self,	other);
-						B_Say				(self,	other,	"$RUNCOWARD");	
+						B_Say				(self,	other,	"$RUNCOWARD");
 						AI_StopPointAt		(self);
 					};
 				};
 				return 					LOOP_END;
 			};
 		}
-	
+
 		//-------- Fernkampfdistanz zu groß ? --------
 		else
-		{	
+		{
 			PrintDebugNpc				(PD_ZS_CHECK,	"...entweder NSC oder Gegner FÜHREN Fernkampfwaffen!" );
-		
+
 			if (Npc_GetDistToNpc(self, other) > HAI_DIST_ABORT_RANGED)
 			{
 				PrintDebugNpc			(PD_ZS_CHECK,	"...Gegner außerhalb Fernkampfreichweite!" );
 				B_FullStop 				(self);
 				return 					LOOP_END;
 			};
-		};	
-		
+		};
+
 		//-------- SC-Gegner rennt schon zu lange (davon) ? --------
 		var int countPursuitCycles;									// 2. Zähler neben StateTime für Verfolgungsabbruch nach  Zeit
-		countPursuitCycles = countPursuitCycles + 1;	
+		countPursuitCycles = countPursuitCycles + 1;
 		if (Npc_IsPlayer(other)
 		&&	(C_BodyStateContains(other,BS_RUN) || C_BodyStateContains(other,BS_JUMP))
 		&&	!Npc_IsInFightMode(self,FMODE_FAR)
@@ -113,14 +113,14 @@ func int ZS_Attack_Loop()
 				if (C_NpcIsHuman(other))
 				{
 					B_AssessAndMemorize (NEWS_DEFEAT,NEWS_SOURCE_WITNESS, self, self, other);
-					
+
 					if (Npc_GetPermAttitude (self, other) != ATT_HOSTILE) //MH: sonst kommt SVM püntig!
 					{
 						AI_PointAtNpc		(self,	other);
-						B_Say				(self,	other,	"$RUNCOWARD");	
+						B_Say				(self,	other,	"$RUNCOWARD");
 						AI_StopPointAt		(self);
 					};
-					
+
 					AI_Wait				(self,	5);
 				};
 				return					LOOP_END;
@@ -130,11 +130,11 @@ func int ZS_Attack_Loop()
 		{
 			countPursuitCycles = 0;
 		};
-	
+
 		//-------- Auswahl/Wechsel der richtigen Waffe --------
 		PrintGlobals					(PD_ZS_DETAIL);
 		Npc_ClearAIQueue				(self);						// falls sich FAI-Moves schneller ansammeln, als sie abgearbeitet werden können.
-		B_SelectWeapon					(self,	other);	
+		B_SelectWeapon					(self,	other);
 		AI_SetWalkmode 					(self,	NPC_RUN);			// falls durch den Waffenwechsel ein AI_Standup() passiert!
 		Npc_SetStateTime				(self, 	0);
 	};
@@ -148,7 +148,7 @@ func int ZS_Attack_Loop()
 	{
 		AI_Wait				(self,	0.5);
 	};
-			
+
 	//-------- Flucht antreten? --------
 	if	(self.npctype==NPCTYPE_AMBIENT)
 	||	(self.npctype==NPCTYPE_OW_AMBIENT)
@@ -158,13 +158,13 @@ func int ZS_Attack_Loop()
 		if ( (self.fight_Tactic == FAI_HUMAN_COWARD) && (self.attribute[ATR_HITPOINTS] < (self.attribute[ATR_HITPOINTS_MAX] / 2) ) )
 		{
 			PrintDebugNpc(PD_ZS_CHECK, "...coward flees!" );
-			AI_StartState( self, ZS_Flee, 0, "" );			
+			AI_StartState( self, ZS_Flee, 0, "" );
 		};
 		if ( (self.fight_Tactic == FAI_HUMAN_STRONG) && (self.attribute[ATR_HITPOINTS] < (self.attribute[ATR_HITPOINTS_MAX] / 4 * 3) ) )
 		{
 			PrintDebugNpc(PD_ZS_CHECK, "...strong flees!" );
 			AI_StartState( self, ZS_Flee, 0, "" );
-		};	  
+		};
 		if ( (self.fight_Tactic == FAI_HUMAN_MAGE) && (self.attribute[ATR_MANA] < (self.attribute[ATR_MANA_MAX] / 5)) )
 		{
 			PrintDebugNpc(PD_ZS_CHECK, "...mage flees!" );
@@ -181,13 +181,13 @@ func int ZS_Attack_Loop()
 };
 
 func void ZS_Attack_End()
-{	
-	PrintDebugNpc			(PD_ZS_FRAME, "ZS_Attack_End" );		
-	
+{
+	PrintDebugNpc			(PD_ZS_FRAME, "ZS_Attack_End" );
+
 	other = Hlp_GetNpc(self.aivar[AIV_LASTTARGET]);			//SN: 'other' wird durch ein erfolgloses Npc_GetNextTarget() manchmal gelöscht!
 
 	PrintGlobals			(PD_ZS_CHECK);
-	
+
 	/* ---- Ist der Gegner "nur" bewußtlos...  ---- */
 	if ( Npc_IsInState(other, ZS_Unconscious) && (self.fight_tactic != FAI_HUMAN_RANGED))
 	{
@@ -204,21 +204,21 @@ func void ZS_Attack_End()
 		if ((Npc_GetPermAttitude(self, other) == ATT_HOSTILE)
 		||	((C_GetAttackReason(self) == AIV_AR_INTRUDER) && Npc_HasNews(self, NEWS_DEFEAT,self, other)))
 		{
-		    // ---- ... wird er "gefinished" wenn er ein Feind oder Eindringling ist... ---- 
+		    // ---- ... wird er "gefinished" wenn er ein Feind oder Eindringling ist... ----
 			PrintDebugNpc	(PD_ZS_CHECK, "...Hostile/Intruder wird gefinished" );
 			B_FullStop		(self);
 			PrintGlobals	(PD_ZS_CHECK);
-			AI_FinishingMove(self,	other);						
+			AI_FinishingMove(self,	other);
 			AI_Wait			(self,	1);
-		} 
-		else 
+		}
+		else
 		{
-			// ---- ... oder ihm geraten es nicht wieder zu versuchen ---- 
+			// ---- ... oder ihm geraten es nicht wieder zu versuchen ----
 			PrintDebugNpc	(PD_ZS_CHECK, "...Nicht hostile" );
-			B_Say			(self, other, "$NEVERTRYTHATAGAIN" );		
-		};		
+			B_Say			(self, other, "$NEVERTRYTHATAGAIN" );
+		};
 	};
-	
+
 	//-------- Nachbereitungen --------
 	B_RemoveWeapon			(self);
 	C_StopLookAt			(self);
@@ -228,9 +228,9 @@ func void ZS_Attack_End()
 	{
 		other.aivar[AIV_GUARDPASSAGE_STATUS] = AIV_GPS_FIRSTWARN;
 	};
-	
+
 	//-------- Plündern ! --------
-	if (!C_NpcIsBoss(self) && C_NpcIsHuman(other) && (Npc_IsInState(other, ZS_Unconscious) || Npc_IsDead(other) || Npc_IsInState(other, ZS_MagicSleep)) ) 
+	if (!C_NpcIsBoss(self) && C_NpcIsHuman(other) && (Npc_IsInState(other, ZS_Unconscious) || Npc_IsDead(other) || Npc_IsInState(other, ZS_MagicSleep)) )
 	{
 		if (self.fight_tactic != FAI_HUMAN_RANGED)
 		{
@@ -254,7 +254,7 @@ func void ZS_Attack_End()
 func void B_CombatRemoveWeapon ()
 {
 	PrintDebugNpc				(PD_ZS_FRAME, "B_CombatRemoveWeapon");
-	
+
 	if (Npc_WasInState(self,ZS_AssessFighter) || Npc_WasInState(self,ZS_AssessFighterWait))	// Angriffs-Grund das Nichtbefolgen des "Waffe weg"?...
 	{
 		PrintDebugNpc			(PD_ZS_CHECK,	"...Angriffsgrund: Waffe nicht weggesteckt!");
@@ -262,11 +262,11 @@ func void B_CombatRemoveWeapon ()
 		{
 			PrintDebugNpc		(PD_ZS_CHECK,	"...NSC unverletzt!");
 			B_FullStop			(self);
-			B_ResetTempAttitude	(self);	
+			B_ResetTempAttitude	(self);
 			B_AssessRemoveWeapon();															// ...dann bricht der NSC den Kampf gerade noch ab!
 		};
 	};
-};	
+};
 
 //------------------------------------------------------------------------------------------------------
 // Die letzt Chance für einen Abbruch des Kampfes
@@ -288,7 +288,7 @@ func void B_CombatAssessEnterRoom ()
 		{
 			PrintDebugNpc		(PD_ZS_CHECK,	"...NSC unverletzt!");
 			B_FullStop			(self);
-			B_ResetTempAttitude	(self);	
+			B_ResetTempAttitude	(self);
 			B_AssessRemoveWeapon();															// ...dann bricht der NSC den Kampf gerade noch ab!
 		};
 	};
@@ -300,12 +300,12 @@ func void B_CombatAssessEnterRoom ()
 // Bedingung:
 //	- Speieler beklaut mich
 //	- dadurch wird alles andere unwichtig
-//	
+//
 //------------------------------------------------------------------------------------------------------
 func void B_CombatCatchThief ()
 {
 	PrintDebugNpc				(PD_ZS_FRAME, "B_CombatAssessTheft");
-	
+
 	B_AssessAndMemorize	( NEWS_THEFT, NEWS_SOURCE_WITNESS, self, other, self);
 	B_FullStop 			( self);
 	B_WhirlAround 		( self, other);

@@ -1,5 +1,5 @@
 // **************************************************
-// 						 EXIT 
+// 						 EXIT
 // **************************************************
 
 INSTANCE DIA_Grd_217_Exit (C_INFO)
@@ -10,7 +10,7 @@ INSTANCE DIA_Grd_217_Exit (C_INFO)
 	information	= DIA_Grd_217_Exit_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC INT DIA_Grd_217_Exit_Condition()
 {
@@ -37,7 +37,7 @@ INSTANCE DIA_Grd_217_First (C_INFO)
 };
 
 FUNC INT DIA_Grd_217_First_Condition()
-{	
+{
 	return 1;
 };
 

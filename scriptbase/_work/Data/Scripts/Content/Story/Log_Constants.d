@@ -48,10 +48,10 @@ const string	CH1_KalomsRecipe		=	"Rezept der Sekte";
 const string	CH1_BringList     		=	"Prüfung des Vertrauens";
 const string	CH1_GoToPsi     		=	"Die Große Sache der Bruderschaft";
 //Aufnahme Neues Lager
-const string	CH1_JoinNC             	=   "Aufnahme Neues Lager";    
+const string	CH1_JoinNC             	=   "Aufnahme Neues Lager";
 const string	CH1_CarryWater			=	"Wasserträger für Lefty";
 const string	CH1_DamLurker           =   "Lurker am Damm";
-const string	CH1_SpreadJoints        =   "Kundenwerbung"; 
+const string	CH1_SpreadJoints        =   "Kundenwerbung";
 const string	CH1_DealerJob           =   "Der Krautverkäufer";
 const string	CH1_ShrikesHut			=	"Shrike's Hütte";
 const string	CH1_HoratiosTeachings	=	"Horatio der Bauer";

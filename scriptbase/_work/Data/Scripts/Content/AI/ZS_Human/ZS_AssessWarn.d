@@ -20,12 +20,12 @@
 ////////////////////////////////////////////////////////////////////////////////////////
 func void ZS_AssessWarn ()
 {
-	PrintDebugNpc		(PD_ZS_FRAME, "ZS_AssessWarn");		
+	PrintDebugNpc		(PD_ZS_FRAME, "ZS_AssessWarn");
 	PrintGlobals 		(PD_ZS_CHECK);
 	C_ZSInit			();
 
 	var string			nextWP;
-		
+
 	Npc_PercEnable  	(self,	PERC_ASSESSDAMAGE		,	ZS_ReactToDamage	);
 	Npc_PercEnable  	(self, 	PERC_ASSESSMAGIC		,	B_AssessMagic		);
 	Npc_PercEnable  	(self, 	PERC_ASSESSENEMY		,	B_AssessEnemy		);
@@ -41,31 +41,31 @@ func void ZS_AssessWarn ()
 	Npc_PercEnable  	(self, 	PERC_ASSESSENTERROOM	, 	B_AssessEnterRoom	);
 	Npc_SetPercTime		(self,	1);
 
-	// ----------------- MH: für ItemSchweine (EBR-Haus. Lares, etc) ------------------ 
+	// ----------------- MH: für ItemSchweine (EBR-Haus. Lares, etc) ------------------
 	if (victim.aivar[AIV_ITEMSCHWEIN]==TRUE)
 	&& (Npc_GetAttitude(self,victim) == ATT_FRIENDLY)
 	{
 		Npc_SetTarget 		(self,	other);
     	AI_StartState		(self,	ZS_Attack, 0, "");
 	}
-		
+
 	//-------- Fall 5/6: der Spieler im verbotenen Raum --------
 	else if	C_NpcIsGuard(self)
 	&&	((Npc_IsInState(victim,ZS_CallGuardsOnEnterRoom)) || (Npc_WasInState (victim,ZS_CallGuardsOnEnterRoom)))
-	&&	!Npc_IsInState(self,ZS_GuardPassage)		
+	&&	!Npc_IsInState(self,ZS_GuardPassage)
 	&&	(Npc_GetAttitude(self,victim) == ATT_FRIENDLY)
 	{
-		
+
 		PrintDebugNpc		(PD_ZS_CHECK,	"...verlassener Portalraum gehört Schützling-Gilde!");
-    	Npc_PercEnable  	(self, 	PERC_ASSESSENTERROOM	,	B_ClearRoomEnterRoom);			
+    	Npc_PercEnable  	(self, 	PERC_ASSESSENTERROOM	,	B_ClearRoomEnterRoom);
     	B_WhirlAround		(self,	other);
     	AI_PointAtNpc		(self,	other);
     	B_Say				(self,	other,	"$HEYYOU");
-    	AI_StopPointAt		(self);		
+    	AI_StopPointAt		(self);
     	Npc_PercDisable		(self,	PERC_MOVENPC);
     	AI_SetWalkmode		(self,	NPC_RUN);
     	AI_GotoNpc			(self,	other);
-    	B_Say				(self,	other, "$WHATDIDYOUINTHERE");		
+    	B_Say				(self,	other, "$WHATDIDYOUINTHERE");
 	}
 	else if	C_NpcIsGuardArcher(self)
 	&&		Npc_IsInState(victim,ZS_CallGuardsOnEnterRoom)
@@ -77,16 +77,16 @@ func void ZS_AssessWarn ()
     		B_WhirlAround		(self,	hero);
     		AI_PointAtNpc		(self,	hero);
     		B_Say				(self,	hero,	"$HEYYOU");
-    		AI_StopPointAt		(self);		
+    		AI_StopPointAt		(self);
     		B_DrawWeapon		(self,	other);
-    		B_Say				(self,	hero, "$YOUVIOLATEDFORBIDDENTERRITORY");		
+    		B_Say				(self,	hero, "$YOUVIOLATEDFORBIDDENTERRITORY");
     		Npc_SetTarget 		(self,	hero);
     		AI_StartState		(self,	ZS_Attack, 0, "");
     	}
     	else
     	{
     	    PrintDebugNpc		(PD_ZS_CHECK,	"Eindringling ist schon bestraft worden");
-    	};	
+    	};
 	}
 
 	//-------- Fall 7: Spieler hat verbotenen Durchgang durchschritten --------
@@ -95,12 +95,12 @@ func void ZS_AssessWarn ()
 	&&		(Npc_GetAttitude(self,victim) == ATT_FRIENDLY)
 	{
 	    PrintDebugNpc		(PD_ZS_CHECK,	"...Warnung von Torwache, deren Durchgang durchbrochen worde");
-    	   
+
     	B_WhirlAround		(self,	hero);
     	B_DrawWeapon		(self,	other);
 		B_SetAttackReason	(self,	AIV_AR_INTRUDER);
 		Npc_SetTarget 		(self,	hero);
-		
+
 		Npc_GetTarget		(self);
 		AI_StartState		(self,	ZS_ProclaimAndPunish, 0, "");
     }
@@ -110,7 +110,7 @@ func void ZS_AssessWarn ()
     &&		(C_NpcIsGuard(self) || C_NpcIsGuardArcher(self))
 	&&		(Npc_GetAttitude(self,victim) == ATT_FRIENDLY)
  	&&		(Npc_GetAttitude(self,other) != ATT_FRIENDLY)
- 	&&		!(Npc_IsPlayer(other) && (self.npctype == NPCTYPE_FRIEND)) 
+ 	&&		!(Npc_IsPlayer(other) && (self.npctype == NPCTYPE_FRIEND))
 	&&		(Npc_GetDistToNpc(self,victim) < HAI_DIST_HELPATTACKEDCHARGES)
     {
     	PrintDebugNpc	(PD_ZS_CHECK,	"...Warnung vor Feind!");
@@ -122,29 +122,29 @@ func void ZS_AssessWarn ()
     {
     	PrintDebugNpc	(PD_ZS_CHECK,	"...Spieler schleicht rum und ich bin gewarnt worden");
     	Npc_SetTarget	(self, other);
-    	
+
     	Npc_GetTarget	( self);
     	AI_StartState	(self, ZS_ObserveSuspect, 0, "");
     }
-		
+
 	//-------- Default-Reaktion auf Warnung --------
 	else
 	{ 	//SN: keine Default-Reaktion!!!
 		//AI_Wait			(self,	1.0);		// Reaktionszeit
 		//B_WhirlAround 	(self, 	other);
-	};	
+	};
 };
 
 func int ZS_AssessWarn_Loop ()
 {
-	PrintDebugNpc		(PD_ZS_LOOP, "ZS_AssessWarn_Loop" );		
+	PrintDebugNpc		(PD_ZS_LOOP, "ZS_AssessWarn_Loop" );
 	AI_Wait				(self, 2);			// ...2 Sekunden alles beobachten...
 	return 				LOOP_END;			// ...dann Abbruch!
 };
 
 func void ZS_AssessWarn_End ()
 {
-	PrintDebugNpc			(PD_ZS_FRAME, "ZS_AssessWarn_End");		
+	PrintDebugNpc			(PD_ZS_FRAME, "ZS_AssessWarn_End");
 	if (Npc_CanSeeNpcFreeLOS(self, other))
 	{
 		PrintDebugNpc		(PD_ZS_CHECK, "ZS_AssessWarn End // Free Los");
@@ -152,8 +152,8 @@ func void ZS_AssessWarn_End ()
 		if ((Npc_GetTempAttitude(self, other) == ATT_HOSTILE) || (Npc_GetPermAttitude	( self, other) == ATT_HOSTILE))
 		{
 			PrintDebugNpc	(PD_ZS_CHECK, "ZS_AssessWarn End // Free Los // HOSTILE");
-			Npc_SetTarget	(self, other);	
-			
+			Npc_SetTarget	(self, other);
+
 			Npc_GetTarget	(self);
 			AI_StartState	(self, ZS_AssessEnemy, 0, "");
 			return;

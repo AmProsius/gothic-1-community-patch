@@ -8,10 +8,10 @@ instance  DIA_BaalTyon_Exit (C_INFO)
 	nr			=  999;
 	condition	=  DIA_BaalTyon_Exit_Condition;
 	information	=  DIA_BaalTyon_Exit_Info;
-	important	=  0;	
+	important	=  0;
 	permanent	=  1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC int  DIA_BaalTyon_Exit_Condition()
 {
@@ -24,7 +24,7 @@ FUNC VOID  DIA_BaalTyon_Exit_Info()
 };
 
 // ************************************************************
-// 					NICHT ansprechbar (Ungläubiger) 
+// 					NICHT ansprechbar (Ungläubiger)
 // ************************************************************
 	var int BaalTyon_Ansprechbar;
 	var int BaalTyon_Sakrileg;
@@ -38,7 +38,7 @@ INSTANCE DIA_BaalTyon_NoTalk(C_INFO)
 	information		= DIA_BaalTyon_NoTalk_Info;
 	permanent		= 1;
 	important 		= 1;
-};                       
+};
 
 FUNC INT DIA_BaalTyon_NoTalk_Condition()
 {
@@ -49,7 +49,7 @@ FUNC INT DIA_BaalTyon_NoTalk_Condition()
 };
 
 FUNC VOID DIA_BaalTyon_NoTalk_Info()
-{	
+{
 	Info_ClearChoices 	(DIA_BaalTyon_NoTalk);
 	Info_Addchoice 		(DIA_BaalTyon_NoTalk,DIALOG_ENDE					,DIA_BaalTyon_NoTalk_ENDE);
 	if (Npc_HasItems(other,SpecialJoint)>=1)
@@ -77,7 +77,7 @@ func void DIA_BaalTyon_NoTalk_Sleeper()
 
 func void DIA_BaalTyon_NoTalk_Imp()
 {
-	AI_Output			(other, self,"DIA_BaalTyon_NoTalk_Imp_15_00"); //Alles klar, Alter? 
+	AI_Output			(other, self,"DIA_BaalTyon_NoTalk_Imp_15_00"); //Alles klar, Alter?
 	AI_Output			(self, other,"DIA_BaalTyon_NoTalk_Imp_11_01"); //
 	BaalTyon_Sakrileg = TRUE;
 };
@@ -118,8 +118,8 @@ instance  DIA_BaalTyon_Vision (C_INFO)
 	condition	=  DIA_BaalTyon_Vision_Condition;
 	information	=  DIA_BaalTyon_Vision_Info;
 	permanent	=  0;
-	important	=  1;	
-};                       
+	important	=  1;
+};
 
 FUNC int  DIA_BaalTyon_Vision_Condition()
 {
@@ -137,14 +137,14 @@ FUNC VOID  DIA_BaalTyon_Vision_Info()
 	AI_Output			(self, other,"DIA_BaalTyon_Vision_11_03"); //Und er sah DIR verdammt ähnlich.  Wer bist du? Was willst du hier?
 	AI_Output			(other, self,"DIA_BaalTyon_Vision_15_04"); //Ich bin nur ein bescheidener Diener des Schläfers ...
 	AI_Output			(self, other,"DIA_BaalTyon_Vision_11_05"); //Geh zu Cor Kalom. Er soll sich weiter mit dir befassen.
-	
+
 	self.npctype 	=	NPCTYPE_MAIN;
 	self.flags 		=	0;
 
 	BaalTyon_Ansprechbar = FALSE;
 	B_LogEntry			(CH1_JoinPsi,	"Baal Tyon hatte dank meines speziellen Geschenkes eine Vision! Er möchte, dass sich nun Cor Kalom mit mir befasst!");
 	B_GiveXP			(XP_ImpressedBaalTyon);
-	
+
 	AI_StopProcessInfos	(self);
 };
 

@@ -15,7 +15,7 @@ INSTANCE Info_Mine_Vlk_2_EXIT(C_INFO)
 	information	= Info_Mine_Vlk_2_EXIT_Info;
 	permanent	= 1;
 	description = "ENDE";
-};                       
+};
 
 FUNC INT Info_Mine_Vlk_2_EXIT_Condition()
 {
@@ -23,7 +23,7 @@ FUNC INT Info_Mine_Vlk_2_EXIT_Condition()
 };
 
 FUNC VOID Info_Mine_Vlk_2_EXIT_Info()
-{	
+{
 	AI_StopProcessInfos	(self);
 };
 
@@ -38,7 +38,7 @@ INSTANCE Info_Mine_Vlk_2_Mine (C_INFO) // E1
 	information	= Info_Mine_Vlk_2_Mine_Info;
 	permanent	= 1;
 	description = "Erzähl mir was von der Mine";
-};                       
+};
 
 FUNC INT Info_Mine_Vlk_2_Mine_Condition()
 {
@@ -66,7 +66,7 @@ INSTANCE Info_Mine_Vlk_2_WichtigePersonen(C_INFO)
 	information	= Info_Mine_Vlk_2_WichtigePersonen_Info;
 	permanent	= 1;
 	description = "Wer hat hier was zu Sagen?";
-};                       
+};
 
 FUNC INT Info_Mine_Vlk_2_WichtigePersonen_Condition()
 {
@@ -93,7 +93,7 @@ INSTANCE Info_Mine_Vlk_2_Minecrawler(C_INFO)
 	information	= Info_Mine_Vlk_2_Minecrawler_Info;
 	permanent	= 1;
 	description = "Was weißt Du über Minecrawler?";
-};                       
+};
 
 FUNC INT Info_Mine_Vlk_2_Minecrawler_Condition()
 {
@@ -121,7 +121,7 @@ INSTANCE Info_Mine_Vlk_2_DieLage(C_INFO) // E1
 	information	= Info_Mine_Vlk_2_DieLage_Info;
 	permanent	= 1;
 	description = "Wie sieht's aus?";
-};                       
+};
 
 FUNC INT Info_Mine_Vlk_2_DieLage_Condition()
 {
@@ -136,7 +136,7 @@ FUNC VOID Info_Mine_Vlk_2_DieLage_Info()
 	AI_Output(other,self,"Info_Mine_Vlk_2_DieLage_15_00"); //Wie sieht's aus?
 	AI_Output(self,other,"Info_Mine_Vlk_2_DieLage_01_01"); //Ich muss arbeiten. Wenn die Gardisten sehen, dass ich rede, dann kürzen sie meine Ration.
 };
-	
+
 // *************************************************************************
 // -------------------------------------------------------------------------
 

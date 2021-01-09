@@ -1,13 +1,13 @@
 instance SLD_728_Jarvis (Npc_Default)
 {
 	//-------- primary data --------
-	
+
 	name =					"Jarvis";
 	Npctype =				Npctype_Main;
-	guild =					GIL_SLD;       
+	guild =					GIL_SLD;
 	level =					16;
 	flags =					NPC_FLAG_IMMORTAL;
-	
+
 	voice =					8;
 	id =					728;
 
@@ -26,22 +26,22 @@ instance SLD_728_Jarvis (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Militia.mds");
-	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
+	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin
 	Mdl_SetVisualBody (self,"hum_body_Naked0",0, 1,"Hum_Head_Pony", 53,  1,SLD_ARMOR_M);
-	
+
 	B_Scale (self);
 	Mdl_SetModelFatness (self, 0);
 
-	
-    fight_tactic	=	FAI_HUMAN_MASTER; 
-			
+
+    fight_tactic	=	FAI_HUMAN_MASTER;
+
 	//-------- Talente --------
-	
+
 	Npc_SetTalentSkill (self, NPC_TALENT_1H,2);
 	Npc_SetTalentSkill (self, NPC_TALENT_2H,1);
-	
 
-	//-------- inventory --------                                    
+
+	//-------- inventory --------
 
 	EquipItem (self, ItMw_1H_Mace_War_03);
 	EquipItem (self, ItRw_Bow_Long_01);
@@ -55,12 +55,12 @@ instance SLD_728_Jarvis (Npc_Default)
 	CreateInvItems (self, ItFo_Potion_Health_02,6);
 	CreateInvItem (self, ItMi_Stuff_Barbknife_01);
 	CreateInvItem (self, ItMi_Stuff_Mug_01);
-	
-		
+
+
 	//-------------Daily Routine-------------
 
 	daily_routine = Rtn_start_728;
-	
+
 	//-------------Misions-------------------
 
 };

@@ -1,10 +1,10 @@
 instance KDW_602_Merdarion (Npc_Default)
 {
 	//-------- primary data --------
-	
+
 	name 		=	"Merdarion";
 	npctype		=	npctype_main;
-	guild 		=	GIL_KDW;      
+	guild 		=	GIL_KDW;
 	level 		=	26;
 	voice 		=	14;
 	id 			=	602;
@@ -21,21 +21,21 @@ instance KDW_602_Merdarion (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Mage.mds");
-	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung	
+	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung
 	Mdl_SetVisualBody (self,"hum_body_Naked0",0, 0,"Hum_Head_Thief", 8,  0,KDW_ARMOR_L);
-	
+
 	B_Scale (self);
 	Mdl_SetModelFatness (self, 0);
-	
-	fight_tactic	=	FAI_HUMAN_MAGE;	
-			
+
+	fight_tactic	=	FAI_HUMAN_MAGE;
+
 	//-------- Talente --------
 	Npc_SetTalentSkill		( self, NPC_TALENT_MAGE,		6);
 
-	//-------- Spells --------        
+	//-------- Spells --------
 	CreateInvItem (self,ItArRuneChainlightning);
-	
-	//-------- inventory --------                                    
+
+	//-------- inventory --------
 
 	CreateInvItem (self, ItFo_Potion_Health_03);
 	CreateInvItems (self, ItFo_Potion_Mana_02,2);
@@ -56,6 +56,6 @@ FUNC VOID Rtn_start_602 ()
 
 FUNC VOID Rtn_KDWAUFNAHME_602 () // WECHSEL VOM KDF ZUM KDW
 {
-	TA_Position		(01,00,05,00,"NC_KDW_CAVE_STAIRS_MOVEMENT2");	
-	TA_Position 	(05,00,01,00,"NC_KDW_CAVE_STAIRS_MOVEMENT2");	
+	TA_Position		(01,00,05,00,"NC_KDW_CAVE_STAIRS_MOVEMENT2");
+	TA_Position 	(05,00,01,00,"NC_KDW_CAVE_STAIRS_MOVEMENT2");
 };

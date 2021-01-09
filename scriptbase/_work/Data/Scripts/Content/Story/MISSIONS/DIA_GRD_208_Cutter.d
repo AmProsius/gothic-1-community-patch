@@ -1,5 +1,5 @@
 //******************************************
-//					EXIT	
+//					EXIT
 //******************************************
 
 instance  DIA_Cutter_Exit (C_INFO)
@@ -10,7 +10,7 @@ instance  DIA_Cutter_Exit (C_INFO)
 	information	= DIA_Cutter_Exit_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC int  DIA_Cutter_Exit_Condition()
 {
@@ -23,7 +23,7 @@ FUNC VOID  DIA_Cutter_Exit_Info()
 };
 
 //******************************************
-//					Hallo	
+//					Hallo
 //******************************************
 
 instance  DIA_Cutter_Hello (C_INFO)
@@ -34,10 +34,10 @@ instance  DIA_Cutter_Hello (C_INFO)
 	information	= DIA_Cutter_Hello_Info;
 	permanent	= 0;
 	description = "Ihr habt ganz schön viel Platz hier in der Burg.";
-};                       
+};
 
 FUNC int  DIA_Cutter_Hello_Condition()
-{	
+{
 	if (!C_NpcBelongsToOldcamp (other))
 	{
 		return 1;
@@ -51,7 +51,7 @@ FUNC VOID  DIA_Cutter_Hello_Info()
 };
 
 //******************************************
-//					Burg	
+//					Burg
 //******************************************
 
 instance  DIA_Cutter_Burg (C_INFO)
@@ -62,7 +62,7 @@ instance  DIA_Cutter_Burg (C_INFO)
 	information	= DIA_Cutter_Burg_Info;
 	permanent	= 10;
 	description = "Was kannst du mir über die Burg sagen?";
-};                       
+};
 
 FUNC int  DIA_Cutter_Burg_Condition()
 {
@@ -83,7 +83,7 @@ FUNC VOID  DIA_Cutter_Burg_Info()
 };
 
 //******************************************
-//					PERM	
+//					PERM
 //******************************************
 
 instance  DIA_Cutter_PERM (C_INFO)
@@ -94,7 +94,7 @@ instance  DIA_Cutter_PERM (C_INFO)
 	information	= DIA_Cutter_PERM_Info;
 	permanent	= 1;
 	description = "Wie ist das Leben als Gardist?";
-};                       
+};
 
 FUNC int  DIA_Cutter_PERM_Condition()
 {
@@ -112,7 +112,7 @@ FUNC VOID  DIA_Cutter_PERM_Info()
 	AI_StopProcessInfos	(self);
 };
 
-	
+
 
 
 
@@ -140,8 +140,8 @@ instance GRD_208_Cutter_WELCOME (C_INFO)
 };
 
 FUNC int  GRD_208_Cutter_WELCOME_Condition()
-{	
-	if (Npc_GetTrueGuild (hero) == GIL_GRD) 
+{
+	if (Npc_GetTrueGuild (hero) == GIL_GRD)
 	{
 		return TRUE;
 	};

@@ -10,7 +10,7 @@ instance  DIA_GorNaRan_Exit (C_INFO)
 	information	=  DIA_GorNaRan_Exit_Info;
 	permanent	=  1;
 	description = "ENDE";
-};                       
+};
 
 FUNC int  DIA_GorNaRan_Exit_Condition()
 {
@@ -34,7 +34,7 @@ instance  DIA_GorNaRan_Wache (C_INFO)
 	information	=  DIA_GorNaRan_Wache_Info;
 	permanent	=  1;
 	description = "Was machst du hier?";
-};                       
+};
 
 FUNC int  DIA_GorNaRan_Wache_Condition()
 {
@@ -65,14 +65,14 @@ instance Info_TPL_1405_GorNaRan (C_INFO)
 	information	= Info_TPL_1405_GorNaRan_Info;
 	permanent	= 0;
 	important	= 1;
-};                       
+};
 
 FUNC INT Info_TPL_1405_GorNaRan_Condition()
 {
 	if (Kapitel == 6)
 	{
 		return TRUE;
-	};	
+	};
 };
 
 FUNC VOID Info_TPL_1405_GorNaRan_Info()
@@ -91,7 +91,7 @@ INSTANCE Info_TPL_1405_GorNaRan2 (C_INFO)
 	information	= Info_TPL_1405_GorNaRan2_Info;
 	permanent	= 1;
 	description = "Was ist hier eigentlich los?";
-};                       
+};
 
 FUNC INT Info_TPL_1405_GorNaRan2_Condition()
 {
@@ -117,7 +117,7 @@ INSTANCE Info_TPL_1405_GorNaRan3 (C_INFO)
 	information	= Info_TPL_1405_GorNaRan3_Info;
 	permanent	= 1;
 	description = "Wollte mich nur umsehen";
-};                       
+};
 
 FUNC INT Info_TPL_1405_GorNaRan3_Condition()
 {
@@ -127,12 +127,12 @@ FUNC INT Info_TPL_1405_GorNaRan3_Condition()
 };
 
 FUNC VOID Info_TPL_1405_GorNaRan3_Info()
-{	
+{
 	AI_Output (other, self,"Info_TPL_1405_GorNaRan_Info_15_04"); //Wollte mich nur umsehen.
 	AI_Output (self, other,"Info_TPL_1405_GorNaRan_Info_13_05"); //Du Wurm, du und deinesgleichen haben hier nichts zu suchen, wenn der Schläfer erwacht! Ich werde dich aus dem Weg räumen müssen.
-	
+
 	AI_StopProcessInfos	( self );
-	
+
 	Npc_SetTarget 	( self, hero );
 	AI_StartState 		( self, ZS_Attack, 1 ,"" );
 };
@@ -147,7 +147,7 @@ INSTANCE Info_TPL_1405_GorNaRan4 (C_INFO)
 	information	= Info_TPL_1405_GorNaRan4_Info;
 	permanent	= 0;
 	description = "Du kannst mich nicht aufhalten!";
-};                       
+};
 
 FUNC INT Info_TPL_1405_GorNaRan4_Condition()
 {
@@ -157,7 +157,7 @@ FUNC INT Info_TPL_1405_GorNaRan4_Condition()
 };
 
 FUNC VOID Info_TPL_1405_GorNaRan4_Info()
-{	
+{
 	AI_Output (other, self,"Info_TPL_1405_GorNaRan_Info_15_06"); //Du kannst mich nicht aufhalten!
 	AI_Output (self, other,"Info_TPL_1405_GorNaRan_Info_13_07"); //Wie du meinst, Junge, für den Schläfer!
 

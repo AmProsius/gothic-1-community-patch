@@ -1,4 +1,4 @@
-// infos 
+// infos
 instance Info_TPL_1455_GorBoba (C_INFO)
 {
 	npc				= TPL_1455_GorBoba;
@@ -26,14 +26,14 @@ instance Info_TPL_1455_GorBoba1 (C_INFO)
 	information		= Info_TPL_1455_GorBoba1_Info;
 	important		= 0;
 	permanent		= 0;
-	description 	= "Willst DU mich aufhalten?";	
+	description 	= "Willst DU mich aufhalten?";
 };
 
 FUNC int Info_TPL_1455_GorBoba1_Condition()
 {
 	if ( Npc_KnowsInfo ( hero, Info_TPL_1455_GorBoba )) {
 		return 1;
-	};	
+	};
 };
 
 func void Info_TPL_1455_GorBoba1_Info()
@@ -45,10 +45,10 @@ func void Info_TPL_1455_GorBoba1_Info()
 	AI_Output (self, other,"Info_TPL_1455_GorBoba1_08_05"); //Mache dich bereit, deinem Schöpfer gegenüber zu treten.
 
 	AI_StopProcessInfos	( self );
-	
+
 	Log_CreateTopic        ( "Orktempel", LOG_NOTE );
-	B_LogEntry            ( "Orktempel", "GorBoba hat sich mir in den Weg gestellt um micht auf zu halten. Ich habe noch von ihm erfahren, dass Kalom und seine Anhänger von dem Hohenpriester Macht verliehen bekommen haben, so dass sie nicht mehr mit menschlichen Waffen verletzt werden können." ); 
+	B_LogEntry            ( "Orktempel", "GorBoba hat sich mir in den Weg gestellt um micht auf zu halten. Ich habe noch von ihm erfahren, dass Kalom und seine Anhänger von dem Hohenpriester Macht verliehen bekommen haben, so dass sie nicht mehr mit menschlichen Waffen verletzt werden können." );
 
 	Npc_SetAttitude 		( self, ATT_HOSTILE );
-	Npc_SetTempAttitude 	( self, ATT_HOSTILE );	
+	Npc_SetTempAttitude 	( self, ATT_HOSTILE );
 };

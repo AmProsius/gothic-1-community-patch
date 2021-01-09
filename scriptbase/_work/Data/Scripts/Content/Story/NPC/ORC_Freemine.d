@@ -12,7 +12,7 @@ func void B_AwakeSit()
 {
 	AI_PlayAniBS ( self, "T_GUARDSIT_2_STAND", BS_STAND );
 	AI_Wait	(self,1);
-	if (Npc_GetDistToNpc(other,self) < 120) 
+	if (Npc_GetDistToNpc(other,self) < 120)
 	{
 		AI_Dodge (self);
 	};
@@ -23,9 +23,9 @@ func void ZS_WaitForRescue()
 {
 	Npc_PercEnable  	(self,	PERC_ASSESSMAGIC		,	B_AssessMagic		);
 	Npc_PercEnable		(self,	PERC_ASSESSTALK			,	B_SitUp				);
-	
+
 	PrintDebugNpc(PD_ZS_FRAME,"WaitForRescue");
-	
+
 	if ( !(C_BodystateContains(self, BS_SIT)) )
 	{
 		PrintDebugNpc(PD_ZS_FRAME,"ZS_WaitForRescue: sitzt nicht....");
@@ -34,22 +34,22 @@ func void ZS_WaitForRescue()
 		AI_GotoWP( self, self.wp );		// Gehe zum Tagesablaufstart
 		AI_AlignToWP	(self);
 		AI_PlayAniBS( self, "T_STAND_2_GUARDSIT", BS_SIT );
-		
+
 	};
 	if (self.attribute[ATR_HITPOINTS] <20)
 	{
 		AI_PlayAniBS( self, "T_GUARDSIT_2_GUARDSLEEP",BS_SIT );
 	};
-	
+
 };
 func void ZS_WaitForRescue_Loop()
 {
-    PrintDebugNpc( PD_ZS_FRAME, "ZS_WaitForRescue_Loop" );    
+    PrintDebugNpc( PD_ZS_FRAME, "ZS_WaitForRescue_Loop" );
 };
 
 func void ZS_WaitForRescue_End ()
 {
-	PrintDebugNpc(PD_ZS_FRAME,"ZS_WaitForRescue_End");	
+	PrintDebugNpc(PD_ZS_FRAME,"ZS_WaitForRescue_End");
 	Npc_ClearAIQueue( self );
 	AI_PlayAniBS ( self, "T_GUARDSIT_2_STAND", BS_STAND );
 };
@@ -57,18 +57,18 @@ func void ZS_WaitForRescue_End ()
 instance FreemineOrc(C_NPC)
 {
 	//-------- primary data --------
-	
+
 	name =	"Ork Sklave";
-	guild =	GIL_NONE;  
+	guild =	GIL_NONE;
 	level =	3;
-	flags = NPC_FLAG_IMMORTAL;  
+	flags = NPC_FLAG_IMMORTAL;
 	voice =	17;
 	ID	  =	2101;
 
 		//---------	abilities --------
 	attribute[ATR_STRENGTH]			=		90;
 	attribute[ATR_DEXTERITY]		=		20;
-	
+
 	attribute[ATR_HITPOINTS_MAX]	=		250;
 	attribute[ATR_HITPOINTS]		=		10;
 
@@ -79,7 +79,7 @@ instance FreemineOrc(C_NPC)
 	protection[PROT_MAGIC]			=		0;
 
 //	talents					=		0;
-	
+
 
 	//-------- visuals --------
 	Mdl_SetVisual		(self,"orc.mds");
@@ -89,7 +89,7 @@ instance FreemineOrc(C_NPC)
 	//-------- ai --------
 //	start_aistate				=		ZS_Orc_Stomper;//SN: wegen Überarbeitung Ork-AI entfernt
 	fight_tactic				=		FAI_ORC;
-	senses_range				=		2000;	
+	senses_range				=		2000;
 
 
 	//-------------Daily Routine-------------

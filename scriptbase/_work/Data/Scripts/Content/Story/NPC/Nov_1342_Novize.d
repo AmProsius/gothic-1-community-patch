@@ -8,7 +8,7 @@ instance NOV_1342_Novize (Npc_Default)
 
 	voice 		=		5;
 	id 			=		1342;
-		
+
 	//-------- abilities --------
 	attribute[ATR_STRENGTH] 		=	10;
 	attribute[ATR_DEXTERITY] 		=	10;
@@ -26,26 +26,26 @@ instance NOV_1342_Novize (Npc_Default)
 
 	B_Scale (self);
 	Mdl_SetModelFatness(self,-1);
-	
+
 	fight_tactic	=	FAI_HUMAN_COWARD;
 
 	//-------- Talente --------
-	
-		
+
+
 	//-------- inventory --------
 
 	EquipItem (self, ItMw_1H_Hatchet_01);
 	//CreateInvItem (self, ItFoSoup);
 	//CreateInvItem (self, ItMiJoint);
-	
-        
+
+
 	//-------- inventory --------
-	
-	
-	        
-	
+
+
+
+
 	////CreateInvItems(self, ItAmArrow, 5);
-	
+
 	//-------------Daily Routine-------------
 	daily_routine = Rtn_start_1342;
 };
@@ -53,7 +53,7 @@ instance NOV_1342_Novize (Npc_Default)
 FUNC VOID Rtn_start_1342 ()
 {
     TA_Sleep 	(23,10,07,30,"PSI_27_HUT_IN");
-    TA_Listen	(07,30,23,10,"PSI_PLATFORM_1");	
+    TA_Listen	(07,30,23,10,"PSI_PLATFORM_1");
 };
 
 

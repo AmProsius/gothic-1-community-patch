@@ -29,7 +29,7 @@ func void ZS_HealSelf ()
 	Npc_PercEnable  	(self, 	PERC_ASSESSMAGIC		,	B_AssessMagic			);
 	Npc_PercEnable  	(self, 	PERC_ASSESSCASTER		,	B_AssessCaster 			);
 	Npc_PercEnable  	(self, 	PERC_ASSESSTHREAT		,	B_AssessFighter			);
-	Npc_PercEnable  	(self,	PERC_DRAWWEAPON			, 	B_AssessFighter			);		
+	Npc_PercEnable  	(self,	PERC_DRAWWEAPON			, 	B_AssessFighter			);
 	Npc_PercEnable  	(self, 	PERC_ASSESSWARN			, 	B_AssessWarn 		 	);
 	Npc_PercEnable  	(self, 	PERC_ASSESSMURDER		,	ZS_AssessMurder			);
 	Npc_PercEnable  	(self, 	PERC_ASSESSDEFEAT		,	ZS_AssessDefeat			);
@@ -57,19 +57,19 @@ func int ZS_HealSelf_Loop ()
 		PrintDebugString(PD_ZS_CHECK,	"...", ItFo_Potion_Health_03.description);
 		AI_UseItem		(self,	ItFo_Potion_Health_03);
 	}
-	
+
 	else if (Npc_HasItems(self,ItFo_Potion_Health_02) >0)
 	{
 		PrintDebugString(PD_ZS_CHECK,	"...", ItFo_Potion_Health_02.description);
 		AI_UseItem		(self,	ItFo_Potion_Health_02);
 	}
-	
+
 	else if (Npc_HasItems (self,ItFo_Potion_Health_01) >0)
 	{
 		PrintDebugString(PD_ZS_CHECK,	"...", ItFo_Potion_Health_01.description);
 		AI_UseItem		(self,	ItFo_Potion_Health_01);
 	}
-	
+
 	else if (Npc_GetInvItemBySlot(self, INV_FOOD, 1) > 0)	// Abfrage initialisiert 'item'
 	{
 		PrintDebugString(PD_ZS_CHECK,	"...", item.description);
@@ -101,7 +101,7 @@ func void ZS_HealSelfMana ()
 	Npc_PercEnable  	(self, 	PERC_ASSESSMAGIC		,	B_AssessMagic			);
 	Npc_PercEnable  	(self, 	PERC_ASSESSCASTER		,	B_AssessCaster 			);
 	Npc_PercEnable  	(self, 	PERC_ASSESSTHREAT		,	B_AssessFighter			);
-	Npc_PercEnable  	(self,	PERC_DRAWWEAPON			, 	B_AssessFighter			);		
+	Npc_PercEnable  	(self,	PERC_DRAWWEAPON			, 	B_AssessFighter			);
 	Npc_PercEnable  	(self, 	PERC_ASSESSWARN			, 	B_AssessWarn 		 	);
 	Npc_PercEnable  	(self, 	PERC_ASSESSMURDER		,	ZS_AssessMurder			);
 	Npc_PercEnable  	(self, 	PERC_ASSESSDEFEAT		,	ZS_AssessDefeat			);
@@ -119,25 +119,25 @@ func int ZS_HealSelfMana_Loop ()
 		PrintDebugNpc	(PD_ZS_CHECK,	"...Mana voll regeneriert!");
 		return			LOOP_END;
 	}
-	
+
 	else if (Npc_HasItems(self,ItFo_Potion_Mana_03) >0)
 	{
 		PrintDebugString(PD_ZS_CHECK,	"...", ItFo_Potion_Mana_03.description);
 		AI_UseItem		(self,	ItFo_Potion_Mana_03);
 	}
-	
+
 	else if (Npc_HasItems(self,ItFo_Potion_Mana_02) >0)
 	{
 		PrintDebugString(PD_ZS_CHECK,	"...", ItFo_Potion_Mana_02.description);
 		AI_UseItem		(self,	ItFo_Potion_Mana_02);
 	}
-	
+
 	else if (Npc_HasItems (self,ItFo_Potion_Mana_01) >0)
 	{
 		PrintDebugString(PD_ZS_CHECK,	"...", ItFo_Potion_Mana_01.description);
 		AI_UseItem		(self,	ItFo_Potion_Mana_01);
 	}
-	
+
 	else
 	{
 		PrintDebugNpc	(PD_ZS_CHECK,	"...keine 'Mana-Regenerierungs-Mittel' mehr vorhanden!");

@@ -50,4 +50,4 @@ func void B_SetGuildAttitude (var int fromGuild, var int attitude, var int toGui
 		Wld_SetGuildAttitude	(fromGuild		,	attitude,	toGuild		);
 	};
 };
- 
+

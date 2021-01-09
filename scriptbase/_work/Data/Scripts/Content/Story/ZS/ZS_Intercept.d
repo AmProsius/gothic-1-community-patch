@@ -13,30 +13,30 @@
 func void ZS_Intercept()
 {
 	PrintDebugNpc (PD_TA_FRAME,"ZS_Intercept");
-	
-	//  Wahrnehmungen aktiv 
+
+	//  Wahrnehmungen aktiv
 	Npc_PercEnable  	(self, 	PERC_ASSESSENEMY		,	B_AssessEnemy			);
 	Npc_PercEnable  	(self, 	PERC_ASSESSPLAYER		,	B_AssessSC				);
-	
+
 	Npc_PercEnable  	(self,	PERC_ASSESSDAMAGE		,	B_InterceptAssessDamage	);
 	Npc_PercEnable  	(self, 	PERC_ASSESSMAGIC		,	B_InterceptAssessMagic	);
 	Npc_PercEnable  	(self, 	PERC_ASSESSCASTER		,	B_AssessSC				);
 	Npc_PercEnable  	(self, 	PERC_ASSESSTHREAT		,	B_AssessSC				);
-	
+
 	Npc_SetPercTime		(self,	0.5);
-	
-	AI_StandUp			(self);				
-	AI_SetWalkmode 		(self,	NPC_WALK);		
-	AI_GotoWP			(self,	self.wp);		
+
+	AI_StandUp			(self);
+	AI_SetWalkmode 		(self,	NPC_WALK);
+	AI_GotoWP			(self,	self.wp);
 	AI_AlignToWP		(self);
 };
 
 func int ZS_Intercept_Loop ()
 {
 	PrintDebugNpc		(PD_TA_LOOP,"ZS_Intercept_Loop");
- 	
+
 	AI_Wait				(self,	1);
-	
+
 	return 	LOOP_CONTINUE;
 };
 
@@ -59,7 +59,7 @@ func void B_InterceptAssessDamage ()
 		AI_StartState	(self,	ZS_Talk, 1, "");
 		return;
 	}
-	
+
 	else
 	{
 		B_FullStop		(self);
@@ -80,7 +80,7 @@ func void B_InterceptAssessMagic ()
 		AI_StartState	(self,	ZS_Talk, 1, "");
 		return;
 	}
-	
+
 	else
 	{
 		B_FullStop		(self);

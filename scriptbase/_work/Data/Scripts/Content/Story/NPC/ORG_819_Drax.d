@@ -1,12 +1,12 @@
 instance ORG_819_Drax (Npc_Default)
 {
 	//-------- primary data --------
-	
+
 	name =							"Drax";
 	Npctype =				Npctype_Main;
-	guild =							GIL_ORG;      
+	guild =							GIL_ORG;
 	level =							3;
-	
+
 	voice =							6;
 	id =							819;
 
@@ -23,25 +23,25 @@ instance ORG_819_Drax (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 //	Mdl_ApplyOverlayMds	(self,"Humans_Relaxed.mds");
-	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
+	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin
 	Mdl_SetVisualBody (self,"hum_body_Naked0",0, 1,"Hum_Head_FatBald", 39, 2, ORG_ARMOR_L);
-	
-	B_Scale (self);	
-	Mdl_SetModelFatness (self, 0);	
-	
+
+	B_Scale (self);
+	Mdl_SetModelFatness (self, 0);
+
 	self.aivar[AIV_IMPORTANT] = TRUE;
-	
+
 	fight_tactic	=	FAI_HUMAN_STRONG;
 
-	//-------- Talente --------                                    
-	
+	//-------- Talente --------
+
 	Npc_SetTalentSkill (self, NPC_TALENT_BOW,1);
 	Npc_SetTalentSkill (self, NPC_TALENT_1H,1);
-	
-	
-	//-------- inventory --------   
-	                                 
-	CreateInvItems (self, ItKeLockpick,2);		
+
+
+	//-------- inventory --------
+
+	CreateInvItems (self, ItKeLockpick,2);
 	CreateInvItems(self, ItMiNugget, 14);
 	CreateInvItems (self, ItFoRice,6);
 	CreateInvItems (self, ItFoBooze, 2);
@@ -54,7 +54,7 @@ instance ORG_819_Drax (Npc_Default)
 	EquipItem (self, ItMw_1H_Mace_03);
 	EquipItem (self, ItRw_Bow_Long_01);
 	CreateInvItems (self, ItAmArrow, 20);
-	
+
 	//-------------Daily Routine-------------
 
 	daily_routine = Rtn_Start_819;

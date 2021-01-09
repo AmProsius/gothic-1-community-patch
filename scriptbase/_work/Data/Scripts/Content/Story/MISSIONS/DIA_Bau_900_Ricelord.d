@@ -1,5 +1,5 @@
 // ************************************************************
-// 			  				   EXIT 
+// 			  				   EXIT
 // ************************************************************
 
 INSTANCE DIA_Ricelord_EXIT (C_INFO)
@@ -10,7 +10,7 @@ INSTANCE DIA_Ricelord_EXIT (C_INFO)
 	information	= DIA_Ricelord_EXIT_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC INT DIA_Ricelord_EXIT_Condition()
 {
@@ -18,7 +18,7 @@ FUNC INT DIA_Ricelord_EXIT_Condition()
 };
 
 FUNC VOID DIA_Ricelord_EXIT_Info()
-{	
+{
 	AI_StopProcessInfos	(self);
 };
 
@@ -34,7 +34,7 @@ INSTANCE DIA_Ricelord_Hello (C_INFO)
 	information	= DIA_Ricelord_Hello_Info;
 	permanent	= 0;
 	description	= "Du kümmerst dich um die Reisfelder, richtig?";
-};                       
+};
 
 FUNC INT DIA_Ricelord_Hello_Condition()
 {
@@ -42,7 +42,7 @@ FUNC INT DIA_Ricelord_Hello_Condition()
 };
 
 FUNC VOID DIA_Ricelord_Hello_Info()
-{	
+{
 	AI_Output (other, self,"DIA_Ricelord_Hello_15_00"); //Du kümmerst dich um die Reisfelder, richtig?
 	AI_Output (self, other,"DIA_Ricelord_Hello_12_01"); //Warum? Suchst du Arbeit?
 };
@@ -59,7 +59,7 @@ INSTANCE DIA_Ricelord_Arbeit (C_INFO)
 	information	= DIA_Ricelord_Arbeit_Info;
 	permanent	= 0;
 	description	= "Hast du Arbeit für mich?";
-};                       
+};
 
 FUNC INT DIA_Ricelord_Arbeit_Condition()
 {
@@ -72,7 +72,7 @@ FUNC INT DIA_Ricelord_Arbeit_Condition()
 };
 
 FUNC VOID DIA_Ricelord_Arbeit_Info()
-{	
+{
 	AI_Output (other, self,"DIA_Ricelord_Arbeit_15_00"); //Hast du Arbeit für mich?
 	AI_Output (self, other,"DIA_Ricelord_Arbeit_12_01"); //Geh zu Lefty. Er ist meistens hier vorne rechts neben der Scheune.
 };
@@ -90,7 +90,7 @@ INSTANCE DIA_Ricelord_TRADE (C_INFO)
 	permanent	= 1;
 	description	= "Wir könnten handeln...";
 	trade 		= 1;
-};                       
+};
 
 FUNC INT DIA_Ricelord_TRADE_Condition()
 {
@@ -101,11 +101,11 @@ FUNC INT DIA_Ricelord_TRADE_Condition()
 };
 
 FUNC VOID DIA_Ricelord_TRADE_Info()
-{	
+{
 	AI_Output (other, self,"DIA_Ricelord_TRADE_15_00"); //Wir könnten handeln ...
 	AI_Output (self, other,"DIA_Ricelord_TRADE_12_01"); //Was hast du denn zu bieten?
 };
-	
+
 // ************************************************************
 // 						Lefty Mission
 // ************************************************************
@@ -117,7 +117,7 @@ INSTANCE DIA_Ricelord_LeftySentMe (C_INFO)
 	information	= DIA_Ricelord_LeftySentMe_Info;
 	permanent	= 1;
 	description	= "Lefty schickt mich.";
-};                       
+};
 
 FUNC INT DIA_Ricelord_LeftySentMe_Condition()
 {
@@ -131,7 +131,7 @@ FUNC INT DIA_Ricelord_LeftySentMe_Condition()
 };
 
 FUNC VOID DIA_Ricelord_LeftySentMe_Info()
-{	
+{
 	AI_Output (other, self,"DIA_Ricelord_LeftySentMe_15_00"); //Lefty schickt mich.
 	AI_Output (self, other,"DIA_Ricelord_LeftySentMe_12_01"); //Ach so. Was hat er gesagt?
 	Ricelord_AskedForWater = TRUE;
@@ -149,7 +149,7 @@ INSTANCE DIA_Ricelord_GetWater (C_INFO)
 	information	= DIA_Ricelord_GetWater_Info;
 	permanent	= 1;
 	description	= "Ich soll den Bauern Wasser bringen.";
-};                       
+};
 
 FUNC INT DIA_Ricelord_GetWater_Condition()
 {
@@ -160,9 +160,9 @@ FUNC INT DIA_Ricelord_GetWater_Condition()
 };
 
 FUNC VOID DIA_Ricelord_GetWater_Info()
-{	
+{
 	AI_Output (other, self,"DIA_Ricelord_GetWater_15_00"); //Ich soll den Bauern Wasser bringen.
-	
+
 	if(Lefty_WorkDay == Wld_GetDay())
 	{
 		AI_Output			(self, other,"DIA_Ricelord_GetWater_12_01"); //Gut. Hier sind ein Dutzend Flaschen Wasser.

@@ -1,5 +1,5 @@
 // **************************************************
-//						EXIT 
+//						EXIT
 // **************************************************
 
 instance  DIA_Ghorim_Exit (C_INFO)
@@ -8,10 +8,10 @@ instance  DIA_Ghorim_Exit (C_INFO)
 	nr			=  999;
 	condition	=  DIA_Ghorim_Exit_Condition;
 	information	=  DIA_Ghorim_Exit_Info;
-	important	=  0;	
+	important	=  0;
 	permanent	=  1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC int  DIA_Ghorim_Exit_Condition()
 {
@@ -31,7 +31,7 @@ instance  DIA_Ghorim_MissingHarlok (C_INFO)
 	information	= DIA_Ghorim_MissingHarlok_Info;
 	permanent	= 0;
 	description	= "Hi! Wie sieht's aus?";
-};                       
+};
 
 FUNC int  DIA_Ghorim_MissingHarlok_Condition()
 {
@@ -48,7 +48,7 @@ FUNC VOID  DIA_Ghorim_MissingHarlok_Info()
 	AI_Output (self, other,"DIA_Ghorim_MissingHarlok_02_05"); //Ich kann hier nicht weg, solange Baal Orun die Aufsicht hat - die Arbeit muss getan werden, so oder so!
 	AI_Output (self, other,"DIA_Ghorim_MissingHarlok_02_06"); //Aber du könntest für mich zu ihm gehen - er wohnt unter dem Alchemielabor von Cor Kalom, direkt bei Fortuno.
 	AI_Output (self, other,"DIA_Ghorim_MissingHarlok_02_07"); //Sag ihm, er soll seinen Hintern hier rüberschwingen.
-		
+
 	Log_CreateTopic		(CH1_GhorimsRelief,	LOG_MISSION);
 	Log_SetTopicStatus	(CH1_GhorimsRelief,	LOG_RUNNING);
 	B_LogEntry			(CH1_GhorimsRelief,	"Der Novize Ghorim bat mich, den faulen Harlok dazu zu bewegen, ihn abzulösen. Harlok treibt sich meistens bei Fortunos Kräuterladen herum.");
@@ -68,7 +68,7 @@ instance  DIA_Ghorim_SUCCESS (C_INFO)
 	information	= DIA_Ghorim_SUCCESS_Info;
 	permanent	= 1;
 	description	= "Na? Endlich abgelöst worden?";
-};                       
+};
 
 FUNC int  DIA_Ghorim_SUCCESS_Condition()
 {

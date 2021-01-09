@@ -2,7 +2,7 @@
 **	Wolf Prototype														**
 *************************************************************************/
 
-PROTOTYPE Mst_Default_Wolf(C_Npc)			
+PROTOTYPE Mst_Default_Wolf(C_Npc)
 {
 	name							=	"Wolf";
 	guild							=	GIL_WOLF;
@@ -11,7 +11,7 @@ PROTOTYPE Mst_Default_Wolf(C_Npc)
 //-----------------------------------------------------------
 	attribute	[ATR_STRENGTH]		=	40;
 	attribute	[ATR_DEXTERITY]		=	40;
-	
+
 	attribute	[ATR_HITPOINTS_MAX]	=	80;
 	attribute	[ATR_HITPOINTS]		=	80;
 
@@ -39,7 +39,7 @@ PROTOTYPE Mst_Default_Wolf(C_Npc)
 	senses_range				= 3000;		// 30m
 
 	aivar[AIV_MM_Behaviour]		= PACKHUNTER;
-	
+
 	aivar[AIV_MM_PercRange]		= 1500;
 	aivar[AIV_MM_DrohRange]		= 1200;
 	aivar[AIV_MM_AttackRange]	= 500;
@@ -49,7 +49,7 @@ PROTOTYPE Mst_Default_Wolf(C_Npc)
 //-----------------------------------------------------------
 	start_aistate				= ZS_MM_AllScheduler;
 
-	aivar[AIV_MM_RoamStart] 	= OnlyRoutine;	
+	aivar[AIV_MM_RoamStart] 	= OnlyRoutine;
 };
 //-----------------------------------------------------------
 func void Set_Wolf_Visuals()

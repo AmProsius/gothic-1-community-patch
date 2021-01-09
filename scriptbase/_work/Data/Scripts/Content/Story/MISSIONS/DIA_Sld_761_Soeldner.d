@@ -21,7 +21,7 @@ FUNC int DIA_SLD_761_Soeldner_INTRO_CONDITION()
 
 func void DIA_SLD_761_Soeldner_INTRO_INFO()
 {
-	AI_Output (self, other,"DIA_SLD_761_Soeldner_INTRO_INFO_03_01"); //Was machst du hier an der Mine? 
+	AI_Output (self, other,"DIA_SLD_761_Soeldner_INTRO_INFO_03_01"); //Was machst du hier an der Mine?
 };
 
 //-------------------- Exit 1 -----------------------------
@@ -45,7 +45,7 @@ FUNC int DIA_SLD_761_Soeldner_EXIT_1_CONDITION()
 func void DIA_SLD_761_Soeldner_EXIT_1_INFO()
 {
 	AI_Output (other, self,"DIA_SLD_761_Soeldner_EXIT_1_INFO_15_01"); //Ich hab' noch was zu erledigen.
-	AI_Output (self, other,"DIA_SLD_761_Soeldner_EXIT_1_INFO_03_02");//Das denke ich auch. 
+	AI_Output (self, other,"DIA_SLD_761_Soeldner_EXIT_1_INFO_03_02");//Das denke ich auch.
 	AI_StopProcessInfos	( self );
 };
 
@@ -95,7 +95,7 @@ FUNC int DIA_SLD_761_Soeldner_UMSEHEN_CONDITION()
 };
 
 func void DIA_SLD_761_Soeldner_UMSEHEN_INFO()
-{  
+{
 	AI_Output (other, self,"DIA_SLD_761_Soeldner_UMSEHEN_INFO_15_01"); //Ich wollte mir nur mal das Camp ansehen.
 	AI_Output (self, other,"DIA_SLD_761_Soeldner_UMSEHEN_INFO_03_02");//Dann bist du hier wohl falsch, hier ist der Mineneingang, und der ist tabu für dich.
 };
@@ -138,7 +138,7 @@ instance DIA_SLD_761_Soeldner_Bribe (C_INFO)
 };
 
 FUNC int DIA_SLD_761_Soeldner_Bribe_CONDITION()
-{	
+{
 	if (Npc_KnowsInfo	(hero,DIA_SLD_761_Soeldner_INMINE))
 	{
 		return 1;
@@ -146,12 +146,12 @@ FUNC int DIA_SLD_761_Soeldner_Bribe_CONDITION()
 };
 
 func void DIA_SLD_761_Soeldner_Bribe_INFO()
-{  
+{
 	AI_Output (other, self,"DIA_SLD_761_Soeldner_Bribe_INFO_15_01");//Kann man da gar nichts machen?
-	AI_Output (self, other,"DIA_SLD_761_Soeldner_Bribe_INFO_03_02");//Was sollte man da machen können? 
-	AI_Output (self, other,"DIA_SLD_761_Soeldner_Bribe_INFO_03_03");//Moment mal, wenn du versucht, mich zu bestechen, dann bist du hier an der falschen Adresse. 
-	AI_Output (other, self,"DIA_SLD_761_Soeldner_Bribe_INFO_15_04");//Nein, ich wollte niemanden bestechen, ich dachte nur.. 
+	AI_Output (self, other,"DIA_SLD_761_Soeldner_Bribe_INFO_03_02");//Was sollte man da machen können?
+	AI_Output (self, other,"DIA_SLD_761_Soeldner_Bribe_INFO_03_03");//Moment mal, wenn du versucht, mich zu bestechen, dann bist du hier an der falschen Adresse.
+	AI_Output (other, self,"DIA_SLD_761_Soeldner_Bribe_INFO_15_04");//Nein, ich wollte niemanden bestechen, ich dachte nur..
 	AI_Output (other, self,"DIA_SLD_761_Soeldner_Bribe_INFO_15_05");//Ich glaub', ich geh' dann besser.
-	AI_StopProcessInfos	(self); 
+	AI_StopProcessInfos	(self);
 };
 

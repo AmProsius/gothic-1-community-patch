@@ -112,7 +112,7 @@ func void TA_WaitForRescue	(var int start_h, var int start_m, var int stop_h, va
 
 
 // *********************************************
-//	TF: Neue TAs für Orctempel 
+//	TF: Neue TAs für Orctempel
 // *********************************************
 func void TA_HostileGuard				(var int start_h, var int start_m, var int stop_h, var int stop_m, VAR string waypoint)	{TA_Min		(self,  start_h,start_m, stop_h, stop_m, ZS_HostileGuard,			waypoint);};
 func void TA_AlignGuard					(var int start_h, var int start_m, var int stop_h, var int stop_m, VAR string waypoint)	{TA_Min		(self,  start_h,start_m, stop_h, stop_m, ZS_AlignGuard,				waypoint);};
@@ -123,7 +123,7 @@ func void TA_Sleeper					(var int start_h, var int start_m, var int stop_h, var 
 
 
 // *********************************************
-//    SK: Xardas spezial Buchlese TA 
+//    SK: Xardas spezial Buchlese TA
 // *********************************************
 
 func void TA_ReadBook_Xardas			(var int start_h, var int start_m, var int stop_h, var int stop_m, VAR string waypoint)	{TA_Min		(self,  start_h,start_m, stop_h, stop_m, ZS_ReadBook_Xardas,		waypoint);};

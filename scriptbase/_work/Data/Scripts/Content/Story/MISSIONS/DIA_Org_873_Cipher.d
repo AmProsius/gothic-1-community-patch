@@ -8,10 +8,10 @@ instance  Org_873_Cipher_Exit (C_INFO)
 	nr			=  999;
 	condition	=  Org_873_Cipher_Exit_Condition;
 	information	=  Org_873_Cipher_Exit_Info;
-	important	=  0;	
+	important	=  0;
 	permanent	=  1;
 	description =  DIALOG_ENDE;
-};                       
+};
 
 FUNC int  Org_873_Cipher_Exit_Condition()
 {
@@ -35,7 +35,7 @@ instance  Org_873_Cipher_Hello (C_INFO)
 	information	=  Org_873_Cipher_Hello_Info;
 	permanent	=  0;
 	description = "Wie sieht's aus?";
-};                       
+};
 
 FUNC int  Org_873_Cipher_Hello_Condition()
 {
@@ -66,7 +66,7 @@ instance  Org_873_Cipher_Fisk (C_INFO)
 	information	=  Org_873_Cipher_Fisk_Info;
 	permanent	=  1;
 	description = "Fisk aus dem Alten sucht nach einem Handelspartner.";
-};                       
+};
 
 FUNC int  Org_873_Cipher_Fisk_Condition()
 {
@@ -97,7 +97,7 @@ instance  Org_873_Cipher_FromBalor (C_INFO)
 	information	=  Org_873_Cipher_FromBalor_Info;
 	permanent	=  1;
 	description = "Was hast du anzubieten?";
-};                       
+};
 
 FUNC int  Org_873_Cipher_FromBalor_Condition()
 {
@@ -120,7 +120,7 @@ FUNC VOID  Org_873_Cipher_FromBalor_Info()
 	else
 	{
 		AI_Output (other, self,"DIA_Cipher_FromBalor_15_04"); //Damit kann ich nicht dienen.
-		AI_Output (self, other,"DIA_Cipher_FromBalor_12_05"); //Dann komm wieder, wenn du es kannst. 
+		AI_Output (self, other,"DIA_Cipher_FromBalor_12_05"); //Dann komm wieder, wenn du es kannst.
 	};
 };
 
@@ -137,7 +137,7 @@ instance  Org_873_Cipher_TRADE (C_INFO)
 	permanent	=  1;
 	description = "Lass uns handeln.";
 	trade		= 1;
-};                       
+};
 
 FUNC int  Org_873_Cipher_TRADE_Condition()
 {

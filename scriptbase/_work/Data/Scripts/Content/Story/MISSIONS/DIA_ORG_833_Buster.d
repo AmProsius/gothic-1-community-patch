@@ -29,10 +29,10 @@ INSTANCE DIA_ORG_833_Buster_Exit (C_INFO)
 	nr			= 999;
 	condition	= DIA_ORG_833_Buster_Exit_Condition;
 	information	= DIA_ORG_833_Buster_Exit_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC INT DIA_ORG_833_Buster_Exit_Condition()
 {
@@ -41,7 +41,7 @@ FUNC INT DIA_ORG_833_Buster_Exit_Condition()
 
 FUNC VOID DIA_ORG_833_Buster_Exit_Info()
 {
-	
+
 	AI_StopProcessInfos	( self );
 };
 
@@ -54,11 +54,11 @@ INSTANCE DIA_ORG_833_Buster3 (C_INFO)
 	information		= DIA_ORG_833_Buster3_Info;
 	important		= 0;
 	permanent		= 1;
-	description		= "Wie kannst du mir helfen?"; 
+	description		= "Wie kannst du mir helfen?";
 };
 
 FUNC INT DIA_ORG_833_Buster3_Condition()
-{	
+{
 	return Npc_KnowsInfo(hero,DIA_ORG_833_Buster);
 };
 
@@ -79,14 +79,14 @@ func VOID DIA_ORG_833_Buster3_Info()
 FUNC void DIA_ORG_833_Buster_Train1()
 {
 	Info_ClearChoices	( DIA_ORG_833_Buster3 );
-	
+
 	if (B_GiveSkill(other,NPC_TALENT_ACROBAT , 1, LPCOST_TALENT_ACROBAT))
 	{
-		AI_Output (self, other,"DIA_ORG_833_Buster3_02_02"); //Wenn du deinen Körper beherrscht, bist du in der Lage viel weiter zu springen. 
+		AI_Output (self, other,"DIA_ORG_833_Buster3_02_02"); //Wenn du deinen Körper beherrscht, bist du in der Lage viel weiter zu springen.
 		AI_Output (self, other,"DIA_ORG_833_Buster3_02_03"); //Du lernst dich richtig abzurollen und aus dem Fall heraus richtig zu landen. Aber denk daran, du bist nicht unsterblich!
-		AI_Output (self, other,"DIA_ORG_833_Buster3_02_04"); //Auch im Kampf ist Akrobatik sehr hilfreich. Du kannst deinen Abstand zum Gegner sehr schnell verändern. Viel Glück! 
-	};		
-};  
+		AI_Output (self, other,"DIA_ORG_833_Buster3_02_04"); //Auch im Kampf ist Akrobatik sehr hilfreich. Du kannst deinen Abstand zum Gegner sehr schnell verändern. Viel Glück!
+	};
+};
 
 
 // **************** Back ************************

@@ -1,5 +1,5 @@
 // ************************************************************
-// 			  				   EXIT 
+// 			  				   EXIT
 // ************************************************************
 
 INSTANCE DIA_Jarvis_EXIT (C_INFO)
@@ -10,7 +10,7 @@ INSTANCE DIA_Jarvis_EXIT (C_INFO)
 	information	= DIA_Jarvis_EXIT_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC INT DIA_Jarvis_EXIT_Condition()
 {
@@ -18,7 +18,7 @@ FUNC INT DIA_Jarvis_EXIT_Condition()
 };
 
 FUNC VOID DIA_Jarvis_EXIT_Info()
-{	
+{
 	AI_Output (self, other,"DIA_Jarvis_EXIT_08_00"); //Pass auf deinen Rücken auf!
 	AI_StopProcessInfos	(self);
 };
@@ -35,7 +35,7 @@ INSTANCE DIA_Jarvis_First (C_INFO)
 	information	= DIA_Jarvis_First_Info;
 	permanent	= 0;
 	important 	= 1;
-};                       
+};
 
 FUNC INT DIA_Jarvis_First_Condition()
 {
@@ -43,7 +43,7 @@ FUNC INT DIA_Jarvis_First_Condition()
 };
 
 FUNC VOID DIA_Jarvis_First_Info()
-{	
+{
 	AI_Output (self, other,"DIA_Jarvis_First_08_00"); //Hast du vor, durch dies Tor zu gehen?
 	AI_Output (other, self,"DIA_Jarvis_First_15_01"); //Willst du mich aufhalten?
 	AI_Output (self, other,"DIA_Jarvis_First_08_02"); //Nein, aber du solltest wissen, was dich erwartet. Es läuft hier nicht so wie im Alten Lager und erst recht nicht wie bei den Sektenspinnern!
@@ -63,7 +63,7 @@ INSTANCE DIA_Jarvis_SldInfo (C_INFO)
 	information	= DIA_Jarvis_SldInfo_Info;
 	permanent	= 0;
 	description	= "Was machen die Söldner?";
-};                       
+};
 
 FUNC INT DIA_Jarvis_SldInfo_Condition()
 {
@@ -74,7 +74,7 @@ FUNC INT DIA_Jarvis_SldInfo_Condition()
 };
 
 FUNC VOID DIA_Jarvis_SldInfo_Info()
-{	
+{
 	AI_Output (other, self,"DIA_Jarvis_SldInfo_15_00"); //Was machen die Söldner?
 	AI_Output (self, other,"DIA_Jarvis_SldInfo_08_01"); //Wir - wir sind die Söldner der Wassermagier.
 	AI_Output (self, other,"DIA_Jarvis_SldInfo_08_02"); //Unser Ziel ist es, hier auszubrechen. Wir arbeiten hart dafür und wir wollen uns hier keinen Lenz machen, wie die Lumpen aus dem Alten Lager, die sich nur auf den Schultern der Buddler ausruhen.
@@ -93,7 +93,7 @@ INSTANCE DIA_Jarvis_Magier (C_INFO)
 	information	= DIA_Jarvis_Magier_Info;
 	permanent	= 0;
 	description	= "Was machen die Magier?";
-};                       
+};
 
 FUNC INT DIA_Jarvis_Magier_Condition()
 {
@@ -104,7 +104,7 @@ FUNC INT DIA_Jarvis_Magier_Condition()
 };
 
 FUNC VOID DIA_Jarvis_Magier_Info()
-{	
+{
 	AI_Output (other, self,"DIA_Jarvis_Magier_15_00"); //Was machen die Magier?
 	AI_Output (self, other,"DIA_Jarvis_Magier_08_01"); //Sie erforschen die magischen Eigenschafen des Erzes, das unsere Schürfer aus der Mine holen.
 	AI_Output (self, other,"DIA_Jarvis_Magier_08_02"); //Soweit ich das verstanden habe, wollen sie den ganzen verdammten Erzhaufen in die Luft jagen, um die Barriere wegzusprengen.
@@ -124,7 +124,7 @@ INSTANCE DIA_Jarvis_Erzhaufen (C_INFO)
 	information	= DIA_Jarvis_Erzhaufen_Info;
 	permanent	= 0;
 	description	= "Ihr habt einen riesigen Haufen Erz hier?";
-};                       
+};
 
 FUNC INT DIA_Jarvis_Erzhaufen_Condition()
 {
@@ -135,7 +135,7 @@ FUNC INT DIA_Jarvis_Erzhaufen_Condition()
 };
 
 FUNC VOID DIA_Jarvis_Erzhaufen_Info()
-{	
+{
 	AI_Output (other, self,"DIA_Jarvis_Erzhaufen_15_00"); //Ihr habt einen riesigen Haufen Erz hier?
 	AI_Output (self, other,"DIA_Jarvis_Erzhaufen_08_01"); //Kann man wohl sagen. Wenn wir den mit der Außenwelt tauschen würden, würde uns der König seine Frau dafür verkaufen .
 	AI_Output (self, other,"DIA_Jarvis_Erzhaufen_08_02"); //Aber wir werden einen Dreck tun, dem alten Sack das Erz zu geben. Wir wollen hier RAUS!
@@ -153,7 +153,7 @@ INSTANCE DIA_Jarvis_WoHaufen (C_INFO)
 	information	= DIA_Jarvis_WoHaufen_Info;
 	permanent	= 0;
 	description	= "Wo ist der Erzhaufen?";
-};                       
+};
 
 FUNC INT DIA_Jarvis_WoHaufen_Condition()
 {
@@ -164,7 +164,7 @@ FUNC INT DIA_Jarvis_WoHaufen_Condition()
 };
 
 FUNC VOID DIA_Jarvis_WoHaufen_Info()
-{	
+{
 	AI_Output (other, self,"DIA_Jarvis_WoHaufen_15_00"); //Wo ist der Erzhaufen?
 	AI_Output (self, other,"DIA_Jarvis_WoHaufen_08_01"); //Willst mal richtig viel Erz sehen, was? In der Mitte der Höhle ist ein Loch, da kippen sie alles rein.
 	AI_Output (self, other,"DIA_Jarvis_WoHaufen_08_02"); //Aber ran kommst du da nicht, das kann ich dir gleich sagen. Die Magier und unsere Leute bewachen das Erz Tag und Nacht.
@@ -183,7 +183,7 @@ INSTANCE DIA_Jarvis_Rest (C_INFO)
 	information	= DIA_Jarvis_Rest_Info;
 	permanent	= 0;
 	description	= "Was ist mit dem Rest der Leute?";
-};                       
+};
 
 FUNC INT DIA_Jarvis_Rest_Condition()
 {
@@ -194,7 +194,7 @@ FUNC INT DIA_Jarvis_Rest_Condition()
 };
 
 FUNC VOID DIA_Jarvis_Rest_Info()
-{	
+{
 	AI_Output (other, self,"DIA_Jarvis_Rest_15_00"); //Was ist mit dem Rest der Leute?
 	AI_Output (self, other,"DIA_Jarvis_Rest_08_01"); //Alles Banditen. Sie kümmern sich keinen Deut um das Lager. Ich würde sie nicht mal das Vortor bewachen lassen, wahrscheinlich wäre es sinnvoller, dort ein paar Bauern hinzustellen.
 };
@@ -211,7 +211,7 @@ INSTANCE DIA_Jarvis_PERM (C_INFO)
 	information	= DIA_Jarvis_PERM_Info;
 	permanent	= 1;
 	description	= "Wie ist die Lage zur Zeit?";
-};                       
+};
 
 FUNC INT DIA_Jarvis_PERM_Condition()
 {
@@ -222,7 +222,7 @@ FUNC INT DIA_Jarvis_PERM_Condition()
 };
 
 FUNC VOID DIA_Jarvis_PERM_Info()
-{	
+{
 	AI_Output (other, self,"DIA_Jarvis_PERM_15_00"); //Wie ist die Lage zur Zeit?
 	AI_Output (self, other,"DIA_Jarvis_PERM_08_01"); //Die Schürfer sammeln noch. Wenn sie genug Erz haben, jagen wir den Haufen in die Luft.
 };
@@ -240,8 +240,8 @@ instance Sld_728_Jarvis_AUFNAHMESOLDIER (C_INFO)
 };
 
 FUNC int  Sld_728_Jarvis_AUFNAHMESOLDIER_Condition()
-{	
-	if ( Npc_GetTrueGuild  (hero) == GIL_ORG) 
+{
+	if ( Npc_GetTrueGuild  (hero) == GIL_ORG)
 	&& ( (Npc_HasItems (hero, ItAt_Crawlerqueen) >= 1) || (CorKalom_BringMCQBalls == LOG_SUCCESS) )
 	&& (Npc_GetDistToNpc (hero,self) < 1000)
 	{
@@ -250,7 +250,7 @@ FUNC int  Sld_728_Jarvis_AUFNAHMESOLDIER_Condition()
 };
 func void  Sld_728_Jarvis_AUFNAHMESOLDIER_Info()
 {
-	AI_GotoNpc (hero,self); 
+	AI_GotoNpc (hero,self);
 	AI_Output (self, other,"Sld_728_Jarvis_AUFNAHMESOLDIER_Info_08_01"); //Hey, ich habe gehört, du hast die Crawler in der Mine ganz schön aufgemischt.
 	AI_Output (self, other,"Sld_728_Jarvis_AUFNAHMESOLDIER_Info_08_02"); //Lee ist bestimmt bereit, dich als Söldner aufzunehmen. Sprich doch einfach mal mit ihm.
 
@@ -265,6 +265,6 @@ func void  Sld_728_Jarvis_AUFNAHMESOLDIER_Info()
 
 
 
-	
+
 
 

@@ -1,12 +1,12 @@
 instance ORG_801_Lares (Npc_Default)
 {
 	//-------- primary data --------
-	
+
 	name =					"Lares";
 	Npctype =				Npctype_Main;
-	guild =					GIL_ORG;      
+	guild =					GIL_ORG;
 	level =					15;
-	
+
 	voice =					11;
 	id =					801;
 
@@ -23,14 +23,14 @@ instance ORG_801_Lares (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Relaxed.mds");
-	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
+	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin
 	Mdl_SetVisualBody (self,"hum_body_Naked0",0, 1 ,"Hum_Head_Pony", 87, 4,ORG_ARMOR_H);
-	
-	B_Scale (self);	
-	Mdl_SetModelFatness (self, 0);		
-	
-	fight_tactic	=	FAI_HUMAN_MASTER;		
-	
+
+	B_Scale (self);
+	Mdl_SetModelFatness (self, 0);
+
+	fight_tactic	=	FAI_HUMAN_MASTER;
+
 	//-------- Talente ----------
 
 	Npc_SetTalentSkill (self, NPC_TALENT_BOW,1);
@@ -38,7 +38,7 @@ instance ORG_801_Lares (Npc_Default)
 
 	//------- Inventory ---------
 
-	CreateInvItems (self, ItKeLockpick,3);		
+	CreateInvItems (self, ItKeLockpick,3);
 	CreateInvItems(self, ItMiNugget, 18);
 	CreateInvItems (self, ItFoRice,8);
 	CreateInvItems (self, ItFoBooze, 3);
@@ -52,11 +52,11 @@ instance ORG_801_Lares (Npc_Default)
 	EquipItem (self, Lares_Axt);
 	EquipItem (self, ItRw_Bow_Long_01);
 	CreateInvItems (self, ItAmArrow, 20);
-	
+
 
 	//-------------Daily Routine-------------
 	daily_routine = Rtn_start_801;
-	
+
 	aivar[AIV_ITEMSCHWEIN] = TRUE;
 };
 

@@ -1,5 +1,5 @@
 // **************************************************
-// 						 EXIT 
+// 						 EXIT
 // **************************************************
 
 INSTANCE DIA_Melvin_Exit (C_INFO)
@@ -10,7 +10,7 @@ INSTANCE DIA_Melvin_Exit (C_INFO)
 	information	= DIA_Melvin_Exit_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC INT DIA_Melvin_Exit_Condition()
 {
@@ -37,7 +37,7 @@ INSTANCE DIA_Melvin_Hello (C_INFO)
 };
 
 FUNC INT DIA_Melvin_Hello_Condition()
-{	
+{
 	return 1;
 };
 
@@ -66,7 +66,7 @@ INSTANCE DIA_Melvin_MetDusty (C_INFO)
 };
 
 FUNC INT DIA_Melvin_MetDusty_Condition()
-{	
+{
 	if ( (Npc_KnowsInfo(hero,DIA_Melvin_Hello)) && (Npc_KnowsInfo(hero,DIA_Dusty_Hello)) )
 	{
 		return 1;

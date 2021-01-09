@@ -15,7 +15,7 @@ INSTANCE Info_Mine_Vlk_1_EXIT(C_INFO)
 	information	= Info_Mine_Vlk_1_EXIT_Info;
 	permanent	= 1;
 	description = "ENDE";
-};                       
+};
 
 FUNC INT Info_Mine_Vlk_1_EXIT_Condition()
 {
@@ -23,7 +23,7 @@ FUNC INT Info_Mine_Vlk_1_EXIT_Condition()
 };
 
 FUNC VOID Info_Mine_Vlk_1_EXIT_Info()
-{	
+{
 	AI_StopProcessInfos	(self);
 };
 
@@ -38,7 +38,7 @@ INSTANCE Info_Mine_Vlk_1_Mine (C_INFO) // E1
 	information	= Info_Mine_Vlk_1_Mine_Info;
 	permanent	= 1;
 	description = "Erzähl mir was von der Mine";
-};                       
+};
 
 FUNC INT Info_Mine_Vlk_1_Mine_Condition()
 {
@@ -66,7 +66,7 @@ INSTANCE Info_Mine_Vlk_1_WichtigePersonen(C_INFO)
 	information	= Info_Mine_Vlk_1_WichtigePersonen_Info;
 	permanent	= 1;
 	description = "Wer hat hier was zu Sagen?";
-};                       
+};
 
 FUNC INT Info_Mine_Vlk_1_WichtigePersonen_Condition()
 {
@@ -93,7 +93,7 @@ INSTANCE Info_Mine_Vlk_1_Minecrawler(C_INFO)
 	information	= Info_Mine_Vlk_1_Minecrawler_Info;
 	permanent	= 1;
 	description = "Was weißt Du über Minecrawler?";
-};                       
+};
 
 FUNC INT Info_Mine_Vlk_1_Minecrawler_Condition()
 {
@@ -107,7 +107,7 @@ FUNC VOID Info_Mine_Vlk_1_Minecrawler_Info()
 {
 	AI_Output(other,self,"Info_Mine_Vlk_1_Minecrawler_15_00"); //Was weißt du über Minecrawler?
 	AI_Output(self,other,"Info_Mine_Vlk_1_Minecrawler_01_01"); //Die Templer haben ein Geschäft mit Gomez gemacht. Sie töten die Crawler und dafür kriegen sie die Zangen der Viecher.
-	
+
 };
 
 // *************************************************************************
@@ -121,7 +121,7 @@ INSTANCE Info_Mine_Vlk_1_DieLage(C_INFO) // E1
 	information	= Info_Mine_Vlk_1_DieLage_Info;
 	permanent	= 1;
 	description = "Wie sieht's aus?";
-};                       
+};
 
 FUNC INT Info_Mine_Vlk_1_DieLage_Condition()
 {

@@ -5,11 +5,11 @@ instance NOV_1304_Balor (Npc_Default)
 	Npctype	 	=		Npctype_Main;
 	guild 		=		GIL_NOV;
 	level 		=		15;
-	
+
 	voice 		=		1;
 	id 			=		1304;
-		
-	
+
+
 	//-------- abilities --------
 	attribute[ATR_STRENGTH] 		=	10;
 	attribute[ATR_DEXTERITY] 		=	10;
@@ -27,12 +27,12 @@ instance NOV_1304_Balor (Npc_Default)
 
 	B_Scale (self);
 	Mdl_SetModelFatness(self,-1);
-	
+
 	fight_tactic	=	FAI_HUMAN_STRONG;
 
 	//-------- Talente --------
-	
-		
+
+
 	//-------- inventory --------
 
 	EquipItem (self, ItMw_1H_Hatchet_01);
@@ -41,8 +41,8 @@ instance NOV_1304_Balor (Npc_Default)
 	CreateInvItems	(self, ItFoRice,	3);
 	CreateInvItems	(self, ItFoBooze,	3);
 	CreateInvItems	(self, ItMiJoint_1,	4);
-	
-	
+
+
 	//-------------Daily Routine-------------
 	daily_routine = Rtn_start_1304;
 };

@@ -11,15 +11,15 @@ instance  Info_Xardas_OT (C_INFO)
 	condition		= Info_Xardas_OT_Condition;
 	information		= Info_Xardas_OT_Info;
 	important		= 1;
-	permanent		= 0; 
+	permanent		= 0;
 };
 
 FUNC int  Info_Xardas_OT_Condition()
-{	
+{
 	if (Npc_GetDistToWP(self, "TPL_331") < 1000)
-	{			
+	{
 		return TRUE;
-	}; 
+	};
 };
 
 FUNC void  Info_Xardas_OT_Info()
@@ -39,11 +39,11 @@ FUNC void  Info_Xardas_OT_Info()
 	AI_Output			(other, self,"Info_Xardas_OT_15_13"); //Was ist los mit dir?
 	AI_Output			(self, other,"Info_Xardas_OT_14_14"); //Ich ... muss ...
 
-	Npc_ExchangeRoutine	(self,	"DRAINED"); 
-	
+	Npc_ExchangeRoutine	(self,	"DRAINED");
+
 	Log_CreateTopic		(CH6_Sleeper,	LOG_MISSION);
 	Log_SetTopicStatus	(CH6_Sleeper,	LOG_RUNNING);
 	B_LogEntry			(CH6_Sleeper,	"Es ist soweit. Ich muss mich kurz vor der Ruhestätte des Schläfers befinden. Xardas tauchte plötzlich auf und gab mir die letzten Instruktionen für den bevorstehenden Kampf. Die fünf Herzen der untoten Ork-Schamanen befinden sich in Schreinen und müssen von den fünf Klingen, die ich bei mir trage, durchstoßen werden. Nur so kann der Schläfer besiegt werden. Hört sich eigentlich ganz einfach an...");
-	
+
 	AI_StopProcessInfos	(self);
-};		
+};

@@ -21,7 +21,7 @@ const int 	PRIO_ATTACKER 		= 1;
 const int AIV_MM_SleepStart 		= 9;
 const int AIV_MM_SleepEnd 			= 10;
 const int AIV_MM_RestStart 			= 11;
-const int AIV_MM_RestEnd 			= 12;		
+const int AIV_MM_RestEnd 			= 12;
 const int AIV_MM_RoamStart 			= 13;
 const int AIV_MM_RoamEnd 			= 14;
 const int AIV_MM_EatGroundStart 	= 15;
@@ -31,8 +31,8 @@ const int AIV_MM_WuselEnd 			= 18;
 const int 	OnlyRoutine 		= -1;
 // ----------------------------------------
 const int AIV_MM_ShrinkState 		= 19;			// merkt sich das Schrumpf-Stadium des Monsters, wenn es von einem Shrink-Zauber getroffen wird
-const int AIV_MM_DistToMaster		= 20;			// die Distanz, die vom SC beschwörte Monster versuchen, zu ihrem Meister einzuhalten 
-const int AIV_MM_TimeLooseHP		= 21;			// Zeit in Sekunden, die das vom SC beschwörte Monster aushält, bevor es einen Lebenspunkt verliert 
+const int AIV_MM_DistToMaster		= 20;			// die Distanz, die vom SC beschwörte Monster versuchen, zu ihrem Meister einzuhalten
+const int AIV_MM_TimeLooseHP		= 21;			// Zeit in Sekunden, die das vom SC beschwörte Monster aushält, bevor es einen Lebenspunkt verliert
 // ----------------------------------------
 const int AIV_MM_REAL_ID			= 22;
 const int	ID_NONE				= 0;
@@ -88,4 +88,3 @@ const int MID_CANYONTROLL 		= 5000;
 const int MID_THEKEEPER 		= 5001;
 const int MID_DAMLURKER 		= 5002;
 const int MID_YOUNGTROLL		= 5003;
-	

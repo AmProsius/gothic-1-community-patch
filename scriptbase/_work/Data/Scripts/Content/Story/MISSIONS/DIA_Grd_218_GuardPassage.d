@@ -1,5 +1,5 @@
 // **************************************
-//					EXIT 
+//					EXIT
 // **************************************
 
 instance DIA_Grd_218_Exit (C_INFO)
@@ -10,7 +10,7 @@ instance DIA_Grd_218_Exit (C_INFO)
 	information	= DIA_Grd_218_Exit_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC int DIA_Grd_218_Exit_Condition()
 {
@@ -34,7 +34,7 @@ instance DIA_Grd_218_FirstIn (C_INFO)
 	information	= DIA_Grd_218_FirstIn_Info;
 	permanent	= 0;
 	important 	= 1;
-};                       
+};
 
 FUNC int DIA_Grd_218_FirstIn_Condition()
 {
@@ -61,9 +61,9 @@ FUNC VOID DIA_Grd_218_FirstIn_Info()
 
 //////////////////////////////////////////////////////////////////////////
 //	DURCHGANGSWACHE
-//	===============	
+//	===============
 //	NSC:		Grd_218_Gardist
-//	Lager:		OldCamp		
+//	Lager:		OldCamp
 //	Durchgang:	Eingang Erzbaronhaus
 //	Uhrzeit:	24h
 //
@@ -82,7 +82,7 @@ instance Info_Grd_218_FirstWarn (C_INFO)
 	information	= Info_Grd_218_FirstWarn_Info;
 	permanent	= 1;
 	important	= 1;
-};                       
+};
 
 //------------------------------------------------------------------------
 //	1. Warnung
@@ -90,8 +90,8 @@ instance Info_Grd_218_FirstWarn (C_INFO)
 func int Info_Grd_218_FirstWarn_Condition()
 {
 	if ((hero.aivar[AIV_GUARDPASSAGE_STATUS]== AIV_GPS_BEGIN)
-	&&  (self.aivar[AIV_PASSGATE]			== FALSE		) 
-	&&	(Npc_GetAttitude(self,hero)			!= ATT_FRIENDLY	) 
+	&&  (self.aivar[AIV_PASSGATE]			== FALSE		)
+	&&	(Npc_GetAttitude(self,hero)			!= ATT_FRIENDLY	)
 	&&	(Hlp_StrCmp(Npc_GetNearestWP(self), self.wp)		))
 	{
 		return TRUE;
@@ -107,7 +107,7 @@ func void Info_Grd_218_FirstWarn_Info()
 	AI_Output (self, hero,"Info_Grd_218_FirstWarn_Info_07_03"); //Das Haus der Erzbarone ist tabu für Abschaum wie dich!
 
 	hero.aivar[AIV_LASTDISTTOWP] 		= Npc_GetDistToWP(hero,Grd_218_CHECKPOINT);
-	hero.aivar[AIV_GUARDPASSAGE_STATUS]	= AIV_GPS_FIRSTWARN;	
+	hero.aivar[AIV_GUARDPASSAGE_STATUS]	= AIV_GPS_FIRSTWARN;
 
 	AI_StopProcessInfos	(self);
 };
@@ -123,15 +123,15 @@ instance Info_Grd_218_Attack (C_INFO)
 	information	= Info_Grd_218_Attack_Info;
 	permanent	= 1;
 	important	= 1;
-};                       
+};
 
 func int Info_Grd_218_Attack_Condition()
 {
 	if ((hero.aivar[AIV_GUARDPASSAGE_STATUS]		== AIV_GPS_FIRSTWARN				)
-	&&  (self.aivar[AIV_PASSGATE]					== FALSE		) 
-	&&	(Npc_GetAttitude(self,hero)					!= ATT_FRIENDLY	) 
+	&&  (self.aivar[AIV_PASSGATE]					== FALSE		)
+	&&	(Npc_GetAttitude(self,hero)					!= ATT_FRIENDLY	)
 	&&  (Npc_GetDistToWP(hero,Grd_218_CHECKPOINT)	< (hero.aivar[AIV_LASTDISTTOWP]-100))
-	&&	(Hlp_StrCmp(Npc_GetNearestWP(self),self.wp)										)) 
+	&&	(Hlp_StrCmp(Npc_GetNearestWP(self),self.wp)										))
 	{
 		return 			TRUE;
 	};
@@ -139,11 +139,11 @@ func int Info_Grd_218_Attack_Condition()
 
 func int Info_Grd_218_Attack_Info()
 {
-	
+
 	hero.aivar[AIV_LASTDISTTOWP] 		= 0;
-	hero.aivar[AIV_GUARDPASSAGE_STATUS]	= AIV_GPS_PUNISH;	
-	
-	B_FullStop			(self);	
+	hero.aivar[AIV_GUARDPASSAGE_STATUS]	= AIV_GPS_PUNISH;
+
+	B_FullStop			(self);
 	AI_StopProcessInfos	(self);					// dem Spieler sofort wieder die Kontrolle zurückgeben
 	B_IntruderAlert		(self,	other);
 	B_SetAttackReason	(self,	AIV_AR_INTRUDER);

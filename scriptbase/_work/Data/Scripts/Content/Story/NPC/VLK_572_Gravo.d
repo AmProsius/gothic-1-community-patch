@@ -1,19 +1,19 @@
 instance VLK_572_Gravo (Npc_Default)
 {
 	//-------- primary data --------
-	
+
 	name =							"Gravo";
 	npctype =						npctype_Main;
-	guild =							GIL_VLK;      
+	guild =							GIL_VLK;
 	level =							4;
-	
-	
+
+
 	voice =							4;
 	id =							572;
 
 
 	//-------- abilities --------
-	
+
 	attribute[ATR_STRENGTH] =		20;
 	attribute[ATR_DEXTERITY] =		10;
 	attribute[ATR_MANA_MAX] =		0;
@@ -25,26 +25,26 @@ instance VLK_572_Gravo (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Tired.mds");
-	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
+	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin
 	Mdl_SetVisualBody (self,"hum_body_Naked0",3,0,"Hum_Head_Psionic", 0,  1, -1);
 
-	B_Scale (self); 
+	B_Scale (self);
 	Mdl_SetModelFatness (self, 0);
-    	
+
     	self.aivar[AIV_IMPORTANT] = TRUE;
-	
-	fight_tactic	=	FAI_HUMAN_COWARD; 
 
-	//-------- Talents --------                                    
+	fight_tactic	=	FAI_HUMAN_COWARD;
 
-	
-	//-------- inventory --------                                    
+	//-------- Talents --------
+
+
+	//-------- inventory --------
 
 	EquipItem (self, ItMw_1H_Hatchet_01);
 	CreateInvItem (self, Itfo_Potion_Water_01);
 	CreateInvItems (self, ItMiNugget,5);
 
-	
+
 	//-------------Daily Routine-------------
 	daily_routine = Rtn_start_572;
 };

@@ -20,7 +20,7 @@ func void B_InitOrcAttitudes (var int OrcsvsHuman)
 		B_SETGUILDATTITUDE	( GIL_ORCSCOUT  ,	ATT_FRIENDLY,		GIL_SEPERATOR_HUM	);
 		B_SETGUILDATTITUDE	( GIL_ORCSLAVE  ,	ATT_FRIENDLY,		GIL_SEPERATOR_HUM	);
 
-                                        	 	
+
 		//-------- Orks gegenüber Monster --------
 	}
 	else if (OrcsvsHuman == 2)
@@ -38,9 +38,9 @@ func void B_InitOrcAttitudes (var int OrcsvsHuman)
 		B_SETGUILDATTITUDE	( GIL_ORCWARRIOR,	ATT_ANGRY,		GIL_SEPERATOR_HUM	);
 		B_SETGUILDATTITUDE	( GIL_ORCSCOUT  ,	ATT_ANGRY,		GIL_SEPERATOR_HUM	);
 		B_SETGUILDATTITUDE	( GIL_ORCSLAVE  ,	ATT_ANGRY,		GIL_SEPERATOR_HUM	);
-		
+
 	}
-	
+
 	else if (OrcsvsHuman == 4)
 	{
 		// dito
@@ -57,7 +57,7 @@ func void B_InitOrcAttitudes (var int OrcsvsHuman)
 		B_SetGuildAttitude	( GIL_ORCSHAMAN ,	ATT_NEUTRAL,		GIL_SEPERATOR_HUM	);
 		B_SetGuildAttitude	( GIL_ORCWARRIOR,	ATT_NEUTRAL,		GIL_SEPERATOR_HUM	);
 		B_SetGuildAttitude	( GIL_ORCSCOUT  ,	ATT_NEUTRAL,		GIL_SEPERATOR_HUM	);
-		B_SetGuildAttitude	( GIL_ORCSLAVE  ,	ATT_NEUTRAL,		GIL_SEPERATOR_HUM	);		
+		B_SetGuildAttitude	( GIL_ORCSLAVE  ,	ATT_NEUTRAL,		GIL_SEPERATOR_HUM	);
 	}
 	else if (chapter == 6)
 	{
@@ -65,8 +65,8 @@ func void B_InitOrcAttitudes (var int OrcsvsHuman)
 		B_SetGuildAttitude	( GIL_ORCSHAMAN ,	ATT_HOSTILE,		GIL_SEPERATOR_HUM	);
 		B_SetGuildAttitude	( GIL_ORCWARRIOR,	ATT_HOSTILE,		GIL_SEPERATOR_HUM	);
 		B_SetGuildAttitude	( GIL_ORCSCOUT  ,	ATT_HOSTILE,		GIL_SEPERATOR_HUM	);
-		B_SetGuildAttitude	( GIL_ORCSLAVE  ,	ATT_HOSTILE,		GIL_SEPERATOR_HUM	);		
-		
+		B_SetGuildAttitude	( GIL_ORCSLAVE  ,	ATT_HOSTILE,		GIL_SEPERATOR_HUM	);
+
 	};
 	*/
 	B_SetGuildAttitude	(GIL_SEPERATOR_ORC,	ATT_NEUTRAL,	GIL_WARAN			);
@@ -110,5 +110,5 @@ func void B_InitOrcAttitudes (var int OrcsvsHuman)
 	B_SetGuildAttitude	(GIL_ORCSLAVE 	,	ATT_FRIENDLY,	GIL_ORCWARRIOR  	);
 	B_SetGuildAttitude	(GIL_ORCSLAVE	,	ATT_FRIENDLY,	GIL_ORCSCOUT		);
 	B_SetGuildAttitude	(GIL_ORCSLAVE	,	ATT_FRIENDLY,	GIL_ORCSLAVE		);
-	
-}; 
+
+};

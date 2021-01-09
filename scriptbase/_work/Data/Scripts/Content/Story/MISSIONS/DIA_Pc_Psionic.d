@@ -1,5 +1,5 @@
 // **************************************************
-//						EXIT 
+//						EXIT
 // **************************************************
 instance  PC_Psionic_Exit (C_INFO)
 {
@@ -7,10 +7,10 @@ instance  PC_Psionic_Exit (C_INFO)
 	nr			=  999;
 	condition	=  PC_Psionic_Exit_Condition;
 	information	=  PC_Psionic_Exit_Info;
-	important	=  0;	
+	important	=  0;
 	permanent	=  1;
 	description =	DIALOG_ENDE;
-};                       
+};
 
 FUNC int  PC_Psionic_Exit_Condition()
 {
@@ -27,7 +27,7 @@ FUNC VOID  PC_Psionic_Exit_Info()
 	{
 		AI_Output 	(self, hero,"Info_Lester_EXIT_05_02"); //Der Schläfer möge dich behüten!
 	};
-	
+
 	AI_StopProcessInfos	( self );
 };
 
@@ -42,7 +42,7 @@ instance  DIA_Lester_Sakrileg (C_INFO)
 	information	= DIA_Lester_Sakrileg_Info;
 	permanent	= 0;
 	important 	= 1;
-};                       
+};
 
 FUNC int  DIA_Lester_Sakrileg_Condition()
 {
@@ -69,7 +69,7 @@ instance  DIA_Lester_Hallo (C_INFO)
 	information	=  DIA_Lester_Hallo_Info;
 	permanent	=  0;
 	description = "Wer bist du?";
-};                       
+};
 
 FUNC int  DIA_Lester_Hallo_Condition()
 {
@@ -101,7 +101,7 @@ instance  DIA_Lester_WannaTalkToMaster (C_INFO) //E2
 	information	= DIA_Lester_WannaTalkToMaster_Info;
 	permanent	= 0;
 	description	= "Ich will aber mit deinem Meister reden.";
-};                       
+};
 
 FUNC int  DIA_Lester_WannaTalkToMaster_Condition()
 {
@@ -131,7 +131,7 @@ instance  DIA_Lester_CampInfo (C_INFO) //E2
 	information	= DIA_Lester_CampInfo_Info;
 	permanent	= 1;
 	description	= "Erzähl mir was über das Lager.";
-};                       
+};
 
 FUNC int  DIA_Lester_CampInfo_Condition()
 {
@@ -147,7 +147,7 @@ FUNC VOID  DIA_Lester_CampInfo_Info()
 	AI_Output (other, self,"DIA_Lester_CampInfo_15_00"); //Erzähl mir was über das Lager.
 	AI_Output (self, other,"DIA_Lester_CampInfo_05_01"); //Was willst du wissen?
 	Info_Clearchoices (DIA_Lester_CampInfo);
-	Info_Addchoice (DIA_Lester_CampInfo,DIALOG_BACK,DIA_Lester_CampInfo_BACK); 
+	Info_Addchoice (DIA_Lester_CampInfo,DIALOG_BACK,DIA_Lester_CampInfo_BACK);
 	Info_Addchoice (DIA_Lester_CampInfo,"Erzähl mir was über die Gilden.",DIA_Lester_CampInfo_GIL);
 	Info_Addchoice (DIA_Lester_CampInfo,"Was hat es mit dem Schläfer auf sich?",DIA_Lester_CampInfo_SLEEPER);
 	Info_Addchoice (DIA_Lester_CampInfo,"Was weißt du über das Kraut?",DIA_Lester_CampInfo_HERB);
@@ -194,7 +194,7 @@ instance  DIA_Lester_WannaJoin (C_INFO) //E2
 	information	= DIA_Lester_WannaJoin_Info;
 	permanent	= 0;
 	description	= "Ich will mich der Bruderschaft anschließen!";
-};                       
+};
 
 FUNC int  DIA_Lester_WannaJoin_Condition()
 {
@@ -225,7 +225,7 @@ instance  DIA_Lester_HowProofWorthy (C_INFO) //E2
 	information	= DIA_Lester_HowProofWorthy_Info;
 	permanent	= 0;
 	description	= "Wie soll das funktionieren, wenn keiner der Gurus mit mir redet?";
-};                       
+};
 
 FUNC int  DIA_Lester_HowProofWorthy_Condition()
 {
@@ -263,7 +263,7 @@ instance  DIA_Lester_WeitWeg (C_INFO) //E2
 	information	= DIA_Lester_WeitWeg_Info;
 	permanent	= 0;
 	description	= "Wie bringe ich deinen Meister dazu, mit mir zu reden?";
-};                       
+};
 
 FUNC int  DIA_Lester_WeitWeg_Condition()
 {
@@ -287,7 +287,7 @@ FUNC VOID  DIA_Lester_WeitWeg_Info()
 	AI_Output (self, other,"DIA_Lester_WeitWeg_05_06"); //Daraufhin werde ich dich fragen, was dich dazu bewogen hat, und du sagst, du hattest eine Vision, in der der Schläfer dich zu sich gerufen hat.
 	AI_Output (self, other,"DIA_Lester_WeitWeg_05_07"); //Das sollte sein Interesse wecken. Denkst du, du kriegst das hin?
 	AI_Output (other, self,"DIA_Lester_WeitWeg_15_08"); //Kein Problem.
-	
+
 	B_LogEntry	(CH1_JoinPsi, "Um Baal Namib zu beeindrucken, soll ich Lester in der Nähe des Gurus ansprechen und über alte Götter und den Schläfer reden.");
 
 	Lester_Show = TRUE;
@@ -305,7 +305,7 @@ instance  DIA_Lester_ShowHallo (C_INFO) //E2
 	information	= DIA_Lester_ShowHallo_Info;
 	permanent	= 0;
 	important 	= 1;
-};                       
+};
 
 FUNC int  DIA_Lester_ShowHallo_Condition()
 {
@@ -336,7 +336,7 @@ instance  DIA_Lester_Show (C_INFO) //E2
 	information	= DIA_Lester_Show_Info;
 	permanent	= 0;
 	description	= "Ich habe den alten Göttern abgeschworen.";
-};                       
+};
 
 FUNC int  DIA_Lester_Show_Condition()
 {
@@ -395,19 +395,19 @@ FUNC VOID  DIA_Lester_GuideOffer_Info()
 // **************************************************
 
 
-// -----------UNTERWEGS--------------------  
+// -----------UNTERWEGS--------------------
 instance  PC_Psionic_SOON (C_INFO)
 {
 	npc			=  PC_Psionic;
 	condition	=  PC_Psionic_SOON_Condition;
 	information	=  PC_Psionic_SOON_Info;
-	important	=  0;	
+	important	=  0;
 	permanent	=  1;
 	description = "Sind wir gleich da?";
-};                       
+};
 
 FUNC int  PC_Psionic_SOON_Condition()
-{	
+{
 	if  (Npc_KnowsInfo (hero,DIA_Lester_GuideOffer))
 	&&  (Kapitel < 3)
 	&&  (LesterGuide >= 1)
@@ -427,13 +427,13 @@ instance  PC_Psionic_CHANGE (C_INFO)
 	npc			=  PC_Psionic;
 	condition	=  PC_Psionic_CHANGE_Condition;
 	information	=  PC_Psionic_CHANGE_Info;
-	important	=  0;	
+	important	=  0;
 	permanent	=  1;
 	description = "Ich habe es mir anders überlegt";
-};                       
+};
 
 FUNC int  PC_Psionic_CHANGE_Condition()
-{	
+{
 	if  Npc_KnowsInfo (hero,DIA_Lester_GuideOffer)
 	&&  (Kapitel < 3)
 	&&  (LesterGuide >= 1)
@@ -460,27 +460,27 @@ instance  PC_Psionic_GUIDEFIRST (C_INFO)
 	information		= PC_Psionic_GUIDEFIRST_Info;
 	important		= 0;
 	permanent		= 1;
-	description		= "Zeig mir den Weg..."; 
+	description		= "Zeig mir den Weg...";
 };
 
 FUNC int  PC_Psionic_GUIDEFIRST_Condition()
-{	
+{
 	if  Npc_KnowsInfo (hero,DIA_LESTER_GuideOffer)
 	&&  (Kapitel < 3)
 	&&  (LesterGuide == 0)
 	{
 		return TRUE;
 	};
-		
+
 
 };
 FUNC void  PC_Psionic_GUIDEFIRST_Info()
 {
 	AI_Output (other, self,"PC_Psionic_GUIDEFIRST_Info_15_01"); //Zeig mir den Weg ...
 //	AI_Output (self, other,"PC_Psionic_GUIDEFIRST_Info_05_02"); //Klar, wohin willst du?
-	
+
 	Info_ClearChoices (PC_Psionic_GUIDEFIRST);
-	
+
 	Info_Addchoice (PC_Psionic_GUIDEFIRST, DIALOG_BACK, PC_Psionic_GUIDEFIRST_BACK);
 	Info_Addchoice (PC_Psionic_GUIDEFIRST,"zurück zum Hauptor",PC_Psionic_GUIDEFIRST_MAINGATE);
 	Info_Addchoice (PC_Psionic_GUIDEFIRST,"zur Schmiede",PC_Psionic_GUIDEFIRST_SMITH);
@@ -488,7 +488,7 @@ FUNC void  PC_Psionic_GUIDEFIRST_Info()
 	Info_Addchoice (PC_Psionic_GUIDEFIRST,"zu den Lehrern",PC_Psionic_GUIDEFIRST_TRAIN);
 	Info_Addchoice (PC_Psionic_GUIDEFIRST,"zum Alchemielabor",PC_Psionic_GUIDEFIRST_HERB);
 
-};  
+};
 
 func void PC_Psionic_GUIDEFIRST_MAINGATE()
 {
@@ -543,12 +543,12 @@ func void PC_Psionic_GUIDEFIRST_BACK()
 // ***************************** Am Platz der Lehrer ****************************************//
 instance  PC_Psionic_TRAIN (C_INFO)
 {
-	npc				= PC_Psionic;                       
-	condition		= PC_Psionic_TRAIN_Condition; 
-	information		= PC_Psionic_TRAIN_Info;      
+	npc				= PC_Psionic;
+	condition		= PC_Psionic_TRAIN_Condition;
+	information		= PC_Psionic_TRAIN_Info;
 	important		= 1;
 	permanent		= 1;
-	 
+
 };
 FUNC int  PC_Psionic_TRAIN_Condition()
 {
@@ -572,17 +572,17 @@ FUNC void  PC_Psionic_TRAIN_Info()
 	AI_StopProcessInfos (self);
 	TA_BeginOverlay		(self);
 	TA_Stay			    (00,00,00,55,"PSI_PATH_9_4");
-	TA_EndOverlay		(self);	
-};  
+	TA_EndOverlay		(self);
+};
 // ***************************** Am Tempelplatz ****************************************//
 instance  PC_Psionic_TEMPEL (C_INFO)
 {
-	npc				= PC_Psionic;                       
-	condition		= PC_Psionic_TEMPEL_Condition; 
-	information		= PC_Psionic_TEMPEL_Info;      
+	npc				= PC_Psionic;
+	condition		= PC_Psionic_TEMPEL_Condition;
+	information		= PC_Psionic_TEMPEL_Info;
 	important		= 1;
 	permanent		= 0;
-	 
+
 };
 FUNC int  PC_Psionic_TEMPEL_Condition()
 {
@@ -599,23 +599,23 @@ FUNC void  PC_Psionic_TEMPEL_Info()
 	AI_Output (self, other,"PC_Psionic_TEMPEL_Info_05_01"); //Hier ist der Tempel! Ich werde auf dich warten, aber wenn du dir zu viel Zeit lässt, dann gehe ich zurück zu Baal Namib.
 
 	LesterGuide = 0;
-	
+
 	Npc_ExchangeRoutine(self,"START");
 	AI_StopProcessInfos(self);
 	TA_BeginOverlay (self);
-	TA_Stay(00,00,01,00,"PSI_TEMPLE_NOVIZE_PR");  
+	TA_Stay(00,00,01,00,"PSI_TEMPLE_NOVIZE_PR");
 	TA_EndOverlay (self);
 
-};  
+};
 // ***************************** An der Schmiede ****************************************//
 instance  PC_Psionic_SMITH (C_INFO)
 {
-	npc				= PC_Psionic;                       
-	condition		= PC_Psionic_SMITH_Condition; 
-	information		= PC_Psionic_SMITH_Info;      
+	npc				= PC_Psionic;
+	condition		= PC_Psionic_SMITH_Condition;
+	information		= PC_Psionic_SMITH_Info;
 	important		= 1;
 	permanent		= 0;
-	 
+
 };
 FUNC int  PC_Psionic_SMITH_Condition()
 {
@@ -631,25 +631,25 @@ FUNC void  PC_Psionic_SMITH_Info()
 {
 	AI_Output (self, other,"PC_Psionic_SMITH_Info_05_01"); //Hier ist die Schmiede! Schau dich um, ich warte etwa eine Stunde, dann haue ich wieder ab.
 	LesterGuide = 0;
-	
-	
+
+
 	Npc_ExchangeRoutine(self,"START");
 	AI_StopProcessInfos(self);
 	TA_BeginOverlay (self);
-	TA_Stay(00,00,01,00,"PSI_SMITH_IN");  
+	TA_Stay(00,00,01,00,"PSI_SMITH_IN");
 	TA_EndOverlay (self);
-	
-	
-};   
-// ***************************** Beim Krauthändler ****************************************// 
+
+
+};
+// ***************************** Beim Krauthändler ****************************************//
 instance  PC_Psionic_HERB (C_INFO)
 {
-	npc				= PC_Psionic;                       
-	condition		= PC_Psionic_HERB_Condition; 
-	information		= PC_Psionic_HERB_Info;      
+	npc				= PC_Psionic;
+	condition		= PC_Psionic_HERB_Condition;
+	information		= PC_Psionic_HERB_Info;
 	important		= 1;
 	permanent		= 0;
-	 
+
 };
 FUNC int  PC_Psionic_HERB_Condition()
 {
@@ -663,17 +663,17 @@ FUNC void  PC_Psionic_HERB_Info()
 {
 	AI_Output      (self, other,"PC_Psionic_HERB_Info_05_01"); //Wenn du die Leiter raufsteigst, dann kommst du zu Kalom, dem Alchemisten. Hier unten steht Fortuno, der Krauthändler.
 	AI_Output      (self, other,"PC_Psionic_HERB_Info_05_02"); //Ich warte hier auf dich, aber lass dir nicht zu viel Zeit, sonst gehe ich wieder zurück.
-	
+
 	LesterGuide = 0;
-	
+
 	Npc_ExchangeRoutine(self,"START");
 
 	AI_StopProcessInfos(self);
 
 	TA_BeginOverlay (self);
-	TA_Stay(00,00,01,00,"PSI_32_HUT_EX");  
+	TA_Stay(00,00,01,00,"PSI_32_HUT_EX");
 	TA_EndOverlay (self);
-};    
+};
 
 
 
@@ -690,7 +690,7 @@ FUNC void  PC_Psionic_HERB_Info()
 //---------------------------------------------------------------------
 //	Info SEND
 //---------------------------------------------------------------------
-instance  PC_Psionic_SEND (C_INFO)// PC muss im ersten Kapitel schon mal mit Lester geredet haben 
+instance  PC_Psionic_SEND (C_INFO)// PC muss im ersten Kapitel schon mal mit Lester geredet haben
 {
 	npc				= PC_Psionic;
 	condition		= PC_Psionic_SEND_Condition;
@@ -725,7 +725,7 @@ func void  PC_Psionic_SEND_Info()
 	AI_Output			(self, other,"PC_Psionic_SEND_Info_05_06"); //Sie brauchen einen magischen Gegenstand, einen Fokus.
 
 	B_Kapitelwechsel	(2);
-};  
+};
 
 //---------------------------------------------------------------------
 //	Info BROTHERHOOD_TODO
@@ -737,11 +737,11 @@ instance  PC_Psionic_BROTHERHOOD_TODO (C_INFO)
 	information		= PC_Psionic_BROTHERHOOD_TODO_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "Was kann ich dabei tun?"; 
+	description		= "Was kann ich dabei tun?";
 };
 
 FUNC int  PC_Psionic_BROTHERHOOD_TODO_Condition()
-{	
+{
 	if Npc_KnowsInfo (hero, PC_Psionic_SEND)
 	{
 		return TRUE;
@@ -764,14 +764,14 @@ FUNC void  PC_Psionic_BROTHERHOOD_TODO_Info()
 	YBerion.aivar[AIV_FINDABLE] = TRUE;
 };
 
-//--------------------------------------- 
+//---------------------------------------
 
 //#####################################################################
 //##
 //##
 //##							KAPITEL 3
 //##
-//##				
+//##
 //#####################################################################
 
 //	Suche Nach Dem Fokus In Der Bergfestung
@@ -789,8 +789,8 @@ instance PC_Psionic_FOLLOWME (C_INFO)
 };
 
 FUNC int  PC_Psionic_FOLLOWME_Condition()
-{	
-	if ( Npc_GetDistToWp (hero,"LOCATION_19_01") < 400 ) 
+{
+	if ( Npc_GetDistToWp (hero,"LOCATION_19_01") < 400 )
 	&& ( Npc_GetDistToNpc (hero,PC_PSIONIC) <400)
 	{
 		return TRUE;
@@ -817,11 +817,11 @@ instance  PC_Psionic_GOLEM (C_INFO)
 	information		= PC_Psionic_GOLEM_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "Wie bist du eigentlich an dem wandelnden Steinhaufen vorbeigekommen?"; 
+	description		= "Wie bist du eigentlich an dem wandelnden Steinhaufen vorbeigekommen?";
 };
 
 FUNC int  PC_Psionic_GOLEM_Condition()
-{	
+{
 	if (Npc_KnowsInfo  (hero, PC_Psionic_FOLLOWME))
 	&& (!Npc_KnowsInfo  (hero, PC_Psionic_FINISH ))
 	{
@@ -833,7 +833,7 @@ FUNC void  PC_Psionic_GOLEM_Info()
 {
 	AI_Output (other, self,"PC_Psionic_NORMAL_Info_15_01"); //Wie bist du eigentlich an dem wandelnden Steinhaufen vorbeigekommen?
 	AI_Output (self, other,"PC_Psionic_NORMAL_Info_05_02"); //Ich habe einiges von den Gurus gelernt. Vor allem ihre Magie erweist sich immer wieder als sehr hilfreich.
-};  
+};
 
 //------------GESCHICHTE WARUM LESTER ZUR BERGFESTUNG GEHT--------------------
 instance  PC_Psionic_STORY (C_INFO)
@@ -843,13 +843,13 @@ instance  PC_Psionic_STORY (C_INFO)
 	information		= PC_Psionic_STORY_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "Was ist das für eine Urkunde, die du suchst?"; 
+	description		= "Was ist das für eine Urkunde, die du suchst?";
 };
 
 FUNC int  PC_Psionic_STORY_Condition()
-{	
-	if	Npc_KnowsInfo (hero, PC_Psionic_FOLLOWME)  
-	 
+{
+	if	Npc_KnowsInfo (hero, PC_Psionic_FOLLOWME)
+
 	{
 		return TRUE;
 	};
@@ -862,7 +862,7 @@ FUNC void  PC_Psionic_STORY_Info()
 	AI_Output (self, other,"PC_Psionic_STORY_Info_05_03"); //Er hatte natürlich, wie jeder Adelige, eine Urkunde über den Besitz. Und die werde ich mir holen.
 	AI_Output (other, self,"PC_Psionic_STORY_Info_15_04"); //Aber solange die Barriere uns gefangen hält, nützt sie dir gar nichts.
 	AI_Output (self, other,"PC_Psionic_STORY_Info_05_05"); //Das stimmt. Aber wenn die Wassermagier es doch schaffen, die Barriere zu zerstören, dann könnte die Urkunde wieder einiges wert sein.
-};  
+};
 
 // ***************************** INFOS ****************************************//
 instance  PC_Psionic_COMEWITHME (C_INFO)
@@ -872,11 +872,11 @@ instance  PC_Psionic_COMEWITHME (C_INFO)
 	information		= PC_Psionic_COMEWITHME_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "Wir könnten die Festung gemeinsam erkunden!"; 
+	description		= "Wir könnten die Festung gemeinsam erkunden!";
 };
 
 FUNC int  PC_Psionic_COMEWITHME_Condition()
-{	
+{
 	if	Npc_KnowsInfo(hero, PC_Psionic_STORY)
 	&&	Npc_KnowsInfo(hero, PC_Psionic_GOLEM)
 	{
@@ -896,7 +896,7 @@ FUNC void  PC_Psionic_COMEWITHME_Info()
   	self.aivar[AIV_PARTYMEMBER] =	TRUE;
 	Npc_ExchangeRoutine (self,"FORTRESSFOLLOW");
 	AI_StopProcessInfos	(self);
-};  
+};
 
 //--------------------SPIELER KOMMT MIT LESTER ZUM FOKUSPLATZ-------------------
 instance PC_Psionic_FOKUSPLACE (C_INFO)
@@ -909,8 +909,8 @@ instance PC_Psionic_FOKUSPLACE (C_INFO)
 };
 
 FUNC int  PC_Psionic_FOKUSPLACE_Condition()
-{	
-	if ( Npc_GetDistToWp (hero,"LOCATION_19_03_PATH_RUIN7") < 400 ) 
+{
+	if ( Npc_GetDistToWp (hero,"LOCATION_19_03_PATH_RUIN7") < 400 )
 	{
 		return TRUE;
 	};
@@ -923,8 +923,8 @@ func void  PC_Psionic_FOKUSPLACE_Info()
 	AI_Output (other, self,"PC_Psionic_FOKUSPLACE_Info_15_02"); //Ja, sieht aus wie ein Fokusplatz, hm ... so einfach komme ich da nicht dran ...
 	AI_StopProcessInfos(self);
 
-	B_LogEntry		(CH3_Fortress,	"Der Fokus den ich suche befindet sich auf einem Podest. Es ist zu hoch um zu klettern. Ich muss einen anderen Weg finden, an das Artefakt heranzukommen.");	
-	
+	B_LogEntry		(CH3_Fortress,	"Der Fokus den ich suche befindet sich auf einem Podest. Es ist zu hoch um zu klettern. Ich muss einen anderen Weg finden, an das Artefakt heranzukommen.");
+
 	Wld_InsertNpc		(Harpie,"LOCATION_19_03_ENTRANCE_HARPYE");
 	Wld_InsertNpc		(Harpie,"LOCATION_19_03_ENTRANCE_HARPYE2");
 	Wld_InsertNpc		(Harpie,"LOCATION_19_03_ENTRANCE_HARPYE3");
@@ -941,7 +941,7 @@ instance PC_Psionic_COMEBACK (C_INFO)
 };
 
 FUNC int  PC_Psionic_COMEBACK_Condition()
-{	
+{
 	if ( Npc_GetDistToWp (hero, "PATH_TO_PLATEAU04_BRIDGE2" ) < 600 )
 	&& ( Npc_KnowsInfo (hero,PC_Psionic_FOLLOWME))
 	&& (! Npc_HasItems (hero,Focus_3))
@@ -953,7 +953,7 @@ func void  PC_Psionic_COMEBACK_Info()
 {
 	AI_GotoNpc(self,hero);
 	AI_Output (self, other,"PC_Psionic_COMEBACK_Info_05_01"); //Wo willst du hin? Wir sind hier noch nicht fertig!
-	
+
   	self.aivar[AIV_PARTYMEMBER] =	FALSE;
 	Npc_ExchangeRoutine (self,"FORTRESSWAIT");
 	AI_StopProcessInfos(self);
@@ -967,11 +967,11 @@ instance  PC_Psionic_IAMHURT (C_INFO)
 	information		= PC_Psionic_IAMHURT_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "Ich bin verletzt, kannst du mir helfen?"; 
+	description		= "Ich bin verletzt, kannst du mir helfen?";
 };
 
 FUNC int  PC_Psionic_IAMHURT_Condition()
-{	
+{
 	if (hero.attribute[ATR_HITPOINTS] < (hero.attribute[ATR_HITPOINTS_MAX]/2))
 	&& (Npc_KnowsInfo (hero,PC_Psionic_FOLLOWME))
 	{
@@ -983,10 +983,10 @@ FUNC void  PC_Psionic_IAMHURT_Info()
 {
 	AI_Output (other, self,"PC_Psionic_IAMHURT_Info_15_01"); //Ich bin verletzt, kannst du mir helfen?
 	AI_Output (self, other,"PC_Psionic_IAMHURT_Info_05_02"); //Hier, nimm diesen Heiltrank.
-	
+
 	CreateInvItem (self,ItFo_Potion_Health_02);
 	B_GiveInvItems 	(self, hero,ItFo_Potion_Health_02, 1);
-};  
+};
 
 //------------- SPIELER HAT DIE URKUNDE FÜR LESTER GEFUNDEN-----------------------
 instance  PC_Psionic_URKUNDE (C_INFO)
@@ -996,13 +996,13 @@ instance  PC_Psionic_URKUNDE (C_INFO)
 	information		= PC_Psionic_URKUNDE_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "Ich habe die Urkunde gefunden"; 
+	description		= "Ich habe die Urkunde gefunden";
 };
 
 FUNC int  PC_Psionic_URKUNDE_Condition()
-{	
+{
 	if(( Npc_HasItems (hero,ItWr_Urkunde_01 ))
-	&&( Npc_KnowsInfo(hero,PC_Psionic_STORY)))  
+	&&( Npc_KnowsInfo(hero,PC_Psionic_STORY)))
 	{
 		return TRUE;
 	};
@@ -1015,7 +1015,7 @@ FUNC void  PC_Psionic_URKUNDE_Info()
 	AI_Output			(self, other,"PC_Psionic_URKUNDE_Info_05_03"); //Ich werde unten vor der Fokusplattform auf dich warten.
 
 	B_LogEntry		(CH3_Fortress,	"Die Landbesitz-Urkunde, die Lester suchte, befand sich in einer Kiste. Er übergab mir im Tausch vier Telekinese-Spruchrollen, mit deren Hilfe ich den unerreichbaren Fokus nun bergen kann.");
-	
+
 	CreateInvItems		(self,ItArScrollTelekinesis,4);
 	B_GiveInvItems 	(self, hero, ItArScrollTelekinesis,4);
 	B_GiveInvItems	(hero, self, ItWr_Urkunde_01, 1);
@@ -1032,11 +1032,11 @@ instance  PC_Psionic_TIP (C_INFO)
 	information		= PC_Psionic_TIP_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "Wie soll ich den Fokus erreichen?"; 
+	description		= "Wie soll ich den Fokus erreichen?";
 };
 
 FUNC int  PC_Psionic_TIP_Condition()
-{	
+{
 	if (Npc_KnowsInfo (hero, PC_Psionic_URKUNDE))
 	&& ( ! Npc_HasItems (hero, Focus_3) )
 	{
@@ -1049,7 +1049,7 @@ FUNC void  PC_Psionic_TIP_Info()
 	AI_Output (other, self,"PC_Psionic_TIP_Info_15_01"); //Wie soll ich den Fokus erreichen?
 	AI_Output (self, other,"PC_Psionic_TIP_Info_05_02"); //Meister Y'Berion sagte immer: Der Schüler versucht die Dinge mit Händen und Füßen zu bewegen, der Meister bewegt die Dinge mit der Kraft seiner Gedanken.
 // 	AI_Output (self, other,"PC_Psionic_TIP_Info_05_03"); //Hier ist ein guter Ort, um die Kraft des Geistes zu nutzen!
-};  
+};
 
 // ---ALLES IN DER BERGFESTUNG ERLEDIGT ABER LESTER DIE URKUNDE NICHT GEGEBEN
 instance PC_Psionic_LEAVE (C_INFO)
@@ -1062,9 +1062,9 @@ instance PC_Psionic_LEAVE (C_INFO)
 };
 
 FUNC int  PC_Psionic_LEAVE_Condition()
-{	
+{
 	if ( ! Npc_HasItems (hero, Focus_3) )
-	&& ( ! Npc_HasItems (self, ItWr_Urkunde_01) ) 
+	&& ( ! Npc_HasItems (self, ItWr_Urkunde_01) )
 	&& ( Npc_GetDistToWp (hero, "PATH_TO_PLATEAU04_BRIDGE2") < 900 )
 	{
 		return TRUE;
@@ -1074,7 +1074,7 @@ func void  PC_Psionic_LEAVE_Info()
 {
 	AI_GotoNpc(self,hero);
 	AI_Output (self, other,"PC_Psionic_LEAVE_Info_05_01"); //Ich bleibe noch hier und suche die Urkunde.
-	
+
   	self.aivar[AIV_PARTYMEMBER] =	FALSE;
 
 	Npc_ExchangeRoutine (self,"BOOK");
@@ -1092,8 +1092,8 @@ instance PC_Psionic_BALKON (C_INFO)
 };
 
 FUNC int  PC_Psionic_BALKON_Condition()
-{	
-	if  ( ! Npc_HasItems  (self, ItWr_Urkunde_01) ) 
+{
+	if  ( ! Npc_HasItems  (self, ItWr_Urkunde_01) )
 	&&  ( Npc_GetDistToWp (hero, "LOCATION_19_03_PEMTAGRAM2") < 1000 )
 
 	{
@@ -1104,7 +1104,7 @@ func void  PC_Psionic_BALKON_Info()
 {
 	AI_GotoNpc(self,hero);
 	AI_Output (self, other,"PC_Psionic_BALKON_Info_05_01"); //Ich werde mich mal oben umsehen.
-	
+
 	AI_StopProcessInfos(self);
 	Npc_ExchangeRoutine (self,"BALKON");
 
@@ -1120,7 +1120,7 @@ instance PC_Psionic_FINISH (C_INFO)
 };
 
 FUNC int  PC_Psionic_FINISH_Condition()
-{	
+{
 	if Npc_HasItems (hero,Focus_3)
 	&& Npc_KnowsInfo(hero,PC_Psionic_URKUNDE)
 	{
@@ -1137,8 +1137,8 @@ func void  PC_Psionic_FINISH_Info()
  	self.aivar[AIV_PARTYMEMBER] = FALSE;
 	Npc_ExchangeRoutine (self,"BOOK");
 	AI_StopProcessInfos	(self);
-}; 
-/*---------------------------------BALKON DER BERGFESTUNG									
+};
+/*---------------------------------BALKON DER BERGFESTUNG
 ------------------------------------------------------------------------*/
 
 instance  PC_Psionic_CHESTCLOSED (C_INFO)
@@ -1148,15 +1148,15 @@ instance  PC_Psionic_CHESTCLOSED (C_INFO)
 	information		= PC_Psionic_CHESTCLOSED_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "Hast du schon was gefunden?"; 
+	description		= "Hast du schon was gefunden?";
 };
 
 FUNC int  PC_Psionic_CHESTCLOSED_Condition()
-{	
+{
 	if  ( ! Npc_HasItems (hero, Focus_3) )
-	&&  ( ! Npc_HasItems (self, ItWr_Urkunde_01) ) 
+	&&  ( ! Npc_HasItems (self, ItWr_Urkunde_01) )
 	&&  ( Npc_GetDistToWp(hero,"LOCATION_19_03_SECOND_ETAGE_BALCON") < 500)
-	{ 
+	{
 		return TRUE;
 	};
 
@@ -1169,9 +1169,9 @@ FUNC void  PC_Psionic_CHESTCLOSED_Info()
 	AI_Output (other, self,"PC_Psionic_CHESTCLOSED_Info_15_04"); //Nein, bisher noch nicht ...
 	AI_Output (self, other,"PC_Psionic_CHESTCLOSED_Info_05_05"); //Hast du schon in der Bibliothek nachgesehen?
 	AI_StopProcessInfos(self);
-};  
+};
 /*------------------------------------------------------------------------
-							COME WITH ME AGAIN							
+							COME WITH ME AGAIN
 ------------------------------------------------------------------------*/
 
 instance  PC_Psionic_COMEAGAIN (C_INFO)
@@ -1181,11 +1181,11 @@ instance  PC_Psionic_COMEAGAIN (C_INFO)
 	information		= PC_Psionic_COMEAGAIN_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "Lass uns zusammen die Festung erkunden"; 
+	description		= "Lass uns zusammen die Festung erkunden";
 };
 
 FUNC int  PC_Psionic_COMEAGAIN_Condition()
-{	
+{
 	if (Npc_KnowsInfo (hero,PC_Psionic_LEAVE))
 	&& ( ! Npc_HasItems (hero, Focus_3) )
 	{
@@ -1197,12 +1197,12 @@ FUNC void  PC_Psionic_COMEAGAIN_Info()
 {
 	AI_Output (other, self,"PC_Psionic_COMEAGAIN_Info_15_01"); //Lass uns zusammen die Festung erkunden.
 	AI_Output (self, other,"PC_Psionic_COMEAGAIN_Info_05_02"); //In Ordnung, du gehst vor!
- 
+
  	self.aivar[AIV_PARTYMEMBER] =	TRUE;
 	Npc_ExchangeRoutine (self,"FORTRESSFOLLOW");
 
 	AI_StopProcessInfos(self);
-};  
+};
 
 //---------------------------------------------------------------------
 //	Info DIEGOMILTEN      ******Björn****** Patch2
@@ -1212,10 +1212,10 @@ INSTANCE Info_Lester_DIEGOMILTEN (C_INFO)
 	npc			= PC_Psionic;
 	condition	= Info_Lester_DIEGOMILTEN_Condition;
 	information	= Info_Lester_DIEGOMILTEN_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 0;
 	description = "Ich habe Diego und Milten vor dem Alten Lager getroffen!";
-};                       
+};
 
 FUNC INT Info_Lester_DIEGOMILTEN_Condition()
 {
@@ -1227,7 +1227,7 @@ FUNC INT Info_Lester_DIEGOMILTEN_Condition()
 
 func VOID Info_Lester_DIEGOMILTEN_Info()
 {
-	
+
 	AI_Output	(hero,self,"Info_SFB_1_DieLage_15_00"); 				//Wie sieht's aus?
 	AI_Output 	(self, hero,"PC_Psionic_FOLLOWME_Info_05_01"); 			//Hey, was machst du denn hier?
 	AI_Output	(hero,self,"Info_Saturas_COLLAPSE_15_01"); 				//Die Alte Mine wurde nach einem Wassereinbruch verschüttet!
@@ -1246,7 +1246,7 @@ func VOID Info_Lester_DIEGOMILTEN_Info()
 	AI_Output 	(self, hero,"DIA_Fingers_Lehrer_Pickpocket2_05_03"); 	//Also pass auf dich auf.
 	AI_Output	(hero, self,"Info_FreemineOrc_EXIT_15_03"); 			//Ich danke dir. Ich werde mich jetzt wieder auf den Weg machen.
 	AI_Output 	(self, hero,"Info_Lester_EXIT_05_02"); 					//Der Schläfer möge dich behüten!
-		
+
 	B_GiveXP			(XP_MessageForGorn);
 
 	if (warned_gorn_or_lester == FALSE)
@@ -1255,7 +1255,7 @@ func VOID Info_Lester_DIEGOMILTEN_Info()
 	}
 	else
 	{
-		B_LogEntry			(CH4_4Friends,		"Ich habe Lester und Gorn nun darüber informiert sich mit den anderen beiden Freunden zu treffen. Ab jetzt ist dies nicht mehr meine Angelegenheit. Sie werden schon wissen, was zu tun ist."); 
+		B_LogEntry			(CH4_4Friends,		"Ich habe Lester und Gorn nun darüber informiert sich mit den anderen beiden Freunden zu treffen. Ab jetzt ist dies nicht mehr meine Angelegenheit. Sie werden schon wissen, was zu tun ist.");
 		Log_SetTopicStatus	(CH4_4Friends,		LOG_SUCCESS);
 	};
 

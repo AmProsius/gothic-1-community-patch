@@ -6,10 +6,10 @@ instance  Info_Saturas_EXIT (C_INFO)
 	nr			=	999;
 	condition	=	Info_Saturas_EXIT_Condition;
 	information	=	Info_Saturas_EXIT_Info;
-	important	=	0;	
+	important	=	0;
 	permanent	=	1;
 	description =	DIALOG_ENDE;
-};                       
+};
 
 FUNC int  Info_Saturas_EXIT_Condition()
 {
@@ -33,8 +33,8 @@ instance  Info_Saturas_Intruder (C_INFO)
 	condition	=	Info_Saturas_Intruder_Condition;
 	information	=	Info_Saturas_Intruder_Info;
 	permanent	=	1;
-	important	=	1;	
-};                       
+	important	=	1;
+};
 
 FUNC int  Info_Saturas_Intruder_Condition()
 {
@@ -75,11 +75,11 @@ instance Info_Saturas_NEWS (C_INFO)
 };
 
 FUNC INT Info_Saturas_NEWS_Condition()
-{	
+{
 	if ((CorAngar_SendToNC==TRUE) && Npc_KnowsInfo(hero, Info_Cronos_SLEEPER))
 	{
 		return TRUE;
-	};	
+	};
 };
 
 FUNC VOID Info_Saturas_NEWS_Info()
@@ -102,11 +102,11 @@ instance Info_Saturas_YBERION (C_INFO)
 };
 
 FUNC INT Info_Saturas_YBERION_Condition()
-{	
+{
 	if (Npc_KnowsInfo(hero, Info_Saturas_NEWS))
 	{
 		return TRUE;
-	};	
+	};
 };
 
 FUNC VOID Info_Saturas_YBERION_Info()
@@ -139,11 +139,11 @@ instance Info_Saturas_BOOK (C_INFO)
 };
 
 FUNC INT Info_Saturas_BOOK_Condition()
-{	
+{
 	if (Npc_KnowsInfo(hero, Info_Saturas_YBERION) && Npc_HasItems(hero, ItWrFokusbuch))
 	{
 		return TRUE;
-	};	
+	};
 };
 
 FUNC VOID Info_Saturas_BOOK_Info()
@@ -172,11 +172,11 @@ instance Info_Saturas_FOCUS (C_INFO)
 };
 
 FUNC INT Info_Saturas_FOCUS_Condition()
-{	
+{
 	if (Npc_KnowsInfo(hero, Info_Saturas_YBERION) && Npc_HasItems(hero, Focus_1))
 	{
 		return TRUE;
-	};	
+	};
 };
 
 FUNC VOID Info_Saturas_FOCUS_Info()
@@ -211,11 +211,11 @@ instance Info_Saturas_WHATNOW (C_INFO)
 };
 
 FUNC INT Info_Saturas_WHATNOW_Condition()
-{	
+{
 	if (Npc_KnowsInfo(hero, Info_Saturas_FOCUS) && Npc_KnowsInfo(hero, Info_Saturas_BOOK))
 	{
 		return TRUE;
-	};	
+	};
 };
 
 FUNC VOID Info_Saturas_WHATNOW_Info()
@@ -239,11 +239,11 @@ instance Info_Saturas_OFFER (C_INFO)
 };
 
 FUNC INT Info_Saturas_OFFER_Condition()
-{	
+{
 	if (Npc_KnowsInfo(hero, Info_Saturas_WHATNOW))
 	{
 		return TRUE;
-	};	
+	};
 };
 
 FUNC VOID Info_Saturas_OFFER_Info()
@@ -274,7 +274,7 @@ func void B_DeliverFocus()
 		AI_Output		(self, other,"Info_Saturas_BRINGFOCUS_14_01"); //Hm, das ist ein Anfang. Du schlägst dich gut.
 		AI_Output		(self, other,"Info_Saturas_BRINGFOCUS_14_02"); //Es fehlen noch drei Fokussteine, um unseren großen Plan durchzuführen.
 		AI_Output		(self, other,"Info_Saturas_BRINGFOCUS_14_03"); //Gehe nun und suche die restlichen Fokussteine.
-		Saturas_BringFoci = 2;	
+		Saturas_BringFoci = 2;
 		B_GiveXP  		(XP_DeliverSecondFocus);
 	}
 
@@ -284,20 +284,20 @@ func void B_DeliverFocus()
 		AI_Output		(self, other,"Info_Saturas_BRINGFOCUS_14_04"); //Gut, das ist schon der zweite Fokusstein, den du uns bringst.
 		AI_Output		(self, other,"Info_Saturas_BRINGFOCUS_14_05"); //Wir kommen unserem großen Ziel immer näher.
 		AI_Output		(self, other,"Info_Saturas_BRINGFOCUS_14_06"); //Schlag dich tapfer und suche nun die restlichen zwei Fokussteine.
-		Saturas_BringFoci = 3;	
+		Saturas_BringFoci = 3;
 		B_GiveXP  		(XP_DeliverThirdFocus);
 	}
-	
+
 	//-------- 4. Fokus abliefern --------
 	else if	(Saturas_BringFoci == 3)
 	{
 		AI_Output		(self, other,"Info_Saturas_BRINGFOCUS_14_07"); //Unglaublich, nun haben wir schon insgesamt vier Fokussteine.
 		AI_Output		(self, other,"Info_Saturas_BRINGFOCUS_14_08"); //Nur noch ein Einziger fehlt uns, dann haben wir alle ursprünglichen Steine in unserem Besitz.
 		AI_Output		(self, other,"Info_Saturas_BRINGFOCUS_14_09"); //Du hast unserer Gemeinschaft schon jetzt sehr viel Ehre erwiesen. Finde den letzten Fokusstein und unsere Befreiung steht kurz bevor.
-		Saturas_BringFoci = 4;	
+		Saturas_BringFoci = 4;
 		B_GiveXP  		(XP_DeliverFourthFocus);
 	}
-	
+
 	//-------- 5. Fokus abliefern --------
 	else if	(Saturas_BringFoci == 4)
 	{
@@ -306,24 +306,24 @@ func void B_DeliverFocus()
 		AI_Output		(self, other,"Info_Saturas_BRINGFOCUS_14_12"); //Gehe nun zu Riordian. Er wird dir einen Ausgleich für deine unermesslichen Mühen geben.
 		AI_Output		(self, other,"Info_Saturas_BRINGFOCUS_14_13"); //Sprich auch mit Cronos, dem Hüter des Erzes. Auch er wird dir ein Geschenk unserer Gemeinschaft überreichen.
 
-		Saturas_BringFoci = 5;	
+		Saturas_BringFoci = 5;
 		B_GiveXP  			(XP_DeliverFifthFocus);
 
 		B_LogEntry		(CH3_BringFoci,	"Es ist mir gelungen, alle vier fehlenden Fokussteine zu finden. Saturas ist überglücklich. Ich glaube ich habe jetzt einiges gut im Neuen Lager.");
 		B_LogEntry		(CH3_BringFoci,	"Die Wassermagier Cronos und Riordian halten jeweils eine Belohnung für die Wiederbeschaffung aller vier Fokussteine für mich bereit. Ich sollte mal bei ihnen vorbeischauen.");
 
-		
+
 		// Aufhebung des Log_running_Status, wenn die Foki schon vorher abgegeben wurden, bevor SC die einzelnen Aufträge bekam.    ***Björn***
-		
+
 		Log_SetTopicStatus	(CH3_MonasteryRuin,	LOG_SUCCESS);
 		Log_SetTopicStatus	(CH3_Stonehenge,	LOG_SUCCESS);
 		Log_SetTopicStatus	(CH3_Fortress,		LOG_SUCCESS);
 		Log_SetTopicStatus	(CH3_TrollCanyon,	LOG_SUCCESS);
 
 	};
-		
+
 	//-------- Neuer Teleportzauber ? --------
-	if ( !Npc_HasItems(hero, ItArScrollTeleport2) && (Saturas_BringFoci < 5) )	
+	if ( !Npc_HasItems(hero, ItArScrollTeleport2) && (Saturas_BringFoci < 5) )
 	{
 		AI_Output		(self, other,"Info_Saturas_BRINGFOCUS_14_14"); //Du hast die Teleport-Spruchrolle verbraucht, wie ich sehe. Hier, nimm eine neue.
 		CreateInvItem	(self,	ItArScrollTeleport2);
@@ -345,11 +345,11 @@ instance Info_Saturas_BRINGFOCUS2 (C_INFO)
 };
 
 FUNC INT Info_Saturas_BRINGFOCUS2_Condition()
-{	
+{
 	if ( Npc_HasItems(hero,focus_2) && (Saturas_BringFoci > 0) )
 	{
 		return TRUE;
-	};	
+	};
 };
 
 FUNC VOID Info_Saturas_BRINGFOCUS2_Info()
@@ -362,8 +362,8 @@ FUNC VOID Info_Saturas_BRINGFOCUS2_Info()
 	//-------- Fokus abliefern ! --------
 	B_GiveInvItems		(hero, self, focus_2, 1);
 	Npc_RemoveInvItem	(self,	focus_2);
-	B_DeliverFocus		(); 
-};	
+	B_DeliverFocus		();
+};
 
 //***************************************************************************
 //	Info BRINGFOCUS3
@@ -379,11 +379,11 @@ instance Info_Saturas_BRINGFOCUS3 (C_INFO)
 };
 
 FUNC INT Info_Saturas_BRINGFOCUS3_Condition()
-{	
+{
 	if ( Npc_HasItems(hero,focus_3) && (Saturas_BringFoci > 0) )
 	{
 		return TRUE;
-	};	
+	};
 };
 
 FUNC VOID Info_Saturas_BRINGFOCUS3_Info()
@@ -396,8 +396,8 @@ FUNC VOID Info_Saturas_BRINGFOCUS3_Info()
 	//-------- Fokus abliefern ! --------
 	B_GiveInvItems		(hero, self, focus_3, 1);
 	Npc_RemoveInvItem	(hero,	focus_3);
-	B_DeliverFocus		(); 
-};	
+	B_DeliverFocus		();
+};
 
 //***************************************************************************
 //	Info BRINGFOCUS4
@@ -413,11 +413,11 @@ instance Info_Saturas_BRINGFOCUS4 (C_INFO)
 };
 
 FUNC INT Info_Saturas_BRINGFOCUS4_Condition()
-{	
+{
 	if ( Npc_HasItems(hero,focus_4) && (Saturas_BringFoci > 0) )
 	{
 		return TRUE;
-	};	
+	};
 };
 
 FUNC VOID Info_Saturas_BRINGFOCUS4_Info()
@@ -431,8 +431,8 @@ FUNC VOID Info_Saturas_BRINGFOCUS4_Info()
 	//-------- Fokus abliefern ! --------
 	B_GiveInvItems		(hero, self, focus_4, 1);
 	Npc_RemoveInvItem	(hero,	focus_4);
-	B_DeliverFocus		(); 
-};	
+	B_DeliverFocus		();
+};
 
 //***************************************************************************
 //	Info BRINGFOCUS5
@@ -448,11 +448,11 @@ instance Info_Saturas_BRINGFOCUS5 (C_INFO)
 };
 
 FUNC INT Info_Saturas_BRINGFOCUS5_Condition()
-{	
+{
 	if ( Npc_HasItems(hero,focus_5) && (Saturas_BringFoci > 0) )
 	{
 		return TRUE;
-	};	
+	};
 };
 
 FUNC VOID Info_Saturas_BRINGFOCUS5_Info()
@@ -465,8 +465,8 @@ FUNC VOID Info_Saturas_BRINGFOCUS5_Info()
 	//-------- Fokus abliefern ! --------
 	B_GiveInvItems		(hero, self, focus_5, 1);
 	Npc_RemoveInvItem	(hero,	focus_5);
-	B_DeliverFocus		(); 
-};	
+	B_DeliverFocus		();
+};
 
 //***************************************************************************
 //	Info ALLFOCI
@@ -482,12 +482,12 @@ instance Info_Saturas_ALLFOCI (C_INFO)
 };
 
 FUNC INT Info_Saturas_ALLFOCI_Condition()
-{	
+{
 	if	(Saturas_BringFoci == 5)
 	&&	(Kapitel < 4)
 	{
 		return TRUE;
-	};	
+	};
 };
 
 FUNC VOID Info_Saturas_ALLFOCI_Info()
@@ -515,11 +515,11 @@ instance Info_Saturas_FAVOR (C_INFO)
 };
 
 FUNC INT Info_Saturas_FAVOR_Condition()
-{	
+{
 	if (Npc_KnowsInfo(hero,Info_Saturas_ALLFOCI))
 	{
 		return TRUE;
-	};	
+	};
 };
 
 FUNC VOID Info_Saturas_FAVOR_Info()
@@ -530,7 +530,7 @@ FUNC VOID Info_Saturas_FAVOR_Info()
 	AI_Output			(other, self,"Info_Saturas_FAVOR_15_04"); //Ein Zusammenbruch der Barriere würde ihre Machtposition  zunichte machen!
 	AI_Output			(self, other,"Info_Saturas_FAVOR_14_05"); //Genau aus diesem Grunde musst DU dich um diese schwierige Mission kümmern. Du kennst Leute aus allen Lagern der Kolonie.
 	AI_Output			(self, other,"Info_Saturas_FAVOR_14_06"); //Erinnere die Feuermagier an die alten Zeiten, als wir noch gemeinsam die magischen Künste studierten.
-};	
+};
 
 //***************************************************************************
 //	Info ACCEPT
@@ -546,11 +546,11 @@ instance Info_Saturas_ACCEPT (C_INFO)
 };
 
 FUNC INT Info_Saturas_ACCEPT_Condition()
-{	
+{
 	if (Npc_KnowsInfo(hero,Info_Saturas_FAVOR))
 	{
 		return TRUE;
-	};	
+	};
 };
 
 FUNC VOID Info_Saturas_ACCEPT_Info()
@@ -566,7 +566,7 @@ FUNC VOID Info_Saturas_ACCEPT_Info()
 	AI_Output			(self, other,"Info_Saturas_ACCEPT_14_09"); //Ich hoffe, das überzeugt unsere ehemaligen Freunde von unseren guten Absichten.
 
 	B_KapitelWechsel	(4);
-};	
+};
 
 
 
@@ -595,12 +595,12 @@ instance Info_Saturas_AMBUSH (C_INFO)
 };
 
 FUNC INT Info_Saturas_AMBUSH_Condition()
-{	
+{
 	if	FMTaken
 	&&	!FindXardas
 	{
 		return TRUE;
-	};	
+	};
 };
 
 FUNC VOID Info_Saturas_AMBUSH_Info()
@@ -608,14 +608,14 @@ FUNC VOID Info_Saturas_AMBUSH_Info()
 	var C_NPC gorn;
 	gorn = Hlp_GetNpc(PC_FIGHTER);
 	AI_TurnToNpc		(gorn,hero);
-	
+
 	AI_Output			(self,hero,"Info_Saturas_AMBUSH_14_01"); //Gut, dass du wieder zurück bist. Es ist etwas Schreckliches passiert!
 	AI_Output			(hero,self,"Info_Saturas_AMBUSH_15_02"); //Lass mich raten, die Freie Mine wurde von Gardisten aus dem Alten Lager überfallen, die niemand kommen sah?
 	AI_Output			(self,hero,"Info_Saturas_AMBUSH_14_03"); //Moment ... woher ... aber natürlich ... Du hast es im Alten Lager erfahren!
 	AI_Output	 		(self,hero,"Info_Saturas_AMBUSH_14_04"); //Gorn kam kurz vor dir hier an.
 	AI_Output			(self,hero,"Info_Saturas_AMBUSH_14_05"); //Was kann Gomez nur veranlasst haben, solch einen aggressiven Schritt zu wagen?
 	AI_Output			(self,hero,"Info_Saturas_AMBUSH_14_06"); //Ihm müsste klar sein, dass dieser hinterhältige Überfall einen Krieg heraufbeschwört.
-};	
+};
 
 //---------------------------------------------------------------------
 //	Info COLLAPSE
@@ -631,11 +631,11 @@ instance Info_Saturas_COLLAPSE (C_INFO)
 };
 
 FUNC INT Info_Saturas_COLLAPSE_Condition()
-{	
+{
 	if (Npc_KnowsInfo(hero, Info_Saturas_AMBUSH))
 	{
 		return TRUE;
-	};	
+	};
 };
 
 FUNC VOID Info_Saturas_COLLAPSE_Info()
@@ -659,11 +659,11 @@ instance Info_Saturas_MURDER (C_INFO)
 };
 
 FUNC INT Info_Saturas_MURDER_Condition()
-{	
+{
 	if (Npc_KnowsInfo(hero, Info_Saturas_AMBUSH))
 	{
 		return TRUE;
-	};	
+	};
 };
 
 FUNC VOID Info_Saturas_MURDER_Info()
@@ -675,7 +675,7 @@ FUNC VOID Info_Saturas_MURDER_Info()
 	AI_Output			(self,hero,"Info_Saturas_MURDER_14_05"); //Ich danke dir trotzdem dafür, dass du diese gefährliche Botschaft an mich überbracht hast.
 
 	B_GiveXP			(XP_ReportToSaturas);
-	
+
 	B_LogEntry			(CH4_Firemages,	"Saturas war garnicht erfreut, als ich ihm über die Ereignisse im Alten Lager berichtet habe. Wie immer es jetzt mit der Sprengung der magischen Barriere weitergeht... es wird auf jeden Fall OHNE die Feuermagier geschehen müssen.");
 	Log_SetTopicStatus	(CH4_Firemages,	LOG_SUCCESS);
 };
@@ -683,7 +683,7 @@ FUNC VOID Info_Saturas_MURDER_Info()
 
 
 /*------------------------------------------------------------------------
-							GILDENWECHSEL									
+							GILDENWECHSEL
 ------------------------------------------------------------------------*/
 instance  KDW_600_Saturas_NOMOREOC (C_INFO)
 {
@@ -692,11 +692,11 @@ instance  KDW_600_Saturas_NOMOREOC (C_INFO)
 	information		= KDW_600_Saturas_NOMOREOC_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "Das Alte Lager hat mich verbannt, weil ich euch geholfen habe!"; 
+	description		= "Das Alte Lager hat mich verbannt, weil ich euch geholfen habe!";
 };
 
 FUNC int  KDW_600_Saturas_NOMOREOC_Condition()
-{	
+{
 	if	Npc_KnowsInfo (hero,Info_Saturas_MURDER)
 	&&	((oldHeroGuild == GIL_GRD) || (oldHeroGuild == GIL_KDF))
 	{
@@ -713,10 +713,10 @@ FUNC void  KDW_600_Saturas_NOMOREOC_Info()
 	Log_CreateTopic		(CH4_BannedFromOC,	LOG_MISSION);
 	Log_SetTopicStatus	(CH4_BannedFromOC,	LOG_RUNNING);
 	B_LogEntry			(CH4_BannedFromOC,	"Nachdem ich aus dem Alten Lager verbannt wurde hat mich Saturas im Neuen Lager wilkommen geheissen.");
-}; 
+};
 
 /*------------------------------------------------------------------------
-							VOM GRD ZUM SLD									
+							VOM GRD ZUM SLD
 ------------------------------------------------------------------------*/
 
 instance  KDW_600_Saturas_GOTOLEE (C_INFO)
@@ -726,11 +726,11 @@ instance  KDW_600_Saturas_GOTOLEE (C_INFO)
 	information		= KDW_600_Saturas_GOTOLEE_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "Heißt das, die Söldner werden mich aufnehmen?"; 
+	description		= "Heißt das, die Söldner werden mich aufnehmen?";
 };
 
 FUNC int  KDW_600_Saturas_GOTOLEE_Condition()
-{	
+{
 	if (oldHeroGuild == GIL_GRD)
 	&& (Npc_KnowsInfo (hero,KDW_600_Saturas_NOMOREOC))
 	{
@@ -743,11 +743,11 @@ FUNC void  KDW_600_Saturas_GOTOLEE_Info()
 	AI_Output			(other, self,"KDW_600_Saturas_GOTOLEE_Info_15_01"); //Heißt das, die Söldner werden mich aufnehmen?
 	AI_Output			(self, other,"KDW_600_Saturas_GOTOLEE_Info_14_02"); //Sprich mit Lee. Er wird sich darum kümmern. Danach komm wieder zu mir.
 
-	B_LogEntry			(CH4_BannedFromOC,	"Lee, der Anführer der Söldner, will in dieser Angelegenheit mit mir sprechen. Ich soll ihn aufsuchen und anschließend wieder zu Saturas zurückkehren."); 
-};  
- 
+	B_LogEntry			(CH4_BannedFromOC,	"Lee, der Anführer der Söldner, will in dieser Angelegenheit mit mir sprechen. Ich soll ihn aufsuchen und anschließend wieder zu Saturas zurückkehren.");
+};
+
 /*------------------------------------------------------------------------
-							VON KDF ZU KDW									
+							VON KDF ZU KDW
 ------------------------------------------------------------------------*/
 
 instance  KDW_600_Saturas_OATH (C_INFO)
@@ -757,11 +757,11 @@ instance  KDW_600_Saturas_OATH (C_INFO)
 	information		= KDW_600_Saturas_OATH_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "Heißt das, ich gehöre jetzt in die Gilde der Wassermagier?"; 
+	description		= "Heißt das, ich gehöre jetzt in die Gilde der Wassermagier?";
 };
 
 FUNC int  KDW_600_Saturas_OATH_Condition()
-{	
+{
 	if (oldHeroGuild == GIL_KDF)
 	&& (Npc_KnowsInfo (hero,KDW_600_Saturas_NOMOREOC))
 	{
@@ -780,8 +780,8 @@ FUNC void  KDW_600_Saturas_OATH_Info()
 	AI_Output			(self, other,"KDW_600_Saturas_OATH_Info_14_07"); //Du erweiterst deinen Schwur. Damit wirst du zum Magier der beiden Elemente!
 	AI_Output			(self, other,"KDW_600_Saturas_OATH_Info_14_08"); //Sowohl die Macht des Feuers als auch das Wissen des Wassers stehen dir dann zur Verfügung!
 
-	B_LogEntry			(CH4_BannedFromOC,	"Saturas bot mir an, mich in den Kreis der Wassermagier aufzunehmen, ohne dass ich meinen alten Schwur des Feuers brechen muss."); 
-};  
+	B_LogEntry			(CH4_BannedFromOC,	"Saturas bot mir an, mich in den Kreis der Wassermagier aufzunehmen, ohne dass ich meinen alten Schwur des Feuers brechen muss.");
+};
 
 /*------------------------------------------------------------------------
 //							KDWAUFNAHME									//
@@ -793,11 +793,11 @@ instance KDW_600_Saturas_KDWAUFNAHME (C_INFO)
 	information		= KDW_600_Saturas_KDWAUFNAHME_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "Ich bin bereit, den Eid abzulegen."; 
+	description		= "Ich bin bereit, den Eid abzulegen.";
 };
 
 FUNC int  KDW_600_Saturas_KDWAUFNAHME_Condition()
-{	
+{
 	if (Npc_KnowsInfo (hero,KDW_600_Saturas_OATH))
 	{
 		return TRUE;
@@ -805,20 +805,20 @@ FUNC int  KDW_600_Saturas_KDWAUFNAHME_Condition()
 };
 func void  KDW_600_Saturas_KDWAUFNAHME_Info()
 {
-	
+
 	AI_GotoNpc 			(hero,self);
 	AI_Output			(other, self,"KDW_600_Saturas_KDWAUFNAHME_Info_15_01"); //Ich bin bereit, den Eid abzulegen.
 	AI_Output			(self, other,"KDW_600_Saturas_KDWAUFNAHME_Info_14_02"); //Diener des Feuers, du wirst nun den Segen des Wassers empfangen!
 	AI_Output			(self, other,"KDW_600_Saturas_KDWAUFNAHME_Info_14_03"); //Sprich nun die Worte des Eides:
-	AI_Output			(self, other,"KDW_600_Saturas_KDWAUFNAHME_Info_14_04"); //Ich schwöre bei den Mächten der Götter ... 
-	AI_Output			(other, self,"KDW_600_Saturas_KDWAUFNAHME_Info_15_05"); //Ich schwöre bei den Mächten der Götter ... 
-	AI_Output			(self, other,"KDW_600_Saturas_KDWAUFNAHME_Info_14_06"); //... und bei der Kraft des heiligen Wassers ... 
-	AI_Output			(other, self,"KDW_600_Saturas_KDWAUFNAHME_Info_15_07"); //... und bei der Kraft des heiligen Wassers ... 
-	AI_Output			(self, other,"KDW_600_Saturas_KDWAUFNAHME_Info_14_08"); //... dass mein Wissen und Handeln von nun an und auf ewig mit dem Wasser verbunden sei ... 
-	AI_Output			(other, self,"KDW_600_Saturas_KDWAUFNAHME_Info_15_09"); //... dass mein Wissen und Handeln von nun an und auf ewig mit dem Wasser verbunden sei ... 
-	AI_Output			(self, other,"KDW_600_Saturas_KDWAUFNAHME_Info_14_10"); //... bis ich einkehre in Beliars Reich und der Quell des Lebens versiegt. 
-	AI_Output			(other, self,"KDW_600_Saturas_KDWAUFNAHME_Info_15_11"); //... bis ich einkehre in Beliars Reich und der Quell des Lebens versiegt. 
-	
+	AI_Output			(self, other,"KDW_600_Saturas_KDWAUFNAHME_Info_14_04"); //Ich schwöre bei den Mächten der Götter ...
+	AI_Output			(other, self,"KDW_600_Saturas_KDWAUFNAHME_Info_15_05"); //Ich schwöre bei den Mächten der Götter ...
+	AI_Output			(self, other,"KDW_600_Saturas_KDWAUFNAHME_Info_14_06"); //... und bei der Kraft des heiligen Wassers ...
+	AI_Output			(other, self,"KDW_600_Saturas_KDWAUFNAHME_Info_15_07"); //... und bei der Kraft des heiligen Wassers ...
+	AI_Output			(self, other,"KDW_600_Saturas_KDWAUFNAHME_Info_14_08"); //... dass mein Wissen und Handeln von nun an und auf ewig mit dem Wasser verbunden sei ...
+	AI_Output			(other, self,"KDW_600_Saturas_KDWAUFNAHME_Info_15_09"); //... dass mein Wissen und Handeln von nun an und auf ewig mit dem Wasser verbunden sei ...
+	AI_Output			(self, other,"KDW_600_Saturas_KDWAUFNAHME_Info_14_10"); //... bis ich einkehre in Beliars Reich und der Quell des Lebens versiegt.
+	AI_Output			(other, self,"KDW_600_Saturas_KDWAUFNAHME_Info_15_11"); //... bis ich einkehre in Beliars Reich und der Quell des Lebens versiegt.
+
 	AI_Output			(self, other,"KDW_600_Saturas_KDWAUFNAHME_Info_14_12"); //Mit diesem Schwur einst du die Kraft des Feuers und den Segen des Wassers in dir.
 	AI_Output			(self, other,"KDW_600_Saturas_KDWAUFNAHME_Info_14_13"); //Du verbindest das, was vorher getrennt war. Möge dein Leben ein Zeichen des Bundes der Elemente sein.
 	AI_Output			(self, other,"KDW_600_Saturas_KDWAUFNAHME_Info_14_14"); //Trage diese Robe als Zeichen deiner Verbundenheit zum heiligen Wasser und zu Adanos.
@@ -826,17 +826,17 @@ func void  KDW_600_Saturas_KDWAUFNAHME_Info()
 	CreateInvItem		(self,KDW_ARMOR_L);
 	B_GiveInvItems		(self,other,KDW_ARMOR_L,1);
 	AI_EquipBestArmor	(hero);
-	Snd_Play  			("MFX_Heal_Cast"); 
+	Snd_Play  			("MFX_Heal_Cast");
 	Npc_SetTrueGuild	(hero,GIL_KDW);
 	hero.guild = GIL_KDW;
 
-	B_LogEntry			(CH4_BannedFromOC,	"Er hat mich in den Kreis der Wassermagier aufgenommen. Von nun an habe ich Zugriff auf beide Schulen der Magie."); 
+	B_LogEntry			(CH4_BannedFromOC,	"Er hat mich in den Kreis der Wassermagier aufgenommen. Von nun an habe ich Zugriff auf beide Schulen der Magie.");
 	Log_SetTopicStatus	(CH4_BannedFromOC,	LOG_SUCCESS);
 
 	AI_StopProcessInfos	(self);
 };
 /*------------------------------------------------------------------------
-						DIE MAGISCHEN KREISE							
+						DIE MAGISCHEN KREISE
 ------------------------------------------------------------------------*/
 
 instance  KDW_600_Saturas_LESSON (C_INFO)
@@ -847,12 +847,12 @@ instance  KDW_600_Saturas_LESSON (C_INFO)
 	information		= KDW_600_Saturas_LESSON_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "Kannst du mich unterrichten?"; 
+	description		= "Kannst du mich unterrichten?";
 };
 
 FUNC int  KDW_600_Saturas_LESSON_Condition()
-{	
-	if (Npc_GetTrueGuild (hero) == GIL_KDW) 
+{
+	if (Npc_GetTrueGuild (hero) == GIL_KDW)
 	{
 		return TRUE;
 	};
@@ -861,7 +861,7 @@ FUNC int  KDW_600_Saturas_LESSON_Condition()
 FUNC void  KDW_600_Saturas_LESSON_Info()
 {
 	AI_Output			(other, self,"KDW_600_Saturas_LESSON_Info_15_01"); //Kannst du mich unterrichten?
-	
+
 	if (Npc_GetTalentSkill (hero,NPC_TALENT_MAGE ) <= 3)
 	{
 		AI_Output		(self, other,"KDW_600_Saturas_LESSON_Info_14_02"); //Es gibt noch viel zu lernen für dich. Wenn du bereit bist, werde ich dich unterrichten.
@@ -878,7 +878,7 @@ FUNC void  KDW_600_Saturas_LESSON_Info()
 
 	Log_CreateTopic		(GE_TeacherNC,	LOG_NOTE);
 	B_LogEntry			(GE_TeacherNC,	"Saturas, der Anführer der Wassermagier lehrt die magischen KREISE. Er hält sich stets am Pentagramm auf der obersten Ebene auf.");
-};  
+};
 //--------------------------------------------------------------------------
 // 							DER ERSTE KREIS
 //--------------------------------------------------------------------------
@@ -890,11 +890,11 @@ instance  KDW_600_Saturas_KREIS1 (C_INFO)
 	information		= KDW_600_Saturas_KREIS1_Info;
 	important		= 0;
 	permanent		= 1;
-	description		= B_BuildLearnString(NAME_LearnMage_1, LPCOST_TALENT_MAGE_1,0); 
+	description		= B_BuildLearnString(NAME_LearnMage_1, LPCOST_TALENT_MAGE_1,0);
 };
 
 FUNC int  KDW_600_Saturas_KREIS1_Condition()
-{	
+{
 	if (Npc_KnowsInfo (hero,KDW_600_Saturas_LESSON))
 	&& (Npc_GetTalentSkill (hero,NPC_TALENT_MAGE) == 0)
 	&& (Npc_GetTrueGuild (hero) == GIL_KDW)
@@ -906,7 +906,7 @@ FUNC int  KDW_600_Saturas_KREIS1_Condition()
 FUNC void  KDW_600_Saturas_KREIS1_Info()
 {
 	AI_Output			(other, self,"KDW_600_Saturas_KREIS1_Info_15_01"); //Ich bin bereit, in den ersten Kreis aufgenommen zu werden.
-	
+
 	if (B_GiveSkill(other,NPC_TALENT_MAGE , 1, LPCOST_TALENT_MAGE_1))
 	{
 		AI_Output			(self, other,"KDW_600_Saturas_KREIS1_Info_14_02"); //Den ersten der magischen Kreise zu betreten, bedeutet die Anwendung magischer Runen lernen.
@@ -919,7 +919,7 @@ FUNC void  KDW_600_Saturas_KREIS1_Info()
 		AI_Output			(self, other,"KDW_600_Saturas_KREIS1_Info_14_09"); //Nutze die Kraft der Runen, um dich selber zu erkennen.
 		KDW_600_Saturas_KREIS1.permanent = 0;
 	};
-};  
+};
 //---------------------------------------------------------------------
 //						DER ZWEITE KREIS
 //---------------------------------------------------------------------
@@ -931,11 +931,11 @@ instance  KDW_600_Saturas_KREIS2 (C_INFO)
 	information		= KDW_600_Saturas_KREIS2_Info;
 	important		= 0;
 	permanent		= 1;
-	description		= B_BuildLearnString(NAME_LearnMage_2, LPCOST_TALENT_MAGE_2,0); 
+	description		= B_BuildLearnString(NAME_LearnMage_2, LPCOST_TALENT_MAGE_2,0);
 };
 
 FUNC int  KDW_600_Saturas_KREIS2_Condition()
-{	
+{
 	if (Npc_KnowsInfo (hero,KDW_600_Saturas_LESSON))
 	&& (Npc_GetTalentSkill (hero,NPC_TALENT_MAGE) == 1)
 	&& (Npc_GetTrueGuild (hero) == GIL_KDW)
@@ -948,7 +948,7 @@ FUNC int  KDW_600_Saturas_KREIS2_Condition()
 FUNC void  KDW_600_Saturas_KREIS2_Info()
 {
 	AI_Output			(other, self,"KDW_600_Saturas_KREIS2_Info_15_01"); //Ich bin bereit, in den zweiten Kreis aufgenommen zu werden.
-	
+
 	if (B_GiveSkill(other,NPC_TALENT_MAGE , 2, LPCOST_TALENT_MAGE_2))
 	{
 		AI_Output			(self, other,"KDW_600_Saturas_KREIS2_Info_14_02"); //Du hast das Verständnis der Runen gelernt. Nun ist es an der Zeit, dieses Verständnis zu vertiefen.
@@ -961,7 +961,7 @@ FUNC void  KDW_600_Saturas_KREIS2_Info()
 		KDW_600_Saturas_KREIS2.permanent = 0;
 	};
 
-};  
+};
 //---------------------------------------------------------------------
 //						DER DRITTE KREIS
 //---------------------------------------------------------------------
@@ -973,11 +973,11 @@ instance  KDW_600_Saturas_KREIS3 (C_INFO)
 	information		= KDW_600_Saturas_KREIS3_Info;
 	important		= 0;
 	permanent		= 1;
-	description		= B_BuildLearnString(NAME_LearnMage_3, LPCOST_TALENT_MAGE_3,0); 
+	description		= B_BuildLearnString(NAME_LearnMage_3, LPCOST_TALENT_MAGE_3,0);
 };
 
 FUNC int  KDW_600_Saturas_KREIS3_Condition()
-{	
+{
 	if (Npc_KnowsInfo (hero,KDW_600_Saturas_LESSON))
 	&& (Npc_GetTalentSkill (hero,NPC_TALENT_MAGE ) == 2)
 	&& (Npc_GetTrueGuild (hero) == GIL_KDW)
@@ -1001,7 +1001,7 @@ FUNC void  KDW_600_Saturas_KREIS3_Info()
 		KDW_600_Saturas_KREIS3.permanent = 0;
 	};
 
-};  
+};
 //---------------------------------------------------------------------
 //						DER VIERTE KREIS
 //---------------------------------------------------------------------
@@ -1013,15 +1013,15 @@ instance  KDW_600_Saturas_KREIS4 (C_INFO)
 	information		= KDW_600_Saturas_KREIS4_Info;
 	important		= 0;
 	permanent		= 1;
-	description		= B_BuildLearnString(NAME_LearnMage_4, LPCOST_TALENT_MAGE_4,0); 
+	description		= B_BuildLearnString(NAME_LearnMage_4, LPCOST_TALENT_MAGE_4,0);
 };
 
 FUNC int  KDW_600_Saturas_KREIS4_Condition()
-{	
+{
 	if (Npc_KnowsInfo (hero,KDW_600_Saturas_LESSON))
 	&& (Npc_GetTalentSkill (hero,NPC_TALENT_MAGE ) == 3)
 	&& (Npc_GetTrueGuild (hero) == GIL_KDW)
-	
+
 	{
 		return TRUE;
 	};
@@ -1040,9 +1040,9 @@ FUNC void  KDW_600_Saturas_KREIS4_Info()
 		AI_Output			(self, other,"KDW_600_Saturas_KREIS4_Info_14_07"); //Erkenne die Magie, dann wirst du das Geheimnis von Macht erkennen.
 		KDW_600_Saturas_KREIS4.permanent = 0;
 	};
-};  
+};
 /*------------------------------------------------------------------------
-							DER FÜNFTE KREIS							
+							DER FÜNFTE KREIS
 ------------------------------------------------------------------------*/
 
 instance  KDW_600_Saturas_KREIS5 (C_INFO)
@@ -1053,11 +1053,11 @@ instance  KDW_600_Saturas_KREIS5 (C_INFO)
 	information		= KDW_600_Saturas_KREIS5_Info;
 	important		= 0;
 	permanent		= 1;
-	description		= B_BuildLearnString(NAME_LearnMage_5, LPCOST_TALENT_MAGE_5,0); 
+	description		= B_BuildLearnString(NAME_LearnMage_5, LPCOST_TALENT_MAGE_5,0);
 };
 
 FUNC int  KDW_600_Saturas_KREIS5_Condition()
-{	
+{
 	if (Npc_KnowsInfo (hero,KDW_600_Saturas_LESSON))
 	&& (Npc_GetTalentSkill (hero,NPC_TALENT_MAGE ) == 4)
 	&& (Npc_GetTrueGuild (hero) == GIL_KDW)
@@ -1079,9 +1079,9 @@ FUNC void  KDW_600_Saturas_KREIS5_Info()
 		AI_Output		(self, other,"KDW_600_Saturas_KREIS5_Info_14_06"); //Erkenne deine Grenzen, dann wirst du deine wahre Macht erkennen
 		KDW_600_Saturas_KREIS5.permanent = 0;
 	};
-};  
+};
 /*------------------------------------------------------------------------
-							SCHWERE ROBE								
+							SCHWERE ROBE
 ------------------------------------------------------------------------*/
 
 instance  KDW_600_Saturas_HEAVYARMOR (C_INFO)
@@ -1092,11 +1092,11 @@ instance  KDW_600_Saturas_HEAVYARMOR (C_INFO)
 	information		= KDW_600_Saturas_HEAVYARMOR_Info;
 	important		= 0;
 	permanent		= 1;
-	description		= B_BuildBuyArmorString(NAME_SaturasHighRobe,VALUE_KDW_ARMOR_H); 
+	description		= B_BuildBuyArmorString(NAME_SaturasHighRobe,VALUE_KDW_ARMOR_H);
 };
 
 FUNC int  KDW_600_Saturas_HEAVYARMOR_Condition()
-{	
+{
 	if (Npc_GetTrueGuild (hero) == GIL_KDW)
 	{
 		return TRUE;
@@ -1106,7 +1106,7 @@ FUNC int  KDW_600_Saturas_HEAVYARMOR_Condition()
 FUNC void  KDW_600_Saturas_HEAVYARMOR_Info()
 {
 	AI_Output				(other, self,"KDW_600_Saturas_HEAVYARMOR_Info_15_01"); //Ich möchte die hohe Robe des Wassers tragen.
-	
+
 	if (Npc_GetTalentSkill (hero,NPC_TALENT_MAGE ) < 4)
 	&& (Kapitel < 5)
 	{
@@ -1123,14 +1123,14 @@ FUNC void  KDW_600_Saturas_HEAVYARMOR_Info()
 
 		B_GiveInvItems		(hero,self,	ItMinugget,VALUE_KDW_ARMOR_H);
 		CreateInvItem		(hero,		KDW_ARMOR_H);
-		
+
 		CreateInvItem		(self, ItAmArrow);
 		B_GiveInvItems      (self, hero, ItAmArrow, 1);
 		Npc_RemoveInvItem	(hero, ItAmArrow);
-		
+
 		AI_EquipBestArmor	(hero);
 	};
-}; 
+};
 
 //---------------------------------------------------------------------
 //	Info NOWSLD
@@ -1146,11 +1146,11 @@ instance Info_Saturas_NOWSLD (C_INFO)
 };
 
 FUNC INT Info_Saturas_NOWSLD_Condition()
-{	
+{
 	if	Npc_KnowsInfo(hero, Sld_700_Lee_CHANGESIDE)
 	{
 		return TRUE;
-	}; 
+	};
 };
 
 FUNC VOID Info_Saturas_NOWSLD_Info()
@@ -1160,7 +1160,7 @@ FUNC VOID Info_Saturas_NOWSLD_Info()
 	AI_Output			(self,hero,"Info_Saturas_NOWSLD_14_03"); //Sei herzlich willkommen!
 
 	B_LogEntry			(CH4_BannedFromOC,	"Auch Saturas hat mich nun als neuer Söldner offiziell begrüßt.");
-	Log_SetTopicStatus	(CH4_BannedFromOC,	LOG_SUCCESS);	
+	Log_SetTopicStatus	(CH4_BannedFromOC,	LOG_SUCCESS);
 };
 
 //---------------------------------------------------------------------
@@ -1177,7 +1177,7 @@ instance Info_Saturas_XARDAS (C_INFO)
 };
 
 FUNC INT Info_Saturas_XARDAS_Condition()
-{	
+{
 	if	Npc_KnowsInfo(hero, Info_Saturas_COLLAPSE)
 	&&	Npc_KnowsInfo(hero, Info_Saturas_MURDER)
 	{		 										//***Björn***>
@@ -1187,7 +1187,7 @@ FUNC INT Info_Saturas_XARDAS_Condition()
 			return TRUE;
 		};
 
-/*												
+/*
 		if 		(oldHeroGuild==GIL_GRD)
 		{
 			if (Npc_GetTrueGuild(hero)==GIL_SLD)
@@ -1206,9 +1206,9 @@ FUNC INT Info_Saturas_XARDAS_Condition()
 		{
 			return TRUE;
 		}; 											<***Björn***
-*/												
+*/
 
-	};	
+	};
 };
 
 FUNC VOID Info_Saturas_XARDAS_Info()
@@ -1240,11 +1240,11 @@ instance Info_Saturas_XARDASWHO (C_INFO)
 };
 
 FUNC INT Info_Saturas_XARDASWHO_Condition()
-{	
+{
 	if (Npc_KnowsInfo(hero, Info_Saturas_XARDAS))
 	{
 		return TRUE;
-	};	
+	};
 };
 
 FUNC VOID Info_Saturas_XARDASWHO_Info()
@@ -1268,11 +1268,11 @@ instance Info_Saturas_XARDASWHY (C_INFO)
 };
 
 FUNC INT Info_Saturas_XARDASWHY_Condition()
-{	
+{
 	if (Npc_KnowsInfo(hero, Info_Saturas_XARDAS))
 	{
 		return TRUE;
-	};	
+	};
 };
 
 FUNC VOID Info_Saturas_XARDASWHY_Info()
@@ -1298,11 +1298,11 @@ instance Info_Saturas_XARDASWHERE (C_INFO)
 };
 
 FUNC INT Info_Saturas_XARDASWHERE_Condition()
-{	
+{
 	if (Npc_KnowsInfo(hero, Info_Saturas_XARDAS))
 	{
 		return TRUE;
-	};	
+	};
 };
 
 FUNC VOID Info_Saturas_XARDASWHERE_Info()
@@ -1326,13 +1326,13 @@ instance Info_Saturas_XARDASHELP (C_INFO)
 };
 
 FUNC INT Info_Saturas_XARDASHELP_Condition()
-{	
+{
 	if	Npc_KnowsInfo(hero, Info_Saturas_XARDASWHO)
-	&&	Npc_KnowsInfo(hero, Info_Saturas_XARDASWHY) 
-	&&	Npc_KnowsInfo(hero, Info_Saturas_XARDASWHERE) 
+	&&	Npc_KnowsInfo(hero, Info_Saturas_XARDASWHY)
+	&&	Npc_KnowsInfo(hero, Info_Saturas_XARDASWHERE)
 	{
 		return TRUE;
-	};	
+	};
 };
 
 FUNC VOID Info_Saturas_XARDASHELP_Info()
@@ -1342,7 +1342,7 @@ FUNC VOID Info_Saturas_XARDASHELP_Info()
 	AI_Output			(self,hero,"Info_Saturas_XARDASHELP_14_03"); //Wenn er keinen Rat weiß oder uns nicht helfen will ...
 	AI_Output			(hero,self,"Info_Saturas_XARDASHELP_15_04"); //ER WIRD!
 	AI_Output			(self,hero,"Info_Saturas_XARDASHELP_14_05"); //Da wäre noch ein Problem ...
-	
+
 	B_Story_FindXardas	();
 };
 
@@ -1360,11 +1360,11 @@ instance Info_Saturas_XARDASPROBLEM (C_INFO)
 };
 
 FUNC INT Info_Saturas_XARDASPROBLEM_Condition()
-{	
+{
 	if	Npc_KnowsInfo(hero, Info_Saturas_XARDASHELP)
 	{
 		return TRUE;
-	};	
+	};
 };
 
 FUNC VOID Info_Saturas_XARDASPROBLEM_Info()
@@ -1376,8 +1376,8 @@ FUNC VOID Info_Saturas_XARDASPROBLEM_Info()
 	AI_Output			(self,hero,"Info_Saturas_XARDASPROBLEM_14_05"); //Keiner der Boten kehrte je von seinem Turm zurück.
 	AI_Output			(self,hero,"Info_Saturas_XARDASPROBLEM_14_06"); //Du wirst einen Weg finden müssen, an seinen Kreaturen vorbeizukommen.
 	AI_Output			(hero,self,"Info_Saturas_XARDASPROBLEM_15_07"); //Es scheint also weiterhin interessant zu bleiben!
-	
-	B_LogEntry			(CH4_FindXardas,	"Saturas warnte mich vor den magischen Kreaturen des Dämonenbeschwörers Xardas. In der Bibliothek der Wassermagier gibt es Schriften über die Gefahren und Schwächen solcher Wesen. Ich sollte mir etwas Zeit nehmen, um dort herumzustöbern.");	
+
+	B_LogEntry			(CH4_FindXardas,	"Saturas warnte mich vor den magischen Kreaturen des Dämonenbeschwörers Xardas. In der Bibliothek der Wassermagier gibt es Schriften über die Gefahren und Schwächen solcher Wesen. Ich sollte mir etwas Zeit nehmen, um dort herumzustöbern.");
 };
 
 //---------------------------------------------------------------------
@@ -1394,11 +1394,11 @@ instance Info_Saturas_XARDASGO (C_INFO)
 };
 
 FUNC INT Info_Saturas_XARDASGO_Condition()
-{	
+{
 	if	Npc_KnowsInfo(hero, Info_Saturas_XARDASPROBLEM)
 	{
 		return TRUE;
-	};	
+	};
 };
 
 FUNC VOID Info_Saturas_XARDASGO_Info()
@@ -1411,11 +1411,11 @@ FUNC VOID Info_Saturas_XARDASGO_Info()
 	AI_Output			(hero,self,"Info_Saturas_XARDASGO_15_06"); //Ich komme wieder!
 
 	B_LogEntry			(CH4_FindXardas,	"In der Bibliothek der Wassermagier gibt es Schriften über die Gefahren und Schwächen solcher Wesen. Ich sollte mir etwas Zeit nehmen, um dort herumzustöbern.");
-	
+
 };
 
 /*------------------------------------------------------------------------
-//	TIMESUP- Xardas ist die Schlüsselperson, Saturas ist nicht mehr wichtig									
+//	TIMESUP- Xardas ist die Schlüsselperson, Saturas ist nicht mehr wichtig
 ------------------------------------------------------------------------*/
 instance KDW_600_Saturas_TIMESUP (C_INFO)
 {
@@ -1427,7 +1427,7 @@ instance KDW_600_Saturas_TIMESUP (C_INFO)
 };
 
 FUNC int  KDW_600_Saturas_TIMESUP_Condition()
-{	
+{
 	if FindOrcShaman == LOG_RUNNING
 	|| FindOrcShaman == LOG_SUCCESS
 	{
@@ -1481,7 +1481,7 @@ func void KDW_600_Saturas_TIMESUP_JA3()
 //////////////////////////////////////////////////////////////////////////
 
 // ****************************************
-// 			Aufnahme eines Sld 
+// 			Aufnahme eines Sld
 // ****************************************
 
 instance KDW_600_Saturas_HogeAUFNAHME (C_INFO)
@@ -1491,11 +1491,11 @@ instance KDW_600_Saturas_HogeAUFNAHME (C_INFO)
 	condition		= KDW_600_Saturas_HogeAUFNAHME_Condition;
 	information		= KDW_600_Saturas_HogeAUFNAHME_Info;
 	permanent		= 0;
-	description		= "Nefarius sagte, ich sei bereit die Robe der Wassermagier zu tragen."; 
+	description		= "Nefarius sagte, ich sei bereit die Robe der Wassermagier zu tragen.";
 };
 
 FUNC int  KDW_600_Saturas_HogeAUFNAHME_Condition()
-{	
+{
 	if ( Npc_KnowsInfo(hero,Info_Saturas_MURDER) && (Npc_GetTrueGuild(hero)==GIL_SLD) )
 	{
 		return 1;
@@ -1505,14 +1505,14 @@ FUNC int  KDW_600_Saturas_HogeAUFNAHME_Condition()
 func void  KDW_600_Saturas_HogeAUFNAHME_Info()
 {
 	AI_Output(other, self,"KDW_600_Saturas_HogeAUFNAHME_15_00"); //Nefarius sagte, ich sei bereit die Robe der Wassermagier zu tragen.
-	
+
 	/* AB HIER IST ALLES DOPPELT - geklaut aus der KdF-KdW-Aufnahme */
-	
+
 	AI_Output(self, other,"KDW_600_Saturas_NOMOREOC_Info_14_03"); //Dann heiße ich dich in unserer Gemeinschaft willkommen.
 	AI_Output(other, self,"KDW_600_Saturas_OATH_Info_15_01"); //Heißt das, ich gehöre jetzt in die Gilde der Wassermagier?
-	AI_Output(self, other,"KDW_600_Saturas_OATH_Info_14_02"); //Noch nicht. Du musst erst den Eid des Wassers ablegen. 
+	AI_Output(self, other,"KDW_600_Saturas_OATH_Info_14_02"); //Noch nicht. Du musst erst den Eid des Wassers ablegen.
 };
-	
+
 // ****************************************
 // 			Aufnahme eines Sld - Teil 2
 // ****************************************
@@ -1523,11 +1523,11 @@ instance KDW_600_Saturas_HogeAUFNAHMETeil2 (C_INFO)
 	condition		= KDW_600_Saturas_HogeAUFNAHMETeil2_Condition;
 	information		= KDW_600_Saturas_HogeAUFNAHMETeil2_Info;
 	permanent		= 0;
-	description		= "Ich bin bereit, den Eid abzulegen."; 
+	description		= "Ich bin bereit, den Eid abzulegen.";
 };
 
 FUNC int  KDW_600_Saturas_HogeAUFNAHMETeil2_Condition()
-{	
+{
 	if ( (Npc_KnowsInfo(hero,KDW_600_Saturas_HogeAUFNAHME)) && (Npc_GetTrueGuild(hero)==GIL_SLD) )
 	{
 		return 1;
@@ -1547,13 +1547,13 @@ func void  KDW_600_Saturas_HogeAUFNAHMETeil2_Info()
 	AI_Output			(other, self,"KDW_600_Saturas_KDWAUFNAHME_Info_15_09"); //...dass mein Wissen und Handeln von nun an und auf ewig mit dem Wasser verbunden sei...
 	AI_Output			(self, other,"KDW_600_Saturas_KDWAUFNAHME_Info_14_10"); //...bis ich einkehre in Beliars Reich und der Quell des Lebens versiegt.
 	AI_Output			(other, self,"KDW_600_Saturas_KDWAUFNAHME_Info_15_11"); //...bis ich einkehre in Beliars Reich und der Quell des Lebens versiegt.
-	
+
 	AI_Output			(self, other,"KDW_600_Saturas_KDWAUFNAHME_Info_14_14"); //Trage diese Robe als Zeichen deiner Verbundenheit zum heiligen Wasser und zu Adanos.
 
 	CreateInvItem		(self,KDW_ARMOR_L);
 	B_GiveInvItems		(self,other,KDW_ARMOR_L,1);
 	AI_EquipBestArmor	(hero);
-	Snd_Play  			("MFX_Heal_Cast"); 
+	Snd_Play  			("MFX_Heal_Cast");
 	Npc_SetTrueGuild	(hero,GIL_KDW);
 	hero.guild = GIL_KDW;
 

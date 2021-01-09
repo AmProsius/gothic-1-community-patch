@@ -30,8 +30,8 @@ func int Spell_ProcessMana_Release(var int manainvested)
 ////////////////////////////////////////////////////////////////////////////////////////////
 // Spells, die gecastet werden solange man die Tasten gedrückt hält
 
-// Auf Programm-Seite ist das Aufrechterhalten des Spells aber die INVEST-Phase!! 
-// Das bedeutet, daß die Damage_per_Level Angabe in der Spells_Params.d erst beim stoppen (eigentlich CASTEN) 
+// Auf Programm-Seite ist das Aufrechterhalten des Spells aber die INVEST-Phase!!
+// Das bedeutet, daß die Damage_per_Level Angabe in der Spells_Params.d erst beim stoppen (eigentlich CASTEN)
 // des Spells aufgerufen wird! Der Abzug von Schaden beim Opfer muß also im zs_"Victim"-Script des Opfers erfolgen...
 
 	if (Npc_GetActiveSpell	(self) == SPL_TELEKINESIS	)	{	return	SPL_SENDSTOP;	};
@@ -52,14 +52,14 @@ func int Spell_ProcessMana_Release(var int manainvested)
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////
-// Spells, die abgebrochen werden, wenn beim loslassen der Taste noch nicht gecastet 
+// Spells, die abgebrochen werden, wenn beim loslassen der Taste noch nicht gecastet
 
 	// FIXME: soll man bei abgebrochenen Spells das investierte Mana zurückbekommen?
-	//	Npc_ChangeAttribute	(self,ATR_MANA,self.attribute[ATR_MANA]+manainvested);	
-	
+	//	Npc_ChangeAttribute	(self,ATR_MANA,self.attribute[ATR_MANA]+manainvested);
+
 	if (Npc_GetActiveSpell(self) == SPL_LIGHT			)	{	return  SPL_SENDSTOP; 	};
 	if (Npc_GetActiveSpell(self) == SPL_FIREBOLT		)	{	return	SPL_SENDSTOP;	};
-	
+
 	if (Npc_GetActiveSpell(self) == SPL_FIRERAIN		)	{	return	SPL_SENDSTOP; 	};
 	if (Npc_GetActiveSpell(self) == SPL_THUNDERBOLT		)	{	return	SPL_SENDSTOP;	};
 

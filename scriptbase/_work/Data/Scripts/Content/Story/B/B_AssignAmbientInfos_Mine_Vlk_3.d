@@ -15,7 +15,7 @@ INSTANCE Info_Mine_Vlk_3_EXIT(C_INFO)
 	information	= Info_Mine_Vlk_3_EXIT_Info;
 	permanent	= 1;
 	description = "ENDE";
-};                       
+};
 
 FUNC INT Info_Mine_Vlk_3_EXIT_Condition()
 {
@@ -23,7 +23,7 @@ FUNC INT Info_Mine_Vlk_3_EXIT_Condition()
 };
 
 FUNC VOID Info_Mine_Vlk_3_EXIT_Info()
-{	
+{
 	AI_StopProcessInfos	(self);
 };
 
@@ -38,7 +38,7 @@ INSTANCE Info_Mine_Vlk_3_Mine (C_INFO) // E1
 	information	= Info_Mine_Vlk_3_Mine_Info;
 	permanent	= 1;
 	description = "Erzähl mir was von der Mine";
-};                       
+};
 
 FUNC INT Info_Mine_Vlk_3_Mine_Condition()
 {
@@ -52,7 +52,7 @@ FUNC VOID Info_Mine_Vlk_3_Mine_Info()
 {
 	AI_Output(other,self,"Info_Mine_Vlk_3_Mine_15_00"); //Erzähl mir was von der Mine
 	AI_Output(self,other,"Info_Mine_Vlk_3_Mine_01_01"); //Wir müssen alle arbeiten. Wochenlang ohne Tageslicht. Es gibt kein Entkommen. Die einzige Freiheit ist der Tod.
-	
+
 };
 
 // *************************************************************************
@@ -66,7 +66,7 @@ INSTANCE Info_Mine_Vlk_3_WichtigePersonen(C_INFO)
 	information	= Info_Mine_Vlk_3_WichtigePersonen_Info;
 	permanent	= 1;
 	description = "Wer hat hier was zu Sagen?";
-};                       
+};
 
 FUNC INT Info_Mine_Vlk_3_WichtigePersonen_Condition()
 {
@@ -93,7 +93,7 @@ INSTANCE Info_Mine_Vlk_3_Minecrawler(C_INFO)
 	information	= Info_Mine_Vlk_3_Minecrawler_Info;
 	permanent	= 1;
 	description = "Was weißt Du über Minecrawler?";
-};                       
+};
 
 FUNC INT Info_Mine_Vlk_3_Minecrawler_Condition()
 {
@@ -121,7 +121,7 @@ INSTANCE Info_Mine_Vlk_3_DieLage(C_INFO) // E1
 	information	= Info_Mine_Vlk_3_DieLage_Info;
 	permanent	= 1;
 	description = "Wie sieht's aus?";
-};                       
+};
 
 FUNC INT Info_Mine_Vlk_3_DieLage_Condition()
 {
@@ -137,7 +137,7 @@ FUNC VOID Info_Mine_Vlk_3_DieLage_Info()
 	AI_Output(self,other,"Info_Mine_Vlk_3_DieLage_01_01"); //Tja, also mein Rücken schmerzt, meine Arme fallen mir ab, meine Kehle ist trocken und ich bin müde.
 	AI_Output(self,other,"Info_Mine_Vlk_3_DieLage_01_02"); //Und das ständige Geräusch der Spitzhacken. Ich werde noch wahnsinnig.
 };
-	
+
 // *************************************************************************
 // -------------------------------------------------------------------------
 

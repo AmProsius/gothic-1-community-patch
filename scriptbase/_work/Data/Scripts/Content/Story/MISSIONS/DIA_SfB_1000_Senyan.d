@@ -1,5 +1,5 @@
 // ************************************************************
-// 			  				   EXIT 
+// 			  				   EXIT
 // ************************************************************
 
 INSTANCE DIA_Senyan_EXIT(C_INFO)
@@ -10,7 +10,7 @@ INSTANCE DIA_Senyan_EXIT(C_INFO)
 	information	= DIA_Senyan_EXIT_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC INT DIA_Senyan_EXIT_Condition()
 {
@@ -18,7 +18,7 @@ FUNC INT DIA_Senyan_EXIT_Condition()
 };
 
 FUNC VOID DIA_Senyan_EXIT_Info()
-{	
+{
 	AI_StopProcessInfos	(self);
 };
 
@@ -34,7 +34,7 @@ INSTANCE DIA_Senyan_Hello(C_INFO)
 	information	= DIA_Senyan_Hello_Info;
 	permanent	= 0;
 	description = "Du kommst aus der Freien Mine, richtig?";
-};                       
+};
 
 FUNC INT DIA_Senyan_Hello_Condition()
 {
@@ -42,7 +42,7 @@ FUNC INT DIA_Senyan_Hello_Condition()
 };
 
 FUNC VOID DIA_Senyan_Hello_Info()
-{	
+{
 	AI_Output (other, self,"DIA_Senyan_Hello_15_00"); //Du kommst aus der Freien Mine, richtig?
 	AI_Output (self, other,"DIA_Senyan_Hello_01_01"); //Richtig. Wie hast du das bloﬂ rausgefunden?
 	AI_StopProcessInfos	(self);
@@ -60,7 +60,7 @@ INSTANCE DIA_Senyan_JustTalk(C_INFO)
 	information	= DIA_Senyan_JustTalk_Info;
 	permanent	= 1;
 	description = "Ich will nur mit dir reden.";
-};                       
+};
 
 FUNC INT DIA_Senyan_JustTalk_Condition()
 {
@@ -71,7 +71,7 @@ FUNC INT DIA_Senyan_JustTalk_Condition()
 };
 
 FUNC VOID DIA_Senyan_JustTalk_Info()
-{	
+{
 	AI_Output (other, self,"DIA_Senyan_JustTalk_15_00"); //Ich will nur mit dir reden.
 	AI_Output (self, other,"DIA_Senyan_JustTalk_01_01"); //Ich bin nicht zum Reden hier.
 	AI_StopProcessInfos	(self);

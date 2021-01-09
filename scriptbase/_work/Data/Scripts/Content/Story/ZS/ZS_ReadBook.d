@@ -3,11 +3,11 @@
 *******************************************/
 
 func void ZS_ReadBook ()
-//Buch auf Stehtisch, 
+//Buch auf Stehtisch,
 {
     PrintDebugNpc		(PD_TA_FRAME,"ZS_ReadBook");
-    
-	B_SetPerception		(self);    
+
+	B_SetPerception		(self);
 	AI_SetWalkmode		(self,NPC_WALK);		// Walkmode für den Zustand
 	if (!C_BodyStateContains(self,BS_MOBINTERACT))
 	{
@@ -17,9 +17,9 @@ func void ZS_ReadBook ()
 };
 
 func void ZS_ReadBook_Loop ()
-{	
+{
     PrintDebugNpc		(PD_TA_LOOP,"ZS_ReadBook_Loop");
-       
+
     var int randomizer;
  	randomizer = Hlp_Random	(20);
     if (Npc_GetStateTime ( self ) >= 100 + randomizer)

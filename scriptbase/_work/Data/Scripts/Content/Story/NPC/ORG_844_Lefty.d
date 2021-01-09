@@ -1,10 +1,10 @@
 instance ORG_844_Lefty (Npc_Default)
 {
 	//-------- primary data --------
-	
+
 	name =						"Lefty";
-	Npctype =					NPCTYPE_MAIN;	
-	guild =						GIL_ORG;      
+	Npctype =					NPCTYPE_MAIN;
+	guild =						GIL_ORG;
 	level =						8;
 	voice =						7;
 	id =						844;
@@ -23,23 +23,23 @@ instance ORG_844_Lefty (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Relaxed.mds");
-	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
+	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin
 	Mdl_SetVisualBody (self,"hum_body_Naked0", 0, 1,"Hum_Head_Bald", 37, 2, ORG_ARMOR_L);
-	
-	B_Scale (self);	
-	Mdl_SetModelFatness (self, 0);	
-	
-	fight_tactic	=	FAI_HUMAN_STRONG;	
-	
+
+	B_Scale (self);
+	Mdl_SetModelFatness (self, 0);
+
+	fight_tactic	=	FAI_HUMAN_STRONG;
+
 	//-------- Talente ----------
 
 	Npc_SetTalentSkill (self, NPC_TALENT_BOW,1);
 	Npc_SetTalentSkill (self, NPC_TALENT_1H,1);
-	
 
-	//-------- inventory --------   
-	                                 
-	CreateInvItems (self, ItKeLockpick,3);		
+
+	//-------- inventory --------
+
+	CreateInvItems (self, ItKeLockpick,3);
 	CreateInvItems(self, ItMiNugget, 13);
 	CreateInvItems (self, ItFoRice,6);
 	CreateInvItems (self, ItFoBooze, 3);
@@ -52,7 +52,7 @@ instance ORG_844_Lefty (Npc_Default)
 	EquipItem (self, ItMw_1H_Mace_03);
 	EquipItem (self, ItRw_Bow_Long_01);
 	CreateInvItems (self, ItAmArrow, 20);
-	
+
 
 	//-------------Daily Routine-------------
 	daily_routine = Rtn_start_844;

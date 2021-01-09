@@ -57,7 +57,7 @@ INSTANCE ItFo_Potion_Mana_01(C_Item)
 	mainflag 		=	ITEM_KAT_POTIONS;
 	flags 			=	ITEM_MULTI;
 
-	value 			=	Value_ManaEssenz;	
+	value 			=	Value_ManaEssenz;
 
 	visual 			=	"ItFo_Potion_Mana_01.3ds";
 	material 		=	MAT_GLAS;
@@ -83,7 +83,7 @@ INSTANCE ItFo_Potion_Mana_02(C_Item)
 	mainflag 		=	ITEM_KAT_POTIONS;
 	flags 			=	ITEM_MULTI;
 
-	value 			=	Value_ManaExtrakt;	
+	value 			=	Value_ManaExtrakt;
 
 	visual 			=	"ItFo_Potion_Mana_02.3ds";
 	material 		=	MAT_GLAS;
@@ -109,7 +109,7 @@ INSTANCE ItFo_Potion_Mana_03(C_Item)
 	mainflag 		=	ITEM_KAT_POTIONS;
 	flags 			=	ITEM_MULTI;
 
-	value 			=	Value_ManaElixier;	
+	value 			=	Value_ManaElixier;
 
 	visual 			=	"ItFo_Potion_Mana_03.3ds";
 	material 		=	MAT_GLAS;
@@ -128,7 +128,7 @@ INSTANCE ItFo_Potion_Mana_03(C_Item)
 	};
 
 
-/******************************************************************************************/	
+/******************************************************************************************/
 // MANA ELIXIERE BRUDERSCHAFT//
 
 INSTANCE ItFo_Potion_Elixier(C_Item)
@@ -138,7 +138,7 @@ INSTANCE ItFo_Potion_Elixier(C_Item)
 	mainflag 		=	ITEM_KAT_POTIONS;
 	flags 			=	ITEM_MULTI;
 
-	value 			=	Value_Elixier1;	
+	value 			=	Value_Elixier1;
 
 	visual 			=	"ItFo_Potion_Elixier.3ds";
 	material 		=	MAT_GLAS;
@@ -153,7 +153,7 @@ INSTANCE ItFo_Potion_Elixier(C_Item)
 	func void  UseElixier ()
 	{
  		PrintDebugNpc		(PD_ITEM_MOBSI, "UseElixier");
-		Npc_ChangeAttribute	(self,	ATR_MANA,	Mana_Elixier1);	 
+		Npc_ChangeAttribute	(self,	ATR_MANA,	Mana_Elixier1);
 	};
 
 
@@ -168,7 +168,7 @@ INSTANCE ItFo_Potion_Health_01(C_Item)
 	mainflag 		=	ITEM_KAT_POTIONS;
 	flags 			=	ITEM_MULTI;
 
-	value 			=	Value_HpEssenz;	
+	value 			=	Value_HpEssenz;
 
 	visual 			=	"ItFo_Potion_Health_01.3ds";
 	material 		=	MAT_GLAS;
@@ -186,7 +186,7 @@ INSTANCE ItFo_Potion_Health_01(C_Item)
 		Npc_ChangeAttribute	(self,	ATR_HITPOINTS,	HP_Essenz);
 	};
 
-/******************************************************************************************/	
+/******************************************************************************************/
 INSTANCE ItFo_Potion_Health_02(C_Item)
 {
 	name 			=	NAME_Trank;
@@ -194,7 +194,7 @@ INSTANCE ItFo_Potion_Health_02(C_Item)
 	mainflag 		=	ITEM_KAT_POTIONS;
 	flags 			=	ITEM_MULTI;
 
-	value 			=	Value_HpExtrakt;	
+	value 			=	Value_HpExtrakt;
 
 	visual 			=	"ItFo_Potion_Health_02.3ds";
 	material 		=	MAT_GLAS;
@@ -212,7 +212,7 @@ INSTANCE ItFo_Potion_Health_02(C_Item)
 		Npc_ChangeAttribute	(self,	ATR_HITPOINTS,	HP_Extrakt);
 	};
 
-/******************************************************************************************/	
+/******************************************************************************************/
 INSTANCE ItFo_Potion_Health_03(C_Item)
 {
 	name 			=	NAME_Trank;
@@ -220,7 +220,7 @@ INSTANCE ItFo_Potion_Health_03(C_Item)
 	mainflag 		=	ITEM_KAT_POTIONS;
 	flags 			=	ITEM_MULTI;
 
-	value 			=	Value_HpElixier;	
+	value 			=	Value_HpElixier;
 
 	visual 			=	"ItFo_Potion_Health_01.3ds";
 	material 		=	MAT_GLAS;
@@ -252,7 +252,7 @@ INSTANCE ItFo_Potion_Elixier_Egg(C_Item)
 	mainflag 		=	ITEM_KAT_POTIONS;
 	flags 			=	ITEM_MULTI;
 
-	value 			=	Value_ElixierEgg;	
+	value 			=	Value_ElixierEgg;
 
 	visual 			=	"ItFo_Potion_Elixier_Egg.3ds";
 	material 		=	MAT_GLAS;
@@ -269,7 +269,7 @@ INSTANCE ItFo_Potion_Elixier_Egg(C_Item)
 	{
  		B_RaiseAttribute	(ATR_MANA_MAX,	ManaMax_ElixierEgg);
 	};
-	
+
 
 /******************************************************************************************/
 //STRENGTH
@@ -281,7 +281,7 @@ INSTANCE ItFo_Potion_Strength_01(C_Item)
 	mainflag 		=	ITEM_KAT_POTIONS;
 	flags 			=	ITEM_MULTI;
 
-	value 			=	Value_StrEssenz;	
+	value 			=	Value_StrEssenz;
 
 	visual 			=	"ItFo_Potion_Strength_01.3ds";
 	material 		=	MAT_GLAS;
@@ -294,10 +294,10 @@ INSTANCE ItFo_Potion_Strength_01(C_Item)
 };
 
 	FUNC VOID UseStrengthPotion()
-	{ 
+	{
  		B_RaiseAttribute	(ATR_STRENGTH,	STR_Essenz);
 	};
-	
+
 /******************************************************************************************/
 INSTANCE ItFo_Potion_Strength_02(C_Item)
 {
@@ -306,7 +306,7 @@ INSTANCE ItFo_Potion_Strength_02(C_Item)
 	mainflag 		=	ITEM_KAT_POTIONS;
 	flags 			=	ITEM_MULTI;
 
-	value 			=	Value_StrExtrakt;	
+	value 			=	Value_StrExtrakt;
 
 	visual 			=	"ItFo_Potion_Strength_02.3ds";
 	material 		=	MAT_GLAS;
@@ -319,10 +319,10 @@ INSTANCE ItFo_Potion_Strength_02(C_Item)
 };
 
 	FUNC VOID UseStrength2Potion()
-	{ 
+	{
 		B_RaiseAttribute	(ATR_STRENGTH,	STR_Extrakt);
 	};
-		
+
 /******************************************************************************************/
 INSTANCE ItFo_Potion_Strength_03(C_Item)
 {
@@ -331,7 +331,7 @@ INSTANCE ItFo_Potion_Strength_03(C_Item)
 	mainflag 		=	ITEM_KAT_POTIONS;
 	flags 			=	ITEM_MULTI;
 
-	value 			=	Value_StrElixier;	
+	value 			=	Value_StrElixier;
 
 	visual 			=	"ItFo_Potion_Strength_03.3ds";
 	material 		=	MAT_GLAS;
@@ -344,7 +344,7 @@ INSTANCE ItFo_Potion_Strength_03(C_Item)
 };
 
 	FUNC VOID UseStrength3Potion()
-	{ 
+	{
 		B_RaiseAttribute	(ATR_STRENGTH,	STR_Elixier);
 	};
 
@@ -361,7 +361,7 @@ INSTANCE ItFo_Potion_Dex_01(C_Item)
 	mainflag 		=	ITEM_KAT_POTIONS;
 	flags 			=	ITEM_MULTI;
 
-	value 			=	Value_DexEssenz;	
+	value 			=	Value_DexEssenz;
 
 	visual 			=	"ItFo_Potion_Dex_01.3ds";
 	material 		=	MAT_GLAS;
@@ -374,11 +374,11 @@ INSTANCE ItFo_Potion_Dex_01(C_Item)
 };
 
 	FUNC VOID UseDexPotion()
-	{ 
+	{
 		B_RaiseAttribute	(ATR_DEXTERITY,	DEX_Essenz);
 	};
-		
-/******************************************************************************************/		
+
+/******************************************************************************************/
 INSTANCE ItFo_Potion_Dex_02(C_Item)
 {
 	name 			=	NAME_Trank;
@@ -386,7 +386,7 @@ INSTANCE ItFo_Potion_Dex_02(C_Item)
 	mainflag 		=	ITEM_KAT_POTIONS;
 	flags 			=	ITEM_MULTI;
 
-	value 			=	Value_DexExtrakt;	
+	value 			=	Value_DexExtrakt;
 
 	visual 			=	"ItFo_Potion_Dex_02.3ds";
 	material 		=	MAT_GLAS;
@@ -399,11 +399,11 @@ INSTANCE ItFo_Potion_Dex_02(C_Item)
 };
 
 	FUNC VOID UseDex2Potion()
-	{ 
+	{
 		B_RaiseAttribute	(ATR_DEXTERITY,	DEX_Extrakt);
 	};
-		
-/******************************************************************************************/		
+
+/******************************************************************************************/
 INSTANCE ItFo_Potion_Dex_03(C_Item)
 {
 	name 			=	NAME_Trank;
@@ -411,7 +411,7 @@ INSTANCE ItFo_Potion_Dex_03(C_Item)
 	mainflag 		=	ITEM_KAT_POTIONS;
 	flags 			=	ITEM_MULTI;
 
-	value 			=	Value_DexElixier;	
+	value 			=	Value_DexElixier;
 
 	visual 			=	"ItFo_Potion_Dex_03.3ds";
 	material 		=	MAT_GLAS;
@@ -424,7 +424,7 @@ INSTANCE ItFo_Potion_Dex_03(C_Item)
 };
 
 	FUNC VOID UseDex3Potion()
-	{ 
+	{
 		B_RaiseAttribute	(ATR_DEXTERITY,	DEX_Elixier);
 	};
 
@@ -439,7 +439,7 @@ INSTANCE ItFo_Potion_Master_01(C_Item)
 	mainflag 		=	ITEM_KAT_POTIONS;
 	flags 			=	ITEM_MULTI;
 
-	value 			=	Value_StrDex_Macht;	
+	value 			=	Value_StrDex_Macht;
 
 	visual 			=	"ItFo_Potion_Master_01.3ds";
 	material 		=	MAT_GLAS;
@@ -456,7 +456,7 @@ INSTANCE ItFo_Potion_Master_01(C_Item)
 	{
 		Npc_ChangeAttribute	(self,	ATR_STRENGTH,	StrDex_Macht);
 		Npc_ChangeAttribute	(self,	ATR_DEXTERITY,	StrDex_Macht);
-		
+
 		var string msg;
 		msg = ConcatStrings(NAME_RaiseStrDex , IntToString(StrDex_Macht));
 		PrintScreen	(msg, -1,-1,"FONT_OLD_20_WHITE.TGA",_TIME_MESSAGE_RAISEATTRIBUTE);
@@ -470,7 +470,7 @@ INSTANCE ItFo_Potion_Master_02(C_Item)
 	mainflag 		=	ITEM_KAT_POTIONS;
 	flags 			=	ITEM_MULTI;
 
-	value 			=	Value_StrDex_Herrschaft;	
+	value 			=	Value_StrDex_Herrschaft;
 
 	visual 			=	"ItFo_Potion_Master_02.3ds";
 	material 		=	MAT_GLAS;
@@ -494,7 +494,7 @@ INSTANCE ItFo_Potion_Master_02(C_Item)
 	};
 
 
-/******************************************************************************************/		
+/******************************************************************************************/
 // Hitpoints
 
 INSTANCE ItFo_Potion_Health_Perma_01(C_Item)
@@ -504,7 +504,7 @@ INSTANCE ItFo_Potion_Health_Perma_01(C_Item)
 	mainflag 		=	ITEM_KAT_POTIONS;
 	flags 			=	ITEM_MULTI;
 
-	value 			=	Value_HpMaxEssenz;	
+	value 			=	Value_HpMaxEssenz;
 
 	visual 			=	"ItFo_Potion_Health_Perma_01.3ds";
 	material 		=	MAT_GLAS;
@@ -520,7 +520,7 @@ INSTANCE ItFo_Potion_Health_Perma_01(C_Item)
 	{
 		B_RaiseAttribute	(ATR_HITPOINTS_MAX,	HPMax_Essenz);
 	};
-		
+
 /******************************************************************************************/
 INSTANCE ItFo_Potion_Health_Perma_02(C_Item)
 {
@@ -529,7 +529,7 @@ INSTANCE ItFo_Potion_Health_Perma_02(C_Item)
 	mainflag 		=	ITEM_KAT_POTIONS;
 	flags 			=	ITEM_MULTI;
 
-	value 			=	Value_HpMaxExtrakt;	
+	value 			=	Value_HpMaxExtrakt;
 
 	visual 			=	"ItFo_Potion_Health_Perma_02.3ds";
 	material 		=	MAT_GLAS;
@@ -554,7 +554,7 @@ INSTANCE ItFo_Potion_Health_Perma_03(C_Item)
 	mainflag 		=	ITEM_KAT_POTIONS;
 	flags 			=	ITEM_MULTI;
 
-	value 			=	Value_HpMaxElixier;	
+	value 			=	Value_HpMaxElixier;
 
 	visual 			=	"ItFo_Potion_Health_Perma_03.3ds";
 	material 		=	MAT_GLAS;
@@ -568,7 +568,7 @@ INSTANCE ItFo_Potion_Health_Perma_03(C_Item)
 
 	FUNC VOID UseLife3Potion()
 	{
-		B_RaiseAttribute	(ATR_HITPOINTS_MAX,	HPMax_Elixier);	
+		B_RaiseAttribute	(ATR_HITPOINTS_MAX,	HPMax_Elixier);
 	};
 
 
@@ -582,7 +582,7 @@ INSTANCE ItFo_Potion_Mana_Perma_01(C_Item)
 	mainflag 		=	ITEM_KAT_POTIONS;
 	flags 			=	ITEM_MULTI;
 
-	value 			=	Value_ManaMaxEssenz;	
+	value 			=	Value_ManaMaxEssenz;
 
 	visual 			=	"ItFo_Potion_Mana_Perma_01.3ds";
 	material 		=	MAT_GLAS;
@@ -608,7 +608,7 @@ INSTANCE ItFo_Potion_Mana_Perma_02(C_Item)
 	mainflag 		=	ITEM_KAT_POTIONS;
 	flags 			=	ITEM_MULTI;
 
-	value 			=	Value_ManaMaxExtrakt;	
+	value 			=	Value_ManaMaxExtrakt;
 
 	visual 			=	"ItFo_Potion_Mana_Perma_02.3ds";
 	material 		=	MAT_GLAS;
@@ -634,7 +634,7 @@ INSTANCE ItFo_Potion_Mana_Perma_03(C_Item)
 	mainflag 		=	ITEM_KAT_POTIONS;
 	flags 			=	ITEM_MULTI;
 
-	value 			=	Value_ManaMaxElixier;	
+	value 			=	Value_ManaMaxElixier;
 
 	visual 			=	"ItFo_Potion_Mana_Perma_03.3ds";
 	material 		=	MAT_GLAS;
@@ -664,7 +664,7 @@ INSTANCE ItFo_Potion_Haste_01(C_Item)
 	mainflag 		=	ITEM_KAT_POTIONS;
 	flags 			=	ITEM_MULTI;
 
-	value 			=	Value_Haste1;	
+	value 			=	Value_Haste1;
 
 	visual 			=	"ItFo_Potion_Haste_01.3ds";
 	material 		=	MAT_GLAS;
@@ -680,7 +680,7 @@ INSTANCE ItFo_Potion_Haste_01(C_Item)
 	FUNC VOID UseHastePotion()
 	{
 		Mdl_ApplyOverlayMDSTimed	(self, "HUMANS_SPRINT.MDS", Time_Haste1);
-		PrintDebugNpc 		(PD_ITEM_MOBSI, "jetzt bin ich schnell");	
+		PrintDebugNpc 		(PD_ITEM_MOBSI, "jetzt bin ich schnell");
 	};
 
 /******************************************************************************************/
@@ -691,7 +691,7 @@ INSTANCE ItFo_Potion_Haste_02(C_Item)
 	mainflag 		=	ITEM_KAT_POTIONS;
 	flags 			=	ITEM_MULTI;
 
-	value 			=	Value_Haste1;	
+	value 			=	Value_Haste1;
 
 	visual 			=	"ItFo_Potion_Haste_01.3ds";
 	material 		=	MAT_GLAS;
@@ -707,7 +707,7 @@ INSTANCE ItFo_Potion_Haste_02(C_Item)
 	FUNC VOID UseHastePotion2()
 	{
 		Mdl_ApplyOverlayMDSTimed	(self, "HUMANS_SPRINT.MDS", Time_Haste2);
-		PrintDebugNpc 		(PD_ITEM_MOBSI, "jetzt bin ich schnell");	
+		PrintDebugNpc 		(PD_ITEM_MOBSI, "jetzt bin ich schnell");
 	};
 
 /******************************************************************************************/
@@ -718,7 +718,7 @@ INSTANCE ItFo_Potion_Haste_03(C_Item)
 	mainflag 		=	ITEM_KAT_POTIONS;
 	flags 			=	ITEM_MULTI;
 
-	value 			=	Value_Haste1;	
+	value 			=	Value_Haste1;
 
 	visual 			=	"ItFo_Potion_Haste_01.3ds";
 	material 		=	MAT_GLAS;
@@ -734,5 +734,5 @@ INSTANCE ItFo_Potion_Haste_03(C_Item)
 	FUNC VOID UseHastePotion3()
 	{
 		Mdl_ApplyOverlayMDSTimed	(self, "HUMANS_SPRINT.MDS", Time_Haste3);
-		PrintDebugNpc 		(PD_ITEM_MOBSI, "jetzt bin ich schnell");	
+		PrintDebugNpc 		(PD_ITEM_MOBSI, "jetzt bin ich schnell");
 	};

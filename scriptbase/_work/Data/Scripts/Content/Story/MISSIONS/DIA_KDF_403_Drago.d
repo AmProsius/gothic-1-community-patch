@@ -8,7 +8,7 @@ instance KDF_403_Drago_RUNE (C_INFO)
 };
 
 FUNC int  KDF_403_Drago_RUNE_Condition()
-{	
+{
 	if (Npc_KnowsInfo (hero,KDF_402_Corristo_ROBE))
 	{
 		return TRUE;
@@ -16,7 +16,7 @@ FUNC int  KDF_403_Drago_RUNE_Condition()
 };
 func void  KDF_403_Drago_RUNE_Info()
 {
-	AI_Output (self, other,"KDF_403_Drago_RUNE_Info_13_01"); //Nimm diese Rune als Geschenk von Innos. Sie schütze dich auf deinem Weg.  
+	AI_Output (self, other,"KDF_403_Drago_RUNE_Info_13_01"); //Nimm diese Rune als Geschenk von Innos. Sie schütze dich auf deinem Weg.
 	CreateInvItem (self,ItArRuneFirebolt);
 	B_GiveInvItems (self, other, ItArRuneFirebolt, 1);
 	AI_StopProcessInfos	( self );
@@ -30,10 +30,10 @@ instance  KDF_403_Drago_Exit (C_INFO)
 	nr			=  999;
 	condition	=  KDF_403_Drago_Exit_Condition;
 	information	=  KDF_403_Drago_Exit_Info;
-	important	=  0;	
+	important	=  0;
 	permanent	=  1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC int  KDF_403_Drago_Exit_Condition()
 {

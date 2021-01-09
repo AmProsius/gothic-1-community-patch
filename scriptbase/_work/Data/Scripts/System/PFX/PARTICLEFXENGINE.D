@@ -1,12 +1,12 @@
 
 //////////////////////////////////////////
-//	
-// 	Particle-Effects 
-//	Instance-Definitions, Engine Presets 
+//
+// 	Particle-Effects
+//	Instance-Definitions, Engine Presets
 //	Author: Dieter Hildebrandt
 //
 //	** DO NOT MODIFY **
-//	
+//
 //////////////////////////////////////////
 
 

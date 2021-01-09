@@ -1,7 +1,7 @@
 instance EBR_109_Syra (Npc_Default)
 {
 	//-------- primary data --------
-	
+
 	name 		=	"Syra";
 	npctype		= 	npctype_main;
 	guild 		=	GIL_BAB;
@@ -21,17 +21,17 @@ instance EBR_109_Syra (Npc_Default)
 	//-------- visuals --------
 	// 					animations
 	Mdl_SetVisual		(self,"Babe.MDS");
-	//							Body-Mesh			Body-Tex	Skin-Color	Head-MMS			Head-Tex	Teeth-Tex	ARMOR	
+	//							Body-Mesh			Body-Tex	Skin-Color	Head-MMS			Head-Tex	Teeth-Tex	ARMOR
 	Mdl_SetVisualBody 	(self,	"Bab_body_Naked0", 	1, 			1,			"Bab_Head_Hair1", 	1,  		DEFAULT,	-1);
 
-    	
+
     	self.aivar[AIV_IMPORTANT] = TRUE;
-    	
+
     	fight_tactic	=	FAI_HUMAN_COWARD;
 
-	//-------- Talente -------- 
-	
-	//-------- inventory --------                                    
+	//-------- Talente --------
+
+	//-------- inventory --------
 	CreateInvItem (self, ItMiBrush);
 	CreateInvItem (self, ItMiWedel);
 

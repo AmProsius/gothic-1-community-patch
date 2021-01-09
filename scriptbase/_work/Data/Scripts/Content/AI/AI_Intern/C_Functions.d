@@ -54,7 +54,7 @@ func int C_AmIWeaker (var C_Npc slf, var C_Npc oth)
 //////////////////////////////////////////////////////////////////////////
 //	C_NpcIsInFightMode
 //	==================
-//	Überfrüft, ob der SC/NSC eine Waffe bzw. einen aggresiven Zauber 
+//	Überfrüft, ob der SC/NSC eine Waffe bzw. einen aggresiven Zauber
 //	in der Hand hält. (Durchgangswachen interpretieren auch die sonst
 //	neutralen Zauber CHARME und SLEEP als feindlich)
 //////////////////////////////////////////////////////////////////////////
@@ -90,7 +90,7 @@ func int C_NpcIsInFightMode (var C_NPC oth)
 //////////////////////////////////////////////////////////////////////////
 //	C_NpcIsInNeutralSpellMode
 //	=========================
-//	Überfrüft, ob der SC/NSC einen neutralen oder benevolenten Zauber 
+//	Überfrüft, ob der SC/NSC einen neutralen oder benevolenten Zauber
 //	in der Hand hält.
 //////////////////////////////////////////////////////////////////////////
 func int C_NpcIsInNeutralSpellMode (var C_NPC oth)
@@ -107,7 +107,7 @@ func int C_NpcIsInNeutralSpellMode (var C_NPC oth)
 		return FALSE;
 	};
 };
-	
+
 //////////////////////////////////////////////////////////////////////////
 //	C_NpcIs...
 //	==========
@@ -135,7 +135,7 @@ func int C_NpcIsHuman(var C_NPC slf)
 {
 	PrintDebugNpc		(PD_ZS_DETAIL,"C_NpcIsHuman");
 	PrintDebugString	(PD_ZS_DETAIL,"...name: ", slf.name);
-		
+
 	if (slf.guild < GIL_SEPERATOR_HUM)
 	{
 		PrintDebugNpc	(PD_ZS_DETAIL,"...true");
@@ -185,7 +185,7 @@ func int C_NpcIsDangerousMonster(var C_NPC slf, var C_NPC oth)
 func int C_NpcIsOrc(var C_NPC slf)
 {
 	PrintDebugNpc		(PD_ZS_DETAIL,"C_NpcIsOrc");
-	
+
 	if (slf.guild > GIL_SEPERATOR_ORC)
 	{
 		PrintDebugNpc	(PD_ZS_DETAIL,"...true");
@@ -217,7 +217,7 @@ func int C_NpcIsMonsterMage(var C_NPC slf)
 		return FALSE;
 	};
 };
-	
+
 //////////////////////////////////////////////////////////////////////////
 //	Npc_Get/Set...Attitude
 //	======================
@@ -243,19 +243,19 @@ func int  Npc_GetTempAttitude (var C_NPC slf, VAR C_NPC oth)
 //	Eine 'sichere' Abfrage auf Bodystates. Bitte NICHT die BuildIn
 //	'Npc_GetBodyState' direkt benutzen, denn Vergleiche wie
 //
-//		if (Npc_GetBodyState(self) == BS_SIT) 
+//		if (Npc_GetBodyState(self) == BS_SIT)
 //
 //	werden false ergeben, wenn zusätzlich zu BS_SIT auch noch
 //	BS_MOD_BURNING oder andere gesetzt sind (Charakter sitzt UND brennt)
 //	Abfragen auf Bodystates müssen also so aussehen:
 //
 //		if (C_BodyStateContains(self,BS_SIT))
-//		
+//
 //////////////////////////////////////////////////////////////////////////
 func int  	C_BodyStateContains	(var C_NPC slf, var int bodystate)
 {
 	PrintDebugNpc	(PD_ZS_DETAIL, "C_BodyStateContains()");
-	
+
 	PrintDebugInt	(PD_ZS_DETAIL, "bodystate: ", bodystate);
 	PrintDebugInt	(PD_ZS_DETAIL, "bodystate&(BS_MAX|BS_FLAG_INTERRUPTABLE|BS_FLAG_FREEHANDS): ", bodystate&(BS_MAX|BS_FLAG_INTERRUPTABLE|BS_FLAG_FREEHANDS));
 	PrintDebugInt	(PD_ZS_DETAIL, "Npc_GetBodyState(slf): ", Npc_GetBodyState(slf));
@@ -303,7 +303,7 @@ func int 	C_NpcTypeIsFriend(var C_NPC slf, var C_NPC oth)
 //	Ermittelt, ob der NSC eine Wache ist. Kriterium:
 //	->	NPCTYPE_GUARD -> TRUE
 //	->	eine der typischen "Wach-Gilden" -> TRUE
-//	->	ABER: wenn NSC eine Fernkampfwache ist -> FALSE!!! 
+//	->	ABER: wenn NSC eine Fernkampfwache ist -> FALSE!!!
 //////////////////////////////////////////////////////////////////////////
 func int 	C_NpcIsGuard(var C_NPC slf)
 {
@@ -320,7 +320,7 @@ func int 	C_NpcIsGuard(var C_NPC slf)
 			return TRUE;
 		};
 	};
-	
+
 	PrintDebugNpc( PD_ZS_DETAIL, "...false!" );
 	return FALSE;
 };
@@ -363,7 +363,7 @@ func int 	C_NpcIsGuardArcher(var C_NPC slf)
 func int C_NpcIsBoss(var C_NPC slf)
 {
 	PrintDebugNpc( PD_ZS_DETAIL, "C_NpcIsBoss" );
-	
+
 	if (	(slf.guild == GIL_EBR)	||
 			(slf.guild == GIL_KDF)	||
 			(slf.guild == GIL_KDW)	||
@@ -417,7 +417,7 @@ func int C_NpcIsMage(var C_NPC slf)
 {
 	PrintDebugNpc		(PD_ZS_DETAIL, "C_NpcIsMage" );
 
-	if (slf.attribute[ATR_MANA_MAX ] >0 ) 
+	if (slf.attribute[ATR_MANA_MAX ] >0 )
 	{
 		PrintDebugNpc( PD_ZS_DETAIL, "...true");
 		return TRUE;
@@ -451,7 +451,7 @@ func int C_NpcBelongsToOldCamp	(VAR C_NPC slf)
 	{
 	    PrintDebugNpc	(PD_ZS_DETAIL,	"...FALSE");
 		return			FALSE;
-	};		
+	};
 };
 
 //////////////////////////////////////////////////////////////////////////
@@ -476,7 +476,7 @@ func int C_NpcBelongsToNewCamp	(VAR C_NPC slf)
 	{
 	    PrintDebugNpc	(PD_ZS_DETAIL,	"...FALSE");
 		return			FALSE;
-	};		
+	};
 };
 
 //////////////////////////////////////////////////////////////////////////
@@ -499,7 +499,7 @@ func int C_NpcBelongsToPsiCamp	(VAR C_NPC slf)
 	{
 	    PrintDebugNpc	(PD_ZS_DETAIL,	"...FALSE");
 		return			FALSE;
-	};		
+	};
 };
 
 //////////////////////////////////////////////////////////////////////////
@@ -515,9 +515,9 @@ func int C_ChargeWasAttacked(var C_NPC guard, var C_NPC charge, var C_NPC attack
 	||	C_NpcIsGuardArcher(guard)
 	||	(guard.npctype == NPCTYPE_GUARD)
 	||	(guard.npctype == NPCTYPE_MINE_GUARD)
-	{ 
+	{
 		PrintDebugNpc	(PD_ZS_DETAIL, "...NSC ist Wache oder FK-Wache!" );
-		
+
 		if	(Npc_GetAttitude(guard, charge) == ATT_FRIENDLY)
 		&&	(Npc_GetAttitude(guard, attacker) != ATT_FRIENDLY)
 		{
@@ -525,7 +525,7 @@ func int C_ChargeWasAttacked(var C_NPC guard, var C_NPC charge, var C_NPC attack
 			return 		TRUE;
 		};
 	};
-	
+
 	PrintDebugNpc		(PD_ZS_DETAIL,	"...false");
 	return				FALSE;
 };
@@ -534,7 +534,7 @@ func int C_ChargeWasAttacked(var C_NPC guard, var C_NPC charge, var C_NPC attack
 //	C_NpcHasSpell
 //	=============
 //	Überfrüft, ob der angegebene NSC den Zauberspruch 'spell'
-//	im Inventory hat. 
+//	im Inventory hat.
 //////////////////////////////////////////////////////////////////////////
 func int	C_NpcHasSpell(var C_NPC slf, var int spell)
 {
@@ -545,7 +545,7 @@ func int	C_NpcHasSpell(var C_NPC slf, var int spell)
 //	C_NpcHasAmmo
 //	============
 //	Überfrüft, ob der angegebene NSC Munition der angegebenen Kategorie
-//	im Inventory hat. 
+//	im Inventory hat.
 //	->	'category' kann sein : ITAMARROW oder ITAMBOLT
 //	->	return: Anzahl der gefundenen Geschosse (0, wenn keine gefunden)
 //////////////////////////////////////////////////////////////////////////
@@ -563,7 +563,7 @@ func int	C_NpcHasAmmo(var C_NPC slf, var int category)
 	};
 
 	//-------- die 6 Waffenslots durchsuchen --------
-	// Slot 1 
+	// Slot 1
 	count = Npc_GetInvItemBySlot(slf, INV_WEAPON, 1);
 	if (Hlp_IsValidItem(item) && (item.mainflag==ITEM_KAT_MUN))
 	{
@@ -574,8 +574,8 @@ func int	C_NpcHasAmmo(var C_NPC slf, var int category)
 			return count;
 		};
 	};
-	
-	// Slot 2 
+
+	// Slot 2
 	count = Npc_GetInvItemBySlot(slf, INV_WEAPON, 2);
 	if (Hlp_IsValidItem	(item) && (item.mainflag==ITEM_KAT_MUN))
 	{
@@ -586,8 +586,8 @@ func int	C_NpcHasAmmo(var C_NPC slf, var int category)
 			return count;
 		};
 	};
-	
-	// Slot 3 
+
+	// Slot 3
 	count = Npc_GetInvItemBySlot(slf, INV_WEAPON, 3);
 	if (Hlp_IsValidItem	(item) && (item.mainflag==ITEM_KAT_MUN))
 	{
@@ -598,8 +598,8 @@ func int	C_NpcHasAmmo(var C_NPC slf, var int category)
 			return count;
 		};
 	};
-	
-	// Slot 4 
+
+	// Slot 4
 	count = Npc_GetInvItemBySlot(slf, INV_WEAPON, 4);
 	if (Hlp_IsValidItem	(item) && (item.mainflag==ITEM_KAT_MUN))
 	{
@@ -610,8 +610,8 @@ func int	C_NpcHasAmmo(var C_NPC slf, var int category)
 			return count;
 		};
 	};
-	
-	// Slot 5 
+
+	// Slot 5
 	count = Npc_GetInvItemBySlot(slf, INV_WEAPON, 5);
 	if (Hlp_IsValidItem	(item) && (item.mainflag==ITEM_KAT_MUN))
 	{
@@ -622,8 +622,8 @@ func int	C_NpcHasAmmo(var C_NPC slf, var int category)
 			return count;
 		};
 	};
-	
-	// Slot 6 
+
+	// Slot 6
 	count = Npc_GetInvItemBySlot(slf, INV_WEAPON, 6);
 	if (Hlp_IsValidItem	(item) && (item.mainflag==ITEM_KAT_MUN))
 	{
@@ -634,7 +634,7 @@ func int	C_NpcHasAmmo(var C_NPC slf, var int category)
 			return count;
 		};
 	};
-	
+
 	return 0;	// Keine passende Munition gefunden!
 };
 
@@ -658,7 +658,7 @@ func int	C_NpcHasWeapon(var C_NPC slf, var int category)
 	};
 
 	//-------- die 6 Waffenslots durchsuchen --------
-	// Slot 1 
+	// Slot 1
 	Npc_GetInvItemBySlot(slf, INV_WEAPON, 1);
 	if (Hlp_IsValidItem	(item) && (item.mainflag==category))
 	{
@@ -677,8 +677,8 @@ func int	C_NpcHasWeapon(var C_NPC slf, var int category)
 			};
 		};
 	};
-	
-	// Slot 2 
+
+	// Slot 2
 	Npc_GetInvItemBySlot(slf, INV_WEAPON, 2);
 	if (Hlp_IsValidItem	(item) && (item.mainflag==category))
 	{
@@ -697,8 +697,8 @@ func int	C_NpcHasWeapon(var C_NPC slf, var int category)
 			};
 		};
 	};
-	
-	// Slot 3 
+
+	// Slot 3
 	Npc_GetInvItemBySlot(slf, INV_WEAPON, 3);
 	if (Hlp_IsValidItem	(item) && (item.mainflag==category))
 	{
@@ -717,8 +717,8 @@ func int	C_NpcHasWeapon(var C_NPC slf, var int category)
 			};
 		};
 	};
-	
-	// Slot 4 
+
+	// Slot 4
 	Npc_GetInvItemBySlot(slf, INV_WEAPON, 4);
 	if (Hlp_IsValidItem	(item) && (item.mainflag==category))
 	{
@@ -737,8 +737,8 @@ func int	C_NpcHasWeapon(var C_NPC slf, var int category)
 			};
 		};
 	};
-	
-	// Slot 5 
+
+	// Slot 5
 	Npc_GetInvItemBySlot(slf, INV_WEAPON, 5);
 	if (Hlp_IsValidItem	(item) && (item.mainflag==category))
 	{
@@ -757,8 +757,8 @@ func int	C_NpcHasWeapon(var C_NPC slf, var int category)
 			};
 		};
 	};
-	
-	// Slot 6 
+
+	// Slot 6
 	Npc_GetInvItemBySlot(slf, INV_WEAPON, 6);
 	if (Hlp_IsValidItem	(item) && (item.mainflag==category))
 	{
@@ -777,14 +777,14 @@ func int	C_NpcHasWeapon(var C_NPC slf, var int category)
 			};
 		};
 	};
-	
+
 	return FALSE;	// Keine Waffe der Kategorie 'category' (oder nur eine Fernkampfwaffe ohne Munition) gefunden!
 };
 
 //////////////////////////////////////////////////////////////////////////
 //	C_GetAttackReason
 //	=================
-//	Erfragt den Grund des Angriffs eines NSCs, damit später darauf 
+//	Erfragt den Grund des Angriffs eines NSCs, damit später darauf
 //	abgefragt werden kann.
 //	Konstanten sind in AI_CONSTANTS.D zu finden
 //////////////////////////////////////////////////////////////////////////
@@ -824,7 +824,7 @@ func int C_OtherIsToleratedEnemy(var C_NPC slf, var C_NPC oth)
 				return		TRUE;
 			};
 		};
-		
+
 		//---- Ulu-Mulu equipped ? ----
 		weapon = 			Npc_GetEquippedMeleeWeapon	(oth);
 		if (Hlp_IsValidItem(weapon))
@@ -858,8 +858,8 @@ func void B_TolerateEnemy(var C_NPC slf, var C_NPC oth)
 
 		//-------- Aufreger --------
 		if	(npcInstance == OrcScout)
-		||	(npcInstance == OrcWarrior1) 
-		||	(npcInstance == OrcWarrior2) 
+		||	(npcInstance == OrcWarrior1)
+		||	(npcInstance == OrcWarrior2)
 		{
 			PrintDebugNpc	(PD_ZS_DETAIL,	"...'self' ist anderer Ork!");
 			if	!Npc_IsInState(slf, ZS_Upset)
@@ -867,12 +867,12 @@ func void B_TolerateEnemy(var C_NPC slf, var C_NPC oth)
 				PrintDebugNpc	(PD_ZS_DETAIL,	"...'self' noch nicht in ZS_FollowPC");
 				Npc_ClearAIQueue(slf);
 				AI_StandUp		(slf);
-				AI_StartState	(slf, ZS_Upset, 1, "");			
+				AI_StartState	(slf, ZS_Upset, 1, "");
 			};
 		}
 
 		//-------- Verfolger --------
-		else if	(npcInstance == OrcWarrior3)		
+		else if	(npcInstance == OrcWarrior3)
 		{
 			PrintDebugNpc	(PD_ZS_DETAIL,	"...'self' ist Ork Tempelkrieger!");
 			if	!Npc_IsInState(slf, ZS_FollowPC)
@@ -880,7 +880,7 @@ func void B_TolerateEnemy(var C_NPC slf, var C_NPC oth)
 				PrintDebugNpc	(PD_ZS_DETAIL,	"...'self' noch nicht in ZS_FollowPC");
 				Npc_ClearAIQueue(slf);
 				AI_StandUp		(slf);
-				AI_StartState	(slf, ZS_FollowPC, 1, "");			
+				AI_StartState	(slf, ZS_FollowPC, 1, "");
 			};
 		};
 	};

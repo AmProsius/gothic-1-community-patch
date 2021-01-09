@@ -2,7 +2,7 @@
 **	Razor Prototype		(Anims wie Snapper)								**
 *************************************************************************/
 
-PROTOTYPE Mst_Default_Razor(C_Npc)			
+PROTOTYPE Mst_Default_Razor(C_Npc)
 {
 	name							=	"Razor";
 	guild							=	GIL_SNAPPER;
@@ -11,7 +11,7 @@ PROTOTYPE Mst_Default_Razor(C_Npc)
 //--------------------------------------------------------------
 	attribute	[ATR_STRENGTH]		=	110;
 	attribute	[ATR_DEXTERITY]		=	110;
-	
+
 	attribute	[ATR_HITPOINTS_MAX]	=	200;
 	attribute	[ATR_HITPOINTS]		=	200;
 
@@ -34,12 +34,12 @@ PROTOTYPE Mst_Default_Razor(C_Npc)
 //	damage		[DAM_INDEX_MAGIC]	=	0;
 //--------------------------------------------------------------
 	fight_tactic					=	FAI_SNAPPER;
-//--------------------------------------------------------------	
+//--------------------------------------------------------------
 	senses						= SENSE_HEAR | SENSE_SEE | SENSE_SMELL;
 	senses_range				= 3000;
 
 	aivar[AIV_MM_Behaviour]		= HUNTER;
-	
+
 	aivar[AIV_MM_PercRange]		= 1400;
 	aivar[AIV_MM_DrohRange]		= 1200;
 	aivar[AIV_MM_AttackRange]	= 700;

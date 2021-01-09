@@ -1,5 +1,5 @@
 // **************************************
-//					EXIT 
+//					EXIT
 // **************************************
 
 instance DIA_Lefty_Exit (C_INFO)
@@ -10,7 +10,7 @@ instance DIA_Lefty_Exit (C_INFO)
 	information	= DIA_Lefty_Exit_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC int DIA_Lefty_Exit_Condition()
 {
@@ -34,7 +34,7 @@ instance DIA_Lefty_FirstAtNight (C_INFO)
 	information	= DIA_Lefty_FirstAtNight_Info;
 	permanent	= 0;
 	description = "Was machst du hier?";
-};                       
+};
 
 FUNC int DIA_Lefty_FirstAtNight_Condition()
 {
@@ -66,7 +66,7 @@ instance DIA_Lefty_First (C_INFO)
 	information	= DIA_Lefty_First_Info;
 	permanent	= 0;
 	important 	= 1;
-};                       
+};
 
 FUNC int DIA_Lefty_First_Condition()
 {
@@ -81,11 +81,11 @@ FUNC VOID DIA_Lefty_First_Info()
 {
 	AI_Output (self, other,"DIA_Lefty_First_07_00"); //Hey, du! Neu hier, was? Auf den Reisfeldern brauchen wir noch jemanden, der den Bauern Wasser bringt.
 	AI_Output (self, other,"DIA_Lefty_First_07_01"); //Da kannst du dir direkt ein paar Freunde machen. Was denkst du?
-	
+
 	Log_CreateTopic		(CH1_CarryWater,	LOG_MISSION);
 	Log_SetTopicStatus	(CH1_CarryWater,	LOG_RUNNING);
 	B_LogEntry			(CH1_CarryWater,	"Lefty, ein ziemlich groﬂkotziger Bandit aus dem neuen Lager will, dass ich den Bauern auf den Reisfeldern Wasser bringe.");
-	
+
 	Info_ClearChoices	(DIA_Lefty_First );
 	Info_AddChoice		(DIA_Lefty_First,"Vielleicht sp‰ter."				,DIA_Lefty_First_Later);
 	Info_AddChoice		(DIA_Lefty_First,"Bring dein Wasser selbst rum!"	,DIA_Lefty_First_Never);
@@ -111,7 +111,7 @@ func void DIA_Lefty_First_Never()
 	Lefty_WorkDay = B_SetDayTolerance();
 	Lefty_Mission = LOG_FAILED;
 	B_LogEntry			(CH1_CarryWater,	"Als ich Leftys 'Angebot' ablehnte, wurde er ziemlich ungehalten! Und ich dachte schon, das Alte Lager ist ein rauher Ort.");
-	
+
 	Info_ClearChoices	(DIA_Lefty_First );
 	AI_StopProcessInfos	(self);
 	Npc_SetTarget (self, other);
@@ -138,13 +138,13 @@ instance DIA_Lefty_WorkDay (C_INFO)
 	information	= DIA_Lefty_WorkDay_Info;
 	permanent	= 1;
 	important 	= 1;
-};                       
+};
 
 FUNC int DIA_Lefty_WorkDay_Condition()
 {
 	if	(Wld_IsTime(08,00,19,00) || (Lefty_Mission == LOG_SUCCESS))				// wenn Wasser verteilt, dann auch abends am Lagerfeuer!
 	&&	(self.aivar[AIV_WASDEFEATEDBYSC]==FALSE)
-	&&	((Lefty_WorkDay <= Wld_GetDay()-1) || (Lefty_Mission == LOG_SUCCESS))	// wenn Wasser verteilt, dann auch noch am selben Tag! 
+	&&	((Lefty_WorkDay <= Wld_GetDay()-1) || (Lefty_Mission == LOG_SUCCESS))	// wenn Wasser verteilt, dann auch noch am selben Tag!
 	{
 		return 1;
 	};
@@ -153,7 +153,7 @@ FUNC int DIA_Lefty_WorkDay_Condition()
 FUNC VOID DIA_Lefty_WorkDay_Info()
 {
 	AI_Output (self, other,"DIA_Lefty_WorkDay_07_00"); //Hey, du!
-	
+
 	if (Lefty_Mission == LOG_FAILED)
 	{
 		AI_Output (self, other,"DIA_Lefty_WorkDay_NextChance_07_00"); //Du hast Gl¸ck! Du bekommst eine neue Chance.
@@ -162,7 +162,7 @@ FUNC VOID DIA_Lefty_WorkDay_Info()
 		Lefty_Mission = LOG_RUNNING;
 		An_Bauern_verteilt = 0;
 		B_LogEntry			(CH1_CarryWater,	"Schon wieder bin ich Lefty ¸ber den Weg gelaufen! Er will, dass ich jetzt endlich zum Reislord gehe und das Wasser f¸r die Verteilung an die Bauern auf den Reisfeldern abhole.");
-		
+
 		AI_StopProcessInfos	(self);
 	}
 	else if (Lefty_Mission == LOG_RUNNING)
@@ -172,7 +172,7 @@ FUNC VOID DIA_Lefty_WorkDay_Info()
 		Lefty_WorkDay = B_SetDayTolerance();
 		Lefty_Mission = LOG_FAILED;
 		B_LogEntry			(CH1_CarryWater,	"Lefty war stinksauer dar¸ber, dass ich das Wasser noch nicht verteilt haben! Das kann ja noch heiter werden mit diesem Burschen.");
-		
+
 		AI_StopProcessInfos	(self);
 		Npc_SetTarget (self, other);
 		AI_StartState (self, ZS_ATTACK, 1, "");
@@ -190,7 +190,7 @@ FUNC VOID DIA_Lefty_WorkDay_Info()
 			B_GiveXP		(XP_LeftyCarriedWater);
 			CarriedWaterForLefty = TRUE;
 		};
-		
+
 		AI_StopProcessInfos	(self);
 	};
 };
@@ -207,7 +207,7 @@ instance DIA_Lefty_NeverAgain (C_INFO)
 	information	= DIA_Lefty_NeverAgain_Info;
 	permanent	= 1;
 	description	= "Du kannst dein Wasser ab jetzt selbst bringen.";
-};                       
+};
 
 FUNC int DIA_Lefty_NeverAgain_Condition()
 {
@@ -222,11 +222,11 @@ FUNC VOID DIA_Lefty_NeverAgain_Info()
 	AI_Output (other, self,"DIA_Lefty_NeverAgain_15_00"); //Du kannst dein Wasser ab jetzt selbst bringen.
 	AI_Output (self, other,"DIA_Lefty_NeverAgain_07_01"); //Ach? Hast du was Besseres vor?
 	AI_Output (self, other,"DIA_Lefty_NeverAgain_07_02"); //Ich glaube, ich muss dich noch einmal daran erinnern, wer hier der Boss ist!
-	
+
 	AI_StopProcessInfos	(self);
 	Npc_SetTarget (self, other);
 	AI_StartState (self, ZS_ATTACK, 1, "");
-};	
+};
 
 // **************************************
 //				PERM
@@ -241,11 +241,11 @@ instance DIA_Lefty_PERM (C_INFO)
 	information	= DIA_Lefty_PERM_Info;
 	permanent	= 1;
 	description	= "Na, mein Freund?";
-};                       
+};
 
 FUNC int DIA_Lefty_PERM_Condition()
 {
-	if (self.aivar[AIV_WASDEFEATEDBYSC]==TRUE) 
+	if (self.aivar[AIV_WASDEFEATEDBYSC]==TRUE)
 	{
 		return 1;
 	};
@@ -263,13 +263,13 @@ FUNC VOID DIA_Lefty_PERM_Info()
 		B_GiveXP			(XP_LeftyConfronted);
 		LeftyWasBeaten = TRUE;
 	};
-	
+
 	Info_ClearChoices	(DIA_Lefty_PERM );
 	Info_AddChoice		(DIA_Lefty_PERM,"Wollte nur mal sehen, wie's dir geht."												,DIA_Lefty_PERM_Nothing);
 	Info_AddChoice		(DIA_Lefty_PERM,"Die Bauern sehen durstig aus."														,DIA_Lefty_PERM_Durstig);
 	Info_AddChoice		(DIA_Lefty_PERM,"Ich hatte nen schlechten Tag und suche einen Ausgleich... Halt mal still."	,DIA_Lefty_PERM_AufsMaul);
 
-};	
+};
 
 func void DIA_Lefty_PERM_AufsMaul()
 {
@@ -277,7 +277,7 @@ func void DIA_Lefty_PERM_AufsMaul()
 	B_Say (self,other,"$YOUWANNAFOOLME");
 	Info_ClearChoices	(DIA_Lefty_PERM );
 	AI_StopProcessInfos	(self);
-	
+
 	Npc_SetTarget (self, other);
 	AI_StartState (self, ZS_ATTACK, 1, "");
 };
@@ -298,8 +298,7 @@ func void DIA_Lefty_PERM_Nothing()
 
 
 
-	
-	
-	
-	
-	
+
+
+
+

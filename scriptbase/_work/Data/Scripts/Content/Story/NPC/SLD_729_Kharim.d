@@ -1,12 +1,12 @@
 instance SLD_729_Kharim (Npc_Default)
 {
 	//-------- primary data --------
-	
+
 	name =					"Kharim";
 	Npctype =				Npctype_Main;
-	guild =					GIL_NONE;       
+	guild =					GIL_NONE;
 	level =					11;
-	
+
 	voice =					9;
 	id =					729;
 
@@ -24,20 +24,20 @@ instance SLD_729_Kharim (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Militia.mds");
-	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
+	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin
 	Mdl_SetVisualBody (self,"hum_body_Naked0",0, 3,"Hum_Head_FatBald", 9, 1, SLD_ARMOR_M);
-	
+
 	B_Scale (self);
 	Mdl_SetModelFatness (self, 0);
-	
-	fight_tactic	=	FAI_HUMAN_MASTER; 
-		
+
+	fight_tactic	=	FAI_HUMAN_MASTER;
+
 	//-------- Talente --------
-	
+
 	Npc_SetTalentSkill (self, NPC_TALENT_2H,1);
-	Npc_SetTalentSkill (self, NPC_TALENT_1H,2);	
-	
-	//-------- inventory --------                                    
+	Npc_SetTalentSkill (self, NPC_TALENT_1H,2);
+
+	//-------- inventory --------
 
 	EquipItem (self, ItMw_1H_Mace_02);
 	//EquipItem (self, ItRw_Bow_Long_01);
@@ -51,7 +51,7 @@ instance SLD_729_Kharim (Npc_Default)
 	CreateInvItems (self, ItFo_Potion_Health_01,7);
 	CreateInvItem (self, ItMi_Stuff_Barbknife_01);
 	CreateInvItem (self, ItMi_Stuff_Amphore_01);
-	CreateInvItem	(self,ItMi_Stuff_OldCoin_02);	
+	CreateInvItem	(self,ItMi_Stuff_OldCoin_02);
 
 	//-------------Daily Routine-------------
 

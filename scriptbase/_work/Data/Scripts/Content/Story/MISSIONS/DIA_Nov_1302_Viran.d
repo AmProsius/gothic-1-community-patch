@@ -1,5 +1,5 @@
 // **************************************************
-//						EXIT 
+//						EXIT
 // **************************************************
 
 instance  DIA_Viran_Exit (C_INFO)
@@ -8,10 +8,10 @@ instance  DIA_Viran_Exit (C_INFO)
 	nr			=  999;
 	condition	=  DIA_Viran_Exit_Condition;
 	information	=  DIA_Viran_Exit_Info;
-	important	=  0;	
+	important	=  0;
 	permanent	=  1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC int  DIA_Viran_Exit_Condition()
 {
@@ -35,7 +35,7 @@ instance  DIA_Viran_What (C_INFO)
 	information	= DIA_Viran_What_Info;
 	permanent	= 0;
 	description	= "Was macht ihr hier?";
-};                       
+};
 
 FUNC int  DIA_Viran_What_Condition()
 {
@@ -64,7 +64,7 @@ instance  DIA_Viran_FetchWeed (C_INFO)
 	information	= DIA_Viran_FetchWeed_Info;
 	permanent	= 0;
 	description	= "Baal Orun schickt mich. Ich soll die gesamte Ernte zu Kalom bringen.";
-};                       
+};
 
 FUNC int  DIA_Viran_FetchWeed_Condition()
 {
@@ -79,12 +79,12 @@ FUNC VOID  DIA_Viran_FetchWeed_Info()
 	AI_Output (other, self,"DIA_Viran_FetchWeed_15_00"); //Baal Orun schickt mich. Ich soll die gesamte Ernte zu Kalom bringen.
 	AI_Output (self, other,"DIA_Viran_FetchWeed_07_01"); //So einfach stellst du dir das vor, was?
 	AI_Output (self, other,"DIA_Viran_FetchWeed_07_02"); //Da kann ja jeder kommen. 'Baal Orun schickt mich' - und schwupps - weg ist das ganze Kraut.
-	
+
 	Info_ClearChoices 	(DIA_Viran_FetchWeed);
 	Info_Addchoice 		(DIA_Viran_FetchWeed,"Geh doch zu ihm und frag ihn, wenn du mir nicht glaubst!"	,DIA_Viran_FetchWeed_GotoHim);
 	Info_Addchoice 		(DIA_Viran_FetchWeed,"Baal Orun schickt mich aber wirklich!"					,DIA_Viran_FetchWeed_Really);
 };
-	
+
 func void DIA_Viran_FetchWeed_Really()
 {
 	AI_Output (other, self,"DIA_Viran_FetchWeed_Really_15_00"); //Baal Orun schickt mich aber wirklich!
@@ -112,7 +112,7 @@ instance  DIA_Viran_Bloodflies (C_INFO)
 	information	= DIA_Viran_Bloodflies_Info;
 	permanent	= 0;
 	description	= "Und was soll ich machen?";
-};                       
+};
 
 FUNC int  DIA_Viran_Bloodflies_Condition()
 {
@@ -131,7 +131,7 @@ FUNC VOID  DIA_Viran_Bloodflies_Info()
 
 	B_LogEntry			(CH1_DeliverWeed,	"Viran will mir seine Sumpfkrautlieferung erst geben, nachdem ich alle Blutfliegen in 20 Schritt Umkreis erlegt habe.");
 };
-	
+
 // **************************************************
 //				Running / Success
 // **************************************************
@@ -146,7 +146,7 @@ instance  DIA_Viran_Running (C_INFO)
 	information	= DIA_Viran_Running_Info;
 	permanent	= 1;
 	description	= "Ich seh weit und breit keine Blutfliegen mehr.";
-};                       
+};
 
 FUNC int  DIA_Viran_Running_Condition()
 {
@@ -173,7 +173,7 @@ FUNC VOID  DIA_Viran_Running_Info()
 		AI_Output (self, hero,"DIA_Viran_Running_07_04"); //Und ein Idiot wäre zu dumm, um mich aufs Kreuz zu legen, richtig?
 		AI_Output (self, hero,"DIA_Viran_Running_07_05"); //Hier, nimm die Ernte und bring sie zu Cor Kalom.
 		AI_Output (self, hero,"DIA_Viran_Running_07_06"); //Falls er meckert, es sei zu wenig, sag ihm, er soll seinen Hintern hier selber hinbewegen, dann kann er mal sehen, wie viel Arbeit das ist.
-		
+
 		B_GiveInvItems  (self, hero, ItMi_Plants_Swampherb_01, 50);
 
 		if	Npc_KnowsInfo(hero, DIA_Balor_FetchWeed)
@@ -185,7 +185,7 @@ FUNC VOID  DIA_Viran_Running_Info()
 			B_LogEntry	(CH1_DeliverWeed,	"Viran übergab mir seine heutige Sumpfkrauternte. Sieht nach ziemlich wenig aus. Vielleicht gibt es noch eine zweite Sammlergruppe.");
 		};
 		B_GiveXP		(XP_WeedFromViran);
-				
+
 		Viran_Bloodflies = LOG_SUCCESS;
 		Viran_BotenDay = Wld_GetDay();
 	};
@@ -204,7 +204,7 @@ instance  DIA_Viran_Perm (C_INFO)
 	information	= DIA_Viran_Perm_Info;
 	permanent	= 1;
 	description	= "Wie steht's mit der Sammelei?";
-};                       
+};
 
 FUNC int  DIA_Viran_Perm_Condition()
 {
@@ -233,7 +233,7 @@ instance  DIA_Viran_RipOff (C_INFO)
 	information	= DIA_Viran_RipOff_Info;
 	permanent	= 0;
 	description	= "Ich soll nochmal alles Kraut zu Cor Kalom bringen.";
-};                       
+};
 
 FUNC int  DIA_Viran_RipOff_Condition()
 {

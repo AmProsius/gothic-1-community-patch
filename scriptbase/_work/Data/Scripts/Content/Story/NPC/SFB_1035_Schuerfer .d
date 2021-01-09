@@ -1,13 +1,13 @@
 instance SFB_1035_Schuerfer (Npc_Default)
 {
 	//-------- primary data --------
-	
+
 	name =							NAME_Schuerfer;
 	npctype = 						Npctype_ambient;
-	guild =							GIL_SFB;      
+	guild =							GIL_SFB;
 	level =							6;
 	flags =							0;
-	
+
 	voice =							5;
 	id =							1035;
 
@@ -25,17 +25,17 @@ instance SFB_1035_Schuerfer (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Tired.mds");
-	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
+	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin
 	Mdl_SetVisualBody (self,"hum_body_Naked0",3,0,"Hum_Head_FatBald", 11,  1 ,SFB_ARMOR_L);
-	
+
 	B_Scale (self);
 	Mdl_SetModelFatness(self,0);
-	
-	fight_tactic	=	FAI_HUMAN_COWARD; 
-	
-	//-------- Talente --------                                    
-	
-	//-------- inventory --------                                    
+
+	fight_tactic	=	FAI_HUMAN_COWARD;
+
+	//-------- Talente --------
+
+	//-------- inventory --------
 
 	CreateInvItems (self, ItFoRice,3);
 	CreateInvItems (self, ItMiNugget, 9);
@@ -43,7 +43,7 @@ instance SFB_1035_Schuerfer (Npc_Default)
 	EquipItem (self, ItMwPickaxe);
 	CreateInvItem (self, ItMw_1H_Hatchet_01);
 
-	
+
 	//-------------Daily Routine-------------
 
 	daily_routine = Rtn_FMCstart_1035;

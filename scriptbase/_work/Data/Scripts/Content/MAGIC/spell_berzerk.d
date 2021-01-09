@@ -8,7 +8,7 @@
 func int Spell_Logic_Berzerk	(var int manaInvested)
 {
 	PrintDebugNpc		(PD_MAGIC,	"Spell_Logic_Berzerk");
-	
+
 	// Immunität für SLEEPER, DEMON, SKELETONS, ZOMBIES, GOLEM
 	if (	(other.guild == GIL_SLF) 		||
 			(other.guild == GIL_TROLL)		||
@@ -17,7 +17,7 @@ func int Spell_Logic_Berzerk	(var int manaInvested)
 			(other.guild == GIL_SKELETON)	||
 			(other.guild == GIL_ZOMBIE)			)
 	{
-		PrintDebugNpc	(PD_MAGIC, "...Ziel immun!" );	
+		PrintDebugNpc	(PD_MAGIC, "...Ziel immun!" );
 
 		return SPL_SENDSTOP;
 	}
@@ -26,7 +26,7 @@ func int Spell_Logic_Berzerk	(var int manaInvested)
 		if (manaInvested >= SPL_SENDCAST_BERZERK)
 		{
 			Npc_SendSinglePerc ( self, other, PERC_ASSESSMAGIC);
-	
+
 			return SPL_SENDCAST;
 		}
 		else

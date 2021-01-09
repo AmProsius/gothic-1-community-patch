@@ -5,19 +5,19 @@
 func void ZS_WalkAround	()
 {
     PrintDebugNpc (PD_TA_FRAME,"ZS_WalkAround");
-    
-	B_SetPerception (self);    
+
+	B_SetPerception (self);
 	AI_SetWalkmode (self,NPC_WALK);	// Walkmode für den Zustand
 	AI_GotoWP (self,self.wp);		// Gehe zum Tagesablaufstart
 	AI_AlignToWP (self);			//Richte Dich aus
-	
+
 
 };
- 
+
 func void ZS_WalkAround_Loop()
 {
     PrintDebugNpc (PD_TA_LOOP,"ZS_WalkAround_Loop");
-       
+
 	var string hlpwp1;
 	var string hlpwp2;
 	var int varianzcounter;
@@ -38,13 +38,13 @@ func void ZS_WalkAround_Loop()
 		hlprand = Hlp_Random (10000);
 		if (!(Hlp_StrCmp (Npc_GetNearestWP (self) ,hlpwp1)) )
 		{
-		
+
 			AI_GotoWP (self,Npc_GetNearestWP (self));
 			varianzcounter +=1;
 			if (hlprand != 666)
 			{
 				AI_PlayAni (self,"T_SEARCH");
-			
+
 			};
 		}
 		else
@@ -54,7 +54,7 @@ func void ZS_WalkAround_Loop()
 			varianzcounter +=1;
 		};
 	};
-	
+
 	AI_Wait(self,1);
 };
 

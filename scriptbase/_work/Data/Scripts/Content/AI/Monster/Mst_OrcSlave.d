@@ -2,28 +2,28 @@
 **	Orc SLAVE Prototype													**
 *************************************************************************/
 
-PROTOTYPE Mst_Default_OrcSlave(C_Npc)			
+PROTOTYPE Mst_Default_OrcSlave(C_Npc)
 {
 	name							=	"Orc Sklave";
 	guild							=	GIL_ORCSLAVE;
 	level							=	15;
-//----------------------------------------------------------	
+//----------------------------------------------------------
 	attribute	[ATR_STRENGTH]		=	50;
 	attribute	[ATR_DEXTERITY]		=	50;
-	
+
 	attribute	[ATR_HITPOINTS_MAX]	=	200;
 	attribute	[ATR_HITPOINTS]		=	200;
 
 	attribute	[ATR_MANA_MAX] 		=	0;
 	attribute	[ATR_MANA] 			=	0;
-//----------------------------------------------------------	
+//----------------------------------------------------------
 	protection	[PROT_BLUNT]		=	50;
 	protection	[PROT_EDGE]			=	50;
 	protection	[PROT_POINT]		=	25;
 	protection	[PROT_FIRE]			=	25;
 	protection	[PROT_FLY]			=	0;
 	protection	[PROT_MAGIC]		=	0;
-//----------------------------------------------------------	
+//----------------------------------------------------------
 	damagetype 						=	DAM_EDGE;
 //	damage		[DAM_INDEX_BLUNT]	=	0;
 //	damage		[DAM_INDEX_EDGE]	=	0;
@@ -39,7 +39,7 @@ PROTOTYPE Mst_Default_OrcSlave(C_Npc)
 	senses_range				= 3000;
 
 	//aivar[AIV_MM_Behaviour]		= ;
-	
+
 	//aivar[AIV_MM_PercRange]		= 1200;
 	//aivar[AIV_MM_DrohRange]		= 1000;
 	//aivar[AIV_MM_AttackRange]	= 700;

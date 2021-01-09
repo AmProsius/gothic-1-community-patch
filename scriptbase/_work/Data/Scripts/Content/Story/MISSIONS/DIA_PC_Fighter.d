@@ -8,10 +8,10 @@ INSTANCE Info_Gorn_EXIT (C_INFO)
 	nr   		= 999;
 	condition	= Info_Gorn_EXIT_Condition;
 	information	= Info_Gorn_EXIT_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC INT Info_Gorn_EXIT_Condition()
 {
@@ -28,7 +28,7 @@ func VOID Info_Gorn_EXIT_Info()
 	{
 		AI_Output (self, other,"Info_Gorn_EXIT_09_02"); //Bis später.
 	};
-	
+
 	AI_StopProcessInfos	( self );
 };
 
@@ -283,11 +283,11 @@ func void DIA_Gorn_DuHehler_Info()
 	AI_Output (other, self,"DIA_Gorn_DuHehler_15_04"); //Du beteiligst dich regelmäßig an den Überfällen?
 	AI_Output (self, other,"DIA_Gorn_DuHehler_09_05"); //Wenn es so wäre, könnte ich es dir nicht sagen. Lee sieht so was nämlich gar nicht gerne.
 	AI_Output (other, self,"DIA_Gorn_DuHehler_15_06"); //Verstehe.
-	
+
 	CreateInvItems(self, ItFoApple, 21);
 	B_GiveInvItems	(self,other, ItFoApple,21); //Notwendig für Screenausgabe
 	Npc_RemoveInvItems (other, ItFoApple,21);
-	
+
 	CreateInvItems(other, ItMw_1H_LightGuardsSword_03, 1);
 	CreateInvItems(other, ItFoApple, 5);
 	CreateInvItems(other, ItFoLoaf, 5);
@@ -318,9 +318,9 @@ INSTANCE Info_Gorn_NCWAIT (C_INFO)
 	nr			= 1;
 	condition	= Info_Gorn_NCWAIT_Condition;
 	information	= Info_Gorn_NCWAIT_Info;
-	important	= 1;	
+	important	= 1;
 	permanent	= 0;
-};                       
+};
 
 FUNC INT Info_Gorn_NCWAIT_Condition()
 {
@@ -347,10 +347,10 @@ INSTANCE Info_Gorn_MAGES (C_INFO)
 	npc			= PC_Fighter;
 	condition	= Info_Gorn_MAGES_Condition;
 	information	= Info_Gorn_MAGES_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 0;
 	description	= "Ich habe eine wichtige Botschaft für die Wassermagier!";
-};                       
+};
 
 FUNC INT Info_Gorn_MAGES_Condition()
 {
@@ -377,10 +377,10 @@ INSTANCE Info_Gorn_CRONOS (C_INFO)
 	npc			= PC_Fighter;
 	condition	= Info_Gorn_CRONOS_Condition;
 	information	= Info_Gorn_CRONOS_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 0;
 	description	= "Wo finde ich diesen 'Hüter des Erzes'?";
-};                       
+};
 
 FUNC INT Info_Gorn_CRONOS_Condition()
 {
@@ -400,8 +400,8 @@ func VOID Info_Gorn_CRONOS_Info()
 	VAR C_NPC Cronos;
 	Cronos = Hlp_GetNpc(KdW_604_Cronos);
 	Cronos.aivar[AIV_FINDABLE] = TRUE;
-	
-	B_LogEntry		(CH3_EscapePlanNC,	"Gorn empfahl mir, direkt mit dem obersten Wassermagier mit Namen Saturas zu sprechen. Cronos, der Hüter des Erzes, kann eine Audienz erwirken. Cronos hält sich im Zentrum des Neuen Lagers, am Gitter über dem Erzhaufen auf."); 
+
+	B_LogEntry		(CH3_EscapePlanNC,	"Gorn empfahl mir, direkt mit dem obersten Wassermagier mit Namen Saturas zu sprechen. Cronos, der Hüter des Erzes, kann eine Audienz erwirken. Cronos hält sich im Zentrum des Neuen Lagers, am Gitter über dem Erzhaufen auf.");
 
 	Npc_ExchangeRoutine	(self, "start");
 };
@@ -415,9 +415,9 @@ INSTANCE Info_Gorn_RUINWAIT (C_INFO)
 	nr			= 2;
 	condition	= Info_Gorn_RUINWAIT_Condition;
 	information	= Info_Gorn_RUINWAIT_Info;
-	important	= 1;	
+	important	= 1;
 	permanent	= 0;
-};                       
+};
 
 FUNC INT Info_Gorn_RUINWAIT_Condition()
 {
@@ -443,10 +443,10 @@ INSTANCE Info_Gorn_RUINWHAT (C_INFO)
 	npc			= PC_Fighter;
 	condition	= Info_Gorn_RUINWHAT_Condition;
 	information	= Info_Gorn_RUINWHAT_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 0;
 	description = "Was führt dich denn hier her?";
-};                       
+};
 
 FUNC INT Info_Gorn_RUINWHAT_Condition()
 {
@@ -467,7 +467,7 @@ func VOID Info_Gorn_RUINWHAT_Info()
 	AI_Output 		(self, other,"Info_Gorn_RUINWHAT_09_07"); //Bestimmt gibt es hier noch Schätze aus der alten Zeit.
 
 	if (!Npc_KnowsInfo(hero, Info_Gorn_RUINFOCUS))
-	{	
+	{
 		AI_Output	(self, other,"Info_Gorn_RUINWHAT_09_08"); //Was führt dich hierher?
 	};
 };
@@ -480,10 +480,10 @@ INSTANCE Info_Gorn_RUINFOCUS (C_INFO)
 	npc			= PC_Fighter;
 	condition	= Info_Gorn_RUINFOCUS_Condition;
 	information	= Info_Gorn_RUINFOCUS_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 0;
 	description = "Ich suche einen magischen Fokus";
-};                       
+};
 
 FUNC INT Info_Gorn_RUINFOCUS_Condition()
 {
@@ -508,10 +508,10 @@ INSTANCE Info_Gorn_RUINJOIN (C_INFO)
 	npc			= PC_Fighter;
 	condition	= Info_Gorn_RUINJOIN_Condition;
 	information	= Info_Gorn_RUINJOIN_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 0;
 	description = "Wir könnten unseren Weg gemeinsam fortsetzen.";
-};                       
+};
 
 FUNC INT Info_Gorn_RUINJOIN_Condition()
 {
@@ -549,9 +549,9 @@ INSTANCE Info_Gorn_RUINABYSS (C_INFO)
 	npc			= PC_Fighter;
 	condition	= Info_Gorn_RUINABYSS_Condition;
 	information	= Info_Gorn_RUINABYSS_Info;
-	important	= 1;	
+	important	= 1;
 	permanent	= 0;
-};                       
+};
 
 FUNC INT Info_Gorn_RUINABYSS_Condition()
 {
@@ -582,9 +582,9 @@ INSTANCE Info_Gorn_RUINLEAVE (C_INFO)
 	npc			= PC_Fighter;
 	condition	= Info_Gorn_RUINLEAVE_Condition;
 	information	= Info_Gorn_RUINLEAVE_Info;
-	important	= 1;	
+	important	= 1;
 	permanent	= 0;
-};                       
+};
 
 FUNC INT Info_Gorn_RUINLEAVE_Condition()
 {
@@ -617,9 +617,9 @@ INSTANCE Info_Gorn_RUINWALL (C_INFO)
 	npc			= PC_Fighter;
 	condition	= Info_Gorn_RUINWALL_Condition;
 	information	= Info_Gorn_RUINWALL_Info;
-	important	= 1;	
+	important	= 1;
 	permanent	= 0;
-};                       
+};
 
 FUNC INT Info_Gorn_RUINWALL_Condition()
 {
@@ -651,10 +651,10 @@ INSTANCE Info_Gorn_RUINWALLWHAT (C_INFO)
 	npc			= PC_Fighter;
 	condition	= Info_Gorn_RUINWALLWHAT_Condition;
 	information	= Info_Gorn_RUINWALLWHAT_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 1;
 	description = "Wie geht es nun weiter?";
-};                       
+};
 
 FUNC INT Info_Gorn_RUINWALLWHAT_Condition()
 {
@@ -679,14 +679,14 @@ INSTANCE Info_Gorn_RUINLEDGE (C_INFO)
 	npc			= PC_Fighter;
 	condition	= Info_Gorn_RUINLEDGE_Condition;
 	information	= Info_Gorn_RUINLEDGE_Info;
-	important	= 1;	
+	important	= 1;
 	permanent	= 0;
-};                       
+};
 
 FUNC INT Info_Gorn_RUINLEDGE_Condition()
 {
-	if (	Npc_KnowsInfo(hero, Info_Gorn_RUINJOIN) 
-	&&		!Npc_KnowsInfo(hero, Info_Gorn_RUINSUCCESS) 
+	if (	Npc_KnowsInfo(hero, Info_Gorn_RUINJOIN)
+	&&		!Npc_KnowsInfo(hero, Info_Gorn_RUINSUCCESS)
 	&&		(Npc_GetDistToWP(hero,"OW_MONSTER_NAVIGATE_02")<1000)										)
 	{
 		return 1;
@@ -711,14 +711,14 @@ INSTANCE Info_Gorn_RUINPLATFORM (C_INFO)
 	npc			= PC_Fighter;
 	condition	= Info_Gorn_RUINPLATFORM_Condition;
 	information	= Info_Gorn_RUINPLATFORM_Info;
-	important	= 1;	
+	important	= 1;
 	permanent	= 0;
-};                       
+};
 
 FUNC INT Info_Gorn_RUINPLATFORM_Condition()
 {
-	if (	Npc_KnowsInfo(hero, Info_Gorn_RUINJOIN) 
-	&&		!Npc_KnowsInfo(hero, Info_Gorn_RUINSUCCESS) 
+	if (	Npc_KnowsInfo(hero, Info_Gorn_RUINJOIN)
+	&&		!Npc_KnowsInfo(hero, Info_Gorn_RUINSUCCESS)
 	&&		(Npc_GetDistToWP(hero,"OW_PATH_176_TEMPELFOCUS4")<300)	)
 	{
 		return 1;
@@ -743,9 +743,9 @@ INSTANCE Info_Gorn_RUINGATE (C_INFO)
 	npc			= PC_Fighter;
 	condition	= Info_Gorn_RUINGATE_Condition;
 	information	= Info_Gorn_RUINGATE_Info;
-	important	= 1;	
+	important	= 1;
 	permanent	= 0;
-};                       
+};
 
 FUNC INT Info_Gorn_RUINGATE_Condition()
 {
@@ -779,9 +779,9 @@ INSTANCE Info_Gorn_RUINLEAVEINSIDE (C_INFO)
 	npc			= PC_Fighter;
 	condition	= Info_Gorn_RUINLEAVEINSIDE_Condition;
 	information	= Info_Gorn_RUINLEAVEINSIDE_Info;
-	important	= 1;	
+	important	= 1;
 	permanent	= 0;
-};                       
+};
 
 FUNC INT Info_Gorn_RUINLEAVEINSIDE_Condition()
 {
@@ -814,13 +814,13 @@ INSTANCE Info_Gorn_RUINSUCCESS (C_INFO)
 	npc			= PC_Fighter;
 	condition	= Info_Gorn_RUINSUCCESS_Condition;
 	information	= Info_Gorn_RUINSUCCESS_Info;
-	important	= 1;	
+	important	= 1;
 	permanent	= 0;
-};                       
+};
 
 FUNC INT Info_Gorn_RUINSUCCESS_Condition()
 {
-	if (	Npc_KnowsInfo(hero, Info_Gorn_RUINJOIN) 
+	if (	Npc_KnowsInfo(hero, Info_Gorn_RUINJOIN)
 	&&		Npc_HasItems (hero, Focus_4)			)
 	{
 		return TRUE;
@@ -851,13 +851,13 @@ INSTANCE Info_Gorn_RUINTROLL (C_INFO)
 	npc			= PC_Fighter;
 	condition	= Info_Gorn_RUINTROLL_Condition;
 	information	= Info_Gorn_RUINTROLL_Info;
-	important	= 1;	
+	important	= 1;
 	permanent	= 0;
-};                       
+};
 
 FUNC INT Info_Gorn_RUINTROLL_Condition()
 {
-	if (	Npc_KnowsInfo(hero, Info_Gorn_RUINSUCCESS) 
+	if (	Npc_KnowsInfo(hero, Info_Gorn_RUINSUCCESS)
 	&&		(Npc_GetDistToWP(hero,"OW_PATH_SNAPPER04_SPAWN01")<1000)		)
 	{
 		return TRUE;
@@ -888,16 +888,16 @@ INSTANCE Info_Gorn_RUINVICTORY (C_INFO)
 	npc			= PC_Fighter;
 	condition	= Info_Gorn_RUINVICTORY_Condition;
 	information	= Info_Gorn_RUINVICTORY_Info;
-	important	= 1;	
+	important	= 1;
 	permanent	= 0;
-};                       
+};
 
 FUNC INT Info_Gorn_RUINVICTORY_Condition()
 {
 	var C_NPC	yTroll;
 	yTroll = Hlp_GetNpc(YoungTroll);
 
-	if	Npc_KnowsInfo(hero, Info_Gorn_RUINTROLL) 
+	if	Npc_KnowsInfo(hero, Info_Gorn_RUINTROLL)
 	&&	Npc_IsDead(yTroll)
 	{
 		return TRUE;
@@ -943,10 +943,10 @@ INSTANCE Info_Gorn_DIEGOMILTEN (C_INFO)
 	npc			= PC_Fighter;
 	condition	= Info_Gorn_DIEGOMILTEN_Condition;
 	information	= Info_Gorn_DIEGOMILTEN_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 0;
 	description = "Ich habe Diego und Milten vor dem Alten Lager getroffen!";
-};                       
+};
 
 FUNC INT Info_Gorn_DIEGOMILTEN_Condition()
 {
@@ -965,14 +965,14 @@ func VOID Info_Gorn_DIEGOMILTEN_Info()
 	AI_Output 			(self,hero,"Info_Gorn_DIEGOMILTEN_09_05"); //Auch du gehörst mittlerweile schon fast zu uns. Auf dich ist Verlass!
 
 	B_GiveXP			(XP_MessageForGorn);
-	
+
 	if (warned_gorn_or_lester == FALSE)
 	{
 		warned_gorn_or_lester = TRUE ;
 	}
-	else 
+	else
 	{
-		B_LogEntry			(CH4_4Friends,		"Ich habe Lester und Gorn nun darüber informiert sich mit den anderen beiden Freunden zu treffen. Ab jetzt ist dies nicht mehr meine Angelegenheit. Sie werden schon wissen, was zu tun ist."); 
+		B_LogEntry			(CH4_4Friends,		"Ich habe Lester und Gorn nun darüber informiert sich mit den anderen beiden Freunden zu treffen. Ab jetzt ist dies nicht mehr meine Angelegenheit. Sie werden schon wissen, was zu tun ist.");
 		Log_SetTopicStatus	(CH4_4Friends,		LOG_SUCCESS);
 	};
 
@@ -986,10 +986,10 @@ INSTANCE Info_Gorn_FREEMINE (C_INFO)
 	npc			= PC_Fighter;
 	condition	= Info_Gorn_FREEMINE_Condition;
 	information	= Info_Gorn_FREEMINE_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 0;
 	description = "Was hast du in der Freien Mine gesehen?";
-};                       
+};
 
 FUNC INT Info_Gorn_FREEMINE_Condition()
 {
@@ -1019,10 +1019,10 @@ INSTANCE Info_Gorn_GUARDNC (C_INFO)
 	npc			= PC_Fighter;
 	condition	= Info_Gorn_GUARDNC_Condition;
 	information	= Info_Gorn_GUARDNC_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 0;
 	description = "Was hast du jetzt vor?";
-};                       
+};
 
 FUNC INT Info_Gorn_GUARDNC_Condition()
 {
@@ -1054,10 +1054,10 @@ INSTANCE Info_Gorn_GUARDNCRUNNING (C_INFO)
 	npc			= PC_Fighter;
 	condition	= Info_Gorn_GUARDNCRUNNING_Condition;
 	information	= Info_Gorn_GUARDNCRUNNING_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 1;
 	description = "Wie ist die Lage?";
-};                       
+};
 
 FUNC INT Info_Gorn_GUARDNCRUNNING_Condition()
 {
@@ -1083,9 +1083,9 @@ INSTANCE Info_Gorn_POST (C_INFO)
 	npc			= PC_Fighter;
 	condition	= Info_Gorn_POST_Condition;
 	information	= Info_Gorn_POST_Info;
-	important	= 1;	
+	important	= 1;
 	permanent	= 0;
-};                       
+};
 
 FUNC INT Info_Gorn_POST_Condition()
 {
@@ -1111,10 +1111,10 @@ INSTANCE Info_Gorn_TAKEBACK (C_INFO)
 	npc			= PC_Fighter;
 	condition	= Info_Gorn_TAKEBACK_Condition;
 	information	= Info_Gorn_TAKEBACK_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 0;
 	description = "Eine Rückeroberung mit vier Mann? Wo sind all die anderen Söldner?";
-};                       
+};
 
 FUNC INT Info_Gorn_TAKEBACK_Condition()
 {
@@ -1161,10 +1161,10 @@ INSTANCE Info_Gorn_SECOND (C_INFO)
 	npc			= PC_Fighter;
 	condition	= Info_Gorn_SECOND_Condition;
 	information	= Info_Gorn_SECOND_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 0;
 	description = "Der erste Schritt? Was wird denn der zweite sein?";
-};                       
+};
 
 FUNC INT Info_Gorn_SECOND_Condition()
 {
@@ -1190,10 +1190,10 @@ INSTANCE Info_Gorn_WHYME (C_INFO)
 	npc			= PC_Fighter;
 	condition	= Info_Gorn_WHYME_Condition;
 	information	= Info_Gorn_WHYME_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 0;
 	description = "Warum gerade ich?";
-};                       
+};
 
 FUNC INT Info_Gorn_WHYME_Condition()
 {
@@ -1219,10 +1219,10 @@ INSTANCE Info_Gorn_KICKBUTT (C_INFO)
 	npc			= PC_Fighter;
 	condition	= Info_Gorn_KICKBUTT_Condition;
 	information	= Info_Gorn_KICKBUTT_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 0;
 	description = "Lass uns den ungebetenen Gästen in der Mine kräftig in den Hintern treten!";
-};                       
+};
 
 FUNC INT Info_Gorn_KICKBUTT_Condition()
 {
@@ -1250,10 +1250,10 @@ INSTANCE Info_Gorn_MYWAY (C_INFO)
 	npc			= PC_Fighter;
 	condition	= Info_Gorn_MYWAY_Condition;
 	information	= Info_Gorn_MYWAY_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 0;
 	description = "Warum nicht. Ich muss ohnehin in die Mine!";
-};                       
+};
 
 FUNC INT Info_Gorn_MYWAY_Condition()
 {
@@ -1281,9 +1281,9 @@ INSTANCE Info_Gorn_WOLF (C_INFO)
 	npc			= PC_Fighter;
 	condition	= Info_Gorn_WOLF_Condition;
 	information	= Info_Gorn_WOLF_Info;
-	important	= 1;	
+	important	= 1;
 	permanent	= 0;
-};                       
+};
 
 FUNC INT Info_Gorn_WOLF_Condition()
 {
@@ -1302,8 +1302,8 @@ func VOID Info_Gorn_WOLF_Info()
 	AI_Output 			(self, hero,"Info_Gorn_WOLF_09_02"); //Der Bandit Wolf will dich unbedingt sprechen, bevor wir zur Mine aufbrechen!
 
 	Info_ClearChoices	(Info_Gorn_WOLF);
-	Info_AddChoice		(Info_Gorn_WOLF, "Er kann warten, wir haben jetzt wichtigeres zu tun!",	Info_Gorn_WOLF_FM);	
-	Info_AddChoice		(Info_Gorn_WOLF, "Dann werde ihn besser noch vorher aufsuchen!",		Info_Gorn_WOLF_WOLF);	
+	Info_AddChoice		(Info_Gorn_WOLF, "Er kann warten, wir haben jetzt wichtigeres zu tun!",	Info_Gorn_WOLF_FM);
+	Info_AddChoice		(Info_Gorn_WOLF, "Dann werde ihn besser noch vorher aufsuchen!",		Info_Gorn_WOLF_WOLF);
 
 	B_LogEntry			(CH4_UluMulu,	"Wolf der Bandit will mich unbedingt nochmal sprechen, bevor wir zur Mine aufbrechen. Ich sollte bei ihm vorbeischauen.");
 	Gorn_GotoWolf = TRUE;
@@ -1336,9 +1336,9 @@ INSTANCE Info_Gorn_LEAVEFORPOST (C_INFO)
 	npc			= PC_Fighter;
 	condition	= Info_Gorn_LEAVEFORPOST_Condition;
 	information	= Info_Gorn_LEAVEFORPOST_Info;
-	important	= 1;	
+	important	= 1;
 	permanent	= 1;
-};                       
+};
 
 FUNC INT Info_Gorn_LEAVEFORPOST_Condition()
 {
@@ -1378,10 +1378,10 @@ INSTANCE Info_Gorn_REJOINFORFM (C_INFO)
 	npc			= PC_Fighter;
 	condition	= Info_Gorn_REJOINFORFM_Condition;
 	information	= Info_Gorn_REJOINFORFM_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 1;
 	description = "Es kann losgehen! Auf zur Mine!";
-};                       
+};
 
 FUNC INT Info_Gorn_REJOINFORFM_Condition()
 {
@@ -1413,9 +1413,9 @@ INSTANCE Info_Gorn_RAZOR (C_INFO)
 	npc			= PC_Fighter;
 	condition	= Info_Gorn_RAZOR_Condition;
 	information	= Info_Gorn_RAZOR_Info;
-	important	= 1;	
+	important	= 1;
 	permanent	= 0;
-};                       
+};
 
 FUNC INT Info_Gorn_RAZOR_Condition()
 {
@@ -1445,9 +1445,9 @@ INSTANCE Info_Gorn_FMCENTRANCE (C_INFO)
 	npc			= PC_Fighter;
 	condition	= Info_Gorn_FMCENTRANCE_Condition;
 	information	= Info_Gorn_FMCENTRANCE_Info;
-	important	= 1;	
+	important	= 1;
 	permanent	= 0;
-};                       
+};
 
 FUNC INT Info_Gorn_FMCENTRANCE_Condition()
 {
@@ -1478,9 +1478,9 @@ INSTANCE Info_Gorn_FMGATE (C_INFO)
 	npc			= PC_Fighter;
 	condition	= Info_Gorn_FMGATE_Condition;
 	information	= Info_Gorn_FMGATE_Info;
-	important	= 1;	
+	important	= 1;
 	permanent	= 0;
-};                       
+};
 
 FUNC INT Info_Gorn_FMGATE_Condition()
 {
@@ -1512,9 +1512,9 @@ INSTANCE Info_Gorn_AFTERFM (C_INFO)
 	npc			= PC_Fighter;
 	condition	= Info_Gorn_AFTERFM_Condition;
 	information	= Info_Gorn_AFTERFM_Info;
-	important	= 1;	
+	important	= 1;
 	permanent	= 0;
-};                       
+};
 
 FUNC INT Info_Gorn_AFTERFM_Condition()
 {
@@ -1534,7 +1534,7 @@ func VOID Info_Gorn_AFTERFM_Info()
 	AI_Output 			(self, hero,"Info_Gorn_AFTERFM_09_04"); //Ich werde hier bleiben und dafür sorgen, dass das auch so bleibt!
 
 	B_Story_LeftFM		();
-	
+
 	Lee_freeminereport = 1;  //jetzt kann der SC Lee über die befreite Mine informieren.     ***Björn***
 
 	AI_StopProcessInfos	(self);
@@ -1548,10 +1548,10 @@ INSTANCE Info_Gorn_FMWATCH (C_INFO)
 	npc			= PC_Fighter;
 	condition	= Info_Gorn_FMWATCH_Condition;
 	information	= Info_Gorn_FMWATCH_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 1;
 	description = "Wie ist die Lage?";
-};                       
+};
 
 FUNC INT Info_Gorn_FMWATCH_Condition()
 {
@@ -1578,9 +1578,9 @@ INSTANCE Info_Gorn_FOUNDULUMULU (C_INFO)
 	npc			= PC_Fighter;
 	condition	= Info_Gorn_FOUNDULUMULU_Condition;
 	information	= Info_Gorn_FOUNDULUMULU_Info;
-	important	= 1;	
+	important	= 1;
 	permanent	= 0;
-};                       
+};
 
 FUNC INT Info_Gorn_FOUNDULUMULU_Condition()
 {

@@ -1,5 +1,5 @@
 // ************************************************************
-// 							EXIT 
+// 							EXIT
 // ************************************************************
 INSTANCE Info_BaalLukor_EXIT(C_INFO)
 {
@@ -9,7 +9,7 @@ INSTANCE Info_BaalLukor_EXIT(C_INFO)
 	information		= Info_BaalLukor_EXIT_Info;
 	permanent		= 1;
 	description 	= DIALOG_ENDE;
-};                       
+};
 
 FUNC INT Info_BaalLukor_EXIT_Condition()
 {
@@ -17,7 +17,7 @@ FUNC INT Info_BaalLukor_EXIT_Condition()
 };
 
 FUNC VOID Info_BaalLukor_EXIT_Info()
-{	
+{
 	AI_StopProcessInfos	(self);
 };
 
@@ -42,7 +42,7 @@ FUNC INT Info_BaalLukor_MEET_Condition()
 FUNC VOID Info_BaalLukor_MEET_Info()
 {
 	AI_Output 		(self, other,"Info_BaalLukor_MEET_13_01"); //Danke für deine Hilfe. Du bist wirklich in letzter Sekunde gekommen.
-	
+
 	B_GiveXP		(XP_SaveBaalLukor);
 };
 
@@ -164,8 +164,8 @@ FUNC VOID Info_BaalLukor_FOUNDNONE_Info()
 {
 	AI_Output 		(other, self,"Info_BaalLukor_FOUNDNONE_15_01"); //Ich kann keinen Hinweis finden!
 	AI_Output 		(self, other,"Info_BaalLukor_FOUNDNONE_13_02"); //Wir müssen die drei Stollen durchsuchen.
-	
-	
+
+
 	Npc_ExchangeRoutine	(self, "Follow"); //Björn: Patch2
 };
 
@@ -195,7 +195,7 @@ FUNC VOID Info_BaalLukor_FOUNDONE_Info()
 {
 	AI_Output 		(other, self,"Info_BaalLukor_FOUNDONE_15_01"); //Es scheint hier keine andere Pergamenthälfte zu geben!
 	AI_Output 		(self, other,"Info_BaalLukor_FOUNDONE_13_02"); //Es muss eine zweite Hälfte geben. Wir sollten alle drei Stollen gründlich durchsuchen!
-	
+
 	Npc_ExchangeRoutine	(self, "Follow"); //Björn: Patch2
 };
 
@@ -269,7 +269,7 @@ FUNC VOID Info_BaalLukor_FIRSTSCROLL_Info()
 		AI_StopProcessInfos	(self);
 		BaalLukor_BringParchment = 1;
 	};
-	
+
 	Npc_ExchangeRoutine	(self, "Follow");
 };
 
@@ -412,7 +412,7 @@ FUNC VOID Info_BaalLukor_RUNES_Info()
 	AI_Output		(self, other,"Info_BaalLukor_RUNES_13_03"); //Schweig und betrachte die Runenornamente in dieser Höhle hier.
 	AI_Output		(self, other,"Info_BaalLukor_RUNES_13_04"); //Das sollte ausreichend Material geben, um die geteilten Pergamenthälften zu übersetzen.
 	B_UseFakeScroll ();
-	//AI_Output		(self, other,"Info_BaalLukor_RUNES_13_05"); //...(murmel)...(murmel)...(murmel)... 
+	//AI_Output		(self, other,"Info_BaalLukor_RUNES_13_05"); //...(murmel)...(murmel)...(murmel)...
 	AI_Output		(self, other,"Info_BaalLukor_RUNES_13_06"); //Das ist es! Es handelt sich um einen Teleportzauber. Er scheint aber nur an einem gewissen Ort seine Kraft entfalten zu können.
 	AI_Output		(self, other,"Info_BaalLukor_RUNES_13_07"); //Seltsam!
 
@@ -422,7 +422,7 @@ FUNC VOID Info_BaalLukor_RUNES_Info()
 	CreateInvItem		(self,			ItArScrollTeleport4); //Teleport erschaffen
 	B_GiveInvItems  	(self, hero,	ItArScrollTeleport4, 1); //Teleport übergeben
 
-	B_LogEntry			(CH3_OrcGraveyard,	"Mit Hilfe orkischer Wandinschriften in einer der Hallen konnte Baal Lukor die Spruchrolle übersetzen. Es handelt sich um einen Teleportationszauber, der wohl nur über sehr kurze Distanz wirkt."); 
+	B_LogEntry			(CH3_OrcGraveyard,	"Mit Hilfe orkischer Wandinschriften in einer der Hallen konnte Baal Lukor die Spruchrolle übersetzen. Es handelt sich um einen Teleportationszauber, der wohl nur über sehr kurze Distanz wirkt.");
 
 
 	Npc_ExchangeRoutine	(self, "Follow"); //Björn: Patch2
@@ -564,7 +564,7 @@ FUNC VOID Info_BaalLukor_DOOR_Info()
 	AI_Output			(self, other,"Info_BaalLukor_DOOR_13_01"); //Hinter dieser Wand ... Das muss es sein!
 	AI_Output			(self, other,"Info_BaalLukor_DOOR_13_02"); //Meine magische Kraft ist noch immer geschwächt.
 	AI_Output			(self, other,"Info_BaalLukor_DOOR_13_03"); //Benutze den orkischen Teleportzauber hier vor dieser Wand.
-	
+
 	AI_StopProcessInfos	(self);
 };
 
@@ -583,7 +583,7 @@ INSTANCE Info_BaalLukor_TELEPORT (C_INFO)
 FUNC INT Info_BaalLukor_TELEPORT_Condition()
 {
 	if (	Npc_KnowsInfo	(hero, Info_BaalLukor_DOOR)
-	&&		Npc_CanSeeNpcFreeLOS(self,	hero)	
+	&&		Npc_CanSeeNpcFreeLOS(self,	hero)
 	&&		Npc_GetDistToWP	(hero, "GRYD_072")<550				)
 	{
 		return TRUE;
@@ -657,7 +657,7 @@ FUNC VOID Info_BaalLukor_ALTAR_Info()
 	AI_Output			(self, hero,"Info_BaalLukor_ALTAR_13_09"); //Ich werde unserem Meister ein Opfer darbringen. Ein MENSCHENOPFER!!!
 	AI_Output			(self, hero,"Info_BaalLukor_ALTAR_13_10"); //Bestimmt wird er mich dann erleuchten und zu seiner rechten Hand machen.
 	AI_Output			(self, hero,"Info_BaalLukor_ALTAR_13_11"); //STIRB, UNGLÄUBIGER!!!!
-	AI_Output			(self, hero,"Info_BaalLukor_ALTAR_13_12"); //AIIIEEEEHHHHHH!!!!!! 
+	AI_Output			(self, hero,"Info_BaalLukor_ALTAR_13_12"); //AIIIEEEEHHHHHH!!!!!!
 
 	self.flags = 0;
 	self.npctype = NPCTYPE_MAIN;

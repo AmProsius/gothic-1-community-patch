@@ -7,9 +7,9 @@
 func void B_FillQuiver(var C_NPC slf)
 {
 	PrintDebugNpc		(PD_ZS_DETAIL,	"B_FillQuiver");
-	
+
 	var int		addedAmmo;
-	var C_ITEM	readiedWeapon;	
+	var C_ITEM	readiedWeapon;
 
 	readiedWeapon = Npc_GetReadiedWeapon(slf);
 	if (readiedWeapon.munition == ItAmArrow)
@@ -43,14 +43,14 @@ func int B_EquipAndDrawBestMeleeWeapon(var C_NPC slf)
 {
 	PrintDebugNpc		(PD_ZS_FRAME,	"B_EquipAndDrawBestMeleeWeapon");
 
-	// ---- Zauber noch aktiv ? ---- 
+	// ---- Zauber noch aktiv ? ----
 	if (Npc_IsInFightMode(slf, FMODE_MAGIC))
 	{
 		PrintDebugNpc	(PD_ZS_CHECK,	"...vorher Zauber wegstecken!");
 		AI_UnreadySpell	(slf);										// ... dann weg damit
 	};
 
-	// ---- Nahkampfwaffe dabei ? ---- 
+	// ---- Nahkampfwaffe dabei ? ----
 	if (C_NpcHasWeapon(slf, ITEM_KAT_NF))
 	{
 		if (!Npc_HasReadiedMeleeWeapon(slf))
@@ -59,7 +59,7 @@ func int B_EquipAndDrawBestMeleeWeapon(var C_NPC slf)
 			AI_StopAim				(slf);
 			B_FullStop 				(slf);
 			AI_RemoveWeapon			(slf);
-			AI_EquipBestMeleeWeapon	(slf);	
+			AI_EquipBestMeleeWeapon	(slf);
 			AI_ReadyMeleeWeapon		(slf);
 		};
 
@@ -80,14 +80,14 @@ func int B_EquipAndDrawBestRangedWeapon(var C_NPC slf)
 {
 	PrintDebugNpc		(PD_ZS_FRAME,	"B_EquipAndDrawBestRangedWeapon");
 
-	// ---- Zauber noch aktiv ? ---- 
+	// ---- Zauber noch aktiv ? ----
 	if (Npc_IsInFightMode(slf, FMODE_MAGIC))
 	{
 		PrintDebugNpc	(PD_ZS_CHECK,	"...vorher Zauber wegstecken!");
 		AI_UnreadySpell	(slf);										// ... dann weg damit
 	};
 
-	// ---- Fernkampfwaffe dabei ? ---- 
+	// ---- Fernkampfwaffe dabei ? ----
 	if (Npc_HasRangedWeaponWithAmmo(slf))
 	{
 		PrintDebugNpc				(PD_ZS_CHECK,	"...Fernkampfwaffe mit Ammo vorhanden!");
@@ -96,7 +96,7 @@ func int B_EquipAndDrawBestRangedWeapon(var C_NPC slf)
 			PrintDebugNpc			(PD_ZS_CHECK,	"...noch keine Fernkampfwaffe gezogen!");
 			B_FullStop 				(slf);
 			AI_RemoveWeapon			(slf);
-			AI_EquipBestRangedWeapon(slf);	
+			AI_EquipBestRangedWeapon(slf);
 			AI_ReadyRangedWeapon	(slf);
 		}
 		else
@@ -152,7 +152,7 @@ func void B_DrawSpell(var C_NPC slf, var int spell, var int mana)
 			AI_StopAim			(slf);
 			AI_RemoveWeapon		(slf);
 		};
-			
+
 		PrintDebugNpc			(PD_ZS_CHECK,	"...noch nicht im Magiemodus!");
 		AI_ReadySpell			(slf, spell, mana);
 	};
@@ -168,12 +168,12 @@ func void B_DrawSpell(var C_NPC slf, var int spell, var int mana)
 		if ( manaLeft < (manaMax/2) )
 		{
 			PrintDebugInt		(PD_ZS_CHECK,	"...Mana übrig: ", manaLeft);
-			manaRefill =		(manaMax/2) - manaLeft;		
+			manaRefill =		(manaMax/2) - manaLeft;
 			Npc_ChangeAttribute	(slf,	ATR_MANA,	manaRefill);
 			PrintDebugInt		(PD_ZS_CHECK,	"...Mana hinzugefügt: ", manaRefill);
 		};
 	};
-	
+
 	return;
 };
 
@@ -184,22 +184,22 @@ func void B_DrawSpell(var C_NPC slf, var int spell, var int mana)
 //	die jeweils passende Waffe aus.
 //	Diese Funktion wird während der ZS_Attack alle 3 Sekunden
 //	aufgerufen und interpretiert den NSC 'oth' als das anzugreifende
-//	Ziel. 
+//	Ziel.
 //////////////////////////////////////////////////////////////////////////
 func void B_SelectWeapon(var C_NPC slf, var C_NPC oth)
 {
 	PrintDebugNpc		(PD_ZS_FRAME,	"B_SelectWeapon");
-	
+
 	//######## magiebasierte Kampftaktik ? ########
 	//folgende Zauber sind für NSCs möglich:
-	// - Firebolt/Thunderbolt/BreathOfDeath	schnelles Geschoß			
+	// - Firebolt/Thunderbolt/BreathOfDeath	schnelles Geschoß
 	// - Fireball/Thunderball				Aufblas-Geschoß
 	// - Windfist							Abstand schaffen
 	// - ChainLightning/Pyrokinesis/IceCube	Festhalten mit Schaden
-	// - Summon Demon/Skeleton?		
+	// - Summon Demon/Skeleton?
 	// - Sleep?
 	if ((slf.fight_tactic==FAI_HUMAN_MAGE) && (slf.attribute[ATR_MANA]>0))
-	{	
+	{
 		PrintDebugNpc			(PD_ZS_CHECK,	"...NSC ist ein Magier!");
 		//-------- Summon Demon --------
 		if ((C_NpcHasSpell(slf,SPL_SUMMONDEMON)) && (Npc_GetDistToNpc(slf, oth)>1200))
@@ -207,7 +207,7 @@ func void B_SelectWeapon(var C_NPC slf, var C_NPC oth)
 			PrintDebugNpc		(PD_ZS_CHECK,	"...Summon Demon!");
 
 			Npc_PerceiveAll		(slf);
-			if (!Wld_DetectNpc	(slf, SummonedByNPC_Demon, ZS_MM_Attack, GIL_DEMON))		
+			if (!Wld_DetectNpc	(slf, SummonedByNPC_Demon, ZS_MM_Attack, GIL_DEMON))
 			{
 				B_DrawSpell		(slf,	SPL_SUMMONDEMON,	SPL_SENDCAST_SUMMONDEMON);
 				return;
@@ -224,7 +224,7 @@ func void B_SelectWeapon(var C_NPC slf, var C_NPC oth)
 			PrintDebugNpc		(PD_ZS_CHECK,	"...Summon Golem!");
 
 			Npc_PerceiveAll		(slf);
-			if (!Wld_DetectNpc	(slf, SummonedByNPC_StoneGolem, ZS_MM_Attack, GIL_GOLEM))		
+			if (!Wld_DetectNpc	(slf, SummonedByNPC_StoneGolem, ZS_MM_Attack, GIL_GOLEM))
 			{
 				B_DrawSpell		(slf,	SPL_SUMMONGOLEM,	SPL_SENDCAST_SUMMONGOLEM);
 				return;
@@ -241,7 +241,7 @@ func void B_SelectWeapon(var C_NPC slf, var C_NPC oth)
 			PrintDebugNpc		(PD_ZS_CHECK,	"...Summon Skeleton!");
 
 			Npc_PerceiveAll		(slf);
-			if (!Wld_DetectNpc	(slf, SummonedByNPC_Skeleton, ZS_MM_Attack, GIL_SKELETON))		
+			if (!Wld_DetectNpc	(slf, SummonedByNPC_Skeleton, ZS_MM_Attack, GIL_SKELETON))
 			{
 				B_DrawSpell		(slf,	SPL_SUMMONSKELETON,	SPL_SENDCAST_SUMMONSKELETON);
 				return;
@@ -395,7 +395,7 @@ func void B_SelectWeapon(var C_NPC slf, var C_NPC oth)
 			B_DrawSpell			(slf,	SPL_PYROKINESIS,	10);
 			return;
 		}
-		
+
 		//-------- Breath of Death --------
 		else if (C_NpcHasSpell	(slf,SPL_BREATHOFDEATH))
 		{
@@ -403,7 +403,7 @@ func void B_SelectWeapon(var C_NPC slf, var C_NPC oth)
 			B_DrawSpell			(slf,	SPL_BREATHOFDEATH,	SPL_SENDCAST_BREATHOFDEATH);
 			return;
 		};
-	};   
+	};
 
 
 	//######## Waffenbasierte Kampftaktik ?  ########
@@ -413,43 +413,43 @@ func void B_SelectWeapon(var C_NPC slf, var C_NPC oth)
 	{
 		PrintDebugNpc			(PD_ZS_CHECK,	"...Gegner in Nahkampfreichweite & kein purer Fernkämpfer!");
 
-		// ---- Erst Nahkampfwaffe probieren... ---- 
+		// ---- Erst Nahkampfwaffe probieren... ----
 		if (B_EquipAndDrawBestMeleeWeapon(slf))
 		{
 			return;
 		};
 
-		// ---- ...sonst mit den Fäusten kämpfen ---- 								
+		// ---- ...sonst mit den Fäusten kämpfen ----
 		PrintDebugNpc			(PD_ZS_CHECK, "...keine Nahkampfwaffe im Inv -> Faustkampf!");
 		AI_ReadyMeleeWeapon		(slf);	// VORSICHT: in v0.96c werden hier nicht die Fäuste, sondern die letzte Waffe gezogen !!! -> wird in v0.97 behoben sein (Kommentar dann löschen)
-		return;		
+		return;
 	}
 	else
 	{
 		PrintDebugNpc			(PD_ZS_CHECK,	"...Gegner in Fernkampfreichweite oder NSC ist ein purer Fernkämpfer!");
-		
-		// ---- Erst Fernkampfwaffe probieren... ---- 
+
+		// ---- Erst Fernkampfwaffe probieren... ----
 		if (B_EquipAndDrawBestRangedWeapon(slf))
 		{
 			return;
-		};		
+		};
 
-		// ---- ...sonst Nahkampfwaffe versuchen... ---- 
+		// ---- ...sonst Nahkampfwaffe versuchen... ----
 		if (B_EquipAndDrawBestMeleeWeapon(slf))
 		{
 			return;
 		};
 
-		// ---- ...herumliegende Waffe suchen, sonst mit den Fäusten kämpfen ---- 								
+		// ---- ...herumliegende Waffe suchen, sonst mit den Fäusten kämpfen ----
 		if (!B_FetchWeapon())
 		{
 			PrintDebugNpc		(PD_ZS_CHECK, "...keine Waffe gefunden -> Faustkampf!");
 			AI_ReadyMeleeWeapon	(slf);
-			return;		
+			return;
 		};
-	};			
+	};
 
-	return;			
+	return;
 };
 //--------------------------------------------------------------------------
 

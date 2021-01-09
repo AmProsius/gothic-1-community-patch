@@ -8,7 +8,7 @@ instance NOV_1308_Novize (Npc_Default)
 
 	voice 		=		5;
 	id 			=		1308;
-		
+
 	//-------- abilities --------
 	attribute[ATR_STRENGTH] 		=	15;
 	attribute[ATR_DEXTERITY] 		=	15;
@@ -21,23 +21,23 @@ instance NOV_1308_Novize (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Mage.mds");
-	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung	
+	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung
 	Mdl_SetVisualBody (self,"hum_body_Naked0", 1, 1,"Hum_Head_Bald", 34 ,  3, NOV_ARMOR_M);
 
 	B_Scale (self);
 	Mdl_SetModelFatness(self,0);
-	
+
 	fight_tactic	=	FAI_HUMAN_COWARD;
 
 	//-------- Talente --------
-	
+
 	//-------- inventory --------
 
 	EquipItem (self, ItMw_1H_Axe_Old_01);
 	//CreateInvItem (self, ItFoSoup);
 	//CreateInvItem (self, ItMiJoint);
- 
-	
+
+
 	//-------------Daily Routine-------------
 	daily_routine = Rtn_start_1308;
 };

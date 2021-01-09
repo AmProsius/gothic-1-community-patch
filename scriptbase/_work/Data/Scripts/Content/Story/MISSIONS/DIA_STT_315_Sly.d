@@ -1,5 +1,5 @@
 // **************************************************
-// 						 EXIT 
+// 						 EXIT
 // **************************************************
 
 INSTANCE DIA_STT_315_Sly_Exit (C_INFO)
@@ -10,7 +10,7 @@ INSTANCE DIA_STT_315_Sly_Exit (C_INFO)
 	information	= DIA_STT_315_Sly_Exit_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC INT DIA_STT_315_Sly_Exit_Condition()
 {
@@ -23,7 +23,7 @@ FUNC VOID DIA_STT_315_Sly_Exit_Info()
 };
 
 // **************************************************
-// 					Erste Begrüssung 
+// 					Erste Begrüssung
 // **************************************************
 
 instance DIA_STT_315_Sly (C_INFO)
@@ -53,7 +53,7 @@ func void DIA_STT_315_Sly_Info()
 };
 
 // **************************************************
-// 					Erste Begrüssung 
+// 					Erste Begrüssung
 // **************************************************
 	var int Sly_LostNek;
 // **************************************************
@@ -69,8 +69,8 @@ INSTANCE DIA_STT_315_LostNek (C_INFO)
 };
 
 FUNC INT DIA_STT_315_LostNek_Condition()
-{	
-	return 1;		
+{
+	return 1;
 };
 
 func VOID DIA_STT_315_LostNek_Info()
@@ -78,14 +78,14 @@ func VOID DIA_STT_315_LostNek_Info()
 	AI_Output (other, self,"DIA_STT_315_LostNek_15_00"); //Du hast was zu tun für mich? Um was geht's?
 	AI_Output (self, other,"DIA_STT_315_LostNek_10_01"); //Einer unserer Gardisten ist verschwunden! Er heißt Nek. Er könnte ins Neue Lager übergelaufen sein.
 	AI_Output (self, other,"DIA_STT_315_LostNek_10_02"); //Du bist neu hier und kommst viel rum. Also halt die Augen offen.
-	
+
 	if (Npc_GetTrueGuild (hero) == GIL_NONE)
 	{
 	AI_Output (self, other,"DIA_STT_315_LostNek_10_03"); //Wenn du ihn findest, leg' ich ein gutes Wort für dich hier im Lager ein.
 	};
 	Info_ClearChoices	(DIA_STT_315_LostNek);
 	Info_AddChoice		(DIA_STT_315_LostNek,"Ich werd sehen, ob ich ihn finde."				,DIA_STT_315_LostNek_DoIt);
-	
+
 	if (Npc_GetTrueGuild (hero) == GIL_NONE)
 	{
 		Info_AddChoice		(DIA_STT_315_LostNek,"Was kann ein gutes Wort von dir denn bewirken?"	,DIA_STT_315_LostNek_Why);
@@ -106,7 +106,7 @@ func void DIA_STT_315_LostNek_DoIt()
 	AI_Output (other, self,"DIA_STT_315_LostNek_DoIt_15_02"); //Wo finde ich ihn?
 	AI_Output (self, other,"DIA_STT_315_LostNek_DoIt_10_03"); //Sein Viertel ist das Arenaviertel.
 	Sly_LostNek = LOG_RUNNING;
-	
+
 	if (Npc_GetTrueGuild (hero) == GIL_NONE)
 	{
 		Log_CreateTopic( CH1_LostNek, LOG_MISSION);
@@ -138,7 +138,7 @@ INSTANCE DIA_STT_315_LostNekSuccess (C_INFO)
 };
 
 FUNC INT DIA_STT_315_LostNekSuccess_Condition()
-{	
+{
 	if ( (Sly_LostNek == LOG_RUNNING) && (Npc_HasItems(other,Neks_Amulett) > 0) )
 	{
 		return 1;
@@ -149,7 +149,7 @@ func VOID DIA_STT_315_LostNekSuccess_Info()
 {
 	AI_Output (other, self,"DIA_STT_315_LostNekSuccess_15_00"); //Ich hab' Nek gefunden.
 	AI_Output (self, other,"DIA_STT_315_LostNekSuccess_10_01"); //Gut! Hast du dafür Beweise?
-	
+
 	Info_ClearChoices	(DIA_STT_315_LostNekSuccess );
 	Info_AddChoice		(DIA_STT_315_LostNekSuccess,"Nein - ich befürchte nicht."					,DIA_STT_315_LostNekSuccess_NoProof);
 	Info_AddChoice		(DIA_STT_315_LostNekSuccess,"Ich hab' ein Amulett bei ihm gefunden - hier."	,DIA_STT_315_LostNekSuccess_Proof);
@@ -166,13 +166,13 @@ func void DIA_STT_315_LostNekSuccess_Proof()
 		AI_Output (self, other,"DIA_STT_315_LostNekSuccess_Proof_10_03"); //Wenn Diego mich nach dir fragt, werd' ich dir meine Stimme geben.
 	};
 	Sly_LostNek = LOG_SUCCESS;
-	
+
 	B_GiveInvItems (other, self, Neks_Amulett, 1);
-	
+
 	Log_SetTopicStatus		(CH1_LostNek, LOG_SUCCESS);
 	B_LogEntry				(CH1_LostNek, "Ich habe Sly das Amulett von Nek gegeben. Er war überrascht von meiner Ehrlichkeit.");
-	
-	B_GiveXP (XP_Slysearchfornek);		
+
+	B_GiveXP (XP_Slysearchfornek);
 	if (Npc_GetTrueGuild (hero) == GIL_NONE)
 	{
 		Log_CreateTopic		(CH1_JoinOC, LOG_MISSION);
@@ -180,7 +180,7 @@ func void DIA_STT_315_LostNekSuccess_Proof()
 		B_LogEntry			(CH1_JoinOC, "Ich habe Sly das Amulett von Nek gegeben. Er wird mit Diego sprechen und ein gutes Wort für mich einlegen.");
 	}
 	else
-	{	
+	{
 		Log_CreateTopic		(CH1_JoinOC, LOG_MISSION);
 		Log_SetTopicStatus  (CH1_JoinOC, LOG_FAILED);
 		B_LogEntry			(CH1_JoinOC, "Ich habe Sly das Amulett von Nek gegeben, allerdings bringt mir das Nichts, denn im Alten Lager werde ich nicht mehr aufgenommen.");
@@ -192,13 +192,13 @@ func void DIA_STT_315_LostNekSuccess_Proof()
 
 func void DIA_STT_315_LostNekSuccess_NoProof()
 {
-	AI_Output (other, self,"DIA_STT_315_LostNekSuccess_NoProof_15_00"); //Nein - ich befürchte nicht. 
+	AI_Output (other, self,"DIA_STT_315_LostNekSuccess_NoProof_15_00"); //Nein - ich befürchte nicht.
 	AI_Output (self, other,"DIA_STT_315_LostNekSuccess_NoProof_10_01"); //So? Du willst mir doch nicht etwas vorenthalten? Nek hat ein Schutzamulett bei sich.
 	AI_Output (self, other,"DIA_STT_315_LostNekSuccess_NoProof_10_02"); //Ich mag nicht, wenn man mir etwas vorenthält, was mir gehört. Solltest du das Amulett finden, bring es mir!
 	AI_Output (other, self,"DIA_STT_315_LostNekSuccess_NoProof_15_03"); //Ich werd an dich denken, wenn ich das Amulett in der Hand halte.
-	
+
 	B_LogEntry( CH1_LostNek, "Sly will ein Amulett von Nek haben.");
-	
+
 	Info_ClearChoices	(DIA_STT_315_LostNekSuccess );
 	AI_StopProcessInfos	( self );
 };
@@ -215,7 +215,7 @@ instance DIA_STT_315_Sly_AfterSuccess (C_INFO)
 	information		= DIA_STT_315_Sly_AfterSuccess_Info;
 	permanent		= 1;
 	description		= "Wie läuft's denn so?";
-	
+
 };
 
 FUNC int DIA_STT_315_Sly_AfterSuccess_Condition()
@@ -236,12 +236,12 @@ func void DIA_STT_315_Sly_AfterSuccess_Info()
 };
 
 
-	
-	
-	
 
 
 
 
-		
-		
+
+
+
+
+

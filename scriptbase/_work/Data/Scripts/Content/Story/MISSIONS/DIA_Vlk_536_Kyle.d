@@ -1,5 +1,5 @@
 // **************************************************
-// 						 EXIT 
+// 						 EXIT
 // **************************************************
 
 INSTANCE DIA_Kyle_Exit (C_INFO)
@@ -10,7 +10,7 @@ INSTANCE DIA_Kyle_Exit (C_INFO)
 	information	= DIA_Kyle_Exit_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC INT DIA_Kyle_Exit_Condition()
 {
@@ -38,7 +38,7 @@ INSTANCE DIA_Kyle_HutRage (C_INFO)
 };
 
 FUNC INT DIA_Kyle_HutRage_Condition()
-{	
+{
 	if ( (Npc_RefuseTalk(self) == FALSE) && (Npc_GetDistToNpc(self,other)<=ZivilAnquatschDist) )
 	{
 		return 1;
@@ -65,8 +65,8 @@ INSTANCE DIA_Kyle_Problem (C_INFO)
 };
 
 FUNC INT DIA_Kyle_Problem_Condition()
-{	
-	return 1;	
+{
+	return 1;
 };
 
 FUNC VOID DIA_Kyle_Problem_Info()
@@ -81,11 +81,11 @@ FUNC VOID DIA_Kyle_Problem_Info()
 	AI_Output (self, other,"DIA_Kyle_Problem_10_07"); //Jetzt rennt jeder durch meine Hütte. Jeder Arsch.
 };
 
-	
-	
-	
-	
-	
+
+
+
+
+
 
 
 

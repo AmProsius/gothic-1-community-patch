@@ -1,5 +1,5 @@
 // **************************************************
-//						 EXIT 
+//						 EXIT
 // **************************************************
 
 instance DIA_Gravo_Exit (C_INFO)
@@ -10,7 +10,7 @@ instance DIA_Gravo_Exit (C_INFO)
 	information		= DIA_Gravo_Exit_Info;
 	permanent		= 1;
 	description 	= DIALOG_ENDE;
-};                       
+};
 
 FUNC INT DIA_Gravo_Exit_Condition()
 {
@@ -34,7 +34,7 @@ instance DIA_Gravo_Hallo(C_INFO)
 	information		= DIA_Gravo_Hallo_Info;
 	permanent		= 0;
 	description 	= "Wie steht's denn so?";
-};                       
+};
 
 FUNC INT DIA_Gravo_Hallo_Condition()
 {
@@ -62,7 +62,7 @@ instance DIA_Gravo_HelpHow(C_INFO)
 	information		= DIA_Gravo_HelpHow_Info;
 	permanent		= 0;
 	description 	= "Wenn ich hier Ärger habe, kannst DU mir also helfen? Wie?";
-};                       
+};
 
 FUNC INT DIA_Gravo_HelpHow_Condition()
 {
@@ -107,7 +107,7 @@ func void B_Gravo_HelpAttitude(var C_NPC prob)
 			AI_Output (other, self,"B_Gravo_HelpAttitude_NoOre_15_01"); //So viel hab' ich nicht.
 			AI_Output (self, other,"B_Gravo_HelpAttitude_NoOre_04_02"); //Dann kann ich nichts für dich tun - tut mir Leid, Junge.
 		};
-		
+
 	}
 	else if (Npc_GetPermAttitude(prob, other)==ATT_HOSTILE)
 	{
@@ -142,7 +142,7 @@ instance DIA_Gravo_HelpAngryNow(C_INFO)
 	information		= DIA_Gravo_HelpAngryNow_Info;
 	permanent		= 1;
 	description 	= "Kannst du mir helfen - ich glaub, ich hab' Ärger.";
-};                       
+};
 
 FUNC INT DIA_Gravo_HelpAngryNow_Condition()
 {
@@ -156,7 +156,7 @@ func VOID DIA_Gravo_HelpAngryNow_Info()
 {
 	AI_Output (other, self,"DIA_Gravo_HelpAngryNow_15_00"); //Kannst du mir helfen - ich glaub, ich hab' Ärger.
 	AI_Output (self, other,"DIA_Gravo_HelpAngryNow_04_01"); //Ich denke schon, aber ich warne dich, die Sache kann dich zwischen 100 und 500 Erz kosten.
-	
+
 	Info_ClearChoices(DIA_Gravo_HelpAngryNow );
 	Info_AddChoice	 (DIA_Gravo_HelpAngryNow, DIALOG_BACK			,DIA_Gravo_HelpAngryNow_BACK);
 	Info_AddChoice	 (DIA_Gravo_HelpAngryNow, "Mit Diego."			,DIA_Gravo_HelpAngryNow_Diego);
@@ -174,7 +174,7 @@ func void DIA_Gravo_HelpAngryNow_Diego()
 	AI_Output (other, self,"DIA_Gravo_HelpAngryNow_Diego_15_00"); //Mit Diego.
 	var C_NPC diego; diego = Hlp_GetNpc (PC_Thief);
 	B_Gravo_HelpAttitude(diego);
-	
+
 	Info_ClearChoices(DIA_Gravo_HelpAngryNow );
 };
 
@@ -183,7 +183,7 @@ func void DIA_Gravo_HelpAngryNow_Thorus()
 	AI_Output (other, self,"DIA_Gravo_HelpAngryNow_Thorus_15_00"); //Mit Thorus.
 	var C_NPC thorus; thorus = Hlp_GetNpc (Grd_200_Thorus);
 	B_Gravo_HelpAttitude(thorus);
-	
+
 	Info_ClearChoices(DIA_Gravo_HelpAngryNow );
 };
 
@@ -192,7 +192,7 @@ func void DIA_Gravo_HelpAngryNow_Gomez()
 	AI_Output (other, self,"DIA_Gravo_HelpAngryNow_Gomez_15_00"); //Mit Gomez.
 	var C_NPC gomez; gomez = Hlp_GetNpc (Ebr_100_Gomez);
 	B_Gravo_HelpAttitude(gomez);
-	
+
 	Info_ClearChoices(DIA_Gravo_HelpAngryNow );
 };
 
@@ -208,7 +208,7 @@ instance DIA_Gravo_Influence(C_INFO)
 	information		= DIA_Gravo_Influence_Info;
 	permanent		= 1;
 	description 	= "Kannst du mir sagen, wer hier zu den einflussreichen Leuten gehört?";
-};                       
+};
 
 FUNC INT DIA_Gravo_Influence_Condition()
 {
@@ -225,11 +225,11 @@ func VOID DIA_Gravo_Influence_Info()
 	AI_Output (self, other,"DIA_Gravo_Influence_04_02"); //Diego hat von allen Schatten am meisten zu melden. Zu seinen Vertrauten zählen Fingers, Whistler und Sly.
 	AI_Output (self, other,"DIA_Gravo_Influence_04_03"); //Dexter und Fisk verscherbeln ihre Sachen auf dem Marktplatz. Sie haben viele Kunden, selbst unter den Gardisten und sind dementsprechend einflussreich.
 	AI_Output (self, other,"DIA_Gravo_Influence_04_04"); //Und dann wäre da noch Scatty, er leitet die Arena, bestimmt wer kämpft und so. Es gibt viele hier, die ihm noch Erz schulden - auch an ihn kannst du dich halten.
-	
+
 	Log_CreateTopic (GE_TraderOC, LOG_NOTE);
 	B_LogEntry (GE_TraderOC,"Dexter und Fisk handeln mit verschiedenen Waren am Marktplatz.");
 
-	
+
 };
 
 

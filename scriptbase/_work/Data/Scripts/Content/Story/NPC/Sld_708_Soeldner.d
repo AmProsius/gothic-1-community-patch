@@ -1,12 +1,12 @@
 instance SLD_708_Soeldner (Npc_Default)
 {
 	//-------- primary data --------
-	
+
 	name =					NAME_Soeldner;
 	Npctype =				NPCTYPE_AMBIENT;
-	guild =					GIL_SLD;      
+	guild =					GIL_SLD;
 	level =					8;
-	
+
 	voice =					11;
 	id =					856;
 
@@ -24,23 +24,23 @@ instance SLD_708_Soeldner (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Relaxed.mds");
-	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
+	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin
 	Mdl_SetVisualBody (self,"hum_body_Naked0",0, 1, "Hum_Head_FatBald", 36, 2, SLD_ARMOR_M);
-	
-	B_Scale (self);	
-	Mdl_SetModelFatness (self, 0);		
-	
+
+	B_Scale (self);
+	Mdl_SetModelFatness (self, 0);
+
 	fight_tactic	=	FAI_HUMAN_STRONG;
-	
+
 	//-------- Talente ----------
 
 	Npc_SetTalentSkill (self, NPC_TALENT_BOW,1);
 	Npc_SetTalentSkill (self, NPC_TALENT_1H,1);
-	
 
-	//-------- inventory --------   
-	                                 
-	CreateInvItems (self, ItKeLockpick,3);		
+
+	//-------- inventory --------
+
+	CreateInvItems (self, ItKeLockpick,3);
 	CreateInvItems(self, ItMiNugget, 15);
 	CreateInvItems (self, ItFoRice,9);
 	CreateInvItems (self, ItFoBooze, 7);
@@ -54,7 +54,7 @@ instance SLD_708_Soeldner (Npc_Default)
 	EquipItem (self, ItMw_1H_Mace_03);
 	EquipItem (self, ItRw_Bow_Long_01);
 	CreateInvItems (self, ItAmArrow, 20);
-	
+
 	//-------------Daily Routine-------------
 	daily_routine = Rtn_start_708;
 };

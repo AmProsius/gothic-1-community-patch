@@ -6,7 +6,7 @@ var int MordragKO_StayAtNC;
 // **************************************************
 
 // **************************************************
-//						 EXIT 
+//						 EXIT
 // **************************************************
 
 instance  Org_826_Mordrag_Exit (C_INFO)
@@ -17,7 +17,7 @@ instance  Org_826_Mordrag_Exit (C_INFO)
 	information	= Org_826_Mordrag_Exit_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC int  Org_826_Mordrag_Exit_Condition()
 {
@@ -41,7 +41,7 @@ instance  Org_826_Mordrag_Greet (C_INFO)
 	information	= Org_826_Mordrag_Greet_Info;
 	permanent	= 0;
 	important 	= 1;
-};                       
+};
 
 FUNC int  Org_826_Mordrag_Greet_Condition()
 {
@@ -71,7 +71,7 @@ instance  Org_826_Mordrag_Trade (C_INFO)
 	permanent	= 1;
 	description = "Zeig mir deine Ware.";
 	trade		= 1;
-};                       
+};
 
 func int  Org_826_Mordrag_Trade_Condition()
 {
@@ -102,11 +102,11 @@ instance  Org_826_Mordrag_Courier (C_INFO)
 	information	= Org_826_Mordrag_Courier_Info;
 	permanent	= 1;
 	description = "Stimmt es, dass du Kurier für die Magier bist?";
-};                       
+};
 
 FUNC int  Org_826_Mordrag_Courier_Condition()
 {
-	if	Thorus_MordragMageMessenger 	
+	if	Thorus_MordragMageMessenger
 	{
 		return 1;
 	};
@@ -132,11 +132,11 @@ instance  Org_826_Mordrag_Problem (C_INFO)
 	information	= Org_826_Mordrag_Problem_Info;
 	permanent	= 0;
 	description = "Du hast ein Problem.";
-};                       
+};
 
 FUNC int  Org_826_Mordrag_Problem_Condition()
 {
-	if Thorus_MordragKo == LOG_RUNNING 	
+	if Thorus_MordragKo == LOG_RUNNING
 	{
 		return 1;
 	};
@@ -165,7 +165,7 @@ instance  Org_826_Mordrag_NCInfo(C_INFO)
 	information	= Org_826_Mordrag_NCInfo_Info;
 	permanent	= 0;
 	description = "Erzähl mir was über das Neue Lager.";
-};                       
+};
 
 FUNC int  Org_826_Mordrag_NCInfo_Condition()
 {
@@ -197,7 +197,7 @@ instance  Org_826_Mordrag_JoinNewcamp(C_INFO)
 	information	= Org_826_Mordrag_JoinNewcamp_Info;
 	permanent	= 0;
 	description = "Und wenn ich mich dem Neuen Lager anschließen will, ...";//könntest du mir dabei helfen... ZU LANG
-};                       
+};
 
 FUNC int  Org_826_Mordrag_JoinNewcamp_Condition()
 {
@@ -223,7 +223,7 @@ instance  Org_826_Mordrag_GotoNewcamp(C_INFO)
 	information	= Org_826_Mordrag_GotoNewcamp_Info;
 	permanent	= 0;
 	description = "Lass uns zum Neuen Lager gehen!";
-};                       
+};
 
 FUNC int  Org_826_Mordrag_GotoNewcamp_Condition()
 {
@@ -237,13 +237,13 @@ FUNC VOID  Org_826_Mordrag_GotoNewcamp_Info()
 {
 	AI_Output (other, self,"Org_826_Mordrag_GotoNewcamp_15_00"); //Lass uns zum Neuen Lager gehen!
 	AI_Output (self, other,"Org_826_Mordrag_GotoNewcamp_11_01"); //Gut! Folge mir.
-	
+
 	Mordrag_GotoNC_Day = Wld_GetDay();
-	
+
 	AI_StopProcessInfos	(self);
 
 	Npc_SetPermAttitude(self,ATT_FRIENDLY);	// damit hat der Spieler einen Freischlag. Nach dem zweiten wehrt sich Mordrag!
-	
+
 	if	(Npc_GetTrueGuild(hero) == GIL_NONE)
 	{
 		Log_CreateTopic		(CH1_JoinNC, LOG_MISSION);
@@ -252,7 +252,7 @@ FUNC VOID  Org_826_Mordrag_GotoNewcamp_Info()
 	B_LogEntry				(CH1_JoinNC, "Mordrag hat sich bereit erklärt, mir den Weg zum neuen Lager zu zeigen. Ich hoffe, dass er mich nicht in eine Falle locken will!");
 
 	self.aivar[AIV_PARTYMEMBER] = TRUE;
-	
+
 	Npc_ExchangeRoutine		(self,"GUIDE");
 };
 
@@ -268,11 +268,11 @@ instance  Org_826_Mordrag_AtNewcamp(C_INFO)
 	information	= Org_826_Mordrag_AtNewcamp_Info;
 	permanent	= 0;
 	important 	= 1;
-};                       
+};
 
 FUNC int  Org_826_Mordrag_AtNewcamp_Condition()
 {
-	if 	( Npc_KnowsInfo(hero,Org_826_Mordrag_GotoNewcamp) && Hlp_StrCmp(Npc_GetNearestWP(self),"OW_PATH_07_21") ) 
+	if 	( Npc_KnowsInfo(hero,Org_826_Mordrag_GotoNewcamp) && Hlp_StrCmp(Npc_GetNearestWP(self),"OW_PATH_07_21") )
 	{
 		self.flags	= 0;
 		return 1;
@@ -282,7 +282,7 @@ FUNC int  Org_826_Mordrag_AtNewcamp_Condition()
 FUNC VOID  Org_826_Mordrag_AtNewcamp_Info()
 {
 	if (Mordrag_GotoNC_Day > (Wld_GetDay()-2))
-	{	
+	{
 		AI_Output (self, other,"Org_826_Mordrag_AtNewcamp_11_00"); //So, hier sind wir.
 	}
 	else
@@ -294,20 +294,20 @@ FUNC VOID  Org_826_Mordrag_AtNewcamp_Info()
 	AI_Output (self, other,"Org_826_Mordrag_AtNewcamp_11_03"); //Wenn ich's mir so recht überlege - ich glaub', ich bleib' 'ne Weile hier. Ich hab' fürs Erste genug verdient und im Alten Lager wird's langsam heiß.
 	AI_Output (self, other,"Org_826_Mordrag_AtNewcamp_11_04"); //Wenn du Lust hast, triff mich in der Kneipe - das Haus direkt auf dem See. Mach's gut!
 	AI_Output (other, self,"Org_826_Mordrag_AtNewcamp_15_05"); //Wir sehen uns.
-	
+
 	CreateInvItems  (self, MordragsRing, 1);
 	B_GiveInvItems	(self, other, MordragsRing, 1);
 
-	B_GiveXP		(XP_ArrivedWithMordrag);	
+	B_GiveXP		(XP_ArrivedWithMordrag);
 	B_LogEntry		(CH1_JoinNC, "Wir stehen nun vor dem Tor des Neuen Lagers. Für den Fall, dass ich wirklich in das Neue Lager aufgenommen werden will, gab mir Mordrag einen Ring, den ich dem Anführer der Banditen mit Namen Lares bringen soll. Mordrag will erst mal hier bleiben und ist ab jetzt in der Kneipe auf dem See zu finden.");
 	var C_NPC lares; lares = Hlp_GetNpc(Org_801_Lares);
 	Lares.aivar [AIV_FINDABLE]=TRUE;
-	
+
 	MordragKO_StayAtNC = TRUE;
 	self.aivar[AIV_PARTYMEMBER] = FALSE;
 
 	AI_StopProcessInfos	(self);
-	
+
 	Npc_ExchangeRoutine(self,"START");
 };
 
@@ -323,7 +323,7 @@ instance  Org_826_Mordrag_Fight (C_INFO)
 	information	= Org_826_Mordrag_Fight_Info;
 	permanent	= 0;
 	description = "In diesem Lager ist nicht genug Platz für uns beide!";
-};                       
+};
 
 FUNC int  Org_826_Mordrag_Fight_Condition()
 {
@@ -337,7 +337,7 @@ FUNC VOID  Org_826_Mordrag_Fight_Info()
 {
 	AI_Output (other, self,"Org_826_Mordrag_Fight_15_00"); //In diesem Lager ist nicht genug Platz für uns beide!
 	AI_Output (self, other,"Org_826_Mordrag_Fight_11_01"); //Bitte, was?
-	
+
 	Info_ClearChoices(Org_826_Mordrag_Fight);
 	Info_AddChoice   (Org_826_Mordrag_Fight, "Mach dass du aus diesem Lager verschwindest!" 					,Info_Mordrag_Fight_GetAway);
 	Info_AddChoice	 (Org_826_Mordrag_Fight, "Hier ist kein Platz für Leute, die die Erzbarone bestehlen!" 	,Info_Mordrag_Fight_OreBarons);
@@ -348,7 +348,7 @@ FUNC VOID Info_Mordrag_Fight_GetAway()
 {
 	AI_Output (other, self,"Info_Mordrag_Fight_GetAway_15_00"); //Mach, dass du aus diesem Lager verschwindest!
 	AI_Output (self, other,"Info_Mordrag_Fight_GetAway_11_01"); //Große Worte für einen kleinen Mann ...
-	
+
 	AI_StopProcessInfos(self);
 	Npc_SetTarget(self, other);
 	AI_StartState(self,ZS_Attack,1,"");
@@ -358,9 +358,9 @@ FUNC VOID Info_Mordrag_Fight_OreBarons()
 {
 	AI_Output (other, self,"Info_Mordrag_Fight_OreBarons_15_00"); //Hier ist kein Platz für Leute, die die Erzbarone bestehlen!
 	AI_Output (self, other,"Info_Mordrag_Fight_OreBarons_11_01"); //Ach, so ist das! Sag das doch gleich ...
-	
+
 	MordragKO_PlayerChoseOreBarons = TRUE;
-	
+
 	AI_StopProcessInfos(self);
 	Npc_SetTarget(self, other);
 	AI_StartState(self,ZS_Attack,1,"");
@@ -370,9 +370,9 @@ FUNC VOID Info_Mordrag_Fight_Thorus()
 {
 	AI_Output (other, self,"Info_Mordrag_Fight_Thorus_15_00"); //Thorus schickt mich. Er will dich für immer loswerden.
 	AI_Output (self, other,"Info_Mordrag_Fight_Thorus_11_01"); //So? Thorus also? Das war alles, was ich wissen wollte ...
-	
+
 	MordragKO_PlayerChoseThorus = TRUE;
-	
+
 	AI_StopProcessInfos(self);
 	Npc_SetTarget(self, other);
 	AI_StartState(self,ZS_Attack,1,"");
@@ -390,13 +390,13 @@ instance  Org_826_Mordrag_HauAb(C_INFO)
 	information	= Org_826_Mordrag_HauAb_Info;
 	permanent	= 0;
 	important 	= 1;
-};                       
+};
 
 FUNC int  Org_826_Mordrag_HauAb_Condition()
 {
 	VAR C_NPC Mordrag;
 	Mordrag = Hlp_GetNpc(Org_826_Mordrag);
-	
+
 	if (Mordrag.aivar[AIV_WASDEFEATEDBYSC] >= 1)
 	{
 		return 1;
@@ -406,16 +406,16 @@ FUNC int  Org_826_Mordrag_HauAb_Condition()
 FUNC VOID  Org_826_Mordrag_HauAb_Info()
 {
 	AI_Output (other, self,"Org_826_HauAb_GotoNewcamp_15_00"); //Mach, dass du wegkommst ...
-	
+
 	AI_StopProcessInfos	(self);
-	
+
 	MordragKO_HauAb = TRUE;
-	
+
 	B_LogEntry    (CH1_MordragKO,"Ich habe Mordrag bewusstlos geschlagen und ihm gesagt, er soll sich nie wieder im alten Lager blicken lassen.");
 
 	Npc_ExchangeRoutine	(self, "Start");
 };
-		
+
 // **************************************************
 //					GotoKalom
 // **************************************************
@@ -428,7 +428,7 @@ instance  Org_826_Mordrag_GotoKalom(C_INFO)
 	information	= Org_826_Mordrag_GotoKalom_Info;
 	permanent	= 0;
 	description = "Lares hat eine Nachricht für dich.";
-};                       
+};
 
 FUNC int  Org_826_Mordrag_GotoKalom_Condition()
 {
@@ -463,7 +463,7 @@ instance  Org_826_Mordrag_GotoKalomNOW(C_INFO)
 	information	= Org_826_Mordrag_GotoKalomNOW_Info;
 	permanent	= 0;
 	description = "Lares sagt, ich soll dich bei der Sektensache unterstützen.";
-};                       
+};
 
 FUNC int  Org_826_Mordrag_GotoKalomNOW_Condition()
 {
@@ -484,11 +484,11 @@ FUNC VOID  Org_826_Mordrag_GotoKalomNOW_Info()
 	AI_Output			(self, other,"Org_826_Mordrag_GotoKalomNOW_11_05"); //Die Gurus sind mit mächtiger Magie im Bunde. Und es ist besser, wenn wir wissen, was da abgeht. Soweit alles klar?
 
 	B_LogEntry			(CH1_GotoPsiCamp,	"Mordrag hat die Spitzelaufgabe im Sumpflager geschickt auf mich abgewälzt. Die Gurus scheinen eine große Beschwörung vorzubereiten, aber was da dran ist, sollte ich besser genauer in Erfahrung bringen.");
-	B_GiveXP			(XP_AssistMordrag);	
-	
+	B_GiveXP			(XP_AssistMordrag);
+
 	Lares_InformMordrag = LOG_SUCCESS;
 	Mordrag_GotoKalom = LOG_RUNNING;
-	
+
 	Info_ClearChoices	(Org_826_Mordrag_GotoKalomNOW);
 	Info_AddChoice		(Org_826_Mordrag_GotoKalomNOW,"Hast du genauere Anweisungen?",Org_826_Mordrag_GotoKalomNOW_Precise);
 	Info_AddChoice		(Org_826_Mordrag_GotoKalomNOW,"Werd' sehen was ich rausfinden kann.",Org_826_Mordrag_GotoKalomNOW_DoIt);
@@ -522,7 +522,7 @@ instance  Org_826_Mordrag_RUNNING (C_INFO)
 	information	= Org_826_Mordrag_RUNNING_Info;
 	permanent	= 1;
 	description = "Wegen der Sektensache...";
-};                       
+};
 
 FUNC int  Org_826_Mordrag_RUNNING_Condition()
 {
@@ -563,15 +563,13 @@ FUNC VOID  Org_826_Mordrag_RUNNING_Info()
 		AI_Output		(self, other,"Org_826_Mordrag_RUNNING_11_03"); //Bleib dran ...
 	};
 
-/*	
+/*
 	//SN: Werde nicht gebraucht, da sie nicht zur Kapitel 2-6-Story passen!!!
 		AI_Output		(other, self,"Org_826_Mordrag_RUNNING_15_08"); //Ich hab' die Eier bei mir.
-		
+
 		AI_Output		(self, other,"Org_826_Mordrag_RUNNING_11_05"); //(sarkastisch) Hab' ich auch gemerkt. Diese verdammten Sektenspinner haben Gomez die alte Mine gekostet. Wird nicht mehr lange dauern, dann stehen seine Gardisten bei UNS vor der Tür, um sich ihr Erz abzuholen...
 */
 };
-	
-	
 
 
 
@@ -585,9 +583,11 @@ FUNC VOID  Org_826_Mordrag_RUNNING_Info()
 
 
 
-	
 
 
 
 
-	
+
+
+
+

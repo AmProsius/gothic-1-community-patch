@@ -1,9 +1,9 @@
-	
+
 //////////////////////////////////////
-//	
-// 	Music Sytem 
-//	Instance-Definitions 
-//	
+//
+// 	Music Sytem
+//	Instance-Definitions
+//
 //////////////////////////////////////
 
 // music config instance
@@ -43,7 +43,7 @@ INSTANCE SYS_Menu			(C_MUSICTHEME_DEF)
 {
 	file				= "menu.sgt";
 	transType			= TRANSITION_TYPE_NONE;
-	transSubType		= TRANSITION_SUB_TYPE_BEAT;	
+	transSubType		= TRANSITION_SUB_TYPE_BEAT;
 	ReverbMix			= -10;
 	ReverbTime			= 8500;
 };
@@ -52,7 +52,7 @@ INSTANCE SYS_Loading		(C_MUSICTHEME_DEF)
 {
 	file				= "menu.sgt";
 	transType			= TRANSITION_TYPE_NONE;
-	transSubType		= TRANSITION_SUB_TYPE_BEAT;	
+	transSubType		= TRANSITION_SUB_TYPE_BEAT;
 	ReverbMix			= -12;
 	ReverbTime			= 8500;
 };
@@ -73,11 +73,11 @@ INSTANCE SYS_Loading		(C_MUSICTHEME_DEF)
 // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 INSTANCE DEF_Day_Std	(C_MUSICTHEME_DEF)	{	file			= "ow_day_std.sgt";						};
-												
+
 INSTANCE DEF_Day_Thr	(C_MUSICTHEME_DEF)	{	file			= "cam_day_thr.sgt";					};
 
 INSTANCE DEF_Day_Fgt	(C_MUSICTHEME_DEF)	{	file			= "cam_day_fgt.sgt";					};
-												
+
 // ----------------------------------------------------
 
 INSTANCE DEF_Ngt_Std	(C_MUSICTHEME_DEF)	{	file			= "cam_ngt_std.sgt";					};
@@ -97,15 +97,15 @@ INSTANCE DEF_Ngt_Fgt	(C_MUSICTHEME_DEF)	{	file			= "cam_day_fgt.sgt";					};
 // XXXXXXXX  O L D C A M P  [OC_]     XXXXXXXXXXXX
 // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
-INSTANCE OC_Day_Std		(C_MUSICTHEME_DEF)	{	file			= "oc_day_std.sgt";						
+INSTANCE OC_Day_Std		(C_MUSICTHEME_DEF)	{	file			= "oc_day_std.sgt";
 												transType		= TRANSITION_TYPE_BREAK;
 												transSubType	= TRANSITION_SUB_TYPE_MEASURE;			};
 
-INSTANCE OC_Day_Thr		(C_MUSICTHEME_DEF)	{	file			= "oc_day_std.sgt";						
+INSTANCE OC_Day_Thr		(C_MUSICTHEME_DEF)	{	file			= "oc_day_std.sgt";
 												transType		= TRANSITION_TYPE_BREAK;
 												transSubType	= TRANSITION_SUB_TYPE_MEASURE;			};
 
-INSTANCE OC_Day_Fgt		(C_MUSICTHEME_DEF)	{	file			= "oc_day_fgt.sgt";						
+INSTANCE OC_Day_Fgt		(C_MUSICTHEME_DEF)	{	file			= "oc_day_fgt.sgt";
 												transType		= TRANSITION_TYPE_FILL;
 												transSubType	= TRANSITION_SUB_TYPE_MEASURE;			};
 
@@ -115,7 +115,7 @@ INSTANCE OC_Ngt_Std		(C_MUSICTHEME_DEF)	{	file			= "cam_ngt_std.sgt";					};
 
 INSTANCE OC_Ngt_Thr		(C_MUSICTHEME_DEF)	{	file			= "cam_ngt_thr.sgt";					};
 
-INSTANCE OC_Ngt_Fgt		(C_MUSICTHEME_DEF)	{	file			= "oc_day_fgt.sgt";						
+INSTANCE OC_Ngt_Fgt		(C_MUSICTHEME_DEF)	{	file			= "oc_day_fgt.sgt";
 												transType		= TRANSITION_TYPE_FILL;
 												transSubType	= TRANSITION_SUB_TYPE_MEASURE;			};
 
@@ -127,7 +127,7 @@ INSTANCE ARE_Day_Std	(C_MUSICTHEME_DEF)	{	file			= "foc_day_std.sgt";						};
 
 INSTANCE ARE_Day_Thr	(C_MUSICTHEME_DEF)	{	file			= "foc_day_std.sgt";						};
 
-INSTANCE ARE_Day_Fgt	(C_MUSICTHEME_DEF)	{	file			= "oc_day_fgt.sgt";						
+INSTANCE ARE_Day_Fgt	(C_MUSICTHEME_DEF)	{	file			= "oc_day_fgt.sgt";
 												transType		= TRANSITION_TYPE_FILL;
 												transSubType	= TRANSITION_SUB_TYPE_MEASURE;			};
 
@@ -140,7 +140,7 @@ INSTANCE IE_Ngt_Std		(C_MUSICTHEME_DEF)	{	file			= "cam_ngt_std.sgt";   						};
 INSTANCE IE_Day_Thr		(C_MUSICTHEME_DEF)	{	file			= "oc_day_std.sgt";   						};
 
 INSTANCE IE_Day_Fgt		(C_MUSICTHEME_DEF)	{	file			= "oc_day_fgt.sgt";   						};
-												
+
 
 // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 // XXXXXXXX  N E W C A M P  [NCO_/NCI_]   XXXXXXXX
@@ -148,10 +148,10 @@ INSTANCE IE_Day_Fgt		(C_MUSICTHEME_DEF)	{	file			= "oc_day_fgt.sgt";   						};
 
 // Plateau davor
 
-INSTANCE NCO_Day_Std	(C_MUSICTHEME_DEF)	{	file			= "cam_day_std.sgt";	
+INSTANCE NCO_Day_Std	(C_MUSICTHEME_DEF)	{	file			= "cam_day_std.sgt";
 												transType		= TRANSITION_TYPE_BREAK;
 												transSubType	= TRANSITION_SUB_TYPE_MEASURE;			};
-												
+
 INSTANCE NCO_Day_Thr	(C_MUSICTHEME_DEF)	{	file			= "cam_day_thr.sgt";
 												transType		= TRANSITION_TYPE_BREAK;
 												transSubType	= TRANSITION_SUB_TYPE_MEASURE;			};
@@ -160,7 +160,7 @@ INSTANCE NCO_Day_Fgt	(C_MUSICTHEME_DEF)	{	file			= "cam_day_fgt.sgt";
 												transType		= TRANSITION_TYPE_FILL;
 												transSubType	= TRANSITION_SUB_TYPE_MEASURE;			};
 
-                                                                
+
 INSTANCE NCO_Ngt_Std	(C_MUSICTHEME_DEF)	{	file			= "cam_ngt_std.sgt";					};
 INSTANCE NCO_Ngt_Thr	(C_MUSICTHEME_DEF)	{	file			= "cam_ngt_std.sgt";					};
 INSTANCE NCO_Ngt_Fgt	(C_MUSICTHEME_DEF)	{	file			= "cam_ngt_std.sgt";					};
@@ -175,13 +175,13 @@ INSTANCE NCI_Day_Thr	(C_MUSICTHEME_DEF)	{	file			= "nci_day_std.sgt";
 												transType		= TRANSITION_TYPE_BREAK;
 												transSubType	= TRANSITION_SUB_TYPE_MEASURE;			};
 
-INSTANCE NCI_Day_Fgt	(C_MUSICTHEME_DEF)	{	file			= "nci_day_fgt.sgt";					
+INSTANCE NCI_Day_Fgt	(C_MUSICTHEME_DEF)	{	file			= "nci_day_fgt.sgt";
 												transType		= TRANSITION_TYPE_FILL;
 												transSubType	= TRANSITION_SUB_TYPE_MEASURE;			};
-                                                                
+
 INSTANCE NCI_Ngt_Std	(C_MUSICTHEME_DEF)	{	file			= "nci_day_std.sgt";					};
 INSTANCE NCI_Ngt_Thr	(C_MUSICTHEME_DEF)	{	file			= "nci_day_std.sgt";					};
-INSTANCE NCI_Ngt_Fgt	(C_MUSICTHEME_DEF)	{	file			= "nci_day_fgt.sgt";					
+INSTANCE NCI_Ngt_Fgt	(C_MUSICTHEME_DEF)	{	file			= "nci_day_fgt.sgt";
 												transType		= TRANSITION_TYPE_FILL;
 												transSubType	= TRANSITION_SUB_TYPE_MEASURE;			};
 
@@ -193,19 +193,19 @@ INSTANCE NCI_Ngt_Fgt	(C_MUSICTHEME_DEF)	{	file			= "nci_day_fgt.sgt";
 INSTANCE PSI_Day_Std	(C_MUSICTHEME_DEF)	{	file			= "psi_day_std.sgt";
 												transType		= TRANSITION_TYPE_BREAK;
 												transSubType	= TRANSITION_SUB_TYPE_MEASURE;			};
-												
-INSTANCE PSI_Day_Thr	(C_MUSICTHEME_DEF)	{	file			= "psi_day_thr.sgt";	
+
+INSTANCE PSI_Day_Thr	(C_MUSICTHEME_DEF)	{	file			= "psi_day_thr.sgt";
 												transType		= TRANSITION_TYPE_BREAK;
 												transSubType	= TRANSITION_SUB_TYPE_MEASURE;			};
-												
-INSTANCE PSI_Day_Fgt	(C_MUSICTHEME_DEF)	{	file			= "psi_day_fgt.sgt";						
+
+INSTANCE PSI_Day_Fgt	(C_MUSICTHEME_DEF)	{	file			= "psi_day_fgt.sgt";
 												transType		= TRANSITION_TYPE_FILL;
 												transSubType	= TRANSITION_SUB_TYPE_MEASURE;			};
-												
+
 INSTANCE PSI_Ngt_Std	(C_MUSICTHEME_DEF)	{	file			= "psi_ngt_std.sgt";					};
 INSTANCE PSI_Ngt_Thr	(C_MUSICTHEME_DEF)	{	file			= "psi_ngt_std.sgt";					};
 INSTANCE PSI_Ngt_Fgt	(C_MUSICTHEME_DEF)	{	file			= "psi_day_fgt.sgt";					};
-												
+
 
 // ################################################################################################
 // ###############                                                          #######################
@@ -223,7 +223,7 @@ INSTANCE PSI_Ngt_Fgt	(C_MUSICTHEME_DEF)	{	file			= "psi_day_fgt.sgt";					};
 INSTANCE OW_Day_Std		(C_MUSICTHEME_DEF)	{	file			= "ow_day_std.sgt";						};
 INSTANCE OW_Day_Thr		(C_MUSICTHEME_DEF)	{	file			= "ow_day_std.sgt";						};
 INSTANCE OW_Day_Fgt		(C_MUSICTHEME_DEF)	{	file			= "ow_day_std.sgt";						};
-                                                                
+
 INSTANCE OW_Ngt_Std		(C_MUSICTHEME_DEF)	{	file			= "ow_day_std.sgt";						};
 INSTANCE OW_Ngt_Thr		(C_MUSICTHEME_DEF)	{	file			= "ow_day_std.sgt";						};
 INSTANCE OW_Ngt_Fgt		(C_MUSICTHEME_DEF)	{	file			= "ow_day_std.sgt";						};
@@ -233,11 +233,11 @@ INSTANCE OW_Ngt_Fgt		(C_MUSICTHEME_DEF)	{	file			= "ow_day_std.sgt";						};
 // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 INSTANCE STA_Day_Std	(C_MUSICTHEME_DEF)	{	file			= "ban_day_std.sgt";					};
-                                                            
-// XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX          
-// XXXXXXXX  B E A C H   [BEA_]               XXXX             
-// XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX          
-                                                            
+
+// XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+// XXXXXXXX  B E A C H   [BEA_]               XXXX
+// XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
 INSTANCE BEA_Day_Std	(C_MUSICTHEME_DEF)	{	file			= "ow_day_std.sgt";						};
 INSTANCE BEA_Ngt_Std	(C_MUSICTHEME_DEF)	{	file			= "ow_day_std.sgt";						};
 
@@ -313,15 +313,15 @@ INSTANCE OME_Ngt_Std	(C_MUSICTHEME_DEF)	{	file			= "cam_ngt_std.sgt";					};
 // XXXXXXXX  O R C C I T Y  [ORC_]    XXXXXXXXXXXX
 // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
-INSTANCE ORC_Day_Std	(C_MUSICTHEME_DEF)	{	file			= "orc_day_std.sgt";						
-												transType		= TRANSITION_TYPE_BREAK;
-												transSubType	= TRANSITION_SUB_TYPE_MEASURE;			};
-											
-INSTANCE ORC_Day_Thr	(C_MUSICTHEME_DEF)	{	file			= "orc_day_std.sgt";						
+INSTANCE ORC_Day_Std	(C_MUSICTHEME_DEF)	{	file			= "orc_day_std.sgt";
 												transType		= TRANSITION_TYPE_BREAK;
 												transSubType	= TRANSITION_SUB_TYPE_MEASURE;			};
 
-INSTANCE ORC_Day_Fgt	(C_MUSICTHEME_DEF)	{	file			= "oc_day_fgt.sgt";						
+INSTANCE ORC_Day_Thr	(C_MUSICTHEME_DEF)	{	file			= "orc_day_std.sgt";
+												transType		= TRANSITION_TYPE_BREAK;
+												transSubType	= TRANSITION_SUB_TYPE_MEASURE;			};
+
+INSTANCE ORC_Day_Fgt	(C_MUSICTHEME_DEF)	{	file			= "oc_day_fgt.sgt";
 												transType		= TRANSITION_TYPE_FILL;
 												transSubType	= TRANSITION_SUB_TYPE_MEASURE;			};
 
@@ -405,7 +405,7 @@ INSTANCE SPL_Day_Std	(C_MUSICTHEME_DEF)	{	file			= "ogy_day_std.sgt";					};
 INSTANCE SPL_Day_Thr	(C_MUSICTHEME_DEF)	{	file			= "ogy_day_std.sgt";					};
 INSTANCE SPL_Day_Fgt	(C_MUSICTHEME_DEF)	{	file			= "ogy_day_fgt.sgt";					};
 INSTANCE SPL_Ngt_Std	(C_MUSICTHEME_DEF)	{	file			= "ogy_day_std.sgt";					};
-		
+
 // FREE MINE
 
 INSTANCE FRM_Day_Std	(C_MUSICTHEME_DEF)	{	file			= "olm_day_std.sgt";
@@ -415,15 +415,15 @@ INSTANCE FRM_Day_Std	(C_MUSICTHEME_DEF)	{	file			= "olm_day_std.sgt";
 INSTANCE FRM_Day_Thr	(C_MUSICTHEME_DEF)	{	file			= "olm_day_thr.sgt";
 												transType		= TRANSITION_TYPE_BREAK;
 												transSubType	= TRANSITION_SUB_TYPE_MEASURE;			};
-												
-INSTANCE FRM_Day_Fgt	(C_MUSICTHEME_DEF)	{	file			= "olm_day_fgt.sgt";						
+
+INSTANCE FRM_Day_Fgt	(C_MUSICTHEME_DEF)	{	file			= "olm_day_fgt.sgt";
 												transType		= TRANSITION_TYPE_FILL;
 												transSubType	= TRANSITION_SUB_TYPE_MEASURE;			};
 
 INSTANCE FRM_Ngt_Std	(C_MUSICTHEME_DEF)	{	file			= "olm_day_std.sgt";
 												transType		= TRANSITION_TYPE_BREAK;
 												transSubType	= TRANSITION_SUB_TYPE_MEASURE;			};
-												
+
 // OLD MINE?
 
 INSTANCE OLM_Day_Std	(C_MUSICTHEME_DEF)	{	file			= "olm_day_std.sgt";
@@ -433,16 +433,16 @@ INSTANCE OLM_Day_Std	(C_MUSICTHEME_DEF)	{	file			= "olm_day_std.sgt";
 INSTANCE OLM_Ngt_Std	(C_MUSICTHEME_DEF)	{	file			= "olm_day_std.sgt";
 												transType		= TRANSITION_TYPE_BREAK;
 												transSubType	= TRANSITION_SUB_TYPE_MEASURE;			};
-																								
+
 INSTANCE OLM_Day_Thr	(C_MUSICTHEME_DEF)	{	file			= "olm_day_thr.sgt";
 												transType		= TRANSITION_TYPE_BREAK;
 												transSubType	= TRANSITION_SUB_TYPE_MEASURE;			};
-												
-INSTANCE OLM_Day_Fgt	(C_MUSICTHEME_DEF)	{	file			= "olm_day_fgt.sgt";						
+
+INSTANCE OLM_Day_Fgt	(C_MUSICTHEME_DEF)	{	file			= "olm_day_fgt.sgt";
 												transType		= TRANSITION_TYPE_FILL;
 												transSubType	= TRANSITION_SUB_TYPE_MEASURE;			};
 
-// ORCGRAVEYARD		
+// ORCGRAVEYARD
 
 INSTANCE OGY_Day_Std	(C_MUSICTHEME_DEF)	{	file			= "ogy_day_std.sgt";					};
 INSTANCE OGY_Day_Thr	(C_MUSICTHEME_DEF)	{	file			= "ogy_day_std.sgt";					};

@@ -5,8 +5,8 @@
 func void ZS_IEFLAIL ()
 {
     PrintDebugNpc	(PD_TA_FRAME,"ZS_IEFLAIL");
-    
-	AI_SetWalkmode	(self,NPC_WALK);	
+
+	AI_SetWalkmode	(self,NPC_WALK);
 	AI_GotoWP 		(self,  self.wp);
 	AI_AlignToWP	(self);
 };
@@ -35,7 +35,7 @@ func int ZS_IEFLAIL_Loop ()
 		AI_UseMob (self, "PAUKE" ,0);     // 6
 		AI_UseMob (self, "PAUKE" ,1);     // 7
 		AI_UseMob (self, "PAUKE" ,0);     // 8
-		// Refrain	
+		// Refrain
 		AI_UseMob (self, "PAUKE" ,1);		// ,1
 		AI_UseMob (self, "PAUKE" ,2);     // ,2
 		AI_UseMob (self, "PAUKE" ,1);     // 3
@@ -56,7 +56,7 @@ func int ZS_IEFLAIL_Loop ()
 		AI_UseMob (self, "PAUKE" ,0);     // 6
 		AI_UseMob (self, "PAUKE" ,1);     // 7
 		AI_UseMob (self, "PAUKE" ,0);     // 8
-		// Refrain	
+		// Refrain
 		AI_UseMob (self, "PAUKE" ,1);		// ,1
 		AI_UseMob (self, "PAUKE" ,2);     // ,2
 		AI_UseMob (self, "PAUKE" ,1);     // 3
@@ -70,7 +70,7 @@ func int ZS_IEFLAIL_Loop ()
 		AI_UseMob (self, "PAUKE" ,0);     // ,2
 		AI_UseMob (self, "PAUKE" ,1);     // 3
 		AI_UseMob (self, "PAUKE" ,0);     // 4
-		// Verse 3                                  
+		// Verse 3
 		AI_UseMob (self, "PAUKE" ,1);     // ,1
 		AI_UseMob (self, "PAUKE" ,0);     // ,2
 		AI_UseMob (self, "PAUKE" ,1);     // 3
@@ -108,7 +108,7 @@ func int ZS_IEFLAIL_Loop ()
 		AI_UseMob (self, "PAUKE" ,2);     // 8
 		AI_UseMob 		(self, "PAUKE", -1);
 	};
-	
+
 	return LOOP_CONTINUE;
 };
 

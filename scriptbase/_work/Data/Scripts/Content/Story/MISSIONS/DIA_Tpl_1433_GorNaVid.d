@@ -6,10 +6,10 @@ instance  Tpl_1433_GorNaVid_Exit (C_INFO)
 	nr			= 999;
 	condition	= Tpl_1433_GorNaVid_Exit_Condition;
 	information	= Tpl_1433_GorNaVid_Exit_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC int  Tpl_1433_GorNaVid_Exit_Condition()
 {
@@ -31,11 +31,11 @@ instance  Tpl_1433_GorNaVid_HEALTH (C_INFO)
 	information		= Tpl_1433_GorNaVid_HEALTH_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "Ich brauche deine Hilfe"; 
+	description		= "Ich brauche deine Hilfe";
 };
 
 FUNC int  Tpl_1433_GorNaVid_HEALTH_Condition()
-{	
+{
 	if	 Npc_KnowsInfo(hero, Grd_263_Asghan_OPEN)
 	&&	!Npc_KnowsInfo(hero, Grd_263_Asghan_OPEN_NOW)
 	{
@@ -50,7 +50,7 @@ FUNC void  Tpl_1433_GorNaVid_HEALTH_Info()
 	AI_Output (other, self,"Tpl_1433_GorNaVid_HEALTH_Info_15_03"); //Wenn der Durchgang geöffnet wird, bist du dabei?
 	AI_Output (self, other,"Tpl_1433_GorNaVid_HEALTH_Info_13_04"); //Der Kampf gegen Crawler kostet Blut. Wenn du mir einen Heiltrank bringst, bin ich dabei.
 
-};  
+};
 // ***************** Infos *****************************
 
 instance  Tpl_1433_GorNaVid_IAN (C_INFO)
@@ -60,11 +60,11 @@ instance  Tpl_1433_GorNaVid_IAN (C_INFO)
 	information		= Tpl_1433_GorNaVid_IAN_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "Ich suche das Nest der Minecrawler"; 
+	description		= "Ich suche das Nest der Minecrawler";
 };
 
 FUNC int  Tpl_1433_GorNaVid_IAN_Condition()
-{	
+{
 	if (CorKalom_BringMCQBalls == LOG_RUNNING
 	&&	!Npc_KnowsInfo(hero,Grd_263_Asghan_OPEN))
 	{
@@ -76,7 +76,7 @@ FUNC void  Tpl_1433_GorNaVid_IAN_Info()
 {
 	AI_Output (other, self,"Tpl_1433_GorNaVid_IAN_Info_15_01"); //Ich suche das Nest der Minecrawler
 	AI_Output (self, other,"Tpl_1433_GorNaVid_IAN_Info_13_02"); //Hier in der Mine gibt es viele Höhlen neben dem Hauptschacht, aber dort haben wir noch kein Nest gefunden.
-};  
+};
 
 // ***************** Infos *****************************
 instance  Tpl_1433_GorNaVid_HEALTH_SUC (C_INFO)
@@ -86,15 +86,15 @@ instance  Tpl_1433_GorNaVid_HEALTH_SUC (C_INFO)
 	information		= Tpl_1433_GorNaVid_HEALTH_SUC_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "(Heiltrank geben)"; 
+	description		= "(Heiltrank geben)";
 };
 
 FUNC int  Tpl_1433_GorNaVid_HEALTH_SUC_Condition()
-{	
+{
 	if ( Npc_KnowsInfo (hero, Tpl_1433_GorNaVid_HEALTH )) &&
-		(Npc_HasItems (hero, Itfo_Potion_Health_01)  || 
+		(Npc_HasItems (hero, Itfo_Potion_Health_01)  ||
 		 Npc_HasItems (hero, Itfo_Potion_Health_02)  ||
-		 Npc_HasItems (hero, Itfo_Potion_Health_03))	
+		 Npc_HasItems (hero, Itfo_Potion_Health_03))
 	{
 		return 1;
 	};
@@ -105,7 +105,7 @@ FUNC void  Tpl_1433_GorNaVid_HEALTH_SUC_Info()
 	AI_Output (other, self,"Tpl_1433_GorNaVid_HEALTH_SUC_Info_15_01"); //Hier, vielleicht hilft dir das.
 	AI_Output (self, other,"Tpl_1433_GorNaVid_HEALTH_SUC_Info_13_02"); //Danke. Du kannst auf meine Stärke zählen. Wir treffen uns unten bei Ashgan.
 	AI_Output (other, self,"Tpl_1433_GorNaVid_HEALTH_SUC_Info_15_03"); //Ich werde dort sein.
-	
+
 	if Npc_HasItems (hero,Itfo_Potion_Health_01)
 	{
 		B_GiveInvItems (hero, self,Itfo_Potion_Health_01, 1);
@@ -113,20 +113,20 @@ FUNC void  Tpl_1433_GorNaVid_HEALTH_SUC_Info()
 	else if Npc_HasItems (hero,Itfo_Potion_Health_02)
 	{
 		B_GiveInvItems (hero, self,Itfo_Potion_Health_02, 1);
-	}	 
+	}
 	else if Npc_HasItems (hero,Itfo_Potion_Health_03)
 	{
 	 	B_GiveInvItems (hero, self,Itfo_Potion_Health_03, 1);
 	}
-	else 
+	else
 	{
 		PrintDebugNpc (PD_MISSION, "KEINE POTION= UNMÖGLICH");
 	};
 
-	Npc_ExchangeRoutine (self,"GATE"); 
-	Npc_SetPermAttitude	(self,ATT_FRIENDLY); 
+	Npc_ExchangeRoutine (self,"GATE");
+	Npc_SetPermAttitude	(self,ATT_FRIENDLY);
 	B_GiveXP			(XP_HireGorNaVid);
-	B_LogEntry		(CH2_MCEggs,	"Ich mußte Gor Na Vid erst einen Heiltrank geben, bevor er sich als Verstärkung bei Asghans Tor zur Verfügung stellte.");	
+	B_LogEntry		(CH2_MCEggs,	"Ich mußte Gor Na Vid erst einen Heiltrank geben, bevor er sich als Verstärkung bei Asghans Tor zur Verfügung stellte.");
 
 	AI_StopProcessInfos	(self);
 };
@@ -139,12 +139,12 @@ instance  Tpl_1433_GorNavid_VICTORY (C_INFO)
 	information		= Tpl_1433_GorNavid_VICTORY_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "Ich habe das Nest der Königin gefunden!"; 
+	description		= "Ich habe das Nest der Königin gefunden!";
 };
 
 FUNC int  Tpl_1433_GorNavid_VICTORY_Condition()
-{	
-	if Npc_HasItems (hero,ItAt_Crawlerqueen ) >= 1 
+{
+	if Npc_HasItems (hero,ItAt_Crawlerqueen ) >= 1
 	{
 		return TRUE;
 	};
@@ -155,5 +155,5 @@ FUNC void  Tpl_1433_GorNavid_VICTORY_Info()
 	AI_Output (other, self,"Tpl_1433_GorNavid_VICTORY_Info_15_01"); //Ich habe das Nest der Königin gefunden!
 	AI_Output (self, other,"Tpl_1433_GorNavid_VICTORY_Info_13_02"); //Im Namen der gesamten Bruderschaft danke ich dir dafür!
 	AI_Output (self, other,"Tpl_1433_GorNavid_VICTORY_Info_13_03"); //Möge der Schläfer auch weiterhin seine schützende Hand über dich halten!
-};     
- 
+};
+

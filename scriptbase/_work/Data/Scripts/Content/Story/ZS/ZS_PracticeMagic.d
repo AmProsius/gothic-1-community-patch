@@ -5,20 +5,20 @@
 func void ZS_PracticeMagic	()
 {
     PrintDebugNpc(PD_TA_FRAME,"ZS_PracticeMagic");
-    
+
 	B_SetPerception (self);
-	AI_SetWalkmode (self,NPC_WALK);		// Walkmode für den Zustand 
+	AI_SetWalkmode (self,NPC_WALK);		// Walkmode für den Zustand
 	if !(Hlp_StrCmp(self.wp,Npc_GetNearestWP(self)))
 	{
 		AI_GotoWP(self, self.wp);               // Gehe zum Tagesablaufstart
 	};
 	if (Wld_IsFPAvailable (self, "PRACTICEMAGIC"))
 	{
-		AI_GotoFP (self,"PRACTICEMAGIC");          
+		AI_GotoFP (self,"PRACTICEMAGIC");
 		AI_AlignToFP( self );				//Richte Dich aus
 	};
-	
-	
+
+
 	self.aivar[AIV_ITEMFREQ] = (Hlp_Random (6) + 4);
 };
 
@@ -66,7 +66,7 @@ func void ZS_PracticeMagic_Loop ()
 			Npc_SetStateTime (self,0);
 		};
 	};
-	
+
 	AI_Wait(self,1);
 	//AI_AlignToFP(self);
 };

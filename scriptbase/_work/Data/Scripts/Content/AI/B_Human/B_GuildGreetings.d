@@ -17,7 +17,7 @@ func void B_GuildGreetings ()
 		PrintDebugNpc( PD_ZS_CHECK, "B_GuilGreetings NC both");
 		B_Say (self, other, "$MAGEGREETINGS");
 	}
-	else 
+	else
 	{
 		if (Npc_GetTempAttitude (self,other) == ATT_FRIENDLY)
 		{
@@ -44,13 +44,13 @@ func void B_GuildGreetings ()
 	{
 		B_Say (self,"$MAGEGREETINGS");
 	}
-	else 
+	else
 	{
 		if (Npc_GetAttitude (self,other) == ATT_FRIENDLY)
 		{
 			B_Say (self,"$FRIENDLYGREETINGS");
 		}
-		else 
+		else
 		{
 			Print ("Keine Grüße vorhanden");
 		};

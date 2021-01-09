@@ -16,14 +16,14 @@ func void ZS_GotoFight	()
 {
 	PrintDebugNpc		(PD_ZS_FRAME, "ZS_GotoFight");
 
-	Npc_PercEnable  	(self	, PERC_ASSESSDAMAGE			,	ZS_ReactToDamage	);	
+	Npc_PercEnable  	(self	, PERC_ASSESSDAMAGE			,	ZS_ReactToDamage	);
 	Npc_PercEnable  	(self	, PERC_ASSESSMAGIC			,	B_AssessMagic		);
 	Npc_PercEnable  	(self	, PERC_ASSESSPLAYER			,	B_Stop				);
 	Npc_PercEnable  	(self	, PERC_ASSESSSURPRISE		,	ZS_AssessSurprise	);
 	Npc_PercEnable  	(self	, PERC_ASSESSENEMY			,	B_AssessEnemy		);
-	Npc_PercEnable  	(self	, PERC_ASSESSMURDER			,	ZS_AssessMurder		);	
-	Npc_PercEnable  	(self	, PERC_ASSESSDEFEAT			,	ZS_AssessDefeat		);	
-	Npc_PercEnable  	(self	, PERC_CATCHTHIEF			,	ZS_CatchThief 		);		
+	Npc_PercEnable  	(self	, PERC_ASSESSMURDER			,	ZS_AssessMurder		);
+	Npc_PercEnable  	(self	, PERC_ASSESSDEFEAT			,	ZS_AssessDefeat		);
+	Npc_PercEnable  	(self	, PERC_CATCHTHIEF			,	ZS_CatchThief 		);
 	Npc_PercEnable  	(self	, PERC_ASSESSTALK			,	B_RefuseTalk 		);
 	Npc_SetPercTime		(self, 1);
 
@@ -36,7 +36,7 @@ func void ZS_GotoFight	()
 func int ZS_GotoFight_Loop ()
 {
 	PrintDebugNpc		(PD_ZS_LOOP, "ZS_GotoFight_Loop");
-	
+
 	if (!Hlp_IsValidNpc(other) || !Hlp_IsValidNpc(victim))
 	{
 		PrintDebugNpc( PD_ZS_CHECK,"...Angreifer oder Opfer ungültig!");
@@ -52,13 +52,13 @@ func int ZS_GotoFight_Loop ()
 		PrintDebugNpc( PD_ZS_CHECK,"...Angreifer oder Opfer bewußtlos!");
 		return 1;
 	};
-	if ( 	Npc_IsInState( other , ZS_Flee )    	|| 
+	if ( 	Npc_IsInState( other , ZS_Flee )    	||
 		 	Npc_IsInState( victim, ZS_Flee )        )
 	{
 		PrintDebugNpc( PD_ZS_CHECK,"...Angreifer oder Opfer in ZS_Flee!");
 		return 1;
 	};
-	
+
 	AI_Wait				(self,	1);
 
 	return 0;
@@ -66,4 +66,4 @@ func int ZS_GotoFight_Loop ()
 
 func void ZS_GotoFight_End	()
 {
-};	
+};

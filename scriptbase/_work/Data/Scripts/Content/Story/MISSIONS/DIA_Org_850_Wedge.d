@@ -8,10 +8,10 @@ INSTANCE DIA_Wedge_Exit (C_INFO)
 	nr			= 999;
 	condition	= DIA_Wedge_Exit_Condition;
 	information	= DIA_Wedge_Exit_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC INT DIA_Wedge_Exit_Condition()
 {
@@ -38,7 +38,7 @@ instance DIA_Wedge_Psst (C_INFO)
 };
 
 FUNC int  DIA_Wedge_Psst_Condition()
-{	
+{
 	if ( (Npc_GetDistToNpc (hero,self) < 900) && (Wld_IsTime(08,00,23,30)) )
 	{
 		return TRUE;
@@ -63,11 +63,11 @@ instance  DIA_Wedge_Hello (C_INFO)
 	information		= DIA_Wedge_Hello_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "Was willst du von mir?"; 
+	description		= "Was willst du von mir?";
 };
 
 FUNC int  DIA_Wedge_Hello_Condition()
-{	
+{
 	if (Npc_KnowsInfo (hero,DIA_Wedge_Psst))
 	{
 		return TRUE;
@@ -80,7 +80,7 @@ FUNC void  DIA_Wedge_Hello_Info()
 	AI_Output (self, other,"DIA_Wedge_Hello_05_01"); //Du bist noch nicht lange hier, was? So was sehe ich direkt.
 	AI_Output (self, other,"DIA_Wedge_Hello_05_02"); //Es gibt 'ne Menge Sachen, die du hier wissen musst. Einige davon kann ich dir beibringen.
 	AI_Output (self, other,"DIA_Wedge_Hello_05_03"); //Außerdem musst du hier aufpassen, mit wem du redest. Butch zum Beispiel - der Typ da drüben am Lagerfeuer, vor dem musst du dich in Acht nehmen.
-};  
+};
 
 // ****************************************
 // 				Was ist mit Butch
@@ -93,11 +93,11 @@ instance  DIA_Wedge_WarnsOfButch (C_INFO)
 	information		= DIA_Wedge_WarnsOfButch_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "Was ist mit Butch?"; 
+	description		= "Was ist mit Butch?";
 };
 
 FUNC int  DIA_Wedge_WarnsOfButch_Condition()
-{	
+{
 	if (Npc_KnowsInfo (hero,DIA_Wedge_Hello))
 	{
 		return TRUE;
@@ -109,7 +109,7 @@ FUNC void  DIA_Wedge_WarnsOfButch_Info()
 	AI_Output (other, self,"DIA_Wedge_WarnsOfButch_15_00"); //Was ist mit Butch?
 	AI_Output (self, other,"DIA_Wedge_WarnsOfButch_05_01"); //Er hat die fiese Angewohnheit, Neuen zur Begrüßung das Fell über die Ohren zu ziehen. Also geh' ihm am besten aus dem Weg.
 	//AI_Output (self, other,"DIA_Wedge_WarnsOfButch_05_02"); //Also, geh ihm am besten aus dem Weg.//***Doppelt***
-};  
+};
 
 // ****************************************
 // 					Lehrer
@@ -122,14 +122,14 @@ INSTANCE DIA_Wedge_Lehrer (C_INFO)
 	condition		= DIA_Wedge_Lehrer_Condition;
 	information		= DIA_Wedge_Lehrer_Info;
 	permanent		= 1;
-	description		= "Was kannst du mir beibringen?"; 
+	description		= "Was kannst du mir beibringen?";
 };
 
 FUNC INT DIA_Wedge_Lehrer_Condition()
-{	
+{
 	if (Npc_KnowsInfo (hero,DIA_Wedge_Hello))
-	{	
-		return TRUE;	
+	{
+		return TRUE;
 	};
 };
 
@@ -143,27 +143,27 @@ FUNC VOID DIA_Wedge_Lehrer_Info()
 	};
 	AI_Output (other, self,"DIA_Wedge_Lehrer_15_00"); //Was kannst du mir beibringen?
 	AI_Output (self, other,"DIA_Wedge_Lehrer_05_01"); //Kommt drauf an, was willst du wissen?
-	
+
 
 	Info_ClearChoices	(DIA_Wedge_Lehrer );
 	Info_AddChoice		(DIA_Wedge_Lehrer,DIALOG_BACK																,DIA_Wedge_Lehrer_BACK);
-	if	(Npc_GetTalentSkill(hero, NPC_TALENT_PICKPOCKET) == 1) 
+	if	(Npc_GetTalentSkill(hero, NPC_TALENT_PICKPOCKET) == 1)
 	{
 		Info_AddChoice		(DIA_Wedge_Lehrer,B_BuildLearnString(NAME_LearnPickpocket_2,LPCOST_TALENT_PICKPOCKET_2,0)		,DIA_Wedge_Lehrer_Pickpocket2);
 	};
-	if	(Npc_GetTalentSkill(hero, NPC_TALENT_PICKPOCKET) == 0) 
+	if	(Npc_GetTalentSkill(hero, NPC_TALENT_PICKPOCKET) == 0)
 	{
 		Info_AddChoice		(DIA_Wedge_Lehrer,B_BuildLearnString(NAME_LearnPickpocket_1,LPCOST_TALENT_PICKPOCKET_1,0)		,DIA_Wedge_Lehrer_Pickpocket);
 	};
-	if	(Npc_GetTalentSkill(hero, NPC_TALENT_PICKLOCK) == 1) 
+	if	(Npc_GetTalentSkill(hero, NPC_TALENT_PICKLOCK) == 1)
 	{
 		Info_AddChoice	(DIA_Wedge_Lehrer,B_BuildLearnString(NAME_LearnPicklock_2,	LPCOST_TALENT_PICKLOCK_2,0)		,DIA_Wedge_Lehrer_Lockpick2);
 	};
-	if	(Npc_GetTalentSkill(hero, NPC_TALENT_PICKLOCK) == 0) 
+	if	(Npc_GetTalentSkill(hero, NPC_TALENT_PICKLOCK) == 0)
 	{
 		Info_AddChoice	(DIA_Wedge_Lehrer,B_BuildLearnString(NAME_LearnPicklock_1,	LPCOST_TALENT_PICKLOCK_1,0)		,DIA_Wedge_Lehrer_Lockpick);
 	};
-	if	(Npc_GetTalentSkill(hero, NPC_TALENT_SNEAK) == 0) 
+	if	(Npc_GetTalentSkill(hero, NPC_TALENT_SNEAK) == 0)
 	{
 		Info_AddChoice	(DIA_Wedge_Lehrer,B_BuildLearnString(NAME_LearnSneak, 		LPCOST_TALENT_SNEAK,0)			,DIA_Wedge_Lehrer_Schleichen);
 	};
@@ -183,7 +183,7 @@ func void DIA_Wedge_Lehrer_Schleichen()
 func void DIA_Wedge_Lehrer_Lockpick()
 {
 	AI_Output (other, self,"DIA_Wedge_Lehrer_Lockpick_15_00"); //Wie werde ich besser im Knacken von Schlössern?
-	
+
 	if (B_GiveSkill(other, NPC_TALENT_PICKLOCK, 1, LPCOST_TALENT_PICKLOCK_1))
 	{
 		AI_Output (self, other,"DIA_Wedge_Lehrer_Lockpick_05_01"); //Das willst du gerne wissen, hm? Ist für den Anfang nicht so schwer.
@@ -195,7 +195,7 @@ func void DIA_Wedge_Lehrer_Lockpick()
 func void DIA_Wedge_Lehrer_Lockpick2()
 {
 	AI_Output (other, self,"DIA_Wedge_Lehrer_Lockpick2_15_00"); //Wie werde ich ein Meister im Öffnen von Schlössern?
-	
+
 	if (B_GiveSkill(other, NPC_TALENT_PICKLOCK, 2, LPCOST_TALENT_PICKLOCK_2))
 	{
 		AI_Output (self, other,"DIA_Wedge_Lehrer_Lockpick2_05_01"); //Nur wer schon einige Übung hat, merkt genau, wann ihm ein Dietrich abbricht und wann nicht. Du erkennst es am Geräusch!
@@ -226,9 +226,9 @@ func void DIA_Wedge_Lehrer_Pickpocket()
 func void DIA_Wedge_Lehrer_Pickpocket2()
 {
 	AI_Output (other, self,"DIA_Wedge_Lehrer_Pickpocket2_15_00"); //Ich will ein Meister der Taschendiebe werden!
-	
+
 	if (B_GiveSkill(other, NPC_TALENT_PICKPOCKET, 2, LPCOST_TALENT_PICKPOCKET_2))
-	{		
+	{
 		AI_Output (self, other,"DIA_Wedge_Lehrer_Pickpocket2_05_01"); //Ich denke, du bist gut genug, um in die letzten Geheimnisse eingeweiht zu werden.
 		AI_Output (self, other,"DIA_Wedge_Lehrer_Pickpocket2_05_02"); //Du solltest aber wissen, dass es selbst den Besten manchmal passiert, dass sie bemerkt werden.
 		AI_Output (self, other,"DIA_Wedge_Lehrer_Pickpocket2_05_03"); //Also pass auf dich auf.

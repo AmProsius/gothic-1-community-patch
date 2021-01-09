@@ -8,10 +8,10 @@
 //#############################################################################################
 
 
-//-------- Kennungen der AI-Variablen -------- 
+//-------- Kennungen der AI-Variablen --------
 const int 	AIV_WANTEDITEM				 	= 0;
 const int 	AIV_PCISSTRONGER				= 1;
-const int 	AIV_BEENATTACKED				= 2; 
+const int 	AIV_BEENATTACKED				= 2;
 const int 	AIV_HIGHWAYMEN					= 3;
 const int	AIV_HAS_ERPRESSED				= 4; // MH: 0 = Nein, 1 = SC hat gezahlt, 2 = SC wollte sich nicht erpressen lassen, es kam zum Kampf
 const int 	AIV_BEGGAR						= 5;
@@ -43,12 +43,12 @@ const int	AIV_MISSION3					= 26;
 const int	AIV_GUARDPASSAGE_STATUS			= 27;	// Enthält den Status einer Durchgangswache
 const int		AIV_GPS_BEGIN			= 0;		// ...Anfang; SC noch nicht in der Nähe
 const int		AIV_GPS_FIRSTWARN		= 1;		// ...nach der ersten Warnung an den SC
-const int 		AIV_GPS_LASTWARN		= 2;		// ...nach der zweiten Warnung an den SC 
+const int 		AIV_GPS_LASTWARN		= 2;		// ...nach der zweiten Warnung an den SC
 const int		AIV_GPS_PUNISH			= 3;		// ...SC kam zum dritten Mal zu nahe -> Wache greift an!
 const int	AIV_LASTDISTTOWP				= 28;	// enthält die Distanz zu einem Referenzpunkt hinter der Wache, die bei der letzten Verwarnung ermittelt wurde
 const int   AIV_PASSGATE					= 29;   // für Durchgangswachen 0 = Wache hält SC auf, 1 = Wache lässt SC durch
 
-const int 	AIV_DIDWAITTOCLEARROOM			= 30;	
+const int 	AIV_DIDWAITTOCLEARROOM			= 30;
 const int	AIV_FOUNDPERSON					= 31;	// In einigen TAs wird mit Npc_PerceiveAll nach bestimmten Personen gesucht. Damit dies nicht ständig gemacht werden muß, wird hier gemerkt, ob diese Person schon gefunden wurde
 
 const int   AIV_LOCATION					= 32; // MH: für Aufenthaltsort - wichtig für Dialoge (kann LOC_OLDCAMP, LOC_NEWCAMP, etc. sein)
@@ -72,7 +72,7 @@ const int 	AIV_ITEMSCHWEIN					= 42;   //MH: NSCs, die dieses Flag auf TRUE habe
 **					NPC-Typ											*
 ********************************************************************/
 //!!!! die folgenden 3 Konstanten stehen zur Zeit (v0.93) noch in der
-//!!!! CONSTANTS.D, müssen aber im nächsten Release (v0.94) hier 
+//!!!! CONSTANTS.D, müssen aber im nächsten Release (v0.94) hier
 //!!!! aktiviert werden.
 //---------------------------------------
 const int NPCTYPE_AMBIENT		= 0;	//Amient-Nscs In Den Lagern
@@ -163,8 +163,8 @@ const int	HAI_DIST_MELEE					= 600;							// 1. Drunter wählen menschliche NSCs 
 																			// 2. Innerhalb dieser Distanz fühlen sich NSCs von gezogenen Waffen bedroht (B_AssessFighter)
 const int	HAI_DIST_RANGED					= 3000;							// 1. Innerhalb dieser Distanz fühlen sich NSCs von gezogenen Fernkampfwaffen/Kampfzaubern bedroht (B_AssessFighter)
 
-const int	HAI_DIST_ABORT_MELEE 			= HAI_DIST_MELEE+400;			// NSC bricht einen Nahkampf ab, wenn die Distanz zum Ziel diesen Wert erreicht. '+X00' fungiert als Hysterese, damit nicht ständig der Kampf beginnt und wieder endet	
-const int	HAI_DIST_ABORT_RANGED 			= HAI_DIST_RANGED+500;			// NSC bricht einen Fernkampf ab, wenn die Distanz zum Ziel diesen Wert erreicht. '+X00' fungiert als Hysterese, damit nicht ständig der Kampf beginnt und wieder endet	
+const int	HAI_DIST_ABORT_MELEE 			= HAI_DIST_MELEE+400;			// NSC bricht einen Nahkampf ab, wenn die Distanz zum Ziel diesen Wert erreicht. '+X00' fungiert als Hysterese, damit nicht ständig der Kampf beginnt und wieder endet
+const int	HAI_DIST_ABORT_RANGED 			= HAI_DIST_RANGED+500;			// NSC bricht einen Fernkampf ab, wenn die Distanz zum Ziel diesen Wert erreicht. '+X00' fungiert als Hysterese, damit nicht ständig der Kampf beginnt und wieder endet
 const int	HAI_DIST_ABORT_FLEE				= 3000;
 
 const int	HAI_DIST_ASSESSCASTER			= 2000;							// Ab dieser Entfernung reagieren NSCs auf das Zaubern eines SCs

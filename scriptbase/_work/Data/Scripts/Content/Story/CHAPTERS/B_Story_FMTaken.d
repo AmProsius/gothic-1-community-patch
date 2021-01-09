@@ -4,7 +4,7 @@
 //##							=========
 //##	Söldner, Banditen und Schürfer der Freien Mine werden
 //##	getötet und beraubt.
-//##	Drei Gardisten bewachen jetzt den Eingang zur Mine.						
+//##	Drei Gardisten bewachen jetzt den Eingang zur Mine.
 //##
 //#####################################################################
 func void B_Story_FMTaken()
@@ -45,14 +45,14 @@ func void B_Story_FMTaken()
 	B_KillNpc	(SFB_1042_Schuerfer);
 	B_KillNpc	(SFB_1043_Schuerfer);
 	B_KillNpc	(SFB_1044_Schuerfer);
-		
+
 	B_KillNpc	(ORG_890_Organisator);
 	B_KillNpc	(ORG_891_Organisator);
 	B_KillNpc	(ORG_892_Organisator);
-		
+
 	//-------- Gardisten-Eroberer einfügen --------
-	Wld_InsertNpc		(Grd_283_Gardist,	"FMC_ENTRANCE");	//FMC-Guard(Mineneingang)			
-	Wld_InsertNpc		(Grd_285_Gardist,	"FMC_ENTRANCE");	//FMC-Guard(Mineneingang)	
+	Wld_InsertNpc		(Grd_283_Gardist,	"FMC_ENTRANCE");	//FMC-Guard(Mineneingang)
+	Wld_InsertNpc		(Grd_285_Gardist,	"FMC_ENTRANCE");	//FMC-Guard(Mineneingang)
 	B_ExchangeRoutine	(Grd_201_Jackal,	"FMTaken");			//FMC-Guard(Mineneingang)
 
 	//-------- Tor zur Alten Mine im Stundentakt auf Verschluß checken! --------
@@ -93,7 +93,7 @@ func void B_Story_FMTaken()
 	};
 	B_LogEntry		(CH4_Firemages,	"Nach dem Einsturz der Alten Mine hat Gomez seinen Männern befohlen, einen Angriff auf die Freie Mine des Neuen Lagers zu unternehmen. Als sich Corristo und seine Feuermagier dem Plan wiedersetzten, wurden sie von Gomez Männern hinterrücks niedergestreckt.");
 	B_LogEntry		(CH4_Firemages,	"Ich muß so schnell wie möglich das Neue Lager warnen und Saturas über die Ereignisse aufklären. Hoffentlich komme ich nicht zu spät.");
-	
+
 	if (Scorpio_Exile == FALSE)
 	{
 		Log_CreateTopic (GE_TraderOW,LOG_NOTE);

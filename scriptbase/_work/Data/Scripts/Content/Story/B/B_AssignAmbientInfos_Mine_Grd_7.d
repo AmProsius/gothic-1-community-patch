@@ -15,7 +15,7 @@ INSTANCE Info_Mine_Grd_7_EXIT(C_INFO)
 	information	= Info_Mine_Grd_7_EXIT_Info;
 	permanent	= 1;
 	description = "ENDE";
-};                       
+};
 
 FUNC INT Info_Mine_Grd_7_EXIT_Condition()
 {
@@ -23,7 +23,7 @@ FUNC INT Info_Mine_Grd_7_EXIT_Condition()
 };
 
 FUNC VOID Info_Mine_Grd_7_EXIT_Info()
-{	
+{
 	AI_StopProcessInfos	(self);
 };
 
@@ -38,7 +38,7 @@ INSTANCE Info_Mine_Grd_7_Mine (C_INFO) // E1
 	information	= Info_Mine_Grd_7_Mine_Info;
 	permanent	= 1;
 	description = "Erzähl mir von der Mine";
-};                       
+};
 
 FUNC INT Info_Mine_Grd_7_Mine_Condition()
 {
@@ -52,7 +52,7 @@ FUNC VOID Info_Mine_Grd_7_Mine_Info()
 {
 	AI_Output(other,self,"Info_Mine_Grd_7_Mine_15_00"); //Erzähl mir von der Mine
 	AI_Output(self,other,"Info_Mine_Grd_7_Mine_07_01"); //Die Buddler schürfen das Erz und wir beschützen sie vor den Crawlern.
-	
+
 };
 
 // *************************************************************************
@@ -66,7 +66,7 @@ INSTANCE Info_Mine_Grd_7_WichtigePersonen(C_INFO)
 	information	= Info_Mine_Grd_7_WichtigePersonen_Info;
 	permanent	= 1;
 	description = "Wer hat hier das Sagen?";
-};                       
+};
 
 FUNC INT Info_Mine_Grd_7_WichtigePersonen_Condition()
 {
@@ -80,7 +80,7 @@ FUNC VOID Info_Mine_Grd_7_WichtigePersonen_Info()
 {
 	AI_Output(other,self,"Info_Mine_Grd_7_WichtigePersonen_15_00"); //Wer hat hier das Sagen?
 	AI_Output(self,other,"Info_Mine_Grd_7_WichtigePersonen_07_01"); //Ian und Asghan. Wende dich an sie, wenn du was willst.
-	
+
 };
 
 // *************************************************************************
@@ -94,7 +94,7 @@ INSTANCE Info_Mine_Grd_7_Minecrawler(C_INFO)
 	information	= Info_Mine_Grd_7_Minecrawler_Info;
 	permanent	= 1;
 	description = "Weißt Du was über die Crawler?";
-};                       
+};
 
 FUNC INT Info_Mine_Grd_7_Minecrawler_Condition()
 {
@@ -108,8 +108,8 @@ FUNC VOID Info_Mine_Grd_7_Minecrawler_Info()
 {
 	AI_Output(other,self,"Info_Mine_Grd_7_Minecrawler_15_00"); //Weißt du was über die Crawler?
 	AI_Output(self,other,"Info_Mine_Grd_7_Minecrawler_07_01"); //Die ganze Brut sollte man ausrotten!
-	
-	
+
+
 };
 // *************************************************************************
 // 									Die Lage
@@ -122,7 +122,7 @@ INSTANCE Info_Mine_Grd_7_DieLage(C_INFO) // E1
 	information	= Info_Mine_Grd_7_DieLage_Info;
 	permanent	= 1;
 	description = "Wie steht's?";
-};                       
+};
 
 FUNC INT Info_Mine_Grd_7_DieLage_Condition()
 {
@@ -137,14 +137,14 @@ FUNC VOID Info_Mine_Grd_7_DieLage_Info()
 	AI_Output(other,self,"Info_Mine_Grd_7_DieLage_15_00"); //Wie steht's?
 	AI_Output(self,other,"Info_Mine_Grd_7_DieLage_07_01"); //Mann, geh mir nicht auf den Sack!
 };
-	
+
 // *************************************************************************
 // -------------------------------------------------------------------------
 
 FUNC VOID B_AssignAmbientInfos_Mine_grd_7(var c_NPC slf)
 {
-	
-	
+
+
 	Info_Mine_Grd_7_EXIT.npc					= Hlp_GetInstanceID(slf);
 	Info_Mine_Grd_7_Mine.npc	= Hlp_GetInstanceID(slf);
 	Info_Mine_Grd_7_WichtigePersonen.npc		= Hlp_GetInstanceID(slf);

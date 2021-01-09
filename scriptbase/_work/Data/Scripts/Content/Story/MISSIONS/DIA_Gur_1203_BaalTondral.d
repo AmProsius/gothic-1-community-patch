@@ -1,5 +1,5 @@
 // **************************************************
-// 					Pre - EXIT 
+// 					Pre - EXIT
 // **************************************************
 
 INSTANCE DIA_BaalTondral_MuteExit (C_INFO)
@@ -10,12 +10,12 @@ INSTANCE DIA_BaalTondral_MuteExit (C_INFO)
 	information	= DIA_BaalTondral_MuteExit_Info;
 	permanent	= 0;
 	description = "Nichts sagen";
-};                       
+};
 
 FUNC INT DIA_BaalTondral_MuteExit_Condition()
 {
 	if (!Npc_KnowsInfo (hero,DIA_BaalTondral_YouTalked))
-	{ 
+	{
 		return 1;
 	};
 };
@@ -26,7 +26,7 @@ FUNC VOID DIA_BaalTondral_MuteExit_Info()
 };
 
 // **************************************************
-// 						 EXIT 
+// 						 EXIT
 // **************************************************
 
 INSTANCE DIA_BaalTondral_Exit (C_INFO)
@@ -37,12 +37,12 @@ INSTANCE DIA_BaalTondral_Exit (C_INFO)
 	information	= DIA_BaalTondral_Exit_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC INT DIA_BaalTondral_Exit_Condition()
 {
 	if ( Npc_KnowsInfo(hero,DIA_BaalTondral_MuteExit) || Npc_KnowsInfo(hero,DIA_BaalTondral_YouTalked) )
-	{ 
+	{
 		return 1;
 	};
 };
@@ -64,7 +64,7 @@ INSTANCE DIA_BaalTondral_FanaticTeacher (C_INFO)
 	information	= DIA_BaalTondral_FanaticTeacher_Info;
 	permanent	= 0;
 	important	= 1;
-};                       
+};
 
 FUNC INT DIA_BaalTondral_FanaticTeacher_Condition()
 {
@@ -96,7 +96,7 @@ INSTANCE DIA_BaalTondral_YouTalked (C_INFO)
 	information	= DIA_BaalTondral_YouTalked_Info;
 	permanent	= 0;
 	description = "Hey! Du hast mich angesprochen. Heißt das, ich kann jetzt mit dir reden?";
-};                       
+};
 
 FUNC INT DIA_BaalTondral_YouTalked_Condition()
 {
@@ -125,7 +125,7 @@ INSTANCE DIA_BaalTondral_Loyality (C_INFO)
 	information	= DIA_BaalTondral_Loyality_Info;
 	permanent	= 0;
 	description = "Wie kann ich dir meine Loyalität beweisen?";
-};                       
+};
 
 FUNC INT DIA_BaalTondral_Loyality_Condition()
 {
@@ -160,7 +160,7 @@ INSTANCE DIA_BaalTondral_NewMember (C_INFO)
 	information	= DIA_BaalTondral_NewMember_Info;
 	permanent	= 1;
 	description = "Wo kann ich neue Leute für die Bruderschaft anwerben?";
-};                       
+};
 
 FUNC INT DIA_BaalTondral_NewMember_Condition()
 {
@@ -189,7 +189,7 @@ INSTANCE DIA_BaalTondral_NewMember2 (C_INFO)
 	information	= DIA_BaalTondral_NewMember2_Info;
 	permanent	= 0;
 	description = "Wieso braucht ihr so dringend neue Leute?";
-};                       
+};
 
 FUNC INT DIA_BaalTondral_NewMember2_Condition()
 {
@@ -220,7 +220,7 @@ INSTANCE DIA_BaalTondral_DustySuccess (C_INFO)
 	information	= DIA_BaalTondral_DustySuccess_Info;
 	permanent	= 0;
 	description = "Ich habe hier jemanden, der dich kennen lernen möchte, Meister!";
-};                       
+};
 
 FUNC INT DIA_BaalTondral_DustySuccess_Condition()
 {
@@ -234,12 +234,12 @@ FUNC INT DIA_BaalTondral_DustySuccess_Condition()
 FUNC VOID DIA_BaalTondral_DustySuccess_Info()
 {
 	var C_NPC dusty; dusty = Hlp_GetNpc(Vlk_524_Dusty);
-	
+
 	AI_Output			(other, self,"DIA_BaalTondral_DustySuccess_15_00"); //Ich habe hier jemanden, der dich kennen lernen möchte, Meister!
 	AI_Output			(self, other,"DIA_BaalTondral_DustySuccess_13_01"); //Wen bringst du zu mir? Ist er würdig?
 	AI_Output			(other, self,"DIA_BaalTondral_DustySuccess_15_02"); //Er bedarf sicherlich noch eurer geistigen Führung, Meister.
 	AI_Output			(self, other,"DIA_BaalTondral_DustySuccess_13_03"); //Gut. Von heute an soll er zu meinen Schülern zählen.
-	//------------------------------------------------------------------	
+	//------------------------------------------------------------------
 	AI_TurnToNpc		(self, dusty);
 	AI_TurnToNpc		(dusty,other);
 	AI_Output			(self, NULL,"DIA_BaalTondral_DustySuccess_13_04"); //Von heute an wirst du dich täglich vor meiner Hütte einfinden und meinen Worten lauschen. Deine Seele ist noch zu retten.
@@ -254,7 +254,7 @@ FUNC VOID DIA_BaalTondral_DustySuccess_Info()
 	dusty.guild = GIL_NOV;
 	Npc_SetTrueGuild	(dusty, GIL_NOV);
 	B_ExchangeRoutine	(Vlk_524_Dusty,"PREPARERITUAL");
-	
+
 	BaalTondral_GetNewGuy = LOG_SUCCESS;
 	B_LogEntry			(CH1_RecruitDusty,	"Dusty ist jetzt ein Schüler von Baal Tondral. Damit ist meine Aufgabe erledigt.");
 	Log_SetTopicStatus	(CH1_RecruitDusty,	LOG_SUCCESS);
@@ -273,7 +273,7 @@ INSTANCE DIA_BaalTondral_SendToKalom (C_INFO)
 	information	= DIA_BaalTondral_SendToKalom_Info;
 	permanent	= 0;
 	description = "Meister! Ich will in die Bruderschaft aufgenommen werden.";
-};                       
+};
 
 FUNC INT DIA_BaalTondral_SendToKalom_Condition()
 {

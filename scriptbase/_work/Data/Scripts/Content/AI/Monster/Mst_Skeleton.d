@@ -2,16 +2,16 @@
 **	Skeleton Prototype													**
 *************************************************************************/
 
-PROTOTYPE Mst_Default_Skeleton(C_Npc)			
+PROTOTYPE Mst_Default_Skeleton(C_Npc)
 {
 	name							=	"Skelett";
 	guild							=	GIL_SKELETON;
 	//REAL ID IN INSTANZEN!
 	level							=	25;
-//----------------------------------------------------------	
+//----------------------------------------------------------
 	attribute	[ATR_STRENGTH]		=	80;
 	attribute	[ATR_DEXTERITY]		=	30;
-	
+
 	attribute	[ATR_HITPOINTS_MAX]	=	300;
 	attribute	[ATR_HITPOINTS]		=	300;
 
@@ -23,7 +23,7 @@ PROTOTYPE Mst_Default_Skeleton(C_Npc)
 	protection	[PROT_POINT]		=	100; //SN:besonders resistent gegen Pfeile
 	protection	[PROT_FIRE]			=	35;
 	protection	[PROT_FLY]			=	0;
-	protection	[PROT_MAGIC]		=	35;		
+	protection	[PROT_MAGIC]		=	35;
 //----------------------------------------------------------
 	damagetype 						=	DAM_EDGE;
 //	damage		[DAM_INDEX_BLUNT]	=	0;
@@ -39,7 +39,7 @@ PROTOTYPE Mst_Default_Skeleton(C_Npc)
 	senses_range				= 3000;
 
 	aivar[AIV_MM_Behaviour]		= PACKHUNTER;
-	
+
 	aivar[AIV_MM_PercRange]		= 2000;
 	aivar[AIV_MM_DrohRange]		= 1500;
 	aivar[AIV_MM_AttackRange]	= 1500;
@@ -116,7 +116,7 @@ INSTANCE SkeletonSH			(Mst_Default_Skeleton)
 	senses_range				= 1000;
 
 	aivar[AIV_MM_Behaviour]		= PACKHUNTER;
-	
+
 	aivar[AIV_MM_PercRange]		= 1000;
 	aivar[AIV_MM_DrohRange]		= 1000;
 	aivar[AIV_MM_AttackRange]	= 1000;
@@ -170,13 +170,13 @@ INSTANCE SkeletonMage		(Mst_Default_Skeleton)
 	name					=	"Skelett Magier";
 	guild					=	GIL_DEMON;	// "fliegende" Gilde nötig, damit es nicht Watet/Schwimmt/... !
 	level					=	50;
-	
+
 	protection	[PROT_BLUNT]		=	50;
 	protection	[PROT_EDGE]			=	80;
 	protection	[PROT_POINT]		=	50;
 	protection	[PROT_FIRE]			=	50;
 	protection	[PROT_FLY]			=	0;
-	protection	[PROT_MAGIC]		=	50;		
+	protection	[PROT_MAGIC]		=	50;
 
 
 	fight_tactic =			FAI_HUMAN_MAGE;
@@ -198,13 +198,13 @@ INSTANCE SkeletonMage_fogtower		(Mst_Default_Skeleton)
 	name					=	"Skelett Magier des Nebelturms";
 	guild					=	GIL_DEMON;	// "fliegende" Gilde nötig, damit es nicht Watet/Schwimmt/... !
 	level					=	50;
-	
+
 	protection	[PROT_BLUNT]		=	50;
 	protection	[PROT_EDGE]			=	80;
 	protection	[PROT_POINT]		=	50;
 	protection	[PROT_FIRE]			=	50;
 	protection	[PROT_FLY]			=	0;
-	protection	[PROT_MAGIC]		=	50;		
+	protection	[PROT_MAGIC]		=	50;
 
 
 	fight_tactic =			FAI_HUMAN_MAGE;

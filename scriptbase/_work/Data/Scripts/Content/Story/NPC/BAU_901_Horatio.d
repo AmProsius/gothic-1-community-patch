@@ -1,10 +1,10 @@
 instance BAU_901_Horatio (Npc_Default)
 {
 	//-------- primary data --------
-	
+
 	name 		=	"Horatio";
 	npctype	 	=	npctype_main;
-	guild 		=	GIL_BAU;      
+	guild 		=	GIL_BAU;
 	level 		=	8;
 	voice 		= 	9;
 	id 			=	901;
@@ -22,24 +22,24 @@ instance BAU_901_Horatio (Npc_Default)
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	//			body mesh	,bdytex,skin,head mesh,	1headtex,teethtex,ruestung
 	Mdl_SetVisualBody (self,"hum_body_Naked0",2,1,"Hum_Head_Fighter", 99,  2,-1);
-	
+
 	B_Scale (self);
 	Mdl_SetModelFatness(self,0);
-	
-	fight_tactic	=	FAI_HUMAN_COWARD;
-		
-	//-------- Talente --------                                    
-	
-		Npc_SetTalentSkill	(self,NPC_TALENT_1H,1);		
-	
-	//-------- inventory --------                                    
 
-		
+	fight_tactic	=	FAI_HUMAN_COWARD;
+
+	//-------- Talente --------
+
+		Npc_SetTalentSkill	(self,NPC_TALENT_1H,1);
+
+	//-------- inventory --------
+
+
 		CreateInvItems (self, ItFoRice,5);
 		CreateInvItem (self, ItMi_Stuff_Plate_01);
 		CreateInvItem (self, ItFoBooze);
-		EquipItem (self, ItMw_1H_Scythe_01); 		
-	
+		EquipItem (self, ItMw_1H_Scythe_01);
+
 	//-------------Daily Routine-------------
 
 	daily_routine = Rtn_start_901;

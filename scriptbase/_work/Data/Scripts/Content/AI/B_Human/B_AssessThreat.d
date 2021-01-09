@@ -13,7 +13,7 @@
 //////////////////////////////////////////////////////////////////////////
 func void B_AssessThreat ()
 {
-	PrintDebugNpc				(PD_ZS_FRAME,	"B_AssessThreat");		
+	PrintDebugNpc				(PD_ZS_FRAME,	"B_AssessThreat");
 
 	if (Npc_CanSeeNpc(self, other))
 	{

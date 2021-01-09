@@ -1,5 +1,5 @@
 // **************************************************
-// 						 EXIT 
+// 						 EXIT
 // **************************************************
 
 INSTANCE DIA_Grd_215_Torwache_Exit (C_INFO)
@@ -10,7 +10,7 @@ INSTANCE DIA_Grd_215_Torwache_Exit (C_INFO)
 	information	= DIA_Grd_215_Torwache_Exit_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC INT DIA_Grd_215_Torwache_Exit_Condition()
 {
@@ -37,7 +37,7 @@ INSTANCE DIA_Grd_215_Torwache_First (C_INFO)
 };
 
 FUNC INT DIA_Grd_215_Torwache_First_Condition()
-{	
+{
 	if	(!Npc_KnowsInfo(hero,DIA_Grd_216_First))  //Wenn der SC nicht durchs Hintertor rein ist.
 	&&	(Kapitel < 2)
 	{
@@ -50,7 +50,7 @@ FUNC VOID DIA_Grd_215_Torwache_First_Info()
 	AI_Output (self, other,"DIA_Grd_215_Torwache_First_06_00"); //Wo soll's denn hingehen?
 	AI_Output (other, self,"DIA_Grd_215_Torwache_First_15_01"); //Ich will ins Lager.
 	AI_Output (self, other,"DIA_Grd_215_Torwache_First_06_02"); //Du bist doch nicht hergekommen, um Ärger zu machen, oder?
-	
+
 	Info_ClearChoices	(DIA_Grd_215_Torwache_First );
 	Info_AddChoice		(DIA_Grd_215_Torwache_First,"Klar, ich hatte mir vorgenommen, das ganze Lager auseinanderzunehmen!"		,DIA_Grd_215_Torwache_First_Trouble);
 	Info_AddChoice		(DIA_Grd_215_Torwache_First,"Ich will mich nur ein bißchen umsehen."		,DIA_Grd_215_Torwache_First_JustLooking);
@@ -65,17 +65,17 @@ func void DIA_Grd_215_Torwache_First_Trouble()
 	AI_Output (other, self,"DIA_Grd_215_Torwache_First_Trouble_15_00"); //Klar, ich hatte mir vorgenommen, das ganze Lager auseinander zu nehmen!
 	AI_Output (self, other,"DIA_Grd_215_Torwache_First_Trouble_06_01"); //Ein witziger Kerl ... Ich mag keine witzigen Kerle.
 	Info_ClearChoices	(DIA_Grd_215_Torwache_First );
-	
+
 	AI_StopProcessInfos	( self );
 	Npc_SetTarget(self, other);
-	AI_StartState(self, ZS_Attack, 1, "");	
+	AI_StartState(self, ZS_Attack, 1, "");
 };
 
 func void DIA_Grd_215_Torwache_First_JustLooking()
 {
 	AI_Output (other, self,"DIA_Grd_215_Torwache_First_JustLooking_15_00"); //Ich will mich nur ein bisschen umsehen.
 	AI_Output (self, other,"DIA_Grd_215_Torwache_First_JustLooking_06_01"); //Umsehen kostet 10 Erz.
-	
+
 	Info_ClearChoices	(DIA_Grd_215_Torwache_First );
 	Info_AddChoice		(DIA_Grd_215_Torwache_First,"Vergiß es."					,DIA_Grd_215_Torwache_First_NoPay);
 	Info_AddChoice		(DIA_Grd_215_Torwache_First,"Gut, hier sind deine 10 Erz."	,DIA_Grd_215_Torwache_First_Pay);
@@ -107,9 +107,9 @@ func void DIA_Grd_215_Torwache_First_Pay()
 	{
 		AI_Output (other, self,"DIA_Grd_215_Torwache_First_Pay_NoOre_15_00"); //So viel hab' ich nicht.
 		AI_Output (self, other,"DIA_Grd_215_Torwache_First_Pay_NoOre_06_01"); //Diesmal mach' ich noch 'ne Ausnahme - weil du neu bist .
-		
+
 	};
-		
+
 	Info_ClearChoices	(DIA_Grd_215_Torwache_First );
 	AI_StopProcessInfos	( self );
 };
@@ -126,7 +126,7 @@ INSTANCE DIA_Grd_215_Torwache_PERM (C_INFO)
 	information	= DIA_Grd_215_Torwache_PERM_Info;
 	permanent	= 1;
 	description = "Irgendwas Neues passiert?";
-};                       
+};
 
 FUNC INT DIA_Grd_215_Torwache_PERM_Condition()
 {

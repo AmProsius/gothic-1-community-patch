@@ -38,7 +38,7 @@
 	{
 	self.protection [PROT_FIRE] 		-=  3;
 	};
-	
+
 /******************************************************************************************/
 	INSTANCE Schutzring_Feuer2(C_Item)
 {
@@ -120,7 +120,7 @@
 	{
 	self.protection [PROT_POINT] 		-=  5;
 	};
-	
+
 /******************************************************************************************/
 	INSTANCE Schutzring_Geschosse2(C_Item)
 {
@@ -161,7 +161,7 @@
 	{
 	self.protection [PROT_POINT] 		-=  10;
 	};
-	
+
 /******************************************************************************************/
 	INSTANCE Schutzring_Waffen1(C_Item)
 {
@@ -204,7 +204,7 @@
 	self.protection [PROT_EDGE] 		-=  5;
 	self.protection [PROT_BLUNT]		-=  5;
 	};
-	
+
 /******************************************************************************************/
 	INSTANCE Schutzring_Waffen2(C_Item)
 {
@@ -247,7 +247,7 @@
 	self.protection [PROT_EDGE] 		-=  10;
 	self.protection [PROT_BLUNT]		-=  10;
 	};
-	
+
 /******************************************************************************************/
 	INSTANCE Schutzring_Magie1(C_ITEM)
 {
@@ -289,7 +289,7 @@
 	{
 	self.protection [PROT_MAGIC] 		-=  1;
 	};
-	
+
 /******************************************************************************************/
 	INSTANCE Schutzring_Magie2(C_ITEM)
 {
@@ -332,7 +332,7 @@
 	self.protection [PROT_EDGE] 		-=  3;
 	self.protection [PROT_BLUNT]		-=  3;
 	};
-	
+
 /******************************************************************************************/
 	INSTANCE Schutzring_Magie1_Fire1(C_ITEM)
 {
@@ -375,7 +375,7 @@
 	self.protection [PROT_MAGIC] 		-=  1;
 	self.protection [PROT_FIRE]		-=  3;
 	};
-	
+
 /******************************************************************************************/
 	INSTANCE Schutzring_Magie2_Fire2(C_ITEM)
 {
@@ -418,7 +418,7 @@
 	self.protection [PROT_MAGIC] 	-=  3;
 	self.protection [PROT_FIRE]		-=  5;
 	};
-	
+
 /******************************************************************************************/
 	INSTANCE Schutzring_Geschosse1_Waffen1(C_ITEM)
 {
@@ -463,7 +463,7 @@
 	self.protection [PROT_BLUNT]		-=  5;
 	self.protection [PROT_POINT]		-=  5;
 	};
-	
+
 /******************************************************************************************/
 	INSTANCE Schutzring_Geschosse2_Waffen2(C_ITEM)
 {
@@ -508,7 +508,7 @@
 	self.protection [PROT_BLUNT]		-=  10;
 	self.protection [PROT_POINT]		-=  10;
 	};
-	
+
 /******************************************************************************************/
 	INSTANCE Schutzring_Total1(C_ITEM)
 {
@@ -557,7 +557,7 @@
  	self.protection [PROT_FIRE]      -=   3;
 	self.protection [PROT_MAGIC]     -=   1;
 	};
-	
+
 /******************************************************************************************/
 	INSTANCE Schutzring_Total2(C_ITEM)
 {
@@ -606,7 +606,7 @@
  	self.protection [PROT_FIRE]     -=   5;
 	self.protection [PROT_MAGIC]    -=   3;
 	};
-	
+
 /******************************************************************************************/
 		INSTANCE Ring_des_Geschicks(C_Item)
 {
@@ -648,7 +648,7 @@
 	{
 		Npc_ChangeAttribute(self,ATR_DEXTERITY,-5 );
 	};
-	
+
 /******************************************************************************************/
 	INSTANCE Ring_des_Geschicks2(C_Item)
 {
@@ -724,7 +724,7 @@
 
 	FUNC VOID Equip_Ring_des_Lebens()
 	{
-		self.attribute[ATR_HITPOINTS_MAX] = self.attribute[ATR_HITPOINTS_MAX] + 10; 
+		self.attribute[ATR_HITPOINTS_MAX] = self.attribute[ATR_HITPOINTS_MAX] + 10;
 		self.attribute[ATR_HITPOINTS] = self.attribute[ATR_HITPOINTS] + 10;
 	};
 
@@ -740,7 +740,7 @@
 			self.attribute[ATR_HITPOINTS] = 2;
 		};
 	};
-	
+
 /******************************************************************************************/
 	INSTANCE Ring_des_Lebens2(C_Item)
 {
@@ -773,14 +773,14 @@
 
 	FUNC VOID Equip_Ring_des_Lebens2()
 	{
-		self.attribute[ATR_HITPOINTS_MAX] = self.attribute[ATR_HITPOINTS_MAX] + 20; 
+		self.attribute[ATR_HITPOINTS_MAX] = self.attribute[ATR_HITPOINTS_MAX] + 20;
 		self.attribute[ATR_HITPOINTS] = self.attribute[ATR_HITPOINTS] + 20;
 	};
 
 	FUNC VOID UnEquip_Ring_des_Lebens2()
 	{
-		self.attribute[ATR_HITPOINTS_MAX] = self.attribute[ATR_HITPOINTS_MAX] - 20; 
-		
+		self.attribute[ATR_HITPOINTS_MAX] = self.attribute[ATR_HITPOINTS_MAX] - 20;
+
 		if self.attribute [ATR_HITPOINTS]> 21
 		{
 			self.attribute[ATR_HITPOINTS] = self.attribute[ATR_HITPOINTS] - 20;
@@ -790,7 +790,7 @@
 			self.attribute[ATR_HITPOINTS] = 2;
 		};
 	};
-	
+
 /******************************************************************************************/
 	INSTANCE Staerkering(C_Item)
 {
@@ -831,7 +831,7 @@
 	{
 		Npc_ChangeAttribute(self,ATR_STRENGTH,-5 );
 	};
-	
+
 /******************************************************************************************/
 	INSTANCE Staerkering2(C_Item)
 {
@@ -917,7 +917,7 @@
 		self.attribute[ATR_MANA] = self.attribute[ATR_MANA] - 10;
 		self.attribute[ATR_MANA_MAX] = self.attribute[ATR_MANA_MAX] - 10;
 	};
-	
+
 /******************************************************************************************/
 		INSTANCE Ring_der_Erleuchtung(C_Item)
 {
@@ -951,12 +951,12 @@
 
 	FUNC VOID Equip_Ring_der_Erleuchtung()
 	{
-		
+
 		self.attribute[ATR_MANA] = self.attribute[ATR_MANA] + 15;
 		self.attribute[ATR_MANA_MAX] = self.attribute[ATR_MANA_MAX] + 15;
 		self.attribute[ATR_HITPOINTS] = self.attribute[ATR_HITPOINTS] + 15;
 		self.attribute[ATR_HITPOINTS_MAX] = self.attribute[ATR_HITPOINTS_MAX] + 15;
-		
+
 	};
 
 
@@ -965,7 +965,7 @@
 		self.attribute[ATR_MANA] = self.attribute[ATR_MANA] - 15;
 		self.attribute[ATR_MANA_MAX] = self.attribute[ATR_MANA_MAX] - 15;
 		self.attribute[ATR_HITPOINTS_MAX] = self.attribute[ATR_HITPOINTS_MAX] - 15;
-		
+
 		if (self.attribute [ATR_HITPOINTS] > 16)
 		{
 			self.attribute[ATR_HITPOINTS] = self.attribute[ATR_HITPOINTS] - 15;
@@ -975,7 +975,7 @@
 			self.attribute [ATR_HITPOINTS] = 2;
 		};
 	};
-	
+
 /******************************************************************************************/
 	INSTANCE Machtring(C_Item)
 {
@@ -1018,4 +1018,3 @@
 		Npc_ChangeAttribute(self,ATR_STRENGTH,- 4);
 		Npc_ChangeAttribute(self,ATR_DEXTERITY, -4);
 	};
-		

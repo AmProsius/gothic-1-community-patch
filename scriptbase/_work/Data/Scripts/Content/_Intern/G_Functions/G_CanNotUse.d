@@ -1,4 +1,4 @@
-/************************************************************************* 
+/*************************************************************************
  * 							 G_CanNotUse
  *************************************************************************
  * PRCONDITIONS: self 	:	The NPC that cannot equipt the item
@@ -9,9 +9,9 @@ func void G_CanNotUse( var int bIsPlayer, var int nAttribute, var int nValue )
 	//
 	//	DETERMINE ATTIBUTE
 	//
-	var int		nAttributeValue	;	
+	var int		nAttributeValue	;
 	var string  strAttribute 	;
-	
+
 	if 		( nAttribute == ATR_HITPOINTS		 )	{	strAttribute = _STR_ATTRIBUTE_HITPOINTS			; nAttributeValue = self.attribute[ ATR_HITPOINTS		 ]; }
 	else if ( nAttribute == ATR_HITPOINTS_MAX	 )	{	strAttribute = _STR_ATTRIBUTE_HITPOINTS_MAX		; nAttributeValue = self.attribute[ ATR_HITPOINTS_MAX	 ]; }
 	else if ( nAttribute == ATR_MANA			 )	{	strAttribute = _STR_ATTRIBUTE_MANA				; nAttributeValue = self.attribute[ ATR_MANA			 ]; }
@@ -23,13 +23,13 @@ func void G_CanNotUse( var int bIsPlayer, var int nAttribute, var int nValue )
 	//
 	//	COMPOSE MESSAGE
 	//
-	var int		nDifference	 ;	
-	var string  strDifference;  
+	var int		nDifference	 ;
+	var string  strDifference;
 	var string	strMessage	 ;
 
 	nDifference 	= nValue - 	nAttributeValue;
 	strDifference 	= IntToString( nDifference );
-	
+
 	if 	( bIsPlayer )
 	{
 		strMessage = _STR_CANNOTUSE_PRE_PLAYER;
@@ -41,7 +41,7 @@ func void G_CanNotUse( var int bIsPlayer, var int nAttribute, var int nValue )
 		strMessage = ConcatStrings( strMessage, IntToString(self.id)	);
 		strMessage = ConcatStrings( strMessage, _STR_CANNOTUSE_POST_NPC	);
 	};
-	
+
 	strMessage = ConcatStrings( strMessage, strDifference 			);
 	strMessage = ConcatStrings( strMessage, " " 					);
 	strMessage = ConcatStrings( strMessage, strAttribute 			);

@@ -1,10 +1,10 @@
 instance KDF_400_Rodriguez (Npc_Default)
 {
 	//-------- primary data --------
-	
+
 	name 		=	"Rodriguez";
 	npctype		=	npctype_main;
-	guild 		=	GIL_KDF;      
+	guild 		=	GIL_KDF;
 	level 		=	25;
 	voice 		=	12;
 	id 			=	400;
@@ -21,26 +21,26 @@ instance KDF_400_Rodriguez (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Mage.mds");
-	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
+	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin
 	Mdl_SetVisualBody (self,"hum_body_Naked0",0, 0,"Hum_Head_Pony", 6, 1, KDF_ARMOR_L);
 
     B_Scale (self);
 	Mdl_SetModelFatness (self, 0);
-    	
+
     	self.aivar[AIV_IMPORTANT] = TRUE;
-	
+
 	fight_tactic	=	FAI_HUMAN_MAGE;
-	
-	//-------- Talente --------                                    
+
+	//-------- Talente --------
 	Npc_SetTalentSkill		( self, NPC_TALENT_MAGE,		6);
 
 
-	//-------- Spells--------                                    
+	//-------- Spells--------
 	CreateInvItem(self,ItArRuneFirebolt);
-	CreateInvItem	(self,ItMi_Stuff_OldCoin_02);	
-	
-	
-	//-------- inventory --------                                    
+	CreateInvItem	(self,ItMi_Stuff_OldCoin_02);
+
+
+	//-------- inventory --------
 	/*
 	CreateInvItem (self, ItFoMutton);
 	CreateInvItems(self, ItFoHealingPotion, 2);

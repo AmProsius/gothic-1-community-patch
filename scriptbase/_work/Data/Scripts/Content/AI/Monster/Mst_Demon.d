@@ -2,16 +2,16 @@
 **	Demon Prototype														**
 *************************************************************************/
 
-PROTOTYPE Mst_Default_Demon(C_Npc)			
+PROTOTYPE Mst_Default_Demon(C_Npc)
 {
 	name							=	"Flammendämon";
 	guild							=	GIL_DEMON;
 	aivar[AIV_MM_REAL_ID]			= 	ID_DEMON;
 	level							=	50;
-//--------------------------------------------------------	
+//--------------------------------------------------------
 	attribute	[ATR_STRENGTH]		=	75;
 	attribute	[ATR_DEXTERITY]		=	75;
-	
+
 	attribute	[ATR_HITPOINTS_MAX]	=	300;
 	attribute	[ATR_HITPOINTS]		=	300;
 
@@ -34,20 +34,20 @@ PROTOTYPE Mst_Default_Demon(C_Npc)
 //	damage		[DAM_INDEX_MAGIC]	=	0;
 //--------------------------------------------------------
 	fight_tactic					=	FAI_DEMON;
-	
+
 //--------------------------------------------------------
 	senses							=	SENSE_HEAR | SENSE_SEE | SENSE_SMELL;
 	senses_range					=	3000;
 
 	aivar[AIV_MM_Behaviour]			=	PASSIVE;
-	
+
 	aivar[AIV_MM_PercRange]			=	2800;
 	aivar[AIV_MM_DrohRange]			=	2500;
 	aivar[AIV_MM_AttackRange]		=	2000;
 	aivar[AIV_MM_DrohTime]			=	3;
 	aivar[AIV_MM_FollowTime]		=	10;
 	aivar[AIV_MM_FollowInWater] 	=	TRUE;
-	
+
 //-------------------------------------------------------------
 	start_aistate					=	ZS_MM_AllScheduler;
 
@@ -127,10 +127,10 @@ INSTANCE OTDemon (Mst_Default_Demon)
 	name							=	"niederer Dämon";
 	guild							=	GIL_DEMON;
 	level							=	60;
-//--------------------------------------------------------	
+//--------------------------------------------------------
 	attribute	[ATR_STRENGTH]		=	130;
 	attribute	[ATR_DEXTERITY]		=	130;
-	
+
 	attribute	[ATR_HITPOINTS_MAX]	=	250;
 	attribute	[ATR_HITPOINTS]		=	250;
 

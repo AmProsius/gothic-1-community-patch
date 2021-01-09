@@ -1,5 +1,5 @@
 // **************************************
-//					EXIT 
+//					EXIT
 // **************************************
 
 instance DIA_Gomez_Exit (C_INFO)
@@ -10,7 +10,7 @@ instance DIA_Gomez_Exit (C_INFO)
 	information	= DIA_Gomez_Exit_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC int DIA_Gomez_Exit_Condition()
 {
@@ -34,7 +34,7 @@ instance DIA_Gomez_Fault (C_INFO)
 	information	= DIA_Gomez_Fault_Info;
 	permanent	= 0;
 	description	= "Ich bin gekommen, um dir meine Dienste anzubieten.";
-};                       
+};
 
 FUNC int DIA_Gomez_Fault_Condition()
 {
@@ -48,7 +48,7 @@ FUNC VOID DIA_Gomez_Fault_Info()
 {
 	AI_Output (other, self,"DIA_Gomez_Fault_15_00"); //Ich bin gekommen, um dir meine Dienste anzubieten.
 	AI_Output (self, other,"DIA_Gomez_Fault_11_01"); //Du platzt hier einfach rein und erwartest, dass ich mich mit dir befasse, du Wurm? WACHE!
-	
+
 	AI_StopProcessInfos	(self);
 	Npc_SetPermAttitude	(self, ATT_HOSTILE);
 	Npc_SetTarget (self,other);
@@ -60,7 +60,7 @@ FUNC VOID DIA_Gomez_Fault_Info()
 // **************************************
 	var int gomez_kontakte;
 // **************************************
-	
+
 
 instance DIA_Gomez_Hello (C_INFO)
 {
@@ -70,7 +70,7 @@ instance DIA_Gomez_Hello (C_INFO)
 	information	= DIA_Gomez_Hello_Info;
 	permanent	= 1;
 	description	= "Ich bin gekommen, um dir meine Dienste anzubieten.";
-};                       
+};
 
 FUNC int DIA_Gomez_Hello_Condition()
 {
@@ -84,13 +84,13 @@ FUNC VOID DIA_Gomez_Hello_Info()
 {
 	AI_Output (other, self,"DIA_Gomez_Hello_15_00"); //Ich bin gekommen, um dir meine Dienste anzubieten.
 	AI_Output (self, other,"DIA_Gomez_Hello_11_01"); //Warum denkst du, dass wir an deinen Diensten interessiert sind?
-	
-	Info_ClearChoices	(DIA_Gomez_Hello);																			
+
+	Info_ClearChoices	(DIA_Gomez_Hello);
 	Info_AddChoice		(DIA_Gomez_Hello,"Ich hoffe ich muss dir nicht erst den Kopf abhacken, um mich zu beweisen." ,DIA_Gomez_Hello_KopfAb);
 	Info_AddChoice		(DIA_Gomez_Hello,"Weil hier nur Schwachköpfe rumrennen."									,DIA_Gomez_Hello_Spinner);
 	Info_AddChoice		(DIA_Gomez_Hello,"Ich bin viel rumgekommen und habe gute Kontakte in allen Lagern."			,DIA_Gomez_Hello_Kontakte);
 	Info_AddChoice		(DIA_Gomez_Hello,"Ich habe die Prüfung des Vertrauens bestanden."							,DIA_Gomez_Hello_ThorusSays);
-	
+
 };
 
 func void DIA_Gomez_Hello_ThorusSays()
@@ -111,7 +111,7 @@ func void DIA_Gomez_Hello_Kontakte()
 	//Info_AddChoice		(DIA_Gomez_Hello,"Zu Lee."	,DIA_Gomez_Hello_Kontakte_Lee);
 	Info_AddChoice		(DIA_Gomez_Hello,"Zu einigen Baals aus dem Lager der Bruderschaft."	,DIA_Gomez_Hello_Kontakte_Baals);
 	Info_AddChoice		(DIA_Gomez_Hello,"Zu Cor Kalom."	,DIA_Gomez_Hello_Kontakte_Kalom);
-	
+
 	if (gomez_kontakte < 3)
 	{
 	Info_AddChoice		(DIA_Gomez_Hello,"Zu Y'Berion."	,DIA_Gomez_Hello_Kontakte_YBerion);
@@ -128,7 +128,7 @@ func void DIA_Gomez_Hello_KopfAb()
 {
 	AI_Output (other, self,"DIA_Gomez_Hello_KopfAb_15_00"); //Ich hoffe ich muss dir nicht erst den Kopf abhacken, um dir zu beweisen, dass ich mit einer Waffe umgehen kann
 	AI_Output (self, other,"DIA_Gomez_Hello_KopfAb_11_01"); //Mut und Dummheit liegen dicht beieinander ...
-	
+
 	AI_StopProcessInfos	(self);
 	Npc_SetPermAttitude	(self, ATT_HOSTILE);
 	Npc_SetTarget		(self,other);
@@ -195,7 +195,7 @@ func void DIA_Gomez_Hello_Kontakte_NLHehler()
 func void DIA_Gomez_Hello_Kontakte_ThatsAll()
 {
 	AI_Output (other, self,"DIA_Gomez_Hello_Kontakte_ThatsAll_15_00"); //Das waren alle wichtigen.
-	if (gomez_kontakte >= 4)	
+	if (gomez_kontakte >= 4)
 	{
 		AI_Output (self, other,"DIA_Gomez_Hello_Kontakte_ThatsAll_11_01"); //Beachtlich - für einen Neuling wie dich ...
 		AI_Output (self, other,"DIA_Gomez_Hello_Kontakte_ThatsAll_11_02"); //Du sollst deine Chance kriegen.
@@ -220,7 +220,7 @@ instance DIA_Gomez_Dabei (C_INFO)
 	information	= DIA_Gomez_Dabei_Info;
 	permanent	= 0;
 	description	= "Heißt das, ich bin dabei?";
-};                       
+};
 
 FUNC int DIA_Gomez_Dabei_Condition()
 {
@@ -236,7 +236,7 @@ FUNC VOID DIA_Gomez_Dabei_Info()
 	AI_Output (other, self,"DIA_Gomez_Dabei_15_00"); //Heißt das, ich bin dabei?
 	AI_Output (self, other,"DIA_Gomez_Dabei_11_01"); //Genau das heißt es. Du bist jetzt einer von uns, Kleiner.
 	AI_Output (self, other,"DIA_Gomez_Dabei_11_02"); //Alles Weitere wird dir Raven erzählen.
-	
+
 	Npc_SetTrueGuild (hero,GIL_STT );
 	hero.guild = GIL_STT;
 	B_GiveXP (XP_BecomeShadow);
@@ -247,11 +247,11 @@ FUNC VOID DIA_Gomez_Dabei_Info()
 	Log_CreateTopic		(CH1_JoinNC,	LOG_MISSION);
 	Log_SetTopicStatus	(CH1_JoinNC,	LOG_FAILED);
 	B_LogEntry			(CH1_JoinNC,	"Als einer von Gomez' Leuten ist eine Aufnahme in Lares' Bande unmöglich geworden!");
-	
+
 	Log_CreateTopic		(CH1_JoinPsi,	LOG_MISSION);
 	Log_SetTopicStatus	(CH1_JoinPsi,	LOG_FAILED);
 	B_LogEntry			(CH1_JoinPsi,	"Von nun an ist das Alte Lager mein neues Zuhause. Die Bruderschaft des Schläfers wird ohne mich auskommen müssen.");
-	
+
 	AI_StopProcessInfos	(self);
 };
 
@@ -267,7 +267,7 @@ instance DIA_Gomez_NurSo (C_INFO)
 	information	= DIA_Gomez_NurSo_Info;
 	permanent	= 1;
 	description	= "Ich wollte mal einen Zwischenbericht abgeben.";
-};                       
+};
 
 FUNC int DIA_Gomez_NurSo_Condition()
 {
@@ -305,7 +305,7 @@ instance  DIA_EBR_100_Gomez_Wait4SC (C_INFO)
 };
 
 FUNC int  DIA_EBR_100_Gomez_Wait4SC_Condition()
-{	
+{
 	if	ExploreSunkenTower
 	{
 		return TRUE;
@@ -318,9 +318,9 @@ FUNC void  DIA_EBR_100_Gomez_Wait4SC_Info()
 	AI_Output (other, self,"DIA_EBR_100_Gomez_Wait4SC_15_03"); //Deine Leute hatten kein Recht, dort einzufallen. Ich habe diesen Anflug von Größenwahnsinn nur wieder korrigiert!
 	AI_Output (self, other,"DIA_EBR_100_Gomez_Wait4SC_11_04"); //Du hast Mut, so mit mir - GOMEZ - zu sprechen, aber es war ziemlich dumm von dir, hier einfach aufzutauchen.
 	AI_Output (self, other,"DIA_EBR_100_Gomez_Wait4SC_11_05"); //Ich werde persönlich sicherstellen, dass du mir nie wieder in die Suppe spucken wirst.
-	
+
 	AI_StopProcessInfos	( self );
 
 	self.guild 	= GIL_EBR;
-	Npc_SetTrueGuild	( self, GIL_EBR );	
+	Npc_SetTrueGuild	( self, GIL_EBR );
 };

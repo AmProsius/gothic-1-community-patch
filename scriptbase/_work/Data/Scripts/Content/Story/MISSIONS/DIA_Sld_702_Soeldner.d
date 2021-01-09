@@ -10,7 +10,7 @@ instance DIA_Sld_702_EXIT (C_INFO)
 	information	= DIA_Sld_702_EXIT_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC int DIA_Sld_702_EXIT_Condition()
 {
@@ -34,7 +34,7 @@ instance DIA_Sld_702_First (C_INFO)
 	information	= DIA_Sld_702_First_Info;
 	permanent	= 0;
 	important	= 1;
-};                       
+};
 
 FUNC int DIA_Sld_702_First_Condition()
 {
@@ -63,7 +63,7 @@ instance DIA_Sld_702_PERM (C_INFO)
 	information	= DIA_Sld_702_PERM_Info;
 	permanent	= 1;
 	description = "Was muss ich machen, damit du mich zu Lee l‰ﬂt?";
-};                       
+};
 
 FUNC int DIA_Sld_702_PERM_Condition()
 {

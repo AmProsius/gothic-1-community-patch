@@ -1,5 +1,5 @@
 //***********************************************
-//					EXIT	
+//					EXIT
 //***********************************************
 
 instance  DIA_Torrez_Exit (C_INFO)
@@ -10,7 +10,7 @@ instance  DIA_Torrez_Exit (C_INFO)
 	information	=  DIA_Torrez_Exit_Info;
 	permanent	=  1;
 	description =  DIALOG_ENDE;
-};                       
+};
 
 FUNC int  DIA_Torrez_Exit_Condition()
 {
@@ -27,7 +27,7 @@ FUNC VOID  DIA_Torrez_Exit_Info()
 };
 
 //***********************************************
-//					Hallo	
+//					Hallo
 //***********************************************
 
 instance  DIA_Torrez_Hello (C_INFO)
@@ -38,7 +38,7 @@ instance  DIA_Torrez_Hello (C_INFO)
 	information	=  DIA_Torrez_Hello_Info;
 	permanent	=  0;
 	description =  "Ich suche den obersten Feuermagier!";
-};                       
+};
 
 FUNC int  DIA_Torrez_Hello_Condition()
 {
@@ -49,12 +49,12 @@ FUNC VOID  DIA_Torrez_Hello_Info()
 {
 	AI_Output (other, self,"DIA_Torrez_Hello_15_00"); //Ich suche den obersten Feuermagier!
 	AI_Output (self, other,"DIA_Torrez_Hello_04_01"); //Sprich mit Milten! Und nun geh!
-	
+
 	AI_StopProcessInfos	( self );
 };
 
 //***********************************************
-//					Belohnung WÄHLEN	
+//					Belohnung WÄHLEN
 //***********************************************
 
 instance  DIA_Torrez_Belohnung (C_INFO)
@@ -65,7 +65,7 @@ instance  DIA_Torrez_Belohnung (C_INFO)
 	information	=  DIA_Torrez_Belohnung_Info;
 	permanent	=  0;
 	description =  "Ich habe einen Brief übergeben und soll meine Belohnung selber wählen.";
-};                       
+};
 
 FUNC int  DIA_Torrez_Belohnung_Condition()
 {
@@ -79,7 +79,7 @@ FUNC VOID  DIA_Torrez_Belohnung_Info()
 {
 	AI_Output (other, self,"DIA_Torrez_Belohnung_15_00"); //Corristo schickt mich. Ich habe den Brief übergeben und soll meine Belohnung selber wählen.
 	AI_Output (self, other,"DIA_Torrez_Belohnung_04_01"); //Du hast uns einen großen Dienst erwiesen und sollst deine Belohnung erhalten. Wähle mit Bedacht.
-	
+
 	Info_ClearChoices	(DIA_Torrez_Belohnung);
 	Info_AddChoice		(DIA_Torrez_Belohnung,"Essenz des Geistes (Maximales Mana +5)" 	,DIA_Torrez_Belohnung_ManaMax);
 	Info_AddChoice		(DIA_Torrez_Belohnung,"3 Spruchrollen (Feuerball, Blitz und Verwandeln in Scavenger)"	,DIA_Torrez_Belohnung_Scrolls);
@@ -138,7 +138,7 @@ instance  DIA_Torrez_BriefTausch (C_INFO)
 	information	=  DIA_Torrez_BriefTausch_Info;
 	permanent	=  0;
 	description =  "Ich habe einen Brief für euch! Aber ich will erst meine Belohnung sehen!";
-};                       
+};
 
 FUNC int  DIA_Torrez_BriefTausch_Condition()
 {
@@ -155,8 +155,8 @@ FUNC VOID  DIA_Torrez_BriefTausch_Info()
 	AI_Output (other, self,"DIA_Torrez_BriefTausch_15_02"); //Hab ich bereits.
 	AI_Output (self, other,"DIA_Torrez_BriefTausch_04_03"); //Verstehe. Ich habe deine Belohnung bei mir - zeig mir den Brief. Jetzt!
 	AI_Output (other, self,"DIA_Torrez_BriefTausch_15_04"); //Hier ist er.
-		
-	if (Npc_HasItems(other,ItWr_Fire_Letter_01)>=1) 
+
+	if (Npc_HasItems(other,ItWr_Fire_Letter_01)>=1)
 	{
 		AI_Output (self, other,"DIA_Torrez_BriefTausch_04_05"); //Deine Belohnung ist ein Ring der Stärke. Es ist ein seltenes Artefakt und wird dir sicherlich sehr nützlich sein.
 		AI_Output (self, other,"DIA_Torrez_BriefTausch_04_06"); //Und nun geh!
@@ -166,7 +166,7 @@ FUNC VOID  DIA_Torrez_BriefTausch_Info()
 		B_GiveInvItems(self,other, Staerkering, 1);
 		B_GiveXP(XP_XardasLetter);
 	}
-	else if (Npc_HasItems(other,ItWr_Fire_Letter_02)>=1) 
+	else if (Npc_HasItems(other,ItWr_Fire_Letter_02)>=1)
 	{
 		AI_Output (self, other,"DIA_Torrez_BriefTausch_04_07"); //Das Siegel ist gebrochen.
 		AI_Output (other, self,"DIA_Torrez_BriefTausch_15_08"); //Unfälle passieren eben.
@@ -178,9 +178,9 @@ FUNC VOID  DIA_Torrez_BriefTausch_Info()
 		B_GiveXP(XP_XardasLetterOPEN);
 	};
 	var C_NPC corristo; corristo = Hlp_GetNpc(KdF_402_Corristo);
-	
+
 	CreateInvItems(corristo, ItWr_Fire_Letter_02, 1);
-	
+
 	AI_StopProcessInfos	( self );
 };
 
@@ -196,7 +196,7 @@ instance  DIA_Torrez_PERM (C_INFO)
 	information	=  DIA_Torrez_PERM_Info;
 	permanent	=  1;
 	description =  "Was machen die magischen Künste?";
-};                       
+};
 
 FUNC int  DIA_Torrez_PERM_Condition()
 {
@@ -226,7 +226,7 @@ FUNC VOID  DIA_Torrez_PERM_Info()
 ///////////////////////////////////////////
 
 //---------------------------------------------------------
-//					WÄHREND DER AUFNAHME	
+//					WÄHREND DER AUFNAHME
 //---------------------------------------------------------
 instance KDF_405_Torrez_BOOK (C_INFO)
 {
@@ -238,7 +238,7 @@ instance KDF_405_Torrez_BOOK (C_INFO)
 };
 
 FUNC int  KDF_405_Torrez_BOOK_Condition()
-{	
+{
 	if    (Npc_KnowsInfo (hero,KDF_402_Corristo_ROBE))
 	&&    (Npc_KnowsInfo (hero,KDF_403_Drago_RUNE))
 	{
@@ -247,7 +247,7 @@ FUNC int  KDF_405_Torrez_BOOK_Condition()
 };
 func void  KDF_405_Torrez_BOOK_Info()
 {
-	
+
 	AI_Output (self, other,"KDF_405_Torrez_BOOK_Info_04_01"); //Für jeden der Kreise gibt es ein Buch, in welchem die Zauber des Kreises erklärt werden. Studiere sie genau, denn Wissen bedeutet Macht.
 	AI_Output (self, other,"KDF_405_Torrez_BOOK_Info_04_02"); //Nimm das Buch des ersten Kreises und lerne das Feuer zu verstehen.
 	CreateInvItem (self,ItWr_Book_Circle_01);
@@ -264,24 +264,24 @@ instance  KDF_405_Torrez_SELLBOOKS (C_INFO)
 	information		= KDF_405_Torrez_SELLBOOKS_Info;
 	important		= 0;
 	permanent		= 1;
-	description		= "Ich möchte Schriften über Magie erwerben"; 
+	description		= "Ich möchte Schriften über Magie erwerben";
 	trade 			= 1;
 };
 
 FUNC int  KDF_405_Torrez_SELLBOOKS_Condition()
-	{	
+	{
 		if (Npc_KnowsInfo (hero,KDF_405_Torrez_GREET))
 		{
 			return TRUE;
 		};
-	
+
 	};
 FUNC void  KDF_405_Torrez_SELLBOOKS_Info()
 {
 	AI_Output (other, self,"KDF_405_Torrez_SELLBOOKS_Info_15_01"); //Ich möchte Schriften über Magie erwerben.
-};  
+};
 /*------------------------------------------------------------------------
-						BEGRÜSSUNG						
+						BEGRÜSSUNG
 ------------------------------------------------------------------------*/
 
 instance  KDF_405_Torrez_GREET (C_INFO)
@@ -291,7 +291,7 @@ instance  KDF_405_Torrez_GREET (C_INFO)
 	information		= KDF_405_Torrez_GREET_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "Ich grüße dich, Magier"; 
+	description		= "Ich grüße dich, Magier";
 };
 
 FUNC int  KDF_405_Torrez_GREET_Condition()
@@ -304,14 +304,14 @@ FUNC void  KDF_405_Torrez_GREET_Info()
 {
 	AI_Output (other, self,"KDF_405_Torrez_GREET_Info_15_01"); //Ich grüße dich, Magier.
 	AI_Output (self, other,"KDF_405_Torrez_GREET_Info_04_02"); //Innos wache über dich! Ich handele mit magischem Wissen und kann dir zeigen, wie du deine magische Energie steigerst!
-	
+
 	Log_CreateTopic (GE_TraderOC,LOG_NOTE);
 	B_LogEntry		(GE_TraderOC,"Torrez verkauft SPRUCHROLLEN und RUNEN. Er hält sich tagsüber im Burghof auf.");
 
 	Log_CreateTopic (GE_TeacherOC,LOG_NOTE);
 	B_LogEntry		(GE_TeacherOC,"Torrez kann mir zeigen, wie ich meine MANA steigern kann. Er hält sich tagsüber im Burghof auf.");
 };
-// 
+//
 instance  KDF_405_Torrez_MANA (C_INFO)
 {
 	npc				= KDF_405_Torrez;
@@ -319,11 +319,11 @@ instance  KDF_405_Torrez_MANA (C_INFO)
 	information		= KDF_405_Torrez_MANA_Info;
 	important		= 0;
 	permanent		= 1;
-	description		= "Ich benötige mehr magische Kraft"; 
+	description		= "Ich benötige mehr magische Kraft";
 };
 
 FUNC int  KDF_405_Torrez_MANA_Condition()
-{	
+{
 	if (Npc_KnowsInfo (hero,KDF_405_Torrez_GREET))
 	{
 		return TRUE;
@@ -334,12 +334,12 @@ FUNC void  KDF_405_Torrez_MANA_Info()
 {
 	AI_Output (other, self,"KDF_405_Torrez_MANA_Info_15_01"); //Ich benötige mehr magische Kraft.
 	AI_Output (self, other,"KDF_405_Torrez_MANA_Info_04_02"); //Ich kann dir helfen, deine Kraft zu steigern. Wie du sie nutzt, liegt nur an dir.
-	
+
 	Info_ClearChoices	(KDF_405_Torrez_MANA);
 	Info_AddChoice		(KDF_405_Torrez_MANA,DIALOG_BACK							,KDF_405_Torrez_MANA_BACK);
 	Info_AddChoice		(KDF_405_Torrez_MANA,"Mana um 5 steigern (Kosten 5 LP)"		,KDF_405_Torrez_MANA_MAN_5);
 	Info_AddChoice		(KDF_405_Torrez_MANA,"Mana um 1 steigern (Kosten 1 LP)"		,KDF_405_Torrez_MANA_MAN_1);
-};  
+};
 func void KDF_405_Torrez_MANA_BACK()
 {
 	Info_ClearChoices	(KDF_405_Torrez_MANA);
@@ -365,7 +365,7 @@ func void KDF_405_Torrez_MANA_MAN_5()
 
 };
 /*------------------------------------------------------------------------
-							Magier Werden?									
+							Magier Werden?
 ------------------------------------------------------------------------*/
 
 instance  KDF_405_Torrez_WANNABEMAGE (C_INFO)
@@ -375,11 +375,11 @@ instance  KDF_405_Torrez_WANNABEMAGE (C_INFO)
 	information		= KDF_405_Torrez_WANNABEMAGE_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "Was muss ich tun, um Magier zu werden?"; 
+	description		= "Was muss ich tun, um Magier zu werden?";
 };
 
 FUNC int  KDF_405_Torrez_WANNABEMAGE_Condition()
-{	
+{
 	if (Npc_KnowsInfo (hero, KDF_405_Torrez_GREET))
 	&& (Npc_GetTrueGuild (hero) != GIL_KDF)
 	&& (!Npc_KnowsInfo (hero, KDF_402_Corristo_WANNBEKDF))
@@ -392,4 +392,4 @@ FUNC void  KDF_405_Torrez_WANNABEMAGE_Info()
 {
 	AI_Output (other, self,"KDF_405_Torrez_WANNABEMAGE_Info_15_01"); //Was muss ich tun, um Magier zu werden?
 	AI_Output (self, other,"KDF_405_Torrez_WANNABEMAGE_Info_04_02"); //Sprich mit Meister Corristo, wenn er Zeit für dich hat.
-};  
+};

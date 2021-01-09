@@ -1,12 +1,12 @@
 instance Org_831_Organisator (Npc_Default)
 {
 	//-------- primary data --------
-	
+
 	name =					Name_Organisator;
 	Npctype =				NPCTYPE_AMBIENT;
-	guild =							GIL_ORG;       
+	guild =							GIL_ORG;
 	level =							4;
-	
+
 	voice =					6;
 	id =					831;
 
@@ -25,25 +25,25 @@ instance Org_831_Organisator (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 //	Mdl_ApplyOverlayMds	(self,"Humans_Relaxed.mds");
-	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
+	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin
 	Mdl_SetVisualBody (self,"hum_body_Naked0",0, 2,"Hum_Head_FatBald", 10, 1, ORG_ARMOR_L);
-	
+
 	B_Scale (self);
 	Mdl_SetModelFatness (self, 0);
-	
-	fight_tactic	=	FAI_HUMAN_STRONG; 
-		
+
+	fight_tactic	=	FAI_HUMAN_STRONG;
+
 	//-------- Talente --------
-	
+
 	Npc_SetTalentSkill (self, NPC_TALENT_BOW,1);
-	Npc_SetTalentSkill (self, NPC_TALENT_1H,1);	
-	
-	Npc_SetTalentSkill (self, NPC_TALENT_SNEAK,	1);	
-	
-	//-------- inventory --------                                    
+	Npc_SetTalentSkill (self, NPC_TALENT_1H,1);
+
+	Npc_SetTalentSkill (self, NPC_TALENT_SNEAK,	1);
+
+	//-------- inventory --------
 
 	EquipItem (self, ItMw_1H_Mace_01);
-	CreateInvItems (self, ItKeLockpick,2);		
+	CreateInvItems (self, ItKeLockpick,2);
 	CreateInvItems(self, ItMiNugget, 11);
 	CreateInvItems (self, ItFoRice,7);
 	CreateInvItems (self, ItFoBooze, 1);

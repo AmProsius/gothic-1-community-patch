@@ -1,10 +1,10 @@
 instance BAU_914_Bauer (Npc_Default)
 {
 	//-------- primary data --------
-	
+
 	name 		=	name_Bauer;
 	npctype		=	npctype_ambient;
-	guild 		=	GIL_BAU;      
+	guild 		=	GIL_BAU;
 	level 		=	2;
 	voice 		=	9;
 	id 			=	914;
@@ -23,20 +23,20 @@ instance BAU_914_Bauer (Npc_Default)
 	Mdl_ApplyOverlayMds	(self,"Humans_Tired.mds");
 	//		         body mesh,	body tex, skin,    headmms,            head tex, teeth, ruestung
 	Mdl_SetVisualBody (self,"hum_body_Naked0",3,2,"Hum_Head_Bald", 1,  1, -1);
-	
-	B_Scale (self); 
+
+	B_Scale (self);
 	Mdl_SetModelFatness(self,0);
-	
+
 	fight_tactic	=	FAI_HUMAN_COWARD;
 
-	//-------- Talente --------                                    
-	
-		
-	//-------- inventory --------                                    
+	//-------- Talente --------
+
+
+	//-------- inventory --------
 
 	CreateInvItems (self, ItFoRice,6);
 	EquipItem (self, ItMw_1H_Scythe_01);
-	
+
 	//-------------Daily Routine-------------
 	daily_routine = Rtn_start_914;
 };

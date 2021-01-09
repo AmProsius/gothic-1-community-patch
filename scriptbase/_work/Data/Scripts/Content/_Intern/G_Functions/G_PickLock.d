@@ -1,4 +1,4 @@
-/************************************************************************* 
+/*************************************************************************
  * 							 G_PickLock
  *************************************************************************
  * PRCONDITIONS: 	self	: Player
@@ -8,10 +8,10 @@ func void G_PickLock( var int bSuccess, var int bBrokenOpen  )
 	var string	strSoundFX;
 	var string	strMessage;
 	var int		strYPos;
-	
+
 	strSoundFX = _STR_INVALID;
 	strMessage = _STR_INVALID;
-	
+
 	if ( bSuccess)
 	{
 		if ( bBrokenOpen )
@@ -42,14 +42,14 @@ func void G_PickLock( var int bSuccess, var int bBrokenOpen  )
 			strYPos		= _YPOS_MESSAGE_PICKLOCK_FAILURE;
 		};
 	};
-	
+
 	//
 	//	PLAY APPROPRIATE SOUND
 	//
 	Snd_Play3d( self, strSoundFX );
-	
+
 	//
 	//	PRINT THE MESSAGE
 	//
-	PrintScreen	(strMessage, -1, strYPos, _STR_FONT_ONSCREEN, _TIME_MESSAGE_PICKLOCK );		
+	PrintScreen	(strMessage, -1, strYPos, _STR_FONT_ONSCREEN, _TIME_MESSAGE_PICKLOCK );
 };

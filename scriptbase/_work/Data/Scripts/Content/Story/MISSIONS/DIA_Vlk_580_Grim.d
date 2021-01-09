@@ -1,5 +1,5 @@
 // **************************************************
-// 						 EXIT 
+// 						 EXIT
 // **************************************************
 
 INSTANCE DIA_Grim_Exit (C_INFO)
@@ -10,7 +10,7 @@ INSTANCE DIA_Grim_Exit (C_INFO)
 	information	= DIA_Grim_Exit_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC INT DIA_Grim_Exit_Condition()
 {
@@ -37,7 +37,7 @@ INSTANCE DIA_Grim_Falle (C_INFO)
 };
 
 FUNC INT DIA_Grim_Falle_Condition()
-{	
+{
 	if	(Grim_ProtectionBully == TRUE)
 	&&	(Npc_GetTrueGuild(hero) == GIL_NONE)
 	{
@@ -53,7 +53,7 @@ FUNC VOID DIA_Grim_Falle_Info()
 	AI_Output (other, self,"DIA_Grim_Falle_15_03"); //Und wie?
 	AI_Output (self, other,"DIA_Grim_Falle_06_04"); //Draußen vorm Lager sitzen zwei Typen rum, von denen einer die Erzbarone bestohlen hat. Es ist ein wertvolles Amulett, das mit dem letzten Konvoi gekommen sein sollte.
 	AI_Output (self, other,"DIA_Grim_Falle_06_05"); //Einer von ihnen müsste das Amulett noch haben. Wenn wir beide auf sie draufgehen, schaffen wir sie - alleine kann ich's nicht machen. Was sagst du?
-		
+
 	Info_ClearChoices	(DIA_Grim_Falle );
 	Info_AddChoice		(DIA_Grim_Falle,"Kein Interesse - such dir einen anderen."	,DIA_Grim_Falle_Deny);
 	Info_AddChoice		(DIA_Grim_Falle,"Was passiert, wenn wir das Amulett haben?"	,DIA_Grim_Falle_HowShare);
@@ -71,7 +71,7 @@ func void DIA_Grim_Falle_HowShare()
 {
 	AI_Output (other, self,"DIA_Grim_Falle_HowShare_15_00"); //Was passiert, wenn wir das Amulett haben?
 	AI_Output (self, other,"DIA_Grim_Falle_HowShare_06_01"); //Ganz einfach! Ich geb's zurück und kassier die Belohnung - dabei sag' ich, dass du mir geholfen hast. Damit hast du bei Gomez 'nen Stein in Brett.
-	
+
 	Info_ClearChoices	(DIA_Grim_Falle );
 	Info_AddChoice		(DIA_Grim_Falle,"Kein Interesse - such dir einen anderen."	,DIA_Grim_Falle_Deny);
 	Info_AddChoice		(DIA_Grim_Falle,"Wir machen Halbe-Halbe! Oder du kannst dich alleine mit den Typen anlegen!"	,DIA_Grim_Falle_HalfHalf);
@@ -106,7 +106,7 @@ INSTANCE DIA_Grim_ReadyToGo (C_INFO)
 };
 
 FUNC INT DIA_Grim_ReadyToGo_Condition()
-{	
+{
 	if (Npc_KnowsInfo(hero,DIA_Grim_Falle))
 	{
 		return 1;
@@ -117,11 +117,11 @@ FUNC VOID DIA_Grim_ReadyToGo_Info()
 {
 	AI_Output (other, self,"DIA_Grim_ReadyToGo_15_00"); //Ich bin bereit, mit dir zu gehen - lass uns das Amulett holen!
 	AI_Output (self, other,"DIA_Grim_ReadyToGo_06_01"); //Gut! Dann wollen wir mal ...
-	
+
 	AI_StopProcessInfos	(self);
-	
+
 	Npc_ExchangeRoutine(self,"GUIDE");
-};	
+};
 
 // **************************************************
 //				OC DRAUSSEN ANGEKOMMEN
@@ -135,11 +135,11 @@ instance  DIA_Grim_AtOCdraussen(C_INFO)
 	information	= DIA_Grim_AtOCdraussen_Info;
 	permanent	= 0;
 	important 	= 1;
-};                       
+};
 
 FUNC int  DIA_Grim_AtOCdraussen_Condition()
 {
-	if 	( Npc_KnowsInfo(hero,DIA_Grim_ReadyToGo)) && (Npc_GetDistToWp (hero,"OC_ROUND_22_CF_2_MOVEMENT") < 500 ) 
+	if 	( Npc_KnowsInfo(hero,DIA_Grim_ReadyToGo)) && (Npc_GetDistToWp (hero,"OC_ROUND_22_CF_2_MOVEMENT") < 500 )
 	{
 		return 1;
 	};
@@ -158,20 +158,20 @@ FUNC VOID  DIA_Grim_AtOCdraussen_Info()
 	};
 
 	AI_StopProcessInfos	(self);
-		
+
 	Npc_ExchangeRoutine(self,"START");
 	Npc_SetTarget(self,other);
 	AI_StartState(self,ZS_ATTACK,1,"");
-	
+
 	var C_NPC Bu520; Bu520 = Hlp_GetNpc(Vlk_520_Buddler);
 	var C_NPC Bu534; Bu534 = Hlp_GetNpc(Vlk_534_Buddler);
-	
+
 	if ( (Npc_GetDistToNpc(self,Bu520)<1000) && (!Npc_IsDead(Bu520)) )
 	{
 		Npc_SetTarget(Bu520,other);
 		AI_StartState(Bu520,ZS_ATTACK,1,"");
 	};
-	
+
 	if ( (Npc_GetDistToNpc(self,Bu534)<1000) && (!Npc_IsDead(Bu534)) )
 	{
 		Npc_SetTarget(Bu534,other);
@@ -194,7 +194,7 @@ INSTANCE DIA_Grim_NACHFalle (C_INFO)
 };
 
 FUNC INT DIA_Grim_NACHFalle_Condition()
-{	
+{
 	if ( (Npc_KnowsInfo(hero,DIA_Grim_AtOCdraussen)) && (Npc_GetDistToNpc(self,other)<ZivilAnquatschDist) )
 	{
 		return 1;
@@ -208,7 +208,7 @@ FUNC VOID DIA_Grim_NACHFalle_Info()
 	AI_Output (self, other,"DIA_Grim_NACHFalle_06_03"); //Also werd' ich tun, was mir die Gardisten sagen, dann werde ich hier bald aufgenommen.
 	AI_Output (self, other,"DIA_Grim_NACHFalle_06_04"); //Dass ich ausgerechnet DIR aufs Maul hauen sollte, hast du dir im Grunde selber zuzuschreiben. Warum legst du dich auch mit den Gardisten an.
 	AI_Output (self, other,"DIA_Grim_NACHFalle_06_05"); //Persönlich hab' ich nichts gegen dich. Also was ist - Frieden oder weiterprügeln?
-	
+
 	Info_ClearChoices	(DIA_Grim_NACHFalle );
 	Info_AddChoice		(DIA_Grim_NACHFalle,"Weiterprügeln."	,DIA_Grim_NACHFalle_Weiterpruegeln);
 	Info_AddChoice		(DIA_Grim_NACHFalle,"Frieden."			,DIA_Grim_NACHFalle_Frieden);
@@ -239,7 +239,7 @@ func void DIA_Grim_NACHFalle_Frieden()
 // **************************************************
 // 				Hallo
 // **************************************************
-	var int FirstOver;				
+	var int FirstOver;
 // **************************************************
 
 INSTANCE DIA_Grim_Hallo (C_INFO)
@@ -253,12 +253,12 @@ INSTANCE DIA_Grim_Hallo (C_INFO)
 };
 
 FUNC INT DIA_Grim_Hallo_Condition()
-{	
+{
 	if (Grim_ProtectionBully==TRUE)
 	{
 		FirstOver = TRUE;
 	};
-	
+
 	if (FirstOver == FALSE)
 	{
 		return 1;
@@ -286,7 +286,7 @@ INSTANCE DIA_Grim_Leben (C_INFO)
 };
 
 FUNC INT DIA_Grim_Leben_Condition()
-{	
+{
 	return 1;
 };
 
@@ -311,7 +311,7 @@ INSTANCE DIA_Grim_Aufnahme (C_INFO)
 };
 
 FUNC INT DIA_Grim_Aufnahme_Condition()
-{	
+{
 	return 1;
 };
 
@@ -341,7 +341,7 @@ INSTANCE DIA_Grim_HowFarAreYou (C_INFO)
 };
 
 FUNC INT DIA_Grim_HowFarAreYou_Condition()
-{	
+{
 	if (Npc_KnowsInfo(hero,DIA_Grim_Aufnahme) && Npc_KnowsInfo(hero,Info_Diego_Rules))
 	{
 		return 1;
@@ -352,7 +352,7 @@ FUNC VOID DIA_Grim_HowFarAreYou_Info()
 {
 	AI_Output (other, self,"DIA_Grim_HowFarAreYou_15_00"); //Und - wie weit bist du mit deinen Prüfungen?
 	AI_Output (self, other,"DIA_Grim_HowFarAreYou_06_01"); //Ich hab' schon mit Dexter, Sly und Fingers geredet. Das sind einige der einflussreichsten Schatten hier im Lager.
-	
+
 	if	!Grim_Tests
 	{
 		B_LogEntry( CH1_JoinOC, "Einflussreiche Schatten sind Dexter, Sly und Fingers");
@@ -375,7 +375,7 @@ INSTANCE DIA_Grim_YourPDV (C_INFO)
 };
 
 FUNC INT DIA_Grim_YourPDV_Condition()
-{	
+{
 	if (Npc_KnowsInfo(hero,DIA_Grim_Aufnahme))
 	{
 		return 1;
@@ -409,11 +409,11 @@ instance  DIA_Grim_INEXTREMO(C_INFO)
 	information	= DIA_Grim_INEXTREMO_Info;
 	permanent	= 0;
 	important 	= 1;
-};                       
+};
 
 FUNC int  DIA_Grim_INEXTREMO_Condition()
 {
-	if	(Kapitel == 2) 
+	if	(Kapitel == 2)
 	{
 		return TRUE;
 	};
@@ -450,12 +450,12 @@ instance  DIA_Grim_INEXTREMOAWAY(C_INFO)
 	permanent	= 0;
 	important 	= 0;
 	description = "Wo sind InExtremo?";
-};                       
+};
 
 FUNC int  DIA_Grim_INEXTREMOAWAY_Condition()
 {
 	if	Npc_KnowsInfo(hero, DIA_Grim_INEXTREMO)
-	&&	(Kapitel == 3) 
+	&&	(Kapitel == 3)
 	{
 		return TRUE;
 	};

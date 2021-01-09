@@ -1,14 +1,14 @@
 instance GRD_211_Skip (Npc_Default)
 {
 	//-------- primary data --------
-	
+
 	name 		=	"Skip";
 	npctype 	= 	npctype_main;
 	guild 		=	GIL_GRD;
 	level 		=	15;
 	voice 		=	12;
 	id 			=	211;
-		
+
 	//-------- abilities --------
 	attribute[ATR_STRENGTH] 	= 70;
 	attribute[ATR_DEXTERITY] 	= 50;
@@ -21,29 +21,29 @@ instance GRD_211_Skip (Npc_Default)
 	// 			animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Militia.mds");
-	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung	
+	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung
 	Mdl_SetVisualBody (self,"hum_body_Naked0", 0, 1,"Hum_Head_FatBald", 19,  1, GRD_ARMOR_M);
-        
+
     	B_Scale (self);
     	Mdl_SetModelFatness(self,0);
-    	
+
     	self.aivar[AIV_IMPORTANT] = TRUE;
-    	
+
     	fight_tactic	=	FAI_HUMAN_STRONG;
 
-	//-------- Talente -------- 
-				
+	//-------- Talente --------
+
 	Npc_SetTalentSkill (self, NPC_TALENT_1H,2);
 	Npc_SetTalentSkill (self, NPC_TALENT_2H,1);
-	Npc_SetTalentSkill (self, NPC_TALENT_CROSSBOW,1);		
-			
-	
+	Npc_SetTalentSkill (self, NPC_TALENT_CROSSBOW,1);
+
+
 	//-------- inventory --------
 	EquipItem	(self, ItMw_1H_Sword_02);
-	
+
 	CreateInvItems	(self, ItMiNugget, 400);
-	
-		
+
+
 	//-------------Daily Routine-------------
 	daily_routine = Rtn_start_211;
 };
@@ -57,6 +57,6 @@ FUNC VOID Rtn_start_211 ()
 
 FUNC VOID Rtn_OT_211 ()
 {
-	TA_Position	(07,00,20,00,"OCC_STABLE_BACK");		
-	TA_Position	(20,00,07,00,"OCC_STABLE_BACK");	
+	TA_Position	(07,00,20,00,"OCC_STABLE_BACK");
+	TA_Position	(20,00,07,00,"OCC_STABLE_BACK");
 };

@@ -5,17 +5,17 @@ func void B_BuyAttributePoints (var C_NPC typ, var int ATR, var int AtrPlus)
 	if 		(ATR == ATR_STRENGTH)	{	Typ_Atr = typ.attribute[ATR_STRENGTH];	}
 	else if (ATR == ATR_DEXTERITY)	{	Typ_Atr = typ.attribute[ATR_DEXTERITY];	}
 	else if (ATR == ATR_MANA_MAX)	{	Typ_Atr = typ.attribute[ATR_MANA_MAX];	};
-	
-	// --------- Steigern oder verbieten	
+
+	// --------- Steigern oder verbieten
 	var string AtrPlusSTRING; AtrPlusSTRING	= IntToString(AtrPlus);
-	var string PrintSTRING; 
-	
+	var string PrintSTRING;
+
 	if (!(typ.lp < AtrPlus))
 	{
 		if (Typ_Atr + AtrPlus <= 100)
-		{	
+		{
 			typ.lp = typ.lp - AtrPlus;
-						
+
 			if (ATR == ATR_STRENGTH)
 			{
 				typ.attribute[ATR_STRENGTH] = typ.attribute[ATR_STRENGTH] + AtrPlus;
@@ -41,7 +41,7 @@ func void B_BuyAttributePoints (var C_NPC typ, var int ATR, var int AtrPlus)
 			B_Say (self, other, "$NOLEARNOVERMAX");
 		};
 	}
-	else 
+	else
 	{
 		PrintScreen	("Zu wenig Lernpunkte!", -1,-1,"FONT_OLD_20_WHITE.TGA",1);
 		B_Say (self, other, "$NOLEARNNOPOINTS");

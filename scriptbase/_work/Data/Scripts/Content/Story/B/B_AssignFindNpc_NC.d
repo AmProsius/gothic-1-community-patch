@@ -9,7 +9,7 @@ INSTANCE Info_FindNPC_NC(C_INFO)
 	information	= Info_FindNPC_NC_Info;
 	permanent	= 1;
 	description = "Wo finde ich...";
-};                       
+};
 
 FUNC INT Info_FindNPC_NC_Condition()
 {
@@ -26,7 +26,7 @@ FUNC VOID Info_FindNPC_NC_Info()
 	{
 		Info_AddChoice(Info_FindNPC_NC, "...einen der Magier?", Info_FindNPC_NC_Mage);
 	};
-	
+
 	VAR C_NPC Gorn;		Gorn = Hlp_GetNpc(PC_Fighter);
 	if (Gorn.aivar[AIV_FINDABLE] == TRUE)
 	{
@@ -38,7 +38,7 @@ FUNC VOID Info_FindNPC_NC_Info()
 	{
 		Info_AddChoice(Info_FindNPC_NC, "...Lares?", Info_FindNPC_NC_Lares);
 	};
-	
+
 	VAR C_NPC Lee;			Lee	= Hlp_GetNpc(Sld_700_Lee);
 	if (Lee.aivar[AIV_FINDABLE] == TRUE)
 	{
@@ -60,7 +60,7 @@ FUNC VOID Info_FindNPC_NC_Gorn()
 	AI_Output(other,self,"Info_FindNPC_NC_Gorn_15_00"); //Wo finde ich Gorn?
 
 	VAR C_NPC Gorn;		Gorn = Hlp_GetNpc(PC_Fighter);
-	
+
 	if (Npc_GetDistToNpc(self, Gorn) < PERC_DIST_INTERMEDIAT)
 	{
 		B_PointAtNpc(self,other,Gorn);
@@ -82,7 +82,7 @@ FUNC VOID Info_FindNPC_NC_Gorn()
 				AI_Output(self,other,"Info_FindNPC_NC_Gorn_13_01"); //Wenn du in die Wohnhöhle kommst, halte dich rechts. Direkt vorne sind ein paar Hütten. In einer davon wohnt er.
 			};
 		}
-		else if (self.guild == GIL_SLD) 
+		else if (self.guild == GIL_SLD)
 		{
 			if (self.voice == 8)
 			{
@@ -107,7 +107,7 @@ FUNC VOID Info_FindNPC_NC_Lares()
 	AI_Output(other,self,"Info_FindNPC_NC_Lares_15_00"); //Wo finde ich Lares?
 
 	VAR C_NPC Lares;		Lares = Hlp_GetNpc(Org_801_Lares);
-	
+
 	if (Npc_GetDistToNpc(self, Lares) < PERC_DIST_INTERMEDIAT)
 	{
 		B_PointAtNpc(self,other,Lares);
@@ -129,7 +129,7 @@ FUNC VOID Info_FindNPC_NC_Lares()
 				AI_Output(self,other,"Info_FindNPC_NC_Lares_13_01"); //In der Wohnhöhle ganz hinten links. Du kannst es nicht verfehlen, sobald dich seine Jungs aufhalten bist du richtig.
 			};
 		}
-		else if (self.guild == GIL_SLD) 
+		else if (self.guild == GIL_SLD)
 		{
 			if (self.voice == 8)
 			{
@@ -154,7 +154,7 @@ FUNC VOID Info_FindNPC_NC_Lee()
 	AI_Output(other,self,"Info_FindNPC_NC_Lee_15_00"); //Wo finde ich Lee?
 
 	VAR C_NPC Lee;		Lee = Hlp_GetNpc(Sld_700_Lee);
-	
+
 	if (Npc_GetDistToNpc(self, Lee) < PERC_DIST_INTERMEDIAT)
 	{
 		B_PointAtNpc(self,other,Lee);
@@ -176,7 +176,7 @@ FUNC VOID Info_FindNPC_NC_Lee()
 				AI_Output(self,other,"Info_FindNPC_NC_Lee_13_01"); //Wenn du die große Wohnhöhle betrittst, halte dich rechts und geh ganz nach oben.
 			};
 		}
-		else if (self.guild == GIL_SLD) 
+		else if (self.guild == GIL_SLD)
 		{
 			if (self.voice == 8)
 			{
@@ -201,7 +201,7 @@ FUNC VOID Info_FindNPC_NC_Mage()
 	AI_Output(other,self,"Info_FindNPC_NC_Cronos_15_00"); //Wo finde ich einen der Magier?
 
 	VAR C_NPC Cronos;		Cronos = Hlp_GetNpc(KdW_604_Cronos);
-	
+
 	if (Npc_GetDistToNpc(self, Cronos) < PERC_DIST_INTERMEDIAT)
 	{
 		B_PointAtNpc(self,other,Cronos);
@@ -223,7 +223,7 @@ FUNC VOID Info_FindNPC_NC_Mage()
 				AI_Output(self,other,"Info_FindNPC_NC_Cronos_13_01"); //Normalerweise leben sie zurückgezogen im oberen Teil der Höhle. Aber am Erzhaufen, in der Mitte der Höhle, kannst du manchmal einen von ihnen treffen.
 			};
 		}
-		else if (self.guild == GIL_SLD) 
+		else if (self.guild == GIL_SLD)
 		{
 			if (self.voice == 8)
 			{

@@ -15,7 +15,7 @@ INSTANCE Info_Org_13_EXIT(C_INFO)
 	information	= Info_Org_13_EXIT_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC INT Info_Org_13_EXIT_Condition()
 {
@@ -23,7 +23,7 @@ FUNC INT Info_Org_13_EXIT_Condition()
 };
 
 FUNC VOID Info_Org_13_EXIT_Info()
-{	
+{
 	AI_StopProcessInfos	(self);
 };
 
@@ -38,7 +38,7 @@ INSTANCE Info_Org_13_EinerVonEuchWerden (C_INFO) // E1
 	information	= Info_Org_13_EinerVonEuchWerden_Info;
 	permanent	= 1;
 	description = "Was muß ich tun, wenn ich mich dem Lager anschließen will?";
-};                       
+};
 
 FUNC INT Info_Org_13_EinerVonEuchWerden_Condition()
 {
@@ -65,7 +65,7 @@ INSTANCE Info_Org_13_WichtigePersonen(C_INFO)
 	information	= Info_Org_13_WichtigePersonen_Info;
 	permanent	= 1;
 	description = "Wer hat hier das Sagen?";
-};                       
+};
 
 FUNC INT Info_Org_13_WichtigePersonen_Condition()
 {
@@ -91,7 +91,7 @@ INSTANCE Info_Org_13_DasLager(C_INFO)
 	information	= Info_Org_13_DasLager_Info;
 	permanent	= 1;
 	description = "Ich will mehr über dieses Lager erfahren.";
-};                       
+};
 
 FUNC INT Info_Org_13_DasLager_Condition()
 {
@@ -115,7 +115,7 @@ INSTANCE Info_Org_13_DieLage(C_INFO) // E1
 	information	= Info_Org_13_DieLage_Info;
 	permanent	= 1;
 	description = "Wie sieht's aus?";
-};                       
+};
 
 FUNC INT Info_Org_13_DieLage_Condition()
 {
@@ -139,7 +139,7 @@ INSTANCE Info_Org_13_Krautprobe (C_INFO) // E1
 	information	= Info_Org_13_Krautprobe_Info;
 	permanent	= 1;
 	description = "Du siehst aus, als wenn du etwas Sumpfkraut haben wolltest.";
-};                       
+};
 
 FUNC INT Info_Org_13_Krautprobe_Condition()
 {
@@ -153,7 +153,7 @@ FUNC INT Info_Org_13_Krautprobe_Condition()
 FUNC VOID Info_Org_13_Krautprobe_Info()
 {
 	AI_Output(other,self,"Info_Org_13_Krautprobe_15_00"); //Du siehst aus, als wenn du etwas Sumpfkraut haben wolltest.
-	
+
 	if ( (Npc_HasItems(other,ItMiJoint_1)>0) || (Npc_HasItems(other,ItMiJoint_2)>0) || (Npc_HasItems(other,ItMiJoint_3)>0) )
 	{
 		if 		(Npc_HasItems(other,ItMiJoint_1))
@@ -162,10 +162,10 @@ FUNC VOID Info_Org_13_Krautprobe_Info()
 		{	B_GiveInvItems(other,self,ItMiJoint_2,1);	 }
 		else if (Npc_HasItems(other,ItMiJoint_3))
 		{	B_GiveInvItems(other,self,ItMiJoint_3,1);	 };
-		
+
 		AI_Output(self,other,"Info_Org_13_Krautprobe_13_01"); //Hast du was? Ich nehm einen Stengel für 10 Erz.
 		AI_Output(self,other,"Info_Org_13_Krautprobe_13_02"); //Kannst jederzeit wieder kommen, Bruder.
-		
+
 		CreateInvItems(self,itminugget,10);
 		B_GiveInvItems(self,other,itminugget,10);
 		NC_Joints_verteilt = NC_Joints_verteilt + 1;
@@ -176,19 +176,19 @@ FUNC VOID Info_Org_13_Krautprobe_Info()
 		AI_Output (self, other,"Info_Org_13_Krautprobe_No_Joint_13_00"); //Aber du hast nichts. Mach keine dummen Späße mit mir, klar?
 	};
 };
-	
+
 // *************************************************************************
 // -------------------------------------------------------------------------
 
 FUNC VOID B_AssignAmbientInfos_Org_13(var c_NPC slf)
 {
 	B_AssignFindNpc_NC(slf);
-	
+
 	Info_Org_13_EXIT.npc				= Hlp_GetInstanceID(slf);
 	Info_Org_13_EinerVonEuchWerden.npc	= Hlp_GetInstanceID(slf);
 	Info_Org_13_WichtigePersonen.npc	= Hlp_GetInstanceID(slf);
 	Info_Org_13_DasLager.npc			= Hlp_GetInstanceID(slf);
 	Info_Org_13_DieLage.npc				= Hlp_GetInstanceID(slf);
-	
+
 	Info_Org_13_Krautprobe.npc			= Hlp_GetInstanceID(slf);
 };

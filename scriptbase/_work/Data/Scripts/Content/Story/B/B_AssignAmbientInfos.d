@@ -1,7 +1,7 @@
 FUNC VOID B_AssignAmbientInfos(var c_NPC amb_self)
 {
 	if ( (amb_self.npctype==NPCTYPE_AMBIENT)||(amb_self.npctype==NPCTYPE_GUARD) ) //Alle Ambient-NPCs in den Lagern
-	{	
+	{
 		if (amb_self.guild == GIL_VLK)
 		{
 			if (amb_self.voice == 1)
@@ -21,7 +21,7 @@ FUNC VOID B_AssignAmbientInfos(var c_NPC amb_self)
 				B_AssignAmbientInfos_Vlk_4(amb_self);
 			};
 		}
-		else if (amb_self.guild == GIL_GRD) 
+		else if (amb_self.guild == GIL_GRD)
 		{
 			if (amb_self.voice == 6)
 			{
@@ -36,7 +36,7 @@ FUNC VOID B_AssignAmbientInfos(var c_NPC amb_self)
 				B_AssignAmbientInfos_Grd_13(amb_self);
 			};
 		}
-		else if (amb_self.guild == GIL_STT) 
+		else if (amb_self.guild == GIL_STT)
 		{
 			if (amb_self.voice == 10)
 			{
@@ -60,7 +60,7 @@ FUNC VOID B_AssignAmbientInfos(var c_NPC amb_self)
 			else if (amb_self.voice == 5)
 			{
 				B_AssignAmbientInfos_SFB_5(amb_self);
-			};			
+			};
 		}
 		else if (amb_self.guild == GIL_NOV)
 		{
@@ -101,7 +101,7 @@ FUNC VOID B_AssignAmbientInfos(var c_NPC amb_self)
 			else if (amb_self.voice == 9)
 			{
 				B_AssignAmbientInfos_Bau_9(amb_self);
-			};			
+			};
 		}
 		else if (amb_self.guild == GIL_ORG)
 		{
@@ -130,9 +130,9 @@ FUNC VOID B_AssignAmbientInfos(var c_NPC amb_self)
 			};
 		};
 	};
-	
+
 	if ( (amb_self.npctype==NPCTYPE_MINE_AMBIENT)||(amb_self.npctype==NPCTYPE_MINE_GUARD) ) //Alle Ambient-NPCs in den Minen
-	{	
+	{
 		if (amb_self.guild == GIL_VLK)
 		{
 			if (amb_self.voice == 1)
@@ -152,7 +152,7 @@ FUNC VOID B_AssignAmbientInfos(var c_NPC amb_self)
 				B_AssignAmbientInfos_Mine_Vlk_4(amb_self);
 			};
 		}
-		else if (amb_self.guild == GIL_GRD) 
+		else if (amb_self.guild == GIL_GRD)
 		{
 			if (amb_self.voice == 6)
 			{
@@ -167,7 +167,7 @@ FUNC VOID B_AssignAmbientInfos(var c_NPC amb_self)
 				B_AssignAmbientInfos_Mine_Grd_13(amb_self);
 			};
 		}
-		else if (amb_self.guild == GIL_SLD) 
+		else if (amb_self.guild == GIL_SLD)
 		{
 			if (amb_self.voice == 8)
 			{
@@ -178,7 +178,7 @@ FUNC VOID B_AssignAmbientInfos(var c_NPC amb_self)
 				B_AssignAmbientInfos_Mine_Sld_11(amb_self);
 			};
 		}
-		else if (amb_self.guild == GIL_ORG) 
+		else if (amb_self.guild == GIL_ORG)
 		{
 			if (amb_self.voice == 6)
 			{

@@ -8,18 +8,18 @@ const int	Value_1H_Sword_01	=	100;		//SN: WICHTIG, da diese Instanz das Produkt 
 *********************************************************************************/
 // VLK
 INSTANCE ItMw_1H_Club_01 (C_Item)
-{	
-	name 				=	"Knüppel";  
+{
+	name 				=	"Knüppel";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_AXE;	
+	flags 				=	ITEM_AXE;
 	material 			=	MAT_WOOD;
 
 	value 				=	2;
 
 	damageTotal  		= 	5;
 	damagetype 			=	DAM_BLUNT;
-	range    			=  	100;		
+	range    			=  	100;
 
 	cond_atr[2]   		=	ATR_STRENGTH;
 	cond_value[2]  		=	5;
@@ -35,18 +35,18 @@ INSTANCE ItMw_1H_Club_01 (C_Item)
 /********************************************************************************/
 // keine NPCs
 INSTANCE ItMw_1H_Poker_01 (C_Item)
-{	
+{
 	name 				=	"Schürhaken";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_SWD;	
+	flags 				=	ITEM_SWD;
 	material 			=	MAT_METAL;
 
 	value 				=	3;
 
 	damageTotal			= 	6;
 	damagetype 			=	DAM_BLUNT;
-	range    			=  	100;		
+	range    			=  	100;
 
 	cond_atr[2]   		=	ATR_STRENGTH;
 	cond_value[2]  		= 	5;
@@ -61,19 +61,19 @@ INSTANCE ItMw_1H_Poker_01 (C_Item)
 
 /********************************************************************************/
 // BAU
-INSTANCE ItMw_1H_Sickle_01 (C_Item)	
-{	
-	name 				=	"Sichel"; 
+INSTANCE ItMw_1H_Sickle_01 (C_Item)
+{
+	name 				=	"Sichel";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_AXE;	
+	flags 				=	ITEM_AXE;
 	material 			=	MAT_METAL;
 
 	value 				=	4;
 
 	damageTotal			= 	7;
 	damagetype 			=	DAM_EDGE;
-	range    			=  	100;		
+	range    			=  	100;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	5;
@@ -100,7 +100,7 @@ INSTANCE ItMwPickaxe (C_Item)
 
 	damageTotal			= 	7;
 	damagetype			=	DAM_EDGE;
-	range    			=  	100;		
+	range    			=  	100;
 
 	cond_atr[2]   		=	ATR_STRENGTH;
 	cond_value[2]  		=	5;
@@ -117,18 +117,18 @@ INSTANCE ItMwPickaxe (C_Item)
 /********************************************************************************/
 // Auch für Mobsi-Benutzung (Schmieden)
 INSTANCE ItMw_1H_Sledgehammer_01 (C_Item)
-{	
+{
 	name 				=	"Schmiedehammer";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_AXE;	
+	flags 				=	ITEM_AXE;
 	material 			=	MAT_WOOD;
 
 	value 				=	5;
 
 	damageTotal			=   10;
 	damagetype			=	DAM_BLUNT;
-	range    			=  	100;		
+	range    			=  	100;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	5;
@@ -144,18 +144,18 @@ INSTANCE ItMw_1H_Sledgehammer_01 (C_Item)
 /********************************************************************************/
 // VLK_573_Graham, VLK_581_Snaf
 INSTANCE ItMw_1H_Mace_Light_01 (C_Item)
-{	
+{
 	name 				=	"Keule";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_AXE;	
+	flags 				=	ITEM_AXE;
 	material 			=	MAT_WOOD;
 
 	value 				=	5;
 
 	damageTotal			=   8;
 	damagetype			=	DAM_BLUNT;
-	range    			=  	100;		
+	range    			=  	100;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	5;
@@ -170,19 +170,19 @@ INSTANCE ItMw_1H_Mace_Light_01 (C_Item)
 
 /********************************************************************************/
 // NOV
-instance ItMw_1H_Hatchet_01 (C_Item) 
-{	
+instance ItMw_1H_Hatchet_01 (C_Item)
+{
 	name 				=	"Handaxt";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_AXE;	
+	flags 				=	ITEM_AXE;
 	material 			=	MAT_WOOD;
 
 	value 				=	6;
-	
+
 	damageTotal			=   9;
 	damagetype			=	DAM_EDGE;
-	range    			=  	100;		
+	range    			=  	100;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	5;
@@ -198,18 +198,18 @@ instance ItMw_1H_Hatchet_01 (C_Item)
 /********************************************************************************/
 // keine NPCs
 INSTANCE ItMw_1H_Sword_Old_01 (C_Item)
-{	
+{
 	name 				=	"Rostiges Schwert";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_SWD;	
+	flags 				=	ITEM_SWD;
 	material 			=	MAT_METAL;
 
 	value 				=	10;
 
 	damageTotal			= 	10;
 	damagetype 			=	DAM_EDGE;
-	range    			=  	100;		
+	range    			=  	100;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	5;
@@ -225,18 +225,18 @@ INSTANCE ItMw_1H_Sword_Old_01 (C_Item)
 /********************************************************************************/
 // VLK, SFB
 INSTANCE ItMw_1H_Nailmace_01 (C_Item)
-{	
-	name 				=	"Nagelkeule"; 
+{
+	name 				=	"Nagelkeule";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_AXE;	
+	flags 				=	ITEM_AXE;
 	material 			=	MAT_WOOD;
 
 	value 				=	13;
 
 	damageTotal			= 	11;
 	damagetype 			=	DAM_BLUNT;
-	range    			=  	100;		
+	range    			=  	100;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	5;
@@ -254,18 +254,18 @@ INSTANCE ItMw_1H_Nailmace_01 (C_Item)
 *********************************************************************************/
 // SFB
 INSTANCE ItMw_1H_Sword_Short_01 (C_Item)
-{	
+{
 	name 				=	"Kurzschwert";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_SWD;	
+	flags 				=	ITEM_SWD;
 	material 			=	MAT_METAL;
 
 	value 				=	44;//22;
 
 	damageTotal			= 	12;
-	damagetype 			=	DAM_EDGE;		
-	range    			=  	100;		
+	damagetype 			=	DAM_EDGE;
+	range    			=  	100;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	6;
@@ -281,18 +281,18 @@ INSTANCE ItMw_1H_Sword_Short_01 (C_Item)
 /********************************************************************************/
 // STT
 INSTANCE ItMw_1H_Sword_Short_02 (C_Item)
-{	
+{
 	name 				=	"Bauernwehr";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_SWD;	
+	flags 				=	ITEM_SWD;
 	material 			=	MAT_METAL;
 
 	value 				=	64;//32;
 
 	damageTotal			= 	14;
-	damagetype 			=	DAM_EDGE;		
-	range    			=  	100;		
+	damagetype 			=	DAM_EDGE;
+	range    			=  	100;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	7;
@@ -309,18 +309,18 @@ INSTANCE ItMw_1H_Sword_Short_02 (C_Item)
 /********************************************************************************/
 // STT
 INSTANCE ItMw_1H_Sword_Short_03 (C_Item)
-{	
+{
 	name 				=	"Lurkerbiß";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_SWD;	
+	flags 				=	ITEM_SWD;
 	material 			=	MAT_METAL;
 
 	value 				=	88;//44;
 
 	damageTotal			= 	16;
-	damagetype 			=	DAM_EDGE;		
-	range    			=  	100;		
+	damagetype 			=	DAM_EDGE;
+	range    			=  	100;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	8;
@@ -336,18 +336,18 @@ INSTANCE ItMw_1H_Sword_Short_03 (C_Item)
 /********************************************************************************/
 // STT
 INSTANCE ItMw_1H_Sword_Short_04 (C_Item)
-{	
+{
 	name 				=	"Wundendorn";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_SWD;	
+	flags 				=	ITEM_SWD;
 	material 			=	MAT_METAL;
 
 	value 				=	120;//60;
 
 	damageTotal			= 	18;
-	damagetype 			=	DAM_EDGE;		
-	range    			=  	100;		
+	damagetype 			=	DAM_EDGE;
+	range    			=  	100;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	9;
@@ -363,18 +363,18 @@ INSTANCE ItMw_1H_Sword_Short_04 (C_Item)
 /********************************************************************************/
 // keine NPCs
 INSTANCE ItMw_1H_Sword_Short_05 (C_Item)
-{	
+{
 	name 				=	"Buddlerzucht";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_SWD;	
+	flags 				=	ITEM_SWD;
 	material 			=	MAT_METAL;
 
 	value 				=	160;//80;//40
 
 	damageTotal			= 	20;
-	damagetype 			=	DAM_EDGE;		
-	range    			=  	100;		
+	damagetype 			=	DAM_EDGE;
+	range    			=  	100;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	10;
@@ -392,18 +392,18 @@ INSTANCE ItMw_1H_Sword_Short_05 (C_Item)
 *********************************************************************************/
 // NOV
 instance ItMw_1H_Axe_Old_01 (C_Item)
-{	
-	name 				=	"Verwitterte Axt";   
+{
+	name 				=	"Verwitterte Axt";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_AXE;	
+	flags 				=	ITEM_AXE;
 	material 			=	MAT_WOOD;
 
 	value 				=	19;
 
 	damageTotal     	=   13;
 	damagetype			=	DAM_EDGE;
-	range    			=  	100;		
+	range    			=  	100;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	7;
@@ -419,19 +419,19 @@ instance ItMw_1H_Axe_Old_01 (C_Item)
 /********************************************************************************/
 // BAU
 // FIXME: zu stark?
-INSTANCE ItMw_1H_Scythe_01 (C_Item)	
-{	
+INSTANCE ItMw_1H_Scythe_01 (C_Item)
+{
 	name 				=	"Schnitter";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_AXE;	
+	flags 				=	ITEM_AXE;
 	material 			=	MAT_WOOD;
 
 	value 				=	25;
 
 	damageTotal			= 	15;
 	damagetype 			=	DAM_EDGE;
-	range    			=  	100;		
+	range    			=  	100;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	8;
@@ -445,20 +445,20 @@ INSTANCE ItMw_1H_Scythe_01 (C_Item)
 };
 
 /********************************************************************************/
-// keine NPCs 
+// keine NPCs
 INSTANCE ItMw_2H_Staff_01 (C_Item)
-{	
-	name 				=	"Kampfstab";  
+{
+	name 				=	"Kampfstab";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_2HD_AXE;	
+	flags 				=	ITEM_2HD_AXE;
 	material 			=	MAT_WOOD;
 
 	value 				=	62;//31;
 
 	damageTotal			= 	17;
 	damagetype 			=	DAM_BLUNT;
-	range    			=  	160;		
+	range    			=  	160;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	9;
@@ -474,18 +474,18 @@ INSTANCE ItMw_2H_Staff_01 (C_Item)
 /********************************************************************************/
 // keine NPCs
 INSTANCE ItMw_2H_Staff_02 (C_Item)
-{	
-	name 				=	"Richtstab";  
+{
+	name 				=	"Richtstab";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_2HD_AXE;	
+	flags 				=	ITEM_2HD_AXE;
 	material 			=	MAT_WOOD;
 
 	value 				=	72;//36;
 
 	damageTotal			= 	19;
 	damagetype 			=	DAM_EDGE;
-	range    			=  	160;		
+	range    			=  	160;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	10;
@@ -500,18 +500,18 @@ INSTANCE ItMw_2H_Staff_02 (C_Item)
 /********************************************************************************/
 // keine NPCs
 INSTANCE ItMw_2H_Staff_03 (C_Item)
-{	
-	name 				=	"Priesterstab";  
+{
+	name 				=	"Priesterstab";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_2HD_AXE;	
+	flags 				=	ITEM_2HD_AXE;
 	material 			=	MAT_WOOD;
 
 	value 				=	90;//45;
 
 	damageTotal			= 	21;
 	damagetype 			=	DAM_BLUNT;
-	range    			=  	160;		
+	range    			=  	160;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	10;
@@ -529,18 +529,18 @@ INSTANCE ItMw_2H_Staff_03 (C_Item)
 *********************************************************************************/
 
 INSTANCE ItMw_1H_LightGuardsSword_03 (C_Item)
-{	
+{
 	name 				=	"Leichtes Gardeschwert";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_SWD;	
+	flags 				=	ITEM_SWD;
 	material 			=	MAT_METAL;
 
 	value 				=	75;
 
 	damageTotal			= 	22;
 	damagetype 			= 	DAM_EDGE;
-	range    			=  	100;		
+	range    			=  	100;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	20;
@@ -558,18 +558,18 @@ INSTANCE ItMw_1H_LightGuardsSword_03 (C_Item)
 *********************************************************************************/
 // NOV + ORG
 INSTANCE ItMw_1H_Mace_01 (C_Item)
-{	
+{
 	name 				=	"Streitkolben";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_AXE;	
+	flags 				=	ITEM_AXE;
 	material 			=	MAT_WOOD;
 
 	value 				=	55;
 
 	damageTotal			=   23;
 	damagetype			=	DAM_BLUNT;
-	range    			=  	100;		
+	range    			=  	100;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	10;
@@ -585,18 +585,18 @@ INSTANCE ItMw_1H_Mace_01 (C_Item)
 /********************************************************************************/
 // ORG
 INSTANCE ItMw_1H_Mace_02 (C_Item)
-{	
+{
 	name 				=	"Stachelkeule";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_AXE;	
+	flags 				=	ITEM_AXE;
 	material 			=	MAT_WOOD;
 
 	value 				=	65;
 
 	damageTotal			=   25;
 	damagetype			=	DAM_BLUNT;
-	range    			=  	100;		
+	range    			=  	100;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	11;
@@ -612,18 +612,18 @@ INSTANCE ItMw_1H_Mace_02 (C_Item)
 /********************************************************************************/
 // ORG
 INSTANCE ItMw_1H_Mace_03 (C_Item)
-{	
+{
 	name 				=	"Blutfliegenstachel";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_AXE;	
+	flags 				=	ITEM_AXE;
 	material 			=	MAT_WOOD;
 
 	value 				=	75;
 
 	damageTotal			=   26;
 	damagetype			=	DAM_BLUNT;
-	range    			=  	100;		
+	range    			=  	100;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	11;
@@ -639,18 +639,18 @@ INSTANCE ItMw_1H_Mace_03 (C_Item)
 /********************************************************************************/
 // NOV_1303_NYRAS , NOV_1330_BAALPARVEZ
 INSTANCE ItMw_1H_Mace_04 (C_Item)
-{	
+{
 	name 				=	"Stahlzunge";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_AXE;	
+	flags 				=	ITEM_AXE;
 	material 			=	MAT_WOOD;
 
 	value 				=	85;
 
 	damageTotal			=   29;
 	damagetype			=	DAM_BLUNT;
-	range    			=  	100;		
+	range    			=  	100;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	11;
@@ -668,21 +668,21 @@ INSTANCE ItMw_1H_Mace_04 (C_Item)
 *********************************************************************************/
 // GRD
 INSTANCE ItMw_1H_Sword_01 (C_Item)
-{	
+{
 	name 				=	"grobes Schwert";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_SWD;	
+	flags 				=	ITEM_SWD;
 	material 			=	MAT_METAL;
 
 	value 				=	Value_1H_Sword_01; 	//SN: WICHTIG, da diese Instanz das Produkt des SC-Schmiedens ist!!!
 
 	damageTotal			= 	20; //30 weil Schmieden und verkaufen runtergesetzt
 	damagetype 			= 	DAM_EDGE;
-	range    			=  	100;		
+	range    			=  	100;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	20; //12 
+	cond_value[2]  		= 	20; //12
 	visual 				=	"ItMw_1H_Sword_01.3DS";
 
 	description			= name;
@@ -695,18 +695,18 @@ INSTANCE ItMw_1H_Sword_01 (C_Item)
 /********************************************************************************/
 // GRD
 INSTANCE ItMw_1H_Sword_02 (C_Item)
-{	
+{
 	name 				=	"Richtschwert";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_SWD;	
+	flags 				=	ITEM_SWD;
 	material 			=	MAT_METAL;
 
 	value 				=	97;
 
 	damageTotal			= 	30;
 	damagetype 			= 	DAM_EDGE;
-	range    			=  	100;		
+	range    			=  	100;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	12;
@@ -722,18 +722,18 @@ INSTANCE ItMw_1H_Sword_02 (C_Item)
 /********************************************************************************/
 // GRD
 INSTANCE ItMw_1H_Sword_03 (C_Item)
-{	
+{
 	name 				=	"Gardeschwert";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_SWD;	
+	flags 				=	ITEM_SWD;
 	material 			=	MAT_METAL;
 
 	value 				=	104;
 
 	damageTotal			= 	32;
 	damagetype 			= 	DAM_EDGE;
-	range    			=  	100;		
+	range    			=  	100;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	12;
@@ -749,18 +749,18 @@ INSTANCE ItMw_1H_Sword_03 (C_Item)
 /********************************************************************************/
 // GRD, STT (einer)
 INSTANCE ItMw_1H_Sword_04 (C_Item)
-{	
+{
 	name 				=	"Kampfschwert";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_SWD;	
+	flags 				=	ITEM_SWD;
 	material 			=	MAT_METAL;
 
 	value 				=	111;
 
 	damageTotal			= 	33;
 	damagetype 			= 	DAM_EDGE;
-	range    			=  	100;		
+	range    			=  	100;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	13;
@@ -776,18 +776,18 @@ INSTANCE ItMw_1H_Sword_04 (C_Item)
 /********************************************************************************/
 // keine NPC
 INSTANCE ItMw_1H_Sword_05 (C_Item)
-{	
+{
 	name 				=	"Kriegsschwert";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_SWD;	
+	flags 				=	ITEM_SWD;
 	material 			=	MAT_METAL;
 
 	value 				=	472;//236;//118
 
 	damageTotal			= 	34;
 	damagetype 			= 	DAM_EDGE;
-	range    			=  	100;		
+	range    			=  	100;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	14;
@@ -806,18 +806,18 @@ INSTANCE ItMw_1H_Sword_05 (C_Item)
 // ORG
 
 INSTANCE ItMw_1H_Mace_War_01 (C_Item)
-{	
+{
 	name 				=	"Morgenstern";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_AXE;	
+	flags 				=	ITEM_AXE;
 	material 			=	MAT_WOOD;
 
 	value 				=	125;
 
 	damageTotal			=   35;
 	damagetype			=	DAM_BLUNT;
-	range    			=  	100;		
+	range    			=  	100;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	14;
@@ -833,18 +833,18 @@ INSTANCE ItMw_1H_Mace_War_01 (C_Item)
 /********************************************************************************/
 // ORG, SLD
 INSTANCE ItMw_1H_Mace_War_02 (C_Item)
-{	
+{
 	name 				=	"Stahlgeflecht";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_AXE;	
+	flags 				=	ITEM_AXE;
 	material 			=	MAT_WOOD;
 
 	value 				=	132;
 
 	damageTotal			=   36;
 	damagetype			=	DAM_BLUNT;
-	range    			=  	100;		
+	range    			=  	100;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	15;
@@ -860,18 +860,18 @@ INSTANCE ItMw_1H_Mace_War_02 (C_Item)
 /********************************************************************************/
 // SLD
 INSTANCE ItMw_1H_Mace_War_03 (C_Item)
-{	
+{
 	name 				=	"Steinbrecher";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_AXE;	
+	flags 				=	ITEM_AXE;
 	material 			=	MAT_WOOD;
 
 	value 				=	139;
 
 	damageTotal			=   37;
 	damagetype			=	DAM_BLUNT;
-	range    			=  	100;		
+	range    			=  	100;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	26;
@@ -887,18 +887,18 @@ INSTANCE ItMw_1H_Mace_War_03 (C_Item)
 /********************************************************************************/
 // GUR_1211_BaalLukor
 INSTANCE ItMw_1H_Mace_War_04 (C_Item)
-{	
+{
 	name 				=	"Herzensbrecher";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_AXE;	
+	flags 				=	ITEM_AXE;
 	material 			=	MAT_WOOD;
 
 	value 				=	600;//300;//153
 
 	damageTotal			=   39;
 	damagetype			=	DAM_BLUNT;
-	range    			=  	100;		
+	range    			=  	100;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	17;
@@ -916,18 +916,18 @@ INSTANCE ItMw_1H_Mace_War_04 (C_Item)
 *********************************************************************************/
 // keine NPCs
 INSTANCE ItMw_1H_Sword_Long_01 (C_Item)
-{	
+{
 	name 				=	"Langschwert";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_SWD;	
+	flags 				=	ITEM_SWD;
 	material 			=	MAT_METAL;
 
 	value 				=	640;//320;//160
 
 	damageTotal			= 	40;
 	damagetype 			= 	DAM_EDGE;
-	range    			=  	120;		
+	range    			=  	120;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	17;
@@ -943,18 +943,18 @@ INSTANCE ItMw_1H_Sword_Long_01 (C_Item)
 /********************************************************************************/
 // GRD_203_BULLIT
 INSTANCE ItMw_1H_Sword_Long_02 (C_Item)
-{	
+{
 	name 				=	"Furchtbringer";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_SWD;	
+	flags 				=	ITEM_SWD;
 	material 			=	MAT_METAL;
 
 	value 				=	680;//340;//178
 
 	damageTotal			= 	42;
 	damagetype 			= 	DAM_EDGE;
-	range    			=  	120;		
+	range    			=  	120;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	18;
@@ -970,18 +970,18 @@ INSTANCE ItMw_1H_Sword_Long_02 (C_Item)
 /********************************************************************************/
 // keine NPCs
 INSTANCE ItMw_1H_Sword_Long_03 (C_Item)
-{	
+{
 	name 				=	"Hassbringer";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_SWD;	
+	flags 				=	ITEM_SWD;
 	material 			=	MAT_METAL;
 
 	value 				=	800;//400;//196
 
 	damageTotal			= 	44;
 	damagetype 			= 	DAM_EDGE;
-	range    			=  	120;		
+	range    			=  	120;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	18;
@@ -997,18 +997,18 @@ INSTANCE ItMw_1H_Sword_Long_03 (C_Item)
 /********************************************************************************/
 // keine NPCs
 INSTANCE ItMw_1H_Sword_Long_04 (C_Item)
-{	
+{
 	name 				=	"Siegbringer";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_SWD;	
+	flags 				=	ITEM_SWD;
 	material 			=	MAT_METAL;
 
 	value 				=	860;//430;//214
 
 	damageTotal			= 	46;
 	damagetype 			= 	DAM_EDGE;
-	range    			=  	120;		
+	range    			=  	120;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	20;
@@ -1024,18 +1024,18 @@ INSTANCE ItMw_1H_Sword_Long_04 (C_Item)
 /********************************************************************************/
 // keine NPCs
 INSTANCE ItMw_1H_Sword_Long_05 (C_Item)
-{	
+{
 	name 				=	"Todbringer";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_SWD;	
+	flags 				=	ITEM_SWD;
 	material 			=	MAT_METAL;
 
 	value 				=	920;//460;//232
 
 	damageTotal			= 	48;
 	damagetype 			= 	DAM_EDGE;
-	range    			=  	120;		
+	range    			=  	120;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	21;
@@ -1051,18 +1051,18 @@ INSTANCE ItMw_1H_Sword_Long_05 (C_Item)
 /********************************************************************************/
 // keine NPCs
 INSTANCE ItMw_1H_Warhammer_01 (C_Item)
-{	
+{
 	name 				=	"Orkhammer";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_AXE;	
+	flags 				=	ITEM_AXE;
 	material 			=	MAT_WOOD;
 
 	value 				=	1000;//500;//250
 
 	damageTotal			=   50;
 	damagetype			=	DAM_BLUNT;
-	range    			=  	100;		
+	range    			=  	100;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	22;
@@ -1078,18 +1078,18 @@ INSTANCE ItMw_1H_Warhammer_01 (C_Item)
 /********************************************************************************/
 // keine NPCs
 INSTANCE ItMw_1H_Warhammer_02 (C_Item)
-{	
+{
 	name 				=	"Kriegshammer";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_AXE;	
+	flags 				=	ITEM_AXE;
 	material 			=	MAT_WOOD;
 
 	value 				=	1040;//520;//261
 
 	damageTotal			=   51;
 	damagetype			=	DAM_BLUNT;
-	range    			=  	100;		
+	range    			=  	100;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	23;
@@ -1105,18 +1105,18 @@ INSTANCE ItMw_1H_Warhammer_02 (C_Item)
 /********************************************************************************/
 // keine NPCs
 INSTANCE ItMw_1H_Warhammer_03 (C_Item)
-{	
+{
 	name 				=	"Götterhammer";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_AXE;	
+	flags 				=	ITEM_AXE;
 	material 			=	MAT_WOOD;
 
 	value 				=	1080;//540;//272
 
 	damageTotal			=   52;
 	damagetype			=	DAM_BLUNT;
-	range    			=  	100;		
+	range    			=  	100;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	23;
@@ -1135,18 +1135,18 @@ INSTANCE ItMw_1H_Warhammer_03 (C_Item)
 *********************************************************************************/
 // keine NPCs
 INSTANCE ItMw_1H_Axe_01 (C_Item)
-{	
-	name 				=	"Axt"; 
+{
+	name 				=	"Axt";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_AXE;	
+	flags 				=	ITEM_AXE;
 	material 			=	MAT_WOOD;
 
 	value 				=	320;//160;//85
 
 	damageTotal			=   29;
 	damagetype			=	DAM_EDGE;
-	range    			=  	100;		
+	range    			=  	100;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	12;
@@ -1162,18 +1162,18 @@ INSTANCE ItMw_1H_Axe_01 (C_Item)
 /********************************************************************************/
 // keine NPCs
 INSTANCE ItMw_1H_Axe_02 (C_Item)
-{	
-	name 				=	"Schädelspalter"; 
+{
+	name 				=	"Schädelspalter";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_AXE;	
+	flags 				=	ITEM_AXE;
 	material 			=	MAT_WOOD;
 
 	value 				=	1020;//560;//283
 
 	damageTotal			=   53;
 	damagetype			=	DAM_EDGE;
-	range    			=  	100;		
+	range    			=  	100;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	24;
@@ -1189,18 +1189,18 @@ INSTANCE ItMw_1H_Axe_02 (C_Item)
 /********************************************************************************/
 // keine NPCs
 INSTANCE ItMw_1H_Axe_03 (C_Item)
-{	
-	name 				=	"Knochenbrecher"; 
+{
+	name 				=	"Knochenbrecher";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_AXE;	
+	flags 				=	ITEM_AXE;
 	material 			=	MAT_WOOD;
 
 	value 				=	1160;//580;//294
 
 	damageTotal			=   54;
 	damagetype			=	DAM_EDGE;
-	range    			=  	100;		
+	range    			=  	100;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	25;
@@ -1217,19 +1217,19 @@ INSTANCE ItMw_1H_Axe_03 (C_Item)
 ** Breitschwerter								**
 *********************************************************************************/
 // keine NPCs
-INSTANCE ItMw_1H_Sword_Broad_01 (C_Item) 
-{	
+INSTANCE ItMw_1H_Sword_Broad_01 (C_Item)
+{
 	name 				=	"Breitschwert";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_SWD;	
+	flags 				=	ITEM_SWD;
 	material 			=	MAT_METAL;
 
 	value 				=	1240;//610;//305
 
 	damageTotal			= 	55;
 	damagetype 			= 	DAM_EDGE;
-	range    			=  	130;		
+	range    			=  	130;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	26;
@@ -1244,19 +1244,19 @@ INSTANCE ItMw_1H_Sword_Broad_01 (C_Item)
 
 /********************************************************************************/
 // keine NPCs
-INSTANCE ItMw_1H_Sword_Broad_02 (C_Item) 
-{	
+INSTANCE ItMw_1H_Sword_Broad_02 (C_Item)
+{
 	name 				=	"Kriegerurteil";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_SWD;	
+	flags 				=	ITEM_SWD;
 	material 			=	MAT_METAL;
 
 	value 				=	1300;//650;//327
 
 	damageTotal			= 	57;
 	damagetype 			= 	DAM_EDGE;
-	range    			=  	130;		
+	range    			=  	130;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	27;
@@ -1271,19 +1271,19 @@ INSTANCE ItMw_1H_Sword_Broad_02 (C_Item)
 
 /********************************************************************************/
 // keine NPCs
-INSTANCE ItMw_1H_Sword_Broad_03 (C_Item) 
-{	
+INSTANCE ItMw_1H_Sword_Broad_03 (C_Item)
+{
 	name 				=	"Sturmgeflüster";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_SWD;	
+	flags 				=	ITEM_SWD;
 	material 			=	MAT_METAL;
 
 	value 				=	1360;//680;//338
 
 	damageTotal			= 	58;
 	damagetype 			= 	DAM_EDGE;
-	range    			=  	130;		
+	range    			=  	130;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	28;
@@ -1298,19 +1298,19 @@ INSTANCE ItMw_1H_Sword_Broad_03 (C_Item)
 
 /********************************************************************************/
 // keine NPCs
-INSTANCE ItMw_1H_Sword_Broad_04 (C_Item) 
-{	
+INSTANCE ItMw_1H_Sword_Broad_04 (C_Item)
+{
 	name 				=	"Gardistenhand";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_SWD;	
+	flags 				=	ITEM_SWD;
 	material 			=	MAT_METAL;
 
 	value 				=	1400;//700;//349
 
 	damageTotal			= 	59;
 	damagetype 			= 	DAM_EDGE;
-	range    			=  	130;		
+	range    			=  	130;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	29;
@@ -1327,19 +1327,19 @@ INSTANCE ItMw_1H_Sword_Broad_04 (C_Item)
 ** Alte Zweihänder								**
 *********************************************************************************/
 // keine NPCs
-INSTANCE ItMw_2H_Sword_Old_01 (C_Item) 
-{	
+INSTANCE ItMw_2H_Sword_Old_01 (C_Item)
+{
 	name 				=	"Rostiger Zweihänder";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_2HD_SWD;	
+	flags 				=	ITEM_2HD_SWD;
 	material 			=	MAT_METAL;
 
 	value 				=	1480;//740;//372
 
 	damageTotal			= 	61;
 	damagetype			=	DAM_EDGE;
-	range    			=  	150;		
+	range    			=  	150;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	30;
@@ -1356,19 +1356,19 @@ INSTANCE ItMw_2H_Sword_Old_01 (C_Item)
 ** Bastardschwerter								**
 *********************************************************************************/
 // keine NPCs
-INSTANCE ItMw_1H_Sword_Bastard_01 (C_Item) 
-{	
+INSTANCE ItMw_1H_Sword_Bastard_01 (C_Item)
+{
 	name 				=	"Rostiges Bastardschwert";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_SWD;	
+	flags 				=	ITEM_SWD;
 	material 			=	MAT_METAL;
 
 	value 				=	200;//810;//406
 
 	damageTotal			= 	45;// weil es im OGY rumliegt und der Spieler Anfang des dritten Kapitels dort hinkommt!
 	damagetype 			= 	DAM_EDGE;
-	range    			=  	130;		
+	range    			=  	130;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	31;
@@ -1383,19 +1383,19 @@ INSTANCE ItMw_1H_Sword_Bastard_01 (C_Item)
 
 /********************************************************************************/
 // keine NPCs
-INSTANCE ItMw_1H_Sword_Bastard_02 (C_Item) 
-{	
+INSTANCE ItMw_1H_Sword_Bastard_02 (C_Item)
+{
 	name 				=	"Schlachter";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_SWD;	
+	flags 				=	ITEM_SWD;
 	material 			=	MAT_METAL;
 
 	value 				=	1660;//830;//418
 
 	damageTotal			= 	64;
 	damagetype 			= 	DAM_EDGE;
-	range    			=  	130;		
+	range    			=  	130;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	32;
@@ -1410,19 +1410,19 @@ INSTANCE ItMw_1H_Sword_Bastard_02 (C_Item)
 
 /********************************************************************************/
 // keine NPCs
-INSTANCE ItMw_1H_Sword_Bastard_03 (C_Item) 
-{	
+INSTANCE ItMw_1H_Sword_Bastard_03 (C_Item)
+{
 	name 				=	"Vollstrecker";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_SWD;	
+	flags 				=	ITEM_SWD;
 	material 			=	MAT_METAL;
 
 	value 				=	1720;//860;//430
 
 	damageTotal			= 	65;
 	damagetype 			= 	DAM_EDGE;
-	range    			=  	130;		
+	range    			=  	130;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	33;
@@ -1437,19 +1437,19 @@ INSTANCE ItMw_1H_Sword_Bastard_03 (C_Item)
 
 /********************************************************************************/
 // keine NPCs
-INSTANCE ItMw_1H_Sword_Bastard_04 (C_Item) 
-{	
+INSTANCE ItMw_1H_Sword_Bastard_04 (C_Item)
+{
 	name 				=	"Berserkerwort";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_SWD;	
+	flags 				=	ITEM_SWD;
 	material 			=	MAT_METAL;
 
 	value 				=	1760;//880;//442
 
 	damageTotal			= 	66;
 	damagetype 			= 	DAM_EDGE;
-	range    			=  	130;		
+	range    			=  	130;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	35;
@@ -1467,18 +1467,18 @@ INSTANCE ItMw_1H_Sword_Bastard_04 (C_Item)
 *********************************************************************************/
 // keine NPCs
 INSTANCE ItMw_2H_Axe_Old_01 (C_Item)
-{	
-	name 				=	"Alte Streitaxt";  
+{
+	name 				=	"Alte Streitaxt";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_2HD_AXE;	
+	flags 				=	ITEM_2HD_AXE;
 	material 			=	MAT_WOOD;
 
 	value 				=	1800;//900;//454
-	
+
 	damageTotal			= 	67;
 	damagetype			=	DAM_EDGE;
-	range    			=  	150;		
+	range    			=  	150;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	36;
@@ -1494,18 +1494,18 @@ INSTANCE ItMw_2H_Axe_Old_01 (C_Item)
 /********************************************************************************/
 // keine NPCs
 INSTANCE ItMw_2H_Axe_Old_02 (C_Item)
-{	
-	name 				=	"Bluternter";  
+{
+	name 				=	"Bluternter";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_2HD_AXE;	
+	flags 				=	ITEM_2HD_AXE;
 	material 			=	MAT_WOOD;
 
 	value 				=	1840;//920;//466
-	
+
 	damageTotal			= 	68;
 	damagetype			=	DAM_EDGE;
-	range    			=  	150;		
+	range    			=  	150;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	38;
@@ -1521,18 +1521,18 @@ INSTANCE ItMw_2H_Axe_Old_02 (C_Item)
 /********************************************************************************/
 // keine NPCs
 INSTANCE ItMw_2H_Axe_Old_03 (C_Item)
-{	
-	name 				=	"Alter Richter";  
+{
+	name 				=	"Alter Richter";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_2HD_AXE;	
+	flags 				=	ITEM_2HD_AXE;
 	material 			=	MAT_WOOD;
 
 	value 				=	1880;//940;//478
-	
+
 	damageTotal			= 	69;
 	damagetype			=	DAM_EDGE;
-	range    			=  	150;		
+	range    			=  	150;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	40;
@@ -1549,19 +1549,19 @@ INSTANCE ItMw_2H_Axe_Old_03 (C_Item)
 ** Leichte Zweihänder								**
 *********************************************************************************/
 // TPL
-INSTANCE ItMw_2H_Sword_Light_01 (C_Item) 
-{	
+INSTANCE ItMw_2H_Sword_Light_01 (C_Item)
+{
 	name 				=	"Leichter Zweihänder";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_2HD_SWD;	
+	flags 				=	ITEM_2HD_SWD;
 	material 			=	MAT_METAL;
 
 	value 				=	1900;
 
 	damageTotal			= 	70;
 	damagetype			=	DAM_EDGE;
-	range    			=  	150;		
+	range    			=  	150;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	42;
@@ -1576,19 +1576,19 @@ INSTANCE ItMw_2H_Sword_Light_01 (C_Item)
 
 /********************************************************************************/
 // TPL
-INSTANCE ItMw_2H_Sword_Light_02 (C_Item) 
-{	
+INSTANCE ItMw_2H_Sword_Light_02 (C_Item)
+{
 	name 				=	"Hüterklinge";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_2HD_SWD;	
+	flags 				=	ITEM_2HD_SWD;
 	material 			=	MAT_METAL;
 
 	value 				=	1950;
 
 	damageTotal			= 	71;
 	damagetype			=	DAM_EDGE;
-	range    			=  	150;		
+	range    			=  	150;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	44;
@@ -1603,19 +1603,19 @@ INSTANCE ItMw_2H_Sword_Light_02 (C_Item)
 
 /********************************************************************************/
 // keine NPCs
-INSTANCE ItMw_2H_Sword_Light_03 (C_Item) 
-{	
+INSTANCE ItMw_2H_Sword_Light_03 (C_Item)
+{
 	name 				=	"Söldnerklinge";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_2HD_SWD;	
+	flags 				=	ITEM_2HD_SWD;
 	material 			=	MAT_METAL;
 
 	value 				=	2000;//1000;//535
 
 	damageTotal			= 	73;
 	damagetype			=	DAM_EDGE;
-	range    			=  	150;		
+	range    			=  	150;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	46;
@@ -1630,19 +1630,19 @@ INSTANCE ItMw_2H_Sword_Light_03 (C_Item)
 
 /********************************************************************************/
 // TPL_1402_GorNaToth, TPL_1439_GorNaDrak
-INSTANCE ItMw_2H_Sword_Light_04 (C_Item) 
-{	
+INSTANCE ItMw_2H_Sword_Light_04 (C_Item)
+{
 	name 				=	"Königsklinge";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_2HD_SWD;	
+	flags 				=	ITEM_2HD_SWD;
 	material 			=	MAT_METAL;
 
 	value 				=	2200;//1100;//550
 
 	damageTotal			= 	74;
 	damagetype			=	DAM_EDGE;
-	range    			=  	150;		
+	range    			=  	150;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	48;
@@ -1657,19 +1657,19 @@ INSTANCE ItMw_2H_Sword_Light_04 (C_Item)
 
 /********************************************************************************/
 // keine NPCS
-INSTANCE ItMw_2H_Sword_Light_05 (C_Item) 
-{	
+INSTANCE ItMw_2H_Sword_Light_05 (C_Item)
+{
 	name 				=	"Dämonenklinge";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_2HD_SWD;	
+	flags 				=	ITEM_2HD_SWD;
 	material 			=	MAT_METAL;
 
 	value 				=	2320;//1160;//580
 
 	damageTotal			= 	76;
 	damagetype			=	DAM_EDGE;
-	range    			=  	150;		
+	range    			=  	150;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	50;
@@ -1687,18 +1687,18 @@ INSTANCE ItMw_2H_Sword_Light_05 (C_Item)
 *********************************************************************************/
 // keine NPCs
 INSTANCE ItMw_2H_Axe_light_01 (C_Item)
-{	
-	name 				=	"Leichte Streitaxt";  
+{
+	name 				=	"Leichte Streitaxt";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_2HD_AXE;	
+	flags 				=	ITEM_2HD_AXE;
 	material 			=	MAT_WOOD;
 
 	value 				=	2400;//1200;//595
-	
+
 	damageTotal			= 	77;
 	damagetype			=	DAM_EDGE;
-	range    			=  	150;		
+	range    			=  	150;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	52;
@@ -1714,18 +1714,18 @@ INSTANCE ItMw_2H_Axe_light_01 (C_Item)
 /********************************************************************************/
 // keine NPCs
 INSTANCE ItMw_2H_Axe_light_02 (C_Item)
-{	
-	name 				=	"Donnerschlag";  
+{
+	name 				=	"Donnerschlag";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_2HD_AXE;	
+	flags 				=	ITEM_2HD_AXE;
 	material 			=	MAT_WOOD;
 
 	value 				=	2440;//1220;//610
-	
+
 	damageTotal			= 	79;
 	damagetype			=	DAM_EDGE;
-	range    			=  	150;		
+	range    			=  	150;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	54;
@@ -1741,18 +1741,18 @@ INSTANCE ItMw_2H_Axe_light_02 (C_Item)
 /********************************************************************************/
 // keine NPCs
 INSTANCE ItMw_2H_Axe_light_03 (C_Item)
-{	
-	name 				=	"Schmetterschlag";  
+{
+	name 				=	"Schmetterschlag";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_2HD_AXE;	
+	flags 				=	ITEM_2HD_AXE;
 	material 			=	MAT_WOOD;
 
 	value 				=	2520;//1260;//630
-	
+
 	damageTotal			= 	80;
 	damagetype			=	DAM_EDGE;
-	range    			=  	150;		
+	range    			=  	150;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	56;
@@ -1769,19 +1769,19 @@ INSTANCE ItMw_2H_Axe_light_03 (C_Item)
 ** Zweihänder									**
 *********************************************************************************/
 // keine NPCs
-INSTANCE ItMw_2H_Sword_01 (C_Item) 
-{	
+INSTANCE ItMw_2H_Sword_01 (C_Item)
+{
 	name 				=	"Zweihänder";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_2HD_SWD;	
+	flags 				=	ITEM_2HD_SWD;
 	material 			=	MAT_METAL;
 
 	value 				=	2600;//1300;//650
 
 	damageTotal			= 	81;
 	damagetype			=	DAM_EDGE;
-	range    			=  	150;		
+	range    			=  	150;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	58;
@@ -1796,19 +1796,19 @@ INSTANCE ItMw_2H_Sword_01 (C_Item)
 
 /********************************************************************************/
 // keine NPCs
-INSTANCE ItMw_2H_Sword_02 (C_Item) 
-{	
+INSTANCE ItMw_2H_Sword_02 (C_Item)
+{
 	name 				=	"Heldenschneide";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_2HD_SWD;	
+	flags 				=	ITEM_2HD_SWD;
 	material 			=	MAT_METAL;
 
 	value 				=	2760;//1380;//690
 
 	damageTotal			= 	83;
 	damagetype			=	DAM_EDGE;
-	range    			=  	150;		
+	range    			=  	150;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	60;
@@ -1823,19 +1823,19 @@ INSTANCE ItMw_2H_Sword_02 (C_Item)
 
 /********************************************************************************/
 // keine NPCs
-INSTANCE ItMw_2H_Sword_03 (C_Item) 
-{	
+INSTANCE ItMw_2H_Sword_03 (C_Item)
+{
 	name 				=	"Blutschneide";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_2HD_SWD;	
+	flags 				=	ITEM_2HD_SWD;
 	material 			=	MAT_METAL;
 
 	value 				=	2840;//1420;//710
 
 	damageTotal			= 	85;
 	damagetype			=	DAM_EDGE;
-	range    			=  	150;		
+	range    			=  	150;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	62;
@@ -1852,19 +1852,19 @@ INSTANCE ItMw_2H_Sword_03 (C_Item)
 ** Schwere Zweihänder								**
 *********************************************************************************/
 // keine NPCs
-INSTANCE ItMw_2H_Sword_Heavy_01 (C_Item) 
-{	
+INSTANCE ItMw_2H_Sword_Heavy_01 (C_Item)
+{
 	name 				=	"Schwerer Zweihänder";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_2HD_SWD;	
+	flags 				=	ITEM_2HD_SWD;
 	material 			=	MAT_METAL;
 
 	value 				=	2920;//1460;//730
 
 	damageTotal			= 	86;
 	damagetype			=	DAM_EDGE;
-	range    			=  	150;		
+	range    			=  	150;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	64;
@@ -1879,19 +1879,19 @@ INSTANCE ItMw_2H_Sword_Heavy_01 (C_Item)
 
 /********************************************************************************/
 // keine NPCs
-INSTANCE ItMw_2H_Sword_Heavy_02 (C_Item) 
-{	
+INSTANCE ItMw_2H_Sword_Heavy_02 (C_Item)
+{
 	name 				=	"Zornstahl";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_2HD_SWD;	
+	flags 				=	ITEM_2HD_SWD;
 	material 			=	MAT_METAL;
 
 	value 				=	3040;//1520;//770
 
 	damageTotal			= 	88;
 	damagetype			=	DAM_EDGE;
-	range    			=  	150;		
+	range    			=  	150;
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	66;
 	visual 				=	"ItMw_2H_Sword_Heavy_02.3DS";
@@ -1905,19 +1905,19 @@ INSTANCE ItMw_2H_Sword_Heavy_02 (C_Item)
 
 /********************************************************************************/
 // keine NPCs
-INSTANCE ItMw_2H_Sword_Heavy_03 (C_Item) 
-{	
+INSTANCE ItMw_2H_Sword_Heavy_03 (C_Item)
+{
 	name 				=	"Grimmstahl";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_2HD_SWD;	
+	flags 				=	ITEM_2HD_SWD;
 	material 			=	MAT_METAL;
 
 	value 				=	3260;//1630;//815
 
 	damageTotal			= 	90;
 	damagetype			=	DAM_EDGE;
-	range    			=  	150;		
+	range    			=  	150;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	68;
@@ -1932,19 +1932,19 @@ INSTANCE ItMw_2H_Sword_Heavy_03 (C_Item)
 
 /********************************************************************************/
 // keine NPCs
-INSTANCE ItMw_2H_Sword_Heavy_04 (C_Item) 
-{	
+INSTANCE ItMw_2H_Sword_Heavy_04 (C_Item)
+{
 	name 				=	"Rachestahl";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_2HD_SWD;	
+	flags 				=	ITEM_2HD_SWD;
 	material 			=	MAT_METAL;
 
 	value 				=	3440;//1720;//865
 
 	damageTotal			= 	92;
 	damagetype			=	DAM_EDGE;
-	range    			=  	150;		
+	range    			=  	150;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	70;
@@ -1962,18 +1962,18 @@ INSTANCE ItMw_2H_Sword_Heavy_04 (C_Item)
 *********************************************************************************/
 // keine NPCs
 INSTANCE ItMw_2H_Axe_Heavy_01 (C_Item)
-{	
-	name 				=	"Streitaxt";  
+{
+	name 				=	"Streitaxt";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_2HD_AXE;	
+	flags 				=	ITEM_2HD_AXE;
 	material 			=	MAT_WOOD;
 
 	value 				=	3660;//1830;//915
-	
+
 	damageTotal			= 	94;
 	damagetype			=	DAM_EDGE;
-	range    			=  	150;		
+	range    			=  	150;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	72;
@@ -1989,18 +1989,18 @@ INSTANCE ItMw_2H_Axe_Heavy_01 (C_Item)
 /********************************************************************************/
 // keine NPCs
 INSTANCE ItMw_2H_Axe_Heavy_02 (C_Item)
-{	
-	name 				=	"Kriegerstimme";  
+{
+	name 				=	"Kriegerstimme";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_2HD_AXE;	
+	flags 				=	ITEM_2HD_AXE;
 	material 			=	MAT_WOOD;
 
 	value 				=	3860;//1930;//965
-	
+
 	damageTotal			= 	96;
 	damagetype			=	DAM_EDGE;
-	range    			=  	150;		
+	range    			=  	150;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	74;
@@ -2016,18 +2016,18 @@ INSTANCE ItMw_2H_Axe_Heavy_02 (C_Item)
 /********************************************************************************/
 // keine NPCs
 INSTANCE ItMw_2H_Axe_Heavy_03 (C_Item)
-{	
-	name 				=	"Barbarenfaust";  
+{
+	name 				=	"Barbarenfaust";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_2HD_AXE;	
+	flags 				=	ITEM_2HD_AXE;
 	material 			=	MAT_WOOD;
 
 	value 				=	4060;//2030;//1015
-	
+
 	damageTotal			= 	98;
 	damagetype			=	DAM_EDGE;
-	range    			=  	150;		
+	range    			=  	150;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	76;
@@ -2043,18 +2043,18 @@ INSTANCE ItMw_2H_Axe_Heavy_03 (C_Item)
 /********************************************************************************/
 // keine NPCs
 INSTANCE ItMw_2H_Axe_Heavy_04 (C_Item)
-{	
-	name 				=	"Trollfaust";  
+{
+	name 				=	"Trollfaust";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_2HD_AXE;	
+	flags 				=	ITEM_2HD_AXE;
 	material 			=	MAT_WOOD;
 
 	value 				=	4360;//2180;//1090
-	
+
 	damageTotal			= 	100;
 	damagetype			=	DAM_EDGE;
-	range    			=  	150;		
+	range    			=  	150;
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	78;
@@ -2072,18 +2072,18 @@ INSTANCE ItMw_2H_Axe_Heavy_04 (C_Item)
 *********************************************************************************/
 // Orc-Scout (ab Ende Kap 3!)
 INSTANCE ItMw2hOrcSword01 (C_Item)
-{	
-	name 				=	"Krush Varrok"; 
+{
+	name 				=	"Krush Varrok";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_2HD_SWD;	
+	flags 				=	ITEM_2HD_SWD;
 	material 			=	MAT_WOOD;
 
 	value 				=	30;//90
 
 	damageTotal			= 	45;
 	damagetype			=	DAM_EDGE;
-	range    			=  	150;		
+	range    			=  	150;
 
 	cond_atr[2]   		=	ATR_STRENGTH;
 	cond_value[2]  		=	25;
@@ -2099,18 +2099,18 @@ INSTANCE ItMw2hOrcSword01 (C_Item)
 /********************************************************************************/
 // Orc-Warrior (Mitte Kap 4!)
 INSTANCE ItMw2hOrcAxe01 (C_Item)
-{	
+{
 	name 				=	"Krush Pach";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_2HD_AXE;	
+	flags 				=	ITEM_2HD_AXE;
 	material 			=	MAT_WOOD;
 
 	value 				=	35;//100;
 
 	damageTotal			= 	50;
 	damagetype			=	DAM_EDGE;
-	range    			=  	150;		
+	range    			=  	150;
 
 	cond_atr[2]   		=   ATR_STRENGTH;
 	cond_value[2]  		=   30;
@@ -2126,18 +2126,18 @@ INSTANCE ItMw2hOrcAxe01 (C_Item)
 /********************************************************************************/
 // Orc-Warrior (Mitte Kap 4!)
 INSTANCE ItMw2hOrcAxe02 (C_Item)
-{	
+{
 	name 				=	"Krush UrRok";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_2HD_AXE;	
+	flags 				=	ITEM_2HD_AXE;
 	material 			=	MAT_WOOD;
 
 	value 				=	38;//110;
 
 	damageTotal			= 	55;
 	damagetype			=	DAM_EDGE;
-	range    			=  	150;		
+	range    			=  	150;
 
 	cond_atr[2]   		=  	ATR_STRENGTH;
 	cond_value[2]  		=  	35;
@@ -2153,18 +2153,18 @@ INSTANCE ItMw2hOrcAxe02 (C_Item)
 /********************************************************************************/
 // Orc-Warrior (Mitte Kap 4!)
 INSTANCE ItMw2hOrcAxe03 (C_Item)
-{	
+{
 	name 				=	"Krush Agash";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_2HD_AXE;	
+	flags 				=	ITEM_2HD_AXE;
 	material 			=	MAT_WOOD;
 
 	value 				=	40;//120;
 
 	damageTotal			= 	60;
 	damagetype			=	DAM_EDGE;
-	range    			=  	150;		
+	range    			=  	150;
 
 	cond_atr[2]   		=   ATR_STRENGTH;
 	cond_value[2]  		=   40;
@@ -2180,18 +2180,18 @@ INSTANCE ItMw2hOrcAxe03 (C_Item)
 /********************************************************************************/
 // Orc-Warrior (Mitte Kap 4!)
 INSTANCE ItMw2hOrcAxe04 (C_Item)
-{	
+{
 	name 				=	"Krush BrokDar";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_2HD_AXE;	
+	flags 				=	ITEM_2HD_AXE;
 	material 			=	MAT_WOOD;
 
 	value 				=	43;//130;
 
 	damageTotal			= 	65;
 	damagetype			=	DAM_EDGE;
-	range    			=  	150;		
+	range    			=  	150;
 
 	cond_atr[2]   		=   ATR_STRENGTH;
 	cond_value[2]  		=   45;
@@ -2207,18 +2207,18 @@ INSTANCE ItMw2hOrcAxe04 (C_Item)
 /********************************************************************************/
 // Undead Orc-Warrior (Kap. 5)
 INSTANCE ItMw2hOrcMace01 (C_Item)
-{	
+{
 	name 				=	"Krush Karrok";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_2HD_AXE;	
+	flags 				=	ITEM_2HD_AXE;
 	material 			=	MAT_WOOD;
 
 	value 				=	50;//150;
 
 	damageTotal			= 	75;
 	damagetype			=	DAM_BLUNT;
-	range    			=  	150;		
+	range    			=  	150;
 
 	cond_atr[2]   		=   ATR_STRENGTH;
 	cond_value[2]  		=   50;

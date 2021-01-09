@@ -2,7 +2,7 @@
 **	Zombie Prototype													**
 *************************************************************************/
 
-PROTOTYPE Mst_Default_Zombie(C_Npc)			
+PROTOTYPE Mst_Default_Zombie(C_Npc)
 {
 	name							=	"Zombie";
 	guild							=	GIL_ZOMBIE;
@@ -11,7 +11,7 @@ PROTOTYPE Mst_Default_Zombie(C_Npc)
 //-----------------------------------------------------------
 	attribute	[ATR_STRENGTH]		=	140;
 	attribute	[ATR_DEXTERITY]		=	140;
-	
+
 	attribute	[ATR_HITPOINTS_MAX]	=	250;
 	attribute	[ATR_HITPOINTS]		=	250;
 
@@ -39,7 +39,7 @@ PROTOTYPE Mst_Default_Zombie(C_Npc)
 	senses_range				= 3000;
 
 	aivar[AIV_MM_Behaviour]		= HUNTER;
-	
+
 	aivar[AIV_MM_PercRange]		= 2000;
 	aivar[AIV_MM_DrohRange]		= 1500;
 	aivar[AIV_MM_AttackRange]	= 1500;
@@ -146,7 +146,7 @@ INSTANCE ZombieTheKeeper	(Mst_Default_Zombie)
 	senses_range					= 1000;
 
 	aivar[AIV_MM_Behaviour]			= HUNTER;
-	
+
 	aivar[AIV_MM_PercRange]			= 1000;
 	aivar[AIV_MM_DrohRange]			= 1000;
 	aivar[AIV_MM_AttackRange]		= 1000;

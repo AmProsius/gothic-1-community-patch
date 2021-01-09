@@ -15,7 +15,7 @@ INSTANCE Info_Stt_12_EXIT(C_INFO)
 	information	= Info_Stt_12_EXIT_Info;
 	permanent	= 1;
 	description = "ENDE";
-};                       
+};
 
 FUNC INT Info_Stt_12_EXIT_Condition()
 {
@@ -23,7 +23,7 @@ FUNC INT Info_Stt_12_EXIT_Condition()
 };
 
 FUNC VOID Info_Stt_12_EXIT_Info()
-{	
+{
 	AI_StopProcessInfos	(self);
 };
 
@@ -38,7 +38,7 @@ INSTANCE Info_Stt_12_EinerVonEuchWerden (C_INFO) // E1
 	information	= Info_Stt_12_EinerVonEuchWerden_Info;
 	permanent	= 1;
 	description = "Ich würde mich gerne den Schatten anschliessen.";
-};                       
+};
 
 FUNC INT Info_Stt_12_EinerVonEuchWerden_Condition()
 {
@@ -68,7 +68,7 @@ INSTANCE Info_Stt_12_WichtigePersonen(C_INFO)
 	information	= Info_Stt_12_WichtigePersonen_Info;
 	permanent	= 1;
 	description = "Wer ist hier der Boss?";
-};                       
+};
 
 FUNC INT Info_Stt_12_WichtigePersonen_Condition()
 {
@@ -79,7 +79,7 @@ FUNC VOID Info_Stt_12_WichtigePersonen_Info()
 {
 	AI_Output(other,self,"Info_Stt_12_WichtigePersonen_15_00"); //Wer ist hier der Boss?
 	AI_Output(self,other,"Info_Stt_12_WichtigePersonen_12_01"); //Diego ist unter den Schatten so was wie der Anführer. Aber Thorus entscheidet, wer zu Gomez vorgelassen wird.
-	
+
 	var C_NPC Diego;		Diego 	= Hlp_GetNpc(PC_Thief);
 	Diego.aivar[AIV_FINDABLE] = TRUE;
 	var C_NPC Thorus;		Thorus 	= Hlp_GetNpc(GRD_200_Thorus);
@@ -97,7 +97,7 @@ INSTANCE Info_Stt_12_DasLager(C_INFO)
 	information	= Info_Stt_12_DasLager_Info;
 	permanent	= 1;
 	description = "Ich will wissen, was es hier im Lager alles gibt.";
-};                       
+};
 
 FUNC INT Info_Stt_12_DasLager_Condition()
 {
@@ -121,7 +121,7 @@ INSTANCE Info_Stt_12_DieLage(C_INFO) // E1
 	information	= Info_Stt_12_DieLage_Info;
 	permanent	= 1;
 	description = "Na, wie steht's?";
-};                       
+};
 
 FUNC INT Info_Stt_12_DieLage_Condition()
 {
@@ -133,14 +133,14 @@ FUNC VOID Info_Stt_12_DieLage_Info()
 	AI_Output(other,self,"Info_Stt_12_DieLage_15_00"); //Na, wie steht's?
 	AI_Output(self,other,"Info_Stt_12_DieLage_12_01"); //Was genau willst du von mir?
 };
-	
+
 // *************************************************************************
 // -------------------------------------------------------------------------
 
 FUNC VOID B_AssignAmbientInfos_Stt_12(var c_NPC slf)
 {
 	B_AssignFindNpc_OC(slf);
-	
+
 	Info_Stt_12_EXIT.npc				= Hlp_GetInstanceID(slf);
 	Info_Stt_12_EinerVonEuchWerden.npc	= Hlp_GetInstanceID(slf);
 	Info_Stt_12_WichtigePersonen.npc	= Hlp_GetInstanceID(slf);

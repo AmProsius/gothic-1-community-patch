@@ -6,10 +6,10 @@ instance  GRD_262_Aaron_Exit (C_INFO)
 	nr			=  999;
 	condition	=  GRD_262_Aaron_Exit_Condition;
 	information	=  GRD_262_Aaron_Exit_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC int  GRD_262_Aaron_Exit_Condition()
 {
@@ -27,13 +27,13 @@ instance  GRD_262_Aaron_CHEST (C_INFO)
 	npc			=  GRD_262_Aaron;
 	condition	=  GRD_262_Aaron_CHEST_Condition;
 	information	=  GRD_262_Aaron_CHEST_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 1;
 	description = "Was machst du hier?";
-};                       
+};
 
 FUNC int  GRD_262_Aaron_CHEST_Condition()
-{	
+{
 	if ( Npc_GetDistToWp (self,"OM_CAVE1_34") <400 )
 	&& (!Npc_KnowsInfo   (hero,GRD_262_Aaron_BLUFF))
 	{
@@ -54,11 +54,11 @@ instance  GRD_262_Aaron_BLUFF (C_INFO)
 	information		= GRD_262_Aaron_BLUFF_Info;
 	important		= 0;
 	permanent		= 1;
-	description		= "(Aaron weglocken)"; 
+	description		= "(Aaron weglocken)";
 };
 
 FUNC int  GRD_262_Aaron_BLUFF_Condition()
-{	
+{
 	if	Npc_KnowsInfo (hero,VLK_584_Snipes_DEAL)
 	&&	(Aaron_lock != LOG_RUNNING)
 	&&	(Aaron_lock != LOG_SUCCESS)
@@ -82,7 +82,7 @@ FUNC void   GRD_262_Aaron_BLUFF_ORE ()
 	AI_Output			(self, other,"GRD_262_Aaron_BLUFF_ORE_09_02");//Na und?
 	AI_Output			(other, self,"GRD_262_Aaron_BLUFF_ORE_15_03");//Den musst du dir unbedingt ansehen!
 	AI_Output			(self, other,"GRD_262_Aaron_BLUFF_ORE_09_04");//Vergiss es.
-};  
+};
 FUNC VOID GRD_262_Aaron_BLUFF_BANDIT ()
 {
 	AI_Output			(other, self,"GRD_262_Aaron_BLUFF_BANDIT_15_01"); //Ich hab' gehört, dass Banditen in der Mine sind. Sie wollen das Erz!
@@ -92,12 +92,12 @@ func void  GRD_262_Aaron_BLUFF_IAN()
 {
 	AI_Output			(other, self,"GRD_262_Aaron_BLUFF_IAN_15_01"); //Ian schickt mich. Du sollst sofort zu ihm kommen!
 	AI_Output			(self, other,"GRD_262_Aaron_BLUFF_IAN_09_02"); //Was will er denn?
-	
+
 	Info_ClearChoices	(GRD_262_Aaron_BLUFF);
 	Info_AddChoice		(GRD_262_Aaron_BLUFF,"Keine Ahnung"					,GRD_262_Aaron_BLUFF_UGLY);
 	Info_AddChoice		(GRD_262_Aaron_BLUFF,"Es gibt Ärger für dich"		,GRD_262_Aaron_BLUFF_BAD);
 	Info_AddChoice		(GRD_262_Aaron_BLUFF,"Belohnung für gute Dienste"	,GRD_262_Aaron_BLUFF_GOOD);
-};  
+};
 func void GRD_262_Aaron_BLUFF_GOOD ()
 {
 	AI_Output			(other, self,"GRD_262_Aaron_BLUFF_GOOD_15_01"); //Er will dir eine Belohnung für deine guten Dienste geben.
@@ -117,13 +117,13 @@ func void GRD_262_Aaron_BLUFF_UGLY()
 	AI_Output			(self, other,"GRD_262_Aaron_BLUFF_UGLY_09_02"); //Dann werde ich mal zu ihm gehen!
 
 	AI_StopProcessInfos	(self);
-		
+
 	Npc_ExchangeRoutine	(self,	"trick");
-	
+
 	Aaron_lock = LOG_RUNNING;
 	Snipes_Deal = LOG_SUCCESS;
 	GRD_262_Aaron_BLUFF.permanent = 0;
-	
+
 	B_LogEntry		(CH2_SnipesDeal,	"Ich habe Aaron unter dem Vorwand, dass Ian ihn sehen will, von der Truhe weggelockt. Ich hoffe er hat etwas Humor.");
 };
 
@@ -138,9 +138,9 @@ instance  GRD_262_Aaron_PISSED (C_INFO)
 	npc			=  GRD_262_Aaron;
 	condition	=  GRD_262_Aaron_PISSED_Condition;
 	information	=  GRD_262_Aaron_PISSED_Info;
-	important	= 1;	
+	important	= 1;
 	permanent	= 0;
-};                       
+};
 
 FUNC int  GRD_262_Aaron_PISSED_Condition()
 {
@@ -158,8 +158,8 @@ FUNC VOID  GRD_262_Aaron_PISSED_Info()
 
 	Npc_ExchangeRoutine	(self,	"start");
 	Aaron_lock = LOG_SUCCESS;
-	
-	B_LogEntry		(CH2_SnipesDeal,	"Ich habe Aaron wiedergetroffen und festgestellt, dass er KEINEN Humor hat."); 
+
+	B_LogEntry		(CH2_SnipesDeal,	"Ich habe Aaron wiedergetroffen und festgestellt, dass er KEINEN Humor hat.");
 };
 
 // ***************** Schlüssel verkaufen *****************************
@@ -168,14 +168,14 @@ instance  GRD_262_Aaron_SELL (C_INFO)
 	npc			=  GRD_262_Aaron;
 	condition	=  GRD_262_Aaron_SELL_Condition;
 	information	=  GRD_262_Aaron_SELL_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 0;
 	description = "Hey, vermisst du nicht deinen Schlüssel?";
-};                       
+};
 
 FUNC int  GRD_262_Aaron_SELL_Condition()
 {
-	if ( Npc_KnowsInfo (hero,VLK_584_Snipes_DEAL_RUN )) 
+	if ( Npc_KnowsInfo (hero,VLK_584_Snipes_DEAL_RUN ))
 	{
 		return 1;
 	};
@@ -187,7 +187,7 @@ FUNC VOID  GRD_262_Aaron_SELL_Info()
 	AI_Output			(self, other,"Info_Aaron_SELL_09_02"); //Tatsächlich. Ich will gar nicht wissen, woher oder warum du etwas über den Schlüssel weißt.
 	AI_Output			(self, other,"Info_Aaron_SELL_09_03"); //Aber ich gebe dir 20 Erz, wenn du mir meinen Schlüssel wiederholst.
 
-	B_LogEntry		(CH2_SnipesDeal,	"Aaron hat mir 20 Erz geboten, wenn ich ihm den Schlüssel seiner Truhe besorge!"); 
+	B_LogEntry		(CH2_SnipesDeal,	"Aaron hat mir 20 Erz geboten, wenn ich ihm den Schlüssel seiner Truhe besorge!");
 };
 
 // ***************** Schlüssel verkaufen 2*****************************
@@ -196,10 +196,10 @@ instance  GRD_262_Aaron_SELLNOW (C_INFO)
 	npc			=  GRD_262_Aaron;
 	condition	=  GRD_262_Aaron_SELLNOW_Condition;
 	information	=  GRD_262_Aaron_SELLNOW_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 0;
 	description = "(Schlüssel verkaufen)";
-};                       
+};
 
 FUNC int  GRD_262_Aaron_SELLNOW_Condition()
 {
@@ -213,14 +213,14 @@ FUNC VOID  GRD_262_Aaron_SELLNOW_Info()
 	AI_Output			(other, self,"Info_Aaron_SELLNOW_15_01"); //Hier ist dein Schlüssel.
 	AI_Output			(self, other,"Info_Aaron_SELLNOW_09_02"); //Tatsächlich. Also, wie abgemacht, hier sind 20 Erz für dich.
 	AI_Output			(self, other,"Info_Aaron_SELLNOW_09_03"); //Du solltest dich aber in Zukunft vorsehen. Ab jetzt habe ich ein Auge auf dich!
-	
+
 	CreateInvItems 		(self,ItMinugget,20);
 	B_GiveInvItems      (self,other,ItMinugget,20);
 	B_GiveInvItems      (hero, self, ItKe_OM_02, 1);
 
 	B_GiveXP			(XP_SellKeyToAaron);
 
-	B_LogEntry		(CH2_SnipesDeal,	"Ich habe Aaron seinen eigenen Schlüssel verkauft. Alles in allem habe ich bei der ganzen Sache ordentlich Profit gemacht!"); 
+	B_LogEntry		(CH2_SnipesDeal,	"Ich habe Aaron seinen eigenen Schlüssel verkauft. Alles in allem habe ich bei der ganzen Sache ordentlich Profit gemacht!");
 	Log_SetTopicStatus	(CH2_SnipesDeal,	LOG_SUCCESS);
 };
 

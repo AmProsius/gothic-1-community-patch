@@ -1,5 +1,5 @@
-// ***************************** 
-//				EXIT 
+// *****************************
+//				EXIT
 // *****************************
 
 instance DIA_TPL_1402_GorNaToth_Exit (C_INFO)
@@ -10,7 +10,7 @@ instance DIA_TPL_1402_GorNaToth_Exit (C_INFO)
 	information	= DIA_TPL_1402_GorNaToth_Exit_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC int DIA_TPL_1402_GorNaToth_Exit_Condition()
 {
@@ -22,8 +22,8 @@ FUNC VOID DIA_TPL_1402_GorNaToth_Exit_Info()
 	AI_StopProcessInfos	( self );
 };
 
-// ***************************** 
-//			Abweisend 
+// *****************************
+//			Abweisend
 // *****************************
 instance DIA_GorNaToth_Abweisend (C_INFO)
 {
@@ -33,12 +33,12 @@ instance DIA_GorNaToth_Abweisend (C_INFO)
 	information	= DIA_GorNaToth_Abweisend_Info;
 	permanent	= 1;
 	description = "Kannst du mich trainieren?";
-};                       
+};
 
 FUNC int DIA_GorNaToth_Abweisend_Condition()
 {
 	if	!Npc_KnowsInfo(hero,DIA_GorNaToth_AngarTalked)
-	&&	!C_NpcBelongsToPsiCamp(hero)  
+	&&	!C_NpcBelongsToPsiCamp(hero)
 	{
 		return 1;
 	};
@@ -51,8 +51,8 @@ FUNC VOID DIA_GorNaToth_Abweisend_Info()
 	AI_StopProcessInfos	(self);
 };
 
-// ***************************** 
-//			AngarTalked 
+// *****************************
+//			AngarTalked
 // *****************************
 
 instance DIA_GorNaToth_AngarTalked (C_INFO)
@@ -63,7 +63,7 @@ instance DIA_GorNaToth_AngarTalked (C_INFO)
 	information	= DIA_GorNaToth_AngarTalked_Info;
 	permanent	= 0;
 	important 	= 1;
-};                       
+};
 
 FUNC int DIA_GorNaToth_AngarTalked_Condition()
 {
@@ -77,9 +77,9 @@ FUNC VOID DIA_GorNaToth_AngarTalked_Info()
 {
 	AI_Output (self, other,"DIA_GorNaToth_AngarTalked_11_00"); //Cor Angar hat mit dir geredet? Was hat er gesagt?
 	Info_ClearChoices		(DIA_GorNaToth_AngarTalked);
-	Info_AddChoice			(DIA_GorNaToth_AngarTalked,	"Er hat gesagt, du seist unwürdig, die Rüstung eines Templers zu tragen.",DIA_GorNaToth_AngarTalked_Unworthy);	
-	Info_AddChoice			(DIA_GorNaToth_AngarTalked,	"Er sagte, die Sumpfhaie habe er noch nie leiden können.",DIA_GorNaToth_AngarTalked_Shark);	
-	Info_AddChoice			(DIA_GorNaToth_AngarTalked,	"Er hat gesagt, ich soll wiederkommen, wenn ich Templer bin.",DIA_GorNaToth_AngarTalked_Normal);	
+	Info_AddChoice			(DIA_GorNaToth_AngarTalked,	"Er hat gesagt, du seist unwürdig, die Rüstung eines Templers zu tragen.",DIA_GorNaToth_AngarTalked_Unworthy);
+	Info_AddChoice			(DIA_GorNaToth_AngarTalked,	"Er sagte, die Sumpfhaie habe er noch nie leiden können.",DIA_GorNaToth_AngarTalked_Shark);
+	Info_AddChoice			(DIA_GorNaToth_AngarTalked,	"Er hat gesagt, ich soll wiederkommen, wenn ich Templer bin.",DIA_GorNaToth_AngarTalked_Normal);
 };
 
 func void DIA_GorNaToth_AngarTalked_Normal()
@@ -118,11 +118,11 @@ instance  TPL_1402_GorNaToth_GETSTUFF (C_INFO)
 	information		= TPL_1402_GorNaToth_GETSTUFF_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "Ich möchte meine Templer-Rüstung abholen."; 
+	description		= "Ich möchte meine Templer-Rüstung abholen.";
 };
 
 FUNC int  TPL_1402_GorNaToth_GETSTUFF_Condition()
-{	
+{
 	if (Npc_KnowsInfo (hero,GUR_1202_CorAngar_WANNABETPL))
 	&& (Npc_GetTrueGuild (hero) == GIL_TPL)
 	{
@@ -135,20 +135,20 @@ FUNC void  TPL_1402_GorNaToth_GETSTUFF_Info()
 	AI_Output			(other, self,"TPL_1402_GorNaToth_GETSTUFF_Info_15_01"); //Ich möchte meine Templer-Rüstung abholen.
 	AI_Output			(self, other,"TPL_1402_GorNaToth_GETSTUFF_Info_11_02"); //Es ist mir eine Freude, dem Mann eine von unseren Rüstungen zu überreichen, der die Eier der Minecrawler gefunden hat.
 	AI_Output			(self, other,"TPL_1402_GorNaToth_GETSTUFF_Info_11_03"); //Diese Rüstung soll dich schützen, so wie der Schläfer die Bruderschaft schützt!
-	
+
 	B_LogEntry			(GE_BecomeTemplar,	"Gor Na Toth überreichte mir meine erste Templer-Rüstung. Nun bin ich ein vollwertiges Mitglied dieser Kriegergemeinschaft!");
 
 	Log_CreateTopic		(GE_TraderPSI,		LOG_NOTE);
 	B_LogEntry			(GE_TraderPSI,		"Gor Na Toth verteilt bessere Templer-RÜSTUNGEN. Dafür erwarteter allerdings eine großzügige Spende an die Bruderschaft. Er ist tagsüber auf dem Übungsplatz der Templer zu finden.");
-	
+
 	CreateInvItem		(hero, TPL_ARMOR_L);
-	
+
 	CreateInvItem		(self, ItAmArrow);
 	B_GiveInvItems      (self, hero, ItAmArrow, 1);
 	Npc_RemoveInvItem	(hero, ItAmArrow);
-	
+
 	AI_EquipBestArmor	(hero);
-};  
+};
 
 /*------------------------------------------------------------------------
 //							ARMOR
@@ -160,11 +160,11 @@ instance  TPL_1402_GorNaToth_ARMOR (C_INFO)
 	information		= TPL_1402_GorNaToth_ARMOR_Info;
 	important		= 0;
 	permanent		= 1;
-	description		= "Ich brauche eine bessere Rüstung."; 
+	description		= "Ich brauche eine bessere Rüstung.";
 };
 
 FUNC int  TPL_1402_GorNaToth_ARMOR_Condition()
-{	
+{
 	if	(Npc_KnowsInfo(hero,TPL_1402_GorNaToth_GETSTUFF))
 	{
 		return TRUE;
@@ -177,9 +177,9 @@ FUNC void  TPL_1402_GorNaToth_ARMOR_Info()
 	AI_Output				(self, other,"Info_GorNaToth_ARMOR_11_02"); //Ich könnte dir eine bessere Rüstung zuteilen, doch dafür musst du einen großzügigen Beitrag an die Bruderschaft spenden!
 
 	Info_ClearChoices		(TPL_1402_GorNaToth_ARMOR);
-	Info_AddChoice			(TPL_1402_GorNaToth_ARMOR,	DIALOG_BACK	,	TPL_1402_GorNaToth_ARMOR_BACK);	
-	Info_AddChoice			(TPL_1402_GorNaToth_ARMOR,	B_BuildBuyArmorString(NAME_GorNaTothHeavyTpl,VALUE_TPL_ARMOR_H) ,TPL_1402_GorNaToth_ARMOR_H);	
-	Info_AddChoice			(TPL_1402_GorNaToth_ARMOR,	B_BuildBuyArmorString(NAME_GorNaTothTpl,VALUE_TPL_ARMOR_M),	TPL_1402_GorNaToth_ARMOR_M);	
+	Info_AddChoice			(TPL_1402_GorNaToth_ARMOR,	DIALOG_BACK	,	TPL_1402_GorNaToth_ARMOR_BACK);
+	Info_AddChoice			(TPL_1402_GorNaToth_ARMOR,	B_BuildBuyArmorString(NAME_GorNaTothHeavyTpl,VALUE_TPL_ARMOR_H) ,TPL_1402_GorNaToth_ARMOR_H);
+	Info_AddChoice			(TPL_1402_GorNaToth_ARMOR,	B_BuildBuyArmorString(NAME_GorNaTothTpl,VALUE_TPL_ARMOR_M),	TPL_1402_GorNaToth_ARMOR_M);
 
 
 };
@@ -200,13 +200,13 @@ func void TPL_1402_GorNaToth_ARMOR_M ()
 	{
 		AI_Output			(self, hero,"Info_GorNaToth_ARMOR_M_11_04"); //Nun, da du in der Lage bist, die erforderliche Spende zu leisten, sollst du fortan von einer neuen Rüstung geschützt werden.
 		B_GiveInvItems	    (hero, self, ItMiNugget,	VALUE_TPL_ARMOR_M);
-		
+
 		CreateInvItem		(hero, TPL_ARMOR_M);
-		
+
 		CreateInvItem		(self, ItAmArrow);
 		B_GiveInvItems      (self, hero, ItAmArrow, 1);
 		Npc_RemoveInvItem	(hero, ItAmArrow);
-		
+
 		AI_EquipBestArmor	(hero);
 	};
 
@@ -262,11 +262,11 @@ INSTANCE TPL_1402_GorNaToth_Teach(C_INFO)
 	information	= TPL_1402_GorNaToth_Teach_Info;
 	permanent	= 1;
 	description = "Kannst du mich trainieren?";
-};                       
+};
 
 FUNC INT TPL_1402_GorNaToth_Teach_Condition()
 {
-	if (C_NpcBelongsToPsiCamp(hero))  
+	if (C_NpcBelongsToPsiCamp(hero))
 	{
 		return TRUE;
 	};
@@ -276,7 +276,7 @@ FUNC VOID TPL_1402_GorNaToth_Teach_Info()
 {
 	AI_Output			(other,self,"TPL_1402_GorNaToth_Teach_15_00"); //Kannst du mich trainieren?
 	AI_Output			(self,other,"TPL_1402_GorNaToth_Teach_11_01"); //Stärke und Geschicklichkeit sind ebenso wichtig wie geistige Kraft.
-	
+
 	Info_ClearChoices	(TPL_1402_GorNaToth_Teach);
 	Info_AddChoice		(TPL_1402_GorNaToth_Teach,DIALOG_BACK									,TPL_1402_GorNaToth_Teach_BACK);
 	Info_AddChoice		(TPL_1402_GorNaToth_Teach,B_BuildLearnString(NAME_LearnStrength_5,5*LPCOST_ATTRIBUTE_STRENGTH,0)			,TPL_1402_GorNaToth_Teach_STR_5);
@@ -376,7 +376,7 @@ func void TPL_1402_GorNaToth_Teach_MAN_5()
 	Info_AddChoice		(TPL_1402_GorNaToth_Teach,B_BuildLearnString(NAME_LearnMana_1,LPCOST_ATTRIBUTE_MANA,0)			,TPL_1402_GorNaToth_Teach_MAN_1);
 };
 /*------------------------------------------------------------------------
-						EINHANDKAMPF	DIE ERSTE LEHRSTUNDE							
+						EINHANDKAMPF	DIE ERSTE LEHRSTUNDE
 ------------------------------------------------------------------------*/
 
 instance  TPL_1402_GorNaToth_TRAIN (C_INFO)
@@ -386,14 +386,14 @@ instance  TPL_1402_GorNaToth_TRAIN (C_INFO)
 	information		= TPL_1402_GorNaToth_TRAIN_Info;
 	important		= 0;
 	permanent		= 1;
-	description		= B_BuildLearnString(NAME_Learn1h_1,LPCOST_TALENT_1H_1,0); 
+	description		= B_BuildLearnString(NAME_Learn1h_1,LPCOST_TALENT_1H_1,0);
 };
 
 FUNC int  TPL_1402_GorNaToth_TRAIN_Condition()
-{	
-	
+{
+
 	if (Npc_GetTalentSkill (hero,NPC_TALENT_1H) < 1)
-	&& (C_NpcBelongsToPsiCamp(hero))  
+	&& (C_NpcBelongsToPsiCamp(hero))
 	{
 		return TRUE;
 	};
@@ -401,14 +401,14 @@ FUNC int  TPL_1402_GorNaToth_TRAIN_Condition()
 };
 FUNC void  TPL_1402_GorNaToth_TRAIN_Info()
 {
-	if	(log_gornatothfight == FALSE) 
+	if	(log_gornatothfight == FALSE)
 	{
 		Log_CreateTopic   	(GE_TeacherPSI,LOG_NOTE);
 		B_LogEntry			(GE_TeacherPSI,"Der Templer Gor Na Toth kann mir den Kampf mit EINHÄNDIGEN Waffen beibringen.");
 		log_gornatothfight = TRUE;
 	};
 	AI_Output (other, self,"TPL_1402_GorNaToth_TRAIN_Info_15_00"); //Ich will besser mit Einhandwaffen umgehen können.
-	
+
 	if B_GiveSkill(hero,NPC_TALENT_1H,1,LPCOST_TALENT_1H_1)
 	{
 		AI_Output			(self,other,"TPL_1402_GorNaToth_TRAIN_11_01"); //Gute Entscheidung! Um deine Technik zu verbessern, musst du erst einmal lernen, deine Waffe richtig zu halten.
@@ -423,9 +423,9 @@ FUNC void  TPL_1402_GorNaToth_TRAIN_Info()
 		AI_StopProcessInfos	(self);
 		B_PracticeCombat	("PSI_PATH_6_7");
 	};
-};  
+};
 /*------------------------------------------------------------------------
-						EINHANDKAMPF	DIE ZWEITE LEHRSTUNDE							
+						EINHANDKAMPF	DIE ZWEITE LEHRSTUNDE
 ------------------------------------------------------------------------*/
 
 instance  TPL_1402_GorNaToth_TRAINAGAIN (C_INFO)
@@ -435,13 +435,13 @@ instance  TPL_1402_GorNaToth_TRAINAGAIN (C_INFO)
 	information		= TPL_1402_GorNaToth_TRAINAGAIN_Info;
 	important		= 0;
 	permanent		= 1;
-	description		= B_BuildLearnString(NAME_Learn1h_2,			LPCOST_TALENT_1H_2,0); 
+	description		= B_BuildLearnString(NAME_Learn1h_2,			LPCOST_TALENT_1H_2,0);
 };
 
 FUNC int  TPL_1402_GorNaToth_TRAINAGAIN_Condition()
-{	
+{
 	if (Npc_GetTalentSkill (hero,NPC_TALENT_1H) == 1)
-	&& (C_NpcBelongsToPsiCamp(hero))  
+	&& (C_NpcBelongsToPsiCamp(hero))
 	{
 		return TRUE;
 	};
@@ -461,4 +461,4 @@ FUNC void  TPL_1402_GorNaToth_TRAINAGAIN_Info()
 		AI_StopProcessInfos	(self);
 		B_PracticeCombat	("PSI_PATH_6_7");
 	};
-}; 
+};

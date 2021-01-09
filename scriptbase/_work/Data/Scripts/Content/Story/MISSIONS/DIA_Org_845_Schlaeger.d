@@ -1,5 +1,5 @@
 // **************************************
-//					EXIT 
+//					EXIT
 // **************************************
 
 instance DIA_845_Exit (C_INFO)
@@ -10,7 +10,7 @@ instance DIA_845_Exit (C_INFO)
 	information	= DIA_Lefty_Exit_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC int DIA_845_Exit_Condition()
 {
@@ -34,7 +34,7 @@ instance DIA_845_Hello (C_INFO)
 	information	= DIA_845_Hello_Info;
 	permanent	= 0;
 	description	= "Was machst du hier?";
-};                       
+};
 
 FUNC int DIA_845_Hello_Condition()
 {
@@ -45,7 +45,7 @@ FUNC VOID DIA_845_Hello_Info()
 {
 	AI_Output (other, self,"DIA_845_Hello_15_00"); //Was machst du hier?
 	AI_Output (self, other,"DIA_845_Hello_13_01"); //Ich arbeite für den Reislord.
-	
+
 	var C_NPC Lefty; Lefty = Hlp_GetNpc (Org_844_Lefty);
 	if (!Npc_IsDead(Lefty))
 	{

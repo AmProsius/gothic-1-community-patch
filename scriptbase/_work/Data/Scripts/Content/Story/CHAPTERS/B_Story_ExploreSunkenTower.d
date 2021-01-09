@@ -8,9 +8,9 @@ func void B_Story_ExploreSunkenTower ()
 	//-------- Tagebucheinträge --------
 	B_LogEntry			(CH5_Uriziel,	"Während Xardas damit beschäftigt ist, eine magische Formel für die Übertragung der Energie auf URIZIEL herzustellen, werde ich zum versunkenen Turm des Dämonenbeschwörers aufbrechen, um nach weiteren Artefakten für den Kampf gegen den Schläfer zu suchen.");
 
-	// ************************************************	
+	// ************************************************
 	// Neue TAs für NPCs des inneren Ringes
-	// ************************************************		
+	// ************************************************
 	var C_NPC Bartholo	; Bartholo 	= Hlp_GetNpc (EBR_106_Bartholo	);
 	var C_NPC Skip		; Skip 		= Hlp_GetNpc (GRD_211_Skip		);
 	var C_NPC Bullit	; Bullit 	= Hlp_GetNpc (GRD_203_Bullit 	);
@@ -29,45 +29,45 @@ func void B_Story_ExploreSunkenTower ()
 	var C_NPC Arto		; Arto 		= Hlp_GetNpc (EBR_102_Arto 		);
 	var	C_NPC Thorus	; Thorus	= Hlp_GetNpc (GRD_200_Thorus	);
 
-	Npc_ExchangeRoutine		(Gomez		,"OT"); 
-	Npc_ExchangeRoutine		(Bartholo	,"OT"); 
-	Npc_ExchangeRoutine		(Arto		,"OT"); 
-	Npc_ExchangeRoutine		(Scar		,"OT"); 
-	Npc_ExchangeRoutine		(Raven		,"OT"); 
-	Npc_ExchangeRoutine		(Bullit		,"OT"); 
-	Npc_ExchangeRoutine		(Scorpio	,"OT"); 
-	Npc_ExchangeRoutine		(Cutter		,"OT"); 	
-	Npc_ExchangeRoutine		(Skip		,"OT"); 	
-	Npc_ExchangeRoutine		(Stone		,"OT"); 	
-	Npc_ExchangeRoutine		(Grd_220	,"OT"); 	
-	Npc_ExchangeRoutine		(Grd_221	,"OT"); 
-	Npc_ExchangeRoutine		(Grd_222	,"OT"); 
-	Npc_ExchangeRoutine		(Grd_223	,"OT"); 
-	Npc_ExchangeRoutine		(Grd_239	,"OT"); 
-	Npc_ExchangeRoutine		(Grd_245	,"OT"); 
+	Npc_ExchangeRoutine		(Gomez		,"OT");
+	Npc_ExchangeRoutine		(Bartholo	,"OT");
+	Npc_ExchangeRoutine		(Arto		,"OT");
+	Npc_ExchangeRoutine		(Scar		,"OT");
+	Npc_ExchangeRoutine		(Raven		,"OT");
+	Npc_ExchangeRoutine		(Bullit		,"OT");
+	Npc_ExchangeRoutine		(Scorpio	,"OT");
+	Npc_ExchangeRoutine		(Cutter		,"OT");
+	Npc_ExchangeRoutine		(Skip		,"OT");
+	Npc_ExchangeRoutine		(Stone		,"OT");
+	Npc_ExchangeRoutine		(Grd_220	,"OT");
+	Npc_ExchangeRoutine		(Grd_221	,"OT");
+	Npc_ExchangeRoutine		(Grd_222	,"OT");
+	Npc_ExchangeRoutine		(Grd_223	,"OT");
+	Npc_ExchangeRoutine		(Grd_239	,"OT");
+	Npc_ExchangeRoutine		(Grd_245	,"OT");
 
 	// Gilden Änderung, damit SC nicht angegriffen wird
-	Stone.guild 	= GIL_NONE;		Npc_SetTrueGuild	(Stone, 	GIL_NONE);	
-	Skip.guild 		= GIL_NONE;		Npc_SetTrueGuild	(Skip, 		GIL_NONE);	
-	Bullit.guild 	= GIL_NONE;		Npc_SetTrueGuild	(Bullit,	GIL_NONE);	
-	Bartholo.guild 	= GIL_NONE;		Npc_SetTrueGuild	(Bartholo,	GIL_NONE);	
-	Gomez.guild 	= GIL_NONE;		Npc_SetTrueGuild	(Gomez, 	GIL_NONE);	
-	
+	Stone.guild 	= GIL_NONE;		Npc_SetTrueGuild	(Stone, 	GIL_NONE);
+	Skip.guild 		= GIL_NONE;		Npc_SetTrueGuild	(Skip, 		GIL_NONE);
+	Bullit.guild 	= GIL_NONE;		Npc_SetTrueGuild	(Bullit,	GIL_NONE);
+	Bartholo.guild 	= GIL_NONE;		Npc_SetTrueGuild	(Bartholo,	GIL_NONE);
+	Gomez.guild 	= GIL_NONE;		Npc_SetTrueGuild	(Gomez, 	GIL_NONE);
+
 	// Attitüde Änderung
 	Npc_SetPermAttitude	(Stone,		ATT_NEUTRAL);	Npc_SetTempAttitude	(Stone,		ATT_NEUTRAL);
-	Npc_SetPermAttitude	(Skip,		ATT_NEUTRAL);	Npc_SetTempAttitude	(Skip,		ATT_NEUTRAL); 	         	
-	Npc_SetPermAttitude	(Bullit,	ATT_NEUTRAL);	Npc_SetTempAttitude	(Bullit,	ATT_NEUTRAL); 	         	
-	Npc_SetPermAttitude	(Bartholo,	ATT_NEUTRAL);	Npc_SetTempAttitude	(Bartholo,	ATT_NEUTRAL); 	         	
-	Npc_SetPermAttitude	(Gomez,		ATT_NEUTRAL);	Npc_SetTempAttitude	(Gomez,		ATT_NEUTRAL); 	         	
-	 
+	Npc_SetPermAttitude	(Skip,		ATT_NEUTRAL);	Npc_SetTempAttitude	(Skip,		ATT_NEUTRAL);
+	Npc_SetPermAttitude	(Bullit,	ATT_NEUTRAL);	Npc_SetTempAttitude	(Bullit,	ATT_NEUTRAL);
+	Npc_SetPermAttitude	(Bartholo,	ATT_NEUTRAL);	Npc_SetTempAttitude	(Bartholo,	ATT_NEUTRAL);
+	Npc_SetPermAttitude	(Gomez,		ATT_NEUTRAL);	Npc_SetTempAttitude	(Gomez,		ATT_NEUTRAL);
+
 	//-------- Immortals löschen --------
 	Thorus.flags	= 0;
 	Gomez.flags 	= 0;
 	Bartholo.flags = 0;
-	
+
 	// Schlüssel um die Tür zum Kerker zu öffnen
 	CreateInvItem ( Gomez, DungeonKey );
-    
+
 	//-------- globale Variable --------
 	ExploreSunkenTower = TRUE;
 };

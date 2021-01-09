@@ -1,5 +1,5 @@
 // **************************************************
-//						EXIT 
+//						EXIT
 // **************************************************
 
 instance  DIA_Caine_Exit (C_INFO)
@@ -8,10 +8,10 @@ instance  DIA_Caine_Exit (C_INFO)
 	nr			=  999;
 	condition	=  DIA_Caine_Exit_Condition;
 	information	=  DIA_Caine_Exit_Info;
-	important	=  0;	
+	important	=  0;
 	permanent	=  1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC int  DIA_Caine_Exit_Condition()
 {
@@ -35,7 +35,7 @@ instance  DIA_Caine_Hallo (C_INFO)
 	information	= DIA_Caine_Hallo_Info;
 	permanent	= 0;
 	description	= "Hi! Ich bin neu hier!";
-};                       
+};
 
 FUNC int  DIA_Caine_Hallo_Condition()
 {
@@ -46,7 +46,7 @@ FUNC VOID  DIA_Caine_Hallo_Info()
 {
 	AI_Output (other, self,"DIA_Caine_Hallo_15_00"); //Hi! Ich bin neu hier!
 	AI_Output (self, other,"DIA_Caine_Hallo_13_01"); //Ich bin Caine. Schüler von Cor Kalom. Du hast sicher schon von ihm gehört, richtig?
-			
+
 	Info_ClearChoices	(DIA_Caine_Hallo );
 	Info_AddChoice		(DIA_Caine_Hallo,"Nein."	,DIA_Caine_Hallo_Nein);
 	Info_AddChoice		(DIA_Caine_Hallo,"Ja."		,DIA_Caine_Hallo_Ja);
@@ -80,7 +80,7 @@ instance  DIA_Caine_WaysToKalom (C_INFO)
 	information	= DIA_Caine_WaysToKalom_Info;
 	permanent	= 0;
 	description	= "Ich würde gerne mit Cor Kalom reden - kannst du mir dabei helfen?";
-};                       
+};
 
 FUNC int  DIA_Caine_WaysToKalom_Condition()
 {
@@ -109,7 +109,7 @@ instance  DIA_Caine_Alchemies (C_INFO)
 	information	= DIA_Caine_Alchemies_Info;
 	permanent	= 0;
 	description	= "Was für alchimistische Substanzen kann ich Kalom bringen?";
-};                       
+};
 
 FUNC int  DIA_Caine_Alchemies_Condition()
 {
@@ -129,7 +129,7 @@ FUNC VOID  DIA_Caine_Alchemies_Info()
 */
 
 // **************************************************
-//						Job = Substanzen 
+//						Job = Substanzen
 // **************************************************
 
 instance  DIA_Caine_Job (C_INFO)
@@ -140,7 +140,7 @@ instance  DIA_Caine_Job (C_INFO)
 	information	= DIA_Caine_Job_Info;
 	permanent	= 0;
 	description	= "Und was tust du?";
-};                       
+};
 
 FUNC int  DIA_Caine_Job_Condition()
 {
@@ -169,7 +169,7 @@ instance  DIA_Caine_WoSekret (C_INFO)
 	information	= DIA_Caine_WoSekret_Info;
 	permanent	= 0;
 	description	= "Wo bekomme ich das Sekret der Minecrawler?";
-};                       
+};
 
 FUNC int  DIA_Caine_WoSekret_Condition()
 {
@@ -199,7 +199,7 @@ instance  DIA_Caine_AddInfoKalom (C_INFO)
 	information	= DIA_Caine_AddInfoKalom_Info;
 	permanent	= 0;
 	description	= "Was kannst du mir noch über deinen Meister erzählen?";
-};                       
+};
 
 FUNC int  DIA_Caine_AddInfoKalom_Condition()
 {
@@ -218,7 +218,7 @@ FUNC VOID  DIA_Caine_AddInfoKalom_Info()
 
 /*
 // **************************************************
-//						
+//
 // **************************************************
 
 instance  DIA_Caine_WieGuruSend (C_INFO)
@@ -229,7 +229,7 @@ instance  DIA_Caine_WieGuruSend (C_INFO)
 	information	= DIA_Caine_WieGuruSend_Info;
 	permanent	= 0;
 	description	= "Wie bringe ich einen Guru dazu, dass er mich zu Kalom schickt.";
-};                       
+};
 
 FUNC int  DIA_Caine_WieGuruSend_Condition()
 {
@@ -248,7 +248,7 @@ FUNC VOID  DIA_Caine_WieGuruSend_Info()
 */
 
 /*------------------------------------------------------------------------
-						REZEPT INNER TRUHE									
+						REZEPT INNER TRUHE
 ------------------------------------------------------------------------*/
 
 instance  Nov_1301_Caine_CHEST (C_INFO)
@@ -258,11 +258,11 @@ instance  Nov_1301_Caine_CHEST (C_INFO)
 	information		= Nov_1301_Caine_CHEST_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "Wie komme ich an das Rezept von Kalom?"; 
+	description		= "Wie komme ich an das Rezept von Kalom?";
 };
 
 FUNC int  Nov_1301_Caine_CHEST_Condition()
-{	
+{
 	if 	(Dexter_GetKalomsRecipe == LOG_RUNNING)
 	{
 		return TRUE;
@@ -273,4 +273,4 @@ FUNC void  Nov_1301_Caine_CHEST_Info()
 {
 	AI_Output (other, self,"Nov_1301_Caine_CHEST_Info_15_01"); //Wie komme ich an das Rezept von Kalom?
 	AI_Output (self, other,"Nov_1301_Caine_CHEST_Info_13_02"); //Gar nicht. Er hält es in seiner Truhe verschlossen. Das rückt er niemals raus.
-};  
+};

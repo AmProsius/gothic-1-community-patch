@@ -21,7 +21,7 @@
 //		des Monsters mit seiner eigenen
 //		->	NSC stärker: Waffe ziehen und abwarten bis das Monster auf
 //			Attack-Range 'HAI_DIST_ATTACK_MONSTER' heran ist, dann
-//			angreifen. 
+//			angreifen.
 //		->	Monster stärker: NSC flieht sofort!
 //////////////////////////////////////////////////////////////////////////
 func void ZS_AssessMonster	()
@@ -29,33 +29,33 @@ func void ZS_AssessMonster	()
 	PrintDebugNpc			(PD_ZS_FRAME, "ZS_AssessMonster" );
 	C_ZSInit				();
 
-	Npc_PercEnable  		(self, 	PERC_ASSESSMAGIC		,	B_AssessMagic		);		
-	Npc_PercEnable  		(self, 	PERC_ASSESSTALK			,	B_RefuseTalk		);		
+	Npc_PercEnable  		(self, 	PERC_ASSESSMAGIC		,	B_AssessMagic		);
+	Npc_PercEnable  		(self, 	PERC_ASSESSTALK			,	B_RefuseTalk		);
 	Npc_PercEnable  		(self, 	PERC_ASSESSSURPRISE		,	ZS_AssessSurprise	);
 	Npc_SetPercTime			(self, 	0.5);
 	PrintGlobals			(PD_ZS_CHECK);
-	
-	
-	
+
+
+
 	//######## Ist NSC eine WACHE oder BOSS ? ########
 	if ( C_NpcIsGuard(self) || C_NpcIsGuardArcher(self) || C_NpcIsBoss(self) )
 	{
 		PrintDebugNpc	(PD_ZS_CHECK, "...NSC ist WACHE(NK/FK) oder BOSS!" );
-		
+
 		B_FullStop		(self);
 		B_SayOverlay	(self,	NULL,	"$DieMonster");
-		
-		
+
+
 		Npc_SetTarget	(self,	other);
 		AI_StartState	(self,	ZS_Attack, 0, "");
 		return;
-	}	
+	}
 
 	//######## ...NSC ist ein ARBEITER ? ########
 	else
 	{
 		PrintDebugNpc		(PD_ZS_CHECK, 	" ...NSC ist wede WACHE noch BOSS!");
-		
+
 		if (C_AmIStronger	(self,	other))
 		{
 			PrintDebugNpc	(PD_ZS_CHECK, 	" ...aber trotzdem stärker als das Monster!");
@@ -70,10 +70,10 @@ func void ZS_AssessMonster	()
 			B_WhirlAround	(self,	other);
 			Npc_SetTarget	(self,	other);
 			B_SayOverlay	(self,	NULL,	"$ShitWhatAMonster");
-			
+
 			Npc_GetTarget	( self);
 			AI_StartState	(self,	ZS_Flee,	0, "");
-		};	
+		};
 	};
 };
 
@@ -82,7 +82,7 @@ func int ZS_AssessMonster_Loop ()
 	PrintDebugNpc			(PD_ZS_LOOP,	"ZS_AssessMonster_Loop");
 
 	var int distance;		distance = Npc_GetDistToNpc(self, other);
-	
+
 	//-------- Auswahl/Wechsel der richtigen Waffe --------
 	if (Npc_GetStateTime	(self) > 1)
 	{
@@ -91,7 +91,7 @@ func int ZS_AssessMonster_Loop ()
 		B_SelectWeapon		(self,	other);
 		Npc_SetStateTime	(self, 	0);
 	};
-	
+
 	//-------- Fernkampfwaffe bereit ? --------
 	if (Npc_IsInFightMode(self, FMODE_FAR) || Npc_IsInFightMode(self, FMODE_MAGIC))
 	{
@@ -107,21 +107,21 @@ func int ZS_AssessMonster_Loop ()
 		B_SayOverlay		(self,	NULL,	"$DieMonster");
 		AI_StartState		(self,	ZS_Attack, 0, "");
 	}
-	
+
 	//-------- Monster wieder weit genug weg ? --------
-	else if (distance > HAI_DIST_ABORT_ASSESS_MONSTER )	
+	else if (distance > HAI_DIST_ABORT_ASSESS_MONSTER )
 	{
 		PrintDebugNpc		(PD_ZS_CHECK, "...Monster ist wieder weit genug weg!");
 		return				LOOP_END;
 	}
-	
+
 	//-------- Monster kampfunfähig ? --------
-	else if (C_NpcIsDown(other))	
+	else if (C_NpcIsDown(other))
 	{
 		PrintDebugNpc		(PD_ZS_CHECK, "...Monster kampfunfähig!");
 		return				LOOP_END;
 	}
-	
+
 	//-------- Schleife fortsetzen --------
 	else
 	{

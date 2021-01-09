@@ -68,7 +68,7 @@ FUNC int DIA_SLD_752_OKYL_UMSEHEN_CONDITION()
 func void DIA_SLD_752_OKYL_UMSEHEN_INFO()
 {
 	AI_Output (other, self,"DIA_SLD_752_OKYL_UMSEHEN_INFO_15_01"); //Ich seh' mich hier nur mal um.
-	AI_Output (self, other,"DIA_SLD_752_OKYL_UMSEHEN_INFO_11_02");//Dann pass bloﬂ auf, dass du hier im Kessel keinen Mist baust, sonst bist du schneller im Grab, als dir lieb ist. 
+	AI_Output (self, other,"DIA_SLD_752_OKYL_UMSEHEN_INFO_11_02");//Dann pass bloﬂ auf, dass du hier im Kessel keinen Mist baust, sonst bist du schneller im Grab, als dir lieb ist.
 };
 
 //--------------------- Wer bist Du -----------------------------

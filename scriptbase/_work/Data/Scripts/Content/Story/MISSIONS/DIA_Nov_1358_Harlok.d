@@ -1,5 +1,5 @@
 // **************************************************
-//						EXIT 
+//						EXIT
 // **************************************************
 
 instance  DIA_Harlok_Exit (C_INFO)
@@ -8,10 +8,10 @@ instance  DIA_Harlok_Exit (C_INFO)
 	nr			= 999;
 	condition	= DIA_Harlok_Exit_Condition;
 	information	= DIA_Harlok_Exit_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC int  DIA_Harlok_Exit_Condition()
 {
@@ -35,7 +35,7 @@ instance  DIA_Harlok_FetchHarlok (C_INFO)
 	information	= DIA_Harlok_FetchHarlok_Info;
 	permanent	= 0;
 	description	= "Ghorim schickt mich.";
-};                       
+};
 
 FUNC int  DIA_Harlok_FetchHarlok_Condition()
 {
@@ -65,7 +65,7 @@ func int DIA_Harlok_FetchHarlok_OrElse()
 {
 	AI_Output (other, self,"DIA_Harlok_FetchHarlok_OrElse_15_00"); //Schwing deinen Hintern zu den Krautstampfern, oder es gibt Saures.
 	AI_Output (self, other,"DIA_Harlok_FetchHarlok_OrElse_01_01"); //VERSUCH doch mal, dich mit mir anzulegen, du Penner!
-	
+
 	AI_StopProcessInfos(self);
 };
 
@@ -88,7 +88,7 @@ instance  DIA_Harlok_HarlokAgain (C_INFO)
 	information	= DIA_Harlok_HarlokAgain_Info;
 	permanent	= 0;
 	description	= "Ich wollte dich nochmal dran erinnern, deinen Kumpel abzulösen!";
-};                       
+};
 
 FUNC int  DIA_Harlok_HarlokAgain_Condition()
 {
@@ -119,7 +119,7 @@ instance  DIA_Harlok_SendHarlok (C_INFO)
 	information	= DIA_Harlok_SendHarlok_Info;
 	permanent	= 0;
 	description	= "Hast du langsam Lust bekommen, deinen Freud abzulösen?";
-};                       
+};
 
 FUNC int  DIA_Harlok_SendHarlok_Condition()
 {
@@ -138,7 +138,7 @@ FUNC VOID  DIA_Harlok_SendHarlok_Info()
 
 	B_LogEntry	(CH1_GhorimsRelief,	"Harlok -traf- die Einsicht. Er will nun Ghorim ablösen.");
 	B_GiveXP	(XP_SentHarlok);
-	
+
 	Npc_ExchangeRoutine(self,"START");
 	var C_NPC Ghorim; Ghorim = Hlp_GetNpc(Nov_1310_Ghorim);
 	Npc_ExchangeRoutine(Ghorim,"START");
@@ -159,8 +159,8 @@ instance  DIA_Harlok_Angry (C_INFO)
 	condition	= DIA_Harlok_Angry_Condition;
 	information	= DIA_Harlok_Angry_Info;
 	permanent	= 1;
-	important 	= 1; 
-};                       
+	important 	= 1;
+};
 
 FUNC int  DIA_Harlok_Angry_Condition()
 {
@@ -178,6 +178,6 @@ FUNC VOID  DIA_Harlok_Angry_Info()
 };
 
 
-	
-	
-	
+
+
+

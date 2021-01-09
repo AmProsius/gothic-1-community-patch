@@ -5,11 +5,11 @@ instance STT_336_Cavalorn (Npc_Default)
 	npctype 	=		NPCTYPE_MAIN;
 	guild 		=		GIL_STT;
 	level 		=		5;
-	
-	
+
+
 	voice 		=		12;
 	id 			=		336;
-		
+
 	//-------- abilities --------
 	attribute[ATR_STRENGTH] 		=	20;
 	attribute[ATR_DEXTERITY] 		=	15;
@@ -27,15 +27,15 @@ instance STT_336_Cavalorn (Npc_Default)
 
 	B_Scale (self);
 	Mdl_SetModelFatness(self,-1);
-	
-	fight_tactic	=	FAI_HUMAN_STRONG; 
 
-	//-------- Talente -------- 
+	fight_tactic	=	FAI_HUMAN_STRONG;
+
+	//-------- Talente --------
 
 	Npc_SetTalentSkill (self, NPC_TALENT_BOW,1);
-	Npc_SetTalentSkill (self, NPC_TALENT_1H,1);	
+	Npc_SetTalentSkill (self, NPC_TALENT_1H,1);
 	Npc_SetTalentSkill (self, NPC_TALENT_SNEAK, 1);
-		
+
 	//-------- inventory --------
 	B_Give_CavalornChapter1Weapons ();
 	EquipItem	(self,ItMw_1H_Sword_Short_02);
@@ -44,8 +44,8 @@ instance STT_336_Cavalorn (Npc_Default)
 	CreateInvItem	(self, ItFo_Potion_Water_01);
 	CreateInvItem	(self, ItFoApple);
 	CreateInvItem	(self, ItKeLockpick);
-	
-	
+
+
 	//-------------Daily Routine-------------
 	daily_routine = Rtn_start_336;
 };

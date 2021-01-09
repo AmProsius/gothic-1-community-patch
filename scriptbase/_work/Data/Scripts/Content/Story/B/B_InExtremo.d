@@ -28,20 +28,20 @@ func void B_InsertInExtremo()
 
 func void B_KillInExtremo()
 {
-	B_ExchangeRoutine			(InExtremo_DrPymonte,		"off");	
-	B_ExchangeRoutine			(InExtremo_TheFlail,		"off");	
-	B_ExchangeRoutine			(InExtremo_ThomasTheForger,	"off");	
-	B_ExchangeRoutine			(InExtremo_Unicorn,			"off"); 	
-	B_ExchangeRoutine			(InExtremo_YellowPfeiffer,	"off");	
-	B_ExchangeRoutine			(InExtremo_Lutter,			"off");	
-	B_ExchangeRoutine			(InExtremo_Flex,			"off");		
-	B_ExchangeRoutine			(IE_397_Announcer,			"off"); 
-	B_ExchangeRoutine			(Charlotte,					"off"); 
+	B_ExchangeRoutine			(InExtremo_DrPymonte,		"off");
+	B_ExchangeRoutine			(InExtremo_TheFlail,		"off");
+	B_ExchangeRoutine			(InExtremo_ThomasTheForger,	"off");
+	B_ExchangeRoutine			(InExtremo_Unicorn,			"off");
+	B_ExchangeRoutine			(InExtremo_YellowPfeiffer,	"off");
+	B_ExchangeRoutine			(InExtremo_Lutter,			"off");
+	B_ExchangeRoutine			(InExtremo_Flex,			"off");
+	B_ExchangeRoutine			(IE_397_Announcer,			"off");
+	B_ExchangeRoutine			(Charlotte,					"off");
 
-	B_ExchangeRoutine			(IEFan1,					"off"); 
-	B_ExchangeRoutine			(IEFan2,					"off"); 
-	B_ExchangeRoutine			(IEFan3,					"off"); 
-	B_ExchangeRoutine			(IEFan4,					"off"); 
+	B_ExchangeRoutine			(IEFan1,					"off");
+	B_ExchangeRoutine			(IEFan2,					"off");
+	B_ExchangeRoutine			(IEFan3,					"off");
+	B_ExchangeRoutine			(IEFan4,					"off");
 
 
 	B_ExchangeRoutine			(Vlk_580_Grim,				"start");

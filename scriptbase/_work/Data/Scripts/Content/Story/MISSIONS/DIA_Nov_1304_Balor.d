@@ -1,5 +1,5 @@
 // **************************************************
-//						EXIT 
+//						EXIT
 // **************************************************
 
 instance  DIA_Balor_Exit (C_INFO)
@@ -8,10 +8,10 @@ instance  DIA_Balor_Exit (C_INFO)
 	nr			=  999;
 	condition	=  DIA_Viran_Exit_Condition;
 	information	=  DIA_Viran_Exit_Info;
-	important	=  0;	
+	important	=  0;
 	permanent	=  1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC int  DIA_Balor_Exit_Condition()
 {
@@ -37,7 +37,7 @@ instance  DIA_Balor_FetchWeed (C_INFO)
 	information	= DIA_Balor_FetchWeed_Info;
 	permanent	= 0;
 	description	= "Baal Orun schickt mich. Ich soll hier alles Sumpfkraut abholen.";
-};                       
+};
 
 FUNC int  DIA_Balor_FetchWeed_Condition()
 {
@@ -53,7 +53,7 @@ FUNC VOID  DIA_Balor_FetchWeed_Info()
 	AI_Output (self, other,"DIA_Balor_FetchWeed_01_01"); //Gut. Dann muss ich nicht selber laufen. Hier, nimm.
 	AI_Output (self, other,"DIA_Balor_FetchWeed_01_02"); //Vergiss nicht, zu Viran auf der anderen Seite vom Sumpf zu gehen, wenn du nicht schon da warst.
 	AI_Output (self, other,"DIA_Balor_FetchWeed_01_03"); //Sonst könnte deine Lieferung ein bisschen mickrig ausfallen, und alle würden denken, du hast die Hälfte verhökert, hee, hee.
-	
+
 	B_GiveInvItems 		(self, other, ItMi_Plants_Swampherb_01, 50);
 
 	B_LogEntry			(CH1_DeliverWeed,	"Balor übergab mir seine heutige Sumpfkrauternte für Cor Kalom.");
@@ -62,10 +62,10 @@ FUNC VOID  DIA_Balor_FetchWeed_Info()
 	if	!Npc_KnowsInfo(hero, DIA_Viran_What)
 	&&	!Npc_KnowsInfo(hero, DIA_Viran_FetchWeed)
 	{
-		 B_LogEntry		(CH1_DeliverWeed,	"Laut Balor scheint es noch eine zweite Sammlergruppe zu geben, die auf der anderen Seite des Sumpfes arbeiten. Da ich Baal Orun keine Fragen stellen durfte, muss ich jetzt wohl oder übel diesen verdammten Sumpf nach der anderen Gruppe absuchen."); 
+		 B_LogEntry		(CH1_DeliverWeed,	"Laut Balor scheint es noch eine zweite Sammlergruppe zu geben, die auf der anderen Seite des Sumpfes arbeiten. Da ich Baal Orun keine Fragen stellen durfte, muss ich jetzt wohl oder übel diesen verdammten Sumpf nach der anderen Gruppe absuchen.");
 	};
-	
-	Balor_BotenDay = Wld_GetDay(); 
+
+	Balor_BotenDay = Wld_GetDay();
 };
 
 // **************************************************
@@ -82,7 +82,7 @@ instance  DIA_Balor_SellUnder (C_INFO)
 	information	= DIA_Balor_SellUnder_Info;
 	permanent	= 0;
 	description	= "Wem sollte ich das Kraut denn schon verhökern?";
-};                       
+};
 
 FUNC int  DIA_Balor_SellUnder_Condition()
 {
@@ -96,7 +96,7 @@ FUNC VOID  DIA_Balor_SellUnder_Info()
 {
 	AI_Output (other, self,"DIA_Balor_SellUnder_15_00"); //Wem sollte ich das Kraut denn schon verhökern?
 	AI_Output (self, other,"DIA_Balor_SellUnder_01_01"); //Oha! Ich habe dich auf Ideen gebracht, häh?
-	
+
 	Info_ClearChoices 	(DIA_Balor_SellUnder);
 	Info_AddChoice 		(DIA_Balor_SellUnder,"Vergiß es, war nur so'n Gedanke."									,DIA_Balor_SellUnder_ForgetIt);
 	Info_AddChoice 		(DIA_Balor_SellUnder,"Wenn du einen Abnehmer weißt - wir könnten Halbe-Halbe machen."	,DIA_Balor_SellUnder_HalfHalf);
@@ -138,7 +138,7 @@ instance  DIA_Balor_TellDealer (C_INFO)
 	information	= DIA_Balor_TellDealer_Info;
 	permanent	= 1;
 	description	= "Okay - wer ist der Abnehmer im Neuen Lager?";
-};                       
+};
 
 FUNC int  DIA_Balor_TellDealer_Condition()
 {
@@ -153,7 +153,7 @@ FUNC VOID  DIA_Balor_TellDealer_Info()
 	AI_Output (other, self,"DIA_Balor_TellDealer_15_00"); //Okay - wer ist der Abnehmer im Neuen Lager?
 	AI_Output (self, other,"DIA_Balor_TellDealer_01_01"); //Ich verrat dir den Namen und du bist mit dem Kraut über alle Berge - so läuft das nicht!
 	AI_Output (self, other,"DIA_Balor_TellDealer_01_02"); //Ich will 50 Erz Vorschuss sehen. Dann sehen wir weiter.
-	
+
 	Info_ClearChoices 	(DIA_Balor_TellDealer);
 	Info_Addchoice 		(DIA_Balor_TellDealer,"Vergiß es."	,DIA_Balor_TellDealer_ForgetIt);
 	Info_Addchoice 		(DIA_Balor_TellDealer,"50 sind fair - hier, nimm."	,DIA_Balor_TellDealer_Pay);
@@ -204,7 +204,7 @@ instance  DIA_Balor_RipOff (C_INFO)
 	information	= DIA_Balor_RipOff_Info;
 	permanent	= 0;
 	description	= "Ich soll nochmal alles Kraut zu Cor Kalom bringen.";
-};                       
+};
 
 FUNC int  DIA_Balor_RipOff_Condition()
 {
@@ -243,7 +243,7 @@ instance  DIA_Balor_Perm (C_INFO)
 	information	= DIA_Balor_Perm_Info;
 	permanent	= 1;
 	description	= "Immer tüchtig weitersammeln!";
-};                       
+};
 
 FUNC int  DIA_Balor_Perm_Condition()
 {

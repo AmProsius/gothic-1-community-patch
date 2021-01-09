@@ -1,17 +1,17 @@
-	
+
 //////////////////////////////////////
-//	
-// 	Particle-Effects 
-//	Instance-Definitions 
-//	
+//
+// 	Particle-Effects
+//	Instance-Definitions
+//
 //////////////////////////////////////
 
 
-// INSTANCE PartikelEffekt1 (C_ParticleFX) 
-// INSTANCE PartikelEffekt1 (C_ParticleFXProto) 
+// INSTANCE PartikelEffekt1 (C_ParticleFX)
+// INSTANCE PartikelEffekt1 (C_ParticleFXProto)
 
 // ******************************************************************************************
-// Spiel PFX 
+// Spiel PFX
 // ******************************************************************************************
 
 
@@ -281,7 +281,7 @@ INSTANCE CPFX_IAI_METAL (C_PARTICLEFX)
 
 
 //  @@@@@@@@@@@@@@@@@
-//  Species-Blood 
+//  Species-Blood
 //  @@@@@@@@@@@@@@@@@
 
 INSTANCE BFX_PRESET1 (C_PARTICLEFX)
@@ -1389,7 +1389,7 @@ INSTANCE PSILAB_DROPS (C_PARTICLEFX)
      visalphastart = 70.;
      visalphaend = 70.;
 };
-     
+
 
 INSTANCE PSILAB_GLOW (C_PARTICLEFX)
 {
@@ -1930,7 +1930,7 @@ INSTANCE TeleSturm (C_PARTICLEFX)
      visalphastart = 200.;
 };
 
-  
+
 
 //  @@@@@@@@@@@@@@@@@@@@
 //  Environment by KaiRo
@@ -2980,7 +2980,7 @@ INSTANCE WATERFALL2 (C_PARTICLEFX)
      visalphafunc_s = "BLEND";
      visalphastart = 255.;
 };
-     
+
 INSTANCE WATERSPLASH (C_PARTICLEFX)
 {
      ppsvalue = 100.;
@@ -3716,11 +3716,11 @@ INSTANCE FIRE_MENU (C_PARTICLEFX)
 //  @@@@@@@@@@@@@@@@@@
 //  Created by Carsten
 //  @@@@@@@@@@@@@@@@@@
-  
-  
-  
-  
-  
+
+
+
+
+
 INSTANCE SPIT (C_PARTICLEFX)
 {
      ppsvalue = 1.;
@@ -3753,7 +3753,7 @@ INSTANCE PEE (C_PARTICLEFX)
      ppsscalekeys_s = "1 0 1 0 2 0.4 12 16 0.3 0 1";
      shptype_s = "POINT";
      shpfor_s = "object";
-     shpisvolume = 1; 
+     shpisvolume = 1;
      shpdim_s = "300";
      shpscalefps = 10.;
      dirmode_s = "DIR";
@@ -3767,12 +3767,12 @@ INSTANCE PEE (C_PARTICLEFX)
      lsppartavg = 700.;
      flygravity_s = "0 -0.002 0";
      visname_s = "PARTYEL1.TGA";
-     visorientation_s = "VELO";     
-     vistexcolorstart_s = "255 255 255";     
+     visorientation_s = "VELO";
+     vistexcolorstart_s = "255 255 255";
      vistexcolorend_s = "255 255 255";
-     vissizestart_s = "3 15";     
-     vissizeendscale = 2.;     
-     visalphafunc_s = "BLEND";     
+     vissizestart_s = "3 15";
+     vissizeendscale = 2.;
+     visalphafunc_s = "BLEND";
      visalphastart = 30.;
 };
 
@@ -3785,7 +3785,7 @@ INSTANCE FOUNTAIN (C_PARTICLEFX)
      ppsFps = 5;
      shptype_s = "sphere";
      shpfor_s = "world";
-     shpisvolume = 1; 
+     shpisvolume = 1;
      shpdim_s = "15";
      shpscalefps = 4.;
      dirmode_s = "DIR";
@@ -3800,16 +3800,16 @@ INSTANCE FOUNTAIN (C_PARTICLEFX)
      lsppartvar = 200;
      flygravity_s = "0 -0.0004 0";
      visname_s = "zDebris0_a0.TGA";
-     visorientation_s = "VELO";     
-     vistexcolorstart_s = "100 100 200";     
+     visorientation_s = "VELO";
+     vistexcolorstart_s = "100 100 200";
      vistexisquadpoly = 1;
      vistexanifps = 10;
      vistexaniislooping = 1;
      flycolldet_b = 1;
      vistexcolorend_s = "155 155 200";
-     vissizestart_s = "10 30";     
-     vissizeendscale = 2.;     
-     visalphafunc_s = "BLEND";     
+     vissizestart_s = "10 30";
+     vissizeendscale = 2.;
+     visalphafunc_s = "BLEND";
      visalphastart = 120.;
      visAlphaEnd = 80;
 };
@@ -4234,7 +4234,7 @@ INSTANCE Effect01 (C_PARTICLEFX) //Kugel mit Sternen
      visalphafunc_s = "ADD";
      visalphastart = 255.;
      visalphaend = 255.;
-};	
+};
 INSTANCE Effect02 (C_PARTICLEFX) // KugelZauber
 {
       ppsvalue = 1.;
@@ -4414,8 +4414,8 @@ INSTANCE MENU_CURSOR (C_PARTICLEFX)
      visalphafunc_s = "ADD";
      visalphastart = 90.;
      visalphaend = 10.;
-     
-     
+
+
 };
 INSTANCE MENU_SELECT_ITEM(C_PARTICLEFX)
 {
@@ -4453,7 +4453,7 @@ INSTANCE MENU_SELECT_ITEM(C_PARTICLEFX)
      visalphafunc_s = "ADD";
      visalphastart = 120.;
      visalphaend = 20.;
-     
+
 };
 
 

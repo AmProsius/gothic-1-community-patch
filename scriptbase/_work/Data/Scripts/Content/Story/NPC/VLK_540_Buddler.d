@@ -1,13 +1,13 @@
 instance VLK_540_Buddler (Npc_Default)
 {
 	//-------- primary data --------
-	
+
 	name =							Name_Buddler;
 	npctype =						npctype_mine_ambient;
-	guild =							GIL_VLK;      
+	guild =							GIL_VLK;
 	level =							3;
-	
-	
+
+
 	voice =							3;
 	id =							540;
 
@@ -25,18 +25,18 @@ instance VLK_540_Buddler (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Tired.mds");
-	//				body mesh,				head mesh,				69hairmesh,	face-tex,	hair-tex,	skin	
+	//				body mesh,				head mesh,				69hairmesh,	face-tex,	hair-tex,	skin
 	Mdl_SetVisualBody (self,"hum_body_Naked0",2,1,"Hum_Head_Bald", 112,  3, -1);
 
-	B_Scale (self); 
+	B_Scale (self);
 	Mdl_SetModelFatness (self, 0);
-	
-	fight_tactic	=	FAI_HUMAN_COWARD; 
 
-	//-------- Talents --------                                    
+	fight_tactic	=	FAI_HUMAN_COWARD;
 
-	
-	//-------- inventory --------                                    
+	//-------- Talents --------
+
+
+	//-------- inventory --------
 
 	EquipItem (self, ItMw_1h_Club_01);
 	CreateInvItem (self, ItFoApple);
@@ -44,14 +44,14 @@ instance VLK_540_Buddler (Npc_Default)
 
 	//-------------Daily Routine-------------
 	daily_routine = Rtn_start_540;
-	
+
 	//------------ //MISSIONs------------------
-	
+
 };
 
 FUNC VOID Rtn_start_540 ()
 {
-	TA_PickOre	    (08,00,18,00,"OM_PICKORE_11");  
+	TA_PickOre	    (08,00,18,00,"OM_PICKORE_11");
 	TA_PickOre	    (18,00,08,00,"OM_PICKORE_11");
 };
 

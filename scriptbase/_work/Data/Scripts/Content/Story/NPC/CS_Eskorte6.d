@@ -8,7 +8,7 @@ instance CS_Eskorte6 (Npc_Default)
 	flags =							0;
 	voice =							11;//9;
 	id =							3028;
-		
+
 	//-------- abilities --------
 	attribute[ATR_STRENGTH] =		13;
 	attribute[ATR_DEXTERITY] =		9;
@@ -21,28 +21,28 @@ instance CS_Eskorte6 (Npc_Default)
 	// 			animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Militia.MDS");
-	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung	
+	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung
 	Mdl_SetVisualBody (self,"hum_body_Naked0", 0, 1,"Hum_Head_Fighter", 18, 2, GRD_ARMOR_I);
-        
+
 	B_Scale (self);
     	Mdl_SetModelFatness(self,0);
-    	
+
     	fight_tactic	=	FAI_HUMAN_STRONG;
 
-	//-------- Talente -------- 
-				
+	//-------- Talente --------
+
 	Npc_SetTalentSkill (self, NPC_TALENT_1H,2);
 	Npc_SetTalentSkill (self, NPC_TALENT_1H,2);
 	Npc_SetTalentSkill (self, NPC_TALENT_2H,1);
-	Npc_SetTalentSkill (self, NPC_TALENT_CROSSBOW,1);		
-			
+	Npc_SetTalentSkill (self, NPC_TALENT_CROSSBOW,1);
+
 	//-------- inventory --------
-	
+
 	//CreateInvItem	(self, ItMw2hSword02);
 	//CreateInvItem	(self, ItRwCrossbow);
 	////CreateInvItems	(self, ItAmBolt, 15);
 
-	
+
 	//-------------Daily Routine-------------
 	daily_routine = Rtn_start_3030;
 };
@@ -50,8 +50,8 @@ instance CS_Eskorte6 (Npc_Default)
 FUNC VOID Rtn_start_3030 ()
 {
 
-TA_Position		(00,00,24,00,"WP_INTRO_WI01");	
-	
+TA_Position		(00,00,24,00,"WP_INTRO_WI01");
+
 };
 
 

@@ -2,7 +2,7 @@
 **	Swampshark Prototype												**
 *************************************************************************/
 
-PROTOTYPE Mst_Default_Swampshark(C_Npc)			
+PROTOTYPE Mst_Default_Swampshark(C_Npc)
 {
 	name							=	"Sumpfhai";
 	guild							=	GIL_SWAMPSHARK;
@@ -11,7 +11,7 @@ PROTOTYPE Mst_Default_Swampshark(C_Npc)
 //---------------------------------------------------------------
 	attribute	[ATR_STRENGTH]		=	140;
 	attribute	[ATR_DEXTERITY]		=	140;
-	
+
 	attribute	[ATR_HITPOINTS_MAX]	=	300;
 	attribute	[ATR_HITPOINTS]		=	300;
 
@@ -39,7 +39,7 @@ PROTOTYPE Mst_Default_Swampshark(C_Npc)
 	senses_range				= 3000;
 
 	aivar[AIV_MM_Behaviour]		= HUNTER;
-	
+
 	aivar[AIV_MM_PercRange]		= 1500;
 	aivar[AIV_MM_DrohRange]		= 1300;
 	aivar[AIV_MM_AttackRange]	= 1000;

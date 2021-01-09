@@ -18,19 +18,19 @@
 //		-> 	NEUTRAL/ANGRY zu SC-Angreifer	-> dann HOSTILE		-> ZS_AssessEnemy
 //		->	NSC-Angreifer					-> ZS_AssessEnemy
 //	2.	Angreifer ist ein MONSTER
-//		-> ZS_AssessMonster	  
+//		-> ZS_AssessMonster
 //
 //////////////////////////////////////////////////////////////////////////
 func void ZS_ReactToDamage ()
-{	
-	PrintDebugNpc		(PD_ZS_FRAME,	"ZS_ReactToDamage" );			
+{
+	PrintDebugNpc		(PD_ZS_FRAME,	"ZS_ReactToDamage" );
 	PrintGlobals		(PD_ZS_CHECK);
-	C_ZSInit();	
+	C_ZSInit();
 
 	Npc_PercEnable		(self,	PERC_ASSESSMAGIC	,	B_AssessMagic			);
-	Npc_PercEnable		(self,	PERC_ASSESSMURDER	,	B_CombatAssessMurder	);	
+	Npc_PercEnable		(self,	PERC_ASSESSMURDER	,	B_CombatAssessMurder	);
 	Npc_PercEnable		(self,	PERC_ASSESSDEFEAT	,	B_CombatAssessDefeat	);
-	
+
 	B_WhirlAround 		(self, other);
 
 	//-------- spezielle Reaktionen im Kampf --------
@@ -50,12 +50,12 @@ func void ZS_ReactToDamage ()
 	};
 
 	//-------- Angreifer ist Mensch/Ork ! --------
-	if (!C_NpcIsMonster(other))		
+	if (!C_NpcIsMonster(other))
 	{
 		if (Npc_IsPlayer(other))
 		{
 			self.aivar[AIV_BEENATTACKED] = 1;
-	
+
 			if ((Npc_GetTempAttitude(self,other)==ATT_FRIENDLY) || (self.npctype==NPCTYPE_FRIEND))
 			{
 				PrintDebugNpc			(PD_ZS_CHECK,	"...NSC FRIENDLY zum Angreifer");
@@ -68,7 +68,7 @@ func void ZS_ReactToDamage ()
 			else
 			{
 				PrintDebugNpc			(PD_ZS_CHECK, "...NSC nicht FRIENDLY zum Angreifer!");
-	
+
 				if (Npc_GetPermAttitude(self,other) != ATT_HOSTILE)
 				{
 					Npc_SetPermAttitude	(self,	ATT_ANGRY);
@@ -76,13 +76,13 @@ func void ZS_ReactToDamage ()
 				Npc_SetTempAttitude		(self,	ATT_HOSTILE);
 			};
 		};
-		
+
 		AI_StartState 				(self,	ZS_AssessEnemy,	0, "" );
 	}
-	
+
 	//-------- Angreifer ist Monster ! --------
-	else		
-	{	
+	else
+	{
 		AI_StartState 				(self,	ZS_AssessMonster,	0, "" );
 	};
 };

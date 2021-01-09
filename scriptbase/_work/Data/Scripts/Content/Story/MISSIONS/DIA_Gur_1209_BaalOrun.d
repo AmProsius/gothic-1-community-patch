@@ -8,10 +8,10 @@ instance  DIA_BaalOrun_Exit (C_INFO)
 	nr			=  999;
 	condition	=  DIA_BaalOrun_Exit_Condition;
 	information	=  DIA_BaalOrun_Exit_Info;
-	important	=  0;	
+	important	=  0;
 	permanent	=  1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC int  DIA_BaalOrun_Exit_Condition()
 {
@@ -24,7 +24,7 @@ FUNC VOID  DIA_BaalOrun_Exit_Info()
 };
 
 // ************************************************************
-// 					NICHT ansprechbar (Ungläubiger) 
+// 					NICHT ansprechbar (Ungläubiger)
 // ************************************************************
 	var int BaalOrun_Ansprechbar;
 	var int BaalOrun_Sakrileg;
@@ -38,7 +38,7 @@ INSTANCE DIA_BaalOrun_NoTalk(C_INFO)
 	information		= DIA_BaalOrun_NoTalk_Info;
 	permanent		= 1;
 	important 		= 1;
-};                       
+};
 
 FUNC INT DIA_BaalOrun_NoTalk_Condition()
 {
@@ -49,7 +49,7 @@ FUNC INT DIA_BaalOrun_NoTalk_Condition()
 };
 
 FUNC VOID DIA_BaalOrun_NoTalk_Info()
-{	
+{
 	Info_ClearChoices 	(DIA_BaalOrun_NoTalk);
 	Info_Addchoice 		(DIA_BaalOrun_NoTalk,DIALOG_ENDE					,DIA_BaalOrun_NoTalk_ENDE);
 	Info_Addchoice 		(DIA_BaalOrun_NoTalk,"Alles, klar, Alter?"			,DIA_BaalOrun_NoTalk_Imp);
@@ -73,7 +73,7 @@ func void DIA_BaalOrun_NoTalk_Sleeper()
 
 func void DIA_BaalOrun_NoTalk_Imp()
 {
-	AI_Output (other, self,"DIA_BaalOrun_NoTalk_Imp_15_00"); //Alles klar, Alter? 
+	AI_Output (other, self,"DIA_BaalOrun_NoTalk_Imp_15_00"); //Alles klar, Alter?
 	AI_Output (self, other,"DIA_BaalOrun_NoTalk_Imp_12_01"); //
 	BaalOrun_Sakrileg = TRUE;
 };
@@ -94,7 +94,7 @@ instance  DIA_BaalOrun_FirstTalk (C_INFO)
 	information	= DIA_BaalOrun_FirstTalk_Info;
 	permanent	= 0;
 	important 	= 1;
-};                       
+};
 
 FUNC int  DIA_BaalOrun_FirstTalk_Condition()
 {
@@ -111,7 +111,7 @@ FUNC VOID  DIA_BaalOrun_FirstTalk_Info()
 	AI_Output (self, other,"DIA_BaalOrun_FirstTalk_12_01"); //Darum habe ich dich für eine besondere Aufgabe erwählt.
 	AI_Output (self, other,"DIA_BaalOrun_FirstTalk_12_02"); //Cor Kalom braucht dringend neues Sumpfkraut für seine Experimente.
 	AI_Output (self, other,"DIA_BaalOrun_FirstTalk_12_03"); //Unsere Sammler im Sumpf arbeiten Tag und Nacht. Gehe zu ihnen und bring ihre gesamte Ernte zu Kalom ins Alchemielabor.
-	
+
 	B_GiveXP			(XP_BaalOrunTalks);
 	B_LogEntry			(CH1_GhorimsRelief,	"Ghorim wurde tatsächlich von Harlok abgelöst. Es geschehen noch Zeichen und Wunder.");
 	Log_SetTopicStatus	(CH1_GhorimsRelief,	LOG_SUCCESS);
@@ -120,7 +120,7 @@ FUNC VOID  DIA_BaalOrun_FirstTalk_Info()
 	Log_SetTopicStatus	(CH1_DeliverWeed,	LOG_RUNNING);
 	B_LogEntry			(CH1_DeliverWeed,	"Meine Überredungskünste bei Harlok, scheinen den Guru Baal Orun beeindruckt zu haben. Ich haben nun die 'Ehre' das gesammelte Kraut der Novizen im Sumpf zu Cor Kalom zu bringen.");
 	BaalOrun_FetchWeed = LOG_RUNNING;
-	
+
 	Info_ClearChoices 	(DIA_BaalOrun_FirstTalk);
 	Info_Addchoice 		(DIA_BaalOrun_FirstTalk,"Nichts sagen" ,DIA_BaalOrun_FirstTalk_MuteEnde);
 	Info_Addchoice 		(DIA_BaalOrun_FirstTalk,"Wo genau kann ich die Sammler finden?"	,DIA_BaalOrun_FirstTalk_Where);
@@ -131,7 +131,7 @@ func void DIA_BaalOrun_FirstTalk_Where()
 	AI_Output (other, self,"DIA_BaalOrun_FirstTalk_Where_15_00"); //Wo genau kann ich die Sammler finden?
 	AI_Output (self, other,"DIA_BaalOrun_FirstTalk_Where_12_01"); //Ich habe dir noch nicht gestattet, mich anzusprechen!
 	AI_Output (self, other,"DIA_BaalOrun_FirstTalk_Where_12_02"); //Bete zum Schläfer um Vergebung für dieses Sakrileg! Und nun geh. Deine Mission ist von äußerster Dringlichkeit.
-	
+
 	Info_ClearChoices 	(DIA_BaalOrun_FirstTalk);
 	AI_StopProcessInfos	(self);
 	BaalOrun_Ansprechbar = FALSE;
@@ -156,7 +156,7 @@ instance  DIA_BaalOrun_GotWeed (C_INFO)
 	information	= DIA_BaalOrun_GotWeed_Info;
 	permanent	= 0;
 	important 	= 1;
-};                       
+};
 
 FUNC int  DIA_BaalOrun_GotWeed_Condition()
 {
@@ -194,7 +194,7 @@ instance  DIA_BaalOrun_WeedAtKaloms (C_INFO)
 	information	= DIA_BaalOrun_WeedAtKaloms_Info;
 	permanent	= 0;
 	description = "Ich habe Cor Kalom das Sumpfkraut gebracht.";
-};                       
+};
 
 FUNC int  DIA_BaalOrun_WeedAtKaloms_Condition()
 {
@@ -209,10 +209,10 @@ FUNC VOID  DIA_BaalOrun_WeedAtKaloms_Info()
 	AI_Output		(other, self,"DIA_BaalOrun_WeedAtKaloms_15_00"); //Ich habe Cor Kalom das Sumpfkraut gebracht.
 	AI_Output		(self, other,"DIA_BaalOrun_WeedAtKaloms_12_01"); //Daran hast du gut getan. Ich habe eine kleine Belohnung für deine Mühen. Hier, nimm es.
 	AI_Output		(self, other,"DIA_BaalOrun_WeedAtKaloms_12_02"); //Es ist ein magischer Schlafzauber. Du kannst ihn nur einmal verwenden, aber er wird dir hoffentlich gute Dienste leisten.
-	
+
 	BaalOrun_Ansprechbar = TRUE; //damit NoTalk-info nicht kommt
 	B_GiveXP		(XP_ReportToBaalOrun);
-	
+
 	CreateInvItem	(self,ItArScrollSleep);
 	B_GiveInvItems  (self,other,ItArScrollSleep, 1);
 };
@@ -229,7 +229,7 @@ instance  DIA_BaalOrun_Perm (C_INFO)
 	information	= DIA_BaalOrun_Perm_Info;
 	permanent	= 1;
 	description = "Wie läuft die Krautproduktion?";
-};                       
+};
 
 FUNC int  DIA_BaalOrun_Perm_Condition()
 {

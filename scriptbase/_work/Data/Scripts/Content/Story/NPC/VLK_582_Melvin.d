@@ -1,19 +1,19 @@
 instance VLK_582_Melvin(Npc_Default)
 {
 	//-------- primary data --------
-	
+
 	name =							"Melvin";
 	npctype =						npctype_main;
-	guild =							GIL_NOV;   //SN: Absicht, da Melvin übergelaufen!!!   
+	guild =							GIL_NOV;   //SN: Absicht, da Melvin übergelaufen!!!
 	level =							5;
-	
-	
+
+
 	voice =							3;
 	id =							582;
 
 
 	//-------- abilities --------
-	
+
 	attribute[ATR_STRENGTH] =		25;
 	attribute[ATR_DEXTERITY] =		15;
 	attribute[ATR_MANA_MAX] =		0;
@@ -25,18 +25,18 @@ instance VLK_582_Melvin(Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Tired.mds");
-	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
+	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin
 	Mdl_SetVisualBody	(self,"hum_body_Naked0",2,1,"Hum_Head_Fighter", 74,  3, -1);
 
-	B_Scale (self); 
+	B_Scale (self);
 	Mdl_SetModelFatness	(self, 0);
-	
-	fight_tactic	=	FAI_HUMAN_COWARD; 
-	
-	//-------- Talents  --------                                    
+
+	fight_tactic	=	FAI_HUMAN_COWARD;
+
+	//-------- Talents  --------
 	Npc_SetTalentSkill (self, NPC_TALENT_1H,1);
-	
-	//-------- inventory --------                                    
+
+	//-------- inventory --------
 
 	EquipItem			(self, ItMw_1h_Club_01);
 	CreateInvItem		(self, ItFoApple);

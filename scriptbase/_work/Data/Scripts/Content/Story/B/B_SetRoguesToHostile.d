@@ -11,7 +11,7 @@ func void B_SetRoguesToHostile ()
 	var C_NPC Rog870;	Rog870	= Hlp_GetNpc(Org_870_Raeuber); Npc_SetTempAttitude(Rog870, ATT_HOSTILE); Npc_SetAttitude(Rog870, ATT_HOSTILE);
 	var C_NPC Rog871;	Rog871	= Hlp_GetNpc(Org_871_Raeuber); Npc_SetTempAttitude(Rog871, ATT_HOSTILE); Npc_SetAttitude(Rog871, ATT_HOSTILE);
 	var C_NPC Rog874;	Rog874	= Hlp_GetNpc(Org_874_Raeuber); Npc_SetTempAttitude(Rog874, ATT_HOSTILE); Npc_SetAttitude(Rog874, ATT_HOSTILE);
-	
+
 	if (Stooges_fled == TRUE)
 	{
 		var C_NPC Renyu;	Renyu 	= Hlp_GetNpc(Org_860_Renyu	); if (Hlp_IsValidNpc(Renyu)) 	{	Npc_SetTempAttitude(Renyu,  ATT_HOSTILE); Npc_SetAttitude(Renyu,  ATT_HOSTILE);	};

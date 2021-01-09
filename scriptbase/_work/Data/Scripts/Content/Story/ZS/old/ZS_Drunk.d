@@ -24,6 +24,6 @@ func int ZS_Drunk_Loop ()
 func void ZS_Drunk_End ()
 {
 	PrintDebugNpc	(PD_ZS_FRAME,	"ZS_Drunk_End");
-	MDL_REMOVEOVERLAYMDS (self, "HUMANS_DRUNKEN.MDS");	
+	MDL_REMOVEOVERLAYMDS (self, "HUMANS_DRUNKEN.MDS");
 };
-	
+

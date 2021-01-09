@@ -9,4 +9,3 @@ func void B_Babe_AssessPlayer ()
 		return;
 	};
 };
-			

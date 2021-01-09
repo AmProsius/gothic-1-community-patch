@@ -1,5 +1,5 @@
 // **************************************************
-//						 EXIT 
+//						 EXIT
 // **************************************************
 
 instance  Org_804_Organisator_Exit (C_INFO)
@@ -10,7 +10,7 @@ instance  Org_804_Organisator_Exit (C_INFO)
 	information	= Org_804_Organisator_Exit_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC int  Org_804_Organisator_Exit_Condition()
 {
@@ -37,7 +37,7 @@ instance  Org_804_Organisator_Greet (C_INFO)
 	information	= Org_804_Organisator_Greet_Info;
 	permanent	= 0;
 	important 	= 1;
-};                       
+};
 
 FUNC int  Org_804_Organisator_Greet_Condition()
 {
@@ -64,7 +64,7 @@ instance Org_804_Organisator_WayTo (C_INFO)
 	information	= Org_804_Organisator_WayTo_Info;
 	permanent	= 0;
 	description  = "Wo geht's hier denn hin?";
-};                       
+};
 
 FUNC int Org_804_Organisator_WayTo_Condition()
 {
@@ -91,7 +91,7 @@ instance  Org_804_Organisator_ToLares (C_INFO)
 	information	= Org_804_Organisator_ToLares_Info;
 	permanent	= 0;
 	description  = "Ich will zu Lares.";
-};                       
+};
 
 FUNC int  Org_804_Organisator_ToLares_Condition()
 {
@@ -122,7 +122,7 @@ instance  Org_804_Organisator_PERM (C_INFO)
 	information	= Org_804_Organisator_PERM_Info;
 	permanent	= 1;
 	description  = "Kann ich zu Lares?";
-};                       
+};
 
 FUNC int  Org_804_Organisator_PERM_Condition()
 {
@@ -141,7 +141,7 @@ FUNC VOID  Org_804_Organisator_PERM_Info()
 
 //////////////////////////////////////////////////////////////////////////
 //	DURCHGANGSWACHE
-//	===============	
+//	===============
 //  AL aufhalten
 //////////////////////////////////////////////////////////////////////////
 
@@ -159,12 +159,12 @@ instance Info_Org_804_FirstWarn (C_INFO)
 	information	= Info_Org_804_FirstWarn_Info;
 	permanent	= 1;
 	important	= 1;
-};                       
+};
 
 func int Info_Org_804_FirstWarn_Condition()
 {
-	if (	( (other.guild == GIL_GRD) || (other.guild == GIL_STT) 	) 
-	&&	(Npc_GetAttitude(self,hero)	!= ATT_FRIENDLY	) 
+	if (	( (other.guild == GIL_GRD) || (other.guild == GIL_STT) 	)
+	&&	(Npc_GetAttitude(self,hero)	!= ATT_FRIENDLY	)
 	&&		(Hlp_StrCmp(Npc_GetNearestWP(self),self.wp))				)
 	{
 		return TRUE;
@@ -178,9 +178,9 @@ func void Info_Org_804_FirstWarn_Info()
 	AI_Output (self, hero,"Info_Org_804_FirstWarn_Info_06_00"); //Gomez' Schergen kommen hier nicht rein! Geh!
 
 	hero.aivar[AIV_LASTDISTTOWP] 		= Npc_GetDistToWP(hero,Org_804_CHECKPOINT);
-	hero.aivar[AIV_GUARDPASSAGE_STATUS]	= AIV_GPS_FIRSTWARN;	
-	
-	AI_StopProcessInfos	(self);	
+	hero.aivar[AIV_GUARDPASSAGE_STATUS]	= AIV_GPS_FIRSTWARN;
+
+	AI_StopProcessInfos	(self);
 };
 
 //------------------------------------------------------------------------
@@ -194,15 +194,15 @@ instance Info_Org_804_LastWarn (C_INFO)
 	information	= Info_Org_804_LastWarn_Info;
 	permanent	= 1;
 	important	= 1;
-};                       
+};
 
 func int Info_Org_804_LastWarn_Condition()
 {
 	if ((hero.aivar[AIV_GUARDPASSAGE_STATUS]		== AIV_GPS_FIRSTWARN				)
 	&&  ( (other.guild == GIL_GRD) || (other.guild == GIL_STT) 	)
-	&&	(Npc_GetAttitude(self,hero)					!= ATT_FRIENDLY	) 
+	&&	(Npc_GetAttitude(self,hero)					!= ATT_FRIENDLY	)
 	&&  (Npc_GetDistToWP(hero,Org_804_CHECKPOINT)	< (hero.aivar[AIV_LASTDISTTOWP]-100))
-	&&	(Hlp_StrCmp(Npc_GetNearestWP(self),self.wp)										)) 
+	&&	(Hlp_StrCmp(Npc_GetNearestWP(self),self.wp)										))
 	{
 		return TRUE;
 	};
@@ -213,8 +213,8 @@ func int Info_Org_804_LastWarn_Info()
 	AI_Output (self, hero,"Info_Org_804_LastWarn_06_00"); //Geh, solange du noch gehen KANNST!
 
 	hero.aivar[AIV_LASTDISTTOWP] 		= Npc_GetDistToWP (hero,Org_804_CHECKPOINT);
-	hero.aivar[AIV_GUARDPASSAGE_STATUS]	= AIV_GPS_LASTWARN;	
-	
+	hero.aivar[AIV_GUARDPASSAGE_STATUS]	= AIV_GPS_LASTWARN;
+
 	AI_StopProcessInfos	(self);
 };
 
@@ -229,15 +229,15 @@ instance Info_Org_804_Attack (C_INFO)
 	information	= Info_Org_804_Attack_Info;
 	permanent	= 1;
 	important	= 1;
-};                       
+};
 
 func int Info_Org_804_Attack_Condition()
 {
 	if ((hero.aivar[AIV_GUARDPASSAGE_STATUS]		== AIV_GPS_LASTWARN					)
 	&&  ( (other.guild == GIL_GRD) || (other.guild == GIL_STT) 	)
-	&&	(Npc_GetAttitude(self,hero)					!= ATT_FRIENDLY	) 
+	&&	(Npc_GetAttitude(self,hero)					!= ATT_FRIENDLY	)
 	&&  (Npc_GetDistToWP(hero,Org_804_CHECKPOINT)	< (hero.aivar[AIV_LASTDISTTOWP]-100))
-	&&	(Hlp_StrCmp(Npc_GetNearestWP(self),self.wp)										)) 
+	&&	(Hlp_StrCmp(Npc_GetNearestWP(self),self.wp)										))
 	{
 		return 			TRUE;
 	};
@@ -245,11 +245,11 @@ func int Info_Org_804_Attack_Condition()
 
 func int Info_Org_804_Attack_Info()
 {
-	
+
 	hero.aivar[AIV_LASTDISTTOWP] 		= 0;
-	hero.aivar[AIV_GUARDPASSAGE_STATUS]	= AIV_GPS_PUNISH;	
-	
-	B_FullStop			(self);	
+	hero.aivar[AIV_GUARDPASSAGE_STATUS]	= AIV_GPS_PUNISH;
+
+	B_FullStop			(self);
 	AI_StopProcessInfos	(self);					// dem Spieler sofort wieder die Kontrolle zurückgeben
 	B_IntruderAlert		(self,	other);
 	B_SetAttackReason	(self,	AIV_AR_INTRUDER);

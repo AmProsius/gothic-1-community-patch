@@ -10,13 +10,13 @@
 //	- Checken der "Wichtig-Gilden" auf gestohlene Items im/am Körper
 //	- Erzeugen einer MURDER-News mit Täter "unbekannt" (bei Leichen)
 //	- Bedauern von Toten Kameraden (bei Leichen)
-//	- NSCs wecken bewutlose Freunde auf 
+//	- NSCs wecken bewutlose Freunde auf
 //////////////////////////////////////////////////////////////////////////
 func void B_AssessBody ()
 {
 	PrintDebugNpc		(PD_ZS_FRAME, "B_AssessBody" );
 	PrintGlobals		(PD_ZS_CHECK);
-	
+
 	if (Npc_GetDistToNpc(self,	other) < 1000)
 	{
 		PrintDebugNpc	(PD_ZS_CHECK, "...Körper näher als 10m!");
@@ -55,19 +55,19 @@ func void ZS_AssessBody ()
 		PrintDebugNpc		(PD_ZS_CHECK,	"...Körper bereits geplündert!");
 		AI_ContinueRoutine	(self);
 	};
-		
+
 	//-------- Körper nahe genug dran ? --------
 	if (Npc_GetDistToNpc(self,other) > PERC_DIST_INTERMEDIAT)		// liegt der Körper etwas weiter weg...
 	{
 		PrintDebugNpc		(PD_ZS_CHECK,	"...Körper zu weit weg!");
-		AI_ContinueRoutine	(self);				// ... dann Tagesablauf fortsetzen			
+		AI_ContinueRoutine	(self);				// ... dann Tagesablauf fortsetzen
 	};
 };
 
 func int ZS_AssessBody_Loop()
 {
 	PrintDebugNpc	(PD_ZS_LOOP,	"ZS_AssessBody_Loop");
-			
+
 	B_FullStop		(self);
 	AI_GotoNpc		(self,	other);
 	return			LOOP_END;
@@ -84,12 +84,12 @@ func void ZS_AssessBody_End()
 	{
 		AI_ContinueRoutine	(self);
 	};
-		
+
 	//-------- Plündern --------
 	if	(self.fight_tactic != FAI_HUMAN_RANGED)		//Verhindern, daß Fernkampfwachen ihren Posten verlasen
 	&&	(self.npctype != NPCTYPE_FRIEND)			//NSC-Freunde plündern nicht
 	&&  (C_NpcIsHuman (self))
-	{  
+	{
 		PrintDebugNpc	(PD_ZS_CHECK, "...kein purer Fernkämpfer und kein NSC-Freund!" );
 		AI_PlayAni		(self,	"T_PLUNDER");
 		if (B_Plunder())
@@ -108,11 +108,11 @@ func void ZS_AssessBody_End()
 };
 
 func void ZS_AssessBody_RecoverWeapon ()
-{	
+{
 	PrintDebugNpc		(PD_ZS_FRAME,	"ZS_AssessBody_RecoverWeapon");
 
 	B_SetPerception		(self);
-		
+
 	//-------- nach der evtl. fallengelassenen Waffe suchen --------
 	Npc_PerceiveAll		(self);
 	if (( Wld_DetectItem	(self,ITEM_KAT_NF) || Wld_DetectItem (self,ITEM_KAT_FF) )
@@ -128,4 +128,3 @@ func void ZS_AssessBody_RecoverWeapon ()
 	//-------- Heilen ! --------
 	AI_StartState		(self,	ZS_HealSelf,	1,	"");
 };
-	

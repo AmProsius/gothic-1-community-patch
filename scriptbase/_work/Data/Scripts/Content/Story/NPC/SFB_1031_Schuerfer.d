@@ -1,10 +1,10 @@
 instance SFB_1031_Schuerfer (Npc_Default)
 {
 	//-------- primary data --------
-	
-	name =					NAME_Schuerfer;                            
-	npctype =				npctype_ambient;                            
-	guild =					GIL_SFB;      
+
+	name =					NAME_Schuerfer;
+	npctype =				npctype_ambient;
+	guild =					GIL_SFB;
 	level =					3;
 	voice =					2;
 	id =					1031;
@@ -22,17 +22,17 @@ instance SFB_1031_Schuerfer (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Tired.mds");
-	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
+	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin
 	Mdl_SetVisualBody (self,"hum_body_Naked0",3, 1,"Hum_Head_Fighter", 44,  3, -1);
-	
+
 	B_Scale (self);
 	Mdl_SetModelFatness(self,0);
-	
-	fight_tactic	=	FAI_HUMAN_COWARD; 
 
-	//-------- Talente --------                                    
+	fight_tactic	=	FAI_HUMAN_COWARD;
 
-	//-------- inventory --------                                    
+	//-------- Talente --------
+
+	//-------- inventory --------
 
 	CreateInvItems (self, ItFoRice,6);
 	CreateInvItems (self, ItMiNugget, 5);

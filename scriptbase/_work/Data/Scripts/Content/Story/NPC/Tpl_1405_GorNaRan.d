@@ -6,10 +6,10 @@ instance TPL_1405_GorNaRan (Npc_Default)
 	guild =							GIL_TPL;
 	level =							17;
 	flags =							0;
-	
+
 	voice =							13;
 	id =							1405;
-		
+
 	//-------- abilities --------
 	attribute[ATR_STRENGTH] =		85;
 	attribute[ATR_DEXTERITY] =		65;
@@ -27,22 +27,22 @@ instance TPL_1405_GorNaRan (Npc_Default)
 
 	B_Scale (self);
 	Mdl_SetModelFatness(self,-1);
-	
+
 	fight_tactic	=	FAI_HUMAN_MASTER;
 
-	//-------- Talente -------- 
+	//-------- Talente --------
 
 	Npc_SetTalentSkill (self, NPC_TALENT_2H,1);
-	
+
 	//-------- inventory --------
-	
+
 	EquipItem (self, ItMw_2H_Sword_Light_02);
 	EquipItem	(self, ItRw_Crossbow_01);//### Palisadenwache
 	CreateInvItems	(self, ItAmBolt, 30);
 	CreateInvItem (self, ItFoSoup);
 	CreateInvItem (self, ItMiJoint_1);
-	
-	
+
+
 	//-------------Daily Routine-------------
 	daily_routine = Rtn_start_1405;
 };
@@ -72,7 +72,7 @@ FUNC VOID Rtn_FMTaken_1405 ()
     TA_GuardPalisade	(12,00,24,00,"PSI_GUARD3");
 };
 
-FUNC VOID Rtn_OrcAssault_1405 () 
+FUNC VOID Rtn_OrcAssault_1405 ()
 {
 	TA_GuardPalisade	(00,00,12,00,"PSI_GUARD3");
     TA_GuardPalisade	(12,00,24,00,"PSI_GUARD3");

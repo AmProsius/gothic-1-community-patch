@@ -8,7 +8,7 @@ func void startup_AI_Testlevel ()
 
 //	Wld_InsertNpc				(friendly1_testmodell,"WP_BSANVIL");
 //	Wld_InsertNpc				(friendly2_testmodell,"WP_BSFIRE");
-	
+
 
 /*	Wld_InsertNpc				(CTestmodell,"WP_HALLWAY_2");
 	Wld_InsertNpc				(DTestmodell,"WP_STEAL_1");
@@ -36,7 +36,7 @@ func void startup_AI_Testlevel ()
 	Wld_InsertNpc				(SHADOWBEAST, "WP_SHADOW");
 	Wld_InsertNpc				(SKELETON, "WP_SKELETON");
 	Wld_InsertNpc				(SNAPPER, "WP_SNAPPER");
-	Wld_InsertNpc				(SWAMPSHARK, "WP_SWAMPSHARK");	
+	Wld_InsertNpc				(SWAMPSHARK, "WP_SWAMPSHARK");
 	Wld_InsertNpc				(WARAN, "WP_WARAN");
 	Wld_InsertNpc				(TROLL, "WP_TROLL");
 	Wld_InsertNpc				(WOLF, "WP_WOLF");

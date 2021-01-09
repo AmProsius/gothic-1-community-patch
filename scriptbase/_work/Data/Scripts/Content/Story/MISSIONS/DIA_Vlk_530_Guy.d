@@ -1,5 +1,5 @@
 // **************************************************
-// 						 EXIT 
+// 						 EXIT
 // **************************************************
 
 INSTANCE DIA_Guy_Exit (C_INFO)
@@ -10,7 +10,7 @@ INSTANCE DIA_Guy_Exit (C_INFO)
 	information	= DIA_Guy_Exit_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC INT DIA_Guy_Exit_Condition()
 {
@@ -37,7 +37,7 @@ INSTANCE DIA_Guy_Hello (C_INFO)
 };
 
 FUNC INT DIA_Guy_Hello_Condition()
-{	
+{
 	if (Kapitel <= 1)
 	{
 		return 1;
@@ -70,7 +70,7 @@ INSTANCE DIA_Guy_AdOC (C_INFO)
 };
 
 FUNC INT DIA_Guy_AdOC_Condition()
-{	
+{
 	if (Npc_KnowsInfo(hero,DIA_Guy_Hello))
 	{
 		return 1;
@@ -87,7 +87,7 @@ FUNC VOID DIA_Guy_AdOC_Info()
 	Info_AddChoice	 (DIA_Guy_AdOC, "Ich denke, ich hab' genug über's alte Lager gehört..." ,DIA_Guy_AdOC_BACK);
 	Info_AddChoice	 (DIA_Guy_AdOC, "Was sind hier wertvolle Waren?"			,DIA_Guy_AdOC_Warez);
 	Info_AddChoice	 (DIA_Guy_AdOC, "Und was ist, wenn zwei Leute kämpfen, die beide Schutzgeld zahlen?"			,DIA_Guy_AdOC_Protection);
-};	
+};
 
 func void DIA_Guy_AdOC_BACK()
 {
@@ -126,7 +126,7 @@ INSTANCE DIA_Guy_AdNC (C_INFO)
 };
 
 FUNC INT DIA_Guy_AdNC_Condition()
-{	
+{
 	if (Npc_KnowsInfo(hero,DIA_Guy_Hello))
 	{
 		return 1;
@@ -140,7 +140,7 @@ FUNC VOID DIA_Guy_AdNC_Info()
 	AI_Output (self, other,"DIA_Guy_AdNC_03_02"); //Nein - ganz so schlimm ist es nicht. Aber es geht anders zu als hier.
 	AI_Output (self, other,"DIA_Guy_AdNC_03_03"); //Hier sorgt Gomez dafür, das alles halbwegs ruhig bleibt. Im Neuen Lager gibt es kein Gesetz.
 	AI_Output (self, other,"DIA_Guy_AdNC_03_04"); //Die einzigen, die mächtig genug wären, den Laden zu schmeißen, sind die Wassermagier, und die forschen den ganzen Tag an der Barriere herum.
-};	
+};
 
 // **************************************************
 // 				Advantages ST
@@ -157,7 +157,7 @@ INSTANCE DIA_Guy_AdST (C_INFO)
 };
 
 FUNC INT DIA_Guy_AdST_Condition()
-{	
+{
 	if (Npc_KnowsInfo(hero,DIA_Guy_Hello))
 	{
 		return 1;
@@ -188,7 +188,7 @@ INSTANCE DIA_Guy_MyOwnHut (C_INFO)
 };
 
 FUNC INT DIA_Guy_MyOwnHut_Condition()
-{	
+{
 	if (Npc_KnowsInfo(hero,DIA_Guy_Hello))
 	{
 		return 1;
@@ -201,4 +201,4 @@ FUNC VOID DIA_Guy_MyOwnHut_Info()
 	AI_PointAt(self, "OCR_HUT_26");
 	AI_Output (self, other,"DIA_Guy_MyOwnHut_03_01"); //Die Hütte da oben mit dem kleinen Vordach ist frei.
 	AI_StopPointAt(self);
-};	
+};

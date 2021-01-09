@@ -7,10 +7,10 @@ instance  Info_Xardas_EXIT (C_INFO)
 	nr			= 999;
 	condition	= Info_Xardas_EXIT_Condition;
 	information	= Info_Xardas_EXIT_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC int  Info_Xardas_EXIT_Condition()
 {
@@ -54,7 +54,7 @@ instance  Info_Xardas_DISTURB (C_INFO)
 };
 
 FUNC int  Info_Xardas_DISTURB_Condition()
-{	
+{
 	if	/*(FindGolemHearts == 4)
 	&&	*/!UrShak_SpokeOfUluMulu
 	{
@@ -69,7 +69,7 @@ FUNC void  Info_Xardas_DISTURB_Info()
 	AI_Output 		(hero, self,"Info_Xardas_DISTURB_15_02"); //Mein Name ist ...
 	AI_Output 		(self, hero,"Info_Xardas_DISTURB_14_03"); //Ich will deinen Namen nicht wissen. Er ist unwichtig.
 	AI_Output 		(self, hero,"Info_Xardas_DISTURB_14_04"); //Wichtig ist nur, dass du der Erste seit vielen Jahren bist, der meine Golemrätsel gelöst hat.
-}; 
+};
 
 //---------------------------------------------------------------------
 //	Info OTHERS
@@ -85,7 +85,7 @@ instance  Info_Xardas_OTHERS (C_INFO)
 };
 
 FUNC int  Info_Xardas_OTHERS_Condition()
-{	
+{
 	if	Npc_KnowsInfo(hero, Info_Xardas_DISTURB)
 	{
 		return TRUE;
@@ -97,7 +97,7 @@ FUNC void  Info_Xardas_OTHERS_Info()
 	AI_Output 		(hero, self,"Info_Xardas_OTHERS_15_01"); //Gab es andere Besucher?
 	AI_Output 		(self, hero,"Info_Xardas_OTHERS_14_02"); //Nicht viele und als sie mir lästig wurden, machten sie Bekanntschaft mit einem meiner höheren Wesen.
 	AI_Output 		(hero, self,"Info_Xardas_OTHERS_15_03"); //Du bist wohl gerne ungestört, was?
-}; 
+};
 
 //---------------------------------------------------------------------
 //	Info SATURAS
@@ -113,7 +113,7 @@ instance  Info_Xardas_SATURAS (C_INFO)
 };
 
 FUNC int  Info_Xardas_SATURAS_Condition()
-{	
+{
 	if	Npc_KnowsInfo(hero, Info_Xardas_DISTURB)
 	{
 		return TRUE;
@@ -127,7 +127,7 @@ FUNC void  Info_Xardas_SATURAS_Info()
 	AI_Output 		(self, hero,"Info_Xardas_SATURAS_14_03"); //Der Erzhaufen ist NICHT die Lösung!
 	AI_Output 		(hero, self,"Info_Xardas_SATURAS_15_04"); //Nein?
 	AI_Output 		(self, hero,"Info_Xardas_SATURAS_14_05"); //NEIN!
-}; 
+};
 
 //---------------------------------------------------------------------
 //	Info KDW
@@ -143,7 +143,7 @@ instance  Info_Xardas_KDW (C_INFO)
 };
 
 FUNC int  Info_Xardas_KDW_Condition()
-{	
+{
 	if	Npc_KnowsInfo(hero, Info_Xardas_DISTURB)
 	{
 		return TRUE;
@@ -156,7 +156,7 @@ FUNC void  Info_Xardas_KDW_Info()
 	AI_Output 		(hero, self,"Info_Xardas_KDW_15_02"); //Gomez hat sie ermorden lassen.
 	AI_Output 		(self, hero,"Info_Xardas_KDW_14_03"); //Das wundert mich nicht sonderlich. Diesen dummen barbarischen Schlächtern in der Burg, allen voran Gomez, war noch nie zu trauen.
 	AI_Output 		(self, hero,"Info_Xardas_KDW_14_04"); //Corristo und die anderen Magier haben sich ihren Henker selbst gewählt, als sie Gomez damals halfen, die Macht an sich zu reißen.
-}; 
+};
 
 //---------------------------------------------------------------------
 //	Info SLEEPER
@@ -172,7 +172,7 @@ instance  Info_Xardas_SLEEPER (C_INFO)
 };
 
 FUNC int  Info_Xardas_SLEEPER_Condition()
-{	
+{
 	if	Npc_KnowsInfo(hero, Info_Xardas_DISTURB)
 	{
 		return TRUE;
@@ -185,7 +185,7 @@ FUNC void  Info_Xardas_SLEEPER_Info()
 	AI_Output 		(hero, self,"Info_Xardas_SLEEPER_15_02"); //Das hat die Bruderschaft im Sumpf herausgefunden.
 	AI_Output 		(hero, self,"Info_Xardas_SLEEPER_15_03"); //Die Wassermagier glauben nun, dass wir alle in der Kolonie in großer Gefahr seien.
 	AI_Output 		(self, hero,"Info_Xardas_SLEEPER_14_04"); //Die Gefahr ist größer als irgendjemand innerhalb der Barriere erahnen kann.
-}; 
+};
 
 //---------------------------------------------------------------------
 //	Info DANGER
@@ -201,7 +201,7 @@ instance  Info_Xardas_DANGER (C_INFO)
 };
 
 FUNC int  Info_Xardas_DANGER_Condition()
-{	
+{
 	if	Npc_KnowsInfo(hero, Info_Xardas_SLEEPER)
 	&&	Npc_KnowsInfo(hero, Info_Xardas_SATURAS)
 	{
@@ -231,7 +231,7 @@ instance  Info_Xardas_BARRIER (C_INFO)
 };
 
 FUNC int  Info_Xardas_BARRIER_Condition()
-{	
+{
 	if	Npc_KnowsInfo(hero, Info_Xardas_DANGER)
 	{
 		return TRUE;
@@ -246,7 +246,7 @@ FUNC void  Info_Xardas_BARRIER_Info()
 	AI_Output 		(self, hero,"Info_Xardas_BARRIER_14_05"); //Vor vielen hundert Jahren beschwörten fünf Ork-Schamanen einen uralten Erzdämonen, um ihrem Klan die Macht zu verleihen, ihre Feinde zu vernichten.
 	AI_Output 		(hero, self,"Info_Xardas_BARRIER_15_06"); //War dieser Erzdämon der Schläfer?
 	AI_Output 		(self, hero,"Info_Xardas_BARRIER_14_07"); //Diesen Namen gaben ihm die Orks erst viel später. Doch warum sie das taten und warum sie heute vor diesem Überwesen in Furcht erzittern, werde ich dir nicht erzählen!
-}; 
+};
 
 //---------------------------------------------------------------------
 //	Info EVENT
@@ -262,7 +262,7 @@ instance  Info_Xardas_EVENT (C_INFO)
 };
 
 FUNC int  Info_Xardas_EVENT_Condition()
-{	
+{
 	if	Npc_KnowsInfo(hero, Info_Xardas_BARRIER)
 	{
 		return TRUE;
@@ -274,7 +274,7 @@ FUNC void  Info_Xardas_EVENT_Info()
 	AI_Output 		(self, hero,"Info_Xardas_EVENT_14_02"); //Ich glaube du könntest der ... NEIN, um mir ganz sicher zu sein, musst du noch eine weitere Aufgabe lösen!
 	AI_Output 		(hero, self,"Info_Xardas_EVENT_15_03"); //Was für eine Aufgabe?
 	AI_Output 		(self, hero,"Info_Xardas_EVENT_14_04"); //Hör gut zu: Die Orks haben einen ihrer Schamanen aus ihrer Stadt verbannt.
-}; 
+};
 
 //---------------------------------------------------------------------
 //	Info EVENTWHY
@@ -290,7 +290,7 @@ instance  Info_Xardas_EVENTWHY (C_INFO)
 };
 
 FUNC int  Info_Xardas_EVENTWHY_Condition()
-{	
+{
 	if	Npc_KnowsInfo(hero, Info_Xardas_EVENT)
 	{
 		return TRUE;
@@ -300,7 +300,7 @@ FUNC void  Info_Xardas_EVENTWHY_Info()
 {
 	AI_Output 		(hero, self,"Info_Xardas_EVENTWHY_15_01"); //Warum haben sie ihn verbannt?
 	AI_Output 		(self, hero,"Info_Xardas_EVENTWHY_14_02"); //Das konnte der sterbende Ork-Krieger, der von einem meiner Dämonen befragt wurde, nicht mehr von sich geben.
-}; 
+};
 
 //---------------------------------------------------------------------
 //	Info EVENTHOW
@@ -316,7 +316,7 @@ instance  Info_Xardas_EVENTHOW (C_INFO)
 };
 
 FUNC int  Info_Xardas_EVENTHOW_Condition()
-{	
+{
 	if	Npc_KnowsInfo(hero, Info_Xardas_EVENT)
 	{
 		return TRUE;
@@ -332,7 +332,7 @@ FUNC void  Info_Xardas_EVENTHOW_Info()
 	AI_Output 		(self, hero,"Info_Xardas_EVENTHOW_14_06"); //Dann stelle meine Worte nie wieder in Frage!
 	AI_Output 		(self, hero,"Info_Xardas_EVENTHOW_14_07"); //Suche den Schamanen. Er ist nicht gut auf seine Brüder in der Orkstadt zu sprechen, also wird er dir vielleicht zuhören, bevor er dich zu einer lebenden Fackel macht!
 	AI_Output 		(hero, self,"Info_Xardas_EVENTHOW_15_08"); //Sehr beruhigend!
-}; 
+};
 
 //---------------------------------------------------------------------
 //	Info EVENTWHERE
@@ -348,7 +348,7 @@ instance  Info_Xardas_EVENTWHERE (C_INFO)
 };
 
 FUNC int  Info_Xardas_EVENTWHERE_Condition()
-{	
+{
 	if	Npc_KnowsInfo(hero, Info_Xardas_EVENT)
 	{
 		return TRUE;
@@ -360,7 +360,7 @@ FUNC void  Info_Xardas_EVENTWHERE_Info()
 	AI_Output 		(self, hero,"Info_Xardas_EVENTWHERE_14_02"); //Gehe zum alten Kastell östlich von hier. Es ist nicht zu übersehen, denn es steht auf dem Gipfel eines hohen Berges, der schon von weitem zu sehen ist.
 	AI_Output 		(hero, self,"Info_Xardas_EVENTWHERE_15_03"); //Kann man es so einfach betreten?
 	AI_Output 		(self, hero,"Info_Xardas_EVENTWHERE_14_04"); //Es wird zwar noch Altes Kastell genannt, aber genau genommen stehen da nur noch die Grundmauern. Es ist schon seit vielen Jahrzehnten eine Ruine.
-}; 
+};
 
 //---------------------------------------------------------------------
 //	Info ACCEPT
@@ -376,7 +376,7 @@ instance  Info_Xardas_ACCEPT (C_INFO)
 };
 
 FUNC int  Info_Xardas_ACCEPT_Condition()
-{	
+{
 	if	Npc_KnowsInfo(hero, Info_Xardas_EVENTWHY)
 	&&	Npc_KnowsInfo(hero, Info_Xardas_EVENTHOW)
 	&&	Npc_KnowsInfo(hero, Info_Xardas_EVENTWHERE)
@@ -392,11 +392,11 @@ FUNC void  Info_Xardas_ACCEPT_Info()
 
 	B_Story_CordsPost();		// Falls Spieler Gorn am Wassermagier-Pentragramm nicht angesprochen hat!
 	B_Story_FindOrcShaman();
-	
+
 	AI_StopProcessInfos(self);
-}; 
+};
 /*------------------------------------------------------------------------
-						SCROLLS UND RUNEN VERKAUFEN							
+						SCROLLS UND RUNEN VERKAUFEN
 ------------------------------------------------------------------------*/
 
 instance  Kdf_404_Xardas_SELLMAGICSTUFF (C_INFO)
@@ -407,12 +407,12 @@ instance  Kdf_404_Xardas_SELLMAGICSTUFF (C_INFO)
 	important		= 0;
 	permanent		= 1;
 	trade			= 1;
-	description		= "Ich suche magisches Wissen"; 
-	
+	description		= "Ich suche magisches Wissen";
+
 };
 
 FUNC int  Kdf_404_Xardas_SELLMAGICSTUFF_Condition()
-{	
+{
 	if ( Npc_KnowsInfo(hero, Info_Xardas_ACCEPT))
 	{
 		return TRUE;
@@ -438,7 +438,7 @@ instance  Info_Xardas_RETURN (C_INFO)
 };
 
 FUNC int  Info_Xardas_RETURN_Condition()
-{	
+{
 	if	UrShak_SpokeOfUluMulu
 	&&	!EnteredTemple
 	{
@@ -463,7 +463,7 @@ FUNC void  Info_Xardas_RETURN_Info()
 	AI_Output 		(self, hero,"Info_Xardas_RETURN_14_14"); //DANN GEH! Es ist schon genug Zeit verstrichen! Geh und such die Antwort im unterirdischen Tempel!
 
 	B_Story_ReturnedFromUrShak();
-}; 
+};
 
 //#####################################################################
 //##
@@ -483,15 +483,15 @@ instance  Info_Xardas_FOUNDTEMPLE (C_INFO)
 	information		= Info_Xardas_FOUNDTEMPLE_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "Ich habe einen Weg in den unterirdischen Tempel gefunden!"; 
+	description		= "Ich habe einen Weg in den unterirdischen Tempel gefunden!";
 };
 
 FUNC int  Info_Xardas_FOUNDTEMPLE_Condition()
-{	
+{
 	if (EnteredTemple)
-	{			
+	{
 		return TRUE;
-	};	
+	};
 };
 
 FUNC void  Info_Xardas_FOUNDTEMPLE_Info()
@@ -512,15 +512,15 @@ instance  Info_Xardas_PROPHECY (C_INFO)
 	information		= Info_Xardas_PROPHECY_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "Prophezeiungen? Welche Prophezeiungen?"; 
+	description		= "Prophezeiungen? Welche Prophezeiungen?";
 };
 
 FUNC int  Info_Xardas_PROPHECY_Condition()
-{	
+{
 	if (Npc_KnowsInfo(hero, Info_Xardas_FOUNDTEMPLE))
-	{			
+	{
 		return TRUE;
-	};	
+	};
 };
 
 FUNC void  Info_Xardas_PROPHECY_Info()
@@ -543,15 +543,15 @@ instance  Info_Xardas_LOADSWORD (C_INFO)
 	information		= Info_Xardas_LOADSWORD_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "Ich habe dieses seltsame Schwert hier gefunden."; 
+	description		= "Ich habe dieses seltsame Schwert hier gefunden.";
 };
 
 FUNC int  Info_Xardas_LOADSWORD_Condition()
-{	
+{
 	if ( Npc_HasItems ( hero, Mythrilklinge ))
-	{			
+	{
 		return TRUE;
-	};	
+	};
 };
 
 FUNC void  Info_Xardas_LOADSWORD_Info()
@@ -570,8 +570,8 @@ FUNC void  Info_Xardas_LOADSWORD_Info()
 	AI_Output				(self, other,"Info_Xardas_LOADSWORD_14_04"); //Ich habe schon von diesem Schwert gehört, es ist eine Waffe aus alten Tagen, als die Menschheit noch jung war.
 	AI_Output				(self, other,"Info_Xardas_LOADSWORD_14_05"); //Die Waffe ist aus einem völlig unbekannten Material geschmiedet. Auch über den Erschaffer steht nichts geschrieben!
 	AI_Output				(self, other,"Info_Xardas_LOADSWORD_14_06"); //Angeblich soll diese Klinge unglaubliche Kräfte besessen haben, aber ich kann keinerlei magische Aura feststellen!
-	
-	Npc_RemoveInvItem 		(hero, Mythrilklinge);	
+
+	Npc_RemoveInvItem 		(hero, Mythrilklinge);
 	CreateInvItem 			(hero, Mythrilklinge01);
 };
 
@@ -585,15 +585,15 @@ instance  Info_Xardas_LOADSWORD01 (C_INFO)
 	information		= Info_Xardas_LOADSWORD01_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "URIZIEL besaß unglaubliche Kräfte?"; 
+	description		= "URIZIEL besaß unglaubliche Kräfte?";
 };
 
 FUNC int  Info_Xardas_LOADSWORD01_Condition()
-{	
+{
 	if ( Npc_KnowsInfo ( hero, Info_Xardas_LOADSWORD ))
-	{			
+	{
 		return TRUE;
-	};	
+	};
 };
 
 
@@ -618,15 +618,15 @@ instance  Info_Xardas_LOADSWORD02 (C_INFO)
 	information		= Info_Xardas_LOADSWORD02_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "Kann man die damaligen Kräfte der Waffe wiederherstellen?"; 
+	description		= "Kann man die damaligen Kräfte der Waffe wiederherstellen?";
 };
 
 FUNC int  Info_Xardas_LOADSWORD02_Condition()
-{	
+{
 	if ( Npc_KnowsInfo ( hero, Info_Xardas_LOADSWORD01 ))
-	{			
+	{
 		return TRUE;
-	};	
+	};
 };
 
 FUNC void  Info_Xardas_LOADSWORD02_Info()
@@ -652,15 +652,15 @@ instance  Info_Xardas_BETTERARMOR (C_INFO)
 	information		= Info_Xardas_BETTERARMOR_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "Ich werde mich in der Zwischenzeit nach einer besseren Rüstung umsehen!"; 
+	description		= "Ich werde mich in der Zwischenzeit nach einer besseren Rüstung umsehen!";
 };
 
 FUNC int  Info_Xardas_BETTERARMOR_Condition()
-{	
+{
 	if ( Npc_KnowsInfo ( hero, Info_Xardas_LOADSWORD02))
-	{			
+	{
 		return TRUE;
-	};	
+	};
 };
 
 FUNC void  Info_Xardas_BETTERARMOR_Info()
@@ -673,7 +673,7 @@ FUNC void  Info_Xardas_BETTERARMOR_Info()
 	{
 		AI_Output	(other, self,"Info_Xardas_BETTERARMOR_15_02"); //Die paar zusammengeflickten Minecrawler-Platten haben im unterirdischen Tempel einfach zu viel Hiebe durchgelassen!
 	}
-	else if (armorInstance == KDW_ARMOR_H) || (armorInstance == KDW_ARMOR_L)		
+	else if (armorInstance == KDW_ARMOR_H) || (armorInstance == KDW_ARMOR_L)
 	{
 		AI_Output	(other, self,"Info_Xardas_BETTERARMOR_15_03"); //Die paar blauen Stofflaken hier haben mich im unterirdischen Tempel nicht ausreichend geschützt!
 	}
@@ -681,7 +681,7 @@ FUNC void  Info_Xardas_BETTERARMOR_Info()
 	{
 		AI_Output	(other, self,"Info_Xardas_BETTERARMOR_15_04"); //Die Untoten im Tempel haben gewaltige Beulen in meinen Panzer gehauen!
 	};
-	
+
 	AI_Output		(self, other,"Info_Xardas_BETTERARMOR_14_05"); //Du solltest meinen alten Turm aufsuchen.
 	AI_Output		(other, self,"Info_Xardas_BETTERARMOR_15_06"); //Deinen alten Turm?
 	AI_Output		(self, other,"Info_Xardas_BETTERARMOR_14_07"); //Er versank bei einem dieser Beben in einem See im Osten. Die Turmspitzen ragen noch immer aus dem Wasser heraus.
@@ -707,12 +707,12 @@ instance  Info_Xardas_OREARMOR (C_INFO)
 };
 
 FUNC int  Info_Xardas_OREARMOR_Condition()
-{	
+{
 	if	Npc_HasItems(hero, ORE_ARMOR_M)
 	||	Npc_HasItems(hero, ORE_ARMOR_H)
-	{			
+	{
 		return TRUE;
-	}; 
+	};
 };
 
 FUNC void  Info_Xardas_OREARMOR_Info()
@@ -734,7 +734,7 @@ FUNC void  Info_Xardas_OREARMOR_Info()
 };
 
 //---------------------------------------------------------------------
-//	Info FORMULA 
+//	Info FORMULA
 //---------------------------------------------------------------------
 instance  Info_Xardas_FORMULA (C_INFO)
 {
@@ -747,13 +747,13 @@ instance  Info_Xardas_FORMULA (C_INFO)
 };
 
 FUNC int  Info_Xardas_FORMULA_Condition()
-{	
+{
 	if	Npc_HasItems(hero, ORE_ARMOR_M)
 	||	Npc_HasItems(hero, ORE_ARMOR_H)
 	||	Npc_HasItems(hero, ItArRuneTeleport1)
-	{			
+	{
 		return TRUE;
-	}; 
+	};
 };
 
 FUNC void  Info_Xardas_FORMULA_Info()
@@ -769,7 +769,7 @@ FUNC void  Info_Xardas_FORMULA_Info()
 };
 
 //---------------------------------------------------------------------
-//	Info ALTRUNE 
+//	Info ALTRUNE
 //---------------------------------------------------------------------
 instance  Info_Xardas_ALTRUNE (C_INFO)
 {
@@ -782,12 +782,12 @@ instance  Info_Xardas_ALTRUNE (C_INFO)
 };
 
 FUNC int  Info_Xardas_ALTRUNE_Condition()
-{	
+{
 	if	Npc_KnowsInfo(hero, Info_Xardas_FORMULA)
 	&&	((Npc_GetTrueGuild(hero) == GIL_KDW) || (Npc_GetTrueGuild(hero) == GIL_DMB))
-	{			
+	{
 		return TRUE;
-	}; 
+	};
 };
 
 FUNC void  Info_Xardas_ALTRUNE_Info()
@@ -808,15 +808,15 @@ instance  Info_Xardas_SWORDLOADED (C_INFO)
 	information		= Info_Xardas_SWORDLOADED_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "Ich habe URIZIEL aufgeladen!"; 
+	description		= "Ich habe URIZIEL aufgeladen!";
 };
 
 FUNC int  Info_Xardas_SWORDLOADED_Condition()
-{	
+{
 	if  Npc_HasItems(hero,Mythrilklinge02)
-	{			
-		return TRUE;	
-	}; 
+	{
+		return TRUE;
+	};
 };
 
 FUNC void  Info_Xardas_SWORDLOADED_Info()
@@ -838,16 +838,16 @@ instance  Info_Xardas_MAKERUNE (C_INFO)
 	information		= Info_Xardas_MAKERUNE_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "Du erwähntest einen Weg, wie ich URIZIEL auch als Magier führen könnte!"; 
+	description		= "Du erwähntest einen Weg, wie ich URIZIEL auch als Magier führen könnte!";
 };
 
 FUNC int  Info_Xardas_MAKERUNE_Condition()
-{	
+{
 	if	Npc_KnowsInfo(hero, Info_Xardas_ALTRUNE)
 	&&	Npc_KnowsInfo(hero, Info_Xardas_SWORDLOADED)
-	{			
-		return TRUE;	
-	}; 
+	{
+		return TRUE;
+	};
 };
 
 FUNC void  Info_Xardas_MAKERUNE_Info()
@@ -871,16 +871,16 @@ instance  Info_Xardas_MAKERUNEDOIT (C_INFO)
 	information		= Info_Xardas_MAKERUNEDOIT_Info;
 	important		= 0;
 	permanent		= 1;
-	description		= "Entferne den Stein aus URIZIEL!"; 
+	description		= "Entferne den Stein aus URIZIEL!";
 };
 
 FUNC int  Info_Xardas_MAKERUNEDOIT_Condition()
-{	
+{
 	if	Npc_KnowsInfo(hero, Info_Xardas_MAKERUNE)
 	&&	Npc_HasItems (hero,	Mythrilklinge02)
-	{			
-		return TRUE;	
-	}; 
+	{
+		return TRUE;
+	};
 };
 
 FUNC void  Info_Xardas_MAKERUNEDOIT_Info()
@@ -904,21 +904,21 @@ func void Info_Xardas_MAKERUNE_YES ()
 	AI_Output			(self, other,"Info_Xardas_MAKERUNEDOIT_14_05"); //Du hast es so gewollt. Hier, nimm das leere Schwert und die Rune!
 
 	Npc_RemoveInvItem 	(hero, Mythrilklinge02);
-	CreateInvItems 		(self, UrizielRune, 2);	
+	CreateInvItems 		(self, UrizielRune, 2);
 	B_GiveInvItems      (self, hero, UrizielRune, 2);// Wegen Ausgabe "2 Items übergeben", wird direkt angeglichen
 	Npc_RemoveInvItem	(hero, UrizielRune);
 	CreateInvItem		(hero, Mythrilklinge03);
 	B_LogEntry			(CH5_Uriziel,	"Xardas entfernte den magischen Edelstein aus dem Schwert URIZIEL. Die Macht dieser Klinge schlummert nun in einer Zauberrune von unvergleichlicher Kraft.");
 	Log_SetTopicStatus	(CH5_Uriziel,	LOG_SUCCESS);
-};	
+};
 
 func void Info_Xardas_MAKERUNE_NO ()
 {
 	Info_ClearChoices	(Info_Xardas_MAKERUNEDOIT);
 	AI_Output			(other, self,"Info_Xardas_MAKERUNEDOIT_15_06"); //NEIN, lieber doch nicht!
 	AI_Output			(self, other,"Info_Xardas_MAKERUNEDOIT_14_07"); //So sei es. Die Klinge behält ihre magischen Kräfte!
-};	
-	
+};
+
 
 //---------------------------------------------------------------------
 //	Info LOADSWORD9 --> SC kann DMB werden
@@ -930,24 +930,24 @@ instance  Info_Xardas_LOADSWORD09 (C_INFO)
 	information		= Info_Xardas_LOADSWORD09_Info;
 	important		= 0;
 	permanent		= 1;
-	description		= B_BuildLearnString(NAME_LearnMage_6, LPCOST_TALENT_MAGE_6,0); 
+	description		= B_BuildLearnString(NAME_LearnMage_6, LPCOST_TALENT_MAGE_6,0);
 };
 
 FUNC int  Info_Xardas_LOADSWORD09_Condition()
-{	
+{
 	if (EnteredTemple)
 	&& (Npc_GetTrueGuild (hero) == GIL_KDW)
-	{			
+	{
 		return TRUE;
-	};	
+	};
 };
 func void  Info_Xardas_LOADSWORD09_Info()
 {
 	AI_Output (other, self,"Info_Xardas_LOADSWORD09_15_01");		//Kannst du mich unterrichten?
-	
-	if ( Npc_GetTalentSkill	( hero,	NPC_TALENT_MAGE ) == 5) 
+
+	if ( Npc_GetTalentSkill	( hero,	NPC_TALENT_MAGE ) == 5)
 	{
-		
+
 		if (B_GiveSkill(other, NPC_TALENT_MAGE, 6, LPCOST_TALENT_MAGE_6))
 		{
 			AI_Output (self, other,"Info_Xardas_LOADSWORD09_14_02"); //Ich werde dich in den sechsten der magischen Kreise aufnehmen.
@@ -955,7 +955,7 @@ func void  Info_Xardas_LOADSWORD09_Info()
 			AI_Output (self, other,"Info_Xardas_LOADSWORD09_14_04"); //Dein Zeichen ist die Verbindung der Elemente.
 			AI_Output (self, other,"Info_Xardas_LOADSWORD09_14_05"); //Mit dem sechsten Kreis bist du in der Lage, die Magie sämtlicher Runen anzuwenden.
 			AI_Output (self, other,"Info_Xardas_LOADSWORD09_14_06"); //Und vergiss nie: Fordere nicht die Macht, sondern diene ihr.
-			
+
 			CreateInvItem 		(hero, DMB_ARMOR_M);		// SN: kann nicht mit B_GiveInvItem() übergeben werden, da Xardas sonst nackt dasteht!
 			AI_EquipBestArmor	(hero);
 
@@ -964,18 +964,18 @@ func void  Info_Xardas_LOADSWORD09_Info()
 			B_GiveInvItems		(self, hero,	ItAmArrow, 1);
 			Npc_RemoveInvItem	(hero,			ItAmArrow);
 
-			hero.guild 	= GIL_DMB;	
-			Npc_SetTrueGuild	( hero, GIL_DMB );	
+			hero.guild 	= GIL_DMB;
+			Npc_SetTrueGuild	( hero, GIL_DMB );
 			Info_Xardas_LOADSWORD09.permanent = 0;
 			AI_StopProcessInfos	( self );
 		};
 	}
-	else 
+	else
 	{
 		AI_Output (self, other,"Info_Xardas_LOADSWORD09_14_07"); 	//Noch nicht, du hast das Talent, aber es fehlt dir an Erfahrung. Lerne erst bei Saturas, dann werde ich dich unterweisen.
-		
+
 		AI_StopProcessInfos	( self );
 	};
 };
 
-	
+

@@ -1,12 +1,12 @@
 instance BAU_904_Bauer (Npc_Default)
 {
 	//-------- primary data --------
-	
+
 	name =							NAME_BAUER;
-	guild =							GIL_BAU;      
+	guild =							GIL_BAU;
 	level =							2;
 	flags =							0;
-	
+
 	voice =							9;
 	id =							904;
 
@@ -23,22 +23,22 @@ instance BAU_904_Bauer (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Tired.mds");
-	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung	
+	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung
 	Mdl_SetVisualBody (self,"hum_body_Naked0",2,1,"Hum_Head_Thief", 5, 1,-1);
-	
+
 	B_Scale (self);
 	Mdl_SetModelFatness(self,0);
-	
-	fight_tactic	=	FAI_HUMAN_COWARD; 
-	//-------- Talente --------                                    
-	
-	//-------- inventory --------                                    
 
-		
+	fight_tactic	=	FAI_HUMAN_COWARD;
+	//-------- Talente --------
+
+	//-------- inventory --------
+
+
 	CreateInvItems (self, ItFoRice,4);
 	CreateInvItem (self, ItMi_Stuff_Plate_01);
 	EquipItem (self, ItMw_1H_Scythe_01);
-	
+
 	//-------------Daily Routine-------------
 	daily_routine = Rtn_start_904;
 };

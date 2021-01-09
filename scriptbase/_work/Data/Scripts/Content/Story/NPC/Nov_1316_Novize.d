@@ -5,10 +5,10 @@ instance NOV_1316_Novize (Npc_Default)
 	Npctype	 	=		Npctype_Ambient;
 	guild 		=		GIL_NOV;
 	level 		=		3;
-	
+
 	voice 		=		2;
 	id 			=		1316;
-	
+
 	//-------- abilities --------
 	attribute[ATR_STRENGTH] 		=	10;
 	attribute[ATR_DEXTERITY] 		=	10;
@@ -21,29 +21,29 @@ instance NOV_1316_Novize (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Relaxed.mds");
-	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
+	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin
 	Mdl_SetVisualBody (self,"hum_body_Naked0", 1, 1 ,"Hum_Head_Bald", 32 ,  1, NOV_ARMOR_L);
 
 	B_Scale (self);
 	Mdl_SetModelFatness(self,-1);
-	
+
 	fight_tactic	=	FAI_HUMAN_COWARD;
 
 	//-------- Talente --------
-	
-		
+
+
 	//-------- inventory --------
 
 	EquipItem (self, ItMw_1H_Hatchet_01);
 	//CreateInvItem (self, ItFoSoup);
 	//CreateInvItem (self, ItMiJoint);
-	
+
 	//-------------Daily Routine-------------
 
 	daily_routine = Rtn_start_1316;
 
 	//------------ //MISSIONs-------------------
-	
+
 
 };
 
@@ -73,7 +73,7 @@ FUNC VOID Rtn_start_1316 ()
 	TA_Smith_Cool	(10,40,10,50,"PSI_SMITH_01");
     TA_Smith_Sharp	(10,50,10,55,"PSI_SMITH_01");
     TA_SitAround	(10,55,11,00,"PSI_SMITH_01");
-          
+
 	TA_Smith_Fire	(11,00,11,10,"PSI_SMITH_01");
 	TA_Smith_Anvil	(11,10,11,20,"PSI_SMITH_01");
 	TA_Smith_Fire	(11,20,11,30,"PSI_SMITH_01");
@@ -89,7 +89,7 @@ FUNC VOID Rtn_start_1316 ()
 	TA_Smith_Cool	(12,40,12,50,"PSI_SMITH_01");
     TA_Smith_Sharp	(12,50,12,55,"PSI_SMITH_01");
     TA_SitAround	(12,55,13,00,"PSI_SMITH_01");
-          
+
 	TA_Smith_Fire	(13,00,13,10,"PSI_SMITH_01");
 	TA_Smith_Anvil	(13,10,13,20,"PSI_SMITH_01");
 	TA_Smith_Fire	(13,20,13,30,"PSI_SMITH_01");
@@ -145,7 +145,7 @@ FUNC VOID Rtn_start_1316 ()
 	TA_Smith_Cool	(19,40,19,50,"PSI_SMITH_01");
     TA_Smith_Sharp	(19,50,19,55,"PSI_SMITH_01");
     TA_SitAround	(19,55,20,00,"PSI_SMITH_01");
-    
+
     TA_Smith_Fire	(20,00,20,10,"PSI_SMITH_01");
 	TA_Smith_Anvil	(20,10,20,20,"PSI_SMITH_01");
 	TA_Smith_Fire	(20,20,20,30,"PSI_SMITH_01");
@@ -169,7 +169,7 @@ FUNC VOID Rtn_start_1316 ()
 	TA_Smith_Cool	(22,40,22,50,"PSI_SMITH_01");
     TA_Smith_Sharp	(22,50,22,55,"PSI_SMITH_01");
     TA_SitAround	(22,55,23,00,"PSI_SMITH_01");
-          
+
 	TA_Smith_Fire	(23,00,23,10,"PSI_SMITH_01");
 	TA_Smith_Anvil	(23,10,23,20,"PSI_SMITH_01");
 	TA_Smith_Fire	(23,20,23,30,"PSI_SMITH_01");
@@ -185,7 +185,7 @@ FUNC VOID Rtn_start_1316 ()
 	TA_Smith_Cool	(00,40,00,50,"PSI_SMITH_01");
     TA_Smith_Sharp	(00,50,00,55,"PSI_SMITH_01");
     TA_SitAround	(00,55,01,00,"PSI_SMITH_01");
-          
+
 	TA_Smith_Fire	(01,00,01,10,"PSI_SMITH_01");
 	TA_Smith_Anvil	(01,10,01,20,"PSI_SMITH_01");
 	TA_Smith_Fire	(01,20,01,30,"PSI_SMITH_01");
@@ -240,27 +240,27 @@ FUNC VOID Rtn_start_1316 ()
 	TA_Smith_Anvil	(07,30,07,40,"PSI_SMITH_01");
 	TA_Smith_Cool	(07,40,07,50,"PSI_SMITH_01");
     TA_Smith_Sharp	(07,50,07,55,"PSI_SMITH_01");
-    TA_SitAround	(07,55,08,00,"PSI_SMITH_01");	
+    TA_SitAround	(07,55,08,00,"PSI_SMITH_01");
 };
 
 FUNC VOID Rtn_PrepareRitual_1316 ()
 {
-	
+
 };
 
 FUNC VOID Rtn_OMFull_1316 ()
 {
-	
+
 };
 
 FUNC VOID Rtn_FMTaken_1316 ()
 {
-	
+
 };
 
 FUNC VOID Rtn_OrcAssault_1316 ()
 {
-	
+
 };
 
 

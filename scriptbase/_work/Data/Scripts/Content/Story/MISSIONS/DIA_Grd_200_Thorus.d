@@ -1,5 +1,5 @@
 // ************************************************************
-// 			  				   EXIT 
+// 			  				   EXIT
 // ************************************************************
 
 INSTANCE Info_Thorus_EXIT(C_INFO)
@@ -10,15 +10,15 @@ INSTANCE Info_Thorus_EXIT(C_INFO)
 	information	= Info_Thorus_EXIT_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC INT Info_Thorus_EXIT_Condition()
 {
 	return 1;
 };
- 
+
 FUNC VOID Info_Thorus_EXIT_Info()
-{	
+{
 	AI_StopProcessInfos	(self);
 };
 
@@ -34,10 +34,10 @@ INSTANCE Info_Thorus_EnterCastle(C_INFO) //E2
 	information	= Info_Thorus_EnterCastle_Info;
 	permanent	= 0;
 	description = "Du siehst nicht so aus, als wenn du jeden in die Burg lassen würdest.";
-};                       
+};
 
 FUNC INT Info_Thorus_EnterCastle_Condition()
-{	
+{
 	if !C_NpcBelongsToOldCamp (other)
 	&& (Diego_GomezAudience == FALSE)
 	{
@@ -45,7 +45,7 @@ FUNC INT Info_Thorus_EnterCastle_Condition()
 	};
 };
 FUNC VOID Info_Thorus_EnterCastle_Info()
-{	
+{
 	AI_Output (other, self,"Info_EnterCastle_15_00"); //Du siehst nicht so aus, als wenn du jeden in die Burg lassen würdest.
 	AI_Output (self, other,"Info_EnterCastle_09_01"); //Nur Gomez' Leuten ist es erlaubt, die Burg zu betreten.
 };
@@ -62,7 +62,7 @@ INSTANCE Info_Thorus_WorkForGomez(C_INFO) //E2
 	information	= Info_Thorus_WorkForGomez_Info;
 	permanent	= 0;
 	description = "Ich will für Gomez arbeiten.";
-};                       
+};
 
 FUNC INT Info_Thorus_WorkForGomez_Condition()
 {
@@ -74,7 +74,7 @@ FUNC INT Info_Thorus_WorkForGomez_Condition()
 };
 
 FUNC VOID Info_Thorus_WorkForGomez_Info()
-{	
+{
 	AI_Output (other, self,"Info_WorkForGomez_15_00"); //Ich will für Gomez arbeiten.
 	AI_Output (self, other,"Info_WorkForGomez_09_01"); //Ach? Und wieso, glaubst du, ist Gomez daran interessiert, dass du für ihn arbeitest?
 };
@@ -91,7 +91,7 @@ INSTANCE Info_Thorus_DiegoSentMe(C_INFO) //E3
 	information	= Info_Thorus_DiegoSentMe_Info;
 	permanent	= 0;
 	description = "Diego sagt, DU entscheidest, wer Gomez interessiert.";
-};                       
+};
 
 FUNC INT Info_Thorus_DiegoSentMe_Condition()
 {
@@ -102,13 +102,13 @@ FUNC INT Info_Thorus_DiegoSentMe_Condition()
 };
 
 FUNC VOID Info_Thorus_DiegoSentMe_Info()
-{	
+{
 	AI_Output (other, self,"Info_Thorus_DiegoSentMe_15_00"); //Diego sagt, DU entscheidest, wer Gomez interessiert.
 	AI_Output (self, other,"Info_Thorus_DiegoSentMe_09_01"); //Hm ... Wenn Diego denkt, du taugst was, kann ER sich auch mit dir rumschlagen.
 	AI_Output (self, other,"Info_Thorus_DiegoSentMe_09_02"); //Ich werde dir jetzt erklären, wie das läuft: Diego wird dich auf die Probe stellen. Wenn ER denkt, dass du gut genug bist, werde ich dich zu Gomez in die Burg lassen.
 	AI_Output (self, other,"Info_Thorus_DiegoSentMe_09_03"); //Was dann passiert, liegt an dir. Kapiert?
 	AI_Output (other, self,"Info_Thorus_DiegoSentMe_15_04"); //Ich werde mit Diego reden.
-	
+
 	B_LogEntry(CH1_JoinOC,"Thorus sagte mir, ich soll mit Diego reden, wenn ich ins Alte Lager aufgenommen werden will. Diego wird mich auf die Probe stellen");
 };
 
@@ -124,7 +124,7 @@ INSTANCE Info_Thorus_TryMe(C_INFO) //E3
 	information	= Info_Thorus_TryMe_Info;
 	permanent	= 0;
 	description = "Warum stellst du mich nicht auf die Probe?";
-};                       
+};
 
 FUNC INT Info_Thorus_TryMe_Condition()
 {
@@ -135,7 +135,7 @@ FUNC INT Info_Thorus_TryMe_Condition()
 };
 
 FUNC VOID Info_Thorus_TryMe_Info()
-{	
+{
 	AI_Output (other, self,"Info_Thorus_TryMe_15_00"); //Warum stellst du mich nicht auf die Probe?
 	AI_Output (self, other,"Info_Thorus_TryMe_09_01"); //So läuft das hier nicht, Kleiner! Jeder Neue, der sich hier beweisen will, braucht einen Fürsprecher.
 	AI_Output (self, other,"Info_Thorus_TryMe_09_02"); //Der Fürsprecher muss einer von Gomez' Leuten sein. Er wird dich auf die Probe stellen.
@@ -154,7 +154,7 @@ INSTANCE Info_Thorus_TryMeAgain(C_INFO) //E4
 	information	= Info_Thorus_TryMeAgain_Info;
 	permanent	= 0;
 	description = "Es muss doch eine Aufgabe geben, die du erledigt haben willst.";
-};                       
+};
 
 FUNC INT Info_Thorus_TryMeAgain_Condition()
 {
@@ -165,7 +165,7 @@ FUNC INT Info_Thorus_TryMeAgain_Condition()
 };
 
 FUNC VOID Info_Thorus_TryMeAgain_Info()
-{	
+{
 	AI_Output (other, self,"Info_Thorus_TryMeAgain_15_00"); //Es muss doch eine Aufgabe geben, die du erledigt haben willst.
 	AI_Output (self, other,"Info_Thorus_TryMeAgain_09_01"); //Nein. Die Dinge, um die wir Gardisten uns kümmern, sind 'ne Nummer zu groß für dich, Kleiner.
 	AI_Output (self, other,"Info_Thorus_TryMeAgain_09_02"); //Halt dich lieber an die Prüfungen, die dein Fürsprecher dir stellen wird.
@@ -183,7 +183,7 @@ INSTANCE Info_Thorus_TryMeICanDoIt(C_INFO) //E5
 	information	= Info_Thorus_TryMeICanDoIt_Info;
 	permanent	= 0;
 	description = "Ich kann alles schaffen, was du mir aufträgst.";
-};                       
+};
 
 FUNC INT Info_Thorus_TryMeICanDoIt_Condition()
 {
@@ -194,7 +194,7 @@ FUNC INT Info_Thorus_TryMeICanDoIt_Condition()
 };
 
 FUNC VOID Info_Thorus_TryMeICanDoIt_Info()
-{	
+{
 	AI_Output (other, self,"Info_Thorus_TryMeICanDoIt_15_00"); //Ich kann alles schaffen, was du mir aufträgst.
 	AI_Output (self, other,"Info_Thorus_TryMeICanDoIt_09_01"); //So? Du willst also unbedingt versagen ... Es gibt eine Sache, die nur von jemandem erledigt werden kann, der keiner von Gomez' Leuten ist.
 	AI_Output (self, other,"Info_Thorus_TryMeICanDoIt_09_02"); //Aber ich warne dich. Wenn du das Ding vermasselst, bekommst du mächtigen Ärger.
@@ -216,7 +216,7 @@ INSTANCE Info_Thorus_MordragKo_Offer (C_INFO) //E6
 	information	= Info_Thorus_MordragKo_Offer_Info;
 	permanent	= 0;
 	description = "Ich bin bereit für deine Aufgabe.";
-};                       
+};
 
 FUNC INT Info_Thorus_MordragKo_Offer_Condition()
 {
@@ -243,14 +243,14 @@ FUNC VOID Info_Thorus_MordragKo_Offer_Info()
 	Info_AddChoice	 (Info_Thorus_MordragKo_Offer, "Wo finde ich Mordrag?" 								,Info_Thorus_MordragKo_Where);
 	Info_AddChoice	 (Info_Thorus_MordragKo_Offer, "Wieso beschützen die Magier diesen Mordrag?"		,Info_Thorus_MordragKo_MagesProtect);
 	Info_AddChoice	 (Info_Thorus_MordragKo_Offer, "Klingt eher als wären die Magier dein Problem..."	,Info_Thorus_MordragKo_MageProblem);
-	
+
 	Thorus_MordragKo = LOG_RUNNING;
-	
+
 	Log_CreateTopic		(CH1_MordragKO, LOG_MISSION);
 	B_LogEntry			(CH1_MordragKO,"Thorus hat mich damit beauftragt, einen Banditen namens Mordrag aus dem Lager zu vertreiben. Wie ich das anstelle hat er mir überlassen. Außerdem darf niemand erfahren, dass Thorus dahintersteckt.");
 	Log_SetTopicStatus	(CH1_MordragKO, LOG_RUNNING);
 
-	var C_Npc Mordrag; 				
+	var C_Npc Mordrag;
 	Mordrag = Hlp_GetNpc(ORG_826_Mordrag);
 };
 
@@ -302,10 +302,10 @@ INSTANCE Info_Thorus_MordragKo_Analyze (C_INFO)
 	information	= Info_Thorus_MordragKo_Analyze_Info;
 	permanent	= 1;
 	description = "Wegen Mordrag...";
-};                       
+};
 
 FUNC INT Info_Thorus_MordragKo_Analyze_Condition()
-{	
+{
 	if ( (Thorus_MordragKo == LOG_RUNNING) && (MordragKO_PlayerChoseThorus != TRUE) )
 	{
 		return 1;
@@ -323,10 +323,10 @@ FUNC VOID Info_Thorus_MordragKo_Analyze_Info()
 		Info_AddChoice	(Info_Thorus_MordragKo_Analyze, "Mordrag wird nie wieder irgendwen bestehlen!" ,Info_Thorus_MordragKo_MordragDead);
 	}
 	else if ( (MordragKO_HauAb==TRUE) || (MordragKO_StayAtNC==TRUE) )
-	{ 
+	{
 		Info_AddChoice	(Info_Thorus_MordragKo_Analyze, "Der Typ wird sich hier nie wieder blicken lassen!" ,Info_Thorus_MordragKo_MordragGone);
 	};
-    
+
 };
 
 FUNC VOID Info_Thorus_MordragKo_ANALYZE_BACK()
@@ -340,7 +340,7 @@ FUNC VOID Info_Thorus_MordragKo_MordragDead()
 	AI_Output (other, self,"Info_Thorus_MordragKo_MordragDead_15_00"); //Mordrag wird nie wieder irgendwen bestehlen!
 	AI_Output (self, other,"Info_Thorus_MordragKo_MordragDead_09_01"); //Du hast ihn geschafft? Nicht schlecht, Kleiner.
 	Thorus_MordragKo = LOG_SUCCESS;
-	Log_SetTopicStatus(CH1_MordragKO, LOG_SUCCESS);	
+	Log_SetTopicStatus(CH1_MordragKO, LOG_SUCCESS);
 	B_LogEntry (CH1_MordragKO, "Thorus war beeindruckt, dass ich Mordrag beseitigt habe. Ein klarer Pluspunkt für mich.");
 	B_GiveXP(XP_Thorusmordragdead);
 	Info_ClearChoices(Info_Thorus_MordragKo_Analyze);
@@ -359,7 +359,7 @@ FUNC VOID Info_Thorus_MordragKo_MordragGone()
 };
 
 // ************************************************************
-// 						Mordrag verplappert					
+// 						Mordrag verplappert
 // ************************************************************
 
 INSTANCE Info_Thorus_MordragFailed (C_INFO)
@@ -370,10 +370,10 @@ INSTANCE Info_Thorus_MordragFailed (C_INFO)
 	information	= Info_Thorus_MordragFailed_Info;
 	permanent	= 0;
 	important 	= 1;
-};                       
+};
 
 FUNC INT Info_Thorus_MordragFailed_Condition()
-{	
+{
 	if (MordragKO_PlayerChoseThorus == TRUE)
 	{
 		return 1;
@@ -384,16 +384,16 @@ FUNC VOID Info_Thorus_MordragFailed_Info()
 {
 	AI_Output (self, other,"Info_Thorus_MordragFailed_09_00"); //Du Versager! Ich sagte doch: NENN MEINEN NAMEN NICHT!!!
 	AI_Output (self, other,"Info_Thorus_MordragFailed_09_01"); //Du hast es vermasselt! Die Sache kannst du vergessen! Versuche ja nicht, noch weiter daran rumzupfuschen!
-			
+
 	Thorus_MordragKo = LOG_FAILED;
-	
+
 	Log_SetTopicStatus(CH1_MordragKO, LOG_FAILED);
 	B_LogEntry (CH1_MordragKO, "Dass ich Mordrag seinen Namen gesagt habe, hat Thorus gar nicht gefallen. Bei ihm brauche ich mich erstmal nicht mehr sehen lassen.");
 	AI_StopProcessInfos	(self);
 };
 
 // ************************************************************
-// 						Bribe Thorus					
+// 						Bribe Thorus
 // ************************************************************
 
 INSTANCE Info_Thorus_BribeGuard (C_INFO)
@@ -404,10 +404,10 @@ INSTANCE Info_Thorus_BribeGuard (C_INFO)
 	information	= Info_Thorus_BribeGuard_Info;
 	permanent	= 0;
 	description = "Würdest du mich für eine entsprechende Menge Erz in die Burg lassen?";
-};                       
+};
 
 FUNC INT Info_Thorus_BribeGuard_Condition()
-{	
+{
 	if (Npc_KnowsInfo(hero,Info_Thorus_EnterCastle) && (Npc_GetTrueGuild (other)!=GIL_STT) && (Npc_GetTrueGuild (other)!=GIL_GRD) )
 	{
 		return 1;
@@ -417,7 +417,7 @@ FUNC INT Info_Thorus_BribeGuard_Condition()
 FUNC VOID Info_Thorus_BribeGuard_Info()
 {
 	AI_Output (other, self,"Info_Thorus_BribeGuard_15_00"); //Würdest du mich für eine entsprechende Menge Erz in die Burg lassen?
-	AI_Output (self, other,"Info_Thorus_BribeGuard_09_01"); //Für eine entsprechende Menge ... 
+	AI_Output (self, other,"Info_Thorus_BribeGuard_09_01"); //Für eine entsprechende Menge ...
 	AI_Output (other, self,"Info_Thorus_BribeGuard_15_02"); //Wie viel?
 	AI_Output (self, other,"Info_Thorus_BribeGuard_09_02"); //Nun - es müsste 'ne Weile dauern, das Erz zu zählen. So lange würden die Jungs am Tor und ich dann wegsehen.
 	AI_Output (other, self,"Info_Thorus_BribeGuard_15_03"); //Sag schon, wie viel?
@@ -427,7 +427,7 @@ FUNC VOID Info_Thorus_BribeGuard_Info()
 };
 
 // ************************************************************
-// 						Give1000Ore					
+// 						Give1000Ore
 // ************************************************************
 
 INSTANCE Info_Thorus_Give1000Ore (C_INFO)
@@ -438,10 +438,10 @@ INSTANCE Info_Thorus_Give1000Ore (C_INFO)
 	information	= Info_Thorus_Give1000Ore_Info;
 	permanent	= 1;
 	description = "Ich hab' die 1000 Brocken Erz. Lass mich in die Burg!";
-};                       
+};
 
 FUNC INT Info_Thorus_Give1000Ore_Condition()
-{	
+{
 	if (Npc_KnowsInfo(hero,Info_Thorus_BribeGuard))
 	{
 		return 1;
@@ -451,10 +451,10 @@ FUNC INT Info_Thorus_Give1000Ore_Condition()
 FUNC VOID Info_Thorus_Give1000Ore_Info()
 {
 	AI_Output (other, self,"Info_Thorus_Give1000Ore_15_00"); //Ich hab' die 1000 Brocken Erz. Lass mich in die Burg!
-	
+
 	if (Npc_HasItems(other, ItMiNugget)>=1000)
 	{
-		B_GiveInvItems 	(other,self,ItMiNugget,1000);		
+		B_GiveInvItems 	(other,self,ItMiNugget,1000);
 		AI_Output (self, other,"Info_Thorus_Give1000Ore_09_01"); //Gut, wegen mir. Du kommst in die Burg, aber mach keine Dummheiten, klar!
 		var C_NPC wache212; wache212 = Hlp_GetNpc(Grd_212_Torwache);
 		var C_NPC wache213; wache213 = Hlp_GetNpc(Grd_213_Torwache);
@@ -466,7 +466,7 @@ FUNC VOID Info_Thorus_Give1000Ore_Info()
 		AI_Output (self, other,"Info_Thorus_Give1000Ore_09_02"); //Verarsch mich nicht, Kleiner, du hast keine 1000 Brocken Erz!
 	};
 };
-		
+
 // ************************************************************
 // 					Brief für Magier
 // ************************************************************
@@ -479,10 +479,10 @@ INSTANCE Info_Thorus_LetterForMages (C_INFO)
 	information	= Info_Thorus_LetterForMages_Info;
 	permanent	= 1;
 	description = "Ich muss in die Burg! Ich habe einen Brief für den obersten Feuermagier.";
-};                       
+};
 
 FUNC INT Info_Thorus_LetterForMages_Condition()
-{	
+{
 	if	Npc_KnowsInfo(hero, Info_Thorus_EnterCastle)
 	&&	(Npc_HasItems (hero, ItWr_Fire_Letter_01) || Npc_HasItems (hero, ItWr_Fire_Letter_02))
 	{
@@ -512,10 +512,10 @@ INSTANCE Info_Thorus_ReadyForGomez (C_INFO)
 	information	= Info_Thorus_ReadyForGomez_Info;
 	permanent	= 0;//1
 	description = "Diego sagt, ich bin bereit für Gomez!";
-};                       
+};
 
 FUNC INT Info_Thorus_ReadyForGomez_Condition()
-{	
+{
 	if (Diego_GomezAudience == TRUE)
 	{
 		return 1;
@@ -531,7 +531,7 @@ FUNC VOID Info_Thorus_ReadyForGomez_Info()
 	AI_Output (self, other,"Info_Thorus_ReadyForGomez_09_04"); //Du hast wohl die meisten Sachen gut gemacht, so viel muss man sagen.
 	AI_Output (self, other,"Info_Thorus_ReadyForGomez_09_05"); //Gut! Du kannst zu Gomez gehen. Er allein bestimmt, wer aufgenommen wird und wer nicht.
 	AI_Output (self, other,"Info_Thorus_ReadyForGomez_09_06"); //Ab jetzt bist du auf dich allein gestellt, Kleiner.
-				
+
 	var C_NPC wache212; wache212 = Hlp_GetNpc(Grd_212_Torwache);
 	var C_NPC wache213; wache213 = Hlp_GetNpc(Grd_213_Torwache);
 	var C_NPC wache218; wache218 = Hlp_GetNpc(Grd_218_Gardist);
@@ -552,10 +552,10 @@ INSTANCE Info_Thorus_Krautbote (C_INFO)
 	information	= Info_Thorus_Krautbote_Info;
 	permanent	= 0;
 	description = "Ich habe ne Ladung Kraut von Cor Kalom für Gomez.";
-};                       
+};
 
 FUNC INT Info_Thorus_Krautbote_Condition()
-{	
+{
 	if (Kalom_Krautbote == LOG_RUNNING)
 	{
 		return 1;
@@ -566,12 +566,12 @@ FUNC VOID Info_Thorus_Krautbote_Info()
 {
 	AI_Output (other, self,"Info_Thorus_Krautbote_15_00"); //Ich habe 'ne Ladung Kraut von Cor Kalom für Gomez.
 	AI_Output (self, other,"Info_Thorus_Krautbote_09_01"); //Zeig her!
-	
+
 	if (Npc_HasItems(other, itmijoint_3) >= 30)
 	{
 		AI_Output (self, other,"Info_Thorus_Krautbote_09_02"); //Hmmmmmmm ...
 		AI_Output (self, other,"Info_Thorus_Krautbote_09_03"); //Gut! Du kannst durch. Geh direkt zum Haus der Erzbarone. Bartholo wird dich empfangen.
-		
+
 		var C_NPC wache212; wache212 = Hlp_GetNpc(Grd_212_Torwache);
 		var C_NPC wache213; wache213 = Hlp_GetNpc(Grd_213_Torwache);
 		var C_NPC wache218; wache218 = Hlp_GetNpc(Grd_218_Gardist);
@@ -599,12 +599,12 @@ INSTANCE Info_Thorus_KdWSiegel (C_INFO)
 	information	= Info_Thorus_KdWSiegel_Info;
 	permanent	= 1;
 	description = "Ich bin Bote der Wassermagier. Ich muss in die Burg!";
-};                       
+};
 
 FUNC INT Info_Thorus_KdWSiegel_Condition()
-{	
+{
 	if 	(( (Npc_KnowsInfo(hero, Org_826_Mordrag_Courier))||(Npc_HasItems(other,KdW_Amulett)>=1) )
-		&& (thorus_Amulettgezeigt == FALSE) 
+		&& (thorus_Amulettgezeigt == FALSE)
 		)
 	{
 		return 1;
@@ -622,7 +622,7 @@ FUNC VOID Info_Thorus_KdWSiegel_Info()
 		var C_NPC wache213; wache213 = Hlp_GetNpc(Grd_213_Torwache);
 		wache212.aivar[AIV_PASSGATE] = TRUE;
 		wache213.aivar[AIV_PASSGATE] = TRUE;
-		
+
 		thorus_Amulettgezeigt = TRUE;
 	}
 	else
@@ -643,10 +643,10 @@ INSTANCE Info_Thorus_SttGeschafft (C_INFO)
 	information	= Info_Thorus_SttGeschafft_Info;
 	permanent	= 0;
 	description = "Ich hab's geschafft. Jetzt bin ich Mitglied des Lagers!";
-};                       
+};
 
 FUNC INT Info_Thorus_SttGeschafft_Condition()
-{	
+{
 	if (Npc_GetTrueGuild(other) == GIL_STT)
 	{
 		return 1;
@@ -658,7 +658,7 @@ FUNC VOID Info_Thorus_SttGeschafft_Info()
 	AI_Output (other, self,"Info_Thorus_SttGeschafft_15_00"); //Ich hab's geschafft. Jetzt bin ich Mitglied des Lagers!
 	AI_Output (self, other,"Info_Thorus_SttGeschafft_09_01"); //Herzlichen Glückwunsch, Kleiner! Ab jetzt hältst du dich am besten an Diego.
 	AI_Output (self, other,"Info_Thorus_SttGeschafft_09_02"); //Zu Gomez oder Raven solltest du nur noch gehen, wenn du was WIRKLICH Wichtiges zu sagen hast.
-};	
+};
 
 //////////////////////////////////////////////////
 //////////////////////////////////////////////////
@@ -678,10 +678,10 @@ INSTANCE Info_Thorus_PERM2 (C_INFO)
 	information	= Info_Thorus_PERM2_Info;
 	permanent	= 0;
 	description = "Wie sieht's bei dir aus?";
-};                       
+};
 
 FUNC INT Info_Thorus_PERM2_Condition()
-{	
+{
 	if ( (Npc_GetTrueGuild(other) == GIL_STT) && (Kapitel < 4) )
 	{
 		return 1;
@@ -692,7 +692,7 @@ FUNC VOID Info_Thorus_PERM2_Info()
 {
 	AI_Output (other, self,"Info_Thorus_PERM2_15_00"); //Wie sieht's bei dir aus?
 	AI_Output (self, other,"Info_Thorus_PERM2_09_01"); //Wir haben wenig Ärger mit den Typen aus dem Neuen Lager. Mir machen eher die Sektenspinner Sorgen.
-};	
+};
 
 //////////////////////////////////////////////////
 //////////////////////////////////////////////////
@@ -711,11 +711,11 @@ instance  GRD_200_Thorus_GARDIST (C_INFO)
 	information		= GRD_200_Thorus_GARDIST_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "Du wolltest mir etwas mitteilen?"; 
+	description		= "Du wolltest mir etwas mitteilen?";
 };
 
 FUNC int  GRD_200_Thorus_GARDIST_Condition()
-{	
+{
 	if ( (CorKalom_BringMCQBalls == LOG_SUCCESS)
 	|| Npc_KnowsInfo (hero,Grd_214_Torwache_SEETHORUS)
 	|| Npc_KnowsInfo (hero,GRD_216_Torwache_SEETHORUS) )
@@ -728,7 +728,7 @@ FUNC int  GRD_200_Thorus_GARDIST_Condition()
 };
 FUNC void  GRD_200_Thorus_GARDIST_Info()
 {
-	var C_Npc KDFWache; 				
+	var C_Npc KDFWache;
 	KDFWache = Hlp_GetNpc(GRD_245_GARDIST);
 	KDFWache.aivar[AIV_PASSGATE] = TRUE;
 	AI_Output (other, self,"GRD_200_Thorus_GARDIST_Info_15_01"); //Du wolltest mir etwas mitteilen?
@@ -754,13 +754,13 @@ instance  GRD_200_Thorus_AUFNAHME (C_INFO)
 	condition		= GRD_200_Thorus_AUFNAHME_Condition;
 	information		= GRD_200_Thorus_AUFNAHME_Info;
 	permanent		= 0;
-	description		= "Ich will Gardist werden"; 
+	description		= "Ich will Gardist werden";
 };
 
 FUNC int  GRD_200_Thorus_AUFNAHME_Condition()
-{	
+{
 	if (Npc_KnowsInfo (hero,GRD_200_Thorus_GARDIST))
-	&& (hero.level >=10)	
+	&& (hero.level >=10)
 	&& (Npc_GetTrueGuild (hero) == GIL_STT)
 	{
 		return TRUE;
@@ -781,13 +781,13 @@ FUNC void  GRD_200_Thorus_AUFNAHME_Info()
 	AI_Output (self, other,"GRD_200_Thorus_AUFNAHME_Info_09_10"); //Du kannst dir bei Stone deine Rüstung und dein Schwert holen.
 	AI_Output (self, other,"GRD_200_Thorus_AUFNAHME_Info_09_11"); //Du findest Stone im inneren Ring, in der Schmiede.
 
-	var C_Npc KDFWache; 				
+	var C_Npc KDFWache;
 	KDFWache = Hlp_GetNpc(GRD_245_GARDIST);
 	KDFWache.aivar[AIV_PASSGATE] = FALSE;
 
 	Npc_SetTrueGuild (hero,GIL_GRD);
 	hero.guild = GIL_GRD;
-};  
+};
 //---------------------------------------------------------------
 // GARDIST WERDEN TEIL 2
 //---------------------------------------------------------------
@@ -801,9 +801,9 @@ instance GRD_200_Thorus_NOCHWAS (C_INFO)
 };
 
 FUNC int  GRD_200_Thorus_NOCHWAS_Condition()
-{	
+{
 	if (Npc_KnowsInfo     (hero, GRD_200_Thorus_AUFNAHME))
-	&& (Npc_GetTrueGuild  (hero) == GIL_GRD ) 
+	&& (Npc_GetTrueGuild  (hero) == GIL_GRD )
 	{
 		return TRUE;
 	};
@@ -816,7 +816,7 @@ func void  GRD_200_Thorus_NOCHWAS_Info()
 
 	Log_CreateTopic		(GE_BecomeGuard,	LOG_NOTE);
 	B_LogEntry			(GE_BecomeGuard,	"Heute hat mich Thorus in die Reihen der Gardisten aufgenommen. Ich kann mir bei dem Schmied Stone in der Burg meine neue Rüstung abholen.");
-	
+
 };
 
 //---------------------------------------------------------------
@@ -828,11 +828,11 @@ instance  GRD_200_Thorus_WANNABEMAGE (C_INFO)
 	condition		= GRD_200_Thorus_WANNABEMAGE_Condition;
 	information		= GRD_200_Thorus_WANNABEMAGE_Info;
 	permanent		= 0;
-	description		= "Ich interessiere mich für den Weg der Magie!"; 
+	description		= "Ich interessiere mich für den Weg der Magie!";
 };
 //
 FUNC int  GRD_200_Thorus_WANNABEMAGE_Condition()
-{	
+{
 	if (Npc_KnowsInfo (hero, GRD_200_Thorus_GARDIST))
 	&& (!Npc_KnowsInfo (hero, GRD_200_Thorus_AUFNAHME))
 	{
@@ -849,7 +849,7 @@ FUNC void  GRD_200_Thorus_WANNABEMAGE_Info()
 	Corristo = Hlp_GetNpc		(KDF_402_Corristo);
 	Npc_ExchangeRoutine			(Corristo,"WAITFORSC");
 	AI_ContinueRoutine			(Corristo);
-};  
+};
 //---------------------------------------------------------------
 //     						STR + DEX
 //---------------------------------------------------------------
@@ -861,11 +861,11 @@ INSTANCE GRD_200_Thorus_Teach(C_INFO)
 	information	= GRD_200_Thorus_Teach_Info;
 	permanent	= 1;
 	description = "Kannst du mich trainieren?";
-};                       
+};
 
 FUNC INT GRD_200_Thorus_Teach_Condition()
 {
-	if (Npc_GetTrueGuild (hero) == GIL_GRD)  
+	if (Npc_GetTrueGuild (hero) == GIL_GRD)
 	{
 		return TRUE;
 	};
@@ -875,7 +875,7 @@ FUNC VOID GRD_200_Thorus_Teach_Info()
 {
 	AI_Output(other,self,"GRD_200_Thorus_Teach_15_00"); //Kannst du mich trainieren?
 	AI_Output(self,other,"GRD_200_Thorus_Teach_09_01"); //Ich kann dir zeigen, wie du deine Geschicklichkeit und deine Stärke verbesserst.
-	
+
 	if (log_thorustrain == FALSE)
 	{
 		Log_CreateTopic   	(GE_TeacherOC,LOG_NOTE);
@@ -892,7 +892,7 @@ FUNC VOID GRD_200_Thorus_Teach_Info()
 
 func void GRD_200_Thorus_Teach_BACK()
 {
-	
+
 	Info_ClearChoices	(GRD_200_Thorus_Teach);
 };
 
@@ -949,11 +949,11 @@ instance  GRD_200_Thorus_ZWEIHAND1 (C_INFO)
 	information		= GRD_200_Thorus_ZWEIHAND1_Info;
 	important		= 0;
 	permanent		= 1;
-	description		= B_BuildLearnString(NAME_Learn2h_1, LPCOST_TALENT_2H_1,0); 
+	description		= B_BuildLearnString(NAME_Learn2h_1, LPCOST_TALENT_2H_1,0);
 };
 
 FUNC int  GRD_200_Thorus_ZWEIHAND1_Condition()
-{	
+{
 	if (Npc_GetTalentSkill  (hero,NPC_TALENT_1H) == 2)
 	&& (Npc_GetTalentSkill  (hero,NPC_TALENT_2H) < 1)
 	&& (Npc_GetTrueGuild    (hero) == GIL_GRD)
@@ -963,7 +963,7 @@ FUNC int  GRD_200_Thorus_ZWEIHAND1_Condition()
 
 };
 FUNC void  GRD_200_Thorus_ZWEIHAND1_Info()
-{	
+{
 	if (log_thorusfight == FALSE)
 	{
 		Log_CreateTopic   	(GE_TeacherOC,LOG_NOTE);
@@ -971,8 +971,8 @@ FUNC void  GRD_200_Thorus_ZWEIHAND1_Info()
 		log_thorusfight = TRUE;
 	};
 	AI_Output (other, self,"GRD_200_Thorus_ZWEIHAND1_Info_15_01"); //Ich möchte den Umgang mit dem Zweihänder lernen.
-	
-	
+
+
 	if (B_GiveSkill(other,NPC_TALENT_2H , 1, LPCOST_TALENT_2H_1))
 	{
 		AI_Output (self, other,"GRD_200_Thorus_ZWEIHAND1_Info_09_02"); //Nun, dann gehen wir zuerst die Grundbegriffe durch.
@@ -983,7 +983,7 @@ FUNC void  GRD_200_Thorus_ZWEIHAND1_Info()
 		AI_Output (self, other,"GRD_200_Thorus_ZWEIHAND1_Info_09_07"); //Das sollte erst einmal reichen. Übe das.
 		GRD_200_Thorus_ZWEIHAND1.permanent = 0;
 	};
-};  
+};
 //-------------------------------------------------------------------------
 //							ZWEIHANDKAMPF LERNEN STUFE 2
 //-------------------------------------------------------------------------
@@ -994,11 +994,11 @@ instance  GRD_200_Thorus_ZWEIHAND2 (C_INFO)
 	information		= GRD_200_Thorus_ZWEIHAND2_Info;
 	important		= 0;
 	permanent		= 1;
-	description		= B_BuildLearnString(NAME_Learn2h_2, LPCOST_TALENT_2H_2,0); 
+	description		= B_BuildLearnString(NAME_Learn2h_2, LPCOST_TALENT_2H_2,0);
 };
 
 FUNC int  GRD_200_Thorus_ZWEIHAND2_Condition()
-{	
+{
 	if (Npc_GetTalentSkill  (hero,NPC_TALENT_2H) == 1)
 	&& (Npc_GetTrueGuild    (hero) == GIL_GRD)
 	{
@@ -1009,7 +1009,7 @@ FUNC int  GRD_200_Thorus_ZWEIHAND2_Condition()
 FUNC void  GRD_200_Thorus_ZWEIHAND2_Info()
 {
 	AI_Output (other, self,"GRD_200_Thorus_ZWEIHAND2_Info_15_01"); //Ich möchte mehr über den zweihändigen Kampf lernen.
-	
+
 	if (B_GiveSkill(other,NPC_TALENT_2H , 2, LPCOST_TALENT_2H_2))
 	{
 		AI_Output (self, other,"GRD_200_Thorus_ZWEIHAND2_Info_09_02"); //Zunächst ändere deine Grundhaltung. Halte das Schwert aufrecht, fasse den Griff mit beiden Händen und halte es seitlich am Körper.
@@ -1022,4 +1022,4 @@ FUNC void  GRD_200_Thorus_ZWEIHAND2_Info()
 		AI_Output (self, other,"GRD_200_Thorus_ZWEIHAND2_Info_09_09"); //Abwechslung in den Kampfbewegungen und Positionswechsel sind der Schlüssel zum Sieg.
 		GRD_200_Thorus_ZWEIHAND2.permanent = 0 ;
 	};
-};  
+};

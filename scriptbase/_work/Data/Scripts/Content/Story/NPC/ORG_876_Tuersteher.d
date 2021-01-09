@@ -1,10 +1,10 @@
 instance ORG_876_Tuersteher (Npc_Default)
 {
 	//-------- primary data --------
-	
+
 	name =					Name_Tuersteher;
 	Npctype =				NPCTYPE_MAIN;
-	guild =					GIL_ORG;      
+	guild =					GIL_ORG;
 	level =					15;
 	voice =					6;
 	id =					876;
@@ -22,23 +22,23 @@ instance ORG_876_Tuersteher (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Relaxed.mds");
-	//				body mesh,				head mesh,				36hairmesh,	face-tex,	hair-tex,	skin	
+	//				body mesh,				head mesh,				36hairmesh,	face-tex,	hair-tex,	skin
 	Mdl_SetVisualBody (self,"hum_body_Naked0",0, 1, "Hum_Head_FatBald", 93, 2, ORG_ARMOR_H);
-	
-	B_Scale (self);	
-	Mdl_SetModelFatness (self, 0);		
-	
+
+	B_Scale (self);
+	Mdl_SetModelFatness (self, 0);
+
 	fight_tactic	=	FAI_HUMAN_STRONG;
-	
+
 	//-------- Talente ----------
 
 	Npc_SetTalentSkill (self, NPC_TALENT_BOW,1);
 	Npc_SetTalentSkill (self, NPC_TALENT_1H,1);
 	Npc_SetTalentSkill (self, NPC_TALENT_2H,1);
 
-	//-------- inventory --------   
-	                                 
-	CreateInvItems (self, ItKeLockpick,1);		
+	//-------- inventory --------
+
+	CreateInvItems (self, ItKeLockpick,1);
 	CreateInvItems(self, ItMiNugget, 18);
 	CreateInvItems (self, ItFoRice,8);
 	CreateInvItems (self, ItFoBooze, 4);
@@ -52,7 +52,7 @@ instance ORG_876_Tuersteher (Npc_Default)
 	EquipItem (self, ItMw_1H_Mace_02);
 	EquipItem (self, ItRw_Bow_Long_01);
 	CreateInvItems (self, ItAmArrow, 20);
-	
+
 	//-------------Daily Routine-------------
 	daily_routine = Rtn_start_876;
 };

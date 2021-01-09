@@ -1,5 +1,5 @@
 // ************************************************************
-// 			  				   EXIT 
+// 			  				   EXIT
 // ************************************************************
 
 INSTANCE Info_Jackal_EXIT (C_INFO)
@@ -10,7 +10,7 @@ INSTANCE Info_Jackal_EXIT (C_INFO)
 	information	= Info_Jackal_EXIT_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC INT Info_Jackal_EXIT_Condition()
 {
@@ -18,7 +18,7 @@ FUNC INT Info_Jackal_EXIT_Condition()
 };
 
 FUNC VOID Info_Jackal_EXIT_Info()
-{	
+{
 	AI_StopProcessInfos	(self);
 };
 
@@ -37,22 +37,22 @@ INSTANCE Info_Jackal_Hello (C_INFO)
 	information	= Info_Jackal_Hello_Info;
 	permanent	= 0;
 	important   = 1;
-};                       
+};
 
 FUNC INT Info_Jackal_Hello_Condition()
-{	
+{
 	if (Kapitel <= 2)
 	{
 		return 1;
 	};
 };
 FUNC VOID Info_Jackal_Hello_Info()
-{	
+{
 	AI_Output (self, other,"Info_Jackal_Hello_07_00"); //Ah! Ein neues Gesicht.
 	AI_Output (other, self,"Info_Jackal_Hello_15_01"); //Was willst du?
 	AI_Output (self, other,"Info_Jackal_Hello_07_02"); //Ich will dir meine Hilfe anbieten. Du bist neu hier und Neue bekommen schnell Ärger ... Mit einer kleinen Spende an mich könntest du dir einiges davon ersparen.
 	AI_Output (self, other,"Info_Jackal_Hello_07_03"); //Nur 10 Erz, Mann! Das ist nicht viel.
-	
+
 	Info_ClearChoices	(Info_Jackal_Hello);
 	Info_AddChoice		(Info_Jackal_Hello,"Und wenn ich nicht zahle?" ,Info_Jackal_Hello_WhatIf);
 	Info_AddChoice		(Info_Jackal_Hello,"Und was bekomme ich dafür?" ,Info_Jackal_Hello_WhatDoIGet);
@@ -62,7 +62,7 @@ FUNC VOID Info_Jackal_Hello_Info()
 func void Info_Jackal_Hello_Pay()
 {
 	AI_Output (other, self,"Info_Jackal_Hello_Pay_15_00"); //Hier. 10 Erz. Und du hilfst mir, wenn ich Ärger habe.
-	
+
 	if (Npc_HasItems(other,itminugget)>=10)
 	{
 		AI_Output (self, other,"Info_Jackal_Hello_Pay_07_01"); //Wenn ich in der Nähe bin, kannst du auf mich zählen. Du kannst mich jederzeit zischen dem Marktplatz und dem Südtor finden.
@@ -121,7 +121,7 @@ INSTANCE Info_Jackal_Schutz (C_INFO)
 	information	= Info_Jackal_Schutz_Info;
 	permanent	= 0;
 	description = "Ich hab' noch mal über das Schutzgeld nachgedacht - hier sind deine 10 Erz.";
-};                       
+};
 
 FUNC INT Info_Jackal_Schutz_Condition()
 {
@@ -132,7 +132,7 @@ FUNC INT Info_Jackal_Schutz_Condition()
 };
 
 FUNC VOID Info_Jackal_Schutz_Info()
-{	
+{
 	if (Npc_HasItems(other,itminugget)>=10)
 	{
 		AI_Output (other, self,"Info_Jackal_Schutz_15_00"); //Ich hab' noch mal über das Schutzgeld nachgedacht - hier sind deine 10 Erz.
@@ -160,7 +160,7 @@ INSTANCE Info_Jackal_PermPaid (C_INFO)
 	information	= Info_Jackal_PermPaid_Info;
 	permanent	= 1;
 	description = "Na, wie sieht's aus?";
-};                       
+};
 
 FUNC INT Info_Jackal_PermPaid_Condition()
 {
@@ -171,7 +171,7 @@ FUNC INT Info_Jackal_PermPaid_Condition()
 };
 
 FUNC VOID Info_Jackal_PermPaid_Info()
-{	
+{
 	AI_Output (other, self,"Info_Jackal_PermPaid_15_00"); //Na, wie sieht's aus?
 	AI_Output (self, other,"Info_Jackal_PermPaid_07_01"); //Du kannst nach wie vor auf mich zählen, Kleiner!
 };
@@ -189,9 +189,9 @@ instance GRD_201_Jackal_WELCOME (C_INFO)
 };
 
 FUNC int  GRD_201_Jackal_WELCOME_Condition()
-{	
-	
-	if (Npc_GetTrueGuild (hero) == GIL_GRD) 
+{
+
+	if (Npc_GetTrueGuild (hero) == GIL_GRD)
 	{
 		return TRUE;
 	};
@@ -220,7 +220,7 @@ INSTANCE Info_Jackal_PAYDAY (C_INFO)
 	information	= Info_Jackal_PAYDAY_Info;
 	permanent	= 0;
 	important   = 1;
-};                       
+};
 
 FUNC INT Info_Jackal_PAYDAY_Condition()
 {
@@ -231,7 +231,7 @@ FUNC INT Info_Jackal_PAYDAY_Condition()
 };
 
 FUNC VOID Info_Jackal_PAYDAY_Info()
-{	
+{
 	if	C_NpcBelongsToNewCamp(hero)
 	{
 		if 	(oldHeroGuild == GIL_GRD)
@@ -252,7 +252,7 @@ FUNC VOID Info_Jackal_PAYDAY_Info()
 		AI_Output		(self, other,"Info_Jackal_PAYDAY_07_05"); //Sieh mal einer an. Der Typ aus dem Sumpflager.
 		AI_Output		(self, other,"Info_Jackal_PAYDAY_07_06"); //Du hast dich zu lange bei diesen Spinnern aufgehalten, die haben dein Hirn weich gekocht!
 	};
-	
+
 	if 	Jackal_ProtectionPaid
 	{
 		AI_Output		(self, other,"Info_Jackal_PAYDAY_07_07"); //Da hilft dir auch nicht, dass du mir Schutzgeld bezahlt hast.
@@ -261,13 +261,13 @@ FUNC VOID Info_Jackal_PAYDAY_Info()
 	{
 		AI_Output		(self, other,"Info_Jackal_PAYDAY_07_08"); //Hättest mich damals bezahlen sollen, als es noch Zeit war.
 	};
-			
+
 	AI_Output			(other, self,"Info_Jackal_PAYDAY_15_09"); //Ihr seid zu weit gegangen! Der Überfall auf die Mine war dumm von euch!
 	AI_Output			(self, other,"Info_Jackal_PAYDAY_07_10"); //Scheint aber funktioniert zu haben. Und du wirst daran auch nichts ändern, dafür werde ich persönlich Sorge tragen!
 	AI_Output			(self, other,"Info_Jackal_PAYDAY_07_11"); //LOS, WIR MACHEN IHN KALT, JUNGS!!!
-	
+
 	AI_StopProcessInfos	(self);
-	
+
 	B_Story_JackalFight	();
 };
 

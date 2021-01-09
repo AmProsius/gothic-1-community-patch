@@ -1,5 +1,5 @@
 // **************************************************
-//						 EXIT 
+//						 EXIT
 // **************************************************
 
 instance  DIA_BaalParvez_EXIT (C_INFO)
@@ -10,7 +10,7 @@ instance  DIA_BaalParvez_EXIT (C_INFO)
 	information	= DIA_BaalParvez_EXIT_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC int  DIA_BaalParvez_EXIT_Condition()
 {
@@ -34,7 +34,7 @@ instance  DIA_BaalParvez_Greet (C_INFO)
 	information	= DIA_BaalParvez_Greet_Info;
 	permanent	= 0;
 	important 	= 1;
-};                       
+};
 
 FUNC int  DIA_BaalParvez_Greet_Condition()
 {
@@ -62,7 +62,7 @@ instance  DIA_BaalParvez_RightWay (C_INFO)
 	information	= DIA_BaalParvez_RightWay_Info;
 	permanent	= 0;
 	description = "Und was ist der rechte Weg?";
-};                       
+};
 
 FUNC int  DIA_BaalParvez_RightWay_Condition()
 {
@@ -94,7 +94,7 @@ instance  DIA_BaalParvez_MyAdvantage (C_INFO)
 	information	= DIA_BaalParvez_MyAdvantage_Info;
 	permanent	= 0;
 	description = "Was hätte ich davon, mich euch anzuschließen?";
-};                       
+};
 
 FUNC int  DIA_BaalParvez_MyAdvantage_Condition()
 {
@@ -126,7 +126,7 @@ instance  DIA_BaalParvez_Sleeper (C_INFO)
 	information	= DIA_BaalParvez_Sleeper_Info;
 	permanent	= 0;
 	description = "Wer ist der Schläfer?";
-};                       
+};
 
 FUNC int  DIA_BaalParvez_Sleeper_Condition()
 {
@@ -158,7 +158,7 @@ instance  DIA_BaalParvez_SleeperSaid (C_INFO)
 	information	= DIA_BaalParvez_SleeperSaid_Info;
 	permanent	= 0;
 	description = "Was hat euch der Schläfer gesagt?";
-};                       
+};
 
 FUNC int  DIA_BaalParvez_SleeperSaid_Condition()
 {
@@ -189,7 +189,7 @@ instance  DIA_BaalParvez_PSIMagic (C_INFO)
 	information	= DIA_BaalParvez_PSIMagic_Info;
 	permanent	= 0;
 	description = "Erzähl mir von der Magie des Schläfers.";
-};                       
+};
 
 FUNC int  DIA_BaalParvez_PSIMagic_Condition()
 {
@@ -220,7 +220,7 @@ instance  DIA_BaalParvez_GotoPSI (C_INFO)
 	information	= DIA_BaalParvez_GotoPSI_Info;
 	permanent	= 1;
 	description = "Bring mich zu eurem Lager. Das will ich mir ansehen!";
-};                       
+};
 
 FUNC int  DIA_BaalParvez_GotoPSI_Condition()
 {
@@ -247,14 +247,14 @@ FUNC VOID  DIA_BaalParvez_GotoPSI_Info()
 		Psi_Walk	= 1;
 	};
 	AI_Output (self, other,"DIA_BaalParvez_GotoPSI_10_01"); //Sehr gut! Ich werde vorangehen. Folge mir!
-	
+
 	BaalParvez_GotoPSI_Day = Wld_GetDay();
 	self.aivar[AIV_PARTYMEMBER] = TRUE;
-	
+
 	Npc_SetRefuseTalk (self, 300);
-	
+
 	AI_StopProcessInfos	(self);
-	
+
 	Npc_SetPermAttitude(self,ATT_FRIENDLY);
 	Npc_ExchangeRoutine(self,"GUIDE");
 };
@@ -271,11 +271,11 @@ instance DIA_BaalParvez_AtPSI (C_INFO)
 	information	= DIA_BaalParvez_AtPSI_Info;
 	permanent	= 0;
 	important 	= 1;
-};                       
+};
 
 FUNC int  DIA_BaalParvez_AtPSI_Condition()
 {
-	if 	( Hlp_StrCmp(Npc_GetNearestWP(self),"PATH_OC_PSI_18") ) 
+	if 	( Hlp_StrCmp(Npc_GetNearestWP(self),"PATH_OC_PSI_18") )
 	{
 		return 1;
 	};
@@ -284,7 +284,7 @@ FUNC int  DIA_BaalParvez_AtPSI_Condition()
 FUNC VOID  DIA_BaalParvez_AtPSI_Info()
 {
 	if (BaalParvez_GotoPSI_Day > (Wld_GetDay()-2))
-	{	
+	{
 		AI_Output (self, other,"DIA_BaalParvez_AtPSI_10_00"); //Wir sind angekommen. Dort unten liegt das Lager der Bruderschaft.
 	}
 	else
@@ -303,9 +303,9 @@ FUNC VOID  DIA_BaalParvez_AtPSI_Info()
 
 	var C_NPC Kalom; Kalom = Hlp_GetNpc(Gur_1201_CorKalom);
 	Kalom.aivar[AIV_FINDABLE]=TRUE;
-	
+
 	AI_StopProcessInfos	(self);
-	
+
 	Npc_ExchangeRoutine(self,"START");
 };
 

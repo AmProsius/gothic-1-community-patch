@@ -1,5 +1,5 @@
 // **************************************
-//					EXIT 
+//					EXIT
 // **************************************
 
 instance DIA_Raven_Exit (C_INFO)
@@ -10,7 +10,7 @@ instance DIA_Raven_Exit (C_INFO)
 	information	= DIA_Raven_Exit_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC int DIA_Raven_Exit_Condition()
 {
@@ -34,7 +34,7 @@ instance DIA_Raven_FirstIn (C_INFO)
 	information	= DIA_Raven_FirstIn_Info;
 	permanent	= 0;
 	important 	= 1;
-};                       
+};
 
 FUNC int DIA_Raven_FirstIn_Condition()
 {
@@ -62,7 +62,7 @@ instance DIA_Raven_Who (C_INFO)
 	information	= DIA_Raven_Who_Info;
 	permanent	= 0;
 	description	= "Wer bist du?";
-};                       
+};
 
 FUNC int DIA_Raven_Who_Condition()
 {
@@ -87,12 +87,12 @@ instance DIA_Raven_Krautbote (C_INFO)
 	information	= DIA_Raven_Krautbote_Info;
 	permanent	= 0;
 	description	= "Ich habe eine Ladung Kraut für Gomez von Cor Kalom.";
-};                       
+};
 
 FUNC int DIA_Raven_Krautbote_Condition()
 {
 	if	(KALOM_KRAUTBOTE == LOG_RUNNING)
-	{	
+	{
 		return 1;
 	};
 };
@@ -119,7 +119,7 @@ instance DIA_Raven_Aufnahme (C_INFO)
 	information	= DIA_Raven_Aufnahme_Info;
 	permanent	= 0;
 	description	= "Ich will zu Gomez. Thorus sagt, ich soll als Schatten aufgenommen werden.";
-};                       
+};
 
 FUNC int DIA_Raven_Aufnahme_Condition()
 {
@@ -135,7 +135,7 @@ FUNC VOID DIA_Raven_Aufnahme_Info()
 	AI_Output (other, self,"DIA_Raven_Aufnahme_15_00"); //Ich will zu Gomez. Thorus sagt, ich soll als Schatten aufgenommen werden.
 	AI_Output (self, other,"DIA_Raven_Aufnahme_10_01"); //Wir sind immer auf der Suche nach guten Leuten. Du scheinst mir nicht auf den Kopf gefallen zu sein. Du könntest es hier zu was bringen.
 	AI_Output (self, other,"DIA_Raven_Aufnahme_10_02"); //Ich werde dich zu Gomez führen. Folge mir. Und fass nichts an!
-	
+
 	AI_StopProcessInfos	(self);
 	Npc_ExchangeRoutine(self, "GUIDE");
 };
@@ -152,11 +152,11 @@ instance DIA_Raven_There (C_INFO)
 	information	= DIA_Raven_There_Info;
 	permanent	= 0;
 	important	= 1;
-};                       
+};
 
 FUNC int DIA_Raven_There_Condition()
 {
-	if 	( Npc_KnowsInfo(hero,DIA_Raven_Aufnahme) && Hlp_StrCmp(Npc_GetNearestWP(self),"OCC_BARONS_GREATHALL_CENTER_MOVEMENT") ) 
+	if 	( Npc_KnowsInfo(hero,DIA_Raven_Aufnahme) && Hlp_StrCmp(Npc_GetNearestWP(self),"OCC_BARONS_GREATHALL_CENTER_MOVEMENT") )
 	{
 		return 1;
 	};
@@ -166,7 +166,7 @@ FUNC VOID DIA_Raven_There_Info()
 {
 	AI_Output (self, other,"DIA_Raven_There_10_01"); //Dort hinten ist Gomez. Wenn du ihm keinen Respekt zeigst, werde ich dir persönlich welchen beibringen, ist das klar?
 	AI_StopProcessInfos	(self);
-		
+
 	Npc_ExchangeRoutine(self, "START");
 };
 
@@ -183,7 +183,7 @@ instance DIA_Raven_PERM (C_INFO)
 	information	= DIA_Raven_PERM_Info;
 	permanent	= 1;
 	description	= "Wie steht der Erzhandel?";
-};                       
+};
 
 FUNC int DIA_Raven_PERM_Condition()
 {
@@ -211,7 +211,7 @@ instance DIA_Raven_BinDabei (C_INFO)
 	information	= DIA_Raven_BinDabei_Info;
 	permanent	= 0;
 	description	= "Gomez sagt, ich bin dabei.";
-};                       
+};
 
 FUNC int DIA_Raven_BinDabei_Condition()
 {
@@ -224,16 +224,16 @@ FUNC int DIA_Raven_BinDabei_Condition()
 FUNC VOID DIA_Raven_BinDabei_Info()
 {
 	CreateInvItem		(hero, STT_ARMOR_M);
-	
+
 	CreateInvItem		(self, ItAmArrow);
 	B_GiveInvItems      (self, hero, ItAmArrow, 1);
 	Npc_RemoveInvItem	(hero, ItAmArrow);
-	
+
 	AI_Output			(other, self,"DIA_Raven_BinDabei_15_00"); //Gomez sagt, ich bin dabei.
 	AI_Output			(self, other,"DIA_Raven_BinDabei_10_01"); //Gut! Du kannst dich gleich bei deinem ersten Auftrag bewähren.
 	AI_Output			(self, other,"DIA_Raven_BinDabei_10_02"); //Wenn deine Verbindungen wirklich so gut sind, wie du sagst, solltest du keine Probleme damit haben.
 
-	AI_EquipBestArmor	(hero); 
+	AI_EquipBestArmor	(hero);
 };
 
 // *********************************************
@@ -269,9 +269,9 @@ FUNC VOID DIA_Raven_SpySect_Info()
 	AI_Output (self, other,"DIA_Raven_SpySect_10_04"); //Und je mehr du erfährst, desto besser. Das Ganze erfordert ein gewisses Feingefühl. Du weißt, was ich meine?
 	AI_Output (other, self,"DIA_Raven_SpySect_15_05"); //Bleib ruhig, ich werde ihren Zorn nicht heraufbeschwören.
 	AI_Output (self, other,"DIA_Raven_SpySect_10_06"); //Ich wusste, dass du mich verstehen würdest.
-	
+
 	Raven_SpySect = LOG_RUNNING;
-	
+
 	Log_CreateTopic	(CH1_GoToPsi,	LOG_MISSION);
 	Log_SetTopicStatus (CH1_GoToPsi,	LOG_RUNNING);
 	B_LogEntry (CH1_GoToPsi,"Raven hat mich im Auftrag des Alten Lagers zur Bruderschaft im Sumpf geschickt. Ich soll mich dort umsehen und -hören. Vielleicht gibt es ein paar nützliche Informationen für die Erzbarone");

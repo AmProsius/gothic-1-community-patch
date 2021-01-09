@@ -13,7 +13,7 @@ INSTANCE Info_Bloodwyn_EXIT_Schutzgeld (C_INFO)
 	information	= Info_Bloodwyn_EXIT_Schutzgeld_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC INT Info_Bloodwyn_EXIT_Schutzgeld_Condition()
 {
@@ -21,7 +21,7 @@ FUNC INT Info_Bloodwyn_EXIT_Schutzgeld_Condition()
 };
 
 FUNC VOID Info_Bloodwyn_EXIT_Schutzgeld_Info()
-{	
+{
 	AI_Output (other,self,"Info_Bloodwyn_EXIT_Schutzgeld_15_00"); //Wir sehen uns.
 	if (Bloodwyn_ProtectionPaid == FALSE)
 	{
@@ -31,7 +31,7 @@ FUNC VOID Info_Bloodwyn_EXIT_Schutzgeld_Info()
 	{
 		AI_Output (self, other,"Info_Bloodwyn_EXIT_Schutzgeld_08_02"); //Mach dir keine Sorgen, während du hier im Lager bist! Wir passen auf dich auf.
 	};
-	
+
 	AI_StopProcessInfos	(self);
 };
 
@@ -46,17 +46,17 @@ INSTANCE Info_Bloodwyn_Hello (C_INFO)
 	information	= Info_Bloodwyn_Hello_Info;
 	permanent	= 0;
 	important   = 1;
-};                       
+};
 
 FUNC INT Info_Bloodwyn_Hello_Condition()
-{	
-	if (Kapitel <= 2) 
+{
+	if (Kapitel <= 2)
 	{
 		return 1;
 	};
 };
 FUNC VOID Info_Bloodwyn_Hello_Info()
-{	
+{
 	AI_Output (self, other,"Info_Bloodwyn_Hello_08_00"); //Hey du!
 	AI_Output (other, self,"Info_Bloodwyn_Hello_15_01"); //Redest du mit mir?
 	AI_Output (self, other,"Info_Bloodwyn_Hello_08_02"); //Ich will dich warnen! Jemand wie du hat hier schnell Ärger am Hals!
@@ -92,7 +92,7 @@ func void Info_Bloodwyn_Hello_HowMuch()
 {
 	AI_Output (other, self,"Info_Bloodwyn_Hello_HowMuch_15_01"); //Warum nicht. An wie viel Erz hast du denn gedacht?
 	AI_Output (self, other,"Info_Bloodwyn_Hello_HowMuch_08_02"); //Nicht viel. 10 Erz, mehr brauche ich nicht.
-	
+
 	Info_ClearChoices	(Info_Bloodwyn_Hello );
 	Info_AddChoice		(Info_Bloodwyn_Hello,"Ich habe gerade keine 10 Erz."	,Info_Bloodwyn_Hello_NotNow);
 	if (Npc_HasItems(other,itminugget)>=10)
@@ -106,7 +106,7 @@ func void Info_Bloodwyn_Hello_OkTakeIt()
 	AI_Output (other, self,"Info_Bloodwyn_Hello_OkTakeIt_15_00"); //Hier hast du das Erz. Ich kann Freunde gebrauchen.
 	AI_Output (self, other,"Info_Bloodwyn_Hello_OkTakeIt_08_01"); //Du scheinst mir ein kluges Bürschchen zu sein. Von nun an werden wir auf dich aufpassen.
 	AI_Output (self, other,"Info_Bloodwyn_Hello_OkTakeIt_08_02"); //Aber das heißt nicht, dass du hier machen kannst, was du willst, verstanden?
-	
+
 	B_GiveInvItems 	    (other, self, itminugget, 10);
 	Bloodwyn_ProtectionPaid = TRUE;
 	Herek_ProtectionBully = FALSE;
@@ -122,7 +122,7 @@ func void Info_Bloodwyn_Hello_NotNow()
 	AI_Output (self, other,"Info_Bloodwyn_Hello_NotNow_08_01"); //Dann nehme ich das, was du hast - ist schon okay. Du kannst ja beim nächsten Mal die volle Summe zahlen.
 	AI_GotoNpc (self,other);
 	AI_Output (self, other,"Info_Bloodwyn_Hello_NotNow_08_02"); //Lass mal sehen ...
-		
+
 	if (Npc_HasItems(other, itminugget) > 0)
 	{
 		if (Npc_HasItems(other, itminugget) > 9)
@@ -140,7 +140,7 @@ func void Info_Bloodwyn_Hello_NotNow()
 	{
 		AI_Output (self, other,"Info_Bloodwyn_Hello_NotNow_NoOre_08_00"); //Du hast ja wirklich nichts ... Na, wie gesagt, beim nächsten Mal ...
 	};
-	
+
 	B_GiveInvItems		(other, self, itminugget, Npc_HasItems(other, itminugget) );//Alle Nuggets entfernen
 	Bloodwyn_ProtectionPaid = TRUE;
 	Herek_ProtectionBully = FALSE;
@@ -160,25 +160,25 @@ INSTANCE Info_Bloodwyn_PayDay (C_INFO)
 	nr			= 3;
 	condition	= Info_Bloodwyn_PayDay_Condition;
 	information	= Info_Bloodwyn_PayDay_Info;
-	permanent	= 1;		
+	permanent	= 1;
 	important   = 1;				//*** NUR, WENN SC AUCH 10 ERZ HAT! ***
-};                       
+};
 
 FUNC INT Info_Bloodwyn_PayDay_Condition()
 {
 	if ( (Kapitel <= 2) && (Bloodwyn_PayDay <= Wld_GetDay()-1) && (Npc_HasItems(other, itminugget)>=10) )
-	{	
+	{
 		return 1;
 	};
 };
 
 FUNC VOID Info_Bloodwyn_PayDay_Info()
-{	
+{
 	if (Bloodwyn_ProtectionPaid == TRUE)
 	{
 		AI_Output (self, other,"Info_Bloodwyn_PayDay_08_00"); //Gut, dass ich dich treffe, mein Freund!
 		AI_Output (self, other,"Info_Bloodwyn_PayDay_08_01"); //Wie sieht's mit deiner täglichen Unterstützung aus? Deine 10 Erz sind wieder mal fällig.
-		
+
 		Info_ClearChoices	(Info_Bloodwyn_PayDay );
 		Info_AddChoice		(Info_Bloodwyn_PayDay,"Hier, nimm - 10 Erz sind nicht viel unter Freuden."	,Info_Bloodwyn_PayDay_PayAgain);
 		Info_AddChoice		(Info_Bloodwyn_PayDay,"Ich werde nicht mehr zahlen - du hast schon genug gekriegt."	,Info_Bloodwyn_PayDay_PayNoMore);
@@ -197,7 +197,7 @@ func void Info_Bloodwyn_PayDay_PayAgain()
 {
 	AI_Output (other, self,"Info_Bloodwyn_PayDay_PayAgain_15_00"); //Hier, nimm - 10 Erz sind nicht viel unter Freunden
 	AI_Output (self, other,"Info_Bloodwyn_PayDay_PayAgain_08_01"); //Genau so sehe ich das auch.
-	
+
 	Bloodwyn_ProtectionPaid = TRUE;
 	Herek_ProtectionBully = FALSE;
 	Grim_ProtectionBully = FALSE;
@@ -211,7 +211,7 @@ func void Info_Bloodwyn_PayDay_PayNoMore()
 	AI_Output (self, other,"Info_Bloodwyn_PayDay_PayNoMore_08_01"); //Du enttäuschst mich! Von nun an sind wir keine Freunde mehr. Du wirst selber aufpassen müssen, dass du nicht von üblen Halunken niedergeschlagen und ausgeraubt wirst.
 	AI_Output (other, self,"Info_Bloodwyn_PayDay_PayNoMore_15_02"); //Ich kann ganz gut auf mich selbst aufpassen.
 	AI_Output (self, other,"Info_Bloodwyn_PayDay_PayNoMore_08_03"); //Das werden wir ja sehen ...
-	
+
 	Bloodwyn_ProtectionPaid = FALSE;
 	Herek_ProtectionBully = TRUE;
 	Grim_ProtectionBully = TRUE;
@@ -231,23 +231,23 @@ INSTANCE Info_Bloodwyn_Doch (C_INFO)
 	information	= Info_Bloodwyn_Doch_Info;
 	permanent	= 1;
 	description = "Ich hab's mir überlegt - ich würde DOCH gern die 10 Erz bezahlen.";
-};                       
+};
 
 FUNC INT Info_Bloodwyn_Doch_Condition()
 {
 	if (Bloodwyn_ProtectionPaid == FALSE)
-	{	
+	{
 		return 1;
 	};
 };
 
 FUNC VOID Info_Bloodwyn_Doch_Info()
-{	
+{
 	AI_Output (other, self,"Info_Bloodwyn_Doch_15_00"); //Ich hab's mir überlegt - ich würde DOCH gern die 10 Erz bezahlen.
 	if (Npc_HasItems(other, itminugget)>=10)
 	{
 		AI_Output (self, other,"Info_Bloodwyn_Doch_08_01"); //Na siehst du! Du kannst ja DOCH die richtige Entscheidung treffen.
-		AI_Output (self, other,"Info_Bloodwyn_Doch_08_02"); //Und von jetzt an zahlen wir schön brav täglich unsere Unterstützung, ja? 
+		AI_Output (self, other,"Info_Bloodwyn_Doch_08_02"); //Und von jetzt an zahlen wir schön brav täglich unsere Unterstützung, ja?
 		Bloodwyn_ProtectionPaid = TRUE;
 		Herek_ProtectionBully = FALSE;
 		Grim_ProtectionBully = FALSE;
@@ -262,7 +262,7 @@ FUNC VOID Info_Bloodwyn_Doch_Info()
 };
 
 
-	
+
 
 INSTANCE Info_Bloodwyn_PayForJesse (C_INFO)
 {
@@ -272,18 +272,18 @@ INSTANCE Info_Bloodwyn_PayForJesse (C_INFO)
 	information	= Info_Bloodwyn_PayForJesse_Info;
 	permanent	= 1;
 	description = "Jesse schickt mich - ich will seine 10 Erz für ihn zahlen.";
-};                       
+};
 
 FUNC INT Info_Bloodwyn_PayForJesse_Condition()
 {
 	if (Jesse_PayForMe == LOG_RUNNING)
-	{	
+	{
 		return 1;
 	};
 };
 
 FUNC VOID Info_Bloodwyn_PayForJesse_Info()
-{	
+{
 	AI_Output (other, self,"Info_Bloodwyn_PayForJesse_15_00"); //Jesse schickt mich - ich will seine 10 Erz für ihn zahlen.
 	if  (Bloodwyn_ProtectionPaid == FALSE)
 	{
@@ -315,9 +315,9 @@ instance GRD_233_Bloodwyn_WELCOME (C_INFO)
 };
 
 FUNC int  GRD_233_Bloodwyn_WELCOME_Condition()
-{	
-	
-	if (Npc_GetTrueGuild (hero) == GIL_GRD) 
+{
+
+	if (Npc_GetTrueGuild (hero) == GIL_GRD)
 	{
 		return TRUE;
 	};
@@ -352,11 +352,11 @@ instance Info_Bloodwyn_DIE (C_INFO)
 };
 
 FUNC INT Info_Bloodwyn_DIE_Condition()
-{	
+{
 	if (Kapitel == 4)
 	{
 		return TRUE;
-	};	
+	};
 };
 
 FUNC VOID Info_Bloodwyn_DIE_Info()
@@ -378,7 +378,7 @@ FUNC VOID Info_Bloodwyn_DIE_Info()
 		else
 		{
 			AI_Output	(self,hero,"Info_Bloodwyn_DIE_08_03"); //Das ist der Schatten, der uns verraten hat!
-		};			
+		};
 
 		AI_Output		(hero,self,"Info_Bloodwyn_DIE_15_04"); //Moment. Was redest du da, Bloodwyn?
 		AI_Output		(self,hero,"Info_Bloodwyn_DIE_08_05"); //Machst gemeinsame Sache mit dem Neuen Lager, was?
@@ -420,7 +420,7 @@ FUNC VOID Info_Bloodwyn_DIE_Info()
 		AI_Output		(hero,self,"Info_Bloodwyn_DIE_15_19"); //Jetzt ist es aber genug ...
 		AI_Output		(self,hero,"Info_Bloodwyn_DIE_08_20"); //Richtig! TÖTET IHN!
 	};
-	
+
 	Npc_ExchangeRoutine	(self,				"FMTaken2");	// Verstärkung vor das Hinterem Tor (Anführer)
 	B_ExchangeRoutine	(GRD_232_Gardist,	"FMTaken2");	// Verstärkung vor das Hinterem Tor
 	B_ExchangeRoutine	(GRD_229_Gardist,	"FMTaken2");	// Verstärkung vor das Hinterem Tor (Fernkämpfer)
@@ -428,17 +428,17 @@ FUNC VOID Info_Bloodwyn_DIE_Info()
 	B_ExchangeRoutine	(GRD_217_Torwache,	"FMTaken2");	// reguläre Wache am Hinteren Tor
 
 	B_SetPermAttitude	(GRD_233_Bloodwyn,	ATT_HOSTILE);
-	B_SetPermAttitude	(GRD_232_Gardist,	ATT_HOSTILE);	
-	B_SetPermAttitude	(GRD_229_Gardist,	ATT_HOSTILE);	
+	B_SetPermAttitude	(GRD_232_Gardist,	ATT_HOSTILE);
+	B_SetPermAttitude	(GRD_229_Gardist,	ATT_HOSTILE);
 	B_SetPermAttitude	(GRD_216_Torwache,	ATT_HOSTILE);
 	B_SetPermAttitude	(GRD_217_Torwache,	ATT_HOSTILE);
 
-	
+
 	if	!Npc_KnowsInfo(hero, Info_Fletcher_DIE)
 	{
 		B_LogEntry		(CH4_Firemages,	"Die Tore des Alten Lagers sind nun verschlossen und werden von Gardisten bewacht. Sie attackieren jeden der dem Lager zu nahe kommt.");
 	};
-	
+
 	AI_StopProcessInfos	(self);
 };
 

@@ -4,7 +4,7 @@
 func void ZS_Sleeper()	// Immobile
 {
     PrintDebugNpc		(PD_MST_FRAME, "ZS_Sleeper");
-    
+
 	Npc_PercEnable		(self,	PERC_ASSESSPLAYER,	B_Sleeper_AssessSC);
  	Npc_SetPercTime		(self,	0.5);
 
@@ -15,7 +15,7 @@ func int ZS_Sleeper_loop()
 	if (SLF_FIRE == TRUE)
 	{
 		AI_TurnToNpc(self,hero);
-		
+
 		if (Npc_GetStateTime(self) > 5)
 		{
 			Wld_PlayEffect("SPELLFX_SLEEPER_FIREBALL", self, hero, 2, 150, DAM_FIRE, TRUE); //Projetil = TRUE (trifft alle)

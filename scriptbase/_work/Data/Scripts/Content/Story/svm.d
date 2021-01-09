@@ -50,9 +50,9 @@ CLASS C_SVM
 
 // im Kampf
 	VAR	STRING	Dead			;			// Tödlich verletzt
-	VAR	STRING	Aargh_1			;			// Treffer kassiert im Kampf	
-	VAR	STRING	Aargh_2			;			// Treffer kassiert im Kampf	
-	VAR	STRING	Aargh_3			;			// Treffer kassiert im Kampf	
+	VAR	STRING	Aargh_1			;			// Treffer kassiert im Kampf
+	VAR	STRING	Aargh_2			;			// Treffer kassiert im Kampf
+	VAR	STRING	Aargh_3			;			// Treffer kassiert im Kampf
 
 	var string	Berzerk			;			// Wahnsinnsschrei im Zustand der Raserei!
 
@@ -220,13 +220,13 @@ CLASS C_SVM
 	VAR	STRING	Om;							// Ommm (Meditation)
 
 // SC Dialog
-	var string	SC_HeyTurnAround;			//SC: Hey du! (Nsc ansprechen, steht mit Rücken zu dir)                                   
-	var string	SC_HeyWaitASecond;			//SC: Warte mal! (Nsc im vorgeigehen anhalten)                                            
-	var string DoesntWork;				
-	var string PickBroke;				
-	var string NeedKey;					
-	var string NoMorePicks;				
-	var string InvFull;					
+	var string	SC_HeyTurnAround;			//SC: Hey du! (Nsc ansprechen, steht mit Rücken zu dir)
+	var string	SC_HeyWaitASecond;			//SC: Warte mal! (Nsc im vorgeigehen anhalten)
+	var string DoesntWork;
+	var string PickBroke;
+	var string NeedKey;
+	var string NoMorePicks;
+	var string InvFull;
 
 };
 
@@ -438,7 +438,7 @@ instance SVM_2 (C_SVM)				// Misstrauisch
 	HeDeservedIt				=	"SVM_2_HeDeservedIt"				;//Das hat er verdient!
 	HeKilledHim					=	"SVM_2_HeKilledHim"					;//Du hast ihn umgebracht! War das nötig?
 	ItWasAGoodFight				=	"SVM_2_ItWasAGoodFight"				;//Ganz ordentlich, nur zu kurz!
-	Awake						=	"SVM_2_Awake"						;//Gäääähn 
+	Awake						=	"SVM_2_Awake"						;//Gäääähn
 	FriendlyGreetings			=	"SVM_2_FriendlyGreetings"			;//Hallo.
 	ALGreetings					=	"SVM_2_ALGreetings"					;//Für Gomez!
 	MageGreetings				=	"SVM_2_MageGreetings"				;//Magie zu Ehren!
@@ -708,7 +708,7 @@ instance SVM_4 (C_SVM)				// Alter Sack,  (Torrez, KDF-Magier, alte Buddler....)
 	HeDeservedIt				=	"SVM_4_HeDeservedIt"				;//Selbst schuld!
 	HeKilledHim					=	"SVM_4_HeKilledHim"					;//Du hast ihn umgebracht! Das war ein großer Fehler!
 	ItWasAGoodFight				=	"SVM_4_ItWasAGoodFight"				;//Früher waren die Kämpfe besser.
-	Awake						=	"SVM_4_Awake"						;//Gäääähn 
+	Awake						=	"SVM_4_Awake"						;//Gäääähn
 	FriendlyGreetings			=	"SVM_4_FriendlyGreetings"			;//Sei gegrüßt.
 	ALGreetings					=	"SVM_4_ALGreetings"					;//Für Gomez!
 	MageGreetings				=	"SVM_4_MageGreetings"				;//Magie zu Ehren!
@@ -795,7 +795,7 @@ instance SVM_5 (C_SVM)				//Lebenskünstler, offen, Fröhlich. humorvoller Verarsc
 	WatchYourAimAngry			=	"SVM_5_WatchYourAimAngry"			;//Wenn du nicht aufhörst, dann übe ich gleich auch mal mit dir!
 	WhatAreYouDoing				=	"SVM_5_WhatAreYouDoing"				;//Hey, bist du blind oder was?
 	LetsForgetOurLittleFight	=	"SVM_5_LetsForgetOurLittleFight"	;//Den kleinen Streit vergessen wir, okay?
-	Strange						=	"SVM_5_Strange"						;//Eben war er noch da!? Seltsam! 
+	Strange						=	"SVM_5_Strange"						;//Eben war er noch da!? Seltsam!
 	DieMonster					=	"SVM_5_DieMonster"					;//Du bist fällig, Mistvieh!
 	DieMortalEnemy				=	"SVM_5_DieMortalEnemy"				;//Jetzt wird abgerechnet!
 	NowWait						=	"SVM_5_NowWait"						;//Du brauchst wohl dringend was hinter die Ohren!
@@ -842,7 +842,7 @@ instance SVM_5 (C_SVM)				//Lebenskünstler, offen, Fröhlich. humorvoller Verarsc
 	HeDeservedIt				=	"SVM_5_HeDeservedIt"				;//Es hat den Richtigen erwischt!
 	HeKilledHim					=	"SVM_5_HeKilledHim"					;//Einfach einen kalt machen. Du hast jetzt echt ein Problem!
 	ItWasAGoodFight				=	"SVM_5_ItWasAGoodFight"				;//Was für ein Kampf!
-	Awake						=	"SVM_5_Awake"						;//Gäääähn 
+	Awake						=	"SVM_5_Awake"						;//Gäääähn
 	FriendlyGreetings			=	"SVM_5_FriendlyGreetings"			;//Hi Ho Kumpel!
 	ALGreetings					=	"SVM_5_ALGreetings"					;//Für Gomez!
 	MageGreetings				=	"SVM_5_MageGreetings"				;//Magie zu Ehren!
@@ -1736,7 +1736,7 @@ instance SVM_12	(C_SVM)		//Bazaar-Händler		Nach außen freundlich,jovial,Innen hi
 	WatchYourAimAngry			=	"SVM_12_WatchYourAimAngry"				;//Wenn du nicht aufhörst, gibt's Ärger!
 	WhatAreYouDoing				=	"SVM_12_WhatAreYouDoing"				;//Hey, bist du blind oder was?
 	LetsForgetOurLittleFight	=	"SVM_12_LetsForgetOurLittleFight"		;//Den kleinen Streit vergessen wir, okay?
-	Strange						=	"SVM_12_Strange"						;//Eben war er doch noch da!? Seltsam! 
+	Strange						=	"SVM_12_Strange"						;//Eben war er doch noch da!? Seltsam!
 	DieMonster					=	"SVM_12_DieMonster"						;//Du bist fällig, Mistvieh!!
 	DieMortalEnemy				=	"SVM_12_DieMortalEnemy"					;//Jetzt wird abgerechnet!
 	NowWait						=	"SVM_12_NowWait"						;//Du brauchst wohl dringend was hinter die Ohren!
@@ -1783,7 +1783,7 @@ instance SVM_12	(C_SVM)		//Bazaar-Händler		Nach außen freundlich,jovial,Innen hi
 	HeDeservedIt				=	"SVM_12_HeDeservedIt"					;//Es hat den Richtigen erwischt!
 	HeKilledHim					=	"SVM_12_HeKilledHim"					;//Einfach einen kaltmachen. Du hast jetzt echt ein Problem!
 	ItWasAGoodFight				=	"SVM_12_ItWasAGoodFight"				;//Was für ein Kampf!
-	Awake						=	"SVM_12_Awake"							;//Gäääähn 
+	Awake						=	"SVM_12_Awake"							;//Gäääähn
 	FriendlyGreetings			=	"SVM_12_FriendlyGreetings"				;//Hallo, Freund!
 	ALGreetings					=	"SVM_12_ALGreetings"					;//Für Gomez!
 	MageGreetings				=	"SVM_12_MageGreetings"					;//Magie zu Ehren!

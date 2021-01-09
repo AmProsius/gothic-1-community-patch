@@ -7,7 +7,7 @@ func void ZS_TestDetect ()
   	strObstacle = "None";
   	strOwner    = "Unknown";
   	strGuild    = "Unknown";
-};	
+};
 
 func void ZS_TestDetect_Loop ()
 {
@@ -22,7 +22,7 @@ func void ZS_TestDetect_Loop ()
 	//--------------------------------------------- CHECK FOR OBSTACLE
 	//----------------------------------------------------------------
 	var string strObst;
-	strObst = Npc_GetDetectedMob( self );	
+	strObst = Npc_GetDetectedMob( self );
 	if ( Hlp_StrCmp( strObst, "" ) != TRUE )
 	{
 		//--------------------------------------------------------
@@ -35,7 +35,7 @@ func void ZS_TestDetect_Loop ()
 		//--------------------------------------------------------
 		var C_NPC npcSnapper;
 		npcSnapper = Hlp_GetNpc( SNAPPER );
-		
+
 		if ( Npc_IsDetectedMobOwnedByNpc(self, npcSnapper) )
 		{
 			strOwner = "Snapper";
@@ -46,7 +46,7 @@ func void ZS_TestDetect_Loop ()
 			strGuild = "Snappers' Guild";
 		};
 	};
-	
+
 	//----------------------------------------------------------------
 	//---------------------------------------------- SHOW INFO STRINGS
 	//----------------------------------------------------------------

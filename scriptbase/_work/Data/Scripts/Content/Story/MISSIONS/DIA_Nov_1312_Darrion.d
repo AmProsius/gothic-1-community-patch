@@ -1,5 +1,5 @@
 // **************************************************
-//						EXIT 
+//						EXIT
 // **************************************************
 
 instance  DIA_Darrion_Exit (C_INFO)
@@ -8,10 +8,10 @@ instance  DIA_Darrion_Exit (C_INFO)
 	nr			=  999;
 	condition	=  DIA_Darrion_Exit_Condition;
 	information	=  DIA_Darrion_Exit_Info;
-	important	=  0;	
+	important	=  0;
 	permanent	=  1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC int  DIA_Darrion_Exit_Condition()
 {
@@ -35,7 +35,7 @@ instance  DIA_Darrion_Hello (C_INFO)
 	information	= DIA_Darrion_Hello_Info;
 	permanent	= 0;
 	description	= "Hi - ich bin neu hier und will das Lager kennenlernen.";
-};                       
+};
 
 FUNC int  DIA_Darrion_Hello_Condition()
 {
@@ -47,7 +47,7 @@ FUNC VOID  DIA_Darrion_Hello_Info()
 	AI_Output (other, self,"DIA_Darrion_Hello_15_00"); //Hi - ich bin neu hier und will das Lager kennen lernen.
 	AI_Output (self, other,"DIA_Darrion_Hello_11_01"); //Da bist du zum falschen Ort gekommen. Seit sich die Templer zum Kampf rüsten, sind wir Tag und Nacht beschäftigt.
 	AI_Output (self, other,"DIA_Darrion_Hello_11_02"); //Ich hab' nicht viel Zeit für neugierige Fragen. Also stör mich nicht - es sei denn, du willst was kaufen.
-	
+
 	Log_CreateTopic	(GE_TraderPSI,	LOG_NOTE);
 	B_LogEntry		(GE_TraderPSI,	"Der Novize Darrion handelt mit WAFFEN. Er hält sich die meiste Zeit in der Schmiede auf.");
 };
@@ -65,7 +65,7 @@ instance  DIA_Darrion_Trade (C_INFO)
 	permanent	= 1;
 	description	= "Ich will mit dir handeln!";
 	trade 		= 1;
-};                       
+};
 
 FUNC int  DIA_Darrion_Trade_Condition()
 {

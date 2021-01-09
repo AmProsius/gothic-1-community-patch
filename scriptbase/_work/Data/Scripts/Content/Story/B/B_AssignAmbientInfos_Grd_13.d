@@ -15,7 +15,7 @@ INSTANCE Info_grd_13_EXIT(C_INFO)
 	information	= Info_grd_13_EXIT_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC INT Info_grd_13_EXIT_Condition()
 {
@@ -23,7 +23,7 @@ FUNC INT Info_grd_13_EXIT_Condition()
 };
 
 FUNC VOID Info_grd_13_EXIT_Info()
-{	
+{
 	AI_StopProcessInfos	(self);
 };
 
@@ -38,7 +38,7 @@ INSTANCE Info_grd_13_EinerVonEuchWerden (C_INFO) // E1
 	information	= Info_grd_13_EinerVonEuchWerden_Info;
 	permanent	= 1;
 	description = "Ich will Gardist werden.";
-};                       
+};
 
 FUNC INT Info_grd_13_EinerVonEuchWerden_Condition()
 {
@@ -68,7 +68,7 @@ INSTANCE Info_grd_13_WichtigePersonen(C_INFO)
 	information	= Info_grd_13_WichtigePersonen_Info;
 	permanent	= 1;
 	description = "Wer hat hier das Sagen?";
-};                       
+};
 
 FUNC INT Info_grd_13_WichtigePersonen_Condition()
 {
@@ -92,11 +92,11 @@ INSTANCE Info_grd_13_DasLager(C_INFO)
 	information	= Info_grd_13_DasLager_Info;
 	permanent	= 1;
 	description = "Wie komme ich in die Burg?";
-};                       
+};
 
 FUNC INT Info_grd_13_DasLager_Condition()
 {
-	if (Kapitel == 1) 
+	if (Kapitel == 1)
 	{
 	return 1;
 	};
@@ -149,10 +149,10 @@ INSTANCE Info_grd_13_DieLage(C_INFO) // E1
 	information	= Info_grd_13_DieLage_Info;
 	permanent	= 1;
 	description = "Wie läuft's?";
-};                       
+};
 
 FUNC INT Info_grd_13_DieLage_Condition()
-{	
+{
 	if  (!C_NpcBelongsToNewCamp (other))
 	&&  (!C_NpcBelongsToPsiCamp (other))
 	{
@@ -165,14 +165,14 @@ FUNC VOID Info_grd_13_DieLage_Info()
 	AI_Output(self,other,"Info_grd_13_DieLage_13_01"); //Ruhig. Ab und zu gibt's Scherereien mit dem Neuen Lager oder ein paar von den Sektenspinnern.
 	AI_Output(self,other,"Info_grd_13_DieLage_13_02"); //Solange du noch neu bist, hast du kein Problem damit, aber wenn du dich erst mal für ein Lager entschieden hast, steckst du mittendrin - wie wir alle.
 };
-	
+
 // *************************************************************************
 // -------------------------------------------------------------------------
 
 FUNC VOID B_AssignAmbientInfos_grd_13(var c_NPC slf)
 {
 	B_AssignFindNpc_OC(slf);
-	
+
 	Info_grd_13_EXIT.npc				= Hlp_GetInstanceID(slf);
 	Info_grd_13_EinerVonEuchWerden.npc	= Hlp_GetInstanceID(slf);
 	Info_grd_13_WichtigePersonen.npc	= Hlp_GetInstanceID(slf);

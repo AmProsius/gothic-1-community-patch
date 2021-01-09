@@ -97,8 +97,8 @@ INSTANCE ItMi_Stuff_Idol_Sleeper_01 (C_Item)
 //---------------------------------------------------------------------
 //	Schläferschwert 1
 //---------------------------------------------------------------------
-INSTANCE Weltenspalter (C_Item) 
-{	
+INSTANCE Weltenspalter (C_Item)
+{
 	name 				=	"Weltenspalter";
 
 	mainflag 			=	ITEM_KAT_NONE;
@@ -109,7 +109,7 @@ INSTANCE Weltenspalter (C_Item)
 
 	damageTotal			= 	90;
 	damagetype			=	DAM_EDGE;
-	range    			=  	140;		
+	range    			=  	140;
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	30;
 	visual 				=	"ItMi_SleeperKey_01.3DS";
@@ -125,19 +125,19 @@ INSTANCE Weltenspalter (C_Item)
 //---------------------------------------------------------------------
 //	Schläferschwert 2
 //---------------------------------------------------------------------
-INSTANCE Lichtbringer (C_Item) 
-{	
+INSTANCE Lichtbringer (C_Item)
+{
 	name 				=	"Lichtbringer";
 
 	mainflag 			=	ITEM_KAT_NONE;
-	flags 				=	ITEM_2HD_SWD|ITEM_MISSION;	
+	flags 				=	ITEM_2HD_SWD|ITEM_MISSION;
 	material 			=	MAT_METAL;
 
 	value 				=	900;
 
 	damageTotal			= 	90;
 	damagetype			=	DAM_EDGE;
-	range    			=  	140;		
+	range    			=  	140;
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	30;
 	visual 				=	"ItMi_SleeperKey_01.3DS";
@@ -153,19 +153,19 @@ INSTANCE Lichtbringer (C_Item)
 //---------------------------------------------------------------------
 //	Schläferschwert 3
 //---------------------------------------------------------------------
-INSTANCE Zeitenklinge (C_Item) 
-{	
+INSTANCE Zeitenklinge (C_Item)
+{
 	name 				=	"Zeitenklinge";
 
 	mainflag 			=	ITEM_KAT_NONE;
-	flags 				=	ITEM_2HD_SWD|ITEM_MISSION;	
+	flags 				=	ITEM_2HD_SWD|ITEM_MISSION;
 	material 			=	MAT_METAL;
 
 	value 				=	900;
 
 	damageTotal			= 	90;
 	damagetype			=	DAM_EDGE;
-	range    			=  	140;		
+	range    			=  	140;
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	30;
 	visual 				=	"ItMi_SleeperKey_01.3DS";
@@ -181,19 +181,19 @@ INSTANCE Zeitenklinge (C_Item)
 //---------------------------------------------------------------------
 //	Schläferschwert 4
 //---------------------------------------------------------------------
-INSTANCE Daemonenstreich (C_Item) 
-{	
+INSTANCE Daemonenstreich (C_Item)
+{
 	name 				=	"Dämonenstreich";
 
 	mainflag 			=	ITEM_KAT_NONE;
-	flags 				=	ITEM_2HD_SWD|ITEM_MISSION;	
+	flags 				=	ITEM_2HD_SWD|ITEM_MISSION;
 	material 			=	MAT_METAL;
 
 	value 				=	900;
 
 	damageTotal			= 	90;
 	damagetype			=	DAM_EDGE;
-	range    			=  	140;		
+	range    			=  	140;
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	30;
 	visual 				=	"ItMi_SleeperKey_01.3DS";
@@ -209,19 +209,19 @@ INSTANCE Daemonenstreich (C_Item)
 //---------------------------------------------------------------------
 //	Schläferschwert 5
 //---------------------------------------------------------------------
-INSTANCE Bannklinge (C_Item) 
-{	
+INSTANCE Bannklinge (C_Item)
+{
 	name 				=	"Bannklinge";
 
 	mainflag 			=	ITEM_KAT_NONE;
-	flags 				=	ITEM_2HD_SWD|ITEM_MISSION;	
+	flags 				=	ITEM_2HD_SWD|ITEM_MISSION;
 	material 			=	MAT_METAL;
 
 	value 				=	900;
 
 	damageTotal			= 	90;
 	damagetype			=	DAM_EDGE;
-	range    			=  	140;		
+	range    			=  	140;
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	30;
 	visual 				=	"ItMi_SleeperKey_01.3DS";
@@ -237,19 +237,19 @@ INSTANCE Bannklinge (C_Item)
 //---------------------------------------------------------------------
 //	Schwert für den Untoten Ork-Hohepriester (unidentifiziert)
 //---------------------------------------------------------------------
-INSTANCE Mythrilklinge (C_Item) 
-{	
+INSTANCE Mythrilklinge (C_Item)
+{
 	name 				=	"Sonderbares Schwert";
 
 	mainflag 			=	ITEM_KAT_NONE;
-	flags 				=	ITEM_2HD_SWD|ITEM_MISSION;	
+	flags 				=	ITEM_2HD_SWD|ITEM_MISSION;
 	material 			=	MAT_METAL;
 
 	value 				=	900;
 
 	damageTotal			= 	10;
 	damagetype			=	DAM_EDGE;
-	range    			=  	160;		
+	range    			=  	160;
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	30;
 	visual 				=	"ItMw_2H_Sword_Sleeper_01.3DS";
@@ -264,19 +264,19 @@ INSTANCE Mythrilklinge (C_Item)
 //---------------------------------------------------------------------
 //	Schwert für den Untoten Ork-Hohepriester (identifiziert)
 //---------------------------------------------------------------------
-instance Mythrilklinge01 (C_Item) 
-{	
+instance Mythrilklinge01 (C_Item)
+{
 	name 				=	"URIZIEL";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_2HD_SWD|ITEM_MISSION;	
+	flags 				=	ITEM_2HD_SWD|ITEM_MISSION;
 	material 			=	MAT_METAL;
 
 	value 				=	900;
 
 	damageTotal			= 	90;
 	damagetype			=	DAM_EDGE;
-	range    			=  	180;		
+	range    			=  	180;
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	30;
 	visual 				=	"ItMw_2H_Sword_Sleeper_01.3DS";
@@ -294,12 +294,12 @@ instance Mythrilklinge01 (C_Item)
 //---------------------------------------------------------------------
 //	Schwert für den Untoten Ork-Hohepriester (aufgeladen)
 //---------------------------------------------------------------------
-instance Mythrilklinge02 (C_Item) 
-{	
+instance Mythrilklinge02 (C_Item)
+{
 	name 				=	"URIZIEL";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_2HD_SWD|ITEM_MISSION;	
+	flags 				=	ITEM_2HD_SWD|ITEM_MISSION;
 	material 			=	MAT_METAL;
 
 	value 				=	10000;
@@ -312,7 +312,7 @@ instance Mythrilklinge02 (C_Item)
 	damage[DAM_INDEX_MAGIC]	=	120;
 	//damage[DAM_INDEX_MAGIC]	=	150;
 
-	range    			=  	180;		
+	range    			=  	180;
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	30;
 	visual 				=	"ItMw_2H_Sword_Sleeper_02.3DS";
@@ -328,19 +328,19 @@ instance Mythrilklinge02 (C_Item)
 //---------------------------------------------------------------------
 //	URIZIEL, mit entferntem Stein
 //---------------------------------------------------------------------
-instance Mythrilklinge03 (C_Item) 
-{	
+instance Mythrilklinge03 (C_Item)
+{
 	name 				=	"URIZIEL";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_2HD_SWD|ITEM_MISSION;	
+	flags 				=	ITEM_2HD_SWD|ITEM_MISSION;
 	material 			=	MAT_METAL;
 
 	value 				=	900;
 
 	damageTotal			= 	90;
 	damagetype			=	DAM_EDGE;
-	range    			=  	180;		
+	range    			=  	180;
 	cond_atr[2]   		= 	ATR_STRENGTH;
 	cond_value[2]  		= 	30;
 	visual 				=	"ItMw_2H_Sword_Sleeper_01.3DS";
@@ -358,7 +358,7 @@ instance Mythrilklinge03 (C_Item)
 //	Schriftrolle, um Schwert für den untoten Ork-Hohepriester zu laden
 //---------------------------------------------------------------------
 INSTANCE Scroll4Milten (C_Item)
-{	
+{
 	name 				=	"Machttausch";
 
 	mainflag 			=	ITEM_KAT_DOCS;

@@ -5,10 +5,10 @@ instance GUR_1209_BaalOrun (Npc_Default)
 	Npctype 	=		NPCTYPE_MAIN;
 	guild 		=		GIL_GUR;
 	level 		=		28;
-	
+
 	voice 		=		12;
 	id 			=		1209;
-		
+
 	///-------- abilities --------
 	attribute[ATR_STRENGTH] 		=	70;
 	attribute[ATR_DEXTERITY] 		=	60;
@@ -21,7 +21,7 @@ instance GUR_1209_BaalOrun (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Mage.mds");
-	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung	
+	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung
 	Mdl_SetVisualBody (self,"hum_body_Naked0", 1, 1 ,"Hum_Head_Psionic", 20,  1, GUR_ARMOR_M);
 
 	B_Scale (self);
@@ -31,10 +31,10 @@ instance GUR_1209_BaalOrun (Npc_Default)
 	Npc_SetTalentSkill		( self, NPC_TALENT_MAGE,		6);
 
 	//-------- inventory --------
-	
+
 	EquipItem (self, Oruns_Keule);
 	////CreateInvItems (self, ItMiJoint, 5);
-	
+
 	//-------------Daily Routine-------------
 	daily_routine = Rtn_start_1209;
 	fight_tactic	=	FAI_HUMAN_MAGE;

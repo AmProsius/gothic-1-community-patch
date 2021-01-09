@@ -1,10 +1,10 @@
 instance KDW_603_Nefarius (Npc_Default)
 {
 	//-------- primary data --------
-	
+
 	name 		=	"Nefarius";
 	npctype		=	npctype_main;
-	guild 		=	GIL_KDW;      
+	guild 		=	GIL_KDW;
 	level 		=	25;
 	voice 		=	4;
 	id 			=	603;
@@ -21,20 +21,20 @@ instance KDW_603_Nefarius (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Mage.mds");
-	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung	
+	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung
 	Mdl_SetVisualBody (self,"hum_body_Naked0",0, 0,"Hum_Head_Psionic", 8, 1,KDW_ARMOR_L);
-	
+
 	B_Scale (self);
 	Mdl_SetModelFatness (self, 0);
-	
-	fight_tactic	=	FAI_HUMAN_MAGE;	
-	
+
+	fight_tactic	=	FAI_HUMAN_MAGE;
+
 	//-------- Talente --------
 	Npc_SetTalentSkill		( self, NPC_TALENT_MAGE,		6);
 
-	//-------- Spells --------        
+	//-------- Spells --------
 	CreateInvItem (self, ItArRuneThunderball);
-	//-------- inventory --------   
+	//-------- inventory --------
 
 	CreateInvItem (self, ItFo_Potion_Health_02);
 	CreateInvItem (self, ItFo_Potion_Mana_02);
@@ -51,7 +51,7 @@ instance KDW_603_Nefarius (Npc_Default)
 
 FUNC VOID Rtn_start_603 ()
 {
-	TA_PracticeMagic(04,00,23,00,"NC_PLACE02");	
+	TA_PracticeMagic(04,00,23,00,"NC_PLACE02");
 	TA_PracticeMagic(23,00,04,00,"NC_PLACE02");	//NC_KDW_CAVE_STAIRS
 	//TA_Sleep		(23,00,04,00,"NC_KDW05_IN");
 };

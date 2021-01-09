@@ -2,30 +2,30 @@
 **	Orc SCOUT Prototype													**
 *************************************************************************/
 
-PROTOTYPE Mst_Default_OrcScout(C_Npc)			
+PROTOTYPE Mst_Default_OrcScout(C_Npc)
 {
 	name							=	"Orc Jäger";
 	guild							=	GIL_ORCSCOUT;
 	npctype							=	NPCTYPE_GUARD;
 	voice							=	17;
 	level							=	20;
-//----------------------------------------------------------	
+//----------------------------------------------------------
 	attribute	[ATR_STRENGTH]		=	40;
 	attribute	[ATR_DEXTERITY]		=	40;
-	
+
 	attribute	[ATR_HITPOINTS_MAX]	=	200;
 	attribute	[ATR_HITPOINTS]		=	200;
 
 	attribute	[ATR_MANA_MAX] 		=	0;
 	attribute	[ATR_MANA] 			=	0;
-//----------------------------------------------------------	
+//----------------------------------------------------------
 	protection	[PROT_BLUNT]		=	50;
 	protection	[PROT_EDGE]			=	50;
 	protection	[PROT_POINT]		=	25;
 	protection	[PROT_FIRE]			=	25;
 	protection	[PROT_FLY]			=	0;
 	protection	[PROT_MAGIC]		=	0;
-//----------------------------------------------------------	
+//----------------------------------------------------------
 	damagetype 						=	DAM_EDGE;
 //	damage		[DAM_INDEX_BLUNT]	=	0;
 //	damage		[DAM_INDEX_EDGE]	=	0;
@@ -43,7 +43,7 @@ PROTOTYPE Mst_Default_OrcScout(C_Npc)
 	senses_range				= 2500;
 
 	aivar[AIV_MM_Behaviour]		= HUNTER;
-	
+
 	aivar[AIV_MM_PercRange]		= 1200;
 	aivar[AIV_MM_DrohRange]		= 1000;
 	aivar[AIV_MM_AttackRange]	= 700;
@@ -89,7 +89,7 @@ INSTANCE OrcPeasantEatAndDrink (Mst_Default_OrcScout)
 	Set_OrcScout_Visuals();
 
 	//-------- inventory --------
-	CreateInvItem	(self,	ItMw2hOrcSword01);	
+	CreateInvItem	(self,	ItMw2hOrcSword01);
 
 	//-------- ai --------
 	start_aistate	= ZS_Orc_EatAndDrink;

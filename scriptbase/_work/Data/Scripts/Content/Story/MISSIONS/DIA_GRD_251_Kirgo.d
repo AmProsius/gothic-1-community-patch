@@ -1,5 +1,5 @@
 // **************************************************
-//						 EXIT 
+//						 EXIT
 // **************************************************
 
 instance Info_Kirgo_Exit (C_INFO)
@@ -10,7 +10,7 @@ instance Info_Kirgo_Exit (C_INFO)
 	information		= Info_Kirgo_Exit_Info;
 	permanent		= 1;
 	description 	= DIALOG_ENDE;
-};                       
+};
 
 FUNC INT Info_Kirgo_Exit_Condition()
 {
@@ -34,10 +34,10 @@ instance Info_Kirgo_What(C_INFO)
 	information		= Info_Kirgo_What_Info;
 	permanent		= 0;
 	description 	= "Hi! Ich bin neu hier.";
-};                       
+};
 
 FUNC INT Info_Kirgo_What_Condition()
-{	
+{
 	if (Kapitel <= 2)
 	{
 		return 1;
@@ -62,7 +62,7 @@ instance Info_Kirgo_Good (C_INFO)
 	information		= Info_Kirgo_Good_Info;
 	permanent		= 0;
 	description 	= "Bist du gut? - Im Kämpfen meine ich.";
-};                       
+};
 
 FUNC INT Info_Kirgo_Good_Condition()
 {
@@ -90,7 +90,7 @@ instance Info_Kirgo_Charge(C_INFO)
 	information		= Info_Kirgo_Charge_Info;
 	permanent		= 0;
 	description 	= "Ich fordere dich zum Kampf in der Arena!";
-};                       
+};
 
 FUNC INT Info_Kirgo_Charge_Condition()
 {
@@ -128,12 +128,12 @@ func void Info_Kirgo_Charge_Beer()
 	AI_Output (self, other,"Info_Kirgo_Charge_Beer_05_07"); //Bei Scatty, meinst du? Hm, er ist einer der einflussreichsten Leute hier im Außenring ... Wenn du mich besiegst, könnte ihn das schon beeindrucken ...
 	AI_Output (self, other,"Info_Kirgo_Charge_Beer_05_08"); //Aber wenn du ihm richtig imponieren willst, müsstest du Kharim umhauen. Ich fürchte nur, er ist viel zu gut für dich!
 	AI_Output (self, other,"Info_Kirgo_Charge_Beer_05_09"); //Falls du immer noch gegen mich kämpfen willst - sag mir Bescheid! Aber ich werd' dir nicht gerne die Fresse polieren.
-	
+
 	CreateInvItem (other, ItFoBeer);
 	B_GiveInvItems (other, self, ItFoBeer, 1);
-	
+
 	self.npctype = npctype_FRIEND;
-	
+
 	Info_ClearChoices	(Info_Kirgo_Charge );
 };
 
@@ -151,7 +151,7 @@ instance Info_Kirgo_ChargeREAL(C_INFO)
 	information		= Info_Kirgo_ChargeREAL_Info;
 	permanent		= 0;
 	description 	= "Lass uns kämpfen - Bist du bereit?";
-};                       
+};
 
 FUNC INT Info_Kirgo_ChargeREAL_Condition()
 {
@@ -165,11 +165,11 @@ func VOID Info_Kirgo_ChargeREAL_Info()
 {
 	AI_Output (other, self,"Info_Kirgo_ChargeREAL_15_00"); //Lass uns kämpfen - Bist du bereit?
 	AI_Output (self, other,"Info_Kirgo_ChargeREAL_05_01"); //Folge mir!
-	
+
 	AI_StopProcessInfos	( self );
-	
+
 	Kirgo_Charged = TRUE;
-	
+
 	Npc_ExchangeRoutine(self,"GUIDE");
 };
 
@@ -185,7 +185,7 @@ instance Info_Kirgo_InArena (C_INFO)
 	information		= Info_Kirgo_InArena_Info;
 	permanent		= 0;
 	important 		= 1;
-};                       
+};
 
 FUNC INT Info_Kirgo_InArena_Condition()
 {
@@ -200,17 +200,17 @@ func VOID Info_Kirgo_InArena_Info()
 	if (Kapitel <= 1)			//Fix für spätere Kapitel ****Björn****
 	{
 		AI_Output (self, other,"Info_Kirgo_InArena_05_00"); //So, dann wollen wir mal. Möge der Bessere gewinnen!
-		
+
 		AI_StopProcessInfos	( self );
-			
+
 		Npc_ExchangeRoutine(self,"START");
-		
+
 		Npc_SetTarget(self,other);
 		AI_StartState(self,ZS_ATTACK,1,"");
 	}
 	else
 	{
-		AI_Output (self, other,"SVM_5_LetsForgetOurLittleFight"); //Den kleinen Streit vergessen wir, okay?		
+		AI_Output (self, other,"SVM_5_LetsForgetOurLittleFight"); //Den kleinen Streit vergessen wir, okay?
 		AI_StopProcessInfos	( self );
 		Npc_ExchangeRoutine(self,"START");
 	};

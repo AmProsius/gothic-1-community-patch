@@ -1,7 +1,7 @@
 func void B_Orc_AssessMurder()
 {
 	PrintDebugNpc( PD_ORC_FRAME, "B_Orc_AssesMurder" );
-	
+
 	//wenn ein Ork vom Player umgebracht wurde, Attitude auf HOSTILE
 	if ( victim.guild > GIL_SEPERATOR_ORC  &&  Npc_IsPlayer( other ) )
 	{
@@ -28,7 +28,7 @@ func void B_Orc_AssessMurder()
 		{
 			B_Say( self, other, "$NEVERTRYTHATAGAIN" );
 		};
-		AI_StartState( self, ZS_Orc_Attack, 1, "" );		
+		AI_StartState( self, ZS_Orc_Attack, 1, "" );
 	}
 	//ansonsten Jubel (da Kaempfer-Natur)
 	else if ( Npc_CanSeeNpc( self, other ) )

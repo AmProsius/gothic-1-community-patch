@@ -37,7 +37,7 @@ instance Babe (Npc_Default)
 
 	fight_tactic	=	FAI_HUMAN_COWARD;
 
-	
+
 	//-------------Daily Routine-------------
 };
 

@@ -1,8 +1,8 @@
 //////////////////////////////////////////////////////////////////////////
 //	DURCHGANGSWACHE
-//	===============	
+//	===============
 //	NSC:		TPL_1441_Templer
-//	Lager:				
+//	Lager:
 //	Durchgang:
 //	Uhrzeit:
 //
@@ -23,7 +23,7 @@ instance Info_TPL_1441_FirstWarn (C_INFO)
 	information	= Info_TPL_1441_FirstWarn_Info;
 	permanent	= 1;
 	important	= 1;
-};                       
+};
 
 //------------------------------------------------------------------------
 //	1. Warnung
@@ -31,7 +31,7 @@ instance Info_TPL_1441_FirstWarn (C_INFO)
 func int Info_TPL_1441_FirstWarn_Condition()
 {
 	if ((hero.aivar[AIV_GUARDPASSAGE_STATUS]== AIV_GPS_BEGIN)
-	&&  (self.aivar[AIV_PASSGATE]			== FALSE		) 
+	&&  (self.aivar[AIV_PASSGATE]			== FALSE		)
 	&&	(Hlp_StrCmp(Npc_GetNearestWP(self), self.wp)		))
 	{
 		return TRUE;
@@ -45,13 +45,13 @@ func void Info_TPL_1441_FirstWarn_Info()
 	AI_Output 		(self, hero,"Info_TPL_1441_FirstWarn_13_01"); //HALT! Betreten des Tempelberges nur mit Erlaubnis eines Gurus!
 
 	hero.aivar[AIV_LASTDISTTOWP] 		= Npc_GetDistToWP(hero,TPL_1441_CHECKPOINT);
-	hero.aivar[AIV_GUARDPASSAGE_STATUS]	= AIV_GPS_FIRSTWARN;	
+	hero.aivar[AIV_GUARDPASSAGE_STATUS]	= AIV_GPS_FIRSTWARN;
 
 	if (Npc_KnowsInfo(hero, PC_Psionic_SEND))
 	{
 		Info_Clearchoices 	(Info_TPL_1441_FirstWarn);
-		Info_Addchoice 		(Info_TPL_1441_FirstWarn,"Y'Berion höchstpersönlich hat mir die Erlaubnis gegeben"	,	Info_TPL_1441_FirstWarn_Condition_YBERION);  
-		Info_Addchoice 		(Info_TPL_1441_FirstWarn,"Der Novize Lester schickt mich"							,	Info_TPL_1441_FirstWarn_Condition_LESTER);  
+		Info_Addchoice 		(Info_TPL_1441_FirstWarn,"Y'Berion höchstpersönlich hat mir die Erlaubnis gegeben"	,	Info_TPL_1441_FirstWarn_Condition_YBERION);
+		Info_Addchoice 		(Info_TPL_1441_FirstWarn,"Der Novize Lester schickt mich"							,	Info_TPL_1441_FirstWarn_Condition_LESTER);
 	}
 	else
 	{
@@ -90,13 +90,13 @@ instance Info_TPL_1441_LastWarn (C_INFO)
 	information	= Info_TPL_1441_LastWarn_Info;
 	permanent	= 1;
 	important	= 1;
-};                       
+};
 
 func int Info_TPL_1441_LastWarn_Condition()
 {
 	if ((hero.aivar[AIV_GUARDPASSAGE_STATUS]		== AIV_GPS_FIRSTWARN				)
 	&&  (Npc_GetDistToWP(hero,TPL_1441_CHECKPOINT)	< (hero.aivar[AIV_LASTDISTTOWP]-100))
-	&&	(Hlp_StrCmp(Npc_GetNearestWP(self),self.wp)										)) 
+	&&	(Hlp_StrCmp(Npc_GetNearestWP(self),self.wp)										))
 	{
 		return TRUE;
 	};
@@ -107,8 +107,8 @@ func int Info_TPL_1441_LastWarn_Info()
 	AI_Output 		(self, hero,"Info_TPL_1441_LastWarn_13_01"); 		//Noch einen Schritt weiter und du trittst deinem Schöpfer gegenüber!
 
 	hero.aivar[AIV_LASTDISTTOWP] 		= Npc_GetDistToWP (hero,TPL_1441_CHECKPOINT);
-	hero.aivar[AIV_GUARDPASSAGE_STATUS]	= AIV_GPS_LASTWARN;	
-	
+	hero.aivar[AIV_GUARDPASSAGE_STATUS]	= AIV_GPS_LASTWARN;
+
 	AI_StopProcessInfos	(self);
 };
 
@@ -123,14 +123,14 @@ instance Info_TPL_1441_Attack (C_INFO)
 	information	= Info_TPL_1441_Attack_Info;
 	permanent	= 1;
 	important	= 1;
-};                       
+};
 
 func int Info_TPL_1441_Attack_Condition()
 {
 	if ((hero.aivar[AIV_GUARDPASSAGE_STATUS]		== AIV_GPS_LASTWARN					)
 	&&  (self.aivar[AIV_PASSGATE] == FALSE)
 	&&  (Npc_GetDistToWP(hero,TPL_1441_CHECKPOINT)	< (hero.aivar[AIV_LASTDISTTOWP]-100))
-	&&	(Hlp_StrCmp(Npc_GetNearestWP(self),self.wp)										)) 
+	&&	(Hlp_StrCmp(Npc_GetNearestWP(self),self.wp)										))
 	{
 		return 			TRUE;
 	};
@@ -138,11 +138,11 @@ func int Info_TPL_1441_Attack_Condition()
 
 func int Info_TPL_1441_Attack_Info()
 {
-	
+
 	hero.aivar[AIV_LASTDISTTOWP] 		= 0;
-	hero.aivar[AIV_GUARDPASSAGE_STATUS]	= AIV_GPS_PUNISH;	
-	
-	B_FullStop			(self);	
+	hero.aivar[AIV_GUARDPASSAGE_STATUS]	= AIV_GPS_PUNISH;
+
+	B_FullStop			(self);
 	AI_StopProcessInfos	(self);					// dem Spieler sofort wieder die Kontrolle zurückgeben
 	B_IntruderAlert		(self,	other);
 	B_SetAttackReason	(self,	AIV_AR_INTRUDER);

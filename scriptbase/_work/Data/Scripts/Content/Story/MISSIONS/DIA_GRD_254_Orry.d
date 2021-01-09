@@ -1,5 +1,5 @@
 // **************************************************
-// 						 PRE EXIT 
+// 						 PRE EXIT
 // **************************************************
 
 INSTANCE DIA_Orry_PreExit (C_INFO)
@@ -10,10 +10,10 @@ INSTANCE DIA_Orry_PreExit (C_INFO)
 	information	= DIA_Orry_PreExit_Info;
 	permanent	= 0;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC INT DIA_Orry_PreExit_Condition()
-	
+
 	{
 		return 1;
 	};
@@ -25,7 +25,7 @@ FUNC VOID DIA_Orry_PreExit_Info()
 };
 
 // **************************************************
-// 						 EXIT 
+// 						 EXIT
 // **************************************************
 
 INSTANCE DIA_Orry_Exit (C_INFO)
@@ -36,7 +36,7 @@ INSTANCE DIA_Orry_Exit (C_INFO)
 	information	= DIA_Orry_Exit_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC INT DIA_Orry_Exit_Condition()
 {
@@ -62,11 +62,11 @@ INSTANCE DIA_Orry_GuardGate (C_INFO)
 	condition		= DIA_Orry_GuardGate_Condition;
 	information		= DIA_Orry_GuardGate_Info;
 	permanent		= 0;
-	description		= "Was machst du hier?"; 
+	description		= "Was machst du hier?";
 };
 
 FUNC INT DIA_Orry_GuardGate_Condition()
-{	
+{
 	if (Kapitel <= 1)
 	{
 		return 1;
@@ -113,11 +113,11 @@ INSTANCE DIA_Orry_NewCamp (C_INFO)
 	condition		= DIA_Orry_NewCamp_Condition;
 	information		= DIA_Orry_NewCamp_Info;
 	permanent		= 0;
-	description		= "Warum sollte ich mich vor dem Neuen Lager in Acht nehmen?"; 
+	description		= "Warum sollte ich mich vor dem Neuen Lager in Acht nehmen?";
 };
 
 FUNC INT DIA_Orry_NewCamp_Condition()
-{	
+{
 	if (Npc_KnowsInfo(hero,DIA_Orry_GuardGate))
 	{
 		return 1;
@@ -142,11 +142,11 @@ INSTANCE DIA_Orry_OldCamp (C_INFO)
 	condition		= DIA_Orry_OldCamp_Condition;
 	information		= DIA_Orry_OldCamp_Info;
 	permanent		= 0;
-	description		= "Und das Alte Lager?"; 
+	description		= "Und das Alte Lager?";
 };
 
 FUNC INT DIA_Orry_OldCamp_Condition()
-{	
+{
 	if (Npc_KnowsInfo(hero,DIA_Orry_GuardGate))
 	{
 		return 1;
@@ -171,11 +171,11 @@ INSTANCE DIA_Orry_Shore (C_INFO)
 	condition		= DIA_Orry_Shore_Condition;
 	information		= DIA_Orry_Shore_Info;
 	permanent		= 0;
-	description		= "Als ich ans Ufer gespült wurde. hat mich einer von den Typen geschlagen."; 
+	description		= "Als ich ans Ufer gespült wurde. hat mich einer von den Typen geschlagen.";
 };
 
 FUNC INT DIA_Orry_Shore_Condition()
-{	
+{
 	if (Npc_KnowsInfo(hero,DIA_Orry_GuardGate))
 	{
 		return 1;
@@ -201,11 +201,11 @@ INSTANCE DIA_Orry_Woman (C_INFO)
 	condition		= DIA_Orry_Woman_Condition;
 	information		= DIA_Orry_Woman_Info;
 	permanent		= 0;
-	description		= "Sie haben eine Frau zusammen mit den Waren reingeschickt."; 
+	description		= "Sie haben eine Frau zusammen mit den Waren reingeschickt.";
 };
 
 FUNC INT DIA_Orry_Woman_Condition()
-{	
+{
 	if (Npc_KnowsInfo(hero,DIA_Orry_GuardGate))
 	{
 		return 1;
@@ -232,11 +232,11 @@ INSTANCE DIA_Orry_Waffe (C_INFO)
 	condition		= DIA_Orry_Waffe_Condition;
 	information		= DIA_Orry_Waffe_Info;
 	permanent		= 0;
-	description		= "Ich suche eine Waffe..."; 
+	description		= "Ich suche eine Waffe...";
 };
 
 FUNC INT DIA_Orry_Waffe_Condition()
-{	
+{
 	if (Npc_KnowsInfo(hero,DIA_Orry_GuardGate))
 	{
 		return 1;
@@ -249,7 +249,7 @@ FUNC VOID DIA_Orry_Waffe_Info()
 	AI_Output (self, other,"DIA_Orry_Waffe_06_01"); //Bei der verlassenen Mine weiter hinten im Canyon müsstest du alte Waffen finden.
 	AI_Output (self, other,"DIA_Orry_Waffe_06_02"); //Aber mach bloß nicht den Fehler und zieh mit 'ner rostigen Spitzhacke in den Krieg - die Dinger sind schwer und langsam.
 	AI_Output (self, other,"DIA_Orry_Waffe_06_03"); //Ein ungeübter Kämpfer sollte sie nur im Notfall benutzen.
-	
+
 };
 
 

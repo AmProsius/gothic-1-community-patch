@@ -10,7 +10,7 @@ instance DIA_Torlof_EXIT (C_INFO)
 	information	= DIA_Torlof_EXIT_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC int DIA_Torlof_EXIT_Condition()
 {
@@ -34,7 +34,7 @@ instance DIA_Torlof_Hallo (C_INFO)
 	information	= DIA_Torlof_Hallo_Info;
 	permanent	= 0;
 	description = "Wer bist du?";
-};                       
+};
 
 FUNC int DIA_Torlof_Hallo_Condition()
 {
@@ -45,7 +45,7 @@ FUNC VOID  DIA_Torlof_Hallo_Info()
 {
 	AI_Output (other, self,"DIA_Torlof_Hallo_15_00"); //Wer bist du?
 	AI_Output (self, other,"DIA_Torlof_Hallo_04_01"); //Ich bin Torlof.
-	AI_Output (self, other,"DIA_Torlof_Hallo_04_02"); //Hab als Maat auf einem der königlichen Kriegsschiffe bei ner Meuterei mitgemacht. 
+	AI_Output (self, other,"DIA_Torlof_Hallo_04_02"); //Hab als Maat auf einem der königlichen Kriegsschiffe bei ner Meuterei mitgemacht.
 	AI_Output (self, other,"DIA_Torlof_Hallo_04_03"); //Kam nicht so gut an. Der größte Teil der Mannschaft war auf der Seite des Käptn's.
 	AI_Output (self, other,"DIA_Torlof_Hallo_04_04"); //Seitdem bin ich hier.
 };
@@ -62,7 +62,7 @@ instance DIA_Torlof_Mitmachen (C_INFO)
 	information	= DIA_Torlof_Mitmachen_Info;
 	permanent	= 1;
 	description = "Ich will bei euch mitmachen.";
-};                       
+};
 
 FUNC int DIA_Torlof_Mitmachen_Condition()
 {
@@ -98,7 +98,7 @@ instance DIA_Torlof_PERM (C_INFO)
 	information	= DIA_Torlof_PERM_Info;
 	permanent	= 1;
 	description = "Was kannst du mir über dieses Lager sagen?";
-};                       
+};
 
 FUNC int DIA_Torlof_PERM_Condition()
 {

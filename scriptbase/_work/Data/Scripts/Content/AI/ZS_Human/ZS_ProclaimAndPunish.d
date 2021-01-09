@@ -24,11 +24,11 @@ func void ZS_ProclaimAndPunish ()
 {
 	PrintDebugNpc		(PD_ZS_FRAME, "ZS_ProclaimAndPunish");
 
-	Npc_PercEnable	 	(self,	PERC_ASSESSDAMAGE	,	B_CombatReactToDamage		);		
+	Npc_PercEnable	 	(self,	PERC_ASSESSDAMAGE	,	B_CombatReactToDamage		);
 	Npc_PercEnable  	(self,	PERC_ASSESSMAGIC 	,	B_AssessMagic				);
-	Npc_PercEnable  	(self,	PERC_ASSESSMURDER	,	B_CombatAssessMurder		);	
-	Npc_PercEnable		(self, 	PERC_ASSESSDEFEAT	,	B_CombatAssessDefeat		);		
-	Npc_PercEnable		(self,	PERC_MOVENPC		,	B_StopGotoHero				);	
+	Npc_PercEnable  	(self,	PERC_ASSESSMURDER	,	B_CombatAssessMurder		);
+	Npc_PercEnable		(self, 	PERC_ASSESSDEFEAT	,	B_CombatAssessDefeat		);
+	Npc_PercEnable		(self,	PERC_MOVENPC		,	B_StopGotoHero				);
 
 	//-------- Wurde der NSC schon mal vom SC besiegt ? --------
 	if 	self.aivar[AIV_WASDEFEATEDBYSC]
@@ -71,7 +71,7 @@ func int ZS_ProclaimAndPunish_Loop ()
 		B_FullStop		(self);
 		return			LOOP_END;
 	};
-	
+
 	return 				LOOP_CONTINUE;
 };
 
@@ -89,7 +89,7 @@ func void ZS_ProclaimAndPunish_End ()
 	//-------- Zu sprechenden Satz ermitteln ! --------
 	// Möglichkeiten:
 	// - ZS_ReactToDamage/ZS_AssessEnemy		-> $NowWait (bei SC-Defeat: $YouStillNotHaveEnough)
-	// - ZS_CatchThief/ZS_AssessEnemy			-> $DirtyThief	
+	// - ZS_CatchThief/ZS_AssessEnemy			-> $DirtyThief
 	// - NEWS_THEFT								-> $DirtyThief
 	// - hat Schützling/Freund des NSCs getötet	-> $YouKilledOneOfUs
 	// - greift Schützling an					-> $YouAttackedMyCharge
@@ -98,15 +98,15 @@ func void ZS_ProclaimAndPunish_End ()
 	{
 		//-------- SC hat Freund getötet ! --------
 		var int murder_news;
-		murder_news	= Npc_HasNews(self, NEWS_MURDER, hero, NULL); 
-		if (murder_news) 
-		{		
-			PrintDebugNpc		(PD_ZS_CHECK,	"...SC hat getötet..." );	
+		murder_news	= Npc_HasNews(self, NEWS_MURDER, hero, NULL);
+		if (murder_news)
+		{
+			PrintDebugNpc		(PD_ZS_CHECK,	"...SC hat getötet..." );
 			var C_Npc murder_victim;
 			murder_victim = Npc_GetNewsVictim(self, murder_news);
 			if (Npc_GetAttitude	(self,murder_victim) == ATT_FRIENDLY)
 			{
-				PrintDebugNpc	(PD_ZS_CHECK,	"...und zwar einen Freund des NSCs!" );	
+				PrintDebugNpc	(PD_ZS_CHECK,	"...und zwar einen Freund des NSCs!" );
 				B_SayOverlay	(self,	hero,	"$YouKilledOneOfUs");
 			};
 		}
@@ -114,28 +114,28 @@ func void ZS_ProclaimAndPunish_End ()
 		//-------- SC ist Todfeind durch Gildentabelle ! --------
 		else if (Wld_GetGuildAttitude(self.guild,hero.guild) == ATT_HOSTILE)
 		{
-			PrintDebugNpc		(PD_ZS_CHECK,	"...SC ist Todfeind!" );	
+			PrintDebugNpc		(PD_ZS_CHECK,	"...SC ist Todfeind!" );
 			B_SayOverlay		(self,	hero,	"$DieMortalEnemy");
 		}
-	
+
 		//-------- SC klaut oder hat geklaut ! --------
 		else if (Npc_HasNews(self, NEWS_THEFT, hero, self))
-		{	
-			PrintDebugNpc		(PD_ZS_CHECK,	"...SC hat vom NSC geklaut!"	);		
+		{
+			PrintDebugNpc		(PD_ZS_CHECK,	"...SC hat vom NSC geklaut!"	);
 			B_SayOverlay		(self,	hero,	"$DIRTYTHIEF");
 		}
 
 		//-------- Normaler Angriff (SC ist schon mal besiegt worden) --------
-		else if (Npc_HasNews(self, NEWS_DEFEAT, self, hero)) 
-		{		
-			PrintDebugNpc		(PD_ZS_CHECK,	"...Normaler Angriff (SC ist schon mal besiegt worden)!");		
+		else if (Npc_HasNews(self, NEWS_DEFEAT, self, hero))
+		{
+			PrintDebugNpc		(PD_ZS_CHECK,	"...Normaler Angriff (SC ist schon mal besiegt worden)!");
 			B_SayOverlay		(self,	hero,	"$YOUSTILLNOTHAVEENOUGH");
 		}
 
 		//-------- Normaler Angriff (SC wurde noch nicht besiegt) --------
 		else
-		{			
-			PrintDebugNpc		(PD_ZS_CHECK,	"...Normaler Angriff (SC wurde noch nicht besiegt)!");		
+		{
+			PrintDebugNpc		(PD_ZS_CHECK,	"...Normaler Angriff (SC wurde noch nicht besiegt)!");
 			B_SayOverlay		(self,	hero,	"$NowWait");
 		};
 	}
@@ -144,16 +144,16 @@ func void ZS_ProclaimAndPunish_End ()
 		//-------- SC hat Durchgang durchbrochen ! --------
 		if (C_GetAttackReason(self) == AIV_AR_INTRUDER)
 		{
-			PrintDebugNpc		(PD_ZS_CHECK,	"...SC hat Durchgang durchbrochen!" );	
+			PrintDebugNpc		(PD_ZS_CHECK,	"...SC hat Durchgang durchbrochen!" );
 			B_SayOverlay		(self,	hero,	"$NowWaitIntruder");
 		}
-	
+
 		//-------- SC greift Schützling einer Wache an ! --------
 		else
 		{
-			PrintDebugNpc		(PD_ZS_CHECK,	"...SC greift Schützling einer Wache an !");	
+			PrintDebugNpc		(PD_ZS_CHECK,	"...SC greift Schützling einer Wache an !");
 			B_SayOverlay		(self,	hero,	"$YouAttackedMyCharge");
-		};	
+		};
 	};
 
 	//-------- Nun gibt's endlich Haue ! --------

@@ -11,16 +11,16 @@ prototype Npc_TestDefault (C_NPC)
 	name =							"Prototype";
 	guild =							GIL_NONE;
 	level =							1;
-	
-	
-	
-		
+
+
+
+
 	//-------- abilities --------
 	attribute[ATR_STRENGTH] =		5;
 	attribute[ATR_DEXTERITY] =		5;
 	attribute[ATR_MANA_MAX] =		0;
 	attribute[ATR_MANA] =			0;
-	
+
 	protection	[PROT_EDGE]		=		5;
 	protection	[PROT_BLUNT]	=		5;
 	protection	[PROT_POINT]	=		5;
@@ -35,30 +35,30 @@ prototype Npc_TestDefault (C_NPC)
 	//-------- senses --------
 	senses			=	SENSE_HEAR | SENSE_SEE ;
 	senses_range	=	4000;
-	
-	////Npc_LearnTalent	(self,TAL_SNEAK);	
-	////Npc_LearnTalent	(self,TAL_STEAL);	
-	////Npc_LearnTalent	(self,TAL_PICKLOCK);	
-	////Npc_LearnTalent	(self,TAL_ACROBAT);	
-	
-	////Npc_LearnTalent	(self,TAL_HEAL);	
-	////Npc_LearnTalent	(self,TAL_MANA);	
-	////Npc_LearnTalent	(self,TAL_IRONWILL);	
 
-};  
-    
-    
-    
+	////Npc_LearnTalent	(self,TAL_SNEAK);
+	////Npc_LearnTalent	(self,TAL_STEAL);
+	////Npc_LearnTalent	(self,TAL_PICKLOCK);
+	////Npc_LearnTalent	(self,TAL_ACROBAT);
+
+	////Npc_LearnTalent	(self,TAL_HEAL);
+	////Npc_LearnTalent	(self,TAL_MANA);
+	////Npc_LearnTalent	(self,TAL_IRONWILL);
+
+};
+
+
+
 instance ATestmodell (Npc_TestDefault)
-{   
+{
 	//-------- primary data --------
-	
+
 	name =							"ATestmodell";
-	guild =							GIL_BAU;      
+	guild =							GIL_BAU;
 	level =							10;
 	voice =							11;//4
 	id =							3001;
-	
+
 
 
 	//-------- abilities --------
@@ -72,31 +72,31 @@ instance ATestmodell (Npc_TestDefault)
 	//-------- visuals --------
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
-	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
+	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin
 	Mdl_SetVisualBody (self,"hum_body_Naked0",DEFAULT,DEFAULT,"Hum_Head_Bald", DEFAULT,  DEFAULT,-1);
-	
-	
-	
-	//Npc_LearnFightTalent	(self,TAL_1H_SWORD2);	
-	
-	
+
+
+
+	//Npc_LearnFightTalent	(self,TAL_1H_SWORD2);
+
+
 	Npc_SetAttitude (self,ATT_HOSTILE);
-	
-	//-------- inventory --------                                    
+
+	//-------- inventory --------
 
 	//CreateInvItem (self, ItMw1hSword01);
 	//CreateInvItem (self, ItMw1hAxe01);
 	//CreateInvItem (self, ItMwPoker01);
-		
+
 	// FAI
-	
+
 	fight_tactic = FAI_HUMAN_COWARD;
-	
+
 	//-------------Daily Routine-------------
 	//daily_routine = Rtn_start_3001;
 	start_aistate	=	ZS_Firespit;
-	
-	
+
+
 };
 
 FUNC VOID Rtn_start_3001 ()
@@ -106,17 +106,17 @@ FUNC VOID Rtn_start_3001 ()
 instance BTestmodell (Npc_TestDefault)
 {
 	//-------- primary data --------
-	
+
 	name =							"BTestmodell";
    	guild =							GIL_EBR;
 	level =							20;
-	
+
 	voice =							11;//7;
 	id =							3002;
 
 
 	//-------- abilities --------
-	
+
 	attribute[ATR_STRENGTH] =		15;
 	attribute[ATR_DEXTERITY] =		10;
 	attribute[ATR_MANA_MAX] =		0;
@@ -127,10 +127,10 @@ instance BTestmodell (Npc_TestDefault)
 	//-------- visuals --------
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
-	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
+	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin
 	Mdl_SetVisualBody (self,"hum_body_Naked0",DEFAULT,DEFAULT,"Hum_Head_Bald", DEFAULT,  DEFAULT, EBR_ARMOR_H);
 
-	
+
 
 	/*
 	//Npc_LearnTalent	(self,TAL_1H_SWORD3);
@@ -139,17 +139,17 @@ instance BTestmodell (Npc_TestDefault)
 	//Npc_LearnTalent	(self,TAL_2H_AXE);
 	//Npc_LearnTalent	(self,TAL_BOW2);
 	//Npc_LearnTalent	(self,TAL_CROSSBOW2);
-	//Npc_LearnTalent	(self,TAL_HEAL);	
-	*/	
-	//-------- inventory --------                                    
+	//Npc_LearnTalent	(self,TAL_HEAL);
+	*/
+	//-------- inventory --------
 
 	//createinvitem (self, ItMw1hSword01);
 	//createinvitem (self, ItMw1hAxe01);
 	//createinvitem (self, ItMwPoker01);
-	
+
 	//-------------Daily Routine-------------
 	daily_routine = Rtn_start_3002;
-	
+
 	fight_tactic = FAI_HUMAN_COWARD;
 };
 
@@ -160,7 +160,7 @@ FUNC VOID Rtn_start_3002 ()
 instance CTestmodell (Npc_TestDefault)
 {
 	//-------- primary data --------
-	
+
 	name =							"CTestmodell";
    	guild =							GIL_EBR;
 	level =							6;
@@ -169,7 +169,7 @@ instance CTestmodell (Npc_TestDefault)
 
 
 	//-------- abilities --------
-	
+
 	attribute[ATR_STRENGTH] =		15;
 	attribute[ATR_DEXTERITY] =		10;
 	attribute[ATR_MANA_MAX] =		0;
@@ -180,30 +180,30 @@ instance CTestmodell (Npc_TestDefault)
 	//-------- visuals --------
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
-	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
+	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin
 	Mdl_SetVisualBody (self,"hum_body_Naked0",DEFAULT,DEFAULT,"Hum_Head_Bald", DEFAULT,  DEFAULT, EBR_ARMOR_H);
 
-	
 
-	
+
+
 	//Npc_LearnFightTalent	(self,TAL_1H_SWORD3);
 	//Npc_LearnFightTalent	(self,TAL_1H_AXE2);
 	//Npc_LearnFightTalent	(self,TAL_2H_SWORD2);
 	//Npc_LearnFightTalent	(self,TAL_2H_AXE);
 	////Npc_LearnTalent	(self,TAL_BOW2);
 	////Npc_LearnTalent	(self,TAL_CROSSBOW2);
-	////Npc_LearnTalent	(self,TAL_HEAL);	
-			
-	//-------- inventory --------                                    
+	////Npc_LearnTalent	(self,TAL_HEAL);
+
+	//-------- inventory --------
 
 	//createinvitem (self, ItMw2hSword01);
 	////createinvitem (self, ItMw1hAxe01);
 	////createinvitem (self, ItMwPoker01);
-		
+
 
 	//-------------Daily Routine-------------
 	daily_routine = Rtn_start_3003;
-	
+
 	fight_tactic	= FAI_HUMAN_COWARD;
 };
 
@@ -221,7 +221,7 @@ instance DTestmodell (Npc_TestDefault)
 	level =							6;
 	voice =							11;//120;
 	id =							3004;
-		
+
 	//-------- abilities --------
 	attribute[ATR_STRENGTH] =		10;
 	attribute[ATR_DEXTERITY] =		0;
@@ -233,22 +233,22 @@ instance DTestmodell (Npc_TestDefault)
 	//-------- visuals --------
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
-	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
+	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin
 	Mdl_SetVisualBody	(self,"hum_body_Naked0",DEFAULT,DEFAULT,"Hum_Head_Bald", DEFAULT, DEFAULT, GUR_ARMOR_H);
 
-	
+
 
 	//Waffentalente //Weitere Talente
 
-	
-	
+
+
 	//createinvitem(self,ItFoRice);
 	//createinvitem(self,ItFoBeer);
 	//createinvitem(self,ItMw1hSword01);
-	
+
 	//-------------Daily Routine-------------
 	daily_routine = Rtn_start_3004;
-	
+
 	fight_tactic	=FAI_HUMAN_COWARD;
 };
 
@@ -275,7 +275,7 @@ FUNC VOID Rtn_start_3004 ()
 	TA_RepairHut 		(18,00,19,00,	"WP_REPAIR");
 	TA_StandAround 	(19,00,0,00,	"WP_BSANVIL");
 	//TA_SitAround (0,0,"WP_RUNNER_1");
-	
+
 };
 
 instance FTestmodell (Npc_TestDefault)
@@ -287,7 +287,7 @@ instance FTestmodell (Npc_TestDefault)
 	level =							5;
 	voice =							11;//11;
 	id =							3006;
-		
+
 	//-------- abilities --------
 	attribute[ATR_STRENGTH] =		13;
 	attribute[ATR_DEXTERITY] =		0;
@@ -299,33 +299,33 @@ instance FTestmodell (Npc_TestDefault)
 	//-------- visuals --------
 	// 			animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
-	// 				body mesh,			head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
+	// 				body mesh,			head mesh,				hairmesh,	face-tex,	hair-tex,	skin
 	Mdl_SetVisualBody (self,"hum_body_Naked0",DEFAULT,DEFAULT,"Hum_Head_Bald", DEFAULT,  DEFAULT, GRD_ARMOR_M);
-          
-	
+
+
 
 	//Waffentalente //Weitere Talente
 
-	//Npc_LearnFightTalent	(self,TAL_1H_SWORD2);			
-	//Npc_LearnFightTalent	(self,TAL_1H_AXE3);			
-	//Npc_LearnFightTalent	(self,TAL_2H_SWORD2);			
-	//Npc_LearnTalent	(self,TAL_STEAL);		
-	//Npc_LearnTalent	(self,TAL_PICKLOCK);		
+	//Npc_LearnFightTalent	(self,TAL_1H_SWORD2);
+	//Npc_LearnFightTalent	(self,TAL_1H_AXE3);
+	//Npc_LearnFightTalent	(self,TAL_2H_SWORD2);
+	//Npc_LearnTalent	(self,TAL_STEAL);
+	//Npc_LearnTalent	(self,TAL_PICKLOCK);
 
 
-        
+
 	//-------- inventory --------
-	
+
 	//createinvitem (self, ItMw2hSword01);
 	//createinvitem (self, ItMw1hAxe01);
 	////createinvitem (self, ItMwPoker01);
-		
 
-	        
-	
+
+
+
 	//-------------Daily Routine-------------
 	daily_routine = Rtn_start_3006;
-	
+
 	fight_tactic	=1;
 };
 
@@ -337,9 +337,9 @@ FUNC VOID Rtn_start_3006 ()
 instance GTestmodell (Npc_TestDefault)
 {
 	//-------- primary data --------
-	
+
 	name =							"GTestmodell";
-	guild =							GIL_KDF;      
+	guild =							GIL_KDF;
 	level =							6;
 	voice =							11;//1;
 	id =							3007;
@@ -356,30 +356,30 @@ instance GTestmodell (Npc_TestDefault)
 	//-------- visuals --------
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
-	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
+	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin
 	Mdl_SetVisualBody (self,"hum_body_Naked0",DEFAULT,DEFAULT,"Hum_Head_Bald", DEFAULT,  DEFAULT, KDF_ARMOR_L);
 
-	
 
-	////Npc_LearnTalent	(self,TAL_BOW);			
-	
-	//-------- inventory --------                                    
+
+	////Npc_LearnTalent	(self,TAL_BOW);
+
+	//-------- inventory --------
 
 	//createinvitem (self, ItFoWine);
 	//createinvitem (self, ItFoLoaf);
 	//createinvitems(self, ItFoHealingPotion, 5);
 	//createinvitems(self, ItFoManaPotion, 5);
 	//createinvitems(self, ItFoHolyWater, 2);
-	
+
 	//createinvitem (self, ItMw2hSword01);
 	//createinvitem (self, ItMw1hAxe01);
 	////createinvitem (self, ItMwPoker01);
-		
+
 
 
 	//-------------Daily Routine-------------
 	daily_routine = Rtn_start_3007;
-	
+
 	fight_tactic	=1;
 };
 
@@ -395,9 +395,9 @@ FUNC VOID Rtn_start_3007 ()
 instance HTestmodell (Npc_TestDefault)
 {
 	//-------- primary data --------
-	
+
 	name =							"HTestmodell";
-	guild =							GIL_KDF;      
+	guild =							GIL_KDF;
 	level =							6;
 	voice =							11;//10;
 	id =							3008;
@@ -414,13 +414,13 @@ instance HTestmodell (Npc_TestDefault)
 	//-------- visuals --------
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
-	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
+	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin
 	Mdl_SetVisualBody (self,"hum_body_Naked0",DEFAULT,DEFAULT,"Hum_Head_Bald", DEFAULT,  DEFAULT, KDF_ARMOR_L);
 
 
-	//-------- inventory --------                                    
+	//-------- inventory --------
 	//createinvitem (self, ItFoWine);
-	
+
 	//createinvitem (self, ItFoCheese);
 	//createinvitems(self, ItFoHealingPotion, 5);
 	//createinvitems(self, ItFoManaPotion, 5);
@@ -441,9 +441,9 @@ FUNC VOID Rtn_start_3008 ()
 instance ITestmodell (Npc_TestDefault)
 {
 	//-------- primary data --------
-	
+
 	name =					"ITestmodell";
-	guild =					GIL_EBR;      
+	guild =					GIL_EBR;
 	level =					3;
 	voice =					11;//18;// Babe 1;
 	id =					3009;
@@ -460,16 +460,16 @@ instance ITestmodell (Npc_TestDefault)
 	//-------- visuals --------
 	// 				animations
 	Mdl_SetVisual		(self,"BABE.MDS");
-	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
+	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin
 	Mdl_SetVisualBody (self,"Bab_body_Naked0",DEFAULT, DEFAULT ,"Bab_Head_Hair1", DEFAULT ,  DEFAULT, -1);
 
-	
-		
-	
-	
-	//-------- inventory --------                                    
 
-		
+
+
+
+	//-------- inventory --------
+
+
 		//createinvitems(self, ItFoWine, 4);
 		//createinvitem (self, ItMiBrush);
 
@@ -490,9 +490,9 @@ FUNC VOID Rtn_start_3009 ()
 instance JTestmodell (Npc_TestDefault)
 {
 	//-------- primary data --------
-	
+
 	name =							"JTestmodell";
-	guild =							GIL_EBR;      
+	guild =							GIL_EBR;
 	level =							2;
 	voice =							11;//19 Babe 2;
 	id =							3010;
@@ -509,19 +509,19 @@ instance JTestmodell (Npc_TestDefault)
 	//-------- visuals --------
 	// 				animations
 	Mdl_SetVisual		(self,"Babe.MDS");
-	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
+	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin
 	Mdl_SetVisualBody (self,"Bab_body_Naked0",DEFAULT, DEFAULT ,"Bab_Head_Hair2", DEFAULT ,  DEFAULT,-1);
-        
-    	
 
-	//Npc_LearnTalent	(self,TAL_PICKLOCK);		
-	
-	
-	//-------- inventory --------                                    
 
-	
+
+	//Npc_LearnTalent	(self,TAL_PICKLOCK);
+
+
+	//-------- inventory --------
+
+
 	//createinvitem (self, ItFoBeer);
-	
+
 	//createinvitem (self, ItFoApple);
 	//createinvitem (self, ItFoLoaf);
 	//createinvitem (self, ItFoMutton);
@@ -542,9 +542,9 @@ FUNC VOID Rtn_start_3010 ()
 instance SLD1_Testmodell (Npc_TestDefault)
 {
 	//-------- primary data --------
-	
+
 	name =							"SLD1_Testmodell";
-	guild =							GIL_VLK;       
+	guild =							GIL_VLK;
 	level =							4;
 	voice =							4;//8;
 	id =							1707;
@@ -561,23 +561,23 @@ instance SLD1_Testmodell (Npc_TestDefault)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Relaxed.mds");
-	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
+	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin
 	Mdl_SetVisualBody (self,"hum_body_Naked0",0, 1,"Hum_Head_Fighter", 51,  DEFAULT,VLK_ARMOR_L);
-	
-	
+
+
 	Mdl_SetModelFatness (self, 0);
-	
-	fight_tactic	=	FAI_HUMAN_COWARD; 
-	
+
+	fight_tactic	=	FAI_HUMAN_COWARD;
+
 	//-------- Talente --------
-	
+
 	//Npc_LearnFightTalent (self, TAL_1H_AXE2);
 	//Npc_LearnFightTalent (self, TAL_2H_AXE);
 	//Npc_LearnFightTalent (self, TAL_2H_SWORD);
-	
+
 	//Npc_LearnTalent		( self, TAL_SNEAK);
 
-	//-------- inventory --------                                    
+	//-------- inventory --------
 
 	////createinvitem (self, ItMw2hAxe02);
 	//createinvitem (self, ItFoBooze);
@@ -585,30 +585,30 @@ instance SLD1_Testmodell (Npc_TestDefault)
 	//createinvitem (self, ItFoHealingPotion);
 	//createinvitems (self, ItMiNugget, 10);
 	//createinvitem (self, ItRwLongbow);
-	
-	
+
+
 	//Npc_SetAttitude	( self, ATT_ANGRY  );
-	
+
 	//-------------Daily Routine-------------
 
-	
-	
+
+
 	Wld_AssignRoomToNpc	( "T2", self);
-	
+
 	Wld_AssignRoomToGuild	( "T4", GIL_SLD);
 	//-------------Missions------------------
 
-	//----------------------------------------------------------------	
+	//----------------------------------------------------------------
 	//------------------------------------------------------------- AI
-	//----------------------------------------------------------------	
+	//----------------------------------------------------------------
 
 	//--------------------------------------- HABBITS
 //	Npc_SetPermAttitude	( self, ATT_FRIENDLY );
-	
+
 	START_AISTATE 	= 	ZS_TestHangAround;
 //	START_AISTATE 	= 	ZS_TestObstacle;
 //	DAILY_ROUTINE 	=	Rtn_start_SLD1_Testmodell;
-	
+
 	//-------------------------------------- MISSIONS
 //	MISSION[0]	=	Mission_Test_Empty;
 //	MISSION[1]	=	Mission_Test_Default;
@@ -633,17 +633,17 @@ func void Rtn_start_SLD1_Testmodell ()
 instance SLD2_Testmodell (NPC_TestDefault)
 {
 
-//----------------------------------------------------------------	
+//----------------------------------------------------------------
 	//------------------------------------------------- IDENTIFIACTION
-	//----------------------------------------------------------------	
+	//----------------------------------------------------------------
 	name =							"SLD2_Testmodell";
-	guild =							GIL_SLD;       
+	guild =							GIL_SLD;
 	level =							3;
 	voice =							4;//8;
 	id =							2707;
-	//----------------------------------------------------------------	
-	//----------------------------------------------------- ATTRIBUTES	
-	//----------------------------------------------------------------	
+	//----------------------------------------------------------------
+	//----------------------------------------------------- ATTRIBUTES
+	//----------------------------------------------------------------
 
 	//------------------------------------- MAXIMA
 		attribute[ATR_STRENGTH] =		9;
@@ -652,26 +652,26 @@ instance SLD2_Testmodell (NPC_TestDefault)
 	attribute[ATR_HITPOINTS] =		18;
 	attribute[ATR_MANA_MAX] =		10;
 	attribute[ATR_MANA] =			10;
-	
-	
-	
-	//----------------------------------------------------------------	
-	//----------------------------------------------------- APPEARANCE	
-	//----------------------------------------------------------------	
-	
+
+
+
+	//----------------------------------------------------------------
+	//----------------------------------------------------- APPEARANCE
+	//----------------------------------------------------------------
+
 	Mdl_SetVisual		(self,"HUMANS.MDS");
-	
-	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
+
+	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin
 	Mdl_SetVisualBody (self,"hum_body_Naked0",0, 1,"Hum_Head_Fighter", 51,  DEFAULT,SLD_ARMOR_H);
-	
+
 	Mdl_ApplyOverlayMds	(self,"Humans_Relaxed.mds");
 	Mdl_SetModelFatness (self, 0);
-	
-	//----------------------------------------------------------------	
-	//------------------------------------------------------ ABITILIES	
-	//----------------------------------------------------------------	
 
-	
+	//----------------------------------------------------------------
+	//------------------------------------------------------ ABITILIES
+	//----------------------------------------------------------------
+
+
 	//Npc_LearnFightTalent (self, TAL_1H_AXE2);
 	//Npc_LearnFightTalent (self, TAL_2H_AXE);
 	//Npc_LearnFightTalent (self, TAL_2H_SWORD);
@@ -681,10 +681,10 @@ instance SLD2_Testmodell (NPC_TestDefault)
 
 //  FLAGS			= 	NPC_FLAG_IMMORTAL;
   	FIGHT_TACTIC	=	FAI_HUMAN_Strong;
-    
-//----------------------------------------------------------------	
+
+//----------------------------------------------------------------
 	//------------------------------------------------------ INVENTORY
-	//----------------------------------------------------------------	
+	//----------------------------------------------------------------
 
 	//createinvitem (self, ItFoRice);
 //	//createinvitem (self, ItMw2hAxe02);
@@ -696,16 +696,16 @@ instance SLD2_Testmodell (NPC_TestDefault)
 	//createinvitems		( self, ItAmArrow, 50 );
 	//EquipItem	( self,ItRwLongbow);
 
-	//----------------------------------------------------------------	
+	//----------------------------------------------------------------
 	//------------------------------------------------------------- AI
-	//----------------------------------------------------------------	
+	//----------------------------------------------------------------
 
 	//--------------------------------------- HABBITS
 	Npc_SetPermAttitude	( self, ATT_FRIENDLY );
-	
+
 	START_AISTATE 	= 	ZS_TestHangAround;
 //	DAILY_ROUTINE 	=	DailyRoute_Test_Empty;
-	
+
 	//-------------------------------------- MISSIONS
 //	MISSION[0]	=	Mission_Test_Empty;
 //	MISSION[1]	=	Mission_Test_Default;
@@ -721,9 +721,9 @@ func void Rtn_start_SLD2_Testmodell ()
 instance SLD3_Testmodell (Npc_TestDefault)
 {
 	//-------- primary data --------
-	
+
 	name =							"SLD3_Testmodell";
-	guild =							GIL_SLD;       
+	guild =							GIL_SLD;
 	level =							3;
 	voice =							4;//8;
 	id =							3707;
@@ -740,21 +740,21 @@ instance SLD3_Testmodell (Npc_TestDefault)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Relaxed.mds");
-	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
+	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin
 	Mdl_SetVisualBody (self,"hum_body_Naked0",0, 1,"Hum_Head_Fighter", 51,  DEFAULT,SLD_ARMOR_H);
-	
-	
+
+
 	Mdl_SetModelFatness (self, 0);
-	
-	fight_tactic	=	FAI_HUMAN_COWARD; 
-	
+
+	fight_tactic	=	FAI_HUMAN_COWARD;
+
 	//-------- Talente --------
-	
+
 	//Npc_LearnFightTalent (self, TAL_1H_AXE2);
 	//Npc_LearnFightTalent (self, TAL_2H_AXE);
 	//Npc_LearnFightTalent (self, TAL_2H_SWORD);
 
-	//-------- inventory --------                                    
+	//-------- inventory --------
 
 	//createinvitem (self, ItMw2hAxe02);
 	//createinvitem (self, ItFoRice);
@@ -762,13 +762,13 @@ instance SLD3_Testmodell (Npc_TestDefault)
 	//createinvitem (self, ItFoApple);
 	//createinvitem (self, ItFoHealingPotion);
 	//createinvitems (self, ItMiNugget, 10);
-	
+
 	//Npc_SetPermAttitude	( self, ATT_HOSTILE);
 
 	//-------------Daily Routine-------------
 
 	daily_routine = Rtn_start_SLD3_Testmodell;
-	
+
 	//-------------Missions------------------
 };
 
@@ -788,7 +788,7 @@ instance GRD1_Testmodell (Npc_TestDefault)
 	level =							3;
 	voice =							11;//15;
 	id =							1221;
-		
+
 	//-------- abilities --------
 	attribute[ATR_STRENGTH] =		9;
 	attribute[ATR_DEXTERITY] =		7;
@@ -801,36 +801,36 @@ instance GRD1_Testmodell (Npc_TestDefault)
 	// 			animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"HumanS_Relaxed.MDS");
-	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung	
+	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung
 	Mdl_SetVisualBody (self,"hum_body_Naked0", 0, 0,"Hum_Head_Fighter", 1,  2, GRD_ARMOR_L);
-        
-	
+
+
     	Mdl_SetModelFatness(self,0);
-    	
+
     	fight_tactic	=	FAI_HUMAN_STRONG;
 
-	//-------- Talente -------- 
-				
+	//-------- Talente --------
+
 	//Npc_LearnFightTalent (self, TAL_1H_SWORD2);
-	//Npc_LearnFightTalent (self, TAL_1H_AXE2);		
-			
+	//Npc_LearnFightTalent (self, TAL_1H_AXE2);
+
 	//-------- inventory --------
-	
+
 	//createinvitem	(self, ItMw1hSword01);
 	//createinvitem	(self, ItFoApple);
 	//createinvitems	(self, ItMiNugget, 4);
 	//createinvitem	(self, ItFoHealingPotion);
-	
+
 	Npc_SetAttitude (self,ATT_FRIENDLY);
-	
+
 	//-------------Daily Routine-------------
 	daily_routine = Rtn_start_GRD1_Testmodell;
-	
+
 };
 
 INSTANCE TestInfo_001_07_700 (C_INFO)
 {
-	npc		= GRD1_Testmodell; 
+	npc		= GRD1_Testmodell;
 	nr		= 1;
 	condition	= TestInfo_001_07_700_Condition;
 	information	= TestInfo_001_07_700_Info;
@@ -845,13 +845,13 @@ FUNC INT Testinfo_001_07_700_Condition()
 FUNC VOID TestInfo_001_07_700_Info()
 {
 	AI_Output(self,other,"Global_001_07_00"); //Hey Frischling.
-	AI_Output(self,other,"Global_001_07_01"); //Falls Du es noch nicht kapiert hast: 
-	AI_Output(self,other,"Global_001_07_02"); //Es gibt hier im Knast drei große Lager. 
+	AI_Output(self,other,"Global_001_07_01"); //Falls Du es noch nicht kapiert hast:
+	AI_Output(self,other,"Global_001_07_02"); //Es gibt hier im Knast drei große Lager.
 	AI_Output(self,other,"Global_001_07_03"); //Das Alte Lager, das Neue Lager und den Sektentempel.
 	AI_Output(self,other,"Global_001_07_05"); //Wenn Du nicht den Erzbaronen im Alten Lager den Arsch abwischen willst, kommst Du zu uns.
 };
 
-	
+
 func void Rtn_start_GRD1_Testmodell ()
 {
 	TA_TestHangAround (0,00,13,00, "X");
@@ -870,7 +870,7 @@ INSTANCE GRD1_Testmodell_Trade_01 (C_ITEMREACT)
 
 FUNC INT GRD1_Testmodell_Trade_01_Func ()
 {
-	if (GRD1_Testmodell_Trade_01.requested_amount == 1) 
+	if (GRD1_Testmodell_Trade_01.requested_amount == 1)
 	{
 		Print ("Trade klappt");
 		return 1;
@@ -880,7 +880,7 @@ FUNC INT GRD1_Testmodell_Trade_01_Func ()
 
 INSTANCE GRD1_Testmodell_Trade_01_Info_01 (C_INFO)
 {
-	npc		= GRD1_Testmodell; 
+	npc		= GRD1_Testmodell;
 	nr		= 1;
 	condition	= GRD1_Testmodell_Trade_01_Info_01_Condition;
 	information	= GRD1_Testmodell_Trade_01_Info_01_Info;
@@ -898,7 +898,7 @@ FUNC VOID GRD1_Testmodell_Trade_01_Info_01_Info()
 	Print ("Gardisten Info");
 	B_say(self,other,"BAU_900_Ricelord01_Trade_01_Info_01_Satz_02"); //Ich geb' Dir 10 Portionen Reis, wenn Du mir dafür 'ne ordentliche Hammelkeule gibst..
 	B_say(self,other,"BAU_900_Ricelord01_Trade_01_Info_01_Satz_03"); //Oder hast Du vielleicht 'n Bier dabei? Oder Wein?
-	
+
 };
 
 instance GRD2_Testmodell (Npc_TestDefault)
@@ -909,7 +909,7 @@ instance GRD2_Testmodell (Npc_TestDefault)
 	level =							3;
 	voice =							11;//15;
 	id =							2221;
-		
+
 	//-------- abilities --------
 	attribute[ATR_STRENGTH] =		9;
 	attribute[ATR_DEXTERITY] =		7;
@@ -922,26 +922,26 @@ instance GRD2_Testmodell (Npc_TestDefault)
 	// 			animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"HumanS_Relaxed.MDS");
-	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung	
-	Mdl_SetVisualBody (self,"hum_body_Naked0", 0, 0,"Hum_Head_Fighter", 1,  2, VLK_ARMOR_L);        
-	
+	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung
+	Mdl_SetVisualBody (self,"hum_body_Naked0", 0, 0,"Hum_Head_Fighter", 1,  2, VLK_ARMOR_L);
+
     Mdl_SetModelFatness(self,0);
-    	
+
     fight_tactic	=	FAI_HUMAN_Strong;
-    	
+
     Npc_SetAttitude	( self, ATT_ANGRY);
 
-	//-------- Talente -------- 
-				
+	//-------- Talente --------
+
 	////Npc_LearnFightTalent (self, TAL_1H_SWORD2);
-	////Npc_LearnFightTalent (self, TAL_1H_AXE2);		
-			
+	////Npc_LearnFightTalent (self, TAL_1H_AXE2);
+
 	//-------- inventory --------
-	
+
 	//createinvitem	(self, ItMw1hSword01);
 	//createinvitem	(self, ItFoApple);
 	//createinvitems	(self, ItMiNugget, 4);
-	
+
 	//-------------Daily Routine-------------
 	daily_routine = Rtn_start_GRD2_Testmodell;
 };
@@ -961,7 +961,7 @@ instance GRD3_Testmodell (Npc_TestDefault)
 	level =							3;
 	voice =							11;//15;
 	id =							3221;
-		
+
 	//-------- abilities --------
 	attribute[ATR_STRENGTH] =		9;
 	attribute[ATR_DEXTERITY] =		7;
@@ -974,25 +974,25 @@ instance GRD3_Testmodell (Npc_TestDefault)
 	// 			animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"HumanS_Relaxed.MDS");
-	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung	
+	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung
 	Mdl_SetVisualBody (self,"hum_body_Naked0", 0, 0,"Hum_Head_Fighter", 1,  2, EBR_ARMOR_H);
-        
-	
+
+
     	Mdl_SetModelFatness(self,0);
-    	
+
     	fight_tactic	=	FAI_HUMAN_Strong;
 
-	//-------- Talente -------- 
-				
+	//-------- Talente --------
+
 	//Npc_LearnFightTalent (self, TAL_1H_SWORD2);
-	//Npc_LearnFightTalent (self, TAL_1H_AXE2);		
-			
+	//Npc_LearnFightTalent (self, TAL_1H_AXE2);
+
 	//-------- inventory --------
-	
+
 	//createinvitem	(self, ItMw1hSword01);
 	//createinvitem	(self, ItFoApple);
 	//createinvitems	(self, ItMiNugget, 4);
-	
+
 	//-------------Daily Routine-------------
 	daily_routine = Rtn_start_GRD3_Testmodell;
 };

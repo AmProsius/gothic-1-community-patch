@@ -6,10 +6,10 @@ instance GUR_1210_BaalTyon (Npc_Default)
 	guild 		=		GIL_GUR;
 	level 		=		28;
 	flags 		=		NPC_FLAG_IMMORTAL;
-	
+
 	voice 		=		11;
 	id 			=		1210;
-		
+
 	//-------- abilities --------
 	attribute[ATR_STRENGTH] 		=	70;
 	attribute[ATR_DEXTERITY] 		=	35;
@@ -22,7 +22,7 @@ instance GUR_1210_BaalTyon (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Mage.mds");
-	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung	
+	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung
 	Mdl_SetVisualBody (self,"hum_body_Naked0", 1,1 ,"Hum_Head_Psionic", 24,  2, GUR_ARMOR_M);
 
 	B_Scale (self);
@@ -34,8 +34,8 @@ instance GUR_1210_BaalTyon (Npc_Default)
 	//-------- inventory --------
 	CreateInvItem(self, ItArRuneWindfist);
 
-	
-	
+
+
 	//-------------Daily Routine-------------
 	daily_routine = Rtn_start_1210;
 	fight_tactic	=	FAI_HUMAN_MAGE;
@@ -44,29 +44,29 @@ instance GUR_1210_BaalTyon (Npc_Default)
 FUNC VOID Rtn_start_1210 ()
 {
 	TA_Teaching	(16,00,23,00,"PSI_TEMPLE_COURT_GURU");
-	TA_Teaching	(23,00,16,00,"PSI_TEMPLE_COURT_GURU");	
+	TA_Teaching	(23,00,16,00,"PSI_TEMPLE_COURT_GURU");
 };
 
 FUNC VOID Rtn_PrepareRitual_1210 ()
 {
 	TA_SitAround	(16,00,23,00,"PSI_TEMPLE_IN_05");
-    TA_SitAround	(23,00,16,00,"PSI_TEMPLE_IN_05");	
+    TA_SitAround	(23,00,16,00,"PSI_TEMPLE_IN_05");
 };
 
 FUNC VOID Rtn_OMFull_1210 ()
 {
 	 TA_SitAround	(16,00,23,00,"PSI_TEMPLE_IN_05");
-    TA_SitAround	(23,00,16,00,"PSI_TEMPLE_IN_05");	
+    TA_SitAround	(23,00,16,00,"PSI_TEMPLE_IN_05");
 };
 
 FUNC VOID Rtn_FMTaken_1210 ()
 {
 	 TA_SitAround	(16,00,23,00,"PSI_TEMPLE_IN_05");
-    TA_SitAround	(23,00,16,00,"PSI_TEMPLE_IN_05");	
+    TA_SitAround	(23,00,16,00,"PSI_TEMPLE_IN_05");
 };
 
 FUNC VOID Rtn_OrcAssault_1210 ()
 {
 	 TA_SitAround	(16,00,23,00,"PSI_TEMPLE_IN_05");
-    TA_SitAround	(23,00,16,00,"PSI_TEMPLE_IN_05");	
+    TA_SitAround	(23,00,16,00,"PSI_TEMPLE_IN_05");
 };

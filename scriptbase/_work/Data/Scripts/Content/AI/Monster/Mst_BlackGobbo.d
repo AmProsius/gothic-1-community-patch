@@ -2,7 +2,7 @@
 **	BlackGobbo Prototype												**
 *************************************************************************/
 
-PROTOTYPE Mst_Default_BlackGobbo(C_NPC)			
+PROTOTYPE Mst_Default_BlackGobbo(C_NPC)
 {
 	name							=	"schwarzer Goblin";
 	guild							=	GIL_GOBBO;
@@ -11,7 +11,7 @@ PROTOTYPE Mst_Default_BlackGobbo(C_NPC)
 //------------------------------------------------------------------
 	attribute	[ATR_STRENGTH]		=	20;
 	attribute	[ATR_DEXTERITY]		=	20;
-	
+
 	attribute	[ATR_HITPOINTS_MAX]	=	80;
 	attribute	[ATR_HITPOINTS]		=	80;
 
@@ -39,7 +39,7 @@ PROTOTYPE Mst_Default_BlackGobbo(C_NPC)
 	senses_range	=	3000;		// 30m
 
 	aivar[AIV_MM_Behaviour]		= PACKHUNTER;
-	
+
 	aivar[AIV_MM_PercRange]		= 1500;
 	aivar[AIV_MM_DrohRange]		= 1200;
 	aivar[AIV_MM_AttackRange]	= 700;
@@ -49,7 +49,7 @@ PROTOTYPE Mst_Default_BlackGobbo(C_NPC)
 //------------------------------------------------------------------
 	start_aistate				= ZS_MM_AllScheduler;
 
-	aivar[AIV_MM_RestStart] 	= OnlyRoutine;	
+	aivar[AIV_MM_RestStart] 	= OnlyRoutine;
 };
 //------------------------------------------------------------------
 func void Set_BlackGobbo_Visuals()
@@ -66,7 +66,7 @@ func void Set_BlackGobbo_Visuals()
 INSTANCE BlackGobboMace	(Mst_Default_BlackGobbo)
 {
 	Set_BlackGobbo_Visuals();
-	Npc_SetToFightMode (self, ItMw_1H_Nailmace_01); 
+	Npc_SetToFightMode (self, ItMw_1H_Nailmace_01);
 	attribute[ATR_STRENGTH] = attribute	[ATR_STRENGTH] + 35; // da technisch im Faustkampf
 };
 /*************************************************************************
@@ -79,15 +79,15 @@ INSTANCE BlackGobboWarrior	(Mst_Default_BlackGobbo)
 
 	Set_BlackGobbo_Visuals();
 	Npc_SetToFightMode (self, ItMw_1H_Mace_01);
-	
+
 	attribute	[ATR_STRENGTH]		=	 60+30; //da Gobbos technisch im Faustkampf
-	
+
 	attribute	[ATR_HITPOINTS_MAX]	=	105;
 	attribute	[ATR_HITPOINTS]		=	105;
-	
+
 	protection	[PROT_BLUNT]		=	50;
 	protection	[PROT_EDGE]			=	50;
-	
+
 	name							=	"Goblin Krieger";
-	
+
 };

@@ -1,5 +1,5 @@
 // **************************************
-//					EXIT 
+//					EXIT
 // **************************************
 
 instance DIA_Scorpio_Exit (C_INFO)
@@ -10,7 +10,7 @@ instance DIA_Scorpio_Exit (C_INFO)
 	information	= DIA_Scorpio_Exit_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC int DIA_Scorpio_Exit_Condition()
 {
@@ -34,10 +34,10 @@ instance DIA_Scorpio_Hello (C_INFO)
 	information	= DIA_Scorpio_Hello_Info;
 	permanent	= 0;
 	important 	= 1;
-};                       
+};
 
 FUNC int DIA_Scorpio_Hello_Condition()
-{	
+{
 	if	!C_NpcBelongsToOldcamp (other)
 	&&	(Kapitel < 4)
 	{
@@ -106,7 +106,7 @@ instance DIA_Scorpio_REFUSETRAIN (C_INFO)
 	information	= DIA_Scorpio_REFUSETRAIN_Info;
 	permanent	= 1;
 	description = "Kannst du mir beibringen zu kämpfen?";
-};                       
+};
 
 FUNC int DIA_Scorpio_REFUSETRAIN_Condition()
 {
@@ -120,7 +120,7 @@ FUNC VOID DIA_Scorpio_REFUSETRAIN_Info()
 {
 	AI_Output (other, self,"DIA_Scorpio_REFUSETRAIN_15_00"); //Kannst du mir beibringen zu kämpfen?
 	AI_Output (self, other,"DIA_Scorpio_REFUSETRAIN_13_01"); //Ich unterrichte nur Gardisten. Bis Thorus dich nicht zum Gardisten gemacht hat, musst du dir jemand anderen suchen.
-	
+
 };
 
 //*******************************
@@ -144,20 +144,20 @@ instance GRD_205_Scorpio_WELCOME (C_INFO)
 
 FUNC int  GRD_205_Scorpio_WELCOME_Condition()
 {
-	if (Npc_GetTrueGuild (hero) == GIL_GRD) 
+	if (Npc_GetTrueGuild (hero) == GIL_GRD)
 	{
 		return TRUE;
 	};
 };
 func void  GRD_205_Scorpio_WELCOME_Info()
 {
-	
+
 	AI_Output (self, other,"GRD_205_Scorpio_WELCOME_Info_13_01"); //War die beste Entscheidung von dir, zu uns zu kommen!
 	AI_StopProcessInfos	( self );
 };
 
 /*------------------------------------------------------------------------
-							ARMBRUST TALK							
+							ARMBRUST TALK
 ------------------------------------------------------------------------*/
 
 instance  GRD_205_Scorpio_CROSSBOW (C_INFO)
@@ -167,14 +167,14 @@ instance  GRD_205_Scorpio_CROSSBOW (C_INFO)
 	information		= GRD_205_Scorpio_CROSSBOW_Info;
 	important		= 0;
 	permanent		= 1;
-	description		= "Kann ich von dir lernen?"; 
+	description		= "Kann ich von dir lernen?";
 };
 
 FUNC int  GRD_205_Scorpio_CROSSBOW_Condition()
-{	
+{
 	if (Kapitel >= 4)
-	|| (Npc_GetTrueGuild (hero) == GIL_GRD) 
-	
+	|| (Npc_GetTrueGuild (hero) == GIL_GRD)
+
 	{
 		return TRUE;
 	};
@@ -202,7 +202,7 @@ FUNC void  GRD_205_Scorpio_CROSSBOW_Info()
 	Info_Addchoice 	(GRD_205_Scorpio_CROSSBOW,B_BuildLearnString(NAME_LearnCrossbow_1,	LPCOST_TALENT_CROSSBOW_1,200),GRD_205_Scorpio_CROSSBOW_OK);
 	Info_Addchoice 	(GRD_205_Scorpio_CROSSBOW,DIALOG_BACK,GRD_205_Scorpio_CROSSBOW_BACK);
 
-};  
+};
 func void GRD_205_Scorpio_CROSSBOW_BACK()
 {
 	Info_ClearChoices	(GRD_205_Scorpio_CROSSBOW );
@@ -231,7 +231,7 @@ func void GRD_205_Scorpio_CROSSBOW_OK()
 };
 
 /*------------------------------------------------------------------------
-							ARMBRUST TALENT2									
+							ARMBRUST TALENT2
 ------------------------------------------------------------------------*/
 
 instance  GRD_205_Scorpio_CROSSBOW2 (C_INFO)
@@ -241,12 +241,12 @@ instance  GRD_205_Scorpio_CROSSBOW2 (C_INFO)
 	information		= GRD_205_Scorpio_CROSSBOW2_Info;
 	important		= 0;
 	permanent		= 1;
-	description		= "Zeige mir mehr über den Umgang mit der Armbrust"; 
+	description		= "Zeige mir mehr über den Umgang mit der Armbrust";
 };
 
 FUNC int  GRD_205_Scorpio_CROSSBOW2_Condition()
 {
-	if (Npc_GetTalentSkill  ( hero, NPC_TALENT_CROSSBOW ) == 1) 
+	if (Npc_GetTalentSkill  ( hero, NPC_TALENT_CROSSBOW ) == 1)
 	{
 		return TRUE;
 	};
@@ -256,13 +256,13 @@ FUNC void  GRD_205_Scorpio_CROSSBOW2_Info()
 {
 	AI_Output (other, self,"GRD_205_Scorpio_CROSSBOW2_Info_15_01"); //Zeige mir mehr über den Umgang mit der Armbrust
 	AI_Output (self, other,"GRD_205_Scorpio_CROSSBOW2_Info_13_02"); //Kostet dich 300 Erz.
-  
+
 	Info_ClearChoices (GRD_205_Scorpio_CROSSBOW2);
 	Info_Addchoice 	(GRD_205_Scorpio_CROSSBOW2,B_BuildLearnString(NAME_LearnCrossbow_2,	LPCOST_TALENT_CROSSBOW_2,300),GRD_205_Scorpio_CROSSBOW2_OK);
 	Info_Addchoice 	(GRD_205_Scorpio_CROSSBOW2,DIALOG_BACK,  GRD_205_Scorpio_CROSSBOW2_BACK);
-	
 
-};  
+
+};
 func void GRD_205_Scorpio_CROSSBOW2_BACK()
 {
 	Info_ClearChoices (GRD_205_Scorpio_CROSSBOW);
@@ -290,7 +290,7 @@ func void GRD_205_Scorpio_CROSSBOW2_OK()
 	};
 };
 /*------------------------------------------------------------------------
-Ab Kapitel 4 steht Scorpio draussen, damit der Spieler bei ihm noch lernen kann								
+Ab Kapitel 4 steht Scorpio draussen, damit der Spieler bei ihm noch lernen kann
 ------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------
 //							hey PC!								//
@@ -305,7 +305,7 @@ instance GRD_205_Scorpio_HeyPC (C_INFO)
 };
 
 FUNC int  GRD_205_Scorpio_HeyPC_Condition()
-{	
+{
 	if (kapitel >= 4)
 	&& (Npc_GetDistToNpc (hero,self) < 1000)
 	{
@@ -327,11 +327,11 @@ instance  GRD_205_Scorpio_BANISHED (C_INFO)
 	information		= GRD_205_Scorpio_BANISHED_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "Alles klar bei dir?"; 
+	description		= "Alles klar bei dir?";
 };
 
 FUNC int  GRD_205_Scorpio_BANISHED_Condition()
-{	
+{
 	if (Npc_KnowsInfo (hero,GRD_205_Scorpio_HeyPC))
 	{
 		return TRUE;
@@ -349,10 +349,10 @@ FUNC void  GRD_205_Scorpio_BANISHED_Info()
 	B_LogEntry		(GE_TraderOW,   "Scorpio hat aufgrund der Situation das Alte Lager verlassen und hält sich nun in der Jagdhütte bei Cavalorn zwischen dem Alten und dem Neuen Lager auf.");
 	Scorpio_Exile = TRUE;
 	};
-};  
+};
 
 /*------------------------------------------------------------------------
-							TRADE								
+							TRADE
 ------------------------------------------------------------------------*/
 
 instance  GRD_205_Scorpio_TRADE (C_INFO)
@@ -362,12 +362,12 @@ instance  GRD_205_Scorpio_TRADE (C_INFO)
 	information		= GRD_205_Scorpio_TRADE_Info;
 	important		= 0;
 	permanent		= 1;
-	description		= "Zeig mir deine Ware"; 
+	description		= "Zeig mir deine Ware";
 	trade			= 1;
 };
 
 FUNC int  GRD_205_Scorpio_TRADE_Condition()
-{	
+{
 	if( Npc_KnowsInfo (hero,GRD_205_Scorpio_BANISHED))
 	{
 		return TRUE;
@@ -377,5 +377,5 @@ FUNC int  GRD_205_Scorpio_TRADE_Condition()
 FUNC void  GRD_205_Scorpio_TRADE_Info()
 {
 	AI_Output (other, self,"GRD_205_Scorpio_TRADE_Info_15_01"); //Zeig mir deine Ware.
-	
-};  
+
+};

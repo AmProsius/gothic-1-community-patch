@@ -14,7 +14,7 @@ INSTANCE Info_SFB_5_Pre(C_INFO)
 	information	= Info_SFB_5_Pre_Info;
 	permanent	= 0;
 	important 	= 1;
-};                       
+};
 
 FUNC INT Info_SFB_5_Pre_Condition()
 {
@@ -22,7 +22,7 @@ FUNC INT Info_SFB_5_Pre_Condition()
 };
 
 FUNC VOID Info_SFB_5_Pre_Info()
-{	
+{
 	AI_Output(self,other,"Info_SFB_5_EinerVonEuchWerden_02_00"); //Hallo!
 };
 
@@ -32,13 +32,13 @@ FUNC VOID Info_SFB_5_Pre_Info()
 
 INSTANCE Info_SFB_5_EXIT(C_INFO)
 {
-	
+
 	nr			= 999;
 	condition	= Info_SFB_5_EXIT_Condition;
 	information	= Info_SFB_5_EXIT_Info;
 	permanent	= 1;
 	description = "ENDE";
-};                       
+};
 
 FUNC INT Info_SFB_5_EXIT_Condition()
 {
@@ -46,7 +46,7 @@ FUNC INT Info_SFB_5_EXIT_Condition()
 };
 
 FUNC VOID Info_SFB_5_EXIT_Info()
-{	
+{
 	AI_StopProcessInfos	(self);
 };
 
@@ -54,14 +54,14 @@ FUNC VOID Info_SFB_5_EXIT_Info()
 // 								Einer von Euch werden
 // *************************************************************************
 
-INSTANCE Info_SFB_5_EinerVonEuchWerden (C_INFO) 
+INSTANCE Info_SFB_5_EinerVonEuchWerden (C_INFO)
 {
 	nr			= 4;
 	condition	= Info_SFB_5_EinerVonEuchWerden_Condition;
 	information	= Info_SFB_5_EinerVonEuchWerden_Info;
 	permanent	= 1;
 	description = "Was ist wenn ich hier mitmachen will?";
-};                       
+};
 
 FUNC INT Info_SFB_5_EinerVonEuchWerden_Condition()
 {
@@ -91,7 +91,7 @@ INSTANCE Info_SFB_5_WichtigePersonen(C_INFO)
 	information	= Info_SFB_5_WichtigePersonen_Info;
 	permanent	= 1;
 	description = "Wer ist hier wichtig?";
-};                       
+};
 
 FUNC INT Info_SFB_5_WichtigePersonen_Condition()
 {
@@ -118,7 +118,7 @@ INSTANCE Info_SFB_5_DasLager(C_INFO)
 	information	= Info_SFB_5_DasLager_Info;
 	permanent	= 1;
 	description = "Was gibt es hier im Lager?";
-};                       
+};
 
 FUNC INT Info_SFB_5_DasLager_Condition()
 {
@@ -135,14 +135,14 @@ FUNC VOID Info_SFB_5_DasLager_Info()
 // 									Die Lage
 // *************************************************************************
 
-INSTANCE Info_SFB_5_DieLage(C_INFO) 
+INSTANCE Info_SFB_5_DieLage(C_INFO)
 {
 	nr			= 1;
 	condition	= Info_SFB_5_DieLage_Condition;
 	information	= Info_SFB_5_DieLage_Info;
 	permanent	= 1;
 	description = "Wie ist das Leben hier?";
-};                       
+};
 
 FUNC INT Info_SFB_5_DieLage_Condition()
 {
@@ -155,8 +155,8 @@ FUNC VOID Info_SFB_5_DieLage_Info()
 	AI_Output(self,other,"Info_SFB_5_DieLage_02_01"); //Toll!
 	AI_Output(self,other,"Info_SFB_5_DieLage_02_02"); //Und weil es uns so gut geht, versuchen wir möglichst schnell von hier abzuhauen.
 	AI_Output(self,other,"Info_SFB_5_DieLage_02_03"); //Was glaubst du wo wir sind? Wir sind im Knast und niemand ist gerne im Knast.
-	
-};	
+
+};
 // *************************************************************************
 // -------------------------------------------------------------------------
 
@@ -164,7 +164,7 @@ FUNC VOID B_AssignAmbientInfos_SFB_5(var c_NPC slf)
 {
 
 	Info_SFB_5_Pre.npc					= Hlp_GetInstanceID(slf);
-	
+
 	Info_SFB_5_EXIT.npc					= Hlp_GetInstanceID(slf);
 	Info_SFB_5_EinerVonEuchWerden.npc	= Hlp_GetInstanceID(slf);
 	Info_SFB_5_WichtigePersonen.npc		= Hlp_GetInstanceID(slf);

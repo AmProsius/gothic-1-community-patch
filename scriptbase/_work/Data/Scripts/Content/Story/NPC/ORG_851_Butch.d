@@ -1,12 +1,12 @@
 instance ORG_851_Butch (Npc_Default)
 {
 	//-------- primary data --------
-	
+
 	name =							"Butch";
 	Npctype =						Npctype_Main;
-	guild =							GIL_ORG;      
+	guild =							GIL_ORG;
 	level =							15;
-	
+
 	voice =							13;
 	id =							851;
 
@@ -24,14 +24,14 @@ instance ORG_851_Butch (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Relaxed.mds");
-	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
+	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin
 	Mdl_SetVisualBody (self,"hum_body_Naked0",0,1,"Hum_Head_Bald", 36, 1, ORG_ARMOR_H);
 
-	B_Scale (self);	
-	Mdl_SetModelFatness (self, 0);		
-	
+	B_Scale (self);
+	Mdl_SetModelFatness (self, 0);
+
 	fight_tactic	=	FAI_HUMAN_MASTER;
-	
+
 	//-------- Talente ----------
 
 	Npc_SetTalentSkill (self, NPC_TALENT_BOW,1);
@@ -39,7 +39,7 @@ instance ORG_851_Butch (Npc_Default)
 
 	//------- Inventory ---------
 
-	CreateInvItems (self, ItKeLockpick,1);		
+	CreateInvItems (self, ItKeLockpick,1);
 	CreateInvItems(self, ItMiNugget, 13);
 	CreateInvItems (self, ItFoRice,8);
 	CreateInvItems (self, ItFoBooze, 3);
@@ -52,8 +52,8 @@ instance ORG_851_Butch (Npc_Default)
 	EquipItem (self, ItMw_1H_Mace_War_02);
 	EquipItem (self, ItRw_Bow_Long_01);
 	CreateInvItems (self, ItAmArrow, 20);
-	
-	
+
+
 	//-------------Daily Routine-------------
 	daily_routine = Rtn_start_851;
 	};

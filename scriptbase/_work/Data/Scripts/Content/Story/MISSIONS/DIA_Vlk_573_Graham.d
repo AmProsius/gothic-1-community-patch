@@ -1,5 +1,5 @@
 // ************************************************************
-// 			  				   EXIT 
+// 			  				   EXIT
 // ************************************************************
 
 INSTANCE DIA_Graham_EXIT(C_INFO)
@@ -10,7 +10,7 @@ INSTANCE DIA_Graham_EXIT(C_INFO)
 	information	= Info_Graham_EXIT_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC INT Info_Graham_EXIT_Condition()
 {
@@ -18,7 +18,7 @@ FUNC INT Info_Graham_EXIT_Condition()
 };
 
 FUNC VOID Info_Graham_EXIT_Info()
-{	
+{
 	AI_StopProcessInfos	(self);
 };
 
@@ -34,7 +34,7 @@ INSTANCE DIA_Graham_Hello (C_INFO)
 	information	= DIA_Graham_Hello_Info;
 	permanent	= 0;
 	description = "Hi! Ich bin neu hier.";
-};                       
+};
 
 FUNC INT DIA_Graham_Hello_Condition()
 {
@@ -42,10 +42,10 @@ FUNC INT DIA_Graham_Hello_Condition()
 };
 
 FUNC VOID DIA_Graham_Hello_Info()
-{	
+{
 	AI_Output (other, self,"DIA_Graham_Hello_15_00"); //Hi! Ich bin neu hier.
 	AI_Output (self, other,"DIA_Graham_Hello_02_01"); //Ich bin Graham. Ich zeichne Karten. Dich hab' ich hier noch nie gesehen ... Was willst du?
-	
+
 	B_LogEntry( GE_TraderOC, "Graham der Buddler verkauft Karten links vom Haupptor.");
 };
 
@@ -64,7 +64,7 @@ INSTANCE DIA_Graham_SellMap (C_INFO)
 	information	= DIA_Graham_SellMap_Info;
 	permanent	= 1;
 	description = "Diego schickt mich. Er sagt, du sollst mir ne Karte geben.";
-};                       
+};
 
 FUNC INT DIA_Graham_SellMap_Condition()
 {
@@ -75,7 +75,7 @@ FUNC INT DIA_Graham_SellMap_Condition()
 };
 
 FUNC VOID DIA_Graham_SellMap_Info()
-{	
+{
 	AI_Output (other, self,"DIA_Graham_SellMap_15_00"); //Diego schickt mich. Er sagt, du sollst mir 'ne Karte geben, auf der der Weg zur Alten Mine verzeichnet ist.
 	AI_Output (self, other,"DIA_Graham_SellMap_02_01"); //Kein Problem. Für dich nur 20 Erz.
 	Info_ClearChoices	(DIA_Graham_SellMap );
@@ -136,7 +136,7 @@ INSTANCE DIA_Graham_BuyMaps (C_INFO)
 	permanent	= 1;
 	description = "Ich würde gerne eine Karte kaufen.";
 	Trade 		= 1;
-};                       
+};
 
 FUNC INT DIA_Graham_BuyMaps_Condition()
 {
@@ -147,7 +147,7 @@ FUNC INT DIA_Graham_BuyMaps_Condition()
 };
 
 FUNC VOID DIA_Graham_BuyMaps_Info()
-{	
+{
 	AI_Output (other, self,"DIA_Graham_BuyMaps_15_00"); //Ich würde gerne eine Karte kaufen.
 	AI_Output (self, other,"DIA_Graham_BuyMaps_02_01"); //Klar ... Was suchst du? Je mehr drauf zu sehen ist, desto teurer sind die Karten.
 };
@@ -162,8 +162,8 @@ FUNC VOID DIA_Graham_BuyMaps_Info()
 
 
 
- 
- 
 
- 
- 
+
+
+
+

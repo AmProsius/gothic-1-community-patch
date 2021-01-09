@@ -21,7 +21,7 @@ const int BS_JUMP					=	8;
 const int BS_CLIMB					=	9 	|	BS_FLAG_INTERRUPTABLE;		// GEÄNDERT!
 const int BS_FALL					=  	10;
 const int BS_SIT					=  	11	| 	BS_FLAG_FREEHANDS;
-const int BS_LIE					=  	12;	
+const int BS_LIE					=  	12;
 const int BS_INVENTORY				=  	13;
 const int BS_ITEMINTERACT			=  	14	|	BS_FLAG_INTERRUPTABLE;
 const int BS_MOBINTERACT			=  	15;
@@ -61,5 +61,5 @@ CONST STRING MOB_SIT					=	"BENCH,CHAIR,GROUND,THRONE";
 CONST STRING MOB_LIE					=	"BED,BEDHIGH,BEDLOW";
 CONST STRING MOB_CLIMB					=	"CLIMB,LADDER,RANKE";
 CONST STRING MOB_NOTINTERRUPTABLE		=	"BARRELO,DOOR,HERB,IDOL,LEVER,LOVEBED,PAN,SECRETDOOR,SMOKE,TOUCHPLATE,TURNSWITCH,VWHEEL";
-// alle Mobs, die hier nicht sind, sind interruptable: Backpack, Bellow, Book, Bsanvil, Bscool, Bsfire, Bssharp, Cauldron,Chestbig,Chestsmall,Drum,Fireplace, Grave,LAB, 
+// alle Mobs, die hier nicht sind, sind interruptable: Backpack, Bellow, Book, Bsanvil, Bscool, Bsfire, Bssharp, Cauldron,Chestbig,Chestsmall,Drum,Fireplace, Grave,LAB,
 // Ore, Pillar, Priestgrave, Repair, Ropeway, Sportal,STOMPER,STONEMILL

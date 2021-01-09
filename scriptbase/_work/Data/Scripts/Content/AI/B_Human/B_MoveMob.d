@@ -21,7 +21,7 @@ func void B_MoveMob ()
 			PrintDebugNpc	(PD_ZS_CHECK, "...Türe wurde noch NICHT versucht zu öffnen!");
 			self.aivar[AIV_MOVINGMOB] = 1;
 			Npc_ClearAIQueue(self);									// bleib stehen
-			AI_UseMob		(self,	door, 1);						// falls sie geschlossen ist -> öffnen		
+			AI_UseMob		(self,	door, 1);						// falls sie geschlossen ist -> öffnen
 		}
 		else
 		{

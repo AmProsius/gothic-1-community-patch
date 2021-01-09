@@ -1,5 +1,5 @@
 // ************************************************************
-// 			  				   EXIT 
+// 			  				   EXIT
 // ************************************************************
 
 INSTANCE DIA_Horatio_EXIT (C_INFO)
@@ -10,7 +10,7 @@ INSTANCE DIA_Horatio_EXIT (C_INFO)
 	information	= DIA_Horatio_EXIT_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC INT DIA_Horatio_EXIT_Condition()
 {
@@ -18,7 +18,7 @@ FUNC INT DIA_Horatio_EXIT_Condition()
 };
 
 FUNC VOID DIA_Horatio_EXIT_Info()
-{	
+{
 	AI_StopProcessInfos	(self);
 };
 
@@ -34,7 +34,7 @@ INSTANCE Info_Horatio_Wasser(C_INFO)
 	information	= Info_Horatio_Wasser_Info;
 	permanent	= 1;
 	description = "Lefty schickt mich. Ich hab' Wasser für dich.";
-};                       
+};
 
 FUNC INT Info_Horatio_Wasser_Condition()
 {
@@ -85,7 +85,7 @@ INSTANCE DIA_Horatio_Hello (C_INFO)
 	information	= DIA_Horatio_Hello_Info;
 	permanent	= 0;
 	important	= 1;
-};                       
+};
 
 FUNC INT DIA_Horatio_Hello_Condition()
 {
@@ -93,11 +93,11 @@ FUNC INT DIA_Horatio_Hello_Condition()
 };
 
 FUNC VOID DIA_Horatio_Hello_Info()
-{	
+{
 	AI_GotoNpc	(self, hero);
 
 	AI_Output (self, other,"DIA_Horatio_Hello_09_00"); //Was machst du hier? Willst du Ärger haben?
-	
+
 	Info_ClearChoices(DIA_Horatio_Hello );
 	Info_AddChoice	 (DIA_Horatio_Hello, "Ärger? Von wem? Von einem Bauern?",DIA_Horatio_Hello_PissOff);
 	Info_AddChoice	 (DIA_Horatio_Hello, "Entspann dich! Ich bin neu hier."	,DIA_Horatio_Hello_BeCool);
@@ -116,7 +116,7 @@ func void DIA_Horatio_Hello_PissOff()
 	AI_Output (self, other,"DIA_Horatio_Hello_PissOff_09_01"); //Nur weil ich auf den Feldern arbeite, heißt das nicht, dass ich mich nicht gegen Typen wie dich wehren kann.
 	AI_Output (self, other,"DIA_Horatio_Hello_PissOff_09_02"); //Also komm nur her, wenn du Ärger willst!
 	horatio_trouble = TRUE;
-	
+
 	Info_ClearChoices(DIA_Horatio_Hello);
 	AI_StopProcessInfos	(self);
 };
@@ -133,7 +133,7 @@ INSTANCE DIA_Horatio_SORRY (C_INFO)
 	information	= DIA_Horatio_SORRY_Info;
 	permanent	= 1;
 	description = "Tut mir leid, der Spruch mit dem Bauern.";
-};                       
+};
 
 FUNC INT DIA_Horatio_SORRY_Condition()
 {
@@ -144,7 +144,7 @@ FUNC INT DIA_Horatio_SORRY_Condition()
 };
 
 FUNC VOID DIA_Horatio_SORRY_Info()
-{	
+{
 	AI_Output (other, self,"DIA_Horatio_SORRY_15_00"); //Tut mir Leid, der Spruch mit dem Bauern.
 	AI_Output (self, other,"DIA_Horatio_SORRY_09_01"); //Das hättest du dir eher überlegen sollen, Junge!
 };
@@ -161,7 +161,7 @@ INSTANCE DIA_Horatio_Story (C_INFO)
 	information	= DIA_Horatio_Story_Info;
 	permanent	= 0;
 	description = "Was macht ein Kerl wie du bei den Bauern?";
-};                       
+};
 
 FUNC INT DIA_Horatio_Story_Condition()
 {
@@ -172,7 +172,7 @@ FUNC INT DIA_Horatio_Story_Condition()
 };
 
 FUNC VOID DIA_Horatio_Story_Info()
-{	
+{
 	AI_Output (other, self,"DIA_Horatio_Story_15_00"); //Was macht ein Kerl wie du bei den Bauern?
 	AI_Output (self, other,"DIA_Horatio_Story_09_01"); //Das hat Lee mich auch gefragt, aber ich kämpfe nicht mehr - außer um mich zu verteidigen.
 	AI_Output (self, other,"DIA_Horatio_Story_09_02"); //Ich habe einmal getötet, das war einmal zu viel. Deswegen haben sie mich in diese gottverdammte Kolonie geworfen - und das war nur gerecht.
@@ -193,7 +193,7 @@ INSTANCE DIA_Horatio_WhyHere (C_INFO)
 	information	= DIA_Horatio_WhyHere_Info;
 	permanent	= 0;
 	description = "Warum bist du ausgerechnet in DIESES Lager gegangen?";
-};                       
+};
 
 FUNC INT DIA_Horatio_WhyHere_Condition()
 {
@@ -204,7 +204,7 @@ FUNC INT DIA_Horatio_WhyHere_Condition()
 };
 
 FUNC VOID DIA_Horatio_WhyHere_Info()
-{	
+{
 	AI_Output (other, self,"DIA_Horatio_WhyHere_15_00"); //Warum bist du ausgerechnet in DIESES Lager gegangen?
 	AI_Output (self, other,"DIA_Horatio_WhyHere_09_01"); //Das will ich dir sagen: Die einzig andere Wahl wären die Sektenspinner gewesen, aber ich habe keine Lust, mir von den Gurus den Kopf waschen zu lassen.
 	AI_Output (self, other,"DIA_Horatio_WhyHere_09_02"); //Im Alten Lager hätte ich keine Ruhe vor den Gardisten gehabt, aber die Söldner und Banditen haben Respekt.
@@ -226,7 +226,7 @@ INSTANCE DIA_Horatio_PleaseTeachSTR (C_INFO)
 	information	= DIA_Horatio_PleaseTeachSTR_Info;
 	permanent	= 0;
 	description = "Kannst du mir beibringen, auch so stark zuzuschlagen?";
-};                       
+};
 
 FUNC INT DIA_Horatio_PleaseTeachSTR_Condition()
 {
@@ -237,7 +237,7 @@ FUNC INT DIA_Horatio_PleaseTeachSTR_Condition()
 };
 
 FUNC VOID DIA_Horatio_PleaseTeachSTR_Info()
-{	
+{
 	AI_Output (other, self,"DIA_Horatio_PleaseTeachSTR_15_00"); //Kannst du mir beibringen, auch so stark zuzuschlagen?
 	AI_Output (self, other,"DIA_Horatio_PleaseTeachSTR_09_01"); //Selbst wenn - zu WAS würde jemand wie du seine Stärke einsetzen?
 	Info_ClearChoices(DIA_Horatio_PleaseTeachSTR );
@@ -297,7 +297,7 @@ INSTANCE DIA_Horatio_ThoughtSTR (C_INFO)
 	information	= DIA_Horatio_ThoughtSTR_Info;
 	permanent	= 1;
 	description = "Ich hab' nochmal über die Sache nachgedacht...";
-};                       
+};
 
 FUNC INT DIA_Horatio_ThoughtSTR_Condition()
 {
@@ -308,13 +308,13 @@ FUNC INT DIA_Horatio_ThoughtSTR_Condition()
 };
 
 FUNC VOID DIA_Horatio_ThoughtSTR_Info()
-{	
+{
 	AI_Output (other, self,"DIA_Horatio_ThoughtSTR_15_00"); //Ich hab' noch einmal über die Sache nachgedacht ...
 	AI_Output (self, other,"DIA_Horatio_ThoughtSTR_09_01"); //Und? Ist dir was Besseres eingefallen?
-	
+
 	Info_ClearChoices(DIA_Horatio_ThoughtSTR );
 	Info_AddChoice	 (DIA_Horatio_ThoughtSTR, "Nein.",DIA_Horatio_ThoughtSTR_NoIdea);
-	
+
 	var C_NPC ricelord; ricelord = Hlp_GetNpc(Bau_900_Ricelord);
 	if	Npc_KnowsInfo(hero,DIA_Jeremiah_Horatio)
 	{
@@ -334,7 +334,7 @@ func void DIA_Horatio_ThoughtSTR_Ricelord()
 	AI_Output (other, self,"DIA_Horatio_ThoughtSTR_Ricelord_15_00"); //Ja. Ich will es mit dem Reislord und seinen Schlägern aufnehmen können!
 	AI_Output (self, other,"DIA_Horatio_ThoughtSTR_Ricelord_09_01"); //Hmm ... Du bist nicht der Erste, der das versucht.
 	horatio_StrFree = TRUE;
-	
+
 	Info_ClearChoices(DIA_Horatio_ThoughtSTR );
 };
 
@@ -351,10 +351,10 @@ func void DIA_Horatio_HelpSTR_LEARN_NOW()
 	}
 	else
 	{
-		other.attribute[ATR_STRENGTH] = 100; 
+		other.attribute[ATR_STRENGTH] = 100;
 		PrintScreen	("Stärke: 100", -1,-1,"FONT_OLD_20_WHITE.TGA",2);
 	};
-				
+
 	AI_Output (self, other,"DIA_Horatio_HelpSTR_LEARN_NOW_09_00"); //Wenn du stark zuschlagen willst, kommt es auf die richtige Technik an. Das ist das Erste, was du beim Schmieden lernst.
 	AI_Output (self, other,"DIA_Horatio_HelpSTR_LEARN_NOW_09_01"); //Lerne jeden Teil deines Arms, von der Schulter bis zum Handgelenk, gleichzeitig nach vorne schnellen zu lassen.
 	AI_Output (self, other,"DIA_Horatio_HelpSTR_LEARN_NOW_09_02"); //Je besser die Technik, umso härter der Schlag. Du wirst es schnell raushaben.
@@ -370,7 +370,7 @@ INSTANCE DIA_Horatio_HelpSTR (C_INFO)
 	information	= DIA_Horatio_HelpSTR_Info;
 	permanent	= 0;
 	description = "Ich WERDE den Reislord fertig machen - wenn du mir dabei hilfst!";
-};                       
+};
 
 FUNC INT DIA_Horatio_HelpSTR_Condition()
 {
@@ -381,7 +381,7 @@ FUNC INT DIA_Horatio_HelpSTR_Condition()
 };
 
 FUNC VOID DIA_Horatio_HelpSTR_Info()
-{	
+{
 	AI_Output (other, self,"DIA_Horatio_HelpSTR_15_00"); //Ich WERDE den Reislord und seine Schläger fertig machen - wenn du mir dabei hilfst!
 	AI_Output (self, other,"DIA_Horatio_HelpSTR_09_01"); //Gut! Ich habe geschworen, nie wieder jemanden anzugreifen, aber NICHT, es niemandem beizubringen.
 	AI_Output (other, self,"DIA_Horatio_HelpSTR_15_02"); //Ich bin ganz Ohr!
@@ -403,7 +403,7 @@ INSTANCE DIA_Horatio_Thanks (C_INFO)
 	information	= DIA_Horatio_Thanks_Info;
 	permanent	= 1;
 	description = "Danke für deine Hilfe!";
-};                       
+};
 
 FUNC INT DIA_Horatio_Thanks_Condition()
 {
@@ -414,7 +414,7 @@ FUNC INT DIA_Horatio_Thanks_Condition()
 };
 
 FUNC VOID DIA_Horatio_Thanks_Info()
-{	
+{
 	AI_Output (other, self,"DIA_Horatio_Thanks_15_00"); //Danke für deine Hilfe!
 	AI_Output (self, other,"DIA_Horatio_Thanks_09_01"); //Nutze dein Wissen für die gerechte Sache! Und NUR DAFÜR.
 };

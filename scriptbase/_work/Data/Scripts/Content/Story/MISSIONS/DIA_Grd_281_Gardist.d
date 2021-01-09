@@ -1,5 +1,5 @@
 // **************************************************
-// 						 EXIT 
+// 						 EXIT
 // **************************************************
 
 INSTANCE DIA_Grd_281_Exit (C_INFO)
@@ -10,7 +10,7 @@ INSTANCE DIA_Grd_281_Exit (C_INFO)
 	information	= DIA_Grd_281_Exit_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC INT DIA_Grd_281_Exit_Condition()
 {
@@ -33,13 +33,13 @@ INSTANCE DIA_Grd_281_GuardGate (C_INFO)
 	condition		= DIA_Grd_281_GuardGate_Condition;
 	information		= DIA_Grd_281_GuardGate_Info;
 	permanent		= 1;
-	description		= "Wie steht's?"; 
+	description		= "Wie steht's?";
 };
 
 FUNC INT DIA_Grd_281_GuardGate_Condition()
-{	
+{
 	if (!C_NpcBelongsToNewcamp (other))
-	{	
+	{
 		return 1;
 	};
 };

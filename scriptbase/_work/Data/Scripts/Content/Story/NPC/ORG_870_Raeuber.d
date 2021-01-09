@@ -1,12 +1,12 @@
 instance ORG_870_Raeuber (Npc_Default)
 {
 	//-------- primary data --------
-	
+
 	name =					Name_Raeuber;
 	Npctype =				NPCTYPE_ROGUE;
-	guild =					GIL_NONE;      
+	guild =					GIL_NONE;
 	level =					12;
-	
+
 	voice =					7;
 	id =					870;
 
@@ -24,23 +24,23 @@ instance ORG_870_Raeuber (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 //	Mdl_ApplyOverlayMds	(self,"Humans_Relaxed.mds");
-	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
+	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin
 	Mdl_SetVisualBody (self,"hum_body_Naked0",0, 2,"Hum_Head_Fighter", 9, 3, ORG_ARMOR_L);
-	
-	B_Scale (self);	
-	Mdl_SetModelFatness (self, 0);		
-	
+
+	B_Scale (self);
+	Mdl_SetModelFatness (self, 0);
+
 	fight_tactic	=	FAI_HUMAN_STRONG;
-	
+
 	//-------- Talente ----------
 
 	Npc_SetTalentSkill (self, NPC_TALENT_BOW,1);
 	Npc_SetTalentSkill (self, NPC_TALENT_1H,1);
-	
-	
-	//-------- inventory --------   
-	                                 
-	CreateInvItems (self, ItKeLockpick,1);		
+
+
+	//-------- inventory --------
+
+	CreateInvItems (self, ItKeLockpick,1);
 	CreateInvItems(self, ItMiNugget, 11);
 	CreateInvItems (self, ItFoRice,8);
 	CreateInvItems (self, ItFoBooze, 1);
@@ -56,30 +56,30 @@ instance ORG_870_Raeuber (Npc_Default)
 
 	//-------------Daily Routine-------------
 	daily_routine = Rtn_start_870;
-	
+
 	//------------ //MISSIONs-------------------
 };
 
 FUNC VOID Rtn_start_870 ()
 {
-    TA_SitAround		(13,00,14,00,"LOCATION_11_12");	
+    TA_SitAround		(13,00,14,00,"LOCATION_11_12");
     TA_SitAround		(14,00,13,00,"LOCATION_11_12");
 };
 
 FUNC VOID Rtn_OMFull_870 ()
 {
-	 TA_SitAround		(13,00,14,00,"LOCATION_11_12");	
+	 TA_SitAround		(13,00,14,00,"LOCATION_11_12");
     TA_SitAround		(14,00,13,00,"LOCATION_11_12");
 };
 
-FUNC VOID Rtn_FMTaken_870 () 
+FUNC VOID Rtn_FMTaken_870 ()
 {
-	 TA_SitAround		(13,00,14,00,"LOCATION_11_12");	
+	 TA_SitAround		(13,00,14,00,"LOCATION_11_12");
     TA_SitAround		(14,00,13,00,"LOCATION_11_12");
 };
 
-FUNC VOID Rtn_OrcAssault_870 () 
+FUNC VOID Rtn_OrcAssault_870 ()
 {
-	 TA_SitAround		(13,00,14,00,"LOCATION_11_12");	
+	 TA_SitAround		(13,00,14,00,"LOCATION_11_12");
     TA_SitAround		(14,00,13,00,"LOCATION_11_12");
 };

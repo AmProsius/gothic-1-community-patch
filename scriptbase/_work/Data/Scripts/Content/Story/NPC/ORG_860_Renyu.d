@@ -1,12 +1,12 @@
 instance ORG_860_Renyu (Npc_Default)
 {
 	//-------- primary data --------
-	
+
 	name =					"Krautmischer";
 	Npctype =				Npctype_Main;
-	guild =					GIL_ORG;      
+	guild =					GIL_ORG;
 	level =					8;
-	
+
 	voice =					6;
 	id =					860;
 
@@ -24,28 +24,28 @@ instance ORG_860_Renyu (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Relaxed.mds");
-	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
+	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin
 	Mdl_SetVisualBody (self,"hum_body_Naked0",0, 1, "Hum_Head_FatBald", 36, 2, ORG_ARMOR_L);
-	
-	B_Scale (self);	
-	Mdl_SetModelFatness (self, 0);		
-	
+
+	B_Scale (self);
+	Mdl_SetModelFatness (self, 0);
+
 	fight_tactic	=	FAI_HUMAN_STRONG;
-	
+
 	//-------- Talente ----------
 
 	Npc_SetTalentSkill (self, NPC_TALENT_BOW,1);
 	Npc_SetTalentSkill (self, NPC_TALENT_1H,1);
-	
 
-	//-------- inventory --------   
-	                                 
-		
+
+	//-------- inventory --------
+
+
 	CreateInvItems(self, ItMiNugget, 80);
 	CreateInvItems (self, ItFo_Potion_Health_01, 2);
 	EquipItem (self, ItMw_1H_Mace_03);
-	
-	
+
+
 	//-------------Daily Routine-------------
 	daily_routine = Rtn_start_860;
 };

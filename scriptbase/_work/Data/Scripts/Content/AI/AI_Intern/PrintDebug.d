@@ -72,7 +72,7 @@ func void PrintDebugNpc (var int type, var string text)
 	pipe = ConcatStrings(pipe, ")");
 	pipe = ConcatStrings(pipe,		" ### -> ");
 	pipe = ConcatStrings(pipe,		text);
-	
+
 	PrintDebugInstCh(type, pipe);
 };
 
@@ -92,21 +92,21 @@ func void PrintGlobals (var int channel)
 		pipe = ConcatStrings("...self:   ",	self.name);
 		PrintDebugNpc 		(channel,		pipe);
 	};
-	
+
 	//-------- global 'other' --------
 	if (Hlp_IsValidNpc(other))
 	{
 		pipe = ConcatStrings("...other:  ",	other.name);
 		PrintDebugNpc 		(channel,		pipe);
 	};
-	
+
 	//-------- global 'victim' --------
 	if (Hlp_IsValidNpc(victim))
 	{
 		pipe = ConcatStrings("...victim: ",	victim.name);
 		PrintDebugNpc 		(channel,		pipe);
 	};
-	
+
 	//-------- global 'hero' --------
 	if (Hlp_IsValidNpc(hero))
 	{
@@ -131,7 +131,7 @@ func void PrintGlobals (var int channel)
 func void PrintGuild (var int channel, var int guild)
 {
 	PrintDebugNpc	(channel, "PrintGuild");
-	
+
 	if (guild ==  GIL_NONE		) { PrintDebugNpc	( channel, "...Gilde: GIL_NONE");};
 	if (guild ==  GIL_EBR	    ) { PrintDebugNpc   ( channel, "...Gilde: GIL_EBR");};
 	if (guild ==  GIL_GRD	    ) { PrintDebugNpc   ( channel, "...Gilde: GIL_GRD");};
@@ -143,11 +143,11 @@ func void PrintGuild (var int channel, var int guild)
 	if (guild ==  GIL_ORG	    ) { PrintDebugNpc   ( channel, "...Gilde: GIL_ORG");};
 	if (guild ==  GIL_BAU	    ) { PrintDebugNpc   ( channel, "...Gilde: GIL_BAU");};
 	if (guild ==  GIL_SFB	    ) { PrintDebugNpc   ( channel, "...Gilde: GIL_SFB");};
-	   
+
 	if (guild ==  GIL_GUR	    ) { PrintDebugNpc   ( channel, "...Gilde: GIL_GUR");};
 	if (guild ==  GIL_NOV	    ) { PrintDebugNpc   ( channel, "...Gilde: GIL_NOV");};
 	if (guild ==  GIL_TPL	    ) { PrintDebugNpc   ( channel, "...Gilde: GIL_TPL");};
-	   
+
 	if (guild ==  GIL_DMB	    ) { PrintDebugNpc   ( channel, "...Gilde: GIL_DMB");};
 	if (guild ==  GIL_BAB	    ) { PrintDebugNpc   ( channel, "...Gilde: GIL_BAB");};
 };
@@ -161,49 +161,49 @@ func void PrintAttitudes (var int channel)
 {
 	PrintDebugNpc	(channel, "PrintAttitudes");
 
-	// Initialisierung der lokalen Hilfsvariablen 
+	// Initialisierung der lokalen Hilfsvariablen
 	var int temp_attitude;
 	var int perm_attitude;
-	
+
 	// Zuweisung der Variablen
 	temp_attitude	=	Npc_GetAttitude ( self, hero);
 	perm_attitude	=	Npc_GetPermAttitude	( self, hero);
-	
+
 	// Check Block auf temporäre Attitüde des Nsc´s
 	if (temp_attitude	==	ATT_HOSTILE)
 	{
-		PrintDebugNpc( channel, "TempAttitude == ATT_HOSTILE");			
-	};	
+		PrintDebugNpc( channel, "TempAttitude == ATT_HOSTILE");
+	};
 	if (temp_attitude	==	ATT_ANGRY)
 	{
-		PrintDebugNpc( channel, "TempAttitude == ATT_ANGRY");			
+		PrintDebugNpc( channel, "TempAttitude == ATT_ANGRY");
 	};
 	if (temp_attitude	==	ATT_NEUTRAL)
 	{
-		PrintDebugNpc( channel, "TempAttitude == ATT_NEUTRAL");			
+		PrintDebugNpc( channel, "TempAttitude == ATT_NEUTRAL");
 	};
 	if (temp_attitude	==	ATT_FRIENDLY)
 	{
-		PrintDebugNpc( channel, "TempAttitude == ATT_FRIENDLY");					
+		PrintDebugNpc( channel, "TempAttitude == ATT_FRIENDLY");
 	};
 	if (perm_attitude == ATT_HOSTILE)
 	{
-		PrintDebugNpc( channel, "PermAttitude == ATT_HOSTILE");			
+		PrintDebugNpc( channel, "PermAttitude == ATT_HOSTILE");
 	};
 	if (perm_attitude == ATT_ANGRY)
 	{
-		PrintDebugNpc( channel, "PermAttitude == ATT_ANGRY");			
+		PrintDebugNpc( channel, "PermAttitude == ATT_ANGRY");
 	};
 	if (perm_attitude == ATT_NEUTRAL)
 	{
-		PrintDebugNpc( channel, "PermAttitude == ATT_NEUTRAL");			
+		PrintDebugNpc( channel, "PermAttitude == ATT_NEUTRAL");
 	};
 	if (perm_attitude == ATT_FRIENDLY)
 	{
-		PrintDebugNpc( channel, "PermAttitude == ATT_FRIENDLY");			
+		PrintDebugNpc( channel, "PermAttitude == ATT_FRIENDLY");
 	};
 };
-		
+
 //////////////////////////////////////////////////////////////////////////
 //	PrintDebugInt
 //	-------------

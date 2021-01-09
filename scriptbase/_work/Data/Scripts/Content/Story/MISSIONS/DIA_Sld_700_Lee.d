@@ -1,5 +1,5 @@
 //*********************************************************
-//							EXIT									
+//							EXIT
 //*********************************************************
 
 instance  Sld_700_Lee_Exit (C_INFO)
@@ -8,10 +8,10 @@ instance  Sld_700_Lee_Exit (C_INFO)
 	nr			=  999;
 	condition	=  Sld_700_Lee_Exit_Condition;
 	information	=  Sld_700_Lee_Exit_Info;
-	important	=  0;	
+	important	=  0;
 	permanent	=  1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC int  Sld_700_Lee_Exit_Condition()
 {
@@ -24,7 +24,7 @@ FUNC VOID  Sld_700_Lee_Exit_Info()
 };
 
 //*********************************************************
-//						Greet									
+//						Greet
 //*********************************************************
 
 instance  Sld_700_Lee_Greet (C_INFO)
@@ -35,7 +35,7 @@ instance  Sld_700_Lee_Greet (C_INFO)
 	information	=  Sld_700_Lee_Greet_Info;
 	permanent	=  0;
 	description = "Du bist der Chef der Söldner, richtig?";
-};                       
+};
 
 FUNC int  Sld_700_Lee_Greet_Condition()
 {
@@ -49,7 +49,7 @@ FUNC VOID  Sld_700_Lee_Greet_Info()
 };
 
 //*********************************************************
-//						Define									
+//						Define
 //*********************************************************
 
 instance  Sld_700_Lee_Define (C_INFO)
@@ -60,7 +60,7 @@ instance  Sld_700_Lee_Define (C_INFO)
 	information	=  Sld_700_Lee_Define_Info;
 	permanent	=  0;
 	description = "Was sind die Aufgaben eines Söldners der Magier?";
-};                       
+};
 
 FUNC int  Sld_700_Lee_Define_Condition()
 {
@@ -78,7 +78,7 @@ FUNC VOID  Sld_700_Lee_Define_Info()
 };
 
 //*********************************************************
-//						Mitmachen									
+//						Mitmachen
 //*********************************************************
 
 instance  Sld_700_Lee_Mitmachen (C_INFO)
@@ -89,7 +89,7 @@ instance  Sld_700_Lee_Mitmachen (C_INFO)
 	information	=  Sld_700_Lee_Mitmachen_Info;
 	permanent	=  0;
 	description = "Ich will bei euch mitmachen!";
-};                       
+};
 
 FUNC int  Sld_700_Lee_Mitmachen_Condition()
 {
@@ -109,7 +109,7 @@ FUNC VOID  Sld_700_Lee_Mitmachen_Info()
 };
 
 //*********************************************************
-//						NowReady for Sld?									
+//						NowReady for Sld?
 //*********************************************************
 	var int Lee_SldPossible;
 //*********************************************************
@@ -122,7 +122,7 @@ instance  Sld_700_Lee_NowReady (C_INFO)
 	information	=  Sld_700_Lee_NowReady_Info;
 	permanent	=  1;
 	description = "Ich will ein Söldner der Magier werden - bin ich jetzt soweit?";
-};                       
+};
 
 FUNC int  Sld_700_Lee_NowReady_Condition()
 {
@@ -136,12 +136,12 @@ FUNC int  Sld_700_Lee_NowReady_Condition()
 FUNC VOID  Sld_700_Lee_NowReady_Info()
 {
 	AI_Output (other, self,"DIA_Lee_NowReady_15_00"); //Ich will ein Söldner der Magier werden - bin ich jetzt soweit?
-	
+
 	if (CorKalom_BringMCQBalls == LOG_SUCCESS)
 	{
-		AI_Output			(self, other,"Sld_700_Lee_BECOMESLD_Info_08_01"); //Deine Taten für die Bruderschaft in der Alten Mine haben gezeigt, das du einiges drauf hast. 
+		AI_Output			(self, other,"Sld_700_Lee_BECOMESLD_Info_08_01"); //Deine Taten für die Bruderschaft in der Alten Mine haben gezeigt, das du einiges drauf hast.
 		AI_Output			(self, other,"Sld_700_Lee_BECOMESLD_Info_08_02"); //Ich wäre bereit, dich in die Reihen der Söldner aufzunehmen.
-	
+
 		if hero.level < 10
 		{
 			AI_Output			(self, other,"Sld_700_Lee_BECOMESLD_Info_08_03"); //Aber du bist noch nicht bereit für die Söldner. Sammle erst noch mehr Erfahrung, dann bist du dabei.
@@ -155,7 +155,7 @@ FUNC VOID  Sld_700_Lee_NowReady_Info()
 		};
 	}
 	else
-	{	
+	{
 		if hero.level < 10
 		{
 			AI_Output (self, other,"DIA_Lee_NowReady_08_01"); //Dir fehlt es noch an Erfahrung. Du mußt deine Fähigkeiten noch steigern.
@@ -170,7 +170,7 @@ FUNC VOID  Sld_700_Lee_NowReady_Info()
 };
 
 /*------------------------------------------------------------------------
-							SÖLDNER WERDEN	2									
+							SÖLDNER WERDEN	2
 ------------------------------------------------------------------------*/
 
 instance  Sld_700_Lee_BECOMESLDNOW (C_INFO)
@@ -180,11 +180,11 @@ instance  Sld_700_Lee_BECOMESLDNOW (C_INFO)
 	information		= Sld_700_Lee_BECOMESLDNOW_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "Ich will Söldner werden"; 
+	description		= "Ich will Söldner werden";
 };
 
 FUNC int  Sld_700_Lee_BECOMESLDNOW_Condition()
-{	
+{
 	if (Lee_SldPossible == TRUE)
 	&& (hero.level >= 10)
 	{
@@ -200,13 +200,13 @@ FUNC void  Sld_700_Lee_BECOMESLDNOW_Info()
 
 	Log_CreateTopic		(GE_BecomeMercenary,LOG_NOTE);
 	B_LogEntry			(GE_BecomeMercenary,"Lee hat mich bei den Söldnern aufgenommen.");
-	
+
 	Info_ClearChoices	(Sld_700_Lee_BECOMESLDNOW);
 	Info_AddChoice		(Sld_700_Lee_BECOMESLDNOW,"Die anderen Lager sind es nicht wert",Sld_700_Lee_BECOMESLDNOW_NOOTHER);
 	Info_AddChoice		(Sld_700_Lee_BECOMESLDNOW,"Ich wollte von Anfang an die Freiheit",Sld_700_Lee_BECOMESLDNOW_FREEDOM);
 	Info_AddChoice		(Sld_700_Lee_BECOMESLDNOW,"Es hat sich einfach so ergeben",Sld_700_Lee_BECOMESLDNOW_JUSTBECAUSE);
 };
-  
+
 FUNC void  Sld_700_Lee_BECOMESLDNOW_NOOTHER()
 {
 	AI_Output			(other, self,"Sld_700_Lee_BECOMESLDNOW_NOOTHER_15_01"); //Die anderen Lager sind es nicht wert.
@@ -251,7 +251,7 @@ FUNC void  Sld_700_Lee_BECOMESLDNOW_JUSTBECAUSE()
 //##
 //#####################################################################
 /*------------------------------------------------------------------------
-							SZENE DAMM									
+							SZENE DAMM
 ------------------------------------------------------------------------*/
 
 instance Sld_700_Lee_DAMNPAST (C_INFO)
@@ -264,10 +264,10 @@ instance Sld_700_Lee_DAMNPAST (C_INFO)
 };
 
 FUNC int  Sld_700_Lee_DAMNPAST_Condition()
-{	
+{
 	if (Saturas_BringFoci == 5)
-	&& (Npc_GetDistToNpc (hero,self) < 1000)	
-	&& (Npc_GetDistToWp (self,"NC_DAM") < 1000) 
+	&& (Npc_GetDistToNpc (hero,self) < 1000)
+	&& (Npc_GetDistToWp (self,"NC_DAM") < 1000)
 	{
 		return TRUE;
 	};
@@ -282,21 +282,21 @@ func void  Sld_700_Lee_DAMNPAST_Info()
 	AI_Output			(self, other,"Sld_700_Lee_DAMNPAST_Info_08_06"); //Der sinnlose Mord an ihr wurde mir angehängt. König Rhobar blieb keine Wahl.
 	AI_Output			(self, other,"Sld_700_Lee_DAMNPAST_Info_08_07"); //Meine Verdienste um das Land retteten mich vor dem Strick. Aber sie haben mir meine Freiheit genommen.
 	AI_Output			(self, other,"Sld_700_Lee_DAMNPAST_Info_08_08"); //Eines Tages werde ich wieder frei sein. Dann werde ich zurückkehren und ich werde Rache nehmen.
-	
+
 	AI_AlignToWP		(self);
-	
+
 	AI_Output			(self, other,"Sld_700_Lee_DAMNPAST_Info_08_09"); //Ich werde mich rächen.
-	
+
 	Npc_ExchangeRoutine (self,"START");
-	
+
 	var C_NPC Homer;
 	Homer = Hlp_GetNpc	(BAU_935_HOMER);
-	Npc_ExchangeRoutine	(Homer,"START"); 
+	Npc_ExchangeRoutine	(Homer,"START");
 	AI_ContinueRoutine	(Homer);
 };
 
 //*********************************************************
-//						FMTaken									
+//						FMTaken
 //*********************************************************
 
 instance  Sld_700_Lee_FMTaken (C_INFO)
@@ -307,7 +307,7 @@ instance  Sld_700_Lee_FMTaken (C_INFO)
 	information	=  Sld_700_Lee_FMTaken_Info;
 	permanent	=  1;
 	description = "Was sagst du zu der Sache mit der Mine?";
-};                       
+};
 
 FUNC int  Sld_700_Lee_FMTaken_Condition()
 {
@@ -320,12 +320,12 @@ FUNC int  Sld_700_Lee_FMTaken_Condition()
 FUNC VOID  Sld_700_Lee_FMTaken_Info()
 {
 	AI_Output (other, self,"DIA_Lee_FMTaken_15_00"); //Was sagst du zu der Sache mit der Mine?
-	
+
 	if (Lee_freeminereport == 0) 					//SC hat jetzt die Möglichkeit, Lee über die freie Mine zu informieren! ***Björn***
 	{
-	
+
 		AI_Output (self, other,"DIA_Lee_FMTaken_08_01"); //Sie sind zu weit gegangen, dafür werden sie büßen.
-	
+
 	}
 	else
 	{
@@ -339,15 +339,15 @@ FUNC VOID  Sld_700_Lee_FMTaken_Info()
 
 
 		B_LogEntry			(CH4_BannedFromOC,	"Ich habe Lee über Gorns und mein Aufräumen in der freien Mine informiert. Er zeigte sich sehr zufrieden.");
-		
+
  	   	B_GiveInvItems (self,other, ItArRuneFirestorm, 1);
-		B_GiveXP (500);		
+		B_GiveXP (500);
 		Lee_freeminereport = 0;
 	};
 };
 
 /*------------------------------------------------------------------------
-						WECHSEL VON GRD ZU SLD								
+						WECHSEL VON GRD ZU SLD
 ------------------------------------------------------------------------*/
 instance  Sld_700_Lee_CHANGESIDE (C_INFO)
 {
@@ -356,11 +356,11 @@ instance  Sld_700_Lee_CHANGESIDE (C_INFO)
 	information		= Sld_700_Lee_CHANGESIDE_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "Das Alte Lager hat mich verbannt, ich möchte mich euch anschließen!"; 
+	description		= "Das Alte Lager hat mich verbannt, ich möchte mich euch anschließen!";
 };
 
 FUNC int  Sld_700_Lee_CHANGESIDE_Condition()
-{	
+{
 	if (Npc_KnowsInfo (hero,KDW_600_Saturas_GOTOLEE))
 	{
 		return TRUE;
@@ -379,10 +379,10 @@ FUNC void  Sld_700_Lee_CHANGESIDE_Info()
 	B_GiveInvItems      (self, hero, SLD_ARMOR_M, 1);
 	Npc_GetInvItemBySlot(hero, INV_ARMOR, 2);
 	if (Hlp_GetInstanceID(item)==SLD_ARMOR_M)
-	{	
+	{
 		AI_EquipArmor	(hero, item);
 	};
-	
+
 	Npc_SetTrueGuild	(hero, GIL_SLD);
 	hero.guild = GIL_SLD;
 
@@ -390,10 +390,10 @@ FUNC void  Sld_700_Lee_CHANGESIDE_Info()
 
 	Log_CreateTopic 	(GE_TeacherNC,LOG_NOTE);
 	B_LogEntry			(GE_TeacherNC,"Lee kann mir den Kampf mit ZWEIHÄNDIGEN Waffen beibringen. Außerdem kann er mich lehren, meine STÄRKE und mein GESCHICK zu verbessern.");
-};  
+};
 
 /*------------------------------------------------------------------------
-							ARMOR									
+							ARMOR
 ------------------------------------------------------------------------*/
 instance  Sld_700_Lee_ARMOR (C_INFO)
 {
@@ -402,11 +402,11 @@ instance  Sld_700_Lee_ARMOR (C_INFO)
 	information		= Sld_700_Lee_ARMOR_Info;
 	important		= 0;
 	permanent		= 1;
-	description		= "Ich brauche eine bessere Rüstung"; 
+	description		= "Ich brauche eine bessere Rüstung";
 };
 
 FUNC int  Sld_700_Lee_ARMOR_Condition()
-{	
+{
 	if  (Npc_GetTrueGuild (hero) == GIL_SLD)
 	{
 		return TRUE;
@@ -417,12 +417,12 @@ FUNC void  Sld_700_Lee_ARMOR_Info()
 {
 	AI_Output				(other, self,"Sld_700_Lee_ARMOR_Info_15_01"); //Ich brauche eine bessere Rüstung.
 	AI_Output				(self, other,"Sld_700_Lee_ARMOR_Info_08_02"); //Die Rüstungen musst du dir erst verdienen. Außerdem sind sie nicht ganz billig.
-	
+
 	Info_ClearChoices	(Sld_700_Lee_ARMOR);
 	Info_AddChoice		(Sld_700_Lee_ARMOR,DIALOG_BACK,Sld_700_Lee_ARMOR_BACK);
 	Info_AddChoice		(Sld_700_Lee_ARMOR,B_BuildBuyArmorString(NAME_LeeMercs, VALUE_SLD_ARMOR_M) ,Sld_700_Lee_ARMOR_M);
 	Info_AddChoice		(Sld_700_Lee_ARMOR,B_BuildBuyArmorString(NAME_LeeHeavyMercs, VALUE_SLD_ARMOR_H),Sld_700_Lee_ARMOR_H);
-};  
+};
 func void Sld_700_Lee_ARMOR_BACK()
 {
 	Info_ClearChoices (Sld_700_Lee_ARMOR);
@@ -434,16 +434,16 @@ func void Sld_700_Lee_ARMOR_M()
 	{
 		AI_Output			(self, other,"Sld_700_Lee_ARMOR_M_Info_08_02"); //Du bist noch nicht so weit, eine bessere Rüstung zu tragen. Komm wieder, wenn du erfahrener geworden bist.
 	}
-	else if (Npc_HasItems (hero,ItMinugget) < VALUE_SLD_ARMOR_M) 
+	else if (Npc_HasItems (hero,ItMinugget) < VALUE_SLD_ARMOR_M)
 	{
 		AI_Output			(self, other,"Sld_700_Lee_ARMOR_M_Info_08_03"); //Ohne Erz gibt es auch keine Rüstung.
 	}
-	else 
+	else
 	{
 		AI_Output			(self, other,"Sld_700_Lee_ARMOR_M_Info_08_04"); //Diese Rüstung ist ein ordentliches Stück Arbeit. Sie wird deinen Körper gut schützen.
 		B_GiveInvItems  	(hero, self, ItMinugget,VALUE_SLD_ARMOR_M);
 		CreateInvItem		(hero,SLD_ARMOR_M);
-		
+
 		CreateInvItem		(self, ItAmArrow);
 		B_GiveInvItems      (self, hero, ItAmArrow, 1);
 		Npc_RemoveInvItem	(hero, ItAmArrow);
@@ -456,11 +456,11 @@ func void Sld_700_Lee_ARMOR_H()
 	{
 		AI_Output			(self, other,"Sld_700_Lee_ARMOR_H_Info_08_02"); //Du bist noch nicht so weit, die schwere Rüstung zu tragen. Komm wieder, wenn du erfahrener geworden bist.
 	}
-	else if (Npc_HasItems(hero,ItMinugget) < VALUE_SLD_ARMOR_H) 
+	else if (Npc_HasItems(hero,ItMinugget) < VALUE_SLD_ARMOR_H)
 	{
 		AI_Output			(self, other,"Sld_700_Lee_ARMOR_H_Info_08_03"); //Ohne Erz gibt es auch keine Rüstung.
 	}
-	else 
+	else
 	{
 		AI_Output			(self, other,"Sld_700_Lee_ARMOR_H_Info_08_04"); //Diese Rüstung ist das Beste, was du in der Barriere bekommen kannst. Und, glaub mir, sie ist das Erz wert.
 		B_GiveInvItems  	(hero, self, ItMinugget,VALUE_SLD_ARMOR_H);
@@ -475,7 +475,7 @@ func void Sld_700_Lee_ARMOR_H()
 
 };
 /*------------------------------------------------------------------------
-							STR + DEX								
+							STR + DEX
 ------------------------------------------------------------------------*/
 INSTANCE Sld_700_Lee_Teach(C_INFO)
 {
@@ -485,12 +485,12 @@ INSTANCE Sld_700_Lee_Teach(C_INFO)
 	information	= Sld_700_Lee_Teach_Info;
 	permanent	= 1;
 	description = "Kannst du mir was beibringen?";
-};                       
+};
 
 FUNC INT Sld_700_Lee_Teach_Condition()
 {
 	if (Npc_GetTrueGuild (hero) == GIL_SLD)
-	  
+
 	{
 		return TRUE;
 	};
@@ -500,9 +500,9 @@ FUNC VOID Sld_700_Lee_Teach_Info()
 {
 	AI_Output(other,self,"Sld_700_Lee_Teach_15_00"); //Kannst du mir was beibringen?
 	AI_Output(self,other,"Sld_700_Lee_Teach_08_01"); //Ich kann dir helfen, stärker und geschickter zu werden.
-	
-	
-	
+
+
+
 	Info_ClearChoices	(Sld_700_Lee_Teach);
 	Info_AddChoice		(Sld_700_Lee_Teach,DIALOG_BACK																,Sld_700_Lee_Teach_BACK);
 	Info_AddChoice		(Sld_700_Lee_Teach,B_BuildLearnString(NAME_LearnStrength_5,5*LPCOST_ATTRIBUTE_STRENGTH,0)		,Sld_700_Lee_Teach_STR_5);
@@ -513,7 +513,7 @@ FUNC VOID Sld_700_Lee_Teach_Info()
 
 func void Sld_700_Lee_Teach_BACK()
 {
-	
+
 	Info_ClearChoices	(Sld_700_Lee_Teach);
 };
 
@@ -570,12 +570,12 @@ instance  Sld_700_Lee_ZWEIHAND1 (C_INFO)
 	information		= Sld_700_Lee_ZWEIHAND1_Info;
 	important		= 0;
 	permanent		= 1;
-	description		= B_BuildLearnString(NAME_Learn2h_1, LPCOST_TALENT_2H_1,0); 
+	description		= B_BuildLearnString(NAME_Learn2h_1, LPCOST_TALENT_2H_1,0);
 };
 
 FUNC int  Sld_700_Lee_ZWEIHAND1_Condition()
-{	
-	if 	( 
+{
+	if 	(
 			(Npc_GetTalentSkill  (hero,NPC_TALENT_2H) < 1)
 			&& ((Npc_GetTrueGuild    (hero) == GIL_SLD) || ((Npc_GetTrueGuild(hero)==GIL_KDW) && (Kapitel >= 4))  )	//jetzt auch als Wassermagier im 4. Kapitel möglich ***BJÖRN***
 		)
@@ -587,7 +587,7 @@ FUNC int  Sld_700_Lee_ZWEIHAND1_Condition()
 FUNC void  Sld_700_Lee_ZWEIHAND1_Info()
 {
 	AI_Output			(other, self,"Sld_700_Lee_ZWEIHAND1_Info_15_01"); //Ich möchte den Umgang mit Zweihändern lernen.
-	
+
 	if (B_GiveSkill(other,NPC_TALENT_2H , 1, LPCOST_TALENT_2H_1))
 	{
 		AI_Output			(self, other,"Sld_700_Lee_ZWEIHAND1_Info_08_02"); //Nun, dann gehen wir zuerst die Grundbegriffe durch.
@@ -596,10 +596,10 @@ FUNC void  Sld_700_Lee_ZWEIHAND1_Info()
 		AI_Output			(self, other,"Sld_700_Lee_ZWEIHAND1_Info_08_05"); //Nutze den Schwung, wenn die Waffe unten ist, um direkt wieder nach oben zu schlagen.
 		AI_Output			(self, other,"Sld_700_Lee_ZWEIHAND1_Info_08_06"); //Seitliche Schläge lassen sich ausgezeichnet mit einem Zweihänder koordinieren. Damit hältst du dir die Gegner vom Hals.
 		AI_Output			(self, other,"Sld_700_Lee_ZWEIHAND1_Info_08_07"); //Das sollte erst einmal reichen. Übe das!
-	
+
 		Sld_700_Lee_ZWEIHAND1.permanent = 0;
 	};
-};  
+};
 //-------------------------------------------------------------------------
 //							ZWEIHANDKAMPF LERNEN STUFE 2
 //-------------------------------------------------------------------------
@@ -610,13 +610,13 @@ instance  Sld_700_Lee_ZWEIHAND2 (C_INFO)
 	information		= Sld_700_Lee_ZWEIHAND2_Info;
 	important		= 0;
 	permanent		= 1;
-	description		= B_BuildLearnString(NAME_Learn2h_2, LPCOST_TALENT_2H_2,0); 
+	description		= B_BuildLearnString(NAME_Learn2h_2, LPCOST_TALENT_2H_2,0);
 };
 
 FUNC int  Sld_700_Lee_ZWEIHAND2_Condition()
-{	
+{
 	if
-		( 
+		(
 			(Npc_GetTalentSkill  (hero,NPC_TALENT_2H) == 1)
 			&& ( (Npc_GetTrueGuild    (hero) == GIL_SLD) ||  ((Npc_GetTrueGuild(hero)==GIL_KDW) && (Kapitel >= 4))  )	//jetzt auch als Wassermagier im 4. Kapitel möglich ***BJÖRN***
 		)
@@ -628,7 +628,7 @@ FUNC int  Sld_700_Lee_ZWEIHAND2_Condition()
 FUNC void  Sld_700_Lee_ZWEIHAND2_Info()
 {
 	AI_Output			(other, self,"Sld_700_Lee_ZWEIHAND2_Info_15_01"); //Ich möchte mehr über den zweihändigen Kampf lernen.
-	
+
 	if (B_GiveSkill(other,NPC_TALENT_2H , 2, LPCOST_TALENT_2H_2))
 	{
 		AI_Output			(self, other,"Sld_700_Lee_ZWEIHAND2_Info_08_02"); //Ändere zunächst deine Grundhaltung. Halte das Schwert aufrecht, fasse den Griff mit beiden Händen und halte es seitlich am Körper.
@@ -639,7 +639,7 @@ FUNC void  Sld_700_Lee_ZWEIHAND2_Info()
 		AI_Output			(self, other,"Sld_700_Lee_ZWEIHAND2_Info_08_07"); //Falls das nicht ausreichen sollte, dann nutze den übrigen Schwung, um die Klinge noch einmal tanzen zu lassen.
 		AI_Output			(self, other,"Sld_700_Lee_ZWEIHAND2_Info_08_08"); //Geh nach deinem Angriff in den Block und suche eine Lücke, damit du erneut zuschlagen kannst.
 		AI_Output			(self, other,"Sld_700_Lee_ZWEIHAND2_Info_08_09"); //Abwechslung in den Kampfbewegungen und Positionswechsel sind der Schlüssel zum Sieg.
-	
+
 		Sld_700_Lee_ZWEIHAND2.permanent = 0;
 	};
-};  
+};

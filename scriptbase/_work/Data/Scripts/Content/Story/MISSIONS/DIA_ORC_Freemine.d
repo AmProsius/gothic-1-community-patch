@@ -1,16 +1,16 @@
 /*
 -------------------------------- Die Mission ----------------------------
 
-Die Freemine Mission. 
+Die Freemine Mission.
 Der SC metzelt sich durch die FM und findet dort einen Orc, welcher schwer
-verletzt ist und einen Orcischen Heiltrank braucht. 
+verletzt ist und einen Orcischen Heiltrank braucht.
 Alls Gegenleistung für den Heiltrank sagt er dir was man alles für Items
 für das Ulu-Mulu braucht.
 Wenn man ihm die drei Teile bringt bastelt er dir das Ulumulu.
 
 --------------------------------- Die Items -----------------------------
-OrcHeiltrank:			Orcmedicine			-> OrcGegengift	
-	
+OrcHeiltrank:			Orcmedicine			-> OrcGegengift
+
 Teil vom Ulu-Mulu (1)	ItAt_Waran_01		-> 	Flammenzunge
 Teil vom Ulu-Mulu (2)	ItAt_Shadow_02		->	Horn eines Shadowbeast
 Teil vom Ulu-Mulu (3)	ItAt_Swampshark_02	->	Zähne des Sumpfhais
@@ -34,11 +34,11 @@ instance Info_FreemineOrc_EXIT (C_INFO)
 	nr			= 999;
 	condition	= Info_FreemineOrc_EXIT_Condition;
 	information	= Info_FreemineOrc_EXIT_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-	
-};                       
+
+};
 
 FUNC int Info_FreemineOrc_EXIT_Condition()
 {
@@ -47,12 +47,12 @@ FUNC int Info_FreemineOrc_EXIT_Condition()
 
 FUNC VOID Info_FreemineOrc_EXIT_Info()
 {
-	if (!Npc_KnowsInfo(hero,Info_FreemineOrc_EveryUlumulu))	
+	if (!Npc_KnowsInfo(hero,Info_FreemineOrc_EveryUlumulu))
 	{
 		AI_Output			(hero, self,"Info_FreemineOrc_EXIT_15_01"); //Ich muss weiter!
 		AI_Output			(self, hero,"Info_FreemineOrc_EXIT_17_02"); //Fremder kommen wieder!
-	}                                                              
-	else                                                           
+	}
+	else
 	{
 		AI_Output			(hero, self,"Info_FreemineOrc_EXIT_15_03"); //Ich danke dir. Ich werde mich jetzt wieder auf den Weg machen.
 		AI_Output			(self, hero,"Info_FreemineOrc_EXIT_17_04"); //Fremder haben gute Reise!
@@ -90,15 +90,15 @@ instance Info_FreemineOrc_WASPASSIERT (C_INFO)
 	npc			= Freemineorc;
 	condition	= Info_FreemineOrc_WASPASSIERT_Condition;
 	information	= Info_FreemineOrc_WASPASSIERT_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 0;
 	description = "Was ist geschehen?";
-};                       
+};
 
 FUNC int Info_FreemineOrc_WASPASSIERT_Condition()
 {
 	if (Npc_KnowsInfo(hero,Info_FreemineOrc_INTRO))
-	{	
+	{
 		return TRUE;
 	};
 };
@@ -120,15 +120,15 @@ instance Info_FreemineOrc_WASTUN (C_INFO)
 	npc			= Freemineorc;
 	condition	= Info_FreemineOrc_WASTUN_Condition;
 	information	= Info_FreemineOrc_WASTUN_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 0;
 	description = "Was kann ich für dich tun?";
-};                       
+};
 
 FUNC int Info_FreemineOrc_WASTUN_Condition()
 {
 	if (Npc_KnowsInfo(hero,Info_FreemineOrc_WASPASSIERT))
-	{	
+	{
 		return TRUE;
 	};
 };
@@ -150,17 +150,17 @@ instance Info_FreemineOrc_OFFER (C_INFO)
 	npc			= Freemineorc;
 	condition	= Info_FreemineOrc_OFFER_Condition;
 	information	= Info_FreemineOrc_OFFER_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 0;
 	description = "Ich werde die Medizin wiederfinden!";
-};                       
+};
 
 FUNC int Info_FreemineOrc_OFFER_Condition()
 {
 	if	Npc_KnowsInfo(hero,Info_FreemineOrc_WASTUN)
 	&&	!Npc_KnowsInfo(hero,Info_FreemineOrc_GIVEPOTION)
-	&&	!Npc_HasItems (hero,Orcmedicine) 
-	{	
+	&&	!Npc_HasItems (hero,Orcmedicine)
+	{
 		return TRUE;
 	};
 };
@@ -182,15 +182,15 @@ instance Info_FreemineOrc_CRAWLER (C_INFO)
 	npc			= Freemineorc;
 	condition	= Info_FreemineOrc_CRAWLER_Condition;
 	information	= Info_FreemineOrc_CRAWLER_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 0;
 	description = "Was bedeutet GACH LUG?";
-};                       
+};
 
 FUNC int Info_FreemineOrc_CRAWLER_Condition()
 {
 	if	Npc_KnowsInfo(hero,Info_FreemineOrc_WASPASSIERT)
-	{	
+	{
 		return TRUE;
 	};
 };
@@ -211,15 +211,15 @@ instance Info_FreemineOrc_TONGUE (C_INFO)
 	npc			= Freemineorc;
 	condition	= Info_FreemineOrc_TONGUE_Condition;
 	information	= Info_FreemineOrc_TONGUE_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 0;
 	description = "Du sprichst unsere Sprache?";
-};                       
+};
 
 FUNC int Info_FreemineOrc_TONGUE_Condition()
 {
 	if (Npc_KnowsInfo(hero,Info_FreemineOrc_INTRO))
-	{	
+	{
 		return TRUE;
 	};
 };
@@ -238,16 +238,16 @@ instance Info_FreemineOrc_SEARCHPOTION (C_INFO)
 	npc			= Freemineorc;
 	condition	= Info_FreemineOrc_SEARCHPOTION_Condition;
 	information	= Info_FreemineOrc_SEARCHPOTION_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 1;
 	description	= "Ich kann die Medizin nicht finden!";
-};                       
+};
 
 FUNC int Info_FreemineOrc_SEARCHPOTION_Condition()
 {
-	if	 Npc_KnowsInfo(hero,Info_FreemineOrc_OFFER)	
+	if	 Npc_KnowsInfo(hero,Info_FreemineOrc_OFFER)
 	&&	!Npc_KnowsInfo(hero,Info_FreemineOrc_GIVEPOTION)
-	&&	!Npc_HasItems (hero,Orcmedicine) 
+	&&	!Npc_HasItems (hero,Orcmedicine)
 	{
 		return TRUE;
 	};
@@ -259,10 +259,10 @@ FUNC VOID Info_FreemineOrc_SearchPotion_Info()
 	AI_Output			(self, hero,"Info_FreemineOrc_SEARCHPOTION_17_02"); //Fremder suchen weiter! Medizin hier unten sein!
 	AI_Output			(self, hero,"Info_FreemineOrc_SEARCHPOTION_17_03"); //Torrok fliehen vor GACH LUG! Tarrok sich bei Flucht verstecken!
 	AI_Output			(self, hero,"Info_FreemineOrc_SEARCHPOTION_17_04"); //Fremder auch suchen in Nischen!
-	 
+
 	AI_StopProcessInfos	( self );
 };
-  
+
 //---------------------------------------------------------------------
 //	Info SUCHEULUMULU
 //---------------------------------------------------------------------
@@ -271,10 +271,10 @@ instance Info_FreemineOrc_SUCHEULUMULU (C_INFO)
 	npc			= Freemineorc;
 	condition	= Info_FreemineOrc_SUCHEULUMULU_Condition;
 	information	= Info_FreemineOrc_SUCHEULUMULU_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 0;
 	description = "Bist du ein Freund von Ur-Shak, dem Schamanen?";
-};                       
+};
 
 FUNC int Info_FreemineOrc_SUCHEULUMULU_Condition()
 {
@@ -308,14 +308,14 @@ instance Info_FreemineOrc_GIVEPOTION (C_INFO)
 	npc			= Freemineorc;
 	condition	= Info_FreemineOrc_GIVEPOTION_Condition;
 	information	= Info_FreemineOrc_GIVEPOTION_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 0;
 	description = "Hier, ich habe deine Medizin gefunden!";
-};                       
+};
 
 FUNC int Info_FreemineOrc_GIVEPOTION_Condition()
 {
-	if	Npc_KnowsInfo(hero,Info_FreemineOrc_WASTUN)	
+	if	Npc_KnowsInfo(hero,Info_FreemineOrc_WASTUN)
 	&&  Npc_HasItems(hero,Orcmedicine)
 	{
 		return TRUE;
@@ -326,7 +326,7 @@ FUNC VOID Info_FreemineOrc_GIVEPOTION_Info()
 {
 	AI_Output			(hero, self,"Info_FreemineOrc_GIVEPOTION_15_01"); //Hier, ich habe deine Medizin gefunden!
 
-	B_GiveInvItems      (hero, self, Orcmedicine, 1); 	
+	B_GiveInvItems      (hero, self, Orcmedicine, 1);
 	EquipItem			(self, Orcmedicine);
 	if ( C_BodystateContains(self, BS_SIT) )
 	{
@@ -341,8 +341,8 @@ FUNC VOID Info_FreemineOrc_GIVEPOTION_Info()
 	AI_Output			(hero, self,"Info_FreemineOrc_GIVEPOTION_15_04"); //Kannst du mir jetzt ein Ulu-Mulu geben?
 	AI_Output			(self, hero,"Info_FreemineOrc_GIVEPOTION_17_05"); //Fremder helfen Tarrok, also Tarrok auch helfen Fremder!
 	AI_Output			(self, hero,"Info_FreemineOrc_GIVEPOTION_17_06"); //Fremder brauchen KROTAHK, KHAZ-TAK, DWACHKARR und ORTH-ANTAK.
-	AI_Output			(self, hero,"Info_FreemineOrc_GIVEPOTION_17_07"); //Fremder bringen, dann Tarrok machen Ulu-Mulu!	
-	
+	AI_Output			(self, hero,"Info_FreemineOrc_GIVEPOTION_17_07"); //Fremder bringen, dann Tarrok machen Ulu-Mulu!
+
 	if	!Npc_KnowsInfo(hero,Info_FreemineOrc_OFFER)
 	{
 		B_Story_FoundOrcSlave();
@@ -360,10 +360,10 @@ instance Info_FreemineOrc_FIREWARAN (C_INFO)
 	npc			= Freemineorc;
 	condition	= Info_FreemineOrc_FIREWARAN_Condition;
 	information	= Info_FreemineOrc_FIREWARAN_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 0;
 	description = "Was ist ein KROTAHK?";
-};                       
+};
 
 FUNC int Info_FreemineOrc_FIREWARAN_Condition()
 {
@@ -376,8 +376,8 @@ FUNC int Info_FreemineOrc_FIREWARAN_Condition()
 FUNC VOID Info_FreemineOrc_FIREWARAN_Info()
 {
 	AI_Output			(hero, self,"Info_FreemineOrc_FIREWARAN_15_01"); //Was ist ein KROTAHK?
-	AI_Output			(self, hero,"Info_FreemineOrc_FIREWARAN_17_02"); //Seien Flammenzunge! Seien Zunge von Feuerechse! 
-	
+	AI_Output			(self, hero,"Info_FreemineOrc_FIREWARAN_17_02"); //Seien Flammenzunge! Seien Zunge von Feuerechse!
+
 };
 
 //---------------------------------------------------------------------
@@ -388,10 +388,10 @@ instance Info_FreemineOrc_FIREWARAN2 (C_INFO)
 	npc			= Freemineorc;
 	condition	= Info_FreemineOrc_FIREWARAN2_Condition;
 	information	= Info_FreemineOrc_FIREWARAN2_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 0;
 	description = "Wo finde ich eine Feuerechse?";
-};                       
+};
 
 FUNC int Info_FreemineOrc_FIREWARAN2_Condition()
 {
@@ -406,7 +406,7 @@ FUNC int Info_FreemineOrc_FIREWARAN2_Condition()
 FUNC VOID Info_FreemineOrc_FIREWARAN2_Info()
 {
 	AI_Output			(hero, self,"Info_FreemineOrc_FIREWARAN2_15_01"); //Wo finde ich eine Feuerechse?
-	AI_Output			(self, hero,"Info_FreemineOrc_FIREWARAN2_17_02"); //Feuerechsen in Heimat leben. Heimat von Tarrok. Fremder suchen müssen! 
+	AI_Output			(self, hero,"Info_FreemineOrc_FIREWARAN2_17_02"); //Feuerechsen in Heimat leben. Heimat von Tarrok. Fremder suchen müssen!
 	AI_Output			(self, hero,"Info_FreemineOrc_FIREWARAN2_17_03"); //Auch können finden Feuerechse auf Sand bei Meer.
 
 	B_LogEntry			(CH4_UluMulu,	"Tarrok benötigt für das Ulu-Mulu die Zunge eines Feuerwarans. Sie leben vor allem im Orkgebiet und an sandigen Stränden. Gab es da nicht dieses Schiffswrack, bei dem es vor Waranen nur so wimmelte?");
@@ -420,10 +420,10 @@ instance Info_FreemineOrc_SHADOWBEAST (C_INFO)
 	npc			= Freemineorc;
 	condition	= Info_FreemineOrc_SHADOWBEAST_Condition;
 	information	= Info_FreemineOrc_SHADOWBEAST_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 0;
 	description = "Was bedeutet KHAZ-TAK?";
-};                       
+};
 
 FUNC int Info_FreemineOrc_SHADOWBEAST_Condition()
 {
@@ -436,8 +436,8 @@ FUNC int Info_FreemineOrc_SHADOWBEAST_Condition()
 FUNC VOID Info_FreemineOrc_SHADOWBEAST_Info()
 {
 	AI_Output			(hero, self,"Info_FreemineOrc_SHADOWBEAST_Info_15_01"); //Was bedeutet KHAZ-TAK?
-	AI_Output			(self, hero,"Info_FreemineOrc_SHADOWBEAST_Info_17_02"); //Seien Horn von Schattenläufer. Horn spitz wie Dolch und hart wie Stein. 
-	
+	AI_Output			(self, hero,"Info_FreemineOrc_SHADOWBEAST_Info_17_02"); //Seien Horn von Schattenläufer. Horn spitz wie Dolch und hart wie Stein.
+
 };
 
 //---------------------------------------------------------------------
@@ -448,10 +448,10 @@ instance Info_FreemineOrc_SHADOWBEAST2 (C_INFO)
 	npc			= Freemineorc;
 	condition	= Info_FreemineOrc_SHADOWBEAST2_Condition;
 	information	= Info_FreemineOrc_SHADOWBEAST2_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 0;
 	description = "Wo findet man Schattenläufer?";
-};                       
+};
 
 FUNC int Info_FreemineOrc_SHADOWBEAST2_Condition()
 {
@@ -480,10 +480,10 @@ instance Info_FreemineOrc_SWAMPSHARK (C_INFO)
 	npc			= Freemineorc;
 	condition	= Info_FreemineOrc_SWAMPSHARK_Condition;
 	information	= Info_FreemineOrc_SWAMPSHARK_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 0;
 	description = "DWACHKARR? Was ist das denn?";
-};                       
+};
 
 FUNC int Info_FreemineOrc_SWAMPSHARK_Condition()
 {
@@ -497,7 +497,7 @@ FUNC VOID Info_FreemineOrc_SWAMPSHARK_Info()
 {
 	AI_Output			(hero, self,"Info_FreemineOrc_SWAMPSHARK_15_01"); //DWACHKARR? Was ist das denn?
 	AI_Output			(self, hero,"Info_FreemineOrc_SWAMPSHARK_17_02"); //Seien Zähne von Sumpfhai. Wenn Zähne beißen Opfer, dann nie wieder loslassen.
-	
+
 };
 
 //---------------------------------------------------------------------
@@ -508,10 +508,10 @@ instance Info_FreemineOrc_SWAMPSHARK2 (C_INFO)
 	npc			= Freemineorc;
 	condition	= Info_FreemineOrc_SWAMPSHARK2_Condition;
 	information	= Info_FreemineOrc_SWAMPSHARK2_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 0;
 	description = "Wo finde ich Sumpfhaie?";
-};                       
+};
 
 FUNC int Info_FreemineOrc_SWAMPSHARK2_Condition()
 {
@@ -528,7 +528,7 @@ FUNC VOID Info_FreemineOrc_SWAMPSHARK2_Info()
 	AI_Output			(hero, self,"Info_FreemineOrc_SWAMPSHARK2_15_01"); //Wo finde ich Sumpfhaie?
 	AI_Output			(self, hero,"Info_FreemineOrc_SWAMPSHARK2_17_02"); //Viele Sumpfhaie bei Lager von Menschen. Lager in Sumpf natürlich!
 
-	B_LogEntry			(CH4_UluMulu,	"Tarrok benötigt für das Ulu-Mulu Zähne eines Sumpfhais. Im Sumpf hinter dem Lager der Bruderschaft gibt es massenhaft Ungetüme dieser Art."); 
+	B_LogEntry			(CH4_UluMulu,	"Tarrok benötigt für das Ulu-Mulu Zähne eines Sumpfhais. Im Sumpf hinter dem Lager der Bruderschaft gibt es massenhaft Ungetüme dieser Art.");
 };
 
 //---------------------------------------------------------------------
@@ -539,10 +539,10 @@ instance Info_FreemineOrc_TROLL (C_INFO)
 	npc			= Freemineorc;
 	condition	= Info_FreemineOrc_TROLL_Condition;
 	information	= Info_FreemineOrc_TROLL_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 0;
 	description = "Was ist ein ORTH-ANTAK?";
-};                       
+};
 
 FUNC int Info_FreemineOrc_TROLL_Condition()
 {
@@ -566,10 +566,10 @@ instance Info_FreemineOrc_TROLL2 (C_INFO)
 	npc			= Freemineorc;
 	condition	= Info_FreemineOrc_TROLL2_Condition;
 	information	= Info_FreemineOrc_TROLL2_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 0;
 	description = "Wo finde ich einen Troll?";
-};                       
+};
 
 FUNC int Info_FreemineOrc_TROLL2_Condition()
 {
@@ -599,10 +599,10 @@ instance Info_FreemineOrc_LOOKINGULUMULU (C_INFO)
 	npc			= Freemineorc;
 	condition	= Info_FreemineOrc_LOOKINGULUMULU_Condition;
 	information	= Info_FreemineOrc_LOOKINGULUMULU_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 1;
 	description = "Ich habe noch nicht alle vier Teile beisammen.";
-};                       
+};
 
 FUNC int Info_FreemineOrc_LOOKINGULUMULU_Condition()
 {
@@ -635,10 +635,10 @@ instance Info_FreemineOrc_EVERYULUMULU (C_INFO)
 	npc			= Freemineorc;
 	condition	= Info_FreemineOrc_EVERYULUMULU_Condition;
 	information	= Info_FreemineOrc_EVERYULUMULU_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 0;
 	description = "Ich habe alle Teile für das Ulu-Mulu zusammen!";
-};                       
+};
 
 FUNC int Info_FreemineOrc_EVERYULUMULU_Condition()
 {
@@ -657,18 +657,18 @@ FUNC VOID Info_FreemineOrc_EVERYULUMULU_Info()
 	AI_Output			(hero, self,"Info_FreemineOrc_EVERYULUMULU_15_01"); //Ich habe alle Teile für das Ulu-Mulu zusammen!
 	AI_Output			(self, hero,"Info_FreemineOrc_EVERYULUMULU_17_02"); //Fremder seien starker Krieger! Geben Teile! Tarrok machen ULU-MULU!
 	AI_Output 			(self, hero,"Info_FreemineOrc_EVERYULUMULU_17_03"); //Hier! Fremder tragen ULU-MULU mit Stolz! Tarrok jetzt schlafen!
-    
+
     CreateInvItems      (hero,  ItAt_Waran_01, 3);
 	B_GiveInvItems	    (hero, self, ItAt_Waran_01, 4); //Notwendig für Ausschrift "4 Gegenstände übergegen", wird sofort ausgeglichen
 	Npc_RemoveInvItem	(hero, ItAt_Shadow_02		);
 	Npc_RemoveInvItem	(hero, ItAt_Swampshark_02	);
 	Npc_RemoveInvItem	(hero, ItAt_Troll_02		);
-	
-	Npc_RemoveInvItems	(self, ItAt_Waran_01, 4);    
-	 
+
+	Npc_RemoveInvItems	(self, ItAt_Waran_01, 4);
+
 
 	B_Story_GotUluMulu	();
-	
+
 	AI_StopProcessInfos	(self);
 };
 

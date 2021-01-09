@@ -1,12 +1,12 @@
 instance ORG_833_Buster (Npc_Default)
 {
 	//-------- primary data --------
-	
+
 	name =							"Buster";
 	Npctype =						Npctype_Main;
-	guild =							GIL_ORG;      
+	guild =							GIL_ORG;
 	level =							4;
-	
+
 	voice =							2;
 	id =							833;
 
@@ -24,25 +24,25 @@ instance ORG_833_Buster (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Relaxed.mds");
-	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
+	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin
 	Mdl_SetVisualBody (self,"hum_body_Naked0",0, 1,"Hum_Head_FatBald", 39, 2, ORG_ARMOR_H);
-	
-	B_Scale (self);	
-	Mdl_SetModelFatness (self, 0);	
-	
+
+	B_Scale (self);
+	Mdl_SetModelFatness (self, 0);
+
 	self.aivar[AIV_IMPORTANT] = TRUE;
-	
+
 	fight_tactic	=	FAI_HUMAN_STRONG;
 
-	//-------- Talente --------                                    
-	
+	//-------- Talente --------
+
 	Npc_SetTalentSkill (self, NPC_TALENT_BOW,1);
 	Npc_SetTalentSkill (self, NPC_TALENT_1H,1);
-	
-	
-	//-------- inventory --------   
-	                                 
-	CreateInvItems (self, ItKeLockpick,1);		
+
+
+	//-------- inventory --------
+
+	CreateInvItems (self, ItKeLockpick,1);
 	CreateInvItems(self, ItMiNugget, 13);
 	CreateInvItems (self, ItFoRice,7);
 	CreateInvItems (self, ItFoBooze, 4);
@@ -54,7 +54,7 @@ instance ORG_833_Buster (Npc_Default)
 	EquipItem (self, ItMw_1H_Mace_02);
 	EquipItem (self, ItRw_Bow_Small_01);
 	CreateInvItems (self, ItAmArrow, 10);
-	
+
 	//-------------Daily Routine-------------
 
 	daily_routine = Rtn_Start_833;

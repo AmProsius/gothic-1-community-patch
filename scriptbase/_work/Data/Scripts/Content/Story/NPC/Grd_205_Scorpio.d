@@ -1,14 +1,14 @@
 instance Grd_205_Scorpio (Npc_Default)
 {
 	//-------- primary data --------
-	
+
 	name 		=	"Scorpio";
 	npctype		=	npctype_main;
 	guild 		=	GIL_GRD;
 	level 		=	15;
 	voice 		=	13;
 	id 			=	205;
-		
+
 	//-------- abilities --------
 	attribute[ATR_STRENGTH] 	= 70;
 	attribute[ATR_DEXTERITY] 	= 50;
@@ -21,30 +21,30 @@ instance Grd_205_Scorpio (Npc_Default)
 	// 			animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Militia.mds");
-	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung	
+	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung
 	Mdl_SetVisualBody (self,"hum_body_Naked0", 0, 1,"Hum_Head_Fighter", 18, 2, GRD_ARMOR_M);
-        
+
 	B_Scale (self);
     	Mdl_SetModelFatness(self,0);
-    	
+
     	self.aivar[AIV_IMPORTANT] = TRUE;
-    	
+
     	fight_tactic	=	FAI_HUMAN_STRONG;
 
-	//-------- Talente -------- 
-				
+	//-------- Talente --------
+
 	Npc_SetTalentSkill (self, NPC_TALENT_1H,2);
 	Npc_SetTalentSkill (self, NPC_TALENT_2H,1);
-	Npc_SetTalentSkill (self, NPC_TALENT_CROSSBOW,1);		
-			
+	Npc_SetTalentSkill (self, NPC_TALENT_CROSSBOW,1);
+
 	//-------- inventory --------
-	
+
 	EquipItem	(self, ItMw_1H_Sword_03);
-	
+
 	CreateInvItems	(self, ItMiNugget,200);
 	CreateInvItems	(self, ItFo_Potion_Health_02,5);
-	
-	
+
+
 	//-------------Daily Routine-------------
 	daily_routine = Rtn_start_205;
 };

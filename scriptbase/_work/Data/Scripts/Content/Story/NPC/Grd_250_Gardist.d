@@ -1,7 +1,7 @@
 instance GRD_250_Gardist (Npc_Default)
 {
 	//-------- primary data --------
-	
+
 	name 		=	NAME_Gardist;
 	npctype 	=	NPCTYPE_GUARD;
 	flags		=	NPC_FLAG_IMMORTAL;
@@ -9,7 +9,7 @@ instance GRD_250_Gardist (Npc_Default)
 	level 		=	15;
 	voice 		=	6;
 	id 			=	250;
-		
+
 	//-------- abilities --------
 	attribute[ATR_STRENGTH] 	= 70;
 	attribute[ATR_DEXTERITY] 	= 50;
@@ -23,22 +23,22 @@ instance GRD_250_Gardist (Npc_Default)
 	// 			animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Militia.mds");
-	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung	
+	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung
 	Mdl_SetVisualBody (self,"hum_body_Naked0", 0, 0,"Hum_Head_Thief", 1,  2, GRD_ARMOR_M);
-        
+
 	B_Scale (self);
     	Mdl_SetModelFatness(self,0);
-    	
+
     	fight_tactic	=	FAI_HUMAN_STRONG;
 
-	//-------- Talente -------- 
-				
+	//-------- Talente --------
+
 	Npc_SetTalentSkill (self, NPC_TALENT_1H,2);
 	Npc_SetTalentSkill (self, NPC_TALENT_2H,1);
-	Npc_SetTalentSkill (self, NPC_TALENT_CROSSBOW,1);		
-			
+	Npc_SetTalentSkill (self, NPC_TALENT_CROSSBOW,1);
+
 	//-------- inventory --------
-	
+
 	CreateInvItem	(self, ItMw_1H_Sword_02);
 	CreateInvItem	(self, ItRw_Crossbow_01);
 	CreateInvItems	(self, ItAmBolt, 30);
@@ -46,7 +46,7 @@ instance GRD_250_Gardist (Npc_Default)
 	CreateInvItem	(self, ItFoApple);
 	CreateInvItems	(self, ItMiNugget, 10);
 	CreateInvItem	(self, ItLsTorch);
-	
+
 	//-------------Daily Routine-------------
 	daily_routine = Rtn_start_250;
 };

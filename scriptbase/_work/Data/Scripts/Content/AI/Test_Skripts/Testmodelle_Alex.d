@@ -1,9 +1,9 @@
 instance OverlayHuman (C_NPC)
-{   
+{
 	//-------- primary data --------
-	
+
 	name =							"OverlayHuman";
-	guild =							GIL_BAU;      
+	guild =							GIL_BAU;
 	level =							10;
 	voice =							11;//4
 	id =							3001;
@@ -19,15 +19,15 @@ instance OverlayHuman (C_NPC)
 	//-------- visuals --------
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
-	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
+	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin
 	Mdl_SetVisualBody (self,"hum_body_Naked0",DEFAULT,DEFAULT,"Hum_Head_Bald", DEFAULT,  DEFAULT,-1);
-	
+
 	Mdl_ApplyOverlayMds (self,"Humans_1hST1.mds");
 	Mdl_ApplyOverlayMds (self,"Humans_1hST2.mds");
-	
+
 	Mdl_ApplyOverlayMds (self,"Humans_2hST1.mds");
 	Mdl_ApplyOverlayMds (self,"Humans_2hST2.mds");
-	
+
 	Mdl_ApplyOverlayMds (self,"Humans_BowT1.mds");
 	Mdl_ApplyOverlayMds (self,"Humans_BowT2.mds");
 
@@ -46,13 +46,13 @@ instance OverlayHuman (C_NPC)
 	Mdl_ApplyOverlayMds (self,"Humans_Swim.mds");
 	Mdl_ApplyOverlayMds (self,"Humans_Sprint.mds");
 	Mdl_ApplyOverlayMds (self,"Humans_Torch.mds");
-	Mdl_ApplyOverlayMds (self,"Humans_Flee.mds");	
+	Mdl_ApplyOverlayMds (self,"Humans_Flee.mds");
 
 };
 
 
 instance OverlayOrc (C_NPC)
-{   
+{
 	//-------- primary data	--------
 	name[0]						=		"Orc Rockefeller";
 	guild						=		GIL_ORCWARRIOR;
@@ -61,7 +61,7 @@ instance OverlayOrc (C_NPC)
 	//---------	abilities --------
 	attribute[ATR_STRENGTH]		=		15;
 	attribute[ATR_DEXTERITY]	=		0;
-	
+
 	attribute[ATR_HITPOINTS_MAX]=		20;
 	attribute[ATR_HITPOINTS]	=		20;
 
@@ -77,7 +77,7 @@ instance OverlayOrc (C_NPC)
 	Mdl_SetVisualBody	(self,"Orc_BodyWarrior",DEFAULT,DEFAULT,"Orc_Head", DEFAULT,  DEFAULT,-1);
 
 
-	
+
 	Mdl_ApplyOverlayMds (self,"Orc_Drunken.mds");
 	Mdl_ApplyOverlayMds (self,"Orc_Torch.mds");
 
@@ -119,7 +119,7 @@ instance Babe_Rockefeller (Npc_Default)
 	CreateInvItem (self, ItMiBrush);
 	CreateInvItem (self, ItMiWedel);
 
-	CreateInvItems(self,ItFo_mutton_01,20);		
+	CreateInvItems(self,ItFo_mutton_01,20);
 	CreateInvItems(self,ItFoApple,5);
 	CreateInvItems(self,ItFoLoaf,5);
 	CreateInvItems(self,ItFoMutton,20);
@@ -163,13 +163,13 @@ INSTANCE L5(NPC_DEFAULT)
 		//------------------------------
 
 	//--------- abilities --------
-	attribute[ATR_STRENGTH] 	=	10;     
-	attribute[ATR_DEXTERITY] 	=	10;     
+	attribute[ATR_STRENGTH] 	=	10;
+	attribute[ATR_DEXTERITY] 	=	10;
 	attribute[ATR_MANA_MAX] 	=	5;
 	attribute[ATR_MANA] 		=	5;
-	attribute[ATR_HITPOINTS_MAX]=	100;    
-	attribute[ATR_HITPOINTS] 	=	100;    
-	
+	attribute[ATR_HITPOINTS_MAX]=	100;
+	attribute[ATR_HITPOINTS] 	=	100;
+
 	//-------- visuals --------
 	// 						animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
@@ -179,10 +179,10 @@ INSTANCE L5(NPC_DEFAULT)
 	//-------- talents --------
 	//Npc_SetTalentSkill	( self, NPC_TALENT_MAGE,		6);
 
-	//Npc_SetTalentSkill	( self, NPC_TALENT_PICKPOCKET,	1);Npc_SetTalentValue(self,NPC_TALENT_PICKPOCKET,60); 
-	//Npc_SetTalentSkill	(self, NPC_TALENT_SNEAK,		1);	
-	//Npc_SetTalentSkill	( self, NPC_TALENT_PICKLOCK,	1);Npc_SetTalentValue(self,NPC_TALENT_PICKLOCK,60); 
-		
+	//Npc_SetTalentSkill	( self, NPC_TALENT_PICKPOCKET,	1);Npc_SetTalentValue(self,NPC_TALENT_PICKPOCKET,60);
+	//Npc_SetTalentSkill	(self, NPC_TALENT_SNEAK,		1);
+	//Npc_SetTalentSkill	( self, NPC_TALENT_PICKLOCK,	1);Npc_SetTalentValue(self,NPC_TALENT_PICKLOCK,60);
+
 	//Npc_SetTalentSkill	(self, NPC_TALENT_1H,			1);
 	//Npc_SetTalentSkill	(self, NPC_TALENT_1H,			2);
 	//Npc_SetTalentSkill	(self, NPC_TALENT_2H,			1);
@@ -191,7 +191,7 @@ INSTANCE L5(NPC_DEFAULT)
 	//Npc_SetTalentSkill	(self, NPC_TALENT_CROSSBOW,		1);
 
 	start_aistate				= ZS_Firespit;
-	
+
 	//-------- inventory --------
 
 // Armor
@@ -203,7 +203,7 @@ INSTANCE L5(NPC_DEFAULT)
 // Weapons (Damage bis 25)
 	EquipItem	(self, ItMw_1H_Sword_Short_05);
 	EquipItem	(self, ItRw_Bow_Small_01);
-	
+
 	CreateInvItem	(self, ItMw_1H_Club_01);
 	CreateInvItem	(self, ItMw_1H_Poker_01);
 	CreateInvItem	(self, ItMw_1H_Sickle_01);
@@ -261,13 +261,13 @@ INSTANCE L10(NPC_DEFAULT)
 		//------------------------------
 
 	//--------- abilities --------
-	attribute[ATR_STRENGTH] 	=	10;     
-	attribute[ATR_DEXTERITY] 	=	10;     
+	attribute[ATR_STRENGTH] 	=	10;
+	attribute[ATR_DEXTERITY] 	=	10;
 	attribute[ATR_MANA_MAX] 	=	5;
 	attribute[ATR_MANA] 		=	5;
-	attribute[ATR_HITPOINTS_MAX]=	160;    
-	attribute[ATR_HITPOINTS] 	=	160;    
-	
+	attribute[ATR_HITPOINTS_MAX]=	160;
+	attribute[ATR_HITPOINTS] 	=	160;
+
 	//-------- visuals --------
 	// 						animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
@@ -276,7 +276,7 @@ INSTANCE L10(NPC_DEFAULT)
 
 	//-------- talents --------
 
-	
+
 	//-------- inventory --------
 //	EquipItem		(self, ItMw_1H_Sword_Long_01);	// Dam. 40, Str. 17
 //	EquipItem		(self, ItRw_Bow_Long_02);		// Dam. 40, Dex. 22
@@ -338,13 +338,13 @@ INSTANCE L15(NPC_DEFAULT)
 		//------------------------------
 
 	//--------- abilities --------
-	attribute[ATR_STRENGTH] 	=	10;     
-	attribute[ATR_DEXTERITY] 	=	10;     
+	attribute[ATR_STRENGTH] 	=	10;
+	attribute[ATR_DEXTERITY] 	=	10;
 	attribute[ATR_MANA_MAX] 	=	5;
 	attribute[ATR_MANA] 		=	5;
-	attribute[ATR_HITPOINTS_MAX]=	220;    
-	attribute[ATR_HITPOINTS] 	=	220;    
-	
+	attribute[ATR_HITPOINTS_MAX]=	220;
+	attribute[ATR_HITPOINTS] 	=	220;
+
 	//-------- visuals --------
 	// 						animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
@@ -353,7 +353,7 @@ INSTANCE L15(NPC_DEFAULT)
 
 	//-------- talents --------
 
-	
+
 	//-------- inventory --------
 //	EquipItem		(self, ItMw_1H_Sword_Broad_01);	// Dam. 55, Str. 26
 //	EquipItem		(self, ItRw_Bow_Long_05);		// Dam. 55, Dex. 28
@@ -413,13 +413,13 @@ INSTANCE L20(NPC_DEFAULT)
 		//------------------------------
 
 	//--------- abilities --------
-	attribute[ATR_STRENGTH] 	=	10;     
-	attribute[ATR_DEXTERITY] 	=	10;     
+	attribute[ATR_STRENGTH] 	=	10;
+	attribute[ATR_DEXTERITY] 	=	10;
 	attribute[ATR_MANA_MAX] 	=	5;
 	attribute[ATR_MANA] 		=	5;
-	attribute[ATR_HITPOINTS_MAX]=	280;    
-	attribute[ATR_HITPOINTS] 	=	280;    
-	
+	attribute[ATR_HITPOINTS_MAX]=	280;
+	attribute[ATR_HITPOINTS] 	=	280;
+
 	//-------- visuals --------
 	// 						animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
@@ -428,7 +428,7 @@ INSTANCE L20(NPC_DEFAULT)
 
 	//-------- talents --------
 
-	
+
 	//-------- inventory --------
 //	EquipItem		(self, ItMw_2H_Sword_Light_01);	// Dam. 70, Str. 42
 //	EquipItem		(self, ItRw_Bow_Long_08);		// Dam. 70, Dex. 34
@@ -488,13 +488,13 @@ INSTANCE L25(NPC_DEFAULT)
 		//------------------------------
 
 	//--------- abilities --------
-	attribute[ATR_STRENGTH] 	=	10;     
-	attribute[ATR_DEXTERITY] 	=	10;     
+	attribute[ATR_STRENGTH] 	=	10;
+	attribute[ATR_DEXTERITY] 	=	10;
 	attribute[ATR_MANA_MAX] 	=	5;
 	attribute[ATR_MANA] 		=	5;
-	attribute[ATR_HITPOINTS_MAX]=	340;    
-	attribute[ATR_HITPOINTS] 	=	340;    
-	
+	attribute[ATR_HITPOINTS_MAX]=	340;
+	attribute[ATR_HITPOINTS] 	=	340;
+
 	//-------- visuals --------
 	// 						animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
@@ -503,7 +503,7 @@ INSTANCE L25(NPC_DEFAULT)
 
 	//-------- talents --------
 
-	
+
 	//-------- inventory --------
 //	EquipItem		(self, ItMw_2H_Sword_03);	// Dam: 85, Str. 62
 //	EquipItem		(self, ItRw_Bow_War_02);	// Dam: 85, Dex. 40

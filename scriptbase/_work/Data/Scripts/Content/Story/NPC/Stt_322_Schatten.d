@@ -5,10 +5,10 @@ instance Stt_322_Schatten (Npc_Default)
 	npctype 	=		NPCTYPE_AMBIENT;
 	guild 		=		GIL_STT;
 	level 		=		7;
-	
+
 	voice	 	=		12;
 	id 			=		322;
-		
+
 	//-------- abilities --------
 	attribute[ATR_STRENGTH] 		=	30;
 	attribute[ATR_DEXTERITY] 		=	18;
@@ -23,24 +23,24 @@ instance Stt_322_Schatten (Npc_Default)
 	Mdl_ApplyOverlayMds	(self,"Humans_Relaxed.mds");
 	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung
 	Mdl_SetVisualBody (self,"hum_body_Naked0", 0, 1,"Hum_Head_Psionic", 57,  1, STT_ARMOR_M);
-        
+
 	B_Scale (self);
 	Mdl_SetModelFatness(self,0);
-	
-	fight_tactic	=	FAI_HUMAN_COWARD; 
 
-	//-------- Talente -------- 
+	fight_tactic	=	FAI_HUMAN_COWARD;
+
+	//-------- Talente --------
 
 	Npc_SetTalentSkill (self, NPC_TALENT_BOW,1);
-	Npc_SetTalentSkill (self, NPC_TALENT_1H,1);	
-		
+	Npc_SetTalentSkill (self, NPC_TALENT_1H,1);
+
 	//-------- inventory --------
-	
+
 	EquipItem	(self, ItMw_1H_Sword_Short_04);
 	EquipItem	(self, ItRw_Bow_Small_02);
 	CreateInvItems	(self, ItAmArrow, 15);
-	
-	
+
+
 	//-------------Daily Routine-------------
 	daily_routine = Rtn_start_322;
 };
@@ -54,12 +54,12 @@ FUNC VOID Rtn_start_322 ()
 	TA_Smalltalk	(12,30,15,30,"OCR_CAMPFIRE_A_MOVEMENT3"); //mit Grim
 	TA_SitAround	(15,30,16,00,"OCR_HUT_3");
 	TA_Smalltalk	(16,00,18,01,"OCR_CAMPFIRE_A_MOVEMENT3"); //mit Diego
-	TA_SitCampfire	(18,01,23,02,"OCR_CAMPFIRE_A_MOVEMENT3");	
+	TA_SitCampfire	(18,01,23,02,"OCR_CAMPFIRE_A_MOVEMENT3");
 };
 
 FUNC VOID Rtn_OMFull_322 ()
 {
-	TA_Sleep			(23,00,07,00,"OCR_HUT_3");	
+	TA_Sleep			(23,00,07,00,"OCR_HUT_3");
 	TA_StandAround	(07,00,23,00,"OCR_TO_MAINGATE");
 };
 

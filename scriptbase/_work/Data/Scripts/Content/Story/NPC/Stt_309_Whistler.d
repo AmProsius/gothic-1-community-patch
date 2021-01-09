@@ -5,11 +5,11 @@ instance Stt_309_Whistler (Npc_Default)
 	npctype 		=		NPCTYPE_MAIN;
 	guild 		=		GIL_STT;
 	level 		=		5;
-	
-	
+
+
 	voice 		=		11;
 	id 			=		309;
-		
+
 	//-------- abilities --------
 	attribute[ATR_STRENGTH] 		=	20;
 	attribute[ATR_DEXTERITY] 		=	15;
@@ -24,27 +24,27 @@ instance Stt_309_Whistler (Npc_Default)
 	Mdl_ApplyOverlayMds	(self,"Humans_Relaxed.mds");
 	//			body mesh     ,bdytex,skin,head mesh     57,headtex,teethtex,ruestung
 	Mdl_SetVisualBody (self,"hum_body_Naked0", 0, 1,"Hum_Head_Psionic",97 ,  1, STT_ARMOR_M);
-        
+
 	B_Scale (self);
 	Mdl_SetModelFatness(self,0);
-    	
-    	self.aivar[AIV_IMPORTANT] = TRUE;
-	
-	fight_tactic	=	FAI_HUMAN_STRONG; 
 
-	//-------- Talente -------- 
+    	self.aivar[AIV_IMPORTANT] = TRUE;
+
+	fight_tactic	=	FAI_HUMAN_STRONG;
+
+	//-------- Talente --------
 
 	Npc_SetTalentSkill (self, NPC_TALENT_BOW,2);
-	Npc_SetTalentSkill (self, NPC_TALENT_1H,1);	
-		
+	Npc_SetTalentSkill (self, NPC_TALENT_1H,1);
+
 	//-------- inventory --------
-	
+
 	EquipItem	(self, ItMw_1H_Sword_Short_02);
 	EquipItem	(self, ItRw_Bow_Small_02);
 	CreateInvItems	(self, ItAmArrow, 10);
 	CreateInvItems	(self, ItKeLockpick,2);
-	
-	
+
+
 	//-------------Daily Routine-------------
 	daily_routine = Rtn_start_309;
 

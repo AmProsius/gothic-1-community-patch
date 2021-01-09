@@ -2,7 +2,7 @@
 **	Minecrawler WARRIOR Prototype										**
 *************************************************************************/
 
-PROTOTYPE Mst_Default_MinecrawlerWarrior(C_Npc)			
+PROTOTYPE Mst_Default_MinecrawlerWarrior(C_Npc)
 {
 	name							=	"Minecrawler Warrior";
 	guild							=	GIL_MINECRAWLER;
@@ -11,7 +11,7 @@ PROTOTYPE Mst_Default_MinecrawlerWarrior(C_Npc)
 //------------------------------------------------------
 	attribute	[ATR_STRENGTH]		=	130;
 	attribute	[ATR_DEXTERITY]		=	70;
-	
+
 	attribute	[ATR_HITPOINTS_MAX]	=	200;
 	attribute	[ATR_HITPOINTS]		=	200;
 
@@ -39,7 +39,7 @@ PROTOTYPE Mst_Default_MinecrawlerWarrior(C_Npc)
 	senses_range				= 2000;
 
 	aivar[AIV_MM_Behaviour]		= HUNTER;
-	
+
 	aivar[AIV_MM_PercRange]		= 1200;
 	aivar[AIV_MM_DrohRange]		= 1000;
 	aivar[AIV_MM_AttackRange]	= 700;
@@ -74,7 +74,7 @@ INSTANCE MinecrawlerWarrior	(Mst_Default_MinecrawlerWarrior)
 /*************************************************************************
 **	OTMinecrawler 														**
 *************************************************************************/
-instance OTMinecrawler(Mst_Default_MinecrawlerWarrior)			
+instance OTMinecrawler(Mst_Default_MinecrawlerWarrior)
 {
 	name							=	"Tempel Minecrawler";
 	level							=	25;
@@ -84,7 +84,7 @@ instance OTMinecrawler(Mst_Default_MinecrawlerWarrior)
 //------------------------------------------------------
 	attribute	[ATR_STRENGTH]		=	120;
 	attribute	[ATR_DEXTERITY]		=	120;
-	
+
 	attribute	[ATR_HITPOINTS_MAX]	=	300;
 	attribute	[ATR_HITPOINTS]		=	300;
 

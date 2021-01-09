@@ -1,17 +1,17 @@
 instance GRD_203_Bullit (Npc_Default)
 {
 	//-------- primary data --------
-	
+
 	name 		=	"Bullit";
 	npctype		=	npctype_main;
 	guild 		=	GIL_GRD;
 	level 		=	10;
 	voice 		=	6;
 	id 			=	203;
-		
+
 	//-------- abilities --------
-	attribute[ATR_STRENGTH] 	= 35; 
-	attribute[ATR_DEXTERITY] 	= 35; 
+	attribute[ATR_STRENGTH] 	= 35;
+	attribute[ATR_DEXTERITY] 	= 35;
 	attribute[ATR_MANA_MAX] 	= 0;
 	attribute[ATR_MANA] 		= 0;
 	attribute[ATR_HITPOINTS_MAX]= 160;
@@ -21,23 +21,23 @@ instance GRD_203_Bullit (Npc_Default)
 	// 			animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Militia.mds");
-	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung	
+	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung
 	Mdl_SetVisualBody (self,"hum_body_Naked0", 0, 1,"Hum_Head_Thief", 57,  2, GRD_ARMOR_M);
-        
+
     	B_Scale (self);
     	Mdl_SetModelFatness(self,0);
-    	
+
     	self.aivar[AIV_IMPORTANT] = TRUE;
-    	
- 
-	//-------- Talente -------- 
-				
+
+
+	//-------- Talente --------
+
 	Npc_SetTalentSkill (self, NPC_TALENT_1H,2);
 	Npc_SetTalentSkill (self, NPC_TALENT_2H,1);
-	Npc_SetTalentSkill (self, NPC_TALENT_CROSSBOW,1);		
-			
+	Npc_SetTalentSkill (self, NPC_TALENT_CROSSBOW,1);
+
 	//-------- inventory --------
-	
+
 	EquipItem	(self, ItMw_1H_Sword_Long_02);
 	EquipItem	(self, ItRw_Crossbow_01);
 	CreateInvItems	(self, ItAmBolt, 30);
@@ -46,7 +46,7 @@ instance GRD_203_Bullit (Npc_Default)
 	CreateInvItems	(self, ItMiNugget, 25);
 	CreateInvItem	(self, ItLsTorch);
 
-	
+
 	//------------- ai -------------
 	daily_routine	=	Rtn_start_203;
   	fight_tactic	=	FAI_HUMAN_STRONG;

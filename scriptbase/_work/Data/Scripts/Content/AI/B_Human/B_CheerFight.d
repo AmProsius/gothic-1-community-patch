@@ -5,13 +5,13 @@ func void B_CheerFight ()
 	// SN:	WORKAROUND, damit sich die Kampfkommentare nicht aufschaukeln
 	//		VORSICHT: führt aber zu unschönen Abwürgern der SVMs
 	//		Lösung durch Bugfix #3055, dann diesen Befehl wieder entfernen!
-	//Npc_ClearAIQueue		(self);			
+	//Npc_ClearAIQueue		(self);
 	//---- Ende Workaround ----
-	
+
 	if (Npc_GetStateTime (self) > 5) //sonst zu viele B_Says
 	{
 		Npc_SetStateTime (self,0);
-			
+
 		if (Npc_GetTempAttitude (self,victim) == ATT_FRIENDLY)
 		{
 			PrintDebugNpc		(PD_ZS_CHECK, "B_CheerFight // Friendly victim");
@@ -37,7 +37,7 @@ func void B_CheerFight ()
 				B_Say			(self, NULL, "$CHEERFRIEND");
 				AI_PlayAni		(self, "T_WATCHFIGHT_YEAH");
 			}
-			else 
+			else
 			{
 				PrintDebugNpc	(PD_ZS_CHECK, "B_CheerFight // NO Friendly victim //  NO friendly aggressor");
 				B_Say			(self, NULL, "$CHEERFIGHT");
@@ -46,4 +46,3 @@ func void B_CheerFight ()
 		};
 	};
 };
-	

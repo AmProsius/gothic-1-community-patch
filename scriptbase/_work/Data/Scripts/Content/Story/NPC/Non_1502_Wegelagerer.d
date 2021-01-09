@@ -2,19 +2,19 @@ instance Non_1502_Wegelagerer (Npc_Default)
 
 {
 	//-------- primary data --------
-	
+
 	name 		=		"Wegelagerer";
 	npctype 	=		npctype_ambient;
-	guild 		=		GIL_NONE;      
+	guild 		=		GIL_NONE;
 	level 		=		9;
-	
-	
+
+
 	voice 		=		6;
 	id 			=		1502;
 
 
 	//-------- abilities --------
-	
+
 	attribute[ATR_STRENGTH] 		=	35;
 	attribute[ATR_DEXTERITY] 		=	15;
 	attribute[ATR_MANA_MAX] 		=	0;
@@ -25,18 +25,18 @@ instance Non_1502_Wegelagerer (Npc_Default)
 	//-------- visuals --------
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
-	//							Body-Mesh			Body-Tex	Skin-Color	Head-MMS			Head-Tex	Teeth-Tex	ARMOR	
+	//							Body-Mesh			Body-Tex	Skin-Color	Head-MMS			Head-Tex	Teeth-Tex	ARMOR
 	Mdl_SetVisualBody	(self,	"hum_body_Naked0", 	2, 			3,			"Hum_Head_Thief", 	5,  		2, 			-1);
 
-	B_Scale (self); 
+	B_Scale (self);
 	Mdl_SetModelFatness (self, 0);
-	
-	fight_tactic	=	FAI_HUMAN_STRONG; 
-	
-	//-------- Talents  --------                                    
+
+	fight_tactic	=	FAI_HUMAN_STRONG;
+
+	//-------- Talents  --------
 	Npc_SetTalentSkill (self, NPC_TALENT_1H,1);
 
-	//-------- inventory --------                                    
+	//-------- inventory --------
 	EquipItem 		(self, ItMw_1H_Sword_Old_01);
 	CreateInvItems 	(self, ItFo_Potion_Health_01, 2);
 	CreateInvItems	(self, ItMiNugget, 43);
@@ -52,5 +52,5 @@ FUNC VOID Rtn_start_1502 ()
 	Npc_SetPermAttitude (self, ATT_HOSTILE);
 
 	TA_SitCampfire		(22,00,06,00,"SPAWN_TALL_PATH_BANDITOS2_03");
-    TA_Smalltalk		(06,00,22,00,"SPAWN_TALL_PATH_BANDITOS2_02_04");		
+    TA_Smalltalk		(06,00,22,00,"SPAWN_TALL_PATH_BANDITOS2_02_04");
 };

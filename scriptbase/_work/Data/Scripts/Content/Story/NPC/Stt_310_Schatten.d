@@ -5,10 +5,10 @@ instance STT_310_Schatten (Npc_Default)
 	npctype 		=		NPCTYPE_AMBIENT;
 	guild 		=		GIL_STT;
 	level 		=		5;
-	
+
 	voice 		=		12;
 	id 			=		310;
-		
+
 	//-------- abilities --------
 	attribute[ATR_STRENGTH] 		=	20;
 	attribute[ATR_DEXTERITY] 		=	20;
@@ -26,24 +26,24 @@ instance STT_310_Schatten (Npc_Default)
 
 	B_Scale (self);
 	Mdl_SetModelFatness(self,-1);
-	
-	fight_tactic	=	FAI_HUMAN_COWARD; 
 
-	//-------- Talente -------- 
+	fight_tactic	=	FAI_HUMAN_COWARD;
+
+	//-------- Talente --------
 
 	////Npc_SetTalentSkill (self, NPC_TALENT_BOW,1);
-	Npc_SetTalentSkill (self, NPC_TALENT_1H,1);	
-		
+	Npc_SetTalentSkill (self, NPC_TALENT_1H,1);
+
 	//-------- inventory --------
-	
+
 	EquipItem	(self,ItMw_1H_Sword_Short_02);
 	EquipItem	(self, ItRw_Bow_Small_03);
 	CreateInvItems	(self, ItAmArrow, 10);
 	CreateInvItem	(self, ItFo_Potion_Water_01);
 	CreateInvItem	(self, ItFoApple);
 	CreateInvItem	(self, ItKeLockpick);
-	
-	
+
+
 	//-------------Daily Routine-------------
 	daily_routine = Rtn_start_310;
 };

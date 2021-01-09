@@ -15,7 +15,7 @@ INSTANCE Info_grd_7_EXIT(C_INFO)
 	information	= Info_grd_7_EXIT_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC INT Info_grd_7_EXIT_Condition()
 {
@@ -23,7 +23,7 @@ FUNC INT Info_grd_7_EXIT_Condition()
 };
 
 FUNC VOID Info_grd_7_EXIT_Info()
-{	
+{
 	AI_StopProcessInfos	(self);
 };
 
@@ -38,7 +38,7 @@ INSTANCE Info_grd_7_EinerVonEuchWerden (C_INFO) // E1
 	information	= Info_grd_7_EinerVonEuchWerden_Info;
 	permanent	= 1;
 	description = "Was muß ich tun, um bei Gomez' Gardisten aufgenommen zu werden?";
-};                       
+};
 
 FUNC INT Info_grd_7_EinerVonEuchWerden_Condition()
 {
@@ -70,10 +70,10 @@ INSTANCE Info_grd_7_WichtigePersonen(C_INFO)
 	information	= Info_grd_7_WichtigePersonen_Info;
 	permanent	= 1;
 	description = "Wer hat hier das Sagen?";
-};                       
+};
 
 FUNC INT Info_grd_7_WichtigePersonen_Condition()
-{	
+{
 	if (Npc_GetTrueGuild (hero) == GIL_NONE)
 	{
 		return 1;
@@ -101,10 +101,10 @@ INSTANCE Info_grd_7_DasLager(C_INFO)
 	information	= Info_grd_7_DasLager_Info;
 	permanent	= 1;
 	description = "Arbeiten alle Leute hier für die Erzbarone?";
-};                       
+};
 
 FUNC INT Info_grd_7_DasLager_Condition()
-{	
+{
 	if (Npc_GetTrueGuild (hero) == GIL_NONE)
 	{
 		return 1;
@@ -165,10 +165,10 @@ INSTANCE Info_grd_7_DieLage(C_INFO) // E1
 	information	= Info_grd_7_DieLage_Info;
 	permanent	= 1;
 	description = "Wie steht's?";
-};                       
+};
 
 FUNC INT Info_grd_7_DieLage_Condition()
-{	
+{
 	if (Npc_GetTrueGuild (hero) == GIL_NONE)
 	{
 		return 1;
@@ -179,14 +179,14 @@ FUNC VOID Info_grd_7_DieLage_Info()
 	AI_Output(other,self,"Info_grd_7_DieLage_15_00"); //Wie steht's?
 	AI_Output(self,other,"Info_grd_7_DieLage_07_01"); //Für dich? Solange du keinem Lager angehörst, nimmt dich hier keiner ernst, Kleiner!
 };
-	
+
 // *************************************************************************
 // -------------------------------------------------------------------------
 
 FUNC VOID B_AssignAmbientInfos_grd_7(var c_NPC slf)
 {
 	B_AssignFindNpc_OC(slf);
-	
+
 	Info_grd_7_EXIT.npc					= Hlp_GetInstanceID(slf);
 	Info_grd_7_EinerVonEuchWerden.npc	= Hlp_GetInstanceID(slf);
 	Info_grd_7_WichtigePersonen.npc		= Hlp_GetInstanceID(slf);

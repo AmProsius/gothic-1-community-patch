@@ -31,7 +31,7 @@ func void B_InitMonsterAttitudes ()
 	B_SetGuildAttitude	(GIL_WARAN,			ATT_NEUTRAL,	GIL_MOLERAT			);
 	B_SetGuildAttitude	(GIL_WARAN,			ATT_NEUTRAL,	GIL_GOLEM			);
 	B_SetGuildAttitude	(GIL_WARAN,			ATT_NEUTRAL,	GIL_LURKER			);
-                                        	 	
+
 	//-------- GOBBO --------
 	B_SetGuildAttitude	(GIL_GOBBO,			ATT_HOSTILE,	GIL_SEPERATOR_HUM	);
 	B_SetGuildAttitude	(GIL_GOBBO,			ATT_NEUTRAL,	GIL_WARAN			);
@@ -147,7 +147,7 @@ func void B_InitMonsterAttitudes ()
 	B_SetGuildAttitude	(GIL_MEATBUG,		ATT_NEUTRAL,	GIL_MOLERAT			);
 	B_SetGuildAttitude	(GIL_MEATBUG,		ATT_NEUTRAL,	GIL_GOLEM			);
 	B_SetGuildAttitude	(GIL_MEATBUG,		ATT_NEUTRAL,	GIL_LURKER			);
-                                                	
+
 	//-------- SCAVENGER --------
 	B_SetGuildAttitude	(GIL_SCAVENGER,		ATT_HOSTILE,	GIL_SEPERATOR_HUM	);
 	B_SetGuildAttitude	(GIL_SCAVENGER,		ATT_NEUTRAL,	GIL_WARAN			);
@@ -460,7 +460,7 @@ func void B_InitMonsterAttitudes ()
 	// SN:	alle Menschen auf ATT_HOSTILE gegenüber allen Monstern gesetzt, um die Reaktionszeit
 	//		nach dem Besiegen des einen und dem Bekämpfen des nächsten Monsters zu
 	//		beschleunigen. (Npc_IsNextTargetAvailable springt bei ATT_ANGRY nicht an!)
-	//		
+	//
 	B_SetGuildAttitude	(GIL_SEPERATOR_HUM,	ATT_HOSTILE,	GIL_WARAN			);
 	B_SetGuildAttitude	(GIL_SEPERATOR_HUM,	ATT_HOSTILE,	GIL_SLF				);
 	B_SetGuildAttitude	(GIL_SEPERATOR_HUM,	ATT_HOSTILE,	GIL_GOBBO			);
@@ -532,4 +532,4 @@ func void B_InitMonsterAttitudes ()
 	B_SetGuildAttitude	(GIL_ORCSLAVE 	,	ATT_FRIENDLY,	GIL_ORCWARRIOR  	);
 	B_SetGuildAttitude	(GIL_ORCSLAVE	,	ATT_FRIENDLY,	GIL_ORCSCOUT		);
 	B_SetGuildAttitude	(GIL_ORCSLAVE	,	ATT_FRIENDLY,	GIL_ORCSLAVE		);
-}; 
+};

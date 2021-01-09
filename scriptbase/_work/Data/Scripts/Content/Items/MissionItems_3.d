@@ -10,11 +10,11 @@
 //	1. Pergamenthälfte der Ork-Schriftrolle
 //---------------------------------------------------------------------
 INSTANCE OrkParchmentOne(C_Item)
-{	
+{
 	name 				=	"Pergamenthäfte";
 
 	mainflag 			=	ITEM_KAT_DOCS;
-	flags 				=	ITEM_MISSION;	
+	flags 				=	ITEM_MISSION;
 
 	hp 					=	5;
 	hp_max 				=	5;
@@ -23,8 +23,8 @@ INSTANCE OrkParchmentOne(C_Item)
 
 	visual 				=	"ItWr_Scroll_02.3ds";
 	material 			=	MAT_LEATHER;
-	
-	scemeName			=	"MAP";	
+
+	scemeName			=	"MAP";
 	description			= name;
 	TEXT[0]				= "ein Teil eines uralten Pergaments";
 	TEXT[1]				= "das untere Ende scheint abgerissen";
@@ -36,11 +36,11 @@ INSTANCE OrkParchmentOne(C_Item)
 //	2. Pergamenthälfte der Ork-Schriftrolle
 //---------------------------------------------------------------------
 INSTANCE OrkParchmentTwo(C_Item)
-{	
+{
 	name 				=	"Pergamenthäfte";
 
 	mainflag 			=	ITEM_KAT_DOCS;
-	flags 				=	ITEM_MISSION;	
+	flags 				=	ITEM_MISSION;
 
 	hp 					=	5;
 	hp_max 				=	5;
@@ -49,8 +49,8 @@ INSTANCE OrkParchmentTwo(C_Item)
 
 	visual 				=	"ItWr_Scroll_02.3ds";
 	material 			=	MAT_LEATHER;
-	
-	scemeName			=	"MAP";	
+
+	scemeName			=	"MAP";
 	description			= name;
 	TEXT[0]				= "ein Teil eines uralten Pergaments";
 	TEXT[1]				= "das obere Ende scheint abgerissen";
@@ -62,11 +62,11 @@ INSTANCE OrkParchmentTwo(C_Item)
 //	Schlüssel zu Kaloms Truhe
 //---------------------------------------------------------------------
 INSTANCE ITKE_PSI_KALOM_01(C_Item)
-{	
+{
 	name 				=	"Schlüssel";
 
 	mainflag 			=	ITEM_KAT_NONE;
-	flags 				=	0;	
+	flags 				=	0;
 
 	value 				=	0;
 
@@ -84,9 +84,9 @@ INSTANCE ITKE_PSI_KALOM_01(C_Item)
 //	Fokuskarte
 //---------------------------------------------------------------------
 INSTANCE ItWrFocimap(C_Item)
-{	
+{
 	name 					=	"Fokuskarte von Saturas";
-	
+
 	mainflag 				=	ITEM_KAT_DOCS;
 	flags 					=	ITEM_MISSION;
 
@@ -95,7 +95,7 @@ INSTANCE ItWrFocimap(C_Item)
 	visual 					=	"ItWr_Map_01.3DS";
 	material 				=	MAT_LEATHER;
 
-	scemeName				=	"MAP";	
+	scemeName				=	"MAP";
 	on_state[0]				=	UseFocimap;
 
 	description				= name;
@@ -110,11 +110,11 @@ INSTANCE ItWrFocimap(C_Item)
 FUNC VOID UseFocimap()
 {
 	var int nDocID;
-	
-	nDocID = 	Doc_CreateMap	()			  ;							// DocManager 
+
+	nDocID = 	Doc_CreateMap	()			  ;							// DocManager
 				Doc_SetLevel	( nDocID,	"WORLD.ZEN" );
-				Doc_SetPages	( nDocID, 1 );                         
-				Doc_SetPage 	( nDocID, 0, "Map_World_Foki.tga", 	1	);  //  1 -> DO NOT SCALE 
+				Doc_SetPages	( nDocID, 1 );
+				Doc_SetPage 	( nDocID, 0, "Map_World_Foki.tga", 	1	);  //  1 -> DO NOT SCALE
 
 				Doc_Show		( nDocID 	);
 };
@@ -123,9 +123,9 @@ FUNC VOID UseFocimap()
 //	Tagebuch in Trollschlucht
 //---------------------------------------------------------------------
 INSTANCE ItWr_Troll_01(C_Item)
-{	
+{
 	name 				=	"Tagebuch-Seite";
-	
+
 	mainflag 			=	ITEM_KAT_DOCS;
 	flags 				=	ITEM_MISSION;
 
@@ -134,7 +134,7 @@ INSTANCE ItWr_Troll_01(C_Item)
 	visual 				=	"ItWr_Scroll_01.3DS";
 	material			=	MAT_LEATHER;
 
-	scemeName			=	"MAP";	
+	scemeName			=	"MAP";
 	on_state[0]			=	UseTroll;
 
 	description			=	name;
@@ -145,13 +145,13 @@ INSTANCE ItWr_Troll_01(C_Item)
 };
 
 FUNC VOID UseTroll()
-{   
+{
 	var int nDocID;
-	
-	nDocID = 	Doc_Create		()			  ;								 
-				Doc_SetPages	(nDocID,  1 );                         
-				Doc_SetPage 	(nDocID,  0, "letters.TGA"  , 0); 
-				Doc_SetMargins	(nDocID, -1, 50, 50, 50, 50, 1);  
+
+	nDocID = 	Doc_Create		()			  ;
+				Doc_SetPages	(nDocID,  1 );
+				Doc_SetPage 	(nDocID,  0, "letters.TGA"  , 0);
+				Doc_SetMargins	(nDocID, -1, 50, 50, 50, 50, 1);
 				Doc_SetFont 	(nDocID, -1, "font_15_book.tga");
 				Doc_PrintLine	(nDocID,  0, "169. Tag");
 				Doc_SetFont 	(nDocID, -1, "font_10_book.tga");
@@ -169,11 +169,11 @@ FUNC VOID UseTroll()
 //	Fokus 2 - (Trollschlucht)
 //---------------------------------------------------------------------
 INSTANCE Focus_2(C_Item)
-{	
+{
 	name 				=	"Fokus aus der Trollschlucht";
 
 	mainflag 			=	ITEM_KAT_NONE;
-	flags 				=	ITEM_MISSION;	
+	flags 				=	ITEM_MISSION;
 
 	hp 					=	1;
 	hp_max 				=	1;
@@ -192,11 +192,11 @@ INSTANCE Focus_2(C_Item)
 //	Truhenschlüssel in der Bergfestung
 //---------------------------------------------------------------------
 INSTANCE ItKe_BERG_01(C_Item)
-{	
+{
 	name 				=	"Truhenschlüssel";
 
 	mainflag 			=	ITEM_KAT_NONE;
-	flags 				=	0;	
+	flags 				=	0;
 
 	value 				=	0;
 
@@ -214,9 +214,9 @@ INSTANCE ItKe_BERG_01(C_Item)
 //	Urkunde in der Bergfestung
 //---------------------------------------------------------------------
 INSTANCE ItWr_Urkunde_01(C_Item)
-{	
+{
 	name 			=	"Urkunde";
-	
+
 	mainflag 		=	ITEM_KAT_DOCS;
 	flags 			=	0;
 
@@ -225,7 +225,7 @@ INSTANCE ItWr_Urkunde_01(C_Item)
 	visual 			=	"ItWr_Scroll_01.3DS";
 	material 		=	MAT_LEATHER;
 
-	scemeName		=	"MAP";	
+	scemeName		=	"MAP";
 	on_state[0]		=	UseUrkunde;
 	description		=	"Besitzurkunde";
 	TEXT[0]			=	"Berechtigt den Besitzer dazu den";
@@ -235,13 +235,13 @@ INSTANCE ItWr_Urkunde_01(C_Item)
 };
 
 FUNC VOID UseUrkunde()
-{   
+{
 	var int nDocID;
-	
-	nDocID = 	Doc_Create		()			  ;								 
-				Doc_SetPages	(nDocID,  1 );                         
-				Doc_SetPage 	(nDocID,  0, "letters.TGA"  , 0); 
-				Doc_SetMargins	(nDocID, -1, 50, 50, 50, 50, 1);  
+
+	nDocID = 	Doc_Create		()			  ;
+				Doc_SetPages	(nDocID,  1 );
+				Doc_SetPage 	(nDocID,  0, "letters.TGA"  , 0);
+				Doc_SetMargins	(nDocID, -1, 50, 50, 50, 50, 1);
 				Doc_SetFont 	(nDocID, -1, "font_15_book.tga");
 				Doc_PrintLine	(nDocID,  0, "Urkunde");
 				Doc_SetFont 	(nDocID, -1, "font_10_book.tga");
@@ -250,16 +250,16 @@ FUNC VOID UseUrkunde()
 				Doc_PrintLines	(nDocID,  0, "Ich, Bergmar Burggraf zu Westfeld und meines Herren zu Tymoris Landrichter über das Gut in dem Gebiet um Khorinis gelegen, ... tue kund, ... das ich ... dem Besitzer dieser Urkunde ... und dem Innoshaus daselbst das Lehen auf der Bergfeste (mitsamt weiteren Zehenten und allen dort befindlichen Minen) aufgegeben und verkauft habe um 400 Pfund Gold.");
 				Doc_Show		(nDocID );
 };
-	
+
 //---------------------------------------------------------------------
 //	Fakescroll (Bergfestung)
 //---------------------------------------------------------------------
 INSTANCE Fakescroll(C_Item)
-{	
+{
 	name 					=	"Brief";
 
 	mainflag 				=	ITEM_KAT_DOCS;
-	flags 					=	ITEM_MISSION;	
+	flags 					=	ITEM_MISSION;
 
 	hp 						=	5;
 	hp_max 					=	5;
@@ -268,9 +268,9 @@ INSTANCE Fakescroll(C_Item)
 
 	visual 					=	"ItWr_Scroll_01.3ds";
 	material 				=	MAT_LEATHER;
-	
-	scemeName				=	"MAPSEALED";	
-	
+
+	scemeName				=	"MAPSEALED";
+
 	description				= name;
 	TEXT[5]					= NAME_Value;
 	COUNT[5]				= value;
@@ -280,11 +280,11 @@ INSTANCE Fakescroll(C_Item)
 //	Fokus 3 - (Bergfestung)
 //---------------------------------------------------------------------
 INSTANCE Focus_3(C_Item)
-{	
+{
 	name 				=	"Fokus aus der Bergfestung";
 
 	mainflag 			=	ITEM_KAT_NONE;
-	flags 				=	ITEM_MISSION;	
+	flags 				=	ITEM_MISSION;
 
 	hp 					=	1;
 	hp_max 				=	1;
@@ -323,11 +323,11 @@ INSTANCE ItKe_Focus4(C_Item)
 //	Fokus 4 - (Klosterruine)
 //---------------------------------------------------------------------
 INSTANCE Focus_4(C_Item)
-{	
+{
 	name 				=	"Fokus aus der Klosterruine";
 
 	mainflag 			=	ITEM_KAT_NONE;
-	flags 				=	ITEM_MISSION;	
+	flags 				=	ITEM_MISSION;
 
 	hp 					=	1;
 	hp_max 				=	1;
@@ -404,11 +404,11 @@ INSTANCE ItKe_Focus5(C_Item)
 //	Fokus 5 - (Steinkreis)
 //---------------------------------------------------------------------
 INSTANCE Focus_5(C_Item)
-{	
+{
 	name 				=	"Fokus unter dem Stonehenge";
 
 	mainflag 			=	ITEM_KAT_NONE;
-	flags 				=	ITEM_MISSION;	
+	flags 				=	ITEM_MISSION;
 
 	hp 					=	1;
 	hp_max 				=	1;

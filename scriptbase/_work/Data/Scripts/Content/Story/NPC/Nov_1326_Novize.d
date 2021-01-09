@@ -6,10 +6,10 @@ instance NOV_1326_Novize (Npc_Default)
 	guild 		=		GIL_NOV;
 	level 		=		3;
 	flags 		=		0;
-	
+
 	voice 		=		3;
 	id 			=		1326;
-		
+
 	//-------- abilities --------
 	attribute[ATR_STRENGTH] 		=	10;
 	attribute[ATR_DEXTERITY] 		=	10;
@@ -27,17 +27,17 @@ instance NOV_1326_Novize (Npc_Default)
 
 	B_Scale (self);
 	Mdl_SetModelFatness(self,-1);
-	
+
 	fight_tactic	=	FAI_HUMAN_COWARD;
 
 	//-------- Talente --------
-	
-		
+
+
 	//-------- inventory --------
 
 	EquipItem (self, ItMw_1H_Hatchet_01);
-	
-	
+
+
 	//-------------Daily Routine-------------
 	daily_routine = Rtn_start_1326;
 };
@@ -45,7 +45,7 @@ instance NOV_1326_Novize (Npc_Default)
 FUNC VOID Rtn_start_1326 ()
 {
 	TA_Sleep 	(23,05,07,30,"PSI_27_HUT_IN");
-    TA_Listen	(07,30,23,05,"PSI_PLATFORM_1");	
+    TA_Listen	(07,30,23,05,"PSI_PLATFORM_1");
 };
 
 

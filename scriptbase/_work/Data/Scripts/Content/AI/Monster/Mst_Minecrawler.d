@@ -2,7 +2,7 @@
 **	Minecrawler Prototype												**
 *************************************************************************/
 
-PROTOTYPE Mst_Default_Minecrawler(C_Npc)			
+PROTOTYPE Mst_Default_Minecrawler(C_Npc)
 {
 	name							=	"Minecrawler";
 	guild							=	GIL_MINECRAWLER;
@@ -11,7 +11,7 @@ PROTOTYPE Mst_Default_Minecrawler(C_Npc)
 //------------------------------------------------------
 	attribute	[ATR_STRENGTH]		=	65;
 	attribute	[ATR_DEXTERITY]		=	30;
-	
+
 	attribute	[ATR_HITPOINTS_MAX]	=	90;
 	attribute	[ATR_HITPOINTS]		=	90;
 
@@ -39,7 +39,7 @@ PROTOTYPE Mst_Default_Minecrawler(C_Npc)
 	senses_range				= 3000;
 
 	aivar[AIV_MM_Behaviour]		= PACKHUNTER;
-	
+
 	aivar[AIV_MM_PercRange]		= 1200;
 	aivar[AIV_MM_DrohRange]		= 1200;
 	aivar[AIV_MM_AttackRange]	= 1000;

@@ -1,4 +1,4 @@
-instance  svm_11_CatchUp 			(C_SFX_DEF)          					  {file="SVM_11_CatchUp.WAV";};   
+instance  svm_11_CatchUp 			(C_SFX_DEF)          					  {file="SVM_11_CatchUp.WAV";};
 instance  svm_11_CatchUpOrForgetIt 	(C_SFX_DEF)                               {file="SVM_11_CatchUpOrForgetIt.WAV";};
 instance  svm_11_ForgetIt 			(C_SFX_DEF)                               {file="SVM_11_ForgetIt.WAV";};
 instance  svm_11_YouAreNotOneOfUs	(C_SFX_DEF)                               {file="SVM_11_YouAreNotOneOfUs.WAV";};
@@ -110,10 +110,10 @@ instance  svm_11_YouStoleFromMe 	(C_SFX_DEF)                               {file
 instance  svm_11_YouStoleFromUs 	(C_SFX_DEF)                               {file="SVM_11_YouStoleFromUs.WAV";};
 instance  svm_11_YouPissedMeOff 	(C_SFX_DEF)                               {file="SVM_11_YouPissedMeOff.WAV";};
 instance  svm_11_YouMeddledWithDuel (C_SFX_DEF)                               {file="SVM_11_YouMeddledWithDuel.WAV";};
-          
-          
-          
-          
-          
-          
+
+
+
+
+
+
 

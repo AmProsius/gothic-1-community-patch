@@ -1,11 +1,11 @@
 instance KDW_604_Cronos (Npc_Default)
 {
 	//-------- primary data --------
-	
+
 	name 		=	"Cronos";
 	npctype		=	NPCTYPE_MAIN;
 	flags		=	NPC_FLAG_IMMORTAL|NPC_FLAG_FRIEND;
-	guild 		=	GIL_KDW;      
+	guild 		=	GIL_KDW;
 	level 		=	28;
 	voice 		=	8;
 	id 			=	604;
@@ -22,22 +22,22 @@ instance KDW_604_Cronos (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Mage.mds");
-	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung	
+	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung
 	Mdl_SetVisualBody (self,"hum_body_Naked0",0, 0,"Hum_Head_Thief", 7,  1,KDW_ARMOR_L);
-	
+
 	B_Scale (self);
 	Mdl_SetModelFatness (self, 0);
-	
-	fight_tactic	=	FAI_HUMAN_MAGE;	
-	
+
+	fight_tactic	=	FAI_HUMAN_MAGE;
+
 	//-------- Talente --------
 	Npc_SetTalentSkill	( self, NPC_TALENT_MAGE,		6);
-			
-	//-------- Spells --------        
+
+	//-------- Spells --------
 	CreateInvItem 		(self, ItArRuneIceCube);
 	CreateInvItem 		(self, ItArRuneThunderbolt);
 
-	//-------- inventory --------                                    
+	//-------- inventory --------
 	B_Give_CronosChapter1Runes ();
 	//-------------Daily Routine-------------
 	daily_routine = Rtn_start_604;

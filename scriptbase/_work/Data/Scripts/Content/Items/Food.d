@@ -57,14 +57,14 @@ const int	Value_Drachenwurzel	=	23;		const int	Mana_Drachenwurzel	=	30;
 *******************************************************************************************/
 
 INSTANCE ItAt_Meatbug_01 (C_Item)
-{	
+{
 	name 				=	"Wanzenfleisch";
 
 	mainflag 			=	ITEM_KAT_NONE;
 	flags 				=	ITEM_MULTI;
-	
+
 	value 				=	Value_Bugmeat;
-	
+
 	visual 				=	"ItAt_Meatbug_01.3DS";
 	material 			=	MAT_LEATHER;
 	scemeName			=	"FOOD";
@@ -83,7 +83,7 @@ INSTANCE ItAt_Meatbug_01 (C_Item)
 
 /******************************************************************************************/
 INSTANCE ItFoApple(C_Item)
-{	
+{
 	name 				=	"Apfel";
 
 	mainflag 			=	ITEM_KAT_FOOD;
@@ -91,7 +91,7 @@ INSTANCE ItFoApple(C_Item)
 
 	value 				=	Value_Apfel;
 
-	visual 				=	"ItFo_Apple_01.3ds"; 
+	visual 				=	"ItFo_Apple_01.3ds";
 	material 			=	MAT_LEATHER;
 	scemeName			=	"FOOD";
 	on_state[0]			=	UseApple;
@@ -108,16 +108,16 @@ INSTANCE ItFoApple(C_Item)
 
 /******************************************************************************************/
 INSTANCE ItFo_wineberrys_01(C_Item)
-{	
+{
 	name 				=	"Weintrauben";
 
 	mainflag 			=	ITEM_KAT_FOOD;
-	flags 				=	ITEM_MULTI;	
+	flags 				=	ITEM_MULTI;
 
 	value 				=	Value_Weintrauben;
 
 	visual 				=	"ItFo_wineberrys_01.3ds";
-	on_state[0]         = 	Usewineberrys;  
+	on_state[0]         = 	Usewineberrys;
 	scemeName			=	"FOOD";
 
 	description			= name;
@@ -125,14 +125,14 @@ INSTANCE ItFo_wineberrys_01(C_Item)
 	TEXT[5]				= NAME_Value;					COUNT[5]	= Value_Weintrauben;
 };
 
-	func void Usewineberrys () 
+	func void Usewineberrys ()
 	{
 		Npc_ChangeAttribute	(self,	ATR_HITPOINTS,	HP_Weintrauben);
 	};
 
 /******************************************************************************************/
 INSTANCE ItFoLoaf(C_Item)
-{	
+{
 	name 				=	"Brot";
 
 	mainflag 			=	ITEM_KAT_FOOD;
@@ -157,11 +157,11 @@ INSTANCE ItFoLoaf(C_Item)
 
 /******************************************************************************************/
 INSTANCE ItFoMutton (C_Item)
-{	
+{
 	name 				=	"gebratenes Fleisch";
 
 	mainflag 			=	ITEM_KAT_FOOD;
-	flags 				=	ITEM_MULTI;	
+	flags 				=	ITEM_MULTI;
 
 	value 				=	Value_Fleisch;
 
@@ -181,11 +181,11 @@ INSTANCE ItFoMutton (C_Item)
 
 /******************************************************************************************/
 INSTANCE ItFoMuttonRaw (C_Item)
-{	
+{
 	name 				=	"rohes Fleisch";
 
 	mainflag 			=	ITEM_KAT_FOOD;
-	flags 				=	ITEM_MULTI;	
+	flags 				=	ITEM_MULTI;
 
 	value 				=	Value_FleischRoh;
 
@@ -205,11 +205,11 @@ INSTANCE ItFoMuttonRaw (C_Item)
 
 /******************************************************************************************/
 INSTANCE ItFo_mutton_01 (C_Item)
-{	
+{
 	name 				=	"Schinken";
 
 	mainflag 			=	ITEM_KAT_FOOD;
-	flags 				=	ITEM_MULTI;	
+	flags 				=	ITEM_MULTI;
 
 	value 				=	Value_Schinken;
 
@@ -230,11 +230,11 @@ INSTANCE ItFo_mutton_01 (C_Item)
 
 /******************************************************************************************/
 INSTANCE ItFoCheese(C_Item)
-{	
+{
 	name 				=	"Käse";
 
 	mainflag 			=	ITEM_KAT_FOOD;
-	flags 				=	ITEM_MULTI;	
+	flags 				=	ITEM_MULTI;
 
 	value 				=	Value_Käse;
 
@@ -254,11 +254,11 @@ INSTANCE ItFoCheese(C_Item)
 
 /******************************************************************************************/
 INSTANCE ItFoRice(C_Item)
-{	
+{
 	name 				=	"Reis";
 
 	mainflag 			=	ITEM_KAT_FOOD;
-	flags 				=	ITEM_MULTI;	
+	flags 				=	ITEM_MULTI;
 
 	value 				=	Value_Reis;
 
@@ -278,7 +278,7 @@ INSTANCE ItFoRice(C_Item)
 
 /******************************************************************************************/
 INSTANCE ItFoSoup(C_Item)
-{	
+{
 	name 				=	"Wurzelsuppe";
 
 	mainflag 			=	ITEM_KAT_FOOD;
@@ -302,15 +302,15 @@ INSTANCE ItFoSoup(C_Item)
 
 /******************************************************************************************/
 INSTANCE ItFoMeatbugragout(C_Item)
-{	
+{
 	name 				=	"Fleischwanzenragout";
-	
+
 	mainflag 			=	ITEM_KAT_FOOD;
 	flags 				=	ITEM_MULTI;
 
 	value 				=	Value_Ragout;
 
-	visual 				=	"ItFo_Meatbugragout_01.3ds"; 
+	visual 				=	"ItFo_Meatbugragout_01.3ds";
 	material 			=	MAT_LEATHER;
 	scemeName			=	"RICE";
 	on_state[0]			=	UseMeatbugragout;
@@ -326,23 +326,23 @@ INSTANCE ItFoMeatbugragout(C_Item)
 	};
 
 /******************************************************************************************/
-INSTANCE ItFoCrawlersoup(C_Item)                                          
-{	                                                                
+INSTANCE ItFoCrawlersoup(C_Item)
+{
 	name 				=	"Minecrawlersuppe";
-	                                                            
-	mainflag 			=	ITEM_KAT_FOOD;  
+
+	mainflag 			=	ITEM_KAT_FOOD;
 	flags 				=	ITEM_MULTI;
-                                                                    
-	value 				=	Value_CrawlerSuppe;              
-                                                                    
-	visual 				=	"ItFo_Crawlersoup_01.3ds";    
+
+	value 				=	Value_CrawlerSuppe;
+
+	visual 				=	"ItFo_Crawlersoup_01.3ds";
 	material 			=	MAT_LEATHER;
-	on_state[0]			=	UseCrawlersoup;   
+	on_state[0]			=	UseCrawlersoup;
 	scemeName			=	"RICE";
 
 	description			= name;
 	TEXT[1]				= NAME_Bonus_HP;				COUNT[1]	= HP_CrawlerSuppe;
-	TEXT[5]				= NAME_Value;					COUNT[5]	= Value_CrawlerSuppe;                                                    
+	TEXT[5]				= NAME_Value;					COUNT[5]	= Value_CrawlerSuppe;
 };
 
 	FUNC VOID UseCrawlersoup()
@@ -363,7 +363,7 @@ INSTANCE ItFo_Potion_Water_01(C_Item)
 	mainflag 		=	ITEM_KAT_FOOD;
 	flags 			=	ITEM_MULTI;
 
-	value 			=	Value_Wasser;	
+	value 			=	Value_Wasser;
 
 	visual 			=	"ItFo_Potion_Water_01.3ds";
 	material 		=	MAT_GLAS;
@@ -376,20 +376,20 @@ INSTANCE ItFo_Potion_Water_01(C_Item)
 };
 
 	func VOID UseWaterPotion()
-	{	
+	{
 		Npc_ChangeAttribute	(self,	ATR_HITPOINTS,	HP_Wasser);
 	};
 
 
-// FIXME: zs_Drunk für SC oder nicht? 
+// FIXME: zs_Drunk für SC oder nicht?
 INSTANCE ItFoBeer(C_Item)
 {
 	name 				=	"Bier";
 
 	mainflag 			=	ITEM_KAT_FOOD;
 	flags 				=	ITEM_MULTI;
-	
-	value 				=	Value_Bier;	
+
+	value 				=	Value_Bier;
 
 	visual 				=	"ItFo_Beer_01.3ds";
 	material 			=	MAT_GLAS;
@@ -409,7 +409,7 @@ INSTANCE ItFoBeer(C_Item)
 /******************************************************************************************/
 
 INSTANCE ItFoWine(C_Item)
-{	
+{
 	name 				=	"Wein";
 
 	mainflag 			=	ITEM_KAT_FOOD;
@@ -435,7 +435,7 @@ INSTANCE ItFoWine(C_Item)
 /******************************************************************************************/
 
 INSTANCE ItFoBooze(C_Item)
-{	
+{
 	name 				=	"Reisschnaps";
 
 	mainflag 			=	ITEM_KAT_FOOD;
@@ -462,13 +462,13 @@ INSTANCE ItFoBooze(C_Item)
 
 //**************************************************************************************/
 //						PFLANZEN  PFLANZEN PFLANZEN
-/******************************************************************************************/ 
+/******************************************************************************************/
 INSTANCE ItFo_Plants_Berrys_01(C_Item)
-{	
+{
 	name 				=	"Waldbeeren";
 
 	mainflag 			=	ITEM_KAT_FOOD;
-	flags 				=	ITEM_MULTI;	
+	flags 				=	ITEM_MULTI;
 
 	value 				=	Value_Waldbeeren;
 
@@ -490,11 +490,11 @@ INSTANCE ItFo_Plants_Berrys_01(C_Item)
 
 /******************************************************************************************/
 INSTANCE ItFo_Plants_Flameberry_01(C_Item)
-{	
+{
 	name 				=	"Flammendorn";
 
 	mainflag 			=	ITEM_KAT_FOOD;
-	flags 				=	ITEM_MULTI;	
+	flags 				=	ITEM_MULTI;
 
 	value 				=	Value_Flammendorn;
 
@@ -513,20 +513,20 @@ INSTANCE ItFo_Plants_Flameberry_01(C_Item)
 			Npc_ChangeAttribute	(self,	ATR_HITPOINTS,	HP_Flammendorn);
 			PrintDebugNpc 		(PD_ITEM_MOBSI, "Ich esse Flammendorn");
 		};
-		
+
 /******************************************************************************************/
 INSTANCE ItFo_Plants_Seraphis_01(C_Item)
-{	
+{
 	name 				=	"Seraphis";
 
 	mainflag 			=	ITEM_KAT_FOOD;
-	flags 				=	ITEM_MULTI;	
+	flags 				=	ITEM_MULTI;
 
 	value 				=	Value_Seraphis;
 
 	visual 				=	"ItFo_Plants_Seraphis_01.3ds";
 	material 			=	MAT_WOOD;
-	on_state[0]			= Useseraphis;	
+	on_state[0]			= Useseraphis;
 	scemeName			=	"FOOD";
 
 	description			= name;
@@ -535,26 +535,26 @@ INSTANCE ItFo_Plants_Seraphis_01(C_Item)
 };
 
 		func void Useseraphis ()
-		{			
+		{
 			Npc_ChangeAttribute	(self,	ATR_HITPOINTS,	HP_Seraphis);
 			PrintDebugNpc 		(PD_ITEM_MOBSI, "Ich esse Seraphis");
 		};
-		
+
 /******************************************************************************************/
 // Steigerung von Seraphis
 
 INSTANCE ItFo_Plants_Velayis_01(C_Item)
-{	
+{
 	name 				=	"Velayis";
 
 	mainflag 			=	ITEM_KAT_FOOD;
-	flags 				=	ITEM_MULTI;	
+	flags 				=	ITEM_MULTI;
 
 	value 				=	Value_Velayis;
 
 	visual 				=	"ItFo_Plants_Seraphis_01.3ds";
 	material 			=	MAT_WOOD;
-	on_state[0]			= UseVelayis;	
+	on_state[0]			= UseVelayis;
 	scemeName			=	"FOOD";
 
 	description			= name;
@@ -563,18 +563,18 @@ INSTANCE ItFo_Plants_Velayis_01(C_Item)
 };
 
 		func void UseVelayis ()
-		{			
+		{
 			Npc_ChangeAttribute	(self,	ATR_HITPOINTS,	HP_Velayis);
 			PrintDebugNpc 		(PD_ITEM_MOBSI, "Ich esse Velayis");
 		};
 
 /******************************************************************************************/
 INSTANCE ItFo_Plants_mountainmoos_01(C_Item)
-{	
+{
 	name 				=	"Bergmoos";
 
 	mainflag 			=	ITEM_KAT_FOOD;
-	flags 				=	ITEM_MULTI;	
+	flags 				=	ITEM_MULTI;
 
 	value 				=	Value_Bergmoos;
 
@@ -593,14 +593,14 @@ INSTANCE ItFo_Plants_mountainmoos_01(C_Item)
 			Npc_ChangeAttribute	(self,	ATR_HITPOINTS,	HP_Bergmoos);
 			PrintDebugNpc 		(PD_ITEM_MOBSI, "Ich esse Moos");
 		};
-		
+
 /******************************************************************************************/
 INSTANCE ItFo_Plants_mountainmoos_02(C_Item)
-{	
+{
 	name 				=	"Grabmoos";
 
 	mainflag 			=	ITEM_KAT_FOOD;
-	flags 				=	ITEM_MULTI;	
+	flags 				=	ITEM_MULTI;
 
 	value 				=	Value_Grabmoos;
 
@@ -622,11 +622,11 @@ INSTANCE ItFo_Plants_mountainmoos_02(C_Item)
 
 /******************************************************************************************/
 INSTANCE ItFo_Plants_Nightshadow_01(C_Item)
-{	
+{
 	name 				=	"Nachtschatten";
 
 	mainflag 			=	ITEM_KAT_FOOD;
-	flags 				=	ITEM_MULTI;	
+	flags 				=	ITEM_MULTI;
 
 	value 				=	Value_Nachtschatten;
 
@@ -645,14 +645,14 @@ INSTANCE ItFo_Plants_Nightshadow_01(C_Item)
 			Npc_ChangeAttribute	(self,	ATR_HITPOINTS,	HP_Nachtschatten);
 			PrintDebugNpc 		(PD_ITEM_MOBSI, "Ich esse Nachtschatten");
 		};
-		
+
 /******************************************************************************************/
 INSTANCE ItFo_Plants_Nightshadow_02(C_Item)
-{	
+{
 	name 				=	"Mondschatten";
 
 	mainflag 			=	ITEM_KAT_FOOD;
-	flags 				=	ITEM_MULTI;	
+	flags 				=	ITEM_MULTI;
 
 	value 				=	Value_Mondschatten;
 
@@ -671,14 +671,14 @@ INSTANCE ItFo_Plants_Nightshadow_02(C_Item)
 			Npc_ChangeAttribute	(self,	ATR_HITPOINTS,	HP_Mondschatten);
 			PrintDebugNpc 		(PD_ITEM_MOBSI, "Ich esse Mondschatten");
 		};
-		
+
 /******************************************************************************************/
 INSTANCE ItFo_Plants_OrcHerb_01(C_Item)
-{	
+{
 	name 				=	"Orkblatt";
 
 	mainflag 			=	ITEM_KAT_FOOD;
-	flags 				=	ITEM_MULTI;	
+	flags 				=	ITEM_MULTI;
 
 	value 				=	Value_Orkblatt;
 
@@ -693,18 +693,18 @@ INSTANCE ItFo_Plants_OrcHerb_01(C_Item)
 };
 
 		func void Useorc ()
-		{	
+		{
 			Npc_ChangeAttribute	(self,	ATR_HITPOINTS,	HP_Orkblatt);
 			PrintDebugNpc 		(PD_ITEM_MOBSI, "Ich esse orkblatt");
 		};
-		
+
 /******************************************************************************************/
 INSTANCE ItFo_Plants_OrcHerb_02(C_Item)
-{	
+{
 	name 				=	"Eichenblatt";
 
 	mainflag 			=	ITEM_KAT_FOOD;
-	flags 				=	ITEM_MULTI;	
+	flags 				=	ITEM_MULTI;
 
 	value 				=	Value_Eichenblatt;
 
@@ -723,16 +723,16 @@ INSTANCE ItFo_Plants_OrcHerb_02(C_Item)
 			Npc_ChangeAttribute	(self,	ATR_HITPOINTS,	HP_Eichenblatt);
 			PrintDebugNpc 		(PD_ITEM_MOBSI, "Ich esse Eichenblatt");
 		};
-		
+
 /*****************************************************************************************/
 //								PILZE
 /*****************************************************************************************/
 INSTANCE ItFo_Plants_mushroom_01(C_Item)
-{	
+{
 	name 				=	"Höllenpilz";
 
 	mainflag 			=	ITEM_KAT_FOOD;
-	flags 				=	ITEM_MULTI;	
+	flags 				=	ITEM_MULTI;
 
 	value 				=	Value_Höllenpilz;
 
@@ -754,11 +754,11 @@ INSTANCE ItFo_Plants_mushroom_01(C_Item)
 
 /*****************************************************************************************/
 INSTANCE ItFo_Plants_mushroom_02(C_Item)
-{	
+{
 	name 				=	"Sklavenbrot";
 
 	mainflag 			=	ITEM_KAT_FOOD;
-	flags 				=	ITEM_MULTI;	
+	flags 				=	ITEM_MULTI;
 
 	value 				=	Value_Sklavenbrot;
 
@@ -783,11 +783,11 @@ INSTANCE ItFo_Plants_mushroom_02(C_Item)
 //								HEILKRÄUTER
 /*****************************************************************************************/
 INSTANCE ItFo_Plants_Herb_01(C_Item)
-{	
+{
 	name 				=	"Heilkräuter";
 
 	mainflag 			=	ITEM_KAT_FOOD;
-	flags 				=	ITEM_MULTI;	
+	flags 				=	ITEM_MULTI;
 
 	value 				=	Value_Heilkräuter1;
 
@@ -809,11 +809,11 @@ INSTANCE ItFo_Plants_Herb_01(C_Item)
 
 /******************************************************************************************/
 INSTANCE ItFo_Plants_Herb_02(C_Item)
-{	
+{
 	name 				=	"Heilkräuter";
 
 	mainflag 			=	ITEM_KAT_FOOD;
-	flags 				=	ITEM_MULTI;	
+	flags 				=	ITEM_MULTI;
 
 	value 				=	Value_Heilkräuter2;
 
@@ -835,11 +835,11 @@ INSTANCE ItFo_Plants_Herb_02(C_Item)
 
 /******************************************************************************************/
 INSTANCE ItFo_Plants_Herb_03(C_Item)
-{	
+{
 	name 				=	"Heilkräuter";
 
 	mainflag 			=	ITEM_KAT_FOOD;
-	flags 				=	ITEM_MULTI;	
+	flags 				=	ITEM_MULTI;
 
 	value 				=	Value_Heilkräuter3;
 
@@ -854,7 +854,7 @@ INSTANCE ItFo_Plants_Herb_03(C_Item)
 };
 
 	func void UsePlants3 ()
-	{			
+	{
 			Npc_ChangeAttribute	(self,	ATR_HITPOINTS,	HP_Heilkräuter3);
 			PrintDebugNpc 		(PD_ITEM_MOBSI, "Ich esse Heilpflanzen");
 	};
@@ -863,11 +863,11 @@ INSTANCE ItFo_Plants_Herb_03(C_Item)
 //							MANAREG. PFLANZEN
 /*****************************************************************************************/
 instance ItFo_Plants_Bloodwood_01 (C_ITEM)
-{	
+{
 	name 					=	"Blutbuchen Samen";
 
 	mainflag 				=	ITEM_KAT_FOOD;
-	flags 					=	ITEM_MULTI;	
+	flags 					=	ITEM_MULTI;
 
 	value 					=	Value_Blutbuche;
 
@@ -878,22 +878,22 @@ instance ItFo_Plants_Bloodwood_01 (C_ITEM)
 
 	description			= name;
 	TEXT[1]				= NAME_Bonus_Mana;				COUNT[1]	= Mana_Blutbuche;
-	TEXT[5]				= NAME_Value;					COUNT[5]	= Value_Blutbuche;                          	
+	TEXT[5]				= NAME_Value;					COUNT[5]	= Value_Blutbuche;
 };
-                                       
+
 		func void Useblood ()
 		{
 			Npc_ChangeAttribute	(self,	ATR_MANA,	Mana_Blutbuche);
 			PrintDebugNpc 		(PD_ITEM_MOBSI, "Ich esse Blutbuchensamen");
-		};   
-		                                  
+		};
+
 /******************************************************************************************/
 instance ItFo_Plants_Towerwood_01 (C_ITEM)
-{	
+{
 	name 					=	"Turmeichen Samen";
 
 	mainflag 				=	ITEM_KAT_FOOD;
-	flags 					=	ITEM_MULTI;	
+	flags 					=	ITEM_MULTI;
 
 	value 					=	Value_Turmeiche;
 
@@ -904,22 +904,22 @@ instance ItFo_Plants_Towerwood_01 (C_ITEM)
 
 	description			= name;
 	TEXT[1]				= NAME_Bonus_Mana;				COUNT[1]	= Mana_Turmeiche;
-	TEXT[5]				= NAME_Value;					COUNT[5]	= Value_Turmeiche;                    	
-};                                        
+	TEXT[5]				= NAME_Value;					COUNT[5]	= Value_Turmeiche;
+};
 
 		func void Useblood2 ()
 		{
 			Npc_ChangeAttribute	(self,	ATR_MANA,	Mana_Turmeiche);
 			PrintDebugNpc 		(PD_ITEM_MOBSI, "Ich esse Turmeichensamen");
 		};
-		                 
+
 /******************************************************************************************/
 INSTANCE ItFo_Plants_RavenHerb_01(C_Item)
-{	
+{
 	name 				=	"Rabenkraut";
 
 	mainflag 			=	ITEM_KAT_FOOD;
-	flags 				=	ITEM_MULTI;	
+	flags 				=	ITEM_MULTI;
 
 	value 				=	Value_Rabenkraut;
 
@@ -937,15 +937,15 @@ INSTANCE ItFo_Plants_RavenHerb_01(C_Item)
 		{
 			Npc_ChangeAttribute	(self,	ATR_MANA,	Mana_Rabenkraut);
 			PrintDebugNpc 		(PD_ITEM_MOBSI, "Ich esse Rabenkraut");
-		}; 
-		  
+		};
+
 /******************************************************************************************/
 INSTANCE ItFo_Plants_RavenHerb_02(C_Item)
-{	
+{
 	name 				=	"Dunkelkraut";
 
 	mainflag 			=	ITEM_KAT_FOOD;
-	flags 				=	ITEM_MULTI;	
+	flags 				=	ITEM_MULTI;
 
 	value 				=	Value_Dunkelkraut;
 
@@ -963,15 +963,15 @@ INSTANCE ItFo_Plants_RavenHerb_02(C_Item)
 		{
 			Npc_ChangeAttribute	(self,	ATR_MANA,	Mana_Dunkelkraut);
 			PrintDebugNpc 		(PD_ITEM_MOBSI, "Ich esse Dunkelkraut");
-		}; 
-		 
-/******************************************************************************************/ 
+		};
+
+/******************************************************************************************/
 INSTANCE ItFo_Plants_Stoneroot_01(C_Item)
-{	
+{
 	name 				=	"Steinwurzel";
 
 	mainflag 			=	ITEM_KAT_FOOD;
-	flags 				=	ITEM_MULTI;	
+	flags 				=	ITEM_MULTI;
 
 	value 				=	Value_Steimwurzel;
 
@@ -989,15 +989,15 @@ INSTANCE ItFo_Plants_Stoneroot_01(C_Item)
 		{
 			Npc_ChangeAttribute	(self,	ATR_MANA,	Mana_Steinwurzel);
 			PrintDebugNpc 		(PD_ITEM_MOBSI, "Ich esse Steinwurzel");
-		}; 
-		
-/******************************************************************************************/  
+		};
+
+/******************************************************************************************/
 INSTANCE ItFo_Plants_Stoneroot_02(C_Item)
-{	
+{
 	name 				=	"Drachenwurzel";
 
 	mainflag 			=	ITEM_KAT_FOOD;
-	flags 				=	ITEM_MULTI;	
+	flags 				=	ITEM_MULTI;
 
 	value 				=	Value_Drachenwurzel;
 
@@ -1015,17 +1015,17 @@ INSTANCE ItFo_Plants_Stoneroot_02(C_Item)
 		{
 			Npc_ChangeAttribute	(self,	ATR_MANA,	Mana_Drachenwurzel);
 			PrintDebugNpc 		(PD_ITEM_MOBSI, "Ich esse Drachenwurzel");
-		}; 
-		  
+		};
+
 /******************************************************************************************/
 //								GIFTPFLANZEN
 /******************************************************************************************/
 INSTANCE ItFo_Plants_Trollberrys_01(C_Item)
-{	
+{
 	name 					=	"Trollkirsche";
 
 	mainflag 				=	ITEM_KAT_FOOD;
-	flags 					=	ITEM_MULTI;	
+	flags 					=	ITEM_MULTI;
 
 	value 					=	Value_Trollkirsche;
 

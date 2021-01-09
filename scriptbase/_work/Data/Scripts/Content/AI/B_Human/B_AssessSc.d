@@ -1,8 +1,8 @@
-/******************************************************************************************** 
+/********************************************************************************************
 *	B_AssessSc()																			*
 *	============																			*
-*																							* 
-********************************************************************************************/ 
+*																							*
+********************************************************************************************/
 
 // C_Cantalk to kann evtl. raus, wurde ursprünglich nur wegen B_AssessSC-Aufruf aus ZS_Talk implementiert.
 // ZS_Talk ruft aber B_AssessSC NICHT mehr auf
@@ -16,11 +16,11 @@ FUNC VOID B_CheckStolenEquipment ()
 	var C_Item 	melee;
 	var C_Item 	ranged;
 	var C_ITEM	armor;
-	
+
 	melee 	= 	Npc_GetEquippedMeleeWeapon 		(other);
 	ranged 	= 	Npc_GetEquippedRangedWeapon 	(other);
 	armor	=	Npc_GetEquippedArmor		 	(other);
-	
+
 	if (Npc_OwnedByNpc (melee, self))
 	{
 		PrintDebugNpc (PD_ZS_CHECK,	"...SC trägt Nahkampf-Waffe des NSCs offen!");
@@ -60,32 +60,32 @@ FUNC VOID B_CheckStolenEquipment ()
 func void B_AssessSc ()
 {
 	PrintDebugNpc (PD_ZS_FRAME,	"B_AssessSc");
-	
+
 	//*********** Extra für Raeuberlager ************
 	if (self.npctype == NPCTYPE_ROGUE)
 	{
 		B_SetRoguesToHostile();
 	};
 	//***********************************************
-	
+
 	if (Npc_CanSeeNpcFreeLOS(self, other)
-	&&	(Npc_GetDistToNpc	(self, other) < PERC_DIST_DIALOG) ) 		
+	&&	(Npc_GetDistToNpc	(self, other) < PERC_DIST_DIALOG) )
 	{
 		PrintDebugNpc			(PD_ZS_CHECK,	"...SC sichtbar und in Dialogreichweite!");
 
 		//----------- Übernommene NSCs werden von GateGuards geplättet!------------------
-		var C_NPC her; 	her = Hlp_GetNpc(PC_Hero); 
+		var C_NPC her; 	her = Hlp_GetNpc(PC_Hero);
 		var C_NPC rock; rock = Hlp_GetNpc(PC_Rockefeller);
-		
-		if 	( 
+
+		if 	(
 			( (Hlp_GetInstanceID(her)!=Hlp_GetInstanceID(Hero))&&(Hlp_GetInstanceID(rock)!=Hlp_GetInstanceID(Hero)) )
-		&&	( Npc_IsInState(self,ZS_GuardPassage) ) 
+		&&	( Npc_IsInState(self,ZS_GuardPassage) )
 			)
-		//Npc_IsInState(other, ZS_Controlled) funzt nicht! 
+		//Npc_IsInState(other, ZS_Controlled) funzt nicht!
 		{
 			if (Wld_GetGuildAttitude(self.guild,other.guild)!=ATT_FRIENDLY)
 			{
-				B_FullStop			(self);	
+				B_FullStop			(self);
 				B_Say		 		(self,other,"$NOWWAIT");
 				B_IntruderAlert		(self,	other);
 				B_SetAttackReason	(self,	AIV_AR_INTRUDER);
@@ -93,10 +93,10 @@ func void B_AssessSc ()
 				AI_StartState		(self,	ZS_Attack,	1,	"");
 			};
 		};
-				
+
 		//-------- Auf Vergabe von Infos & Missionen checken --------
 		B_CheckForImportantInfo(self,other);
-		
+
 		//-------- SC im Kampfmodus ? --------
 		if (C_NpcIsInFightMode(other))
 		{
@@ -138,8 +138,7 @@ func void B_AssessSc ()
 			PrintDebugNpc	(PD_ZS_CHECK,	"...Status für Durchgangswachen zurücksetzen!");
 			hero.aivar[AIV_GUARDPASSAGE_STATUS] = AIV_GPS_BEGIN;
 		};
-	};	
+	};
 };
-			
 
-				
+

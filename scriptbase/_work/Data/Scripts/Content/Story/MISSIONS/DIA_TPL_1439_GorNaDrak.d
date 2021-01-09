@@ -1,5 +1,5 @@
 // **************************************************
-//						 EXIT 
+//						 EXIT
 // **************************************************
 
 instance  DIA_GorNaDrak_EXIT (C_INFO)
@@ -10,7 +10,7 @@ instance  DIA_GorNaDrak_EXIT (C_INFO)
 	information	= DIA_GorNaDrak_EXIT_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC int  DIA_GorNaDrak_EXIT_Condition()
 {
@@ -34,7 +34,7 @@ instance  DIA_GorNaDrak_Greet (C_INFO)
 	information	= DIA_GorNaDrak_Greet_Info;
 	permanent	= 0;
 	description  = "Hi! Wohin soll's denn gehen?";
-};                       
+};
 
 FUNC int  DIA_GorNaDrak_Greet_Condition()
 {
@@ -60,7 +60,7 @@ instance  DIA_GorNaDrak_WasSekret (C_INFO)
 	information	= DIA_GorNaDrak_WasSekret_Info;
 	permanent	= 0;
 	description  = "Was ist das für ein Sekret?";
-};                       
+};
 
 FUNC int  DIA_GorNaDrak_WasSekret_Condition()
 {
@@ -88,7 +88,7 @@ instance  DIA_GorNaDrak_TeachMandibles (C_INFO)
 	information	= DIA_GorNaDrak_TeachMandibles_Info;
 	permanent	= 0;
 	description  = "Kannst du mir sagen, wie ich an das Sekret eines Minecrawlers herankomme?";
-};                       
+};
 
 FUNC int  DIA_GorNaDrak_TeachMandibles_Condition()
 {
@@ -102,7 +102,7 @@ FUNC VOID  DIA_GorNaDrak_TeachMandibles_Info()
 {
 	AI_Output (other, self,"DIA_GorNaDrak_TeachMandibles_15_00"); //Kannst du mir sagen, wie ich an das Sekret eines Minecrawlers herankomme?
 	AI_Output (self, other,"DIA_GorNaDrak_TeachMandibles_09_01"); //Klar, nachdem du das Vieh getötet hast, packst du es an den Beißzangen und reißt sie gerade heraus. Dann kommt die Sekretdrüse mit raus, ohne zu zerreißen.
-	
+
 	PrintScreen	("Lerne: Minecrawlerzangen nehmen", -1,-1,"FONT_OLD_20_WHITE.TGA",3);
 	Knows_GetMCMandibles = TRUE;
 	Log_CreateTopic (GE_AnimalTrophies,LOG_NOTE);
@@ -121,7 +121,7 @@ instance  DIA_GorNaDrak_WhatFor (C_INFO)
 	information	= DIA_GorNaDrak_WhatFor_Info;
 	permanent	= 0;
 	description  = "Wofür braucht Cor Kalom das Sekret?";
-};                       
+};
 
 FUNC int  DIA_GorNaDrak_WhatFor_Condition()
 {
@@ -151,7 +151,7 @@ instance  DIA_GorNaDrak_Permanent (C_INFO)
 	information	= DIA_GorNaDrak_Permanent_Info;
 	permanent	= 1;
 	description  = "Habt ihr schon genug Elixier für die große Anrufung des Schläfers?";
-};                       
+};
 
 FUNC int  DIA_GorNaDrak_Permanent_Condition()
 {

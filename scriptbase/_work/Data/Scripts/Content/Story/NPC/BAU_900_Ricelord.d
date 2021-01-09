@@ -1,13 +1,13 @@
 instance BAU_900_Ricelord (Npc_Default)
 {
 	//-------- primary data --------
-	
+
 	name 		=	"Der Reislord";
-	npctype 	=	NPCTYPE_GUARD;	
-	guild 		=	GIL_BAU;      
+	npctype 	=	NPCTYPE_GUARD;
+	guild 		=	GIL_BAU;
 	level 		=	10;
 	voice 		=	12;
-	id 			=	900; 
+	id 			=	900;
 
 	//-------- abilities --------
 	attribute[ATR_STRENGTH] 	= 50;
@@ -21,32 +21,32 @@ instance BAU_900_Ricelord (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Arrogance.mds");
-	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung	
+	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung
 	Mdl_SetVisualBody (self,"Hum_Body_CookSmith",1,1,"Hum_Head_FatBald",91 ,  0,-1);
-	
-	B_Scale (self); 
+
+	B_Scale (self);
 	Mdl_SetModelFatness(self,2);
-	
+
 	fight_tactic	=	FAI_HUMAN_STRONG;
 
-	//-------- Talente --------                                    
-	Npc_SetTalentSkill	(self,NPC_TALENT_1H,1);	
-	
+	//-------- Talente --------
+	Npc_SetTalentSkill	(self,NPC_TALENT_1H,1);
 
-	//-------- inventory --------                                    
-		
+
+	//-------- inventory --------
+
 		CreateInvItems (self, ItFoRice,10);
 		CreateInvItem (self, ItFoWine);
 		CreateInvItems(self, ItMiNugget,40);
-		EquipItem  (self, Heerscherstab); 		
+		EquipItem  (self, Heerscherstab);
 		CreateInvItem (self, ItMi_Alchemy_Moleratlubric_01);
 		//CreateInvItem (self,ItKey_RB_01);
-		
+
 		EquipItem (self, Ring_des_Lebens);
-			
+
 	//-------------Daily Routine-------------
 	daily_routine = Rtn_start_900;
-	
+
 };
 
 FUNC VOID Rtn_start_900 ()

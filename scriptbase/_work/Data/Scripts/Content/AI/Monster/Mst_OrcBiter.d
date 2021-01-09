@@ -2,7 +2,7 @@
 **	OrcBiter Prototype													**
 *************************************************************************/
 
-PROTOTYPE Mst_Default_OrcBiter(C_Npc)			
+PROTOTYPE Mst_Default_OrcBiter(C_Npc)
 {
 	name							=	"Beisser";
 	guild							=	GIL_ORCDOG;
@@ -11,7 +11,7 @@ PROTOTYPE Mst_Default_OrcBiter(C_Npc)
 //----------------------------------------------------
 	attribute	[ATR_STRENGTH]		=	80;
 	attribute	[ATR_DEXTERITY]		=	80;
-	
+
 	attribute	[ATR_HITPOINTS_MAX]	=	80;
 	attribute	[ATR_HITPOINTS]		=	80;
 
@@ -39,7 +39,7 @@ PROTOTYPE Mst_Default_OrcBiter(C_Npc)
 	senses_range				= 3000;
 
 	aivar[AIV_MM_Behaviour]		= HUNTER;
-	
+
 	aivar[AIV_MM_PercRange]		= 1200;
 	aivar[AIV_MM_DrohRange]		= 1000;
 	aivar[AIV_MM_AttackRange]	= 700;

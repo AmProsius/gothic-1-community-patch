@@ -52,7 +52,7 @@ INSTANCE FA_MY_W_STRAFE_10 (C_FightAI)
 {
 	move[0] = MOVE_TURN;
 	move[1] = MOVE_WAIT;
-	move[2] = MOVE_WAIT;	
+	move[2] = MOVE_WAIT;
 };
 
 // was tun, wenn ich den Gegner im Focus habe?

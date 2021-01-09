@@ -1,13 +1,13 @@
 instance VLK_517_Buddler (Npc_Default)
 {
 	//-------- primary data --------
-	
+
 	name =							NAME_Buddler;
 	npctype =						NPCTYPE_AMBIENT;
-	guild =							GIL_VLK;      
+	guild =							GIL_VLK;
 	level =							2;
-	
-	
+
+
 	voice =							1;
 	id =							517;
 
@@ -25,21 +25,21 @@ instance VLK_517_Buddler (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Tired.mds");
-	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
+	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin
 	Mdl_SetVisualBody (self,"hum_body_Naked0",2,1,"Hum_Head_Pony", 0,  1, -1);
 
-	B_Scale (self); 
+	B_Scale (self);
 	Mdl_SetModelFatness (self, 0);
-    	
+
     	self.aivar[AIV_IMPORTANT] = TRUE;
-	
-	fight_tactic	=	FAI_HUMAN_COWARD; 
-	
-	//-------- Talents --------                                    
+
+	fight_tactic	=	FAI_HUMAN_COWARD;
+
+	//-------- Talents --------
 	Npc_SetTalentSkill (self, NPC_TALENT_1H,1);
 
-	
-	//-------- inventory --------                                    
+
+	//-------- inventory --------
 
 	EquipItem (self, ItMw_1h_Club_01);
 	CreateInvItem (self, Itfo_Potion_Water_01);

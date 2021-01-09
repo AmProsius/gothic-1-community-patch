@@ -17,7 +17,7 @@
 //		- ATT_FRIENDLY			-> B_AssessSC
 //	5.	Intruder ein Monster
 //		- harmloses Monster		->	Ignorieren
-//		- gefährliches Monster	->	ZS_AssessMonster  
+//		- gefährliches Monster	->	ZS_AssessMonster
 //////////////////////////////////////////////////////////////////////////
 func void B_ObserveIntruder ()
 {
@@ -48,7 +48,7 @@ func void B_ObserveIntruder ()
 	if (C_NpcIsHuman(other))
 	{
 		PrintDebugNpc		(PD_ZS_CHECK, "...Eindringling ist Mensch!" );
-	
+
 		if (Npc_GetAttitude(self,other) == ATT_HOSTILE)
 		{
 			B_FullStop		(self);

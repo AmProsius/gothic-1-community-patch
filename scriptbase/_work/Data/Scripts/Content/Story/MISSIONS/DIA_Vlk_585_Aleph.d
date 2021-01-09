@@ -6,10 +6,10 @@ instance  VLK_585_Aleph_Exit (C_INFO)
 	nr			=  999;
 	condition	=  VLK_585_Aleph_Exit_Condition;
 	information	=  VLK_585_Aleph_Exit_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC int  VLK_585_Aleph_Exit_Condition()
 {
@@ -23,7 +23,7 @@ FUNC VOID  VLK_585_Aleph_Exit_Info()
 		AI_Output (other, self,"VLK_585_Aleph_Exit_Info_15_01"); //Viel Glück noch.
 		AI_Output (self, other,"VLK_585_Aleph_Exit_Info_05_02"); //Du weißt ja, wo du mich findest.
 	};
-	
+
 	AI_StopProcessInfos	( self );
 
 };
@@ -55,12 +55,12 @@ instance  VLK_585_Aleph_GUARDS (C_INFO)
 	information		= VLK_585_Aleph_GUARDS_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "Wie meinst du das?"; 
+	description		= "Wie meinst du das?";
 };
 
 FUNC int  VLK_585_Aleph_GUARDS_Condition()
-{	
-	if Npc_KnowsInfo (hero,VLK_585_Aleph_CLEVER) 
+{
+	if Npc_KnowsInfo (hero,VLK_585_Aleph_CLEVER)
 	{
 		return 1;
 	};
@@ -75,8 +75,8 @@ FUNC void  VLK_585_Aleph_GUARDS_Info()
 	AI_Output (self, other,"VLK_585_Aleph_GUARDS_Info_05_05"); //Ich halt immer meine Ohren offen und bekomme viele nützliche Dinge mit. Du hast nicht zufällig etwas Erz bei dir? So ungefähr 10 Erz?
 
 	Npc_ExchangeRoutine (self,"BUSY");
-	
-	var C_Npc Brandick; 				
+
+	var C_Npc Brandick;
 	Brandick = Hlp_GetNpc(GRD_261_Brandick);
 	Npc_ExchangeRoutine (Brandick,"WATCH");
 	AI_ContinueRoutine(Brandick);	// TEST!!!
@@ -95,7 +95,7 @@ instance VLK_585_Aleph_INFO (C_INFO)
 
 FUNC int  VLK_585_Aleph_INFO_Condition()
 {
-	if ( Npc_HasItems (hero,ItMinugget) ) >= 10 &&  (Npc_KnowsInfo (hero, VLK_585_Aleph_GUARDS) ) 
+	if ( Npc_HasItems (hero,ItMinugget) ) >= 10 &&  (Npc_KnowsInfo (hero, VLK_585_Aleph_GUARDS) )
 	{
 		return 1;
 	};
@@ -108,7 +108,7 @@ func void  VLK_585_Aleph_INFO_Info()
 	AI_Output (self,other,"VLK_585_Aleph_INFO_Info_05_03"); //In der zweiten Höhle steht eine Wache. Da steht auch ein alter Stampfer.
 	AI_Output (self,other,"VLK_585_Aleph_INFO_Info_05_04"); //Dort liegt noch irgendwo ein Heiltrank, aber sei vorsichtig und nimm dich vor den Crawlern in Acht!
 	AI_Output (self,other,"VLK_585_Aleph_INFO_Info_05_05"); //Und wenn du mal wieder was brauchst oder hörst, dann komm ruhig zu mir, ich kann dir bestimmt weiterhelfen ...
-	
+
 	B_GiveInvItems (hero, other, ItMiNugget,10);
 };
 // ***************** WIRD ALEPH ANGESCHWÄRZT IST ER SAUER*****************************
@@ -119,7 +119,7 @@ instance VLK_585_Aleph_ANGRY (C_INFO)
 	information		= VLK_585_Aleph_ANGRY_Info;
 	important		= 1;
 	permanent		= 0;
-};	
+};
 
 FUNC int  VLK_585_Aleph_ANGRY_Condition()
 {
@@ -131,9 +131,9 @@ FUNC int  VLK_585_Aleph_ANGRY_Condition()
 
 func void  VLK_585_Aleph_ANGRY_Info()
 {
-	
+
 	AI_Output (self,other,"VLK_585_Aleph_ANGRY_Info_05_01"); //Du hast mich bei Brandick angeschwärzt? Mach, dass du wegkommst!
-	
+
 	AI_StopProcessInfos	( self );
 	Npc_SetTempAttitude (self,ATT_ANGRY);
 };
@@ -181,11 +181,11 @@ FUNC int  VLK_585_Aleph_GLEN_Condition()
 
 func void  VLK_585_Aleph_GLEN_Info()
 {
-	
+
 	AI_Output (other,self,"VLK_585_Aleph_GLEN_Info_15_01"); //Für mein Erz erwarte ich auch eine gute Information!
 	AI_Output (self,other,"VLK_585_Aleph_GLEN_Info_05_02"); //Hier gibt's eine Menge verschlossener Truhen. Glen, der Buddler, der ganz oben steht, kann dir ein paar Dietriche besorgen.
-	
-	B_GiveInvItems (hero, self, ItMinugget,10); 
+
+	B_GiveInvItems (hero, self, ItMinugget,10);
 };
 //***************** LAGERSCHUPPENSCHLÜSSEL*****************************
 func void B_Aleph_StorageShedKey()
@@ -212,14 +212,14 @@ FUNC int  VLK_585_Aleph_SCHUPPEN_Condition()
 
 func void  VLK_585_Aleph_SCHUPPEN_Info()
 {
-	
+
 	AI_Output (other,self,"VLK_585_Aleph_SCHUPPEN_Info_15_01"); //Weißt du was über den Schlüssel für die Truhen im Lagerschuppen?
 	AI_Output (self,other,"VLK_585_Aleph_SCHUPPEN_Info_05_02"); //Nun, das kommt ganz darauf an ...
 	AI_Output (other,self,"VLK_585_Aleph_SCHUPPEN_Info_15_03"); //Darauf, wieviel Erz ich dir gebe?
 	AI_Output (self,other,"VLK_585_Aleph_SCHUPPEN_Info_05_04"); //Du lernst schnell.
-	
+
 	Info_ClearChoices ( VLK_585_Aleph_SCHUPPEN );
-	
+
 	Info_AddChoice ( VLK_585_Aleph_SCHUPPEN,DIALOG_BACK 	   ,VLK_585_Aleph_SCHUPPEN_Back);
 	Info_AddChoice ( VLK_585_Aleph_SCHUPPEN,"50 Erz zahlen",VLK_585_Aleph_SCHUPPEN_50 );
 	Info_AddChoice ( VLK_585_Aleph_SCHUPPEN,"30 Erz zahlen",VLK_585_Aleph_SCHUPPEN_30 );
@@ -229,9 +229,9 @@ func void  VLK_585_Aleph_SCHUPPEN_Info()
 
 func void VLK_585_Aleph_SCHUPPEN_50 ()
 {
-	
+
 	if (Npc_HasItems (hero, ItMiNugget) >= 50)
-	{ 
+	{
 		AI_Output			(other,self,"VLK_585_Aleph_SCHUPPEN_50_15_01"); //50 Erz sind mehr als genug für dich!
 		AI_Output			(self,other,"VLK_585_Aleph_SCHUPPEN_50_05_02"); //Überaus großzügig. Hier ist der Schlüssel. Und nimm auch diesen Ring. Mir hat er immer Glück gebracht.
 
@@ -242,9 +242,9 @@ func void VLK_585_Aleph_SCHUPPEN_50 ()
 		Npc_RemoveInvItem	(self, Staerkering);
 		CreateInvItem		(hero, Staerkering);
 
-		B_GiveInvItems	    (hero, self, ItMinugget,50);  
+		B_GiveInvItems	    (hero, self, ItMinugget,50);
 
-		Npc_SetPermAttitude (self, ATT_FRIENDLY ); 
+		Npc_SetPermAttitude (self, ATT_FRIENDLY );
 		Info_ClearChoices	(VLK_585_Aleph_SCHUPPEN);
 		VLK_585_Aleph_SCHUPPEN.permanent = 0;
 		B_Aleph_StorageShedKey();
@@ -258,13 +258,13 @@ func void VLK_585_Aleph_SCHUPPEN_50 ()
 
 func void VLK_585_Aleph_SCHUPPEN_30 ()
 {
-	
-	
+
+
 	if (Npc_HasItems (hero, ItMiNugget) >= 30)
-	{ 
+	{
 		CreateInvItem		(self, ItKe_OM_03);
 		B_GiveInvItems      (self, other, ItKe_OM_03, 1);
-		B_GiveInvItems	(hero, self, ItMinugget,30);  
+		B_GiveInvItems	(hero, self, ItMinugget,30);
 		Info_ClearChoices	(VLK_585_Aleph_SCHUPPEN );
 		AI_Output (other,self,"VLK_585_Aleph_SCHUPPEN_30_15_01"); //30 Erz sollten reichen.
 		AI_Output (self,other,"VLK_585_Aleph_SCHUPPEN_30_05_02"); //Nun gut, zufällig habe ich hier einen Schlüssel.
@@ -275,14 +275,14 @@ func void VLK_585_Aleph_SCHUPPEN_30 ()
 	{
 		AI_Output (self,other,"VLK_585_Aleph_SCHUPPEN_30_05_03"); //So viel Erz hast du nicht!
 		VLK_585_Aleph_SCHUPPEN.permanent = 1;
-	}; 
-};	
+	};
+};
 func void VLK_585_Aleph_SCHUPPEN_15 ()
 {
 	AI_Output (other,self,"VLK_585_Aleph_SCHUPPEN_15_15_01"); //Bist du mit 15 Erz einverstanden?
 	AI_Output (self,other,"VLK_585_Aleph_SCHUPPEN_15_05_02"); //15 Erz? Ich weiß nichts von einem Schlüssel!
 	VLK_585_Aleph_SCHUPPEN.permanent = 0;
-};	
+};
 func void VLK_585_Aleph_SCHUPPEN_Back ()
 {
 	Info_ClearChoices	(  VLK_585_Aleph_SCHUPPEN );
@@ -297,7 +297,7 @@ instance  VLK_585_Aleph_DIRTY (C_INFO)
 	information		= VLK_585_Aleph_DIRTY_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "Weißt du was über den Schlüssel für die Truhen im Lagerschuppen?"; 
+	description		= "Weißt du was über den Schlüssel für die Truhen im Lagerschuppen?";
 };
 
 FUNC int  VLK_585_Aleph_DIRTY_Condition()
@@ -315,23 +315,23 @@ FUNC void  VLK_585_Aleph_DIRTY_Info()
 	AI_Output (self,other,"VLK_585_Aleph_DIRTY_Info_05_02"); //Nun, das kommt ganz darauf an ...
 	AI_Output (other,self,"VLK_585_Aleph_DIRTY_Info_15_03"); //Darauf, wieviel Erz ich dir gebe?
 	AI_Output (self,other,"VLK_585_Aleph_DIRTY_Info_05_04"); //Du lernst schnell. Ich will 100 Erz.
-	
+
 	Info_ClearChoices ( VLK_585_Aleph_DIRTY );
-	
+
 	Info_AddChoice ( VLK_585_Aleph_DIRTY,"(100 Erz zahlen)",VLK_585_Aleph_DIRTY_100 );
 	Info_AddChoice ( VLK_585_Aleph_DIRTY,"(Nicht zahlen)",VLK_585_Aleph_DIRTY_NO );
-};  
+};
 func void VLK_585_Aleph_DIRTY_100()
 {
 	if Npc_HasItems (hero,ItMinugget)>=100
-	{ 
+	{
 		AI_Output (other,self,"VLK_585_Aleph_DIRTY_100_Info_15_01"); //Na gut, du Halsabschneider. Hier sind deine 100 Erz.
 		AI_Output (self,other,"VLK_585_Aleph_DIRTY_100_Info_05_02"); //Du hättest mich halt nicht verpfeifen sollen. Hier ist der Schlüssel.
 		B_GiveInvItems	(hero, self, ItMinugget,100);
 		CreateInvItem		(self, ItKe_OM_03);
 		B_GiveInvItems      (self, other, ItKe_OM_03, 1);
 		Info_ClearChoices	( VLK_585_Aleph_DIRTY );
-		VLK_585_Aleph_DIRTY.permanent = 0;	
+		VLK_585_Aleph_DIRTY.permanent = 0;
 		B_Aleph_StorageShedKey();
 	}
 	else
@@ -344,5 +344,5 @@ func void VLK_585_Aleph_DIRTY_NO()
 {
 	AI_Output (other,self,"VLK_585_Aleph_DIRTY_NO_Info_15_01"); //Ich werfe dir doch keine 100 Erz in den Rachen!
 	AI_Output (self,other,"VLK_585_Aleph_DIRTY_NO_Info_05_02"); //Hey, immerhin bist du derjenige, der mich die ganze Zeit anquatscht!
-	VLK_585_Aleph_DIRTY.permanent = 0;	
+	VLK_585_Aleph_DIRTY.permanent = 0;
 };

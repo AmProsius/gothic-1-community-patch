@@ -1,19 +1,19 @@
 instance Non_1500_Gilbert (Npc_Default)
 {
 	//-------- primary data --------
-	
+
 	name 		=		"Gilbert";
 	npctype 	=		NPCTYPE_MAIN;
-	guild 		=		GIL_NONE;      
+	guild 		=		GIL_NONE;
 	level 		=		4;
-	
-	
+
+
 	voice 		=		4;
 	id 			=		1500;
 
 
 	//-------- abilities --------
-	
+
 	attribute[ATR_STRENGTH] 		=	15;
 	attribute[ATR_DEXTERITY] 		=	15;
 	attribute[ATR_MANA_MAX] 		=	0;
@@ -25,19 +25,19 @@ instance Non_1500_Gilbert (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Tired.mds");
-	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
+	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin
 	Mdl_SetVisualBody (self,"hum_body_Naked0",2,0,"Hum_Head_Thief", 16,  1, VLK_ARMOR_L);
 
-	B_Scale (self); 
+	B_Scale (self);
 	Mdl_SetModelFatness (self, 0);
-	
-	fight_tactic	=	FAI_HUMAN_COWARD; 
-	
-	//-------- Talents  --------                                    
+
+	fight_tactic	=	FAI_HUMAN_COWARD;
+
+	//-------- Talents  --------
 
 	Npc_SetTalentSkill (self, NPC_TALENT_1H,1);
-	
-	//-------- inventory --------                                    
+
+	//-------- inventory --------
 	EquipItem		(self, ItMw_1H_Axe_Old_01);
 	CreateInvItems	(self,	ItKeLockpick,			5);
 	CreateInvItems	(self,	ItMiScoop,				1);
@@ -55,7 +55,7 @@ instance Non_1500_Gilbert (Npc_Default)
 	CreateInvItems	(self,	ItFoCheese,				5);
 	CreateInvItems	(self,	ItFoMutton,				4);
 	CreateInvItems	(self,	ItFoLoaf,				2);
-	
+
 	//-------------Daily Routine-------------
 	daily_routine = Rtn_start_1500;
 	};
@@ -63,7 +63,7 @@ instance Non_1500_Gilbert (Npc_Default)
 FUNC VOID Rtn_start_1500 ()
 {
 	TA_SitAround		(22,00,05,00,"LOCATION_01_07");
-    TA_SitAround		(05,00,22,00,"LOCATION_01_07");		
+    TA_SitAround		(05,00,22,00,"LOCATION_01_07");
 };
 
 

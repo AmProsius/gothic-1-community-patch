@@ -2,13 +2,13 @@
 instance  KDW_604_Cronos_Exit (C_INFO)
 {
 	npc			=  KDW_604_Cronos;
-	nr			=  999;	
+	nr			=  999;
 	condition	=  KDW_604_Cronos_Exit_Condition;
 	information	=  KDW_604_Cronos_Exit_Info;
 	permanent	=  1;
 	important	=  0;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC int  KDW_604_Cronos_Exit_Condition()
 {
@@ -36,12 +36,12 @@ FUNC VOID  KDW_604_Cronos_Exit_Info()
 instance  KDW_604_Cronos_Greet (C_INFO)
 {
 	npc			=  KDW_604_Cronos;
-	nr			=  1;	
+	nr			=  1;
 	condition	=  KDW_604_Cronos_Greet_Condition;
 	information	=  KDW_604_Cronos_Greet_Info;
 	permanent	=  0;
 	description = "Ich grüße dich, Magier.";
-};                       
+};
 
 FUNC int  KDW_604_Cronos_Greet_Condition()
 {
@@ -62,12 +62,12 @@ FUNC VOID  KDW_604_Cronos_Greet_Info()
 instance  KDW_604_Cronos_Brief (C_INFO)
 {
 	npc			=  KDW_604_Cronos;
-	nr			=  1;	
+	nr			=  1;
 	condition	=  KDW_604_Cronos_Brief_Condition;
 	information	=  KDW_604_Cronos_Brief_Info;
 	permanent	=  0;
 	description = "Ich habe einen Brief für den obersten Feuermagier.";
-};                       
+};
 
 FUNC int  KDW_604_Cronos_Brief_Condition()
 {
@@ -96,12 +96,12 @@ FUNC VOID  KDW_604_Cronos_Brief_Info()
 instance  KDW_604_Cronos_Barrier (C_INFO)
 {
 	npc			=  KDW_604_Cronos;
-	nr			=  2;	
+	nr			=  2;
 	condition	=  KDW_604_Cronos_Barrier_Condition;
 	information	=  KDW_604_Cronos_Barrier_Info;
 	permanent	=  0;
 	description = "Ihr wollt die Barriere zerstören - wie genau soll das gehen?";
-};                       
+};
 
 FUNC int  KDW_604_Cronos_Barrier_Condition()
 {
@@ -114,7 +114,7 @@ FUNC int  KDW_604_Cronos_Barrier_Condition()
 FUNC VOID  KDW_604_Cronos_Barrier_Info()
 {
 	AI_Output (other, self,"DIA_Cronos_Barrier_15_00"); //Ihr wollt die Barriere zerstören - wie genau soll das gehen?
-	AI_Output (self, other,"DIA_Cronos_Barrier_08_01"); //Wir brauchen eine große Menge magisches Erz. 
+	AI_Output (self, other,"DIA_Cronos_Barrier_08_01"); //Wir brauchen eine große Menge magisches Erz.
 	AI_Output (self, other,"DIA_Cronos_Barrier_08_02"); //In einem großen magischen Ritual werden wir die gesamte magische Energie freilassen und somit die Barriere sprengen.
 	AI_Output (self, other,"DIA_Cronos_Barrier_08_03"); //Natürlich zieht eine solch große Menge Erz allerlei Lumpen und Banditen an!
 	AI_Output (self, other,"DIA_Cronos_Barrier_08_04"); //Also brauchen wir jeden Mann, der bereit ist unseren Plan zu verteidigen.
@@ -127,12 +127,12 @@ FUNC VOID  KDW_604_Cronos_Barrier_Info()
 instance  KDW_604_Cronos_WannaJoin (C_INFO)
 {
 	npc			=  KDW_604_Cronos;
-	nr			=  3;	
+	nr			=  3;
 	condition	=  KDW_604_Cronos_WannaJoin_Condition;
 	information	=  KDW_604_Cronos_WannaJoin_Info;
 	permanent	=  0;
 	description = "Ich will bei euch mitmachen!";
-};                       
+};
 
 FUNC int  KDW_604_Cronos_WannaJoin_Condition()
 {
@@ -145,7 +145,7 @@ FUNC int  KDW_604_Cronos_WannaJoin_Condition()
 FUNC VOID  KDW_604_Cronos_WannaJoin_Info()
 {
 	AI_Output (other, self,"DIA_Cronos_WannaJoin_15_00"); //Ich will bei euch mitmachen!
-	AI_Output (self, other,"DIA_Cronos_WannaJoin_08_01"); //Wenn du dich uns anschließen willst, solltest du zu Lee oder Lares gehen. 
+	AI_Output (self, other,"DIA_Cronos_WannaJoin_08_01"); //Wenn du dich uns anschließen willst, solltest du zu Lee oder Lares gehen.
 };
 
 // *****************************************
@@ -155,12 +155,12 @@ FUNC VOID  KDW_604_Cronos_WannaJoin_Info()
 instance  KDW_604_Cronos_WannaMage (C_INFO)
 {
 	npc			=  KDW_604_Cronos;
-	nr			=  3;	
+	nr			=  3;
 	condition	=  KDW_604_Cronos_WannaMage_Condition;
 	information	=  KDW_604_Cronos_WannaMage_Info;
 	permanent	=  0;
 	description = "Ich will Magier werden!";
-};                       
+};
 
 FUNC int  KDW_604_Cronos_WannaMage_Condition()
 {
@@ -190,12 +190,12 @@ FUNC VOID  KDW_604_Cronos_WannaMage_Info()
 instance  KDW_604_Cronos_Bandit (C_INFO)
 {
 	npc			=  KDW_604_Cronos;
-	nr			=  4;	
+	nr			=  4;
 	condition	=  KDW_604_Cronos_Bandit_Condition;
 	information	=  KDW_604_Cronos_Bandit_Info;
 	permanent	=  0;
 	description = "Ich gehöre jetzt zu Lares. Hast du eine Nachricht für die Feuermagier?";
-};                       
+};
 
 FUNC int  KDW_604_Cronos_Bandit_Condition()
 {
@@ -210,10 +210,10 @@ FUNC VOID  KDW_604_Cronos_Bandit_Info()
 	AI_Output (other, self,"DIA_Cronos_Bandit_15_00"); //Ich bin jetzt einer von Lares Leuten. Hast du eine Nachricht für die Feuermagier, die ich überbringen könnte?
 	AI_Output (self, other,"DIA_Cronos_Bandit_08_01"); //In der Tat. Aber du brauchst das Zeichen eines unserer Boten, sonst lassen dich Gomez Schergen nicht in die Burg.
 	AI_Output (self, other,"DIA_Cronos_Bandit_08_02"); //Hier, nimm Brief und Zeichen. Und nun beeile dich!
-	
+
 	CreateInvItem (other,KdW_Amulett);
 	CreateInvItem (other,Cronos_Brief);
-	
+
 	Cronos_Messenger = LOG_RUNNING;
 };
 
@@ -224,12 +224,12 @@ FUNC VOID  KDW_604_Cronos_Bandit_Info()
 instance  KDW_604_Cronos_BriefBack (C_INFO)
 {
 	npc			=  KDW_604_Cronos;
-	nr			=  3;	
+	nr			=  3;
 	condition	=  KDW_604_Cronos_BriefBack_Condition;
 	information	=  KDW_604_Cronos_BriefBack_Info;
 	permanent	=  0;
 	description = "Ich habe deine Nachricht überbracht!";
-};                       
+};
 
 FUNC int  KDW_604_Cronos_BriefBack_Condition()
 {
@@ -243,10 +243,10 @@ FUNC VOID  KDW_604_Cronos_BriefBack_Info()
 {
 	AI_Output (other, self,"DIA_Cronos_BriefBack_15_00"); //Ich habe deine Nachricht überbracht!
 	AI_Output (self, other,"DIA_Cronos_BriefBack_08_01"); //Ah gut! Hier ist eine kleine Entschädigung für deine Mühen...
-	
+
 	CreateInvItems (self,itminugget, 200);
 	B_GiveInvItems (self, other, itminugget, 200);
-	
+
 	B_GiveXP(XP_CronosLetter);
 };
 
@@ -271,12 +271,12 @@ instance Info_Cronos_NEWS (C_INFO)
 };
 
 FUNC INT Info_Cronos_NEWS_Condition()
-{	
+{
 	if	(CorAngar_SendToNC==TRUE)
 	&&	!Npc_KnowsInfo(hero, Info_Cronos_SLEEPER)
 	{
 		return TRUE;
-	};	
+	};
 };
 
 FUNC VOID Info_Cronos_NEWS_Info()
@@ -300,11 +300,11 @@ instance Info_Cronos_KALOM (C_INFO)
 };
 
 FUNC INT Info_Cronos_KALOM_Condition()
-{	
+{
 	if (Npc_KnowsInfo(hero, Info_Cronos_NEWS) && !Npc_KnowsInfo(hero, Info_Cronos_SLEEPER))
 	{
 		return TRUE;
-	};	
+	};
 };
 
 FUNC VOID Info_Cronos_KALOM_Info()
@@ -333,11 +333,11 @@ instance Info_Cronos_YBERION (C_INFO)
 };
 
 FUNC INT Info_Cronos_YBERION_Condition()
-{	
+{
 	if (Npc_KnowsInfo(hero, Info_Cronos_NEWS) && !Npc_KnowsInfo(hero, Info_Cronos_SLEEPER))
 	{
 		return TRUE;
-	};	
+	};
 };
 
 FUNC VOID Info_Cronos_YBERION_Info()
@@ -367,11 +367,11 @@ instance Info_Cronos_SLEEPER (C_INFO)
 };
 
 FUNC INT Info_Cronos_SLEEPER_Condition()
-{	
+{
 	if (Npc_KnowsInfo(hero, Info_Cronos_NEWS))
 	{
 		return TRUE;
-	};	
+	};
 };
 
 FUNC VOID Info_Cronos_SLEEPER_Info()
@@ -409,11 +409,11 @@ instance Info_Cronos_PAROLE (C_INFO)
 };
 
 FUNC INT Info_Cronos_PAROLE_Condition()
-{	
+{
 	if (Npc_KnowsInfo(hero, Info_Cronos_SLEEPER) && !Npc_KnowsInfo(hero, Info_Saturas_NEWS))
 	{
 		return TRUE;
-	};	
+	};
 };
 
 FUNC VOID Info_Cronos_PAROLE_Info()
@@ -437,11 +437,11 @@ instance Info_Cronos_REWARD (C_INFO)
 };
 
 FUNC INT Info_Cronos_REWARD_Condition()
-{	
+{
 	if (Saturas_BringFoci == 5)
 	{
 		return TRUE;
-	};	
+	};
 };
 
 FUNC VOID Info_Cronos_REWARD_Info()
@@ -455,7 +455,7 @@ FUNC VOID Info_Cronos_REWARD_Info()
 	{
 		Log_SetTopicStatus	(CH3_BringFoci,	LOG_SUCCESS);
 	};
-	
+
 	CreateInvItems		(self, ItMiNugget,	1000);
 	B_GiveInvItems (self, hero, ItMiNugget,	1000);
 };
@@ -472,7 +472,7 @@ instance KDW_604_Cronos_WELCOME (C_INFO)
 };
 
 FUNC int  KDW_604_Cronos_WELCOME_Condition()
-{	
+{
 	if (Npc_GetTrueGuild (hero) == GIL_KDW)
 	{
 		return TRUE;
@@ -481,7 +481,7 @@ FUNC int  KDW_604_Cronos_WELCOME_Condition()
 func void  KDW_604_Cronos_WELCOME_Info()
 {
 	AI_Output			(self, other,"KDW_604_Cronos_WELCOME_Info_08_01"); //Deine Entscheidung, zu den Wassermagiern zu kommen, war richtig. Willkommen, Bruder!
-	AI_StopProcessInfos	( self );  
+	AI_StopProcessInfos	( self );
 };
 //--------------------------------------------------------------------------
 // 							MANA KAUFEN
@@ -496,11 +496,11 @@ instance  KDW_604_Cronos_MANA (C_INFO)
 	information		= KDW_604_Cronos_MANA_Info;
 	important		= 0;
 	permanent		= 1;
-	description		= "Ich benötige mehr magische Kraft"; 
+	description		= "Ich benötige mehr magische Kraft";
 };
 
 FUNC int  KDW_604_Cronos_MANA_Condition()
-{	
+{
 	if	(Npc_KnowsInfo (hero,KDW_604_Cronos_GREET))
 	&&	((CorAngar_SendToNC == FALSE) || Npc_KnowsInfo(hero, Info_Cronos_SLEEPER))
 	{
@@ -512,12 +512,12 @@ FUNC void  KDW_604_Cronos_MANA_Info()
 {
 	AI_Output			(other, self,"KDW_604_Cronos_MANA_Info_15_01"); //Ich benötige mehr magische Kraft
 	AI_Output			(self, other,"KDW_604_Cronos_MANA_Info_08_02"); //Ich kann dir helfen, deine Kraft zu steigern. Setze sie mit Bedacht ein!
-	
+
 	Info_ClearChoices	(KDW_604_Cronos_MANA);
 	Info_AddChoice		(KDW_604_Cronos_MANA,DIALOG_BACK									,KDW_604_Cronos_MANA_BACK);
 	Info_AddChoice		(KDW_604_Cronos_MANA, B_BuildLearnString(NAME_LearnMana_5,5*LPCOST_ATTRIBUTE_MANA,0)			,KDW_604_Cronos_MANA_MAN_5);
 	Info_AddChoice		(KDW_604_Cronos_MANA,B_BuildLearnString(NAME_LearnMana_1,LPCOST_ATTRIBUTE_MANA,0)		,KDW_604_Cronos_MANA_MAN_1);
-};  
+};
 func void KDW_604_Cronos_MANA_BACK()
 {
 	Info_ClearChoices	(KDW_604_Cronos_MANA);
@@ -553,12 +553,12 @@ instance  KDW_604_Cronos_SELLSTUFF (C_INFO)
 	information		= KDW_604_Cronos_SELLSTUFF_Info;
 	important		= 0;
 	permanent		= 1;
-	description		= DIALOG_TRADE; 
+	description		= DIALOG_TRADE;
 	trade 			= 1;
 };
 
 FUNC int  KDW_604_Cronos_SELLSTUFF_Condition()
-{	
+{
 	if	(Npc_KnowsInfo (hero,KDW_604_Cronos_GREET))
 	&&	((CorAngar_SendToNC == FALSE) || Npc_KnowsInfo(hero, Info_Cronos_SLEEPER))
 	{
@@ -569,10 +569,10 @@ FUNC int  KDW_604_Cronos_SELLSTUFF_Condition()
 FUNC void  KDW_604_Cronos_SELLSTUFF_Info()
 {
 	AI_Output (other, self,"KDW_604_Cronos_SELLSTUFF_Info_15_01"); //Ich möchte Schriften über Magie erwerben.
-	
-};  
+
+};
 /*------------------------------------------------------------------------
-						BEGRÜSSUNG						
+						BEGRÜSSUNG
 ------------------------------------------------------------------------*/
 
 instance  KDW_604_Cronos_GREET (C_INFO)
@@ -582,7 +582,7 @@ instance  KDW_604_Cronos_GREET (C_INFO)
 	information		= KDW_604_Cronos_GREET_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "Ich grüße dich, Magier"; 
+	description		= "Ich grüße dich, Magier";
 };
 
 FUNC int  KDW_604_Cronos_GREET_Condition()
@@ -597,7 +597,7 @@ FUNC void  KDW_604_Cronos_GREET_Info()
 	AI_Output (self, other,"KDW_604_Cronos_GREET_Info_08_02"); //Der Segen Adanos sei mit dir. Ich kann dir helfen, deine geistige Kraft zu stärken oder dir ein paar nützliche Dinge anbieten.
 	AI_Output (self, other,"KDW_604_Cronos_GREET_Info_08_03"); //Was kann ich für dich tun?
 	Log_CreateTopic (GE_TraderNC,LOG_NOTE);
-	B_LogEntry (GE_TraderNC,"Cronos verkauft magische Utensilien wie RUNEN, SPRUCHROLLEN und RINGE. Er ist Tag und Nacht am Gitter über dem großen Erzhaufen zu finden."); 
+	B_LogEntry (GE_TraderNC,"Cronos verkauft magische Utensilien wie RUNEN, SPRUCHROLLEN und RINGE. Er ist Tag und Nacht am Gitter über dem großen Erzhaufen zu finden.");
 	Log_CreateTopic (GE_TeacherNC,LOG_NOTE);
 	B_LogEntry (GE_TeacherNC,"Cronos kann mir helfen, meine MANA zu steigern. Er ist Tag und Nacht am Gitter über dem großen Erzhaufen zu finden.");
 };

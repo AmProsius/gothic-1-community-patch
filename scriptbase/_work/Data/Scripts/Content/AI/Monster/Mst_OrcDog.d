@@ -2,7 +2,7 @@
 **	OrcDog Prototype													**
 *************************************************************************/
 
-PROTOTYPE Mst_Default_OrcDog(C_Npc)			
+PROTOTYPE Mst_Default_OrcDog(C_Npc)
 {
 	name							=	"Orc-Hund";
 	guild							=	GIL_ORCDOG;
@@ -11,7 +11,7 @@ PROTOTYPE Mst_Default_OrcDog(C_Npc)
 //---------------------------------------------------
 	attribute	[ATR_STRENGTH]		=	80;		//SN 11.01.01.: geändert, da zu schwach
 	attribute	[ATR_DEXTERITY]		=	80;
-	
+
 	attribute	[ATR_HITPOINTS_MAX]	=	160;	//SN 11.01.01.: geändert, da zu schwach
 	attribute	[ATR_HITPOINTS]		=	160;
 
@@ -39,7 +39,7 @@ PROTOTYPE Mst_Default_OrcDog(C_Npc)
 	senses_range				= 3000;
 
 	aivar[AIV_MM_Behaviour]		= HUNTER;
-	
+
 	aivar[AIV_MM_PercRange]		= 2000;
 	aivar[AIV_MM_DrohRange]		= 1800;
 	aivar[AIV_MM_AttackRange]	= 1500;

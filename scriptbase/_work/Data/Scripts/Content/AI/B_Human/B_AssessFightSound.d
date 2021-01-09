@@ -76,11 +76,11 @@ func void B_AssessFightSound ()
 		B_FullStop			(self);
 		AI_StartState 		(self,	ZS_ReactToDamage, 0, "");
 		return;
-	};	
+	};
 
 	//-------- WACHEN checken, ob einer ihrer Schützlinge angegriffen wird --------
 	if (C_ChargeWasAttacked(self, victim, other))
-	{ 
+	{
 		PrintDebugNpc		(PD_ZS_CHECK,	"...NSC ist Wache und ein Schützling wurde attackiert!" );
 		if (Npc_GetPermAttitude(victim,other) == ATT_FRIENDLY)		// HINWEIS: Bedingung für 'friendly fire' aus ZS_ReactToDamage!!!
 		{
@@ -110,12 +110,12 @@ func void B_AssessFightSound ()
 	}
 
 	//-------- WORKER (kein Monster/WACHE/BOSS) --------
-	else if (Npc_GetDistToNpc(self,victim) < PERC_DIST_WATCHFIGHT) 
+	else if (Npc_GetDistToNpc(self,victim) < PERC_DIST_WATCHFIGHT)
 	{
 		PrintDebugNpc		(PD_ZS_CHECK,	"...Opfer in WatchFight-Range!" );
 
 		B_WhirlAround		(self,	victim);
 		AI_StartState 		(self,	ZS_WatchFight, 0, "");
 		return;
-	};	
+	};
 };

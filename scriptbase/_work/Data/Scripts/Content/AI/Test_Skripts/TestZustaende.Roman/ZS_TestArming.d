@@ -1,6 +1,6 @@
 func void ZS_TestArming ()
 {
-};	
+};
 
 func void ZS_TestArming_Loop ()
 {

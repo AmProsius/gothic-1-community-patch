@@ -510,7 +510,7 @@ INSTANCE  Schutzamulett_Feuer(C_Item)
 	{
 		self.attribute[ATR_HITPOINTS] = self.attribute[ATR_HITPOINTS] + 30;
 		self.attribute[ATR_HITPOINTS_MAX] = self.attribute[ATR_HITPOINTS_MAX] + 30;
-		
+
 	};
 
 
@@ -651,17 +651,17 @@ INSTANCE  Schutzamulett_Feuer(C_Item)
 		self.attribute[ATR_HITPOINTS_MAX] = self.attribute[ATR_HITPOINTS_MAX] + 25;
 		self.attribute[ATR_MANA] = self.attribute[ATR_MANA] + 25;
 		self.attribute[ATR_MANA_MAX] = self.attribute[ATR_MANA_MAX] + 25;
-		
+
 	};
 
 
 	FUNC VOID UnEquip_Amulett_der_Erleuchtung ()
 	{
-		
+
 		self.attribute[ATR_MANA] = self.attribute[ATR_MANA] - 25;
 		self.attribute[ATR_MANA_MAX] = self.attribute[ATR_MANA_MAX] - 25;
 		self.attribute[ATR_HITPOINTS_MAX] = self.attribute[ATR_HITPOINTS_MAX] - 25;
-		
+
 		if (self.attribute[ATR_HITPOINTS] > 26)
 		{
 			self.attribute[ATR_HITPOINTS] = self.attribute[ATR_HITPOINTS] - 25;
@@ -716,6 +716,5 @@ INSTANCE  Schutzamulett_Feuer(C_Item)
 
 
 	};
-	
+
 */
-	

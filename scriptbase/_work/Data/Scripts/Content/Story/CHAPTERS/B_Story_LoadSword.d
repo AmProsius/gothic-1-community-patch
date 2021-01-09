@@ -9,10 +9,10 @@ func void B_Story_LoadSword ()
 
 	//-------- magische Formel, um URIZIEL zu laden --------
 	CreateInvItem		(hero,	Scroll4Milten);
-	
+
 	//-------- TA für Milten, dass er auf SC wartet --------
 	VAR C_NPC Milten; Milten = Hlp_GetNpc(PC_Mage);
-	Npc_ExchangeRoutine (Milten, "LSWait"); 						
+	Npc_ExchangeRoutine (Milten, "LSWait");
 
 	//-------- globale Variable --------
 	LoadSword = TRUE;

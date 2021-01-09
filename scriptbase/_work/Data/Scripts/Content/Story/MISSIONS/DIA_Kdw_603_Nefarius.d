@@ -1,5 +1,5 @@
-// **************************** 
-//				EXIT 
+// ****************************
+//				EXIT
 // ****************************
 
 instance  Info_Nefarius_EXIT (C_INFO)
@@ -10,7 +10,7 @@ instance  Info_Nefarius_EXIT (C_INFO)
 	information	=	Info_Nefarius_EXIT_Info;
 	permanent	=	1;
 	description =	DIALOG_ENDE;
-};                       
+};
 
 FUNC int  Info_Nefarius_EXIT_Condition()
 {
@@ -22,8 +22,8 @@ FUNC VOID  Info_Nefarius_EXIT_Info()
 	AI_StopProcessInfos	(self);
 };
 
-// **************************** 
-//			Hallo 
+// ****************************
+//			Hallo
 // ****************************
 
 instance  Info_Nefarius_Hallo (C_INFO)
@@ -34,7 +34,7 @@ instance  Info_Nefarius_Hallo (C_INFO)
 	information	=	Info_Nefarius_Hallo_Info;
 	permanent	=	0;
 	description =	"Wer bist du?";
-};                       
+};
 
 FUNC int  Info_Nefarius_Hallo_Condition()
 {
@@ -47,7 +47,7 @@ FUNC VOID  Info_Nefarius_Hallo_Info()
 	AI_Output (self, other,"Info_Nefarius_Hallo_04_01"); //Ich bin Nefarius. Magier vom Kreis des Wassers.
 };
 
-// **************************** 
+// ****************************
 //			Wo Saturas
 // ****************************
 
@@ -59,7 +59,7 @@ instance  Info_Nefarius_WoSaturas (C_INFO)
 	information	=	Info_Nefarius_WoSaturas_Info;
 	permanent	=	0;
 	description =	"Wo finde ich Saturas?";
-};                       
+};
 
 FUNC int  Info_Nefarius_WoSaturas_Condition()
 {
@@ -72,7 +72,7 @@ FUNC VOID  Info_Nefarius_WoSaturas_Info()
 	AI_Output (self, other,"Info_Nefarius_WoSaturas_04_01"); //Geh durch das große runde Tor. Dort wirst du ihn finden.
 };
 
-// **************************** 
+// ****************************
 //			WannaMage
 // ****************************
 
@@ -84,7 +84,7 @@ instance  Info_Nefarius_WannaMage (C_INFO)
 	information	=	Info_Nefarius_WannaMage_Info;
 	permanent	=	0;
 	description =	"Ich will ein Magier vom Kreis des Wassers werden!";
-};                       
+};
 
 FUNC int  Info_Nefarius_WannaMage_Condition()
 {
@@ -104,7 +104,7 @@ FUNC VOID  Info_Nefarius_WannaMage_Info()
 	AI_Output (self, other,"Info_Nefarius_WannaMage_04_05"); //Und vielleicht erhältst du eines Tages die Chance, etwas Großes zu vollbringen.
 };
 
-// **************************** 
+// ****************************
 //			NowReady
 // ****************************
 
@@ -116,21 +116,21 @@ instance  Info_Nefarius_NowReady (C_INFO)
 	information	=	Info_Nefarius_NowReady_Info;
 	permanent	=	1;
 	description =	"Bin ich bereit für den Kreis des Wassers?";
-};                       
+};
 
 FUNC int  Info_Nefarius_NowReady_Condition()
 {
 	if	( !FMTaken && Npc_KnowsInfo(hero, Info_Nefarius_WannaMage) && (Npc_GetTrueGuild(hero)!=GIL_KDW) )
 	{
 		return 1;
-	};	
+	};
 };
 
 FUNC VOID  Info_Nefarius_NowReady_Info()
 {
 	AI_Output (other, self,"Info_Nefarius_NowReady_15_00"); //Bin ich bereit für den Kreis des Wassers?
-	
-	if (Npc_GetTrueGuild (hero) != GIL_SLD) 
+
+	if (Npc_GetTrueGuild (hero) != GIL_SLD)
 	{
 		AI_Output (self, other,"Info_Nefarius_NowReady_04_01"); //Werde einer unserer Söldner, dann sehen wir weiter...
 	}
@@ -147,7 +147,7 @@ FUNC VOID  Info_Nefarius_NowReady_Info()
 //////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////
 
-// **************************** 
+// ****************************
 //			OCNews
 // ****************************
 
@@ -159,7 +159,7 @@ instance  Info_Nefarius_OCNews (C_INFO)
 	information	=	Info_Nefarius_OCNews_Info;
 	permanent	=	0;
 	important	= 	1;
-};                       
+};
 
 FUNC int  Info_Nefarius_OCNews_Condition()
 {
@@ -167,7 +167,7 @@ FUNC int  Info_Nefarius_OCNews_Condition()
 	&&	!FindXardas
 	{
 		return TRUE;
-	};	
+	};
 };
 
 FUNC VOID  Info_Nefarius_OCNews_Info()
@@ -177,7 +177,7 @@ FUNC VOID  Info_Nefarius_OCNews_Info()
 	AI_Output (self, other,"Info_Nefarius_OCNews_04_02"); //Nein! Dieser Hund! Ich hatte Corristo gewarnt - ihm war noch nie zu trauen! Du mußt Saturas davon berichten!
 	if (Npc_GetTrueGuild(hero)==GIL_SLD)
 	{
-		AI_Output (self, other,"Info_Nefarius_OCNews_04_03"); //Warte! 
+		AI_Output (self, other,"Info_Nefarius_OCNews_04_03"); //Warte!
 		AI_Output (self, other,"Info_Nefarius_OCNews_04_04"); //Du hast große Gefahren auf dich genommen, um uns zu dienen.
 		AI_Output (self, other,"Info_Nefarius_OCNews_04_05"); //Ich denke, du bist jetzt bereit, die Robe eines Wassermagiers zu tragen.
 		AI_Output (self, other,"Info_Nefarius_OCNews_04_06"); //Aber nun sprich mit Saturas! Beeile dich!

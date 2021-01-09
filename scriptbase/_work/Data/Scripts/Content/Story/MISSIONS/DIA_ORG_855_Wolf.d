@@ -8,10 +8,10 @@ INSTANCE DIA_ORG_855_Wolf_Exit (C_INFO)
 	nr			= 999;
 	condition	= DIA_ORG_855_Wolf_Exit_Condition;
 	information	= DIA_ORG_855_Wolf_Exit_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC INT DIA_ORG_855_Wolf_Exit_Condition()
 {
@@ -35,7 +35,7 @@ INSTANCE DIA_Wolf_Hello (C_INFO)
 	information	= DIA_Wolf_Hello_Info;
 	permanent	= 0;
 	description = "Wer bist du?";
-};                       
+};
 
 FUNC INT DIA_Wolf_Hello_Condition()
 {
@@ -62,7 +62,7 @@ INSTANCE DIA_Wolf_GreetORG (C_INFO)
 	information	= DIA_Wolf_GreetORG_Info;
 	permanent	= 0;
 	important 	= 1;
-};                       
+};
 
 FUNC INT DIA_Wolf_GreetORG_Condition()
 {
@@ -88,12 +88,12 @@ instance  Org_855_Wolf_TRADE (C_INFO)
 	condition		= Org_855_Wolf_TRADE_Condition;
 	information		= Org_855_Wolf_TRADE_Info;
 	permanent		= 1;
-	description		= DIALOG_TRADE; 
+	description		= DIALOG_TRADE;
 	trade 			= 1;
 };
 
 FUNC int  Org_855_Wolf_TRADE_Condition()
-{	
+{
 	return 1;
 };
 
@@ -101,7 +101,7 @@ FUNC void  Org_855_Wolf_TRADE_Info()
 {
 	AI_Output (other, self,"Org_855_Wolf_TRADE_15_00"); //Handelst du noch mit was anderem?
 	AI_Output (self, other,"Org_855_Wolf_TRADE_09_01"); //Ich kaufe Felle und Häute von den Jägern. Wenn du an so was rankommst, kauf' ich dir die Sachen ab.
-	
+
 
 };
 
@@ -116,11 +116,11 @@ instance  Org_855_Wolf_WhereHunter (C_INFO)
 	condition		= Org_855_Wolf_WhereHunter_Condition;
 	information		= Org_855_Wolf_WhereHunter_Info;
 	permanent		= 1;
-	description		= "Wie komme ich an Felle und Häute?"; 
+	description		= "Wie komme ich an Felle und Häute?";
 };
 
 FUNC int  Org_855_Wolf_WhereHunter_Condition()
-{	
+{
 	return 1;
 };
 
@@ -143,11 +143,11 @@ INSTANCE DIA_Wolf_SellArmor (C_INFO)
 	information	= DIA_Wolf_SellArmor_Info;
 	permanent	= 1;
 	description = "Ich suche eine bessere Rüstung.";
-};                       
+};
 
 FUNC INT DIA_Wolf_SellArmor_Condition()
 {
-	if ( (Npc_KnowsInfo(hero,DIA_Wolf_Hello)) 
+	if ( (Npc_KnowsInfo(hero,DIA_Wolf_Hello))
 	&& (!Npc_KnowsInfo(hero, Info_Wolf_ARMORFINISHED)) )
 	{
 		return 1;
@@ -157,7 +157,7 @@ FUNC INT DIA_Wolf_SellArmor_Condition()
 FUNC VOID DIA_Wolf_SellArmor_Info()
 {
 	AI_Output (other, self,"DIA_Wolf_SellArmor_15_00"); //Ich suche eine bessere Rüstung.
-	
+
 	if ( (Npc_GetTrueGuild(other)==GIL_ORG) || (Npc_GetTrueGuild(other)==GIL_SLD) )
 	{
 		AI_Output (self, other,"DIA_Wolf_SellArmor_09_01"); //Jetzt, wo du einer von uns bist, kann ich dir eine verkaufen.
@@ -181,19 +181,19 @@ func void DIA_Wolf_SellArmor_BACK()
 func void DIA_Wolf_SellArmor_M()
 {
 	AI_Output (other, self,"DIA_Wolf_SellArmor_M_15_01"); //Ich möchte die mittlere Rüstung haben.
-	
+
 	if (Npc_HasItems (hero,ItMinugget)< VALUE_ORG_ARMOR_M)
 	{
 		AI_Output (self, other,"DIA_Wolf_SellArmor_M_09_02"); //Ohne Erz gibt es auch keine Rüstung.
 	}
-	else 
+	else
 	{
 		AI_Output			(self, other,"DIA_Wolf_SellArmor_M_09_03"); //Eine gute Rüstung.Noch nicht so gut, wie das, was ich trage, aber sie bietet ausreichend Schutz.
 
 		B_GiveInvItems		(hero, self,ItMinugget,VALUE_ORG_ARMOR_M);
-		
+
 		CreateInvItem		(hero,ORG_ARMOR_M);
-		
+
 		CreateInvItem		(self, ItAmArrow);
 		B_GiveInvItems      (self, hero, ItAmArrow, 1);
 		Npc_RemoveInvItem	(hero, ItAmArrow);
@@ -204,18 +204,18 @@ func void DIA_Wolf_SellArmor_H()
 {
 	AI_Output (other,self,"DIA_Wolf_SellArmor_H_15_01"); //Kannst du mir eine schwere Rüstung verkaufen?
 
-	if (Npc_HasItems (hero,ItMinugget) < VALUE_ORG_ARMOR_H) 
+	if (Npc_HasItems (hero,ItMinugget) < VALUE_ORG_ARMOR_H)
 	{
 		AI_Output (self, other,"DIA_Wolf_SellArmor_H_09_02"); //Ohne Erz gibt es auch keine Rüstung.
 	}
-	else 
+	else
 	{
 		AI_Output			(self, other,"DIA_Wolf_SellArmor_H_09_03"); //Diese Rüstung wird dich vor allen Gefahren schützen! Ich trage sie auch und habe bisher überlebt. Nicht zuletzt dank der Rüstung.
 
 		B_GiveInvItems		(hero, self, ItMinugget,VALUE_ORG_ARMOR_H);
-		
+
 		CreateInvItem 		(hero,ORG_ARMOR_H);
-		
+
 		CreateInvItem		(self, ItAmArrow);
 		B_GiveInvItems      (self, hero, ItAmArrow, 1);
 		Npc_RemoveInvItem	(hero, ItAmArrow);
@@ -223,7 +223,7 @@ func void DIA_Wolf_SellArmor_H()
 };
 
 /*------------------------------------------------------------------------
-							BOGENSCHIESSEN	DAS ANGEBOT							
+							BOGENSCHIESSEN	DAS ANGEBOT
 ------------------------------------------------------------------------*/
 
 instance  ORG_855_Wolf_TRAINOFFER (C_INFO)
@@ -234,11 +234,11 @@ instance  ORG_855_Wolf_TRAINOFFER (C_INFO)
 	information		= ORG_855_Wolf_TRAINOFFER_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "Ich möchte den richtigen Umgang mit dem Bogen lernen"; 
+	description		= "Ich möchte den richtigen Umgang mit dem Bogen lernen";
 };
 
 FUNC int  ORG_855_Wolf_TRAINOFFER_Condition()
-{	
+{
 	if( Npc_GetTalentSkill (hero,NPC_TALENT_BOW) != 2)
 	{
 		return TRUE;
@@ -251,13 +251,13 @@ FUNC void  ORG_855_Wolf_TRAINOFFER_Info()
 	AI_Output (self, other,"ORG_855_Wolf_TRAINOFFER_Info_09_02"); //Kann ich dir beibringen. Das ist aber keine Gefälligkeit, denn auch ich muss essen.
 	AI_Output (other, self,"ORG_855_Wolf_TRAINOFFER_Info_15_03"); //Wie viel?
 	AI_Output (self, other,"ORG_855_Wolf_TRAINOFFER_Info_09_04"); //Alles, was ich dir beibringe, kostet dich 50 Erz. Ich feilsche nicht.
-	
+
 	Log_CreateTopic   	(GE_TeacherNC,	LOG_NOTE);
 	B_LogEntry			(GE_TeacherNC,	"Wolf der Bandit kann mir den Umgang mit dem BOGEN beibringen.");
-	
-};  
+
+};
 /*------------------------------------------------------------------------
-						BOGENSCHIESSEN		DIE ERSTE LEHRSTUNDE							
+						BOGENSCHIESSEN		DIE ERSTE LEHRSTUNDE
 ------------------------------------------------------------------------*/
 
 instance  ORG_855_Wolf_TRAIN (C_INFO)
@@ -268,11 +268,11 @@ instance  ORG_855_Wolf_TRAIN (C_INFO)
 	information		= ORG_855_Wolf_TRAIN_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= B_BuildLearnString(NAME_LearnBow_1,LPCOST_TALENT_BOW_1,50); 
+	description		= B_BuildLearnString(NAME_LearnBow_1,LPCOST_TALENT_BOW_1,50);
 };
 
 FUNC int  ORG_855_Wolf_TRAIN_Condition()
-{	
+{
 	if (Npc_KnowsInfo (hero,ORG_855_Wolf_TRAINOFFER))
 	&& (Npc_GetTalentSkill (hero,NPC_TALENT_BOW) == 0)
 	{
@@ -283,7 +283,7 @@ FUNC int  ORG_855_Wolf_TRAIN_Condition()
 FUNC void  ORG_855_Wolf_TRAIN_Info()
 {
 	AI_Output (other, self,"ORG_855_Wolf_TRAIN_Info_15_01"); //Bring mir den Umgang mit dem Bogen bei.
-	if (Npc_HasItems (hero,ItMiNugget) >= 50) 
+	if (Npc_HasItems (hero,ItMiNugget) >= 50)
 	{
 		if B_GiveSkill(hero,NPC_TALENT_BOW,1,LPCOST_TALENT_BOW_1)
 		{
@@ -292,9 +292,9 @@ FUNC void  ORG_855_Wolf_TRAIN_Info()
 			B_GiveInvItems (hero, self, ItMiNugget,50);
 		};
 	};
-};  
+};
 /*------------------------------------------------------------------------
-						BOGENSCHIESSEN		DIE ZWEITE LEHRSTUNDE							
+						BOGENSCHIESSEN		DIE ZWEITE LEHRSTUNDE
 ------------------------------------------------------------------------*/
 
 instance  ORG_855_Wolf_TRAINAGAIN (C_INFO)
@@ -305,11 +305,11 @@ instance  ORG_855_Wolf_TRAINAGAIN (C_INFO)
 	information		= ORG_855_Wolf_TRAINAGAIN_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= B_BuildLearnString(NAME_LearnBow_2,	LPCOST_TALENT_BOW_2,50); 
+	description		= B_BuildLearnString(NAME_LearnBow_2,	LPCOST_TALENT_BOW_2,50);
 };
 
 FUNC int  ORG_855_Wolf_TRAINAGAIN_Condition()
-{	
+{
 	if (Npc_KnowsInfo (hero,ORG_855_Wolf_TRAINOFFER))
 	&& (Npc_GetTalentSkill (hero,NPC_TALENT_BOW) == 1)
 	{
@@ -320,7 +320,7 @@ FUNC int  ORG_855_Wolf_TRAINAGAIN_Condition()
 FUNC void  ORG_855_Wolf_TRAINAGAIN_Info()
 {
 	AI_Output (other, self,"ORG_855_Wolf_TRAINAGAIN_Info_15_01"); //Ich will mein Talent mit dem Bogen verbessern.
-	if (Npc_HasItems (hero,ItMiNugget) >= 50) 
+	if (Npc_HasItems (hero,ItMiNugget) >= 50)
 	{
 		if B_GiveSkill(hero,NPC_TALENT_BOW,2,LPCOST_TALENT_BOW_2)
 		{
@@ -328,11 +328,11 @@ FUNC void  ORG_855_Wolf_TRAINAGAIN_Info()
 			AI_Output (self, other,"ORG_855_Wolf_TRAINAGAIN_Info_09_03"); //Um ein Meisterschütze zu werden, musst du aufhören, einer sein zu wollen.
 			AI_Output (self, other,"ORG_855_Wolf_TRAINAGAIN_Info_09_04"); //Erkenne das Gesetz von Auge, Spannkraft, Flugbahn und Ziel. Sei immer auf der Hut, sei immer bereit.
 			AI_Output (self, other,"ORG_855_Wolf_TRAINAGAIN_Info_09_05"); //Die Technik beherrschst du schon lange zur Genüge. Geh einfach hin und wende dein Wissen und Können an.
-			
+
 			B_GiveInvItems (hero, self, ItMiNugget,50);
 		};
 	};
-}; 
+};
 //---------------------------------------------------------------
 //     					 DEX
 //---------------------------------------------------------------
@@ -344,11 +344,11 @@ INSTANCE ORG_855_Wolf_Teach(C_INFO)
 	information	= ORG_855_Wolf_Teach_Info;
 	permanent	= 1;
 	description = "Kannst du mir was beibringen?";
-};                       
+};
 
 FUNC INT ORG_855_Wolf_Teach_Condition()
 {
-	if (Npc_GetTrueGuild (hero) == GIL_GRD)  
+	if (Npc_GetTrueGuild (hero) == GIL_GRD)
 	{
 		return TRUE;
 	};
@@ -358,14 +358,14 @@ FUNC VOID ORG_855_Wolf_Teach_Info()
 {
 	AI_Output(other,self,"ORG_855_Wolf_Teach_15_00"); //Kannst du mir was beibringen?
 	AI_Output(self,other,"ORG_855_Wolf_Teach_09_01"); //Deine Geschicklichkeit bestimmt den Jagderfolg.
-	
+
 	if (log_wolftrain == FALSE)
 	{
 	Log_CreateTopic   	(GE_TeacherNC,LOG_NOTE);
 	B_LogEntry			(GE_TeacherNC,"Wolf der Bandit, kann mir zeigen, wie ich mein GESCHICK verbessere.");
 	log_wolftrain = TRUE;
 	};
-	
+
 	Info_ClearChoices	(ORG_855_Wolf_Teach);
 	Info_AddChoice		(ORG_855_Wolf_Teach,DIALOG_BACK									,ORG_855_Wolf_Teach_BACK);
 	Info_AddChoice		(ORG_855_Wolf_Teach,B_BuildLearnString(NAME_LearnDexterity_5,5*LPCOST_ATTRIBUTE_DEXTERITY,0)	,ORG_855_Wolf_Teach_DEX_5);
@@ -374,7 +374,7 @@ FUNC VOID ORG_855_Wolf_Teach_Info()
 
 func void ORG_855_Wolf_Teach_BACK()
 {
-	
+
 	Info_ClearChoices	(ORG_855_Wolf_Teach);
 };
 func void ORG_855_Wolf_Teach_DEX_1()
@@ -415,10 +415,10 @@ INSTANCE Info_Wolf_GOOD (C_INFO)
 	npc			= Org_855_Wolf;
 	condition	= Info_Wolf_GOOD_Condition;
 	information	= Info_Wolf_GOOD_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 0;
 	description = "Gorn sagt, du wolltest dringend mit mir sprechen?";
-};                       
+};
 
 FUNC INT Info_Wolf_GOOD_Condition()
 {
@@ -447,10 +447,10 @@ INSTANCE Info_Wolf_SPEAK (C_INFO)
 	npc			= Org_855_Wolf;
 	condition	= Info_Wolf_SPEAK_Condition;
 	information	= Info_Wolf_SPEAK_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 0;
 	description = "Worum geht es?";
-};                       
+};
 
 FUNC INT Info_Wolf_SPEAK_Condition()
 {
@@ -480,10 +480,10 @@ INSTANCE Info_Wolf_SKIN (C_INFO)
 	npc			= Org_855_Wolf;
 	condition	= Info_Wolf_SKIN_Condition;
 	information	= Info_Wolf_SKIN_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 0;
 	description = "Wie bekomme ich diese Platten von den Biestern ab?";
-};                       
+};
 
 FUNC INT Info_Wolf_SKIN_Condition()
 {
@@ -502,11 +502,11 @@ func VOID Info_Wolf_SKIN_Info()
 
 	Knows_GetMCPlates = TRUE;
 	PrintScreen	("Lerne: Panzerplatten herausschneiden", -1,-1,"FONT_OLD_20_WHITE.TGA",3);
-	
+
 	Log_CreateTopic		(CH4_MCPlateArmor,	LOG_MISSION);
 	Log_SetTopicStatus	(CH4_MCPlateArmor,	LOG_RUNNING);
-	B_LogEntry			(CH4_MCPlateArmor,	"Der Bandit Wolf aus dem neuen Lager bot mir an, aus den Panzerplatten von Minecrawlern eine Rüstung anzufertigen. Er zeigte mir, wie man die Panzerplatten von toten Crawlern entfernt."); 
-	
+	B_LogEntry			(CH4_MCPlateArmor,	"Der Bandit Wolf aus dem neuen Lager bot mir an, aus den Panzerplatten von Minecrawlern eine Rüstung anzufertigen. Er zeigte mir, wie man die Panzerplatten von toten Crawlern entfernt.");
+
 	Log_CreateTopic (GE_AnimalTrophies,LOG_NOTE);
 	B_LogEntry (GE_AnimalTrophies,"Wissen über Platten entfernen - Minecrawler - Krieger");
 
@@ -521,10 +521,10 @@ INSTANCE Info_Wolf_PROFIT (C_INFO)
 	npc			= Org_855_Wolf;
 	condition	= Info_Wolf_PROFIT_Condition;
 	information	= Info_Wolf_PROFIT_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 0;
 	description = "Und diese Information gibst du mir völlig uneigennützig?";
-};                       
+};
 
 FUNC INT Info_Wolf_PROFIT_Condition()
 {
@@ -548,10 +548,10 @@ INSTANCE Info_Wolf_MCPLATESFEW (C_INFO)
 	npc			= Org_855_Wolf;
 	condition	= Info_Wolf_MCPLATESFEW_Condition;
 	information	= Info_Wolf_MCPLATESFEW_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 0;
 	description = "Ich habe einige der Minecrawler-Panzerplatten eingesammelt!";
-};                       
+};
 
 FUNC INT Info_Wolf_MCPLATESFEW_Condition()
 {
@@ -578,10 +578,10 @@ INSTANCE Info_Wolf_MCPLATESENOUGH (C_INFO)
 	npc			= Org_855_Wolf;
 	condition	= Info_Wolf_MCPLATESENOUGH_Condition;
 	information	= Info_Wolf_MCPLATESENOUGH_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 0;
 	description = "Ich habe jede Menge dieser Minecrawler-Panzerplatten eingesammelt!";
-};                       
+};
 
 FUNC INT Info_Wolf_MCPLATESENOUGH_Condition()
 {
@@ -604,7 +604,7 @@ func VOID Info_Wolf_MCPLATESENOUGH_Info()
 
 	B_LogEntry			(CH4_MCPlateArmor,	"Wolf hat 15 dieser Minecralwerplatten von mir erhalten. Er benötigt etwas Zeit und bat mich später wiederzukommen.");
 	B_GiveXP			(XP_DeliveredMCPlates);
-	
+
 	B_GiveInvItems	(hero, self, ItAt_Crawler_02,	15);
 	AI_StopProcessInfos	(self);
 };
@@ -617,10 +617,10 @@ INSTANCE Info_Wolf_ARMORINWORK (C_INFO)
 	npc			= Org_855_Wolf;
 	condition	= Info_Wolf_ARMORINWORK_Condition;
 	information	= Info_Wolf_ARMORINWORK_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 1;
 	description = "Wie weit bist du mit der Rüstung?";
-};                       
+};
 
 FUNC INT Info_Wolf_ARMORINWORK_Condition()
 {
@@ -647,10 +647,10 @@ INSTANCE Info_Wolf_ARMORFINISHED (C_INFO)
 	npc			= Org_855_Wolf;
 	condition	= Info_Wolf_ARMORFINISHED_Condition;
 	information	= Info_Wolf_ARMORFINISHED_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 0;
 	description = "Wie weit bist du mit der Rüstung? ";
-};                       
+};
 
 FUNC INT Info_Wolf_ARMORFINISHED_Condition()
 {
@@ -680,7 +680,7 @@ func VOID Info_Wolf_ARMORFINISHED_Info()
 };
 
 /*------------------------------------------------------------------------
-						BOGEN KAUFEN						
+						BOGEN KAUFEN
 ------------------------------------------------------------------------*/
 
 instance  Org_855_Wolf_SELLBOW (C_INFO)
@@ -690,7 +690,7 @@ instance  Org_855_Wolf_SELLBOW (C_INFO)
 	information		= Org_855_Wolf_SELLBOW_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "Wo kann ich denn hier einen Bogen bekommen?"; 
+	description		= "Wo kann ich denn hier einen Bogen bekommen?";
 };
 
 FUNC int  Org_855_Wolf_SELLBOW_Condition()
@@ -704,7 +704,7 @@ FUNC void  Org_855_Wolf_SELLBOW_Info()
 	Log_CreateTopic   	(GE_TraderNC,LOG_NOTE);
 	B_LogEntry			(GE_TraderNC,"Wolf, der Bandit, handelt mit BÖGEN.");
 
-};  
+};
 
 
 

@@ -1,12 +1,12 @@
 instance SLD_755_Soeldner (Npc_Default)
 {
 	//-------- primary data --------
-	
+
 	name =							Name_Soeldner;
 	Npctype =						NPCTYPE_MINE_GUARD;
-	guild =							GIL_SLD;       
+	guild =							GIL_SLD;
 	level =							16;
-	
+
 	voice =							8;
 	id =							755;
 
@@ -25,21 +25,21 @@ instance SLD_755_Soeldner (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Militia.mds");
-	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
+	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin
 	Mdl_SetVisualBody (self,"hum_body_Naked0",1, 3,"Hum_Head_FatBald",9 , 2,SLD_ARMOR_M);
-	
+
 	B_Scale (self);
 	Mdl_SetModelFatness (self, 0);
-	
-	fight_tactic	=	FAI_HUMAN_STRONG; 
-		
+
+	fight_tactic	=	FAI_HUMAN_STRONG;
+
 	//-------- Talente --------
-	
+
 	Npc_SetTalentSkill (self, NPC_TALENT_1H,2);
 	Npc_SetTalentSkill (self, NPC_TALENT_2H,1);
-	
 
-	//-------- inventory --------                                    
+
+	//-------- inventory --------
 
 	EquipItem (self, ItMw_1H_Mace_War_03);
 	EquipItem (self, ItRw_Bow_Long_01);
@@ -58,7 +58,7 @@ instance SLD_755_Soeldner (Npc_Default)
 	//-------------Daily Routine-------------
 
 	daily_routine = Rtn_FMCstart_755;
-	
+
 };
 
 FUNC VOID Rtn_FMCstart_755 ()

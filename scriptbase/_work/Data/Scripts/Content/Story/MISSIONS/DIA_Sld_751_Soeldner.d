@@ -95,7 +95,7 @@ FUNC int DIA_SLD_751_Soeldner_UMSEHEN_CONDITION()
 };
 
 func void DIA_SLD_751_Soeldner_UMSEHEN_INFO()
-{  
+{
 	AI_Output (other, self,"DIA_SLD_751_Soeldner_UMSEHEN_INFO_15_01"); //Ich will mich hier nur mal umsehen.
 	AI_Output (self, other,"DIA_SLD_751_Soeldner_UMSEHEN_INFO_01_02");//Dann pass auf, dass du niemanden auf die Füße trittst.
 };

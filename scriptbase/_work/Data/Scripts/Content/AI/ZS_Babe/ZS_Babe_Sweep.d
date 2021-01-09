@@ -23,7 +23,7 @@ func void ZS_Babe_Sweep ()
 	if (Wld_IsFPAvailable (self,"SWEEP"))
 	{
 		AI_GotoFp (self,"SWEEP");
-		
+
 		AI_UseItemToState	( self, ITMIBrush,1);
 	};
 };

@@ -6,10 +6,10 @@ instance NOV_1371_BaalNetbek (Npc_Default)
 	guild 		=		GIL_NOV;
 	level 		=		3;
 	flags 		=		0;
-	
+
 	voice 		=		3;
 	id 			=		1371;
-		
+
 	//-------- abilities --------
 	attribute[ATR_STRENGTH] 		=	10;
 	attribute[ATR_DEXTERITY] 		=	10;
@@ -26,17 +26,17 @@ instance NOV_1371_BaalNetbek (Npc_Default)
 
 	B_Scale (self);
 	Mdl_SetModelFatness(self,3);
-	
+
 	fight_tactic	=	FAI_HUMAN_STRONG;
 
 	//-------- Talente --------
-	
-		
+
+
 	//-------- inventory --------
 
 	CreateInvItem (self, ItMw_1H_Hatchet_01);
-	
-	        
+
+
 	//-------------Daily Routine-------------
 	daily_routine = Rtn_start_1371;
 
@@ -45,6 +45,6 @@ instance NOV_1371_BaalNetbek (Npc_Default)
 FUNC VOID Rtn_start_1371 ()
 {
 	TA_Stay	(24,00,06,00,"PATH_TAKE_HERB_08");
-  	TA_Stay	(06,00,24,00,"PATH_TAKE_HERB_08");	 
+  	TA_Stay	(06,00,24,00,"PATH_TAKE_HERB_08");
 };
 

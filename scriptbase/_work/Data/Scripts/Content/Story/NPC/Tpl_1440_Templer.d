@@ -6,10 +6,10 @@ instance TPL_1440_Templer (Npc_Default)
 	guild =							GIL_TPL;
 	level =							17;
 	flags =							0;
-	
+
 	voice =							13;
 	id =							1440;
-		
+
 	//-------- abilities --------
 	attribute[ATR_STRENGTH] =		85;
 	attribute[ATR_DEXTERITY] =		65;
@@ -22,20 +22,20 @@ instance TPL_1440_Templer (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Mage.mds");
-	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung	
+	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung
 	Mdl_SetVisualBody (self,"hum_body_Naked0", 1, 1 ,"Hum_Head_Psionic", 64 ,  1, TPL_ARMOR_M);
 
 	B_Scale (self);
 	Mdl_SetModelFatness(self,-1);
-	
+
 	fight_tactic	=	FAI_HUMAN_STRONG;
 
-	//-------- Talente -------- 
+	//-------- Talente --------
 
 	Npc_SetTalentSkill (self, NPC_TALENT_2H,1);
-	
+
 	//-------- inventory --------
-	
+
 	EquipItem (self, ItMw_2H_Sword_Light_01);
 	CreateInvItem (self, ItFoSoup);
 	CreateInvItem (self, ItMiJoint_1);

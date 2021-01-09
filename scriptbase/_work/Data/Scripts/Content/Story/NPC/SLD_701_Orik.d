@@ -1,12 +1,12 @@
 instance SLD_701_Orik (Npc_Default)
 {
 	//-------- primary data --------
-	
+
 	name =					"Orik";
 	Npctype =				NPCTYPE_AMBIENT;
 	guild =					GIL_SLD;
 	level =					18;
-	
+
 	voice =					8;
 	id =					701;
 
@@ -25,22 +25,22 @@ instance SLD_701_Orik (Npc_Default)
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Militia.mds");
 
-	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
+	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin
 	Mdl_SetVisualBody (self,"hum_body_Naked0",0, 3,"Hum_Head_FatBald", 8, 0,SLD_ARMOR_H);
-	
+
 	B_Scale (self);
 	Mdl_SetModelFatness (self, 0);
-	
-	fight_tactic	=	FAI_HUMAN_MASTER; 
-	
+
+	fight_tactic	=	FAI_HUMAN_MASTER;
+
 	//-------- Talente --------
-	
+
 	Npc_SetTalentSkill (self, NPC_TALENT_1H,1);
 	Npc_SetTalentSkill (self, NPC_TALENT_2H,1);
 
 
-	//-------- inventory --------                                    
-	
+	//-------- inventory --------
+
 	EquipItem (self, Oriks_Axt);
 	EquipItem (self, ItRw_Bow_Long_01);
 	CreateInvItems(self, ItAmArrow, 20);
@@ -53,8 +53,8 @@ instance SLD_701_Orik (Npc_Default)
 	CreateInvItems (self, ItFo_Potion_Health_02,9);
 	CreateInvItem (self, ItMi_Stuff_Barbknife_01);
 	CreateInvItem (self, ItMi_Stuff_Amphore_01);
-	
-	
+
+
 	//-------------Daily Routine-------------
 
 	daily_routine = Rtn_start_701;
@@ -65,7 +65,7 @@ FUNC VOID Rtn_start_701 ()
 {
 	TA_Smalltalk   	(07,00,19,00,"NC_SMALL_CAVE_CENTER");
 	TA_Boss			(19,00,00,00,"NC_HUT05_OUT");
-	TA_Sleep		(00,00,07,00,"NC_HUT05_IN");	
+	TA_Sleep		(00,00,07,00,"NC_HUT05_IN");
 };
 
 

@@ -1,10 +1,10 @@
 instance BAU_908_Bauer (Npc_Default)
 {
 	//-------- primary data --------
-	
+
 	name 		=	name_Bauer;
 	npctype		=	npctype_ambient;
-	guild 		=	GIL_BAU;      
+	guild 		=	GIL_BAU;
 	level 		=	2;
 	voice 		=	4;
 	id 			=	908;
@@ -21,18 +21,18 @@ instance BAU_908_Bauer (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Tired.mds");
-	//			body mesh     ,bdytex,skin,head mesh     ,headtex2,teethtex,ruestung	
+	//			body mesh     ,bdytex,skin,head mesh     ,headtex2,teethtex,ruestung
 	Mdl_SetVisualBody (self,"hum_body_Naked0",2,2,"Hum_Head_Pony", 1,  2,-1);
-	
+
 	B_Scale (self);
 	Mdl_SetModelFatness(self,0);
-	
-	fight_tactic	=	FAI_HUMAN_COWARD; 
-	//-------- Talente --------                                    
-		     
-	//-------- inventory --------                                    
 
-		
+	fight_tactic	=	FAI_HUMAN_COWARD;
+	//-------- Talente --------
+
+	//-------- inventory --------
+
+
 	CreateInvItems (self, ItFoRice,5);
 	CreateInvItem (self, ItMi_Stuff_Plate_01);
 	CreateInvItem (self, ItFoBooze);

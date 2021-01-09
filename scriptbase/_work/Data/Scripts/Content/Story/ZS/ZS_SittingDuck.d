@@ -4,12 +4,12 @@
 //	Der NSC steht bei diesem Tagesablauf-Zustand FEST auf seinem WP
 //	und reagiert auf nichts. Wird verwendet, damit der NSC beim
 //	herannahen des Spielers von einem nahen Monster sofort mit einem
-//	getötet werden kann. 
+//	getötet werden kann.
 //////////////////////////////////////////////////////////////////////////
 func void ZS_SittingDuck ()
 {
 	PrintDebugNpc			(PD_TA_FRAME,	"ZS_SittingDuck");
-	
+
 	//-------- Wahrnehmungen --------
 	self.senses = 			SENSE_SEE|SENSE_HEAR|SENSE_SMELL;
 
@@ -24,7 +24,7 @@ func void ZS_SittingDuck ()
 func void ZS_SittingDuck_Loop ()
 {
 	PrintDebugNpc			(PD_TA_LOOP,	"ZS_SittingDuck_Loop");
-	
+
 	AI_Wait					(self,	1);
 };
 

@@ -13,9 +13,9 @@ func int Spell_Logic_Thunderball(var int manaInvested)
 	||	(manaInvested ==(SPL_SENDCAST_THUNDERBALL*5)/10)
 	||	(manaInvested ==(SPL_SENDCAST_THUNDERBALL*8)/10)
 	{	return SPL_NEXTLEVEL;		};
-	
-	if (manaInvested >= SPL_SENDCAST_THUNDERBALL) 
+
+	if (manaInvested >= SPL_SENDCAST_THUNDERBALL)
 	{	return SPL_SENDCAST;		};
 
-return SPL_RECEIVEINVEST;	
+return SPL_RECEIVEINVEST;
 };
