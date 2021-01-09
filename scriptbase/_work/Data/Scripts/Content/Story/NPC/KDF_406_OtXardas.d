@@ -3,10 +3,10 @@
 instance KDF_406_OTXardas (Npc_Default)
 {
 	//-------- primary data --------
-	
+
 	name 		=	"Xardas";
 	npctype		=	npctype_main;
-	guild 		=	GIL_NONE;      
+	guild 		=	GIL_NONE;
 	level 		=	30;
 	voice 		=	14;
 	id 			=	406;
@@ -23,28 +23,28 @@ instance KDF_406_OTXardas (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Mage.mds");
-	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
+	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin
 	Mdl_SetVisualBody (self,"hum_body_Naked0",0, 1,"Hum_Head_Bald", 82, 1, DMB_ARMOR_M);
 
 	B_Scale (self);
 	Mdl_SetModelFatness (self, 0);
-    	
+
     self.aivar[AIV_IMPORTANT] = TRUE;
-	
+
 	fight_tactic	=	FAI_HUMAN_MAGE;
 
-	//-------- Talente --------                                    
+	//-------- Talente --------
 	Npc_SetTalentSkill		( self, NPC_TALENT_MAGE,		6);
 
 
-	//-------- Spells--------                                    
+	//-------- Spells--------
 	CreateInvItems	(self, ItArScrollSummonDemon, 20);
 	CreateInvItem	(self, ItArRuneFireball);
-	
-	//-------- inventory --------                                    
+
+	//-------- inventory --------
 	CreateInvItems(self, ItFo_Potion_Health_03, 3);
 	CreateInvItems(self, ItFo_Potion_Mana_03, 3);
-	
+
 	EquipItem (self,Amulett_der_Erleuchtung);
 	EquipItem (self,Ring_der_Magie);
 	EquipItem (self,Ring_der_Erleuchtung);
@@ -66,11 +66,11 @@ instance KDF_406_OTXardas (Npc_Default)
 FUNC VOID Rtn_start_406 ()
 {
 	TA_Intercept  (15,00,22,00,"TPL_331");
-  	TA_Intercept  (22,00,15,00,"TPL_331");	
+  	TA_Intercept  (22,00,15,00,"TPL_331");
 };
 
-FUNC VOID Rtn_Drained_406 () 
+FUNC VOID Rtn_Drained_406 ()
 {
 	TA_Drained_YBerion	(23,00,07,00,"TPL_331");
-    TA_Drained_YBerion	(07,00,23,00,"TPL_331");	
+    TA_Drained_YBerion	(07,00,23,00,"TPL_331");
 };

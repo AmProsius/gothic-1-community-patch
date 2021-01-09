@@ -7,10 +7,10 @@ instance  Nov_1300_Talas_Exit (C_INFO)
 	nr			=  999;
 	condition	=  Nov_1300_Talas_Exit_Condition;
 	information	=  Nov_1300_Talas_Exit_Info;
-	important	=  0;	
+	important	=  0;
 	permanent	=  1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC int  Nov_1300_Talas_Exit_Condition()
 {
@@ -30,7 +30,7 @@ instance  Nov_1300_Talas_UR (C_INFO)
 	information		= Nov_1300_Talas_UR_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "You're Talas, the one who was mugged."; 
+	description		= "You're Talas, the one who was mugged.";
 };
 
 FUNC int  Nov_1300_Talas_UR_Condition()
@@ -46,7 +46,7 @@ FUNC void  Nov_1300_Talas_UR_Info()
 {
 	AI_Output			(other, self,"Nov_1300_Talas_UR_Info_15_01"); //You're Talas, the one who was mugged.
 	AI_Output			(self, other,"Nov_1300_Talas_UR_Info_02_02"); //Leave me alone, I don't want to talk about it!
-};  
+};
 // ***************************** INFOS ****************************************//
 
 instance  Nov_1300_Talas_HELP (C_INFO)
@@ -56,7 +56,7 @@ instance  Nov_1300_Talas_HELP (C_INFO)
 	information		= Nov_1300_Talas_HELP_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "I can help you to bring the almanac back."; 
+	description		= "I can help you to bring the almanac back.";
 };
 
 FUNC int  Nov_1300_Talas_HELP_Condition()
@@ -77,8 +77,8 @@ FUNC void  Nov_1300_Talas_HELP_Info()
 	Info_AddChoice		(Nov_1300_Talas_HELP,"Agreed.",Nov_1300_Talas_HELP_OK);
 	Info_AddChoice		(Nov_1300_Talas_HELP,"That'll cost you 30 ore.",Nov_1300_Talas_HELP_BRING);
 	Info_AddChoice		(Nov_1300_Talas_HELP,"Give me 50 ore and I'm in.",Nov_1300_Talas_HELP_MORE);
-	
-};  
+
+};
 
 func void Nov_1300_Talas_HELP_OK ()
 {
@@ -111,7 +111,7 @@ instance  Nov_1300_Talas_READY (C_INFO)
 	information		= Nov_1300_Talas_READY_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "I'm ready, we can leave now."; 
+	description		= "I'm ready, we can leave now.";
 };
 
 FUNC int  Nov_1300_Talas_READY_Condition()
@@ -127,14 +127,14 @@ FUNC void  Nov_1300_Talas_READY_Info()
 {
 	AI_Output			(other, self,"Nov_1300_Talas_READY_Info_15_01"); //I'm ready, we can leave now.
 	AI_Output			(self, other,"Nov_1300_Talas_READY_Info_02_02"); //Okay. Follow me.
-	
-	B_LogEntry		(CH2_Book,"I offered Talas to get the almanac back for him. He wants to lead me to the place where the book is."); 
-	
+
+	B_LogEntry		(CH2_Book,"I offered Talas to get the almanac back for him. He wants to lead me to the place where the book is.");
+
 	self.aivar[AIV_PARTYMEMBER] = TRUE;
 	Npc_ExchangeRoutine	(self,"GOBBOCAVE");
 	AI_StopProcessInfos	(self);
-	
-};  
+
+};
 
 // ***************************** AN DER BRÜCKE ****************************************//
 instance  Nov_1300_Talas_BRIDGE (C_INFO)
@@ -144,7 +144,7 @@ instance  Nov_1300_Talas_BRIDGE (C_INFO)
 	information		= Nov_1300_Talas_BRIDGE_Info;
 	important		= 1;
 	permanent		= 0;
-	 
+
 };
 FUNC int  Nov_1300_Talas_BRIDGE_Condition()
 {
@@ -172,7 +172,7 @@ instance  Nov_1300_Talas_BACK (C_INFO)
 	information		= Nov_1300_Talas_BACK_Info;
 	important		= 1;
 	permanent		= 0;
-	 
+
 };
 FUNC int  Nov_1300_Talas_BACK_Condition()
 {
@@ -201,7 +201,7 @@ instance  Nov_1300_Talas_RETURNED (C_INFO)
 	information		= Nov_1300_Talas_RETURNED_Info;
 	important		= 1;
 	permanent		= 0;
-	 
+
 };
 FUNC int  Nov_1300_Talas_RETURNED_Condition()
 {
@@ -236,7 +236,7 @@ instance  Nov_1300_Talas_OGY (C_INFO)
 	information		= Nov_1300_Talas_OGY_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "Cor Angar sent me."; 
+	description		= "Cor Angar sent me.";
 };
 
 FUNC int  Nov_1300_Talas_OGY_Condition()
@@ -252,11 +252,11 @@ FUNC void  Nov_1300_Talas_OGY_Info()
 	AI_Output			(other, self,"Nov_1300_Talas_OGY_15_01"); //Cor Angar sent me. He said you should take me to the Orc cemetery so I can find Baal Lukor and his templars.
 	AI_Output			(self, other,"Nov_1300_Talas_OGY_02_02"); //So I'm the gofer again. Damn!!! I just should never have lost that almanac...
 	AI_Output			(self, other,"Nov_1300_Talas_OGY_02_03"); //Well then, come with me.
-	
+
 	self.aivar[AIV_PARTYMEMBER] = TRUE;
 	AI_StopProcessInfos	(self);
 	Npc_ExchangeRoutine	(self,"OGY");
-};  
+};
 
 // ***************************** am OGY ****************************************//
 instance  Nov_1300_Talas_BACKAGAIN (C_INFO)
@@ -266,7 +266,7 @@ instance  Nov_1300_Talas_BACKAGAIN (C_INFO)
 	information		= Nov_1300_Talas_BACKAGAIN_Info;
 	important		= 1;
 	permanent		= 0;
-	 
+
 };
 FUNC int  Nov_1300_Talas_BACKAGAIN_Condition()
 {
@@ -285,7 +285,7 @@ FUNC void  Nov_1300_Talas_BACKAGAIN_Info()
 	self.aivar[AIV_PARTYMEMBER] = FALSE;
 	AI_StopProcessInfos	(self);
 	Npc_ExchangeRoutine	(self,"ReturnToCampAgain");
-	
+
 };
 
- 
+

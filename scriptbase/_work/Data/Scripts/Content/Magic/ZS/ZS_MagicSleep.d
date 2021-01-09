@@ -22,22 +22,22 @@ func int B_StopMagicSleep()
 	};
 
 	AI_ContinueRoutine(self);
-};		
+};
 
 
 
 func void ZS_MagicSleep()
 {
 	PrintDebugNpc		(PD_ZS_FRAME,	"ZS_MagicSleep");
-	
+
 	// der ZS_MagicSleep beendet sich selbst im loop, daher ist keine perception PERC_ASSESSSTOPMAGIC nötig, und darf
 	// auch nicht gesetzt werden, ansonsten wird der diesen zustand aktivierende effekt wenn er beendet ist (z.B. weil
 	// der partikeleffekt stirbt) ein assessstopmagic senden, und dadurch illegalerweise vorzeitig den zustand beenden
 	// mit anderen worten: der pfx triggert diesen zustand, und der zustand beendet sich selbst
-	
+
 	Npc_PercEnable		(self,	PERC_ASSESSDAMAGE, 		B_StopMagicSleep);
 	Npc_PercEnable  	(self, 	PERC_ASSESSMAGIC,		B_AssessMagic);
-		
+
 
 // wenn Opfer Schwimmt oder Taucht wird es nicht einschlafen
 	if ( C_BodystateContains(self,BS_SWIM) || C_BodystateContains(self,BS_DIVE) )
@@ -67,13 +67,13 @@ func void ZS_MagicSleep()
 
 
 func void ZS_MagicSleep_Loop ()
-{	
+{
 	PrintDebugNpc		(PD_ZS_LOOP, "MagicSleep Loop" );
 
 	var int time;
 	time = Npc_GetStateTime	(self);
 
-	if ( time>SPL_TIME_SLEEP ) 		// nach 30 sekunden wird der zustand beendet. 
+	if ( time>SPL_TIME_SLEEP ) 		// nach 30 sekunden wird der zustand beendet.
 	{
 		B_StopMagicSleep();
 	};

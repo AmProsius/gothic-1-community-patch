@@ -1,5 +1,5 @@
 // ************************************************************
-// 			  				   EXIT 
+// 			  				   EXIT
 // ************************************************************
 
 INSTANCE DIA_Silas_EXIT(C_Info)
@@ -10,7 +10,7 @@ INSTANCE DIA_Silas_EXIT(C_Info)
 	information	= DIA_Silas_EXIT_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC INT DIA_Silas_EXIT_Condition()
 {
@@ -18,7 +18,7 @@ FUNC INT DIA_Silas_EXIT_Condition()
 };
 
 FUNC VOID DIA_Silas_EXIT_Info()
-{	
+{
 	AI_StopProcessInfos	(self);
 };
 
@@ -34,7 +34,7 @@ INSTANCE DIA_Silas_Hehler(C_Info)
 	information	= DIA_Silas_Hehler_Info;
 	permanent	= 0;
 	description = "How are things?";
-};                       
+};
 
 FUNC INT DIA_Silas_Hehler_Condition()
 {
@@ -42,7 +42,7 @@ FUNC INT DIA_Silas_Hehler_Condition()
 };
 
 FUNC VOID DIA_Silas_Hehler_Info()
-{	
+{
 	AI_Output (other, self,"DIA_Silas_Hehler_15_00"); //How are things?
 	AI_Output (self, other,"DIA_Silas_Hehler_06_01"); //Great! We trade our home-made rice schnapps for ore.
 	AI_Output (self, other,"DIA_Silas_Hehler_06_02"); //Well, the boys carry in enough ore. Where should they spend it if not here?
@@ -61,7 +61,7 @@ INSTANCE DIA_Silas_Trade(C_Info)
 	permanent	= 0;
 	description = "I want a drink.";
 	trade		= 1;
-};                       
+};
 
 FUNC INT DIA_Silas_Trade_Condition()
 {
@@ -69,7 +69,7 @@ FUNC INT DIA_Silas_Trade_Condition()
 };
 
 FUNC VOID DIA_Silas_Trade_Info()
-{	
+{
 	AI_Output (other, self,"DIA_Silas_Trade_15_00"); //I want a drink.
 	AI_Output (self, other,"DIA_Silas_Trade_06_01"); //You'll have to pay for it.
 };

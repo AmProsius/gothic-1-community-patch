@@ -1,10 +1,10 @@
 instance BAU_912_Jeremiah (Npc_Default)
 {
 	//-------- primary data --------
-	
+
 	name 		=	"Jeremiah";
 	npctype		=	NPCTYPE_MAIN;
-	guild 		=	GIL_BAU;      
+	guild 		=	GIL_BAU;
 	level 		=	7;
 	voice 		=	4;
 	id 			=	912;
@@ -21,29 +21,29 @@ instance BAU_912_Jeremiah (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Tired.mds");
-	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung	
+	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung
 	Mdl_SetVisualBody (self,"hum_body_Naked0",3,1,"Hum_Head_Bald", 80, 2,-1);
-	
+
 	B_Scale (self);
 	Mdl_SetModelFatness(self,0);
-	
-	fight_tactic	=	FAI_HUMAN_COWARD; 
 
-	//-------- Talente --------                                    
+	fight_tactic	=	FAI_HUMAN_COWARD;
 
-	Npc_SetTalentSkill	(self,NPC_TALENT_1H,1);		
-	
-	//-------- inventory --------                                    
+	//-------- Talente --------
 
-	
+	Npc_SetTalentSkill	(self,NPC_TALENT_1H,1);
+
+	//-------- inventory --------
+
+
 	CreateInvItems (self, ItFoRice,7);
 	CreateInvItem (self, ItMi_Alchemy_Alcohol_01);
 	CreateInvItem (self, ItMi_Stuff_Cup_01);
 	EquipItem (self, ItMw_1H_Sword_Short_01);
-	
+
 	CreateInvItems (self, ItMinugget,15);
 	CreateInvItems (self, ItFoBooze, 5);
-	
+
 	//-------------Daily Routine-------------
 	daily_routine = Rtn_start_912;
 };

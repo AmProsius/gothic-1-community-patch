@@ -13,7 +13,7 @@
 func string B_BuildLearnString (var string text, var int lp, var int ore)
 {
 	var string msg;
-	
+
 	msg	= ConcatStrings(text,	NAME_LearnPrefix);		// Bsp: "Zweihandkampf Stufe 1 ("
 
 	if	(ore > 0)
@@ -25,7 +25,7 @@ func string B_BuildLearnString (var string text, var int lp, var int ore)
 	msg = ConcatStrings(msg,	IntToString(lp));		// Bsp: "Zweihandkampf Stufe 1 (200 Erz, 20"
 	if (lp == 1)
 	{
-		msg = ConcatStrings(msg,NAME_LearnPostfixS);	
+		msg = ConcatStrings(msg,NAME_LearnPostfixS);
 	}
 	else
 	{

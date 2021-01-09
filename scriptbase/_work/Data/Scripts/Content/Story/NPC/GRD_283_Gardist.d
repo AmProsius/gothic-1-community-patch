@@ -2,14 +2,14 @@ instance GRD_283_Gardist (Npc_Default)
 //FM Gardist
 {
 	//-------- primary data --------
-	
+
 	name 		=	NAME_Gardist;
 	guild 		=	GIL_GRD;
 	npctype		=	NPCTYPE_GUARD;
 	level 		=	30;
 	voice 		=	6;
 	id 			=	283;
-		
+
 	//-------- abilities --------
 	attribute[ATR_STRENGTH] 	= 60;
 	attribute[ATR_DEXTERITY] 	= 50;
@@ -22,21 +22,21 @@ instance GRD_283_Gardist (Npc_Default)
 	// 			animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Militia.mds");
-	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung	
+	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung
 	Mdl_SetVisualBody (self,"hum_body_Naked0", 0, 1,"Hum_Head_FatBald", 13,  1, GRD_ARMOR_M);
-        
+
 	B_Scale (self);
     Mdl_SetModelFatness(self,2);
-    	
+
     fight_tactic	=	FAI_HUMAN_STRONG;
 
-	//-------- Talente -------- 
-				
+	//-------- Talente --------
+
 	Npc_SetTalentSkill (self, NPC_TALENT_1H,2);
-	Npc_SetTalentSkill (self, NPC_TALENT_CROSSBOW,1);		
-			
+	Npc_SetTalentSkill (self, NPC_TALENT_CROSSBOW,1);
+
 	//-------- inventory --------
-	
+
 	EquipItem	(self, ItMw_1H_Sword_Broad_04);
 	EquipItem	(self, ItRw_Crossbow_01);
 	CreateInvItems	(self, ItAmBolt, 15);
@@ -44,10 +44,10 @@ instance GRD_283_Gardist (Npc_Default)
 	CreateInvItem	(self, ItFoApple);
 	CreateInvItems	(self, ItMiNugget, 10);
 	CreateInvItem	(self, ItLsTorch);
-	        
+
 	//-------------Daily Routine-------------
 	daily_routine = Rtn_FMTaken_283;
-	
+
 
 };
 

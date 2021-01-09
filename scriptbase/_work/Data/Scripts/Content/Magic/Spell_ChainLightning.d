@@ -8,11 +8,11 @@
 func int Spell_Logic_ChainLightning(var int manaInvested)
 {
 	PrintDebugNpc		(PD_MAGIC,	"Spell_Logic_ChainLightning");
-	
+
 	// Bei diesen 3: Standardverhalten: Kann ohne Obergrenze investiert werden.// Logik vom Programm
 	// Windfaust
 	// Lightning 	: Abbruchlogik "selber Treffen" und Auswaehlen der Opfer vom Programm (mehrere "other"--> other immer nur der erste)
-	// Telekinese 	: 
-	
+	// Telekinese 	:
+
 	return SPL_NEXTLEVEL;
 };

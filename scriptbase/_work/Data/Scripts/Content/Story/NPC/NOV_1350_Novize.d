@@ -6,10 +6,10 @@ instance NOV_1350_Novize (Npc_Default)
 	guild 		=		GIL_NOV;
 	level 		=		20;
 	flags 		=		0;
-	
+
 	voice 		=		3;
 	id 			=		1350;
-		
+
 	//-------- abilities --------
 	attribute[ATR_STRENGTH]	 		=	20;
 	attribute[ATR_DEXTERITY] 		=	20;
@@ -27,18 +27,18 @@ instance NOV_1350_Novize (Npc_Default)
 
 	B_Scale (self);
 	Mdl_SetModelFatness(self,0);
-	
+
 	fight_tactic	=	FAI_HUMAN_COWARD;
 
 	//-------- Talente --------
-	
-		
+
+
 	//-------- inventory --------
 
 	EquipItem (self, ItMw_1H_Hatchet_01);
 	//CreateInvItem (self, ItFoSoup);
 	//CreateInvItem (self, ItMiJoint);
-	        
+
 	//-------------Daily Routine-------------
 	daily_routine = Rtn_start_1350;
 };
@@ -46,7 +46,7 @@ instance NOV_1350_Novize (Npc_Default)
 FUNC VOID Rtn_start_1350 () //Kaloms PrivatHausWache
 {
     TA_GuardPassage	(08,00,20,00,"PSI_22_HUT_EX_GUARD");
-    TA_GuardPassage	(20,00,08,00,"PSI_22_HUT_EX_GUARD");	
+    TA_GuardPassage	(20,00,08,00,"PSI_22_HUT_EX_GUARD");
 };
 
 

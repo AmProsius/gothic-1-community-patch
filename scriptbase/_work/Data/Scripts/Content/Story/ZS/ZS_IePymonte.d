@@ -5,8 +5,8 @@
 func void ZS_IEPYMONTE ()
 {
     PrintDebugNpc(PD_TA_FRAME,"ZS_IEPYMONTE");
-    
-	AI_SetWalkmode (self,NPC_WALK);	
+
+	AI_SetWalkmode (self,NPC_WALK);
 	AI_GotoWP (self, self.wp);
 	AI_AlignToWP	(self);
 };
@@ -90,7 +90,7 @@ func int ZS_IEPYMONTE_Loop ()
 	                                            // 8
 	           								       	// 1
 		AI_UseMob (self, "MHARP", 4);		// 2
-	           									// 3                                 
+	           									// 3
 		      									// 4
 		AI_UseMob (self, "MHARP", 3);	    // 5
 	                                            // 6
@@ -98,12 +98,12 @@ func int ZS_IEPYMONTE_Loop ()
 	          									// 8
 		AI_UseMob (self, "MHARP", -1);	// ENDE
 	};
-	
+
 	return LOOP_CONTINUE;
 };
 
 func void ZS_IEPYMONTE_End ()
-{	
+{
 	AI_UseMob (self, "MHARP", -1);	// ENDE
 	PrintDebugNpc(PD_TA_FRAME,"ZS_IEPYMONTE_End");
 };

@@ -9,17 +9,17 @@ func void ZS_Erpresser()
 	Npc_PercEnable	(self,	PERC_ASSESSMAGIC		,	B_AssessMagic		);
 	Npc_PercEnable 	(self, 	PERC_ASSESSCASTER		,	B_AssessCaster		);
 	Npc_PercEnable 	(self, 	PERC_ASSESSTHREAT		,	B_AssessFighter		);
-	Npc_PercEnable 	(self,	PERC_DRAWWEAPON			, 	B_AssessFighter		);		
+	Npc_PercEnable 	(self,	PERC_DRAWWEAPON			, 	B_AssessFighter		);
 	Npc_PercEnable  (self, 	PERC_ASSESSFIGHTSOUND	,	B_AssessFightSound	);
 	Npc_PercEnable  (self, 	PERC_ASSESSQUIETSOUND	,	B_AssessQuietSound	);
 	Npc_PercEnable	(self,	PERC_ASSESSTALK			,	B_AssessTalk				);
 
 	Npc_SetPercTime	(self,	1);
-	
+
 	//-------- Positionieren --------
 	AI_GotoWP 		(self,	self.WP);
 	if (Wld_IsFPAvailable(self,"FP_"))
-	{																	
+	{
 		AI_GotoFP 	(self,	"FP_");
 		AI_AlignToFP( self );				//Richte Dich aus
 	};
@@ -33,7 +33,7 @@ func void ZS_Erpresser_Loop()
 	{
 		self.aivar[AIV_HAS_ERPRESSED] = 0;
 	};
-	
+
 	B_SmartTurnToNpc(self,other);
 	AI_Wait			(self,	0.5);
 };

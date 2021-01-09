@@ -6,20 +6,20 @@
 func void ZS_GuardPatrol ()
 {
     PrintDebugNpc 	(PD_TA_FRAME,"ZS_GuardPatrol");
-    
+
 	GuardPerception ();
-	AI_StandUp		(self);				
+	AI_StandUp		(self);
 	AI_SetWalkmode 	(self,NPC_WALK);		// Walkmode für den Zustand
 	if !(Hlp_StrCmp	(self.wp,Npc_GetNearestWP(self)))
 	{
 		AI_GotoWP	(self, self.wp);               // Gehe zum Tagesablaufstart
-	};		
+	};
 };
 
 func void ZS_GuardPatrol_Loop ()
-/* 	in die Funktionen soll noch ein Zählglied, daß aber von der Funktionsweise der 
+/* 	in die Funktionen soll noch ein Zählglied, daß aber von der Funktionsweise der
 	Begin-Loop-End-Struktur abhängig, wo das Zählglied eingeführt und verwendet wird;
-	mit diesem Glied wird nach einer Anzahl "rumlaufen" Vorgängen der Nsc wieder zu seinem self.wp 
+	mit diesem Glied wird nach einer Anzahl "rumlaufen" Vorgängen der Nsc wieder zu seinem self.wp
 	geschickt, damit er nicht irgendwann am Ende des Levels ankommt */
 {
     PrintDebugNpc (PD_TA_LOOP,"ZS_GuardPatrol_Loop");
@@ -27,7 +27,7 @@ func void ZS_GuardPatrol_Loop ()
 	var string hlpwp1;					// Hilfs-Variablen Deklaration
 	var string hlpwp2;					// Hilfs-Variablen Deklaration
 	var int varianzcounter;
-	
+
 	AI_GotoWP (self,Npc_GetNearestWP (self));
 	if (varianzcounter >= 2)
 	{
@@ -52,7 +52,7 @@ func void ZS_GuardPatrol_Loop ()
 			{
 				AI_PlayAni (self,"T_SEARCH");	// Spiele die Suchen Animation
 			};
-			
+
 		}
 		else 								// nicht verschieden
 		{
@@ -65,7 +65,7 @@ func void ZS_GuardPatrol_Loop ()
 		};
 		varianzcounter +=1;
 	};
-	
+
 	AI_Wait(self,1);
 };
 

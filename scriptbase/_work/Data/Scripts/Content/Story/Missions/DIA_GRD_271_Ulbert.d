@@ -6,10 +6,10 @@ instance  GRD_271_ULBERT_Exit (C_INFO)
 	nr			=  999;
 	condition	=  GRD_271_ULBERT_Exit_Condition;
 	information	=  GRD_271_ULBERT_Exit_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC int  GRD_271_ULBERT_Exit_Condition()
 {
@@ -28,7 +28,7 @@ instance  GRD_271_ULBERT_KEY (C_INFO)
 	information		= GRD_271_ULBERT_KEY_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "What's in the storeroom?"; 
+	description		= "What's in the storeroom?";
 };
 
 FUNC int  GRD_271_ULBERT_KEY_Condition()
@@ -41,7 +41,7 @@ FUNC void  GRD_271_ULBERT_KEY_Info()
 {
 	AI_Output			(other, self,"GRD_271_ULBERT_KEY_Info_15_01"); //What's in the storeroom?
 	AI_Output			(self, other,"GRD_271_ULBERT_KEY_Info_07_02"); //That's none of your business.
-};  
+};
 // ***************** Infos *****************************
 
 instance  GRD_271_ULBERT_TRICK (C_INFO)
@@ -51,13 +51,13 @@ instance  GRD_271_ULBERT_TRICK (C_INFO)
 	information		= GRD_271_ULBERT_TRICK_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "Standing around for so long must make you thirsty."; 
+	description		= "Standing around for so long must make you thirsty.";
 };
 
 FUNC int  GRD_271_ULBERT_TRICK_Condition()
 {
 	if (Npc_KnowsInfo(hero, GRD_271_ULBERT_KEY))
-	{	
+	{
 		return 1;
 	};
 };
@@ -70,8 +70,8 @@ FUNC void  GRD_271_ULBERT_TRICK_Info()
 
 	Log_CreateTopic		(CH2_StorageShed,	LOG_MISSION);
 	Log_SetTopicStatus	(CH2_StorageShed,	LOG_RUNNING);
-	B_LogEntry		(CH2_StorageShed,"The guard Ulbert is protecting the store shed in the Old Mine. I should get him something to drink!"); 
-};  
+	B_LogEntry		(CH2_StorageShed,"The guard Ulbert is protecting the store shed in the Old Mine. I should get him something to drink!");
+};
 
 // ***************** Infos *****************************
 
@@ -82,12 +82,12 @@ instance  GRD_271_ULBERT_DRINK (C_INFO)
 	information		= GRD_271_ULBERT_DRINK_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "(give a drink)"; 
+	description		= "(give a drink)";
 };
 
 FUNC int  GRD_271_ULBERT_DRINK_Condition()
-{	
-	if  (Npc_KnowsInfo ( hero, GRD_271_ULBERT_TRICK) ) &&	(Npc_HasItems (hero, ItFobeer )|| 
+{
+	if  (Npc_KnowsInfo ( hero, GRD_271_ULBERT_TRICK) ) &&	(Npc_HasItems (hero, ItFobeer )||
 															 Npc_HasItems (hero, ItFoWine )||
 															 Npc_HasItems (hero, ItFoBooze)  )
 	{
@@ -99,7 +99,7 @@ FUNC void  GRD_271_ULBERT_DRINK_Info()
 {
 	AI_Output			(other, self,"GRD_271_ULBERT_DRINK_Info_15_01"); //Here you go, have one on me as well!
 	AI_Output			(self, other,"GRD_271_ULBERT_DRINK_Info_07_02"); //Thanks.
-	
+
 	if 		(Npc_HasItems (hero, ItFobeer ))
 	{
 		B_GiveInvItems  	(hero, self, ItFobeer, 1);
@@ -130,7 +130,7 @@ FUNC void  GRD_271_ULBERT_DRINK_Info()
 		};
 		AI_UseItem  		( self, ItFoBooze);
 	};
-};  
+};
 // ***************** Infos *****************************
 instance  GRD_271_ULBERT_DRUNK (C_INFO)
 {
@@ -139,7 +139,7 @@ instance  GRD_271_ULBERT_DRUNK (C_INFO)
 	information		= GRD_271_ULBERT_DRUNK_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "Is there anything special in the storeroom NOW?"; 
+	description		= "Is there anything special in the storeroom NOW?";
 };
 
 FUNC int  GRD_271_ULBERT_DRUNK_Condition()
@@ -158,7 +158,7 @@ FUNC void  GRD_271_ULBERT_DRUNK_Info()
 	AI_Output			(self, other,"GRD_271_ULBERT_DRUNK_Info_07_04"); //I bet Aleph was involved. That guy can't be trusted.
 
 	B_LogEntry		(CH2_StorageShed,"After I got Ulbert something to drink, he told me that he's missing the key for the chests. Allegedly Aleph the digger is somehow involved!");
-};  
+};
 // ***************** Infos *****************************
 instance  GRD_271_ULBERT_LOCK (C_INFO)
 {
@@ -167,7 +167,7 @@ instance  GRD_271_ULBERT_LOCK (C_INFO)
 	information		= GRD_271_ULBERT_LOCK_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "(lure Ulbert away)"; 
+	description		= "(lure Ulbert away)";
 };
 
 FUNC int  GRD_271_ULBERT_LOCK_Condition()
@@ -182,7 +182,7 @@ FUNC void  GRD_271_ULBERT_LOCK_Info()
 {
 	AI_Output			(other, self,"GRD_271_ULBERT_LOCK_Info_15_01"); //Listen, Ian and the others are sitting at the bottom having grilled meat.
 	AI_Output			(self, other,"GRD_271_ULBERT_LOCK_Info_07_02"); //What? Without me? Well, I'll collect my share!
-	
+
 	B_LogEntry		(CH2_StorageShed,"It was an easy game to get Ulbert away from the store shed. He doesn't seem to be exactly bright!");
 
 	Npc_ExchangeRoutine	(self,	"away");
@@ -214,10 +214,10 @@ FUNC void  GRD_271_ULBERT_ANGRY_Info()
 	AI_Output			(other, self,"GRD_271_ULBERT_ANGRY_Info_15_02"); //Oh... uh...... I guess I must have been mistaken! Have a good day!
 
 	B_GiveXP			(XP_LureUlbertAway);
-	
+
 	B_LogEntry		(CH2_StorageShed,"I've met Ulbert again. Oh man, he didn't even understand that I'd taken him for a ride. That boy is so naive!");
 	Log_SetTopicStatus	(CH2_StorageShed,	LOG_SUCCESS);
 
 	Npc_ExchangeRoutine	(self,	"start");
 	AI_StopProcessInfos	(self);
-}; 
+};

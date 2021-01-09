@@ -6,10 +6,10 @@ instance  IE_397_Announcer_Exit (C_INFO)
 	nr			=	999;
 	condition	=  IE_397_Announcer_Exit_Condition;
 	information	=  IE_397_Announcer_Exit_Info;
-	important	=	0;	
+	important	=	0;
 	permanent	=	1;
 	description =	DIALOG_ENDE;
-};                       
+};
 
 FUNC int  IE_397_Announcer_Exit_Condition()
 {

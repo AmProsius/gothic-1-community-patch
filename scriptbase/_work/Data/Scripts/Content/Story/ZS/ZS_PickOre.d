@@ -6,7 +6,7 @@ func void ZS_PickOre()
 {
     PrintDebugNpc (PD_TA_FRAME,"ZS_PickOre");
 
-	B_SetPerception (self);    
+	B_SetPerception (self);
 
     if (self.aivar[AIV_DONTUSEMOB] == 1)
     {
@@ -20,7 +20,7 @@ func void ZS_PickOre()
 
 func void ZS_PickOre_Loop ()
 {
-    PrintDebugNpc (PD_TA_LOOP,"ZS_PickOre_Loop");    
+    PrintDebugNpc (PD_TA_LOOP,"ZS_PickOre_Loop");
 	PrintAttitudes (PD_TA_LOOP);
 
 	var int randomizer;

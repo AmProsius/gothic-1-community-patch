@@ -1,10 +1,10 @@
-	
+
 //////////////////////////////////////
-//	
+//
 // 	Visual-Effects	v0.02
 //	Class - Definition
 //	Author: Carsten Edenfeld
-//	
+//
 //////////////////////////////////////
 
 const int VFX_NUM_USERSTRINGS = 3;
@@ -101,7 +101,7 @@ CLASS CFx_Base {
 	VAR INT 	sfxIsAmbient;
 	VAR INT		sendAssessMagic;
 	VAR float	secsPerDamage;
-	
+
 };
 
 PROTOTYPE CFx_Base_Proto(CFx_Base) {
@@ -137,7 +137,7 @@ PROTOTYPE CFx_Base_Proto(CFx_Base) {
 	emAdjustShpToOrigin		= 0;
 	emInvestNextKeyDuration		= 0;
 	emFlyGravity			= 0;
-	emFXLifeSpan			= -1;			// -1: forever 
+	emFXLifeSpan			= -1;			// -1: forever
 	emSelfRotVel_S			= "0 0 0";
 	lightPresetName			= "";
 	sfxID					= "";

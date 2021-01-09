@@ -28,7 +28,7 @@ INSTANCE Gil_Values(C_GILVALUES)
 // Turn-Speed für den Spieler ist PROGRAMMINTERN auf 100° im Normalmodus und 200° im Kampfmodus eingestellt!
 // der Wert gilt nur für NSCs!
 	TURN_SPEED				[GIL_HUMAN] = 270;
-	
+
 	// Kletterkanten - Winkel
 	CLIMB_HEADING_ANGLE		[GIL_HUMAN] = 45;
 	CLIMB_HORIZ_ANGLE		[GIL_HUMAN] = 30;
@@ -41,7 +41,7 @@ INSTANCE Gil_Values(C_GILVALUES)
 	// Kampf
 	FIGHT_RANGE_BASE		[GIL_HUMAN]	= 60;				// Bip01 bis BBox
 	FIGHT_RANGE_FIST		[GIL_HUMAN] = 50;				// BBox bis  "Attack-Limb"
-	
+
 	//FIGHT_RANGE_1HS			[GIL_HUMAN] = 160;			// Reichweite 1hS (Komplettrange, keine Kombination von Waffenlänge und Fist-Range!)
 	//FIGHT_RANGE_1HA			[GIL_HUMAN] = 160;
 	//FIGHT_RANGE_2HS			[GIL_HUMAN] = 200;
@@ -147,7 +147,7 @@ INSTANCE Gil_Values(C_GILVALUES)
 
 	SLIDE_ANGLE		 		[GIL_GOBBO] = 45;
 	TURN_SPEED				[GIL_GOBBO] = 100;
-	
+
 	// Kletterkanten - Winkel
 	CLIMB_HEADING_ANGLE		[GIL_GOBBO] = 45;
 	CLIMB_HORIZ_ANGLE		[GIL_GOBBO] = 30;
@@ -237,7 +237,7 @@ INSTANCE Gil_Values(C_GILVALUES)
 	// Kampf
 	FIGHT_RANGE_FIST		[GIL_MEATBUG] = 10;
 	FIGHT_RANGE_BASE		[GIL_MEATBUG] = 15;
-	
+
 	// Bluteffekte by KaiRo
 	BLOOD_EMITTER			[GIL_MEATBUG] = "BFX_Preset2";
 	BLOOD_TEXTURE			[GIL_MEATBUG] = "BQM_Meatbug.tga";
@@ -269,7 +269,7 @@ INSTANCE Gil_Values(C_GILVALUES)
 	// Kampf
 	FIGHT_RANGE_BASE		[GIL_MOLERAT] = 130;
 	FIGHT_RANGE_FIST		[GIL_MOLERAT] = 95;
-	
+
 	// Bluteffekte by KaiRo
 	BLOOD_EMITTER			[GIL_MOLERAT] = "BFX_Preset1";
 	BLOOD_TEXTURE			[GIL_MOLERAT] = "BQM_Scavenger2.tga";
@@ -309,89 +309,89 @@ INSTANCE Gil_Values(C_GILVALUES)
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // ORC_WARRIOR
 
-	SWIM_TIME		 		[GIL_ORCWARRIOR] = TIME_INFINITE; 
-	DIVE_TIME		 		[GIL_ORCWARRIOR] = 30;            
-	WATER_DEPTH_KNEE 		[GIL_ORCWARRIOR] = 120;           
-	WATER_DEPTH_CHEST		[GIL_ORCWARRIOR] = 170;           
-                                                              
-	STEP_HEIGHT		 		[GIL_ORCWARRIOR] = 65;            
-	JUMPLOW_HEIGHT	 		[GIL_ORCWARRIOR] = 105;           
-	JUMPMID_HEIGHT	 		[GIL_ORCWARRIOR] = 205;           
-	JUMPUP_HEIGHT 			[GIL_ORCWARRIOR] = 300;           
-                                                              
-	SLIDE_ANGLE		 		[GIL_ORCWARRIOR] = 45;            
-	TURN_SPEED				[GIL_ORCWARRIOR] = 200;           
-                                                              
-	// Kletterkanten - Winkel                                 
-	CLIMB_HEADING_ANGLE		[GIL_ORCWARRIOR] = 45;            
-	CLIMB_HORIZ_ANGLE		[GIL_ORCWARRIOR] = 30;            
-	CLIMB_GROUND_ANGLE  	[GIL_ORCWARRIOR] = 30;            
-                                                              
-	// Fallhöhe / Fallschaden                                 
-	FALLDOWN_HEIGHT			[GIL_ORCWARRIOR] = 600;           
-	FALLDOWN_DAMAGE			[GIL_ORCWARRIOR] = 10;            
-                                                              
-	// Kampf                                                  
-	FIGHT_RANGE_BASE		[GIL_ORCWARRIOR] = 50;            
-	FIGHT_RANGE_FIST		[GIL_ORCWARRIOR] = 90;            
+	SWIM_TIME		 		[GIL_ORCWARRIOR] = TIME_INFINITE;
+	DIVE_TIME		 		[GIL_ORCWARRIOR] = 30;
+	WATER_DEPTH_KNEE 		[GIL_ORCWARRIOR] = 120;
+	WATER_DEPTH_CHEST		[GIL_ORCWARRIOR] = 170;
+
+	STEP_HEIGHT		 		[GIL_ORCWARRIOR] = 65;
+	JUMPLOW_HEIGHT	 		[GIL_ORCWARRIOR] = 105;
+	JUMPMID_HEIGHT	 		[GIL_ORCWARRIOR] = 205;
+	JUMPUP_HEIGHT 			[GIL_ORCWARRIOR] = 300;
+
+	SLIDE_ANGLE		 		[GIL_ORCWARRIOR] = 45;
+	TURN_SPEED				[GIL_ORCWARRIOR] = 200;
+
+	// Kletterkanten - Winkel
+	CLIMB_HEADING_ANGLE		[GIL_ORCWARRIOR] = 45;
+	CLIMB_HORIZ_ANGLE		[GIL_ORCWARRIOR] = 30;
+	CLIMB_GROUND_ANGLE  	[GIL_ORCWARRIOR] = 30;
+
+	// Fallhöhe / Fallschaden
+	FALLDOWN_HEIGHT			[GIL_ORCWARRIOR] = 600;
+	FALLDOWN_DAMAGE			[GIL_ORCWARRIOR] = 10;
+
+	// Kampf
+	FIGHT_RANGE_BASE		[GIL_ORCWARRIOR] = 50;
+	FIGHT_RANGE_FIST		[GIL_ORCWARRIOR] = 90;
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // ORC_SCOUT
 
-	SWIM_TIME		 		[GIL_ORCSCOUT] = TIME_INFINITE; 
-	DIVE_TIME		 		[GIL_ORCSCOUT] = 30;            
-	WATER_DEPTH_KNEE 		[GIL_ORCSCOUT] = 120;           
-	WATER_DEPTH_CHEST		[GIL_ORCSCOUT] = 170;           
-                                                            
-	STEP_HEIGHT		 		[GIL_ORCSCOUT] = 65;            
-	JUMPLOW_HEIGHT	 		[GIL_ORCSCOUT] = 105;           
-	JUMPMID_HEIGHT	 		[GIL_ORCSCOUT] = 205;           
-	JUMPUP_HEIGHT 			[GIL_ORCSCOUT] = 300;           
-                                                            
-	SLIDE_ANGLE		 		[GIL_ORCSCOUT] = 45;            
-	TURN_SPEED				[GIL_ORCSCOUT] = 200;           
-                                                            
-	// Kletterkanten - Winkel                               
-	CLIMB_HEADING_ANGLE		[GIL_ORCSCOUT] = 45;            
-	CLIMB_HORIZ_ANGLE		[GIL_ORCSCOUT] = 30;            
-	CLIMB_GROUND_ANGLE  	[GIL_ORCSCOUT] = 30;            
-                                                            
-	// Fallhöhe / Fallschaden                               
-	FALLDOWN_HEIGHT			[GIL_ORCSCOUT] = 600;           
-	FALLDOWN_DAMAGE			[GIL_ORCSCOUT] = 10;            
-                                                            
-	// Kampf                                                
-	FIGHT_RANGE_BASE		[GIL_ORCSCOUT] = 50;            
-	FIGHT_RANGE_FIST		[GIL_ORCSCOUT] = 90;            
+	SWIM_TIME		 		[GIL_ORCSCOUT] = TIME_INFINITE;
+	DIVE_TIME		 		[GIL_ORCSCOUT] = 30;
+	WATER_DEPTH_KNEE 		[GIL_ORCSCOUT] = 120;
+	WATER_DEPTH_CHEST		[GIL_ORCSCOUT] = 170;
+
+	STEP_HEIGHT		 		[GIL_ORCSCOUT] = 65;
+	JUMPLOW_HEIGHT	 		[GIL_ORCSCOUT] = 105;
+	JUMPMID_HEIGHT	 		[GIL_ORCSCOUT] = 205;
+	JUMPUP_HEIGHT 			[GIL_ORCSCOUT] = 300;
+
+	SLIDE_ANGLE		 		[GIL_ORCSCOUT] = 45;
+	TURN_SPEED				[GIL_ORCSCOUT] = 200;
+
+	// Kletterkanten - Winkel
+	CLIMB_HEADING_ANGLE		[GIL_ORCSCOUT] = 45;
+	CLIMB_HORIZ_ANGLE		[GIL_ORCSCOUT] = 30;
+	CLIMB_GROUND_ANGLE  	[GIL_ORCSCOUT] = 30;
+
+	// Fallhöhe / Fallschaden
+	FALLDOWN_HEIGHT			[GIL_ORCSCOUT] = 600;
+	FALLDOWN_DAMAGE			[GIL_ORCSCOUT] = 10;
+
+	// Kampf
+	FIGHT_RANGE_BASE		[GIL_ORCSCOUT] = 50;
+	FIGHT_RANGE_FIST		[GIL_ORCSCOUT] = 90;
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // ORC_SLAVE
 
-	SWIM_TIME		 		[GIL_ORCSLAVE] = TIME_INFINITE; 
-	DIVE_TIME		 		[GIL_ORCSLAVE] = 30;            
-	WATER_DEPTH_KNEE 		[GIL_ORCSLAVE] = 120;           
-	WATER_DEPTH_CHEST		[GIL_ORCSLAVE] = 170;           
-                                                            
-	STEP_HEIGHT		 		[GIL_ORCSLAVE] = 65;            
-	JUMPLOW_HEIGHT	 		[GIL_ORCSLAVE] = 105;           
-	JUMPMID_HEIGHT	 		[GIL_ORCSLAVE] = 205;           
-	JUMPUP_HEIGHT 			[GIL_ORCSLAVE] = 300;           
-                                                            
-	SLIDE_ANGLE		 		[GIL_ORCSLAVE] = 45;            
-	TURN_SPEED				[GIL_ORCSLAVE] = 200;           
-                                                            
-	// Kletterkanten - Winkel                               
-	CLIMB_HEADING_ANGLE		[GIL_ORCSLAVE] = 45;            
-	CLIMB_HORIZ_ANGLE		[GIL_ORCSLAVE] = 30;            
-	CLIMB_GROUND_ANGLE  	[GIL_ORCSLAVE] = 30;            
-                                                            
-	// Fallhöhe / Fallschaden                               
-	FALLDOWN_HEIGHT			[GIL_ORCSLAVE] = 600;           
-	FALLDOWN_DAMAGE			[GIL_ORCSLAVE] = 10;            
-                                                            
-	// Kampf                                                
-	FIGHT_RANGE_BASE		[GIL_ORCSLAVE] = 50;            
-	FIGHT_RANGE_FIST		[GIL_ORCSLAVE] = 90;            
+	SWIM_TIME		 		[GIL_ORCSLAVE] = TIME_INFINITE;
+	DIVE_TIME		 		[GIL_ORCSLAVE] = 30;
+	WATER_DEPTH_KNEE 		[GIL_ORCSLAVE] = 120;
+	WATER_DEPTH_CHEST		[GIL_ORCSLAVE] = 170;
+
+	STEP_HEIGHT		 		[GIL_ORCSLAVE] = 65;
+	JUMPLOW_HEIGHT	 		[GIL_ORCSLAVE] = 105;
+	JUMPMID_HEIGHT	 		[GIL_ORCSLAVE] = 205;
+	JUMPUP_HEIGHT 			[GIL_ORCSLAVE] = 300;
+
+	SLIDE_ANGLE		 		[GIL_ORCSLAVE] = 45;
+	TURN_SPEED				[GIL_ORCSLAVE] = 200;
+
+	// Kletterkanten - Winkel
+	CLIMB_HEADING_ANGLE		[GIL_ORCSLAVE] = 45;
+	CLIMB_HORIZ_ANGLE		[GIL_ORCSLAVE] = 30;
+	CLIMB_GROUND_ANGLE  	[GIL_ORCSLAVE] = 30;
+
+	// Fallhöhe / Fallschaden
+	FALLDOWN_HEIGHT			[GIL_ORCSLAVE] = 600;
+	FALLDOWN_DAMAGE			[GIL_ORCSLAVE] = 10;
+
+	// Kampf
+	FIGHT_RANGE_BASE		[GIL_ORCSLAVE] = 50;
+	FIGHT_RANGE_FIST		[GIL_ORCSLAVE] = 90;
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // UNDEAD ORC
@@ -408,7 +408,7 @@ INSTANCE Gil_Values(C_GILVALUES)
 
 	SLIDE_ANGLE		 		[GIL_UNDEADORC] = 45;
 	TURN_SPEED				[GIL_UNDEADORC] = 200;
-	
+
 	// Kletterkanten - Winkel
 	CLIMB_HEADING_ANGLE		[GIL_UNDEADORC] = 45;
 	CLIMB_HORIZ_ANGLE		[GIL_UNDEADORC] = 30;
@@ -450,7 +450,7 @@ INSTANCE Gil_Values(C_GILVALUES)
 
 	FIGHT_RANGE_BASE		[GIL_ORCDOG] = 100;
 	FIGHT_RANGE_FIST		[GIL_ORCDOG] = 100;
-	
+
 	// Bluteffekte by KaiRo
 	BLOOD_EMITTER			[GIL_ORCDOG] = "BFX_Preset1";
 	BLOOD_TEXTURE			[GIL_ORCDOG] = "BQM_Scavenger2.tga";
@@ -472,17 +472,17 @@ INSTANCE Gil_Values(C_GILVALUES)
 	SLIDE_ANGLE		 		[GIL_SCAVENGER] = 45;
 	DISABLE_AUTOROLL 		[GIL_SCAVENGER] = 0;
 	SURFACE_ALIGN	 		[GIL_SCAVENGER] = 0;
-	TURN_SPEED				[GIL_SCAVENGER] = 130; 
+	TURN_SPEED				[GIL_SCAVENGER] = 130;
 
 	// Fallhöhe / Fallschaden
 	FALLDOWN_HEIGHT			[GIL_SCAVENGER] = 400;
 	FALLDOWN_DAMAGE			[GIL_SCAVENGER] = 10;
 
 	// Kampf
-	
+
 	FIGHT_RANGE_BASE		[GIL_SCAVENGER] = 100;
 	FIGHT_RANGE_FIST		[GIL_SCAVENGER] = 100;
-	
+
 	// Bluteffekte by KaiRo
 	BLOOD_EMITTER			[GIL_SCAVENGER] = "BFX_Preset1";
 	BLOOD_TEXTURE			[GIL_SCAVENGER] = "BQM_Scavenger2.tga";
@@ -522,7 +522,7 @@ INSTANCE Gil_Values(C_GILVALUES)
 	// Kampf
 
 	TURN_SPEED				[GIL_SLF] = 80;
-	
+
 	FIGHT_RANGE_BASE		[GIL_SLF] = 100;
 	FIGHT_RANGE_FIST		[GIL_SLF] = 140;
 
@@ -541,7 +541,7 @@ INSTANCE Gil_Values(C_GILVALUES)
 
 	SLIDE_ANGLE		 		[GIL_SKELETON] = 45;
 	TURN_SPEED				[GIL_SKELETON] = 180;
-	
+
 	// Kletterkanten - Winkel
 	CLIMB_HEADING_ANGLE		[GIL_SKELETON] = 45;
 	CLIMB_HORIZ_ANGLE		[GIL_SKELETON] = 30;
@@ -575,7 +575,7 @@ INSTANCE Gil_Values(C_GILVALUES)
 	DISABLE_AUTOROLL 		[GIL_SNAPPER] = 1;
 	SURFACE_ALIGN	 		[GIL_SNAPPER] = 1;
 	TURN_SPEED				[GIL_SNAPPER] = 130;
-	
+
 	// Fallhöhe / Fallschaden
 	FALLDOWN_HEIGHT			[GIL_SNAPPER] = 400;
 	FALLDOWN_DAMAGE			[GIL_SNAPPER] = 10;
@@ -584,14 +584,14 @@ INSTANCE Gil_Values(C_GILVALUES)
 
 	FIGHT_RANGE_BASE		[GIL_SNAPPER] = 100;
 	FIGHT_RANGE_FIST		[GIL_SNAPPER] = 150;
-	
+
 	// Bluteffekte by KaiRo
 	BLOOD_EMITTER			[GIL_SNAPPER] = "BFX_Preset1";
 	BLOOD_TEXTURE			[GIL_SNAPPER] = "BQM_Scavenger2.tga";
 	//BLOOD_FLOW				[GIL_SNAPPER] = 1;
 	BLOOD_AMOUNT			[GIL_SNAPPER] = 10;
 	BLOOD_MAX_DISTANCE		[GIL_SNAPPER] = 100;
-	
+
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // SWAMPSHARK
@@ -667,7 +667,7 @@ INSTANCE Gil_Values(C_GILVALUES)
 
 	FIGHT_RANGE_BASE		[GIL_WARAN] = 195;
 	FIGHT_RANGE_FIST		[GIL_WARAN] = 65;
-	
+
 	// Bluteffekte by KaiRo
 	BLOOD_EMITTER			[GIL_WARAN] = "BFX_Preset2";
 	BLOOD_TEXTURE			[GIL_WARAN] = "BQM_Meatbug.tga";
@@ -699,7 +699,7 @@ INSTANCE Gil_Values(C_GILVALUES)
 	// Kampf
 	FIGHT_RANGE_BASE		[GIL_WOLF] = 100;
 	FIGHT_RANGE_FIST		[GIL_WOLF] = 100;
-	
+
 	// Bluteffekte by KaiRo
 	BLOOD_EMITTER			[GIL_WOLF] = "BFX_Preset1";
 	BLOOD_TEXTURE			[GIL_WOLF] = "BQM_Scavenger2.tga";

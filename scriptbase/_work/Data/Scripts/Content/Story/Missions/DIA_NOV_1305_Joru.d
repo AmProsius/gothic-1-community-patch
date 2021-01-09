@@ -1,5 +1,5 @@
 // **************************************************
-// 						 EXIT 
+// 						 EXIT
 // **************************************************
 
 INSTANCE DIA_Joru_Exit (C_INFO)
@@ -10,7 +10,7 @@ INSTANCE DIA_Joru_Exit (C_INFO)
 	information	= DIA_Joru_Exit_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC INT DIA_Joru_Exit_Condition()
 {
@@ -34,7 +34,7 @@ instance  DIA_Joru_Greet (C_INFO)
 	information	= DIA_Joru_Greet_Info;
 	permanent	= 0;
 	description = "What are you doing here?";
-};                       
+};
 
 FUNC int  DIA_Joru_Greet_Condition()
 {
@@ -63,7 +63,7 @@ instance  DIA_Joru_Tester (C_INFO)
 	information	= DIA_Joru_Tester_Info;
 	permanent	= 0;
 	description = "What's your task here?";
-};                       
+};
 
 FUNC int  DIA_Joru_Tester_Condition()
 {
@@ -93,7 +93,7 @@ instance  DIA_Joru_SleeperContact (C_INFO)
 	information	= DIA_Joru_SleeperContact_Info;
 	permanent	= 0;
 	description = "Have you ever been in contact with the Sleeper?";
-};                       
+};
 
 FUNC int  DIA_Joru_SleeperContact_Condition()
 {
@@ -127,7 +127,7 @@ instance  DIA_Joru_JoinPsi (C_INFO)
 	information	= DIA_Joru_JoinPsi_Info;
 	permanent	= 0;
 	description = "I'd like to join your camp - can you help me?";
-};                       
+};
 
 FUNC int  DIA_Joru_JoinPsi_Condition()
 {
@@ -144,7 +144,7 @@ FUNC VOID  DIA_Joru_JoinPsi_Info()
 	AI_Output (self, other,"DIA_Joru_JoinPsi_07_01"); //You want to join us? That's good! Just wait... yes, I think I can help you.
 	AI_Output (self, other,"DIA_Joru_JoinPsi_07_02"); //I'm not a Guru yet, but I have some influence in the Brotherhood.
 	AI_Output (self, other,"DIA_Joru_JoinPsi_07_03"); //You'd have to do me a favor. Have you seen Fortuno yet?
-	
+
 	Info_ClearChoices	(DIA_Joru_JoinPsi );
 	Info_AddChoice		(DIA_Joru_JoinPsi,"No.",DIA_Joru_JoinPsi_Nein);
 	Info_AddChoice		(DIA_Joru_JoinPsi,"Yes.",DIA_Joru_JoinPsi_Ja);
@@ -154,8 +154,8 @@ func void DIA_Joru_JoinPsi_Ja()
 {
 	AI_Output (self, other,"DIA_Joru_JoinPsi_Ja_07_00"); //Then you have your daily ration? If you give it to me then we're in business.
 	AI_Output (other, self,"DIA_Joru_JoinPsi_Ja_15_01"); //I'll think about it.
-	Joru_BringJoints = LOG_RUNNING; 
-	
+	Joru_BringJoints = LOG_RUNNING;
+
 	Info_ClearChoices	(DIA_Joru_JoinPsi );
 };
 
@@ -163,12 +163,12 @@ func void DIA_Joru_JoinPsi_Nein()
 {
 	AI_Output (self, other,"DIA_Joru_JoinPsi_Nein_07_00"); //Then go, see him and collect your daily ration. If you leave me all the swampweed he gives you, we're in business.
 	AI_Output (other, self,"DIA_Joru_JoinPsi_Nein_15_01"); //I'll think about it.
-	Joru_BringJoints = LOG_RUNNING; 
+	Joru_BringJoints = LOG_RUNNING;
 
 	Log_CreateTopic		(CH1_JoinPsi,	LOG_MISSION);
 	Log_SetTopicStatus	(CH1_JoinPsi,	LOG_RUNNING);
 	B_LogEntry			(CH1_JoinPsi,"Joru would like to have my daily ration of swampweed I get from Fortuno.");
-	
+
 	Info_ClearChoices	(DIA_Joru_JoinPsi );
 };
 
@@ -184,7 +184,7 @@ instance  DIA_Joru_JointsRunning (C_INFO)
 	information	= DIA_Joru_JointsRunning_Info;
 	permanent	= 1;
 	description = "I have swampweed on me. You can have it.";
-};                       
+};
 
 FUNC int  DIA_Joru_JointsRunning_Condition()
 {
@@ -197,21 +197,21 @@ FUNC int  DIA_Joru_JointsRunning_Condition()
 FUNC VOID  DIA_Joru_JointsRunning_Info()
 {
 	AI_Output				(other, self,"DIA_Joru_JointsRunning_15_00"); //I have swampweed on me. You can have it.
-		
+
 	if (Npc_HasItems(other,itmijoint_2)>=3)
 	{
 		AI_Output			(self, other,"DIA_Joru_JointsRunning_07_01"); //Good! You must have noticed that none of the Gurus wants to talk to you.
 		AI_Output			(self, other,"DIA_Joru_JointsRunning_07_02"); //You can change that by impressing them. I can tell you how to do that.
-		
+
 		B_GiveInvItems		(other, self, itmijoint_2, 3);
-		
-		Joru_BringJoints = 	LOG_SUCCESS; 
+
+		Joru_BringJoints = 	LOG_SUCCESS;
 		B_GiveXP			(XP_WeedForJoru);
 	}
 	else
 	{
 		AI_Output			(self, other,"DIA_Joru_JointsRunning_NO_JOINTS_07_00"); //We agreed on three Northern Dark and nothing else! Get me the weeds, THEN we can do business!
-	}; 
+	};
 };
 
 // **************************************************
@@ -228,7 +228,7 @@ instance  DIA_Joru_ImpressGurus (C_INFO)
 	information	= DIA_Joru_ImpressGurus_Info;
 	permanent	= 1;
 	description = "How can I impress the Gurus?";
-};                       
+};
 
 FUNC int  DIA_Joru_ImpressGurus_Condition()
 {
@@ -248,14 +248,14 @@ FUNC VOID  DIA_Joru_ImpressGurus_Info()
 	AI_Output (self, other,"DIA_Joru_ImpressGurus_07_05"); //The other Gurus are basically quite okay - just try to make yourself useful.
 	AI_Output (other, self,"DIA_Joru_ImpressGurus_15_06"); //Thanks for the advice.
 	AI_Output (self, other,"DIA_Joru_ImpressGurus_07_07"); //Hey - a deal's a deal.
-	
+
 	if ( Joru_JoinPsi == FALSE)
 	{
 		B_LogEntry	(CH1_JoinPsi,"In order to impress Baal Cadar I have to cast a sleeping spell on one of his listeners.");
 		B_LogEntry	(CH1_JoinPsi,"I shall ask the novice Lester how to impress Baal Namib at the main gate. I should make sure no Guru is nearby, though!");
 		Joru_JoinPsi = TRUE;
 	};
-	
+
 	Joru_Tips = TRUE;
 };
 
@@ -271,7 +271,7 @@ instance  DIA_Joru_GetMagic (C_INFO)
 	information	= DIA_Joru_GetMagic_Info;
 	permanent	= 1;
 	description = "How do I get at the magic of the Sleeper?";
-};                       
+};
 
 FUNC int  DIA_Joru_GetMagic_Condition()
 {
@@ -310,10 +310,10 @@ Eine spirituelle Reise. Lerne die Macht des Geistes zu nutzen. Lerne sie zu kont
 Komm zu uns in die Gemeinschaft der Erwachten und gleichzeitig Erwecker. Teile mit uns deine Kraft, wie wir unsere Kraft mit dir teilen.
 Mach dich frei von Suche und beginne zu finden. Entdecke die Wahrheit. Das alles kannst du erreichen, wenn du zu uns kommst.
 
-*/ 
+*/
 
 
-	
+
 
 
 

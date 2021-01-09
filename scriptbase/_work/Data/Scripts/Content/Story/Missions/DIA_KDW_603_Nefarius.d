@@ -1,5 +1,5 @@
-// **************************** 
-//				EXIT 
+// ****************************
+//				EXIT
 // ****************************
 
 instance  Info_Nefarius_EXIT (C_INFO)
@@ -10,7 +10,7 @@ instance  Info_Nefarius_EXIT (C_INFO)
 	information	=	Info_Nefarius_EXIT_Info;
 	permanent	=	1;
 	description =	DIALOG_ENDE;
-};                       
+};
 
 FUNC int  Info_Nefarius_EXIT_Condition()
 {
@@ -22,8 +22,8 @@ FUNC VOID  Info_Nefarius_EXIT_Info()
 	AI_StopProcessInfos	(self);
 };
 
-// **************************** 
-//			Hallo 
+// ****************************
+//			Hallo
 // ****************************
 
 instance  Info_Nefarius_Hallo (C_INFO)
@@ -34,7 +34,7 @@ instance  Info_Nefarius_Hallo (C_INFO)
 	information	=	Info_Nefarius_Hallo_Info;
 	permanent	=	0;
 	description =	"Who are you?";
-};                       
+};
 
 FUNC int  Info_Nefarius_Hallo_Condition()
 {
@@ -47,7 +47,7 @@ FUNC VOID  Info_Nefarius_Hallo_Info()
 	AI_Output (self, other,"Info_Nefarius_Hallo_04_01"); //I am Nefarius. Magician of the Circle of Water.
 };
 
-// **************************** 
+// ****************************
 //			Wo Saturas
 // ****************************
 
@@ -59,7 +59,7 @@ instance  Info_Nefarius_WoSaturas (C_INFO)
 	information	=	Info_Nefarius_WoSaturas_Info;
 	permanent	=	0;
 	description =	"Where can I find Saturas?";
-};                       
+};
 
 FUNC int  Info_Nefarius_WoSaturas_Condition()
 {
@@ -72,7 +72,7 @@ FUNC VOID  Info_Nefarius_WoSaturas_Info()
 	AI_Output (self, other,"Info_Nefarius_WoSaturas_04_01"); //Go through the big round gate. You'll find him there.
 };
 
-// **************************** 
+// ****************************
 //			WannaMage
 // ****************************
 
@@ -84,7 +84,7 @@ instance  Info_Nefarius_WannaMage (C_INFO)
 	information	=	Info_Nefarius_WannaMage_Info;
 	permanent	=	0;
 	description =	"I'd like to become a Magician of the Circle of Water!";
-};                       
+};
 
 FUNC int  Info_Nefarius_WannaMage_Condition()
 {
@@ -104,7 +104,7 @@ FUNC VOID  Info_Nefarius_WannaMage_Info()
 	AI_Output (self, other,"Info_Nefarius_WannaMage_04_05"); //And maybe one day you'll be granted a chance to do something great.
 };
 
-// **************************** 
+// ****************************
 //			NowReady
 // ****************************
 
@@ -116,21 +116,21 @@ instance  Info_Nefarius_NowReady (C_INFO)
 	information	=	Info_Nefarius_NowReady_Info;
 	permanent	=	1;
 	description =	"Am I ready for the Circle of Water?";
-};                       
+};
 
 FUNC int  Info_Nefarius_NowReady_Condition()
 {
 	if	( !FMTaken && Npc_KnowsInfo(hero, Info_Nefarius_WannaMage) && (Npc_GetTrueGuild(hero)!=GIL_KDW) )
 	{
 		return 1;
-	};	
+	};
 };
 
 FUNC VOID  Info_Nefarius_NowReady_Info()
 {
 	AI_Output (other, self,"Info_Nefarius_NowReady_15_00"); //Am I ready for the Circle of Water?
-	
-	if (Npc_GetTrueGuild (hero) != GIL_SLD) 
+
+	if (Npc_GetTrueGuild (hero) != GIL_SLD)
 	{
 		AI_Output (self, other,"Info_Nefarius_NowReady_04_01"); //Become one of our mercenaries, then we'll see...
 	}
@@ -147,7 +147,7 @@ FUNC VOID  Info_Nefarius_NowReady_Info()
 //////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////
 
-// **************************** 
+// ****************************
 //			OCNews
 // ****************************
 
@@ -159,7 +159,7 @@ instance  Info_Nefarius_OCNews (C_INFO)
 	information	=	Info_Nefarius_OCNews_Info;
 	permanent	=	0;
 	important	= 	1;
-};                       
+};
 
 FUNC int  Info_Nefarius_OCNews_Condition()
 {
@@ -167,7 +167,7 @@ FUNC int  Info_Nefarius_OCNews_Condition()
 	&&	!FindXardas
 	{
 		return TRUE;
-	};	
+	};
 };
 
 FUNC VOID  Info_Nefarius_OCNews_Info()

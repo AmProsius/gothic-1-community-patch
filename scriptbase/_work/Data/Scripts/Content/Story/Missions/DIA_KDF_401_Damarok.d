@@ -8,7 +8,7 @@ instance KDF_401_Damarok_WELCOME (C_INFO)
 };
 
 FUNC int  KDF_401_Damarok_WELCOME_Condition()
-{	
+{
 	if (Npc_KnowsInfo (hero,KDF_402_Corristo_ROBE))
 	&& (Npc_KnowsInfo (hero,KDF_403_Drago_RUNE))
 	&& (Npc_KnowsInfo (hero,KDF_405_Torrez_BOOK))
@@ -22,7 +22,7 @@ func void  KDF_401_Damarok_WELCOME_Info()
 
 	AI_GotoNpc (self,hero);
 	AI_Output (self, other,"KDF_401_Damarok_WELCOME_Info_14_01"); //May the Fire always protect you!
-	
+
 	Corristo_KDFAufnahme = 6;
 	B_Story_Feueraufnahme();
 	AI_StopProcessInfos	( self );
@@ -35,10 +35,10 @@ instance  KDF_401_Damarok_Exit (C_INFO)
 	nr			=  999;
 	condition	=  KDF_401_Damarok_Exit_Condition;
 	information	=  KDF_401_Damarok_Exit_Info;
-	important	=  0;	
+	important	=  0;
 	permanent	=  1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC int  KDF_401_Damarok_Exit_Condition()
 {
@@ -60,7 +60,7 @@ instance KDF_401_Damarok_HEAL (C_INFO)
 };
 
 FUNC int  KDF_401_Damarok_HEAL_Condition()
-{	
+{
 	if (Npc_GetTrueGuild (hero) == GIL_KDF)
 	&& (Npc_IsInRoutine  (self,Rtn_START_401))
 	{
@@ -82,11 +82,11 @@ instance  KDF_401_Damarok_HEALINFO (C_INFO)
 	information		= KDF_401_Damarok_HEALINFO_Info;
 	important		= 0;
 	permanent		= 1;
-	description		= "I'm injured. Can you heal me?"; 
+	description		= "I'm injured. Can you heal me?";
 };
 
 FUNC int  KDF_401_Damarok_HEALINFO_Condition()
-{	
+{
 	if (hero.attribute[ATR_HITPOINTS] < (hero.attribute[ATR_HITPOINTS_MAX]))
 	&& (Npc_GetTrueGuild (hero) == GIL_KDF)
 	{
@@ -98,6 +98,6 @@ FUNC void  KDF_401_Damarok_HEALINFO_Info()
 {
 	AI_Output (other, self,"KDF_401_Damarok_HEALINFO_Info_15_01"); //I'm injured. Can you heal me?
 	AI_Output (self, other,"KDF_401_Damarok_HEALINFO_Info_14_02"); //The body heals, the spirit grows clear.
-	Snd_Play  ("MFX_Heal_Cast"); 
+	Snd_Play  ("MFX_Heal_Cast");
 	hero.attribute [ATR_HITPOINTS] = hero.attribute [ATR_HITPOINTS_MAX];
-};  
+};

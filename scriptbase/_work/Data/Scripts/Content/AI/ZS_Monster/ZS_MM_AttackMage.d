@@ -1,24 +1,24 @@
 func void ZS_MM_AttackMage ()
-{	
-	PrintDebugNpc		(PD_ZS_FRAME, "ZS_MM_AttackMage" );		
+{
+	PrintDebugNpc		(PD_ZS_FRAME, "ZS_MM_AttackMage" );
 	Npc_PercEnable  	(self,	PERC_ASSESSDAMAGE,			B_MMM_CombatReactToDamage	);
-	Npc_PercEnable  	(self, 	PERC_ASSESSMAGIC,			B_AssessMagic				);			
-    
+	Npc_PercEnable  	(self, 	PERC_ASSESSMAGIC,			B_AssessMagic				);
+
 	Npc_GetTarget		(self);
 	B_SelectWeapon		(self,	other);
 };
 
 func int ZS_MM_AttackMage_Loop()
 {
-	PrintDebugNpc		(PD_ZS_LOOP,	"ZS_MM_AttackMage_Loop");		
+	PrintDebugNpc		(PD_ZS_LOOP,	"ZS_MM_AttackMage_Loop");
 	Npc_GetTarget		(self);
-	
+
 	/* -------- Wenn Gegner Bewuﬂtlos oder Tod... -------- */
 	if ( Npc_IsInState	(other, ZS_Unconscious) || Npc_IsDead(other) || Npc_IsInState(other, ZS_Dead)) // WORKAROUND: es kann vorkommen, daﬂ der SC in Zustand ZS_Dead landet, aber noch bewuﬂtlos ist!!!
 	{
 		PrintDebugNpc	(PD_ZS_CHECK,	"...Ziel bewuﬂtlos oder tot!");
 
-		if ( Npc_IsNextTargetAvailable(self) ) 
+		if ( Npc_IsNextTargetAvailable(self) )
 		{
 			Npc_GetNextTarget	(self);
 			PrintDebugString	(PD_ZS_CHECK, "...neues Ziel gefunden: ", other.name);
@@ -46,9 +46,9 @@ func int ZS_MM_AttackMage_Loop()
 };
 
 func void ZS_MM_AttackMage_End()
-{	
-	PrintDebugNpc			(PD_ZS_FRAME, "ZS_MM_AttackMage_End" );		
-	
+{
+	PrintDebugNpc			(PD_ZS_FRAME, "ZS_MM_AttackMage_End" );
+
 	//-------- Waffe wegstecken --------
 	B_RemoveWeapon			(self);
 };
@@ -56,6 +56,6 @@ func void ZS_MM_AttackMage_End()
 func void B_MMM_CombatReactToDamage ()
 {
 	PrintDebugNpc				(PD_ZS_FRAME, "B_MMM_CombatReactToDamage");
-	
+
 	Npc_SetTarget				(self,	other);				// neuen Angreifer aufs Korn nehmen!
 };

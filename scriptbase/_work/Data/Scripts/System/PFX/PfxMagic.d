@@ -1,14 +1,14 @@
-	
+
 //////////////////////////////////////
-//	
-// 	Particle-Effects 
-//	Instance-Definitions 
-//	
+//
+// 	Particle-Effects
+//	Instance-Definitions
+//
 //////////////////////////////////////
 
 
-// INSTANCE PartikelEffekt1 (C_ParticleFX) 
-// INSTANCE PartikelEffekt1 (C_ParticleFXProto) 
+// INSTANCE PartikelEffekt1 (C_ParticleFX)
+// INSTANCE PartikelEffekt1 (C_ParticleFXProto)
 
 
 ///   													XXXXXXXXXXXXXXXXXXXXXXX

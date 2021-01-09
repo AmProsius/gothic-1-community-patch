@@ -7,10 +7,10 @@ instance  Tpl_1437_Templer_Exit (C_INFO)
 	nr			=  999;
 	condition	=  Tpl_1437_Templer_Exit_Condition;
 	information	=  Tpl_1437_Templer_Exit_Info;
-	important	=  0;	
+	important	=  0;
 	permanent	=  1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC int  Tpl_1437_Templer_Exit_Condition()
 {
@@ -30,7 +30,7 @@ instance  Tpl_1437_Templer_NERV (C_INFO)
 	information		= Tpl_1437_Templer_NERV_Info;
 	important		= 0;
 	permanent		= 1;
-	description		= "What's up?"; 
+	description		= "What's up?";
 };
 
 FUNC int  Tpl_1437_Templer_NERV_Condition()
@@ -44,7 +44,7 @@ FUNC void  Tpl_1437_Templer_NERV_Info()
 	AI_Output (other, self,"Tpl_1437_Templer_NERV_Info_15_01"); //What's up?
 	AI_Output (self, other,"Tpl_1437_Templer_NERV_Info_13_02"); //Listen, do you really need to accost everybody here?
 	AI_StopProcessInfos	( self );
-};  
+};
 // ERNEUTES ANSPRECHEN ------------------------------------
 instance  Tpl_1437_Templer_LEAVE (C_INFO)
 {
@@ -53,11 +53,11 @@ instance  Tpl_1437_Templer_LEAVE (C_INFO)
 	information		= Tpl_1437_Templer_LEAVE_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "Everything alright?"; 
+	description		= "Everything alright?";
 };
 
 FUNC int  Tpl_1437_Templer_LEAVE_Condition()
-{	
+{
 	if Npc_KnowsInfo (hero, Tpl_1437_Templer_NERV)
 	{
 		return TRUE;
@@ -78,11 +78,11 @@ instance  Tpl_1437_Templer_LEAVENOW (C_INFO)
 	information		= Tpl_1437_Templer_LEAVENOW_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "No, I just don't understand you!"; 
+	description		= "No, I just don't understand you!";
 };
 
 FUNC int  Tpl_1437_Templer_LEAVENOW_Condition()
-{	
+{
 	if Npc_KnowsInfo (hero, Tpl_1437_Templer_LEAVE)
 	{
 		return TRUE;

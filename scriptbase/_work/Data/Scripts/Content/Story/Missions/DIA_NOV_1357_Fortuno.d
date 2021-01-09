@@ -1,5 +1,5 @@
 // **************************************************
-//						 EXIT 
+//						 EXIT
 // **************************************************
 
 instance  DIA_Fortuno_EXIT (C_INFO)
@@ -10,7 +10,7 @@ instance  DIA_Fortuno_EXIT (C_INFO)
 	information	= DIA_Fortuno_EXIT_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC int  DIA_Fortuno_EXIT_Condition()
 {
@@ -34,7 +34,7 @@ instance  DIA_Fortuno_Greet (C_INFO)
 	information	= DIA_Fortuno_Greet_Info;
 	permanent	= 0;
 	important 	= 1;
-};                       
+};
 
 FUNC int  DIA_Fortuno_Greet_Condition()
 {
@@ -63,7 +63,7 @@ instance  DIA_Fortuno_GetGeschenk (C_INFO)
 	information	= DIA_Fortuno_GetGeschenk_Info;
 	permanent	= 0;
 	description = "What have you got for me?";
-};                       
+};
 
 FUNC int  DIA_Fortuno_GetGeschenk_Condition()
 {
@@ -80,7 +80,7 @@ FUNC VOID  DIA_Fortuno_GetGeschenk_Info()
 	CreateInvItems(self, itmijoint_2, 3);
 	B_GiveInvItems(self, other, itmijoint_2, 3);
 	Fortuno_RationDay = Wld_GetDay();
-	
+
 	Log_CreateTopic	(GE_TraderPSI,	LOG_NOTE);
 	B_LogEntry		(GE_TraderPSI,"Fortuno deals with herbs underneath the alchemy lab.");
 };
@@ -97,7 +97,7 @@ instance  DIA_Fortuno_DailyRation (C_INFO)
 	information	= DIA_Fortuno_DailyRation_Info;
 	permanent	= 1;
 	description = "I've come to collect my daily ration.";
-};                       
+};
 
 FUNC int  DIA_Fortuno_DailyRation_Condition()
 {
@@ -136,7 +136,7 @@ instance  DIA_Fortuno_BuyJoints (C_INFO)
 	permanent	= 1;
 	description = "I want to trade.";
 	Trade		= 1;
-};                       
+};
 
 FUNC int  DIA_Fortuno_BuyJoints_Condition()
 {

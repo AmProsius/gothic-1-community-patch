@@ -1,12 +1,12 @@
 instance ORG_820_Organisator (Npc_Default)
 {
 	//-------- primary data --------
-	
+
 	name =					Name_Organisator;
 	Npctype =				Npctype_Ambient;
-	guild =					GIL_ORG;      
+	guild =					GIL_ORG;
 	level =					8;
-	
+
 	voice =					13;
 	id =					820;
 
@@ -24,23 +24,23 @@ instance ORG_820_Organisator (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Relaxed.mds");
-	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
+	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin
 	Mdl_SetVisualBody (self,"hum_body_Naked0",0, 1, "Hum_Head_FatBald", 36, 2, ORG_ARMOR_L);
-	
-	B_Scale (self);	
-	Mdl_SetModelFatness (self, 0);		
-	
+
+	B_Scale (self);
+	Mdl_SetModelFatness (self, 0);
+
 	fight_tactic	=	FAI_HUMAN_STRONG;
-	
+
 	//-------- Talente ----------
 
 	Npc_SetTalentSkill (self, NPC_TALENT_BOW,1);
 	Npc_SetTalentSkill (self, NPC_TALENT_1H,1);
-	
 
-	//-------- inventory --------   
-	                                 
-	CreateInvItems (self, ItKeLockpick,2);		
+
+	//-------- inventory --------
+
+	CreateInvItems (self, ItKeLockpick,2);
 	CreateInvItems(self, ItMiNugget, 15);
 	CreateInvItems (self, ItFoRice,6);
 	CreateInvItems (self, ItFoBooze, 2);
@@ -53,7 +53,7 @@ instance ORG_820_Organisator (Npc_Default)
 	EquipItem (self, ItMw_1H_Mace_03);
 	EquipItem (self, ItRw_Bow_Long_01);
 	CreateInvItems (self, ItAmArrow, 20);
-	
+
 	//-------------Daily Routine-------------
 	daily_routine = Rtn_start_820;
 };

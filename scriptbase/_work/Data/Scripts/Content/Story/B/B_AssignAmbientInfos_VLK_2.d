@@ -15,7 +15,7 @@ INSTANCE Info_Vlk_2_EXIT(C_INFO)
 	information	= Info_Vlk_2_EXIT_Info;
 	permanent	= 1;
 	description = "END";
-};                       
+};
 
 FUNC INT Info_Vlk_2_EXIT_Condition()
 {
@@ -23,7 +23,7 @@ FUNC INT Info_Vlk_2_EXIT_Condition()
 };
 
 FUNC VOID Info_Vlk_2_EXIT_Info()
-{	
+{
 	AI_StopProcessInfos	(self);
 };
 
@@ -38,7 +38,7 @@ INSTANCE Info_Vlk_2_EinerVonEuchWerden (C_INFO) // E1
 	information	= Info_Vlk_2_EinerVonEuchWerden_Info;
 	permanent	= 1;
 	description = "I want to join you.";
-};                       
+};
 
 FUNC INT Info_Vlk_2_EinerVonEuchWerden_Condition()
 {
@@ -65,7 +65,7 @@ INSTANCE Info_Vlk_2_WichtigePersonen(C_INFO)
 	information	= Info_Vlk_2_WichtigePersonen_Info;
 	permanent	= 1;
 	description = "Who calls the shots around here?";
-};                       
+};
 
 FUNC INT Info_Vlk_2_WichtigePersonen_Condition()
 {
@@ -90,7 +90,7 @@ INSTANCE Info_Vlk_2_DasLager(C_INFO)
 	information	= Info_Vlk_2_DasLager_Info;
 	permanent	= 1;
 	description = "I want to know more about the Camp.";
-};                       
+};
 
 FUNC INT Info_Vlk_2_DasLager_Condition()
 {
@@ -114,10 +114,10 @@ INSTANCE Info_Vlk_2_DieLage(C_INFO) // E1
 	information	= Info_Vlk_2_DieLage_Info;
 	permanent	= 1;
 	description = "What's life like here?";
-};                       
+};
 
 FUNC INT Info_Vlk_2_DieLage_Condition()
-{	
+{
 	if (Npc_GetTrueGuild (hero) == GIL_NONE)
 	{
 		return 1;
@@ -130,15 +130,15 @@ FUNC VOID Info_Vlk_2_DieLage_Info()
 	AI_Output(self,other,"Info_Vlk_2_DieLage_02_02"); //I'm satisfied with what they give us.
 	AI_Output(other,self,"Info_Vlk_2_DieLage_15_03"); //Nobody sent me. I only just got here.
 	AI_Output(self,other,"Info_Vlk_2_DieLage_02_04"); //A new one, uh? Newcomers always get into trouble pretty quick. I don't wanna get involved, okay?
-};	
-	
+};
+
 // *************************************************************************
 // -------------------------------------------------------------------------
 
 FUNC VOID B_AssignAmbientInfos_Vlk_2(var c_NPC slf)
 {
 	B_AssignFindNpc_OC(slf);
-	
+
 	Info_Vlk_2_EXIT.npc					= Hlp_GetInstanceID(slf);
 	Info_Vlk_2_EinerVonEuchWerden.npc	= Hlp_GetInstanceID(slf);
 	Info_Vlk_2_WichtigePersonen.npc		= Hlp_GetInstanceID(slf);

@@ -1,5 +1,5 @@
 // **************************************************
-//						 EXIT 
+//						 EXIT
 // **************************************************
 
 instance  DIA_BaalTaran_EXIT (C_INFO)
@@ -10,7 +10,7 @@ instance  DIA_BaalTaran_EXIT (C_INFO)
 	information	= DIA_BaalTaran_EXIT_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC int  DIA_BaalTaran_EXIT_Condition()
 {
@@ -34,7 +34,7 @@ instance  DIA_BaalTaran_Greet (C_INFO)
 	information	= DIA_BaalTaran_Greet_Info;
 	permanent	= 0;
 	description = "I'm new here. Who are you?";
-};                       
+};
 
 FUNC int  DIA_BaalTaran_Greet_Condition()
 {
@@ -59,7 +59,7 @@ instance  DIA_BaalTaran_Bruderschaft (C_INFO)
 	information	= DIA_BaalTaran_Bruderschaft_Info;
 	permanent	= 0;
 	description = "What is the Brotherhood of the Sleeper?";
-};                       
+};
 
 FUNC int  DIA_BaalTaran_Bruderschaft_Condition()
 {
@@ -88,7 +88,7 @@ instance  DIA_BaalTaran_Sleeper (C_INFO)
 	information	= DIA_BaalTaran_Sleeper_Info;
 	permanent	= 0;
 	description = "Who is the Sleeper?";
-};                       
+};
 
 FUNC int  DIA_BaalTaran_Sleeper_Condition()
 {
@@ -118,7 +118,7 @@ instance  DIA_BaalTaran_Lehre (C_INFO)
 	information	= DIA_BaalTaran_Lehre_Info;
 	permanent	= 0;
 	description = "Tell me about the Sleeper's teachings.";
-};                       
+};
 
 FUNC int  DIA_BaalTaran_Lehre_Condition()
 {
@@ -150,7 +150,7 @@ instance  DIA_BaalTaran_Freiheit (C_INFO)
 	information	= DIA_BaalTaran_Freiheit_Info;
 	permanent	= 0;
 	description = "What will the way to freedom look like?";
-};                       
+};
 
 FUNC int  DIA_BaalTaran_Freiheit_Condition()
 {
@@ -179,7 +179,7 @@ instance  DIA_BaalTaran_Beweis (C_INFO)
 	information	= DIA_BaalTaran_Beweis_Info;
 	permanent	= 0;
 	description = "How does your god prove his might?";
-};                       
+};
 
 FUNC int  DIA_BaalTaran_Beweis_Condition()
 {
@@ -209,7 +209,7 @@ instance  DIA_BaalTaran_WayToST (C_INFO)
 	information	= DIA_BaalTaran_WayToST_Info;
 	permanent	= 0;
 	description = "How do I get to the Brotherhood's camp?";
-};                       
+};
 
 FUNC int  DIA_BaalTaran_WayToST_Condition()
 {
@@ -246,7 +246,7 @@ instance  DIA_BaalTaran_IntoCastle (C_INFO)
 	information	= DIA_BaalTaran_IntoCastle_Info;
 	permanent	= 1;
 	description = "I need to get into the castle. Can you help me?";
-};                       
+};
 
 FUNC int  DIA_BaalTaran_IntoCastle_Condition()
 {
@@ -263,7 +263,7 @@ FUNC VOID  DIA_BaalTaran_IntoCastle_Info()
 	AI_Output (self, other,"DIA_BaalTaran_IntoCastle_05_02"); //We gather swampweed and sell part of it to the Old Camp, in exchange for goods from the outside world.
 	AI_Output (self, other,"DIA_BaalTaran_IntoCastle_05_03"); //If you were one of the couriers working for Cor Kalom, you could get into the castle. But for that you would need to be one of us.
 	AI_Output (self, other,"DIA_BaalTaran_IntoCastle_05_04"); //What do you want to do in the castle anyway?
-	
+
 	Info_ClearChoices	(DIA_BaalTaran_IntoCastle );
 	Info_AddChoice		(DIA_BaalTaran_IntoCastle,"I want to meet somebody there.",DIA_BaalTaran_IntoCastle_MeetSomeone);
 	Info_AddChoice		(DIA_BaalTaran_IntoCastle,"I have a letter for the High Magician of the Circle of Fire.",DIA_BaalTaran_IntoCastle_Letter);

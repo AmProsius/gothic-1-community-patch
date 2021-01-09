@@ -5,7 +5,7 @@
 func void ZS_Ebr_HangAround ()
 {
     PrintDebugNpc(PD_TA_FRAME,"ZS_Ebr_HangAround");
-    
+
 	ObservingPerception	();
 	if (!C_BodyStateContains(self, BS_SIT))
 	{
@@ -28,7 +28,7 @@ func void ZS_Ebr_HangAround_Loop ()
 func void ZS_Ebr_HangAround_End ()
 {
     PrintDebugNpc		(PD_TA_FRAME,"ZS_Ebr_HangAround_End");
-    
+
 	AI_UseMob			(self,"THRONE",-1);
 };
 

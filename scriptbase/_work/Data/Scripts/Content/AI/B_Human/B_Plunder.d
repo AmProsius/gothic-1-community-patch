@@ -9,7 +9,7 @@ func void B_TransferItems (var int amount)
 	PrintDebugNpc		(PD_ZS_CHECK,	"...B_TransferItem");
 
 	var int transferItem;
-	transferItem = Hlp_GetInstanceID(item); 
+	transferItem = Hlp_GetInstanceID(item);
 
 	B_GiveInvItems		(other, self, transferItem, amount);
 
@@ -42,18 +42,18 @@ func int B_CheckItem (var int category, var int slot)
 	printText = IntToString		(slot);
 
 	if 		(category == INV_WEAPON )	{	printText = ConcatStrings("...found INV_WEAPON_",		printText);	}
-	else if	(category == INV_ARMOR	)	{	printText = ConcatStrings("...found INV_ARMOR_",		printText);	}	
+	else if	(category == INV_ARMOR	)	{	printText = ConcatStrings("...found INV_ARMOR_",		printText);	}
 	else if (category == INV_RUNE	)	{	printText = ConcatStrings("...found INV_RUNE_",			printText);	}
 	//else if (category == INV_POTIONS)	{	printText = ConcatStrings("...found INV_POTIONS_",		printText);	}
 	else if (category == INV_FOOD	)	{	printText = ConcatStrings("...found INV_FOOD_",			printText);	}
-	else if (category == INV_DOC	)	{	printText = ConcatStrings("...found INV_DOC_",			printText);	}    
+	else if (category == INV_DOC	)	{	printText = ConcatStrings("...found INV_DOC_",			printText);	}
 	else if (category == INV_MISC	)	{	printText = ConcatStrings("...found INV_MISC_",			printText);	}
 	else								{	printText = ConcatStrings("...found unknown category #",printText);	};
-	
-	var int count;  
+
+	var int count;
 	count = Npc_GetInvItemBySlot(other, category,slot);  			// initialisiert 'item' und gibt Anzahl zurück
 	PrintDebugNpc(PD_ZS_DETAIL, IntToString(count));
-	
+
 	if (count > 0)
 	{
 		PrintDebugNpc(PD_ZS_CHECK, printText);
@@ -64,7 +64,7 @@ func int B_CheckItem (var int category, var int slot)
 			B_TransferItems(count/2);
 			return TRUE;
 		};
-	
+
 		// CS NEU: Nimmt personalisierte Waffen
 		if (Npc_OwnedByNpc(item,self))
 		{
@@ -72,7 +72,7 @@ func int B_CheckItem (var int category, var int slot)
 			return TRUE;
 		};
 	};
-	
+
 
 	return FALSE;
 };
@@ -104,11 +104,11 @@ func int B_Plunder	()
 
 	var int	amountPlundered;
 	amountPlundered = 0;
-	
+
 	//-------- Durchsuchen der WEAPONS ---------
 	// Zurückgenommene Waffen werden nicht mitangegeben bei amountPlundered, da sich die SVMs dabei nur auf Erz beziehen.
 	// Z.Zt. ist INV_MAX_WEAPONS noch auf 6
-	
+
 	B_CheckItem(INV_WEAPON,	1	);
 	B_CheckItem(INV_WEAPON,	2	);
 	B_CheckItem(INV_WEAPON,	3	);
@@ -146,7 +146,7 @@ func int B_Plunder	()
 	if(	B_CheckItem(INV_MISC,	27	) )	{ amountPlundered = amountPlundered + 1; };
 	if(	B_CheckItem(INV_MISC,	28	) )	{ amountPlundered = amountPlundered + 1; };
 	if(	B_CheckItem(INV_MISC,	29	) )	{ amountPlundered = amountPlundered + 1; };
-	
+
 	//-------- Anzahl geplünderter Items ausgeben ---------
 	PrintDebugInt(PD_ZS_CHECK, "...Anzahl geplünderter Items: ", amountPlundered);
 

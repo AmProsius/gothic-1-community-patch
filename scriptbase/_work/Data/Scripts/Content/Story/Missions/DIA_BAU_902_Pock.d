@@ -1,5 +1,5 @@
 // ************************************************************
-// 			  				   EXIT 
+// 			  				   EXIT
 // ************************************************************
 	var int Pock_ForgetAll;
 // ************************************************************
@@ -12,7 +12,7 @@ INSTANCE DIA_Pock_EXIT (C_INFO)
 	information	= DIA_Pock_EXIT_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC INT DIA_Pock_EXIT_Condition()
 {
@@ -20,7 +20,7 @@ FUNC INT DIA_Pock_EXIT_Condition()
 };
 
 FUNC VOID DIA_Pock_EXIT_Info()
-{	
+{
 	Pock_ForgetAll = TRUE;
 	AI_StopProcessInfos	(self);
 };
@@ -37,7 +37,7 @@ INSTANCE Info_Pock_Wasser(C_INFO) // E1
 	information	= Info_Pock_Wasser_Info;
 	permanent	= 1;
 	description = "Lefty sent me. I've brought you some water.";
-};                       
+};
 
 FUNC INT Info_Pock_Wasser_Condition()
 {
@@ -86,7 +86,7 @@ INSTANCE DIA_Pock_Hello (C_INFO)
 	information	= DIA_Pock_Hello_Info;
 	permanent	= 0;
 	description	= "Hi! I'm new here.";
-};                       
+};
 
 FUNC INT DIA_Pock_Hello_Condition()
 {
@@ -97,7 +97,7 @@ FUNC INT DIA_Pock_Hello_Condition()
 };
 
 FUNC VOID DIA_Pock_Hello_Info()
-{	
+{
 	AI_Output (other, self,"DIA_Pock_Hello_15_00"); //Hi! I'm new here.
 	AI_Output (self, other,"DIA_Pock_Hello_04_01"); //It's good to see a fresh face.
 	AI_Output (other, self,"DIA_Pock_Hello_15_02"); //You must have been here a long time, huh?
@@ -116,7 +116,7 @@ INSTANCE DIA_Pock_KnowMuch (C_INFO)
 	information	= DIA_Pock_KnowMuch_Info;
 	permanent	= 0;
 	description	= "In that case you must know a lot about this place?";
-};                       
+};
 
 FUNC INT DIA_Pock_KnowMuch_Condition()
 {
@@ -127,7 +127,7 @@ FUNC INT DIA_Pock_KnowMuch_Condition()
 };
 
 FUNC VOID DIA_Pock_KnowMuch_Info()
-{	
+{
 	AI_Output (other, self,"DIA_Pock_KnowMuch_15_00"); //In that case you must know a lot about this place?
 	AI_Output (self, other,"DIA_Pock_KnowMuch_04_01"); //So so. I spend most of my time out here, just picking rice.
 	AI_Output (self, other,"DIA_Pock_KnowMuch_04_02"); //That's what let me get so old. We get some rice and the odd schnapps. It's not much, but it's enough.
@@ -145,7 +145,7 @@ INSTANCE DIA_Pock_WhyJail (C_INFO)
 	information	= DIA_Pock_WhyJail_Info;
 	permanent	= 0;
 	description	= "Why are you here?";
-};                       
+};
 
 FUNC INT DIA_Pock_WhyJail_Condition()
 {
@@ -156,7 +156,7 @@ FUNC INT DIA_Pock_WhyJail_Condition()
 };
 
 FUNC VOID DIA_Pock_WhyJail_Info()
-{	
+{
 	AI_Output (other, self,"DIA_Pock_WhyJail_15_00"); //Why are you here?
 	AI_Output (self, other,"DIA_Pock_WhyJail_04_01"); //Taxes, boy, taxes. My shed was as empty as my stomach, and I just couldn't pay.
 	AI_Output (self, other,"DIA_Pock_WhyJail_04_02"); //So one day the soldiers came and brought me here. But it's no worse in here than it is out there. At least I won't starve in here.
@@ -175,7 +175,7 @@ INSTANCE DIA_Pock_ForgotAll (C_INFO)
 	information	= DIA_Pock_ForgotAll_Info;
 	permanent	= 1;
 	description	= "Everything okay with you?";
-};                       
+};
 
 FUNC INT DIA_Pock_ForgotAll_Condition()
 {
@@ -186,7 +186,7 @@ FUNC INT DIA_Pock_ForgotAll_Condition()
 };
 
 FUNC VOID DIA_Pock_ForgotAll_Info()
-{	
+{
 	AI_Output (other, self,"DIA_Pock_ForgotAll_15_00"); //Everything okay with you?
 	AI_Output (self, other,"DIA_Pock_ForgotAll_04_01"); //It's good to see a new face.
 	AI_Output (other, self,"DIA_Pock_ForgotAll_15_02"); //Hang on! We talked earlier.

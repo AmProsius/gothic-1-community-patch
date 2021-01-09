@@ -10,9 +10,9 @@
 //	Karte für 1. Fokus
 //---------------------------------------------------------------------
 INSTANCE ItWrFocusmapPsi(C_Item)
-{	
+{
 	name 			=	"Y'Berion's Focus Map";
-	
+
 	mainflag 		=	ITEM_KAT_DOCS;
 	flags 			=	ITEM_MISSION;
 
@@ -21,7 +21,7 @@ INSTANCE ItWrFocusmapPsi(C_Item)
 	visual 			=	"ItWr_Map_01.3ds";
 	material 		=	MAT_LEATHER;
 
-	scemeName		=	"MAP";	
+	scemeName		=	"MAP";
 	on_state[0]		=	UseFocusmapPsi;
 
 	description		= name;
@@ -33,11 +33,11 @@ INSTANCE ItWrFocusmapPsi(C_Item)
 	FUNC VOID UseFocusmapPsi()
 	{
 		var int nDocID;
-		
-		nDocID = 	Doc_CreateMap	()			  ;							// DocManager 
+
+		nDocID = 	Doc_CreateMap	()			  ;							// DocManager
 					Doc_SetLevel	( nDocID,	"WORLD.ZEN" );
-					Doc_SetPages	( nDocID, 1 );                         
-					Doc_SetPage 	( nDocID, 0, "Map_World_FocusPSI.tga", 	1	);  //  1 -> DO NOT SCALE 
+					Doc_SetPages	( nDocID, 1 );
+					Doc_SetPage 	( nDocID, 0, "Map_World_FocusPSI.tga", 	1	);  //  1 -> DO NOT SCALE
 
 					Doc_Show		( nDocID 	);
 	};
@@ -46,10 +46,10 @@ INSTANCE ItWrFocusmapPsi(C_Item)
 //	Fokus 1 - (Meeresklippe)
 //---------------------------------------------------------------------
 INSTANCE Focus_1(C_Item)
-{	
+{
 	name 				=	"Focus from the Ocean Cliff";
 	mainflag 			=	ITEM_KAT_NONE;
-	flags 				=	ITEM_MISSION;	
+	flags 				=	ITEM_MISSION;
 
 	hp 					=	1;
 	hp_max 				=	1;
@@ -68,11 +68,11 @@ INSTANCE Focus_1(C_Item)
 //	Zahnrad für Ian
 //---------------------------------------------------------------------
 INSTANCE ItMi_Stuff_Gearwheel_01(C_Item)
-{	
+{
 	name 				=	"Gearwheel";
 
 	mainflag 			=	ITEM_KAT_NONE;
-	flags 				=	ITEM_MISSION;	
+	flags 				=	ITEM_MISSION;
 
 	value 				=	0;
 
@@ -88,15 +88,15 @@ INSTANCE ItMi_Stuff_Gearwheel_01(C_Item)
 //	Minecrawler-Ei
 //---------------------------------------------------------------------
 INSTANCE ItAt_Crawlerqueen(C_Item)
-{	
+{
 	name 					=	"Minecrawler's Egg";
-	
+
 	mainflag 				=	ITEM_KAT_NONE;
-	flags 					=	ITEM_MISSION|ITEM_MULTI;	
+	flags 					=	ITEM_MISSION|ITEM_MULTI;
 
 	value 					=	100;
 
-	visual 					=	"ItAt_Crawlerqueen.3ds"; 
+	visual 					=	"ItAt_Crawlerqueen.3ds";
 	material 				=	MAT_LEATHER;
 
 	description				=	name;
@@ -111,11 +111,11 @@ INSTANCE ItAt_Crawlerqueen(C_Item)
 //	Almanach / Fokusbuch
 //---------------------------------------------------------------------
 INSTANCE ItWrFokusbuch(C_Item)
-{	
+{
 	name 					=	"Almanac";
 
 	mainflag 				=	ITEM_KAT_DOCS;
-	flags 					=	ITEM_MISSION;	
+	flags 					=	ITEM_MISSION;
 
 	value 					=	0;
 
@@ -130,29 +130,29 @@ INSTANCE ItWrFokusbuch(C_Item)
 	TEXT[2]					=	"of so-called focus stones.";
 };
 	FUNC VOID UseItWrFokusbuch()
-	{   
-				
+	{
+
 					if (Wissen_Almanach == FALSE)
 					&& Npc_IsPlayer (self)
 					{
 						B_GiveXP (50);
 						Wissen_Almanach = TRUE;
 					};
-				
-					var int			nDocID;	
-					nDocID = 	Doc_Create		()			  ;								// DocManager 
+
+					var int			nDocID;
+					nDocID = 	Doc_Create		()			  ;								// DocManager
 					Doc_SetPages	( nDocID,  2 );                         //wieviel Pages
 
-					Doc_SetPage 	( nDocID,  0, "Book_Mage_L.tga", 	0 		); 
+					Doc_SetPage 	( nDocID,  0, "Book_Mage_L.tga", 	0 		);
 					Doc_SetPage 	( nDocID,  1, "Book_Mage_R.tga",	0		);
-					
+
 					//1.Seite
-  					
-  					Doc_SetFont 	( nDocID, -1, "font_15_book.tga"	   			); 	// -1 -> all pages 
+
+  					Doc_SetFont 	( nDocID, -1, "font_15_book.tga"	   			); 	// -1 -> all pages
   					Doc_SetMargins	( nDocID,  0,  275, 20, 30, 20, 1   		);  //  0 -> margins are in pixels
 					Doc_PrintLine	( nDocID,  0,"Chapter 23");
 					Doc_PrintLine	( nDocID,  0, "");
-					Doc_SetFont 	( nDocID, -1, "font_10_book.TGA"	   			); 	// -1 -> all pages 
+					Doc_SetFont 	( nDocID, -1, "font_10_book.TGA"	   			); 	// -1 -> all pages
 					Doc_PrintLine	( nDocID,  0,"The Focusing of Powers");
 					Doc_PrintLine	( nDocID,  0, "");
 					Doc_PrintLines	( nDocID,  0,"The power inherent in the stone increases continuously and is unleashed by the words of the magician. Be it lasting or a single blow, this is within his judgment alone.");
@@ -167,6 +167,6 @@ INSTANCE ItWrFokusbuch(C_Item)
 					Doc_PrintLines	( nDocID,  1,"But only a chosen few have the knowledge needed to recharge a used focus stone. This formula of days long past serves as a sign of the high gift.");
 					Doc_PrintLine	( nDocID,  1, "");
 					Doc_PrintLines	( nDocID,  1,"Now, oh knowing one, open your mind to the words of the ancient power.");
-					
+
 					Doc_Show		( nDocID );
 	};

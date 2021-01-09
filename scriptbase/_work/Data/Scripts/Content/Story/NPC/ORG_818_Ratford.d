@@ -1,13 +1,13 @@
 instance ORG_818_Ratford (Npc_Default)
 {
 	//-------- primary data --------
-	
+
 	name =					"Ratford";
-	Npctype =				Npctype_Main;	
-	guild =					GIL_ORG;      
+	Npctype =				Npctype_Main;
+	guild =					GIL_ORG;
 	level =					8;
 
-	
+
 	voice =					7;
 	id =					818;
 
@@ -25,25 +25,25 @@ instance ORG_818_Ratford (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Relaxed.mds");
-	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
+	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin
 	Mdl_SetVisualBody (self,"hum_body_Naked0",0, 2,"Hum_Head_Fighter", 9, 3, ORG_ARMOR_L);
-	
-	B_Scale (self);	
+
+	B_Scale (self);
 	Mdl_SetModelFatness (self, 0);
-	
-	self.aivar[AIV_IMPORTANT] = TRUE;		
-	
+
+	self.aivar[AIV_IMPORTANT] = TRUE;
+
 	fight_tactic	=	FAI_HUMAN_STRONG;
-	
+
 	//-------- Talente ----------
 
 	Npc_SetTalentSkill (self, NPC_TALENT_BOW,1);
 	Npc_SetTalentSkill (self, NPC_TALENT_1H,1);
-	
-	
-	//-------- inventory --------   
-	                                 
-	CreateInvItems (self, ItKeLockpick,2);		
+
+
+	//-------- inventory --------
+
+	CreateInvItems (self, ItKeLockpick,2);
 	CreateInvItems(self, ItMiNugget, 17);
 	CreateInvItems (self, ItFoRice,6);
 	CreateInvItems (self, ItFoBooze, 2);
@@ -59,7 +59,7 @@ instance ORG_818_Ratford (Npc_Default)
 
 	//-------------Daily Routine-------------
 	daily_routine = Rtn_Start_818;
-	
+
 	//------------ //MISSIONs-------------------
 };
 

@@ -6,10 +6,10 @@ instance VLK_586_Grimes_Exit (C_INFO)
 	nr			= 999;
 	condition	= VLK_586_Grimes_Exit_Condition;
 	information	= VLK_586_Grimes_Exit_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC int  VLK_586_Grimes_Exit_Condition()
 {
@@ -20,7 +20,7 @@ FUNC VOID  VLK_586_Grimes_Exit_Info()
 {
 	AI_Output (other, self,"VLK_586_Grimes_Exit_Info_15_01"); //Good luck.
 	AI_Output (self, other,"VLK_586_Grimes_Exit_Info_04_02"); //Same to you, boy, same to you.
-	
+
 	AI_StopProcessInfos	( self );
 };
 
@@ -36,12 +36,12 @@ instance  VLK_586_Grimes_STORY (C_INFO)
 	information		= VLK_586_Grimes_STORY_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "Have you been here long?"; 
+	description		= "Have you been here long?";
 };
 
 FUNC int  VLK_586_Grimes_STORY_Condition()
-{	
-	if ( Npc_KnowsInfo (hero,VLK_586_Grimes_FIRST) )  
+{
+	if ( Npc_KnowsInfo (hero,VLK_586_Grimes_FIRST) )
 	{
 		return 1;
 	};
@@ -65,12 +65,12 @@ instance  VLK_586_Grimes_KNOW (C_INFO)
 	information		= VLK_586_Grimes_KNOW_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "You must have heard about many escape plans as well."; 
+	description		= "You must have heard about many escape plans as well.";
 };
 
 FUNC int  VLK_586_Grimes_KNOW_Condition()
-{	
-	if ( Npc_KnowsInfo (hero,VLK_586_Grimes_STORY) )  
+{
+	if ( Npc_KnowsInfo (hero,VLK_586_Grimes_STORY) )
 	{
 		return 1;
 	};
@@ -104,4 +104,4 @@ FUNC int  VLK_586_Grimes_FIRST_Condition()
 func void  VLK_586_Grimes_FIRST_Info()
 {
 	AI_Output (self, other,"VLK_586_Grimes_FIRST_Info_04_02"); //A new face. Have you ever dug ore, boy?
-};  
+};

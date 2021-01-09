@@ -15,7 +15,7 @@ INSTANCE Info_Vlk_1_EXIT(C_INFO)
 	information	= Info_Vlk_1_EXIT_Info;
 	permanent	= 1;
 	description = "END";
-};                       
+};
 
 FUNC INT Info_Vlk_1_EXIT_Condition()
 {
@@ -23,7 +23,7 @@ FUNC INT Info_Vlk_1_EXIT_Condition()
 };
 
 FUNC VOID Info_Vlk_1_EXIT_Info()
-{	
+{
 	AI_StopProcessInfos	(self);
 };
 
@@ -38,7 +38,7 @@ INSTANCE Info_Vlk_1_EinerVonEuchWerden (C_INFO) // E1
 	information	= Info_Vlk_1_EinerVonEuchWerden_Info;
 	permanent	= 1;
 	description = "How do I join this camp?";
-};                       
+};
 
 FUNC INT Info_Vlk_1_EinerVonEuchWerden_Condition()
 {
@@ -66,7 +66,7 @@ INSTANCE Info_Vlk_1_WichtigePersonen(C_INFO)
 	information	= Info_Vlk_1_WichtigePersonen_Info;
 	permanent	= 1;
 	description = "Who calls the shots around here?";
-};                       
+};
 
 FUNC INT Info_Vlk_1_WichtigePersonen_Condition()
 {
@@ -90,7 +90,7 @@ INSTANCE Info_Vlk_1_DasLager(C_INFO)
 	information	= Info_Vlk_1_DasLager_Info;
 	permanent	= 1;
 	description = "Is there anything more interesting than huts to see?";
-};                       
+};
 
 FUNC INT Info_Vlk_1_DasLager_Condition()
 {
@@ -115,7 +115,7 @@ INSTANCE Info_Vlk_1_DieLage(C_INFO) // E1
 	information	= Info_Vlk_1_DieLage_Info;
 	permanent	= 1;
 	description = "How's it going?";
-};                       
+};
 
 FUNC INT Info_Vlk_1_DieLage_Condition()
 {
@@ -127,14 +127,14 @@ FUNC VOID Info_Vlk_1_DieLage_Info()
 	AI_Output(other,self,"Info_Vlk_1_DieLage_15_00"); //How's it going?
 	AI_Output(self,other,"Info_Vlk_1_DieLage_01_01"); //I've spent the last two weeks working in the mine. All I want is peace. Get out of my sight.
 };
-	
+
 // *************************************************************************
 // -------------------------------------------------------------------------
 
 FUNC VOID B_AssignAmbientInfos_Vlk_1(var c_NPC slf)
 {
 	B_AssignFindNpc_OC(slf);
-	
+
 	Info_Vlk_1_EXIT.npc					= Hlp_GetInstanceID(slf);
 	Info_Vlk_1_EinerVonEuchWerden.npc	= Hlp_GetInstanceID(slf);
 	Info_Vlk_1_WichtigePersonen.npc		= Hlp_GetInstanceID(slf);

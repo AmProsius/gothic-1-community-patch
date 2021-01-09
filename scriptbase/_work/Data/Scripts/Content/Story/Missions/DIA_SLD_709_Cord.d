@@ -6,10 +6,10 @@ INSTANCE DIA_SLD_709_Cord_Exit (C_INFO)
 	nr			= 999;
 	condition	= DIA_SLD_709_Cord_Exit_Condition;
 	information	= DIA_SLD_709_Cord_Exit_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC INT DIA_SLD_709_Cord_Exit_Condition()
 {
@@ -22,7 +22,7 @@ FUNC VOID DIA_SLD_709_Cord_Exit_Info()
 };
 
 /*------------------------------------------------------------------------
-						TRAIN ANGEBOT								
+						TRAIN ANGEBOT
 ------------------------------------------------------------------------*/
 
 instance  SLD_709_Cord_TRAINOFFER (C_INFO)
@@ -32,11 +32,11 @@ instance  SLD_709_Cord_TRAINOFFER (C_INFO)
 	information		= SLD_709_Cord_TRAINOFFER_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "I want to improve my handling of one-handed weapons."; 
+	description		= "I want to improve my handling of one-handed weapons.";
 };
 
 FUNC int  SLD_709_Cord_TRAINOFFER_Condition()
-{	
+{
 	if (Npc_GetTalentSkill (hero,NPC_TALENT_1H) < 2)
 	{
 		return TRUE;
@@ -50,9 +50,9 @@ FUNC void  SLD_709_Cord_TRAINOFFER_Info()
 
 	Log_CreateTopic	(GE_TeacherNC,	LOG_NOTE);
 	B_LogEntry		(GE_TeacherNC,"Cord, the mercenary, can teach me to fight with ONE-HANDED WEAPONS. During the daytime, he can be found on the rocky plateau by the lake.");
-};  
+};
 /*------------------------------------------------------------------------
-						EINHANDKAMPF	DIE ERSTE LEHRSTUNDE							
+						EINHANDKAMPF	DIE ERSTE LEHRSTUNDE
 ------------------------------------------------------------------------*/
 
 instance  SLD_709_Cord_TRAIN (C_INFO)
@@ -62,11 +62,11 @@ instance  SLD_709_Cord_TRAIN (C_INFO)
 	information		= SLD_709_Cord_TRAIN_Info;
 	important		= 0;
 	permanent		= 1;
-	description		= B_BuildLearnString(NAME_Learn1h_1, LPCOST_TALENT_1H_1,30); 
+	description		= B_BuildLearnString(NAME_Learn1h_1, LPCOST_TALENT_1H_1,30);
 };
 
 FUNC int  SLD_709_Cord_TRAIN_Condition()
-{	
+{
 	if (Npc_KnowsInfo (hero,SLD_709_Cord_TRAINOFFER))
 	&& (Npc_GetTalentSkill (hero,NPC_TALENT_1H) == 0)
 	{
@@ -97,9 +97,9 @@ FUNC void  SLD_709_Cord_TRAIN_Info()
 	{
 		AI_Output (self, other,"KDF_402_Corristo_HEAVYARMOR_Info_14_03"); //You don't own enough ore.
 	};
-};  
+};
 /*------------------------------------------------------------------------
-						EINHANDKAMPF	DIE ZWEITE LEHRSTUNDE							
+						EINHANDKAMPF	DIE ZWEITE LEHRSTUNDE
 ------------------------------------------------------------------------*/
 
 instance  SLD_709_Cord_TRAINAGAIN (C_INFO)
@@ -109,11 +109,11 @@ instance  SLD_709_Cord_TRAINAGAIN (C_INFO)
 	information		= SLD_709_Cord_TRAINAGAIN_Info;
 	important		= 0;
 	permanent		= 1;
-	description		= B_BuildLearnString(NAME_Learn1h_2, LPCOST_TALENT_1H_2,50); 
+	description		= B_BuildLearnString(NAME_Learn1h_2, LPCOST_TALENT_1H_2,50);
 };
 
 FUNC int  SLD_709_Cord_TRAINAGAIN_Condition()
-{	
+{
 	if (Npc_KnowsInfo (hero,SLD_709_Cord_TRAINOFFER))
 	&& (Npc_GetTalentSkill (hero,NPC_TALENT_1H) < 2)
 	{
@@ -142,4 +142,4 @@ FUNC void  SLD_709_Cord_TRAINAGAIN_Info()
 	{
 		AI_Output (self, other,"KDF_402_Corristo_HEAVYARMOR_Info_14_03"); //You don't own enough ore.
 	};
-}; 
+};

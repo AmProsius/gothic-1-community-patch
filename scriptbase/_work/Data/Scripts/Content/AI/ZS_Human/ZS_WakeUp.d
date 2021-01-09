@@ -1,6 +1,6 @@
 func void ZS_WakeUp ()
-{	
-	PrintDebugNpc		(PD_ZS_FRAME, "ZS_WakeUp" );				
+{
+	PrintDebugNpc		(PD_ZS_FRAME, "ZS_WakeUp" );
 	C_ZSInit();
 
 	//-------- Wahrnehmungen --------
@@ -21,7 +21,7 @@ func void ZS_WakeUp ()
 	if	((self.guild==portalguild) || (Wld_GetGuildAttitude(self.guild, portalguild)==ATT_FRIENDLY))
 	&&	(Npc_GetAttitude(self, other) != ATT_FRIENDLY)
 	{
-		PrintDebugNpc	(PD_ZS_CHECK, "...Spieler im Raum des NSCs!");				
+		PrintDebugNpc	(PD_ZS_CHECK, "...Spieler im Raum des NSCs!");
 		B_AssessEnterRoom();
 	}
 	else

@@ -1,5 +1,5 @@
 // **************************************************
-//						 EXIT 
+//						 EXIT
 // **************************************************
 
 instance  DIA_GorNaDrak_EXIT (C_INFO)
@@ -10,7 +10,7 @@ instance  DIA_GorNaDrak_EXIT (C_INFO)
 	information	= DIA_GorNaDrak_EXIT_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC int  DIA_GorNaDrak_EXIT_Condition()
 {
@@ -34,7 +34,7 @@ instance  DIA_GorNaDrak_Greet (C_INFO)
 	information	= DIA_GorNaDrak_Greet_Info;
 	permanent	= 0;
 	description  = "Hi! Where are you off to?";
-};                       
+};
 
 FUNC int  DIA_GorNaDrak_Greet_Condition()
 {
@@ -60,7 +60,7 @@ instance  DIA_GorNaDrak_WasSekret (C_INFO)
 	information	= DIA_GorNaDrak_WasSekret_Info;
 	permanent	= 0;
 	description  = "What kind of secretion is it?";
-};                       
+};
 
 FUNC int  DIA_GorNaDrak_WasSekret_Condition()
 {
@@ -88,7 +88,7 @@ instance  DIA_GorNaDrak_TeachMandibles (C_INFO)
 	information	= DIA_GorNaDrak_TeachMandibles_Info;
 	permanent	= 0;
 	description  = "Can you tell me how to get the secretion of a minecrawler?";
-};                       
+};
 
 FUNC int  DIA_GorNaDrak_TeachMandibles_Condition()
 {
@@ -102,7 +102,7 @@ FUNC VOID  DIA_GorNaDrak_TeachMandibles_Info()
 {
 	AI_Output (other, self,"DIA_GorNaDrak_TeachMandibles_15_00"); //Can you tell me how to get the secretion of a minecrawler?
 	AI_Output (self, other,"DIA_GorNaDrak_TeachMandibles_09_01"); //Of course. After you've killed the beast, you get hold of the mandibles and pull them straight out. This way you'll get the secretion gland without destroying it.
-	
+
 	PrintScreen	("Learn: Cutting out minecrawlers' mandibles", -1,-1,"FONT_OLD_20_WHITE.TGA",3);
 	Knows_GetMCMandibles = TRUE;
 	Log_CreateTopic (GE_AnimalTrophies,LOG_NOTE);
@@ -121,7 +121,7 @@ instance  DIA_GorNaDrak_WhatFor (C_INFO)
 	information	= DIA_GorNaDrak_WhatFor_Info;
 	permanent	= 0;
 	description  = "What does Cor Kalom need the secretion for?";
-};                       
+};
 
 FUNC int  DIA_GorNaDrak_WhatFor_Condition()
 {
@@ -151,7 +151,7 @@ instance  DIA_GorNaDrak_Permanent (C_INFO)
 	information	= DIA_GorNaDrak_Permanent_Info;
 	permanent	= 1;
 	description  = "Have you enough of the potion for the great invocation of the Sleeper?";
-};                       
+};
 
 FUNC int  DIA_GorNaDrak_Permanent_Condition()
 {

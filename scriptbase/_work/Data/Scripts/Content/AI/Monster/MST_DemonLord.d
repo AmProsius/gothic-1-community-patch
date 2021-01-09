@@ -2,16 +2,16 @@
 **	Demon LORD Prototype												**
 *************************************************************************/
 
-PROTOTYPE Mst_Default_DemonLord(C_Npc)			
+PROTOTYPE Mst_Default_DemonLord(C_Npc)
 {
 	name							=	"Demon Lord";
 	guild							=	GIL_DEMON;
 	aivar[AIV_MM_REAL_ID]			= 	ID_DEMONLORD;
 	level							=	100;
-//--------------------------------------------------------	
+//--------------------------------------------------------
 	attribute	[ATR_STRENGTH]		=	170;
 	attribute	[ATR_DEXTERITY]		=	100;
-	
+
 	attribute	[ATR_HITPOINTS_MAX]	=	400;
 	attribute	[ATR_HITPOINTS]		=	400;
 
@@ -39,7 +39,7 @@ PROTOTYPE Mst_Default_DemonLord(C_Npc)
 	senses_range				= 4000;
 
 	aivar[AIV_MM_Behaviour]		= HUNTER;
-	
+
 	aivar[AIV_MM_PercRange]		= 4000;
 	aivar[AIV_MM_DrohRange]		= 4000;
 	aivar[AIV_MM_AttackRange]	= 3500;

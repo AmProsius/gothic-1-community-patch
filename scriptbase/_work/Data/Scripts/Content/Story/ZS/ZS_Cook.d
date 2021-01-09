@@ -5,8 +5,8 @@
 FUNC VOID ZS_Cook ()
 {
 	PrintDebugNpc (PD_TA_FRAME,"ZS_Cook");
-	
-	B_SetPerception (self);    
+
+	B_SetPerception (self);
 
 	if (!C_BodyStateContains(self, BS_MOBINTERACT))
 	{
@@ -28,7 +28,7 @@ FUNC VOID ZS_Cook_Loop()
     {
     	B_InterruptMob ("COOK");
     };
-	
+
 	AI_Wait(self,1);
 };
 

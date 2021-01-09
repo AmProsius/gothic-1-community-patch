@@ -37,7 +37,7 @@ func void B_DeathXP()
 {
 	PrintDebugNpc		(PD_ZS_FRAME,	"B_DeathXP");
 	PrintGlobals		(PD_ZS_CHECK);
-	
+
 	if	C_NpcIsHuman(self)
 	&&	Npc_WasInState(self, ZS_Unconscious)
 	{
@@ -55,7 +55,7 @@ func void B_UnconciousXP()
 {
 	PrintDebugNpc	(PD_ZS_FRAME,	"B_UnconciousXP");
 	PrintGlobals	(PD_ZS_CHECK);
-		
+
 	//-------- Erfahrung nur beim ersten Sieg über Menschen --------
 	if	!C_NpcIsHuman(self)
 	||	!self.aivar[AIV_WASDEFEATEDBYSC]

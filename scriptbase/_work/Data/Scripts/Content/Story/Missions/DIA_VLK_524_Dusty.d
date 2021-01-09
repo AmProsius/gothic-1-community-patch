@@ -1,5 +1,5 @@
 // **************************************************
-// 						 EXIT 
+// 						 EXIT
 // **************************************************
 
 INSTANCE DIA_Dusty_Exit (C_INFO)
@@ -10,7 +10,7 @@ INSTANCE DIA_Dusty_Exit (C_INFO)
 	information	= DIA_Dusty_Exit_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC INT DIA_Dusty_Exit_Condition()
 {
@@ -37,7 +37,7 @@ INSTANCE DIA_Dusty_Hello (C_INFO)
 };
 
 FUNC INT DIA_Dusty_Hello_Condition()
-{	
+{
 	return 1;
 };
 
@@ -65,7 +65,7 @@ INSTANCE DIA_Dusty_WhyNotLeave (C_INFO)
 };
 
 FUNC INT DIA_Dusty_WhyNotLeave_Condition()
-{	
+{
 	if	 Npc_KnowsInfo(hero,DIA_Dusty_Hello)
 	&&	!Npc_KnowsInfo(hero,DIA_Dusty_MetMelvin)
 	{
@@ -99,7 +99,7 @@ INSTANCE DIA_Dusty_MetMelvin (C_INFO)
 };
 
 FUNC INT DIA_Dusty_MetMelvin_Condition()
-{	
+{
 	if (Npc_KnowsInfo(hero, DIA_Melvin_Hello))
 	{
 		return 1;
@@ -132,7 +132,7 @@ INSTANCE DIA_Dusty_Offer100Ore (C_INFO)
 };
 
 FUNC INT DIA_Dusty_Offer100Ore_Condition()
-{	
+{
 	if	(Npc_KnowsInfo(hero, DIA_Dusty_MetMelvin))
 	&&	(BaalTondral_GetNewGuy == LOG_RUNNING)
 	{
@@ -163,7 +163,7 @@ INSTANCE DIA_Dusty_IWouldGo (C_INFO)
 };
 
 FUNC INT DIA_Dusty_IWouldGo_Condition()
-{	
+{
 	if (Npc_KnowsInfo(hero, DIA_Dusty_Offer100Ore))
 	{
 		return 1;
@@ -197,7 +197,7 @@ INSTANCE DIA_Dusty_LetsGo (C_INFO)
 };
 
 FUNC INT DIA_Dusty_LetsGo_Condition()
-{	
+{
 	if	(Npc_KnowsInfo(hero, DIA_Dusty_IWouldGo))
 	&&	(Npc_GetDistToWP(hero, "OCR_MAINGATE_INSIDE") > 1500)
 	&&	(Npc_GetDistToWP(hero, "OCR_NORTHGATE_RAMP_ATOP") > 1500)
@@ -219,12 +219,12 @@ FUNC VOID DIA_Dusty_LetsGo_Info()
 		B_LogEntry(CH1_RecruitDusty,"Dusty warned me not to use the main gate in the north. It seems to be easier to bribe the guards at the gate to the south.");
 		Dusty_LetsGo = TRUE;
 	};
-	
+
 	self.flags = NPC_FLAG_IMMORTAL;
 	self.aivar[AIV_PARTYMEMBER] = TRUE;
 	Npc_ExchangeRoutine	(self,"FOLLOW");
-	
+
 	AI_StopProcessInfos	(self);
-	
+
 };
 

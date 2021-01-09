@@ -8,7 +8,7 @@ instance NOV_1324_Novize (Npc_Default)
 
 	voice 		=		5;
 	id 			=		1324;
-		
+
 	//-------- abilities --------
 	attribute[ATR_STRENGTH] 		=	10;
 	attribute[ATR_DEXTERITY] 		=	10;
@@ -26,12 +26,12 @@ instance NOV_1324_Novize (Npc_Default)
 
 	B_Scale (self);
 	Mdl_SetModelFatness(self,-1);
-	
+
 	fight_tactic	=	FAI_HUMAN_COWARD;
 
 	//-------- Talente --------
-	
-		
+
+
 	//-------- inventory --------
 
 	EquipItem (self, ItMw_1H_Hatchet_01);

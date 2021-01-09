@@ -1,7 +1,7 @@
 instance EBR_101_Scar (Npc_Default)
 {
 	//-------- primary data --------
-	
+
 	name 		=	"Scar";
 	npctype 	= 	npctype_main;
 	guild 		=	GIL_EBR;
@@ -22,24 +22,24 @@ instance EBR_101_Scar (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Arrogance.mds");
-	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung	
+	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung
 	Mdl_SetVisualBody (self,"hum_body_Naked0", 0, 1,"Hum_Head_FatBald", 79,  1, EBR_ARMOR_H2);
-        
-    	B_Scale (self); 
+
+    	B_Scale (self);
 	Mdl_SetModelFatness(self,0);
-	
+
 	self.aivar[AIV_IMPORTANT] = TRUE;
-	
+
 	fight_tactic	=	FAI_HUMAN_MASTER;
-	
-	//-------- Talente --------  
-	
-	
+
+	//-------- Talente --------
+
+
 	Npc_SetTalentSkill (self, NPC_TALENT_2H,2);
 	Npc_SetTalentSkill (self, NPC_TALENT_1H,2);
 	Npc_SetTalentSkill (self, NPC_TALENT_BOW,2);
-			
-	//-------- inventory --------                                    
+
+	//-------- inventory --------
 	EquipItem(self,Scars_Schwert);
 	CreateInvItem(self,ItFo_Potion_Health_03);
 	CreateInvItem(self,ItRw_Crossbow_04);

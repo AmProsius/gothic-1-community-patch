@@ -8,7 +8,7 @@
 func int Spell_Logic_Shrink		(var int manaInvested)
 {
 	PrintDebugNpc		(PD_MAGIC,	"Spell_Logic_Shrink");
-	
+
 	if (C_NpcIsMonster(other) && (other.aivar[AIV_MM_ShrinkState]==0) )		// nur auf bisher ungeschrumpfte Monster!
 	{
 		PrintDebugNpc	(PD_MAGIC,	"...Ziel ist Monster!");
@@ -17,13 +17,13 @@ func int Spell_Logic_Shrink		(var int manaInvested)
 			Npc_SendSinglePerc ( self, other, PERC_ASSESSMAGIC);
 			return 		SPL_SENDCAST;
 		};
-		
+
 		//	SPL_NEXTLEVEL wird benötigt um den Spell auf Level 1 zu setzen,
 		//	da die Spells sonst Level0 haben und keinen Schaden machen, bzw. keinen Invest-PFX triggern
 		return 			SPL_NEXTLEVEL;
 	}
 	else
-	{	
+	{
 		PrintDebugNpc	(PD_MAGIC,	"...Ziel ist KEIN Monster!");
 		return 			SPL_SENDSTOP;
 	};

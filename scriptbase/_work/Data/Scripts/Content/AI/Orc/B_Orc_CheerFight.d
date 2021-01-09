@@ -5,7 +5,7 @@ func void B_Orc_CheerFight ()
 	//nicht immer abspielen (dauert recht lange...)
 	var int h;
 	h = Hlp_Random( 20 );
-	
+
 	//ist Opfer mein Freund oder ein anderer Ork?
 	if (Npc_GetTempAttitude (self,victim) == ATT_FRIENDLY  ||  victim.guild > GIL_SEPERATOR_ORC)
 	{

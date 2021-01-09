@@ -2,7 +2,7 @@
 **	Lurker Prototype													**
 *************************************************************************/
 
-PROTOTYPE Mst_Default_Lurker(C_Npc)			
+PROTOTYPE Mst_Default_Lurker(C_Npc)
 {
 	name							=	"Lurker";
 	guild							=	GIL_LURKER;
@@ -11,7 +11,7 @@ PROTOTYPE Mst_Default_Lurker(C_Npc)
 //-------------------------------------------------------------
 	attribute	[ATR_STRENGTH]		=	50;
 	attribute	[ATR_DEXTERITY]		=	50;
-	
+
 	attribute	[ATR_HITPOINTS_MAX]	=	90;
 	attribute	[ATR_HITPOINTS]		=	90;
 
@@ -39,7 +39,7 @@ PROTOTYPE Mst_Default_Lurker(C_Npc)
 	senses_range				= 3000;
 
 	aivar[AIV_MM_Behaviour]		= HUNTER;
-	
+
 	aivar[AIV_MM_PercRange]		= 1400;
 	aivar[AIV_MM_DrohRange]		= 1300;
 	aivar[AIV_MM_AttackRange]	= 700;
@@ -75,7 +75,7 @@ INSTANCE Lurker	(Mst_Default_Lurker)
 **	DamLurker															**
 *************************************************************************/
 
-INSTANCE DamLurker(Mst_Default_Lurker)										
+INSTANCE DamLurker(Mst_Default_Lurker)
 {
 	name	=	"Dam Lurker";
 	ID 		=	MID_DAMLURKER;

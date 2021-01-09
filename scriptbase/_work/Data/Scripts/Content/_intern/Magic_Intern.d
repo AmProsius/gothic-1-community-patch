@@ -1,7 +1,7 @@
 
 // **************************************************
 // Zaubersprüche
-// Hier stehen die Deklarationen/Definitionen der 
+// Hier stehen die Deklarationen/Definitionen der
 // logischen Sprüche
 // Autor: Carsten Edenfeld
 // **************************************************
@@ -100,7 +100,7 @@ CLASS C_Spell {
 	VAR INT		isMultiEffect;			// Effect Class is oCVisFX_MultiTarget if set to 1 (e.g. the effect can have multiple trajectorys (massdeath)
 	VAR INT		targetCollectAlgo;
 	VAR INT		targetCollectType;
-	VAR INT		targetCollectRange;		
+	VAR INT		targetCollectRange;
 	VAR INT		targetCollectAzi;
 	VAR INT		targetCollectElev;
 };
@@ -115,7 +115,7 @@ PROTOTYPE C_Spell_Proto(C_Spell) {
 	isMultiEffect		=	0;			// Effect Class is oCVisFX_MultiTarget if set to 1 (e.g. the effect can have multiple trajectorys (massdeath)
 	targetCollectAlgo	=	TARGET_COLLECT_FOCUS_FALLBACK_NONE;
 	targetCollectType	=	TARGET_TYPE_ALL;
-	targetCollectRange	=	10000;		
+	targetCollectRange	=	10000;
 	targetCollectAzi	=	60;
 	targetCollectElev	=	60;
 };

@@ -16,16 +16,16 @@
 func void ZS_StandAround ()
 {
 	PrintDebugNpc			(PD_TA_FRAME,	"ZS_StandAround");
-	
+
 	//-------- Wahrnehmungen --------
 	// R$ückkehr in ZS_SmallTalk wird enabled
-	
+
 	B_SetPerception			(self);
 	if Npc_WasInState(self,ZS_Smalltalk)
 	{
         Npc_PercEnable			(self,	PERC_NPCCOMMAND,	B_SmallTalk);
-    };    
-    
+    };
+
 	//-------- Vorbereitungen --------
 	AI_SetWalkmode			(self,	NPC_WALK);
 	B_ClearItem				(self);
@@ -41,7 +41,7 @@ func void ZS_StandAround ()
 func int ZS_StandAround_Loop ()
 {
 	PrintDebugNpc			(PD_TA_LOOP,	"ZS_StandAround_Loop");
-	
+
 	//-------- Feinpositionierung abhängig von Vorgängerzustand! --------
 	if Npc_WasInState(self,ZS_Smalltalk)
 	{
@@ -63,21 +63,21 @@ func int ZS_StandAround_Loop ()
 				AI_TurnToNpc (self,other);
 			};
 		};
-	};    
+	};
 
     //-------- Suche nach Smalltalk-Partner ! --------
     if Npc_WasInState(self,ZS_Smalltalk)
 	{
 	    Npc_SendPassivePerc		(self,	PERC_NPCCOMMAND,	self,	self);
-	};    
+	};
 
 	//-------- Zufallsaktionen... --------
 	var int choice;
 	choice = Hlp_Random 	(100);
-	PrintDebugInt			(PD_TA_DETAIL, "...Zufallsani-Wurf: ", choice);		
-		
-	if (self.aivar[AIV_ITEMSTATUS] == TA_IT_NONE)	
-	{	
+	PrintDebugInt			(PD_TA_DETAIL, "...Zufallsani-Wurf: ", choice);
+
+	if (self.aivar[AIV_ITEMSTATUS] == TA_IT_NONE)
+	{
 		//-------- ...im ALTEN LAGER --------
 		if (C_NpcBelongsToOldCamp(self))
 		{
@@ -117,9 +117,9 @@ func int ZS_StandAround_Loop ()
 			B_ClearItem		(self);
 		};
 	};
-	
+
 	B_PlayItemRandoms		(self);
-	
+
 	AI_Wait					(self,	1);
 	return					LOOP_CONTINUE;
 };
@@ -127,7 +127,7 @@ func int ZS_StandAround_Loop ()
 func void ZS_StandAround_End ()
 {
 	PrintDebugNpc			(PD_TA_FRAME,	"ZS_StandAround_End");
-	
+
 	C_StopLookAt			(self);
 	B_ClearItem 			(self);
 };
@@ -135,26 +135,26 @@ func void ZS_StandAround_End ()
 func void B_SmallTalk()
 {
 	PrintDebugNpc			(PD_TA_FRAME,	"B_SmallTalk");
-	
+
 	if (Npc_IsInState		(other,	ZS_StandAround)
 	&&	Npc_IsOnFP			(other, "SMALLTALK")
 	&&	(Npc_GetDistToNpc	(self, other)<HAI_DIST_SMALLTALK))
 	{
 		PrintDebugNpc		(PD_TA_CHECK,	"...'other' geeigneter SmallTalk-Partner!");
-		
+
 		Npc_PercDisable		(other,	PERC_ASSESSPLAYER);
 		Npc_PercDisable		(other,	PERC_OBSERVEINTRUDER);
 		B_FullStop			(other);
 		Npc_SetTarget		(other,	self);
-		
+
 		Npc_GetTarget		( self);
 		AI_StartState		(other,	ZS_Smalltalk,	1,	"");
-		
+
 		Npc_PercDisable		(self,	PERC_ASSESSPLAYER);
 		Npc_PercDisable		(self,	PERC_OBSERVEINTRUDER);
 		B_FullStop			(self);
 		Npc_SetTarget		(self,	other);
-		
+
 		Npc_GetTarget		( self);
 		AI_StartState		(self,	ZS_Smalltalk,	1,	"");
 	};

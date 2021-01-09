@@ -15,7 +15,7 @@ INSTANCE Info_Grd_6_EXIT(C_INFO)
 	information	= Info_Grd_6_EXIT_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC INT Info_Grd_6_EXIT_Condition()
 {
@@ -23,7 +23,7 @@ FUNC INT Info_Grd_6_EXIT_Condition()
 };
 
 FUNC VOID Info_Grd_6_EXIT_Info()
-{	
+{
 	AI_StopProcessInfos	(self);
 };
 
@@ -38,7 +38,7 @@ INSTANCE Info_Grd_6_EinerVonEuchWerden (C_INFO) // E1
 	information	= Info_Grd_6_EinerVonEuchWerden_Info;
 	permanent	= 1;
 	description = "D'you need an extra man?";
-};                       
+};
 
 FUNC INT Info_Grd_6_EinerVonEuchWerden_Condition()
 {
@@ -69,7 +69,7 @@ INSTANCE Info_Grd_6_WichtigePersonen(C_INFO)
 	information	= Info_Grd_6_WichtigePersonen_Info;
 	permanent	= 1;
 	description = "Who calls the shots around here?";
-};                       
+};
 
 FUNC INT Info_Grd_6_WichtigePersonen_Condition()
 {
@@ -95,10 +95,10 @@ INSTANCE Info_Grd_6_DasLager(C_INFO)
 	information	= Info_Grd_6_DasLager_Info;
 	permanent	= 1;
 	description = "I'm new here. How's things?";
-};                       
+};
 
 FUNC INT Info_Grd_6_DasLager_Condition()
-{	
+{
 	if (!C_NpcBelongsToOldCamp (other))
 	&& (!C_NpcBelongsToNewCamp (other))
 	&& (!C_NpcBelongsToPsiCamp (other))
@@ -144,7 +144,7 @@ INSTANCE Info_Grd_6_DieLage(C_INFO) // E1
 	information	= Info_Grd_6_DieLage_Info;
 	permanent	= 1;
 	description = "How's it going?";
-};                       
+};
 
 FUNC INT Info_Grd_6_DieLage_Condition()
 {
@@ -156,14 +156,14 @@ FUNC VOID Info_Grd_6_DieLage_Info()
 	AI_Output(other,self,"Info_Grd_6_DieLage_15_00"); //How's it going?
 	AI_Output(self,other,"Info_Grd_6_DieLage_06_01"); //You lookin' for trouble?
 };
-	
+
 // *************************************************************************
 // -------------------------------------------------------------------------
 
 FUNC VOID B_AssignAmbientInfos_GRD_6(var c_NPC slf)
 {
 	B_AssignFindNpc_OC(slf);
-	
+
 	Info_Grd_6_EXIT.npc					= Hlp_GetInstanceID(slf);
 	Info_Grd_6_EinerVonEuchWerden.npc	= Hlp_GetInstanceID(slf);
 	Info_Grd_6_WichtigePersonen.npc		= Hlp_GetInstanceID(slf);

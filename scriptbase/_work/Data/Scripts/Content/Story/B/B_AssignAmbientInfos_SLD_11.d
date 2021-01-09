@@ -15,7 +15,7 @@ INSTANCE Info_Sld_11_EXIT(C_INFO)
 	information	= Info_Sld_11_EXIT_Info;
 	permanent	= 1;
 	description = "END";
-};                       
+};
 
 FUNC INT Info_Sld_11_EXIT_Condition()
 {
@@ -23,7 +23,7 @@ FUNC INT Info_Sld_11_EXIT_Condition()
 };
 
 FUNC VOID Info_Sld_11_EXIT_Info()
-{	
+{
 	AI_StopProcessInfos	(self);
 };
 
@@ -38,7 +38,7 @@ INSTANCE Info_Sld_11_EinerVonEuchWerden (C_INFO) // E1
 	information	= Info_Sld_11_EinerVonEuchWerden_Info;
 	permanent	= 1;
 	description = "I want to become a mercenary for the mages.";
-};                       
+};
 
 FUNC INT Info_Sld_11_EinerVonEuchWerden_Condition()
 {
@@ -74,7 +74,7 @@ INSTANCE Info_Sld_11_WichtigePersonen(C_INFO)
 	information	= Info_Sld_11_WichtigePersonen_Info;
 	permanent	= 1;
 	description = "Who calls the shots around here?";
-};                       
+};
 
 FUNC INT Info_Sld_11_WichtigePersonen_Condition()
 {
@@ -103,7 +103,7 @@ INSTANCE Info_Sld_11_DasLager(C_INFO)
 	information	= Info_Sld_11_DasLager_Info;
 	permanent	= 1;
 	description = "Is there any trouble in this camp?";
-};                       
+};
 
 FUNC INT Info_Sld_11_DasLager_Condition()
 {
@@ -127,7 +127,7 @@ INSTANCE Info_Sld_11_DieLage(C_INFO) // E1
 	information	= Info_Sld_11_DieLage_Info;
 	permanent	= 1;
 	description = "You okay?";
-};                       
+};
 
 FUNC INT Info_Sld_11_DieLage_Condition()
 {
@@ -154,7 +154,7 @@ INSTANCE Info_Sld_11_Krautprobe (C_INFO) // E1
 	information	= Info_Sld_11_Krautprobe_Info;
 	permanent	= 1;
 	description = "D'you want some swampweed?";
-};                       
+};
 
 FUNC INT Info_Sld_11_Krautprobe_Condition()
 {
@@ -168,7 +168,7 @@ FUNC INT Info_Sld_11_Krautprobe_Condition()
 FUNC VOID Info_Sld_11_Krautprobe_Info()
 {
 	AI_Output(other,self,"Info_Sld_11_Krautprobe_15_00"); //D'you want some swampweed?
-	
+
 	if ( (Npc_HasItems(other,ItMiJoint_1)>0) || (Npc_HasItems(other,ItMiJoint_2)>0) || (Npc_HasItems(other,ItMiJoint_3)>0) )
 	{
 		if 		(Npc_HasItems(other,ItMiJoint_1))
@@ -177,10 +177,10 @@ FUNC VOID Info_Sld_11_Krautprobe_Info()
 		{	B_GiveInvItems(other,self,ItMiJoint_2,1);	 }
 		else if (Npc_HasItems(other,ItMiJoint_3))
 		{	B_GiveInvItems(other,self,ItMiJoint_3,1);	 };
-		
+
 		AI_Output(self,other,"Info_Sld_11_Krautprobe_11_01"); //Sure I do. Here's 10 Ore.
 		AI_Output(self,other,"Info_Sld_11_Krautprobe_11_02"); //If you get your hands on any more - you know...
-		
+
 		CreateInvItems(self,itminugget,10);
 		B_GiveInvItems(self,other,itminugget,10);
 		NC_Joints_verteilt = NC_Joints_verteilt + 1;
@@ -191,19 +191,19 @@ FUNC VOID Info_Sld_11_Krautprobe_Info()
 		AI_Output (self, other,"Info_Sld_11_Krautprobe_No_Joint_11_00"); //Get me some, then we'll talk.
 	};
 };
-	
+
 // *************************************************************************
 // -------------------------------------------------------------------------
 
 FUNC VOID B_AssignAmbientInfos_Sld_11(var c_NPC slf)
 {
 	B_AssignFindNpc_NC(slf);
-	
+
 	Info_Sld_11_EXIT.npc				= Hlp_GetInstanceID(slf);
 	Info_Sld_11_EinerVonEuchWerden.npc	= Hlp_GetInstanceID(slf);
 	Info_Sld_11_WichtigePersonen.npc	= Hlp_GetInstanceID(slf);
 	Info_Sld_11_DasLager.npc			= Hlp_GetInstanceID(slf);
 	Info_Sld_11_DieLage.npc				= Hlp_GetInstanceID(slf);
-	
+
 	Info_Sld_11_Krautprobe.npc			= Hlp_GetInstanceID(slf);
 };

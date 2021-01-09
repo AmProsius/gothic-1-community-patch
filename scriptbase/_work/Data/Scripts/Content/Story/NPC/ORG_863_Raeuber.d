@@ -1,12 +1,12 @@
 instance ORG_863_Raeuber (Npc_Default)
 {
 	//-------- primary data --------
-	
+
 	name =					Name_Raeuber;
 	Npctype =				NPCTYPE_ROGUE;
-	guild =					GIL_NONE;      
+	guild =					GIL_NONE;
 	level =					12;
-	
+
 	voice =					7;
 	id =					863;
 
@@ -24,24 +24,24 @@ instance ORG_863_Raeuber (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Relaxed.mds");
-	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
+	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin
 	Mdl_SetVisualBody (self,"hum_body_Naked0",0,3,"Hum_Head_FatBald", 6, 1, ORG_ARMOR_L);
-	
-	B_Scale (self);	
-	Mdl_SetModelFatness (self, 0);		
-	
-	fight_tactic	=	FAI_HUMAN_STRONG;			
-	
+
+	B_Scale (self);
+	Mdl_SetModelFatness (self, 0);
+
+	fight_tactic	=	FAI_HUMAN_STRONG;
+
 	//-------- Talente ----------
 
 	Npc_SetTalentSkill (self, NPC_TALENT_BOW,1);
 	Npc_SetTalentSkill (self, NPC_TALENT_1H,1);
-	
-				
-	
-	//-------- inventory --------   
-	                                 
-	CreateInvItems (self, ItKeLockpick,1);		
+
+
+
+	//-------- inventory --------
+
+	CreateInvItems (self, ItKeLockpick,1);
 	CreateInvItems(self, ItMiNugget, 12);
 	CreateInvItems (self, ItFoRice,7);
 	CreateInvItems (self, ItFoBooze, 1);
@@ -62,26 +62,26 @@ instance ORG_863_Raeuber (Npc_Default)
 
 FUNC VOID Rtn_start_863 ()
 {
-    TA_RoastScavenger		(13,00,14,00,"LOCATION_11_12");	
-    TA_RoastScavenger		(14,00,13,00,"LOCATION_11_12");	
+    TA_RoastScavenger		(13,00,14,00,"LOCATION_11_12");
+    TA_RoastScavenger		(14,00,13,00,"LOCATION_11_12");
 };
 
 FUNC VOID Rtn_OMFull_863 ()
 {
-	TA_RoastScavenger		(13,00,14,00,"LOCATION_11_12");	
-    TA_RoastScavenger		(14,00,13,00,"LOCATION_11_12");	
+	TA_RoastScavenger		(13,00,14,00,"LOCATION_11_12");
+    TA_RoastScavenger		(14,00,13,00,"LOCATION_11_12");
 };
 
-FUNC VOID Rtn_FMTaken_863 () 
+FUNC VOID Rtn_FMTaken_863 ()
 {
-	TA_RoastScavenger		(13,00,14,00,"LOCATION_11_12");	
-    TA_RoastScavenger		(14,00,13,00,"LOCATION_11_12");	
+	TA_RoastScavenger		(13,00,14,00,"LOCATION_11_12");
+    TA_RoastScavenger		(14,00,13,00,"LOCATION_11_12");
 };
 
-FUNC VOID Rtn_OrcAssault_863 () 
+FUNC VOID Rtn_OrcAssault_863 ()
 {
-	TA_RoastScavenger		(13,00,14,00,"LOCATION_11_12");	
-    TA_RoastScavenger		(14,00,13,00,"LOCATION_11_12");	
+	TA_RoastScavenger		(13,00,14,00,"LOCATION_11_12");
+    TA_RoastScavenger		(14,00,13,00,"LOCATION_11_12");
 };
 
 

@@ -1,5 +1,5 @@
 // **************************************************
-//						EXIT 
+//						EXIT
 // **************************************************
 
 instance  DIA_Darrion_Exit (C_INFO)
@@ -8,10 +8,10 @@ instance  DIA_Darrion_Exit (C_INFO)
 	nr			=  999;
 	condition	=  DIA_Darrion_Exit_Condition;
 	information	=  DIA_Darrion_Exit_Info;
-	important	=  0;	
+	important	=  0;
 	permanent	=  1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC int  DIA_Darrion_Exit_Condition()
 {
@@ -35,7 +35,7 @@ instance  DIA_Darrion_Hello (C_INFO)
 	information	= DIA_Darrion_Hello_Info;
 	permanent	= 0;
 	description	= "Hi - I'm new here and I'd like to get to know the Camp.";
-};                       
+};
 
 FUNC int  DIA_Darrion_Hello_Condition()
 {
@@ -47,7 +47,7 @@ FUNC VOID  DIA_Darrion_Hello_Info()
 	AI_Output (other, self,"DIA_Darrion_Hello_15_00"); //Hi - I'm new here and I'd like to get to know the Camp.
 	AI_Output (self, other,"DIA_Darrion_Hello_11_01"); //Then you've come to the wrong place. Since the templars started preparing for the fight, we've been busy day and night.
 	AI_Output (self, other,"DIA_Darrion_Hello_11_02"); //I don't have much time for questions. So don't disturb me - unless you want to buy something.
-	
+
 	Log_CreateTopic	(GE_TraderPSI,	LOG_NOTE);
 	B_LogEntry		(GE_TraderPSI,"The novice Darrion deals with WEAPONS. He spends most of his time in the smithy.");
 };
@@ -65,7 +65,7 @@ instance  DIA_Darrion_Trade (C_INFO)
 	permanent	= 1;
 	description	= "I'd like to trade with you!";
 	trade 		= 1;
-};                       
+};
 
 FUNC int  DIA_Darrion_Trade_Condition()
 {

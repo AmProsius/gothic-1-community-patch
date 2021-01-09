@@ -1,5 +1,5 @@
 // ************************************************************
-// 			  				   EXIT 
+// 			  				   EXIT
 // ************************************************************
 
 INSTANCE Info_ORG_829_EXIT (C_INFO)
@@ -10,7 +10,7 @@ INSTANCE Info_ORG_829_EXIT (C_INFO)
 	information	= Info_ORG_829_EXIT_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC INT Info_ORG_829_EXIT_Condition()
 {
@@ -18,7 +18,7 @@ FUNC INT Info_ORG_829_EXIT_Condition()
 };
 
 FUNC VOID Info_ORG_829_EXIT_Info()
-{	
+{
 	AI_StopProcessInfos	(self);
 };
 
@@ -34,7 +34,7 @@ INSTANCE Info_ORG_829_Hello (C_INFO)
 	information	= Info_ORG_829_Hello_Info;
 	permanent	= 0;
 	description	= "How are things?";
-};                       
+};
 
 FUNC INT Info_ORG_829_Hello_Condition()
 {
@@ -42,7 +42,7 @@ FUNC INT Info_ORG_829_Hello_Condition()
 };
 
 FUNC VOID Info_ORG_829_Hello_Info()
-{	
+{
 	AI_Output (other, self,"Info_ORG_829_Hello_15_00"); //How are things?
 	AI_Output (self, other,"Info_ORG_829_Hello_06_01"); //Not too bad, but I don't have anything to smoke.
 };
@@ -61,7 +61,7 @@ INSTANCE Info_ORG_829_OfferJoint (C_INFO)
 	information	= Info_ORG_829_OfferJoint_Info;
 	permanent	= 0;
 	description	= "I have swampweed - d'you want some?";
-};                       
+};
 
 FUNC INT Info_ORG_829_OfferJoint_Condition()
 {
@@ -72,9 +72,9 @@ FUNC INT Info_ORG_829_OfferJoint_Condition()
 };
 
 FUNC VOID Info_ORG_829_OfferJoint_Info()
-{	
+{
 	AI_Output (other, self,"Info_ORG_829_OfferJoint_15_00"); //I have swampweed - d'you want some?
-	
+
 	if ( (Npc_HasItems(other,ItMiJoint_1)>0) || (Npc_HasItems(other,ItMiJoint_2)>0) || (Npc_HasItems(other,ItMiJoint_3)>0) )
 	{
 		if 		(Npc_HasItems(other,ItMiJoint_1))
@@ -83,9 +83,9 @@ FUNC VOID Info_ORG_829_OfferJoint_Info()
 		{	B_GiveInvItems (other,self,ItMiJoint_2,1);	 }
 		else if (Npc_HasItems(other,ItMiJoint_3))
 		{	B_GiveInvItems (other,self,ItMiJoint_3,1);	 };
-		
+
 		AI_Output (self, other,"Info_ORG_829_OfferJoint_06_01"); //Sure! Are you one of the dealers from the Sect Camp or what?
-		
+
 		NC_Joints_verteilt = NC_Joints_verteilt + 1;
 	}
 	else
@@ -106,7 +106,7 @@ INSTANCE Info_ORG_829_SpecialInfo (C_INFO)
 	information	= Info_ORG_829_SpecialInfo_Info;
 	permanent	= 0;
 	description	= "I've just arrived - can you give me some advice?";
-};                       
+};
 
 FUNC INT Info_ORG_829_SpecialInfo_Condition()
 {
@@ -117,7 +117,7 @@ FUNC INT Info_ORG_829_SpecialInfo_Condition()
 };
 
 FUNC VOID Info_ORG_829_SpecialInfo_Info()
-{	
+{
 	AI_Output (other, self,"Info_ORG_829_SpecialInfo_15_00"); //I've just arrived - can you give me some advice?
 	AI_Output (self, other,"Info_ORG_829_SpecialInfo_06_01"); //Sure! When you reach the Camp, go to Gorn. He's one of the mages' mercenaries, but he's okay. He used to be one of us.
 	AI_Output (other, self,"Info_ORG_829_SpecialInfo_15_02"); //Who do you mean by 'us'?
@@ -136,7 +136,7 @@ INSTANCE Info_ORG_829_PERM (C_INFO)
 	information	= Info_ORG_829_PERM_Info;
 	permanent	= 1;
 	description	= "Do you know what I should expect in the Camp?";
-};                       
+};
 
 FUNC INT Info_ORG_829_PERM_Condition()
 {
@@ -147,7 +147,7 @@ FUNC INT Info_ORG_829_PERM_Condition()
 };
 
 FUNC VOID Info_ORG_829_PERM_Info()
-{	
+{
 	AI_Output (other, self,"Info_ORG_829_PERM_15_00"); //Do you know what I should expect in the Camp?
 	AI_Output (self, other,"Info_ORG_829_PERM_06_01"); //Just go in and find out.
 };

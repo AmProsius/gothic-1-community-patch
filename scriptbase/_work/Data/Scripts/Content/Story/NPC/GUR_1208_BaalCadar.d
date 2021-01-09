@@ -5,10 +5,10 @@ instance GUR_1208_BaalCadar (Npc_Default)
 	Npctype		=	NPCTYPE_MAIN;
 	guild		=	GIL_GUR;
 	level 		=	28;
-	
+
 	voice 		=	2;
 	id 			=	1208;
-		
+
 	///-------- abilities --------
 	attribute[ATR_STRENGTH] 		=	70;
 	attribute[ATR_DEXTERITY] 		=	55;
@@ -21,7 +21,7 @@ instance GUR_1208_BaalCadar (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Mage.mds");
-	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung	
+	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung
 	Mdl_SetVisualBody (self,"hum_body_Naked0", 1, 1 ,"Hum_Head_Psionic", 20,  1, GUR_ARMOR_M);
 
 	B_Scale (self);
@@ -35,7 +35,7 @@ instance GUR_1208_BaalCadar (Npc_Default)
 
 	B_Give_BaalCadarChapter1Runes ();
 	fight_tactic	=	FAI_HUMAN_MAGE;
-	
+
 	//-------------Daily Routine-------------
 	daily_routine = Rtn_start_1208;
 };

@@ -15,7 +15,7 @@ INSTANCE Info_Tpl_13_EXIT(C_INFO)
 	information	= Info_Tpl_13_EXIT_Info;
 	permanent	= 1;
 	description = "END";
-};                       
+};
 
 FUNC INT Info_Tpl_13_EXIT_Condition()
 {
@@ -23,7 +23,7 @@ FUNC INT Info_Tpl_13_EXIT_Condition()
 };
 
 FUNC VOID Info_Tpl_13_EXIT_Info()
-{	
+{
 	AI_StopProcessInfos	(self);
 };
 
@@ -38,7 +38,7 @@ INSTANCE Info_Tpl_13_EinerVonEuchWerden (C_INFO) // E1
 	information	= Info_Tpl_13_EinerVonEuchWerden_Info;
 	permanent	= 1;
 	description = "I want to become a templar like you.";
-};                       
+};
 
 FUNC INT Info_Tpl_13_EinerVonEuchWerden_Condition()
 {
@@ -70,7 +70,7 @@ INSTANCE Info_Tpl_13_WichtigePersonen(C_INFO)
 	information	= Info_Tpl_13_WichtigePersonen_Info;
 	permanent	= 1;
 	description = "Who calls the shots around here?";
-};                       
+};
 
 FUNC INT Info_Tpl_13_WichtigePersonen_Condition()
 {
@@ -94,11 +94,11 @@ INSTANCE Info_Tpl_13_DasLager(C_INFO)
 	information	= Info_Tpl_13_DasLager_Info;
 	permanent	= 1;
 	description = "I'd like to take a look inside the Sleeper's temple...";
-};                       
+};
 
 FUNC INT Info_Tpl_13_DasLager_Condition()
-{	
-	if (Kapitel <= 1) 
+{
+	if (Kapitel <= 1)
 	{
 		return 1;
 	};
@@ -120,10 +120,10 @@ INSTANCE Info_Tpl_13_DieLage(C_INFO) // E1
 	information	= Info_Tpl_13_DieLage_Info;
 	permanent	= 1;
 	description = "How's it going?";
-};                       
+};
 
 FUNC INT Info_Tpl_13_DieLage_Condition()
-{	
+{
 	if (!C_NpcBelongsToPsiCamp (other))
 	{
 		return 1;
@@ -136,14 +136,14 @@ FUNC VOID Info_Tpl_13_DieLage_Info()
 	AI_Output(other,self,"Info_Tpl_13_DieLage_15_02"); //Sounds pretty important...
 	AI_Output(self,other,"Info_Tpl_13_DieLage_13_03"); //You are an infidel. You do not understand.
 };
-	
+
 // *************************************************************************
 // -------------------------------------------------------------------------
 
 FUNC VOID B_AssignAmbientInfos_Tpl_13(var c_NPC slf)
 {
 	B_AssignFindNpc_ST(slf);
-	
+
 	Info_Tpl_13_EXIT.npc					= Hlp_GetInstanceID(slf);
 	Info_Tpl_13_EinerVonEuchWerden.npc	= Hlp_GetInstanceID(slf);
 	Info_Tpl_13_WichtigePersonen.npc		= Hlp_GetInstanceID(slf);

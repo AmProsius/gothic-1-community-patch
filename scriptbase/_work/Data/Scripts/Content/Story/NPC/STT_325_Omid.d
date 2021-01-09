@@ -5,11 +5,11 @@ instance STT_325_Omid (Npc_Default)
 	npctype 	=		NPCTYPE_AMBIENT;
 	guild 		=		GIL_VLK;
 	level 		=		3;
-	
-	
+
+
 	voice 		=		2;
 	id 			=		325;
-		
+
 	//-------- abilities --------
 	attribute[ATR_STRENGTH] 		=	20;
 	attribute[ATR_DEXTERITY] 		=	15;
@@ -26,23 +26,23 @@ instance STT_325_Omid (Npc_Default)
 
 	B_Scale (self);
 	Mdl_SetModelFatness(self,-1);
-    	
-    	self.aivar[AIV_IMPORTANT] = TRUE;
-	
-	fight_tactic	=	FAI_HUMAN_COWARD; 
 
-	//-------- Talente -------- 
+    	self.aivar[AIV_IMPORTANT] = TRUE;
+
+	fight_tactic	=	FAI_HUMAN_COWARD;
+
+	//-------- Talente --------
 
 	////Npc_SetTalentSkill (self, NPC_TALENT_BOW,1);
-	Npc_SetTalentSkill (self, NPC_TALENT_1H,1);	
-		
+	Npc_SetTalentSkill (self, NPC_TALENT_1H,1);
+
 	//-------- inventory --------
-	
+
 //	EquipItem	(self, ItMw_1H_Sword_Short_02);
-	
+
 	CreateInvItem	(self, ItFoApple);
-	
-	
+
+
 	//-------------Daily Routine-------------
 	daily_routine = Rtn_start_325;
 };

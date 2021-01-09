@@ -15,7 +15,7 @@
 func void ZS_SitAround ()
 {
 	PrintDebugNpc			(PD_TA_FRAME,	"ZS_SitAround");
-	
+
 	B_SetPerception			(self);
 
 	//-------- Grobpositionierung --------
@@ -31,7 +31,7 @@ func void ZS_SitAround ()
 func int ZS_SitAround_Loop ()
 {
 	PrintDebugNpc			(PD_TA_LOOP,"ZS_SitAround_Loop");
-	
+
 	//-------- Sitzgelegenheit suchen ! --------
 	if (!C_BodyStateContains(self, BS_SIT))
 	{
@@ -59,7 +59,7 @@ func int ZS_SitAround_Loop ()
 			PrintDebugNpc	(PD_TA_CHECK,	"...FP 'SIT' gefunden!");
 			AI_GotoFP	(self,	"SIT");
 			AI_AlignToFP( self );				//Richte Dich aus
-			AI_PlayAniBS	(self,	"T_STAND_2_SIT",	BS_SIT); 
+			AI_PlayAniBS	(self,	"T_STAND_2_SIT",	BS_SIT);
 			self.aivar		[AIV_HangAroundStatus] = 1;
 		}
 		else
@@ -75,11 +75,11 @@ func int ZS_SitAround_Loop ()
 	{
 		var int sitreaktion;
 		sitreaktion = Hlp_Random (100);
-		PrintDebugInt	(PD_TA_DETAIL, "...Zufallsani-Wurf: ", sitreaktion);		
+		PrintDebugInt	(PD_TA_DETAIL, "...Zufallsani-Wurf: ", sitreaktion);
 		if (sitreaktion >= 95)
 		{
 			B_Pee(self);
-		}			
+		}
 		else if (sitreaktion >= 90)
 		{
 			if (self.aivar[AIV_HangAroundStatus] == 3)
@@ -91,7 +91,7 @@ func int ZS_SitAround_Loop ()
 				AI_PlayAniBS (self, "R_BENCH_RANDOM_1",BS_SIT);
 			};
 		}
-		else if (sitreaktion >= 85)	
+		else if (sitreaktion >= 85)
 		{
 			if (self.aivar[AIV_HangAroundStatus] == 3)
 			{
@@ -102,7 +102,7 @@ func int ZS_SitAround_Loop ()
 				AI_PlayAniBS (self, "R_BENCH_RANDOM_2",BS_SIT);
 			};
 		}
-		else if (sitreaktion >= 80)	
+		else if (sitreaktion >= 80)
 		{
 			if (self.aivar[AIV_HangAroundStatus] == 3)
 			{
@@ -113,7 +113,7 @@ func int ZS_SitAround_Loop ()
 				AI_PlayAniBS (self, "R_BENCH_RANDOM_3",BS_SIT);
 			};
 		}
-		else if (sitreaktion >= 75)	
+		else if (sitreaktion >= 75)
 		{
 			if (self.aivar[AIV_HangAroundStatus] == 3)
 			{
@@ -125,7 +125,7 @@ func int ZS_SitAround_Loop ()
 			};
 		};
 	};
-	
+
 	AI_Wait			(self,	1);
 	return 			LOOP_CONTINUE;
 };
@@ -133,7 +133,7 @@ func int ZS_SitAround_Loop ()
 func void ZS_SitAround_End ()
 {
 	PrintDebugNpc (PD_TA_FRAME,"ZS_SitAround_End");
-	
+
 	if (self.aivar[AIV_HangAroundStatus] == 1)
 	{
 		AI_PlayAni (self, "T_SIT_2_STAND");

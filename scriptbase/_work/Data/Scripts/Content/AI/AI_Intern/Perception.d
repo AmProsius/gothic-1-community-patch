@@ -17,18 +17,18 @@ func void B_SETCUTSCENEPERCEPTIONS()
  	Npc_PercEnable   	(self,	PERC_ASSESSMAGIC  	,	B_AssessMagic    		);
 	Npc_PercEnable   	(self,	PERC_ASSESSTHREAT  	,	B_AssessFighter    	  	);
  	Npc_PercEnable   	(self,  PERC_ASSESSTHEFT  	,	B_AssessTheft     	 	);
-                                                                                
+
  	Npc_PercEnable   	(self, 	PERC_DRAWWEAPON   	,	B_AssessFighter		    );
-                                                                                
+
  	Npc_PercEnable   	(self,  PERC_ASSESSTALK   	,	B_AssessTalk      	 	);
  	Npc_PercEnable   	(self, 	PERC_ASSESSDAMAGE 	,	ZS_ReactToDamage   	  	);
  	Npc_PercEnable   	(self, 	PERC_CATCHTHIEF   	,	ZS_CatchThief    		);
 };
 
-// etc. 
+// etc.
 
 // Hier werden die Reichweiten der Wahrnehmungen eingestellt.
-// Nur passive machen Sinn, da die Reichweite der aktiven 
+// Nur passive machen Sinn, da die Reichweite der aktiven
 // durch den senses_range Wert festgelegt ist.
 FUNC VOID InitPerceptions()
 {
@@ -39,9 +39,9 @@ FUNC VOID InitPerceptions()
 	Perc_SetRange		(PERC_ASSESSTHREAT		, HAI_DIST_RANGED				);
 	Perc_SetRange		(PERC_ASSESSREMOVEWEAPON, PERC_DIST_MAX					);
 	Perc_SetRange		(PERC_OBSERVEINTRUDER	, HAI_DIST_OBSERVEINTRUDER		);
-	Perc_SetRange		(PERC_ASSESSFIGHTSOUND	, HAI_DIST_HELPATTACKEDCHARGES	);	//SN: siehe AI_CONSTANTS.D  	
+	Perc_SetRange		(PERC_ASSESSFIGHTSOUND	, HAI_DIST_HELPATTACKEDCHARGES	);	//SN: siehe AI_CONSTANTS.D
 	Perc_SetRange		(PERC_ASSESSQUIETSOUND	, PERC_DIST_INTERMEDIAT 		);	//MH: geändert, 500 macht NSCs/Monster zu schwach
-	Perc_SetRange		(PERC_ASSESSWARN		, 3000							); 
+	Perc_SetRange		(PERC_ASSESSWARN		, 3000							);
 	Perc_SetRange		(PERC_CATCHTHIEF		, HAI_DIST_CATCHTHIEF			);
 	Perc_SetRange		(PERC_ASSESSTHEFT		, HAI_DIST_ASSESSTHEFT			);
 	Perc_SetRange		(PERC_ASSESSCALL		, PERC_DIST_INTERMEDIAT			);
@@ -70,20 +70,20 @@ FUNC VOID InitPerceptions()
 func void GuardPerception ()
 {
 
-	//  Wahrnehmungen aktiv 
+	//  Wahrnehmungen aktiv
 	Npc_PercEnable  	(self, 	PERC_ASSESSENEMY		,	B_AssessEnemy				);
 	Npc_PercEnable  	(self, 	PERC_ASSESSPLAYER		,	B_AssessSC					);
 	Npc_PercEnable  	(self, 	PERC_ASSESSFIGHTER		,	B_AssessFighter				);
-	
+
 	// SN 24.09.00: auskommentiert, da die Wachen sonst ihren Posten verlassen !!!
 	//Npc_PercEnable  	(self,	PERC_ASSESSITEM			,	B_AssessItem 				);
-	
+
 	// * Wahrnehmungen passiv *
 	Npc_PercEnable  	(self,	PERC_ASSESSDAMAGE		,	ZS_ReactToDamage			);
 	Npc_PercEnable  	(self, 	PERC_ASSESSMAGIC		,	B_AssessMagic				);
 	Npc_PercEnable  	(self, 	PERC_ASSESSCASTER		,	B_AssessCaster	 			);
 	Npc_PercEnable  	(self, 	PERC_ASSESSTHREAT		,	B_AssessFighter				);
-	Npc_PercEnable  	(self,	PERC_DRAWWEAPON			, 	B_AssessFighter				);		
+	Npc_PercEnable  	(self,	PERC_DRAWWEAPON			, 	B_AssessFighter				);
 	Npc_PercEnable  	(self, 	PERC_ASSESSWARN			, 	B_AssessWarn 		 	 	);
 	Npc_PercEnable  	(self, 	PERC_ASSESSMURDER		,	ZS_AssessMurder				);
 	Npc_PercEnable  	(self, 	PERC_ASSESSDEFEAT		,	ZS_AssessDefeat				);
@@ -98,8 +98,8 @@ func void GuardPerception ()
 	Npc_PercEnable  	(self, 	PERC_ASSESSCALL			,	ZS_ReactToCall				);
 	Npc_PercEnable  	(self,	PERC_ASSESSUSEMOB		,	B_AssessUseMob 				);
 	Npc_PercEnable  	(self,	PERC_ASSESSENTERROOM	,	B_AssessEnterRoom			);
-	Npc_PercEnable  	(self, 	PERC_MOVEMOB			,	B_MoveMob				    );			
-	Npc_PercEnable  	(self, 	PERC_MOVENPC			,	B_MoveNpc				    );	
+	Npc_PercEnable  	(self, 	PERC_MOVEMOB			,	B_MoveMob				    );
+	Npc_PercEnable  	(self, 	PERC_MOVENPC			,	B_MoveNpc				    );
 
 	Npc_SetPercTime		(self,	0.5);
 };
@@ -114,12 +114,12 @@ func void GuardPerception ()
 func void ObservingPerception ()
 {
 
-	//  Wahrnehmungen aktiv 
+	//  Wahrnehmungen aktiv
 	Npc_PercEnable  	(self, 	PERC_ASSESSENEMY		,	B_AssessEnemy				);
 	Npc_PercEnable  	(self, 	PERC_ASSESSFIGHTER		,	B_AssessFighter				);
 	Npc_PercEnable  	(self, 	PERC_ASSESSPLAYER		,	B_AssessSC					);
 	//Npc_PercEnable  	(self,	PERC_ASSESSITEM			,	B_AssessItem 				);
-	
+
 	// * Wahrnehmungen passiv *
 	Npc_PercEnable  	(self,	PERC_ASSESSDAMAGE		,	ZS_ReactToDamage			);
 	Npc_PercEnable  	(self, 	PERC_ASSESSMAGIC		,	B_AssessMagic				);
@@ -128,7 +128,7 @@ func void ObservingPerception ()
 	Npc_PercEnable  	(self, 	PERC_ASSESSWARN			, 	B_AssessWarn 		 	 	);
 	Npc_PercEnable  	(self, 	PERC_ASSESSMURDER		,	ZS_AssessMurder				);
 	Npc_PercEnable  	(self, 	PERC_ASSESSDEFEAT		,	ZS_AssessDefeat				);
-	Npc_PercEnable  	(self,	PERC_DRAWWEAPON			, 	B_AssessFighter				);		
+	Npc_PercEnable  	(self,	PERC_DRAWWEAPON			, 	B_AssessFighter				);
 	Npc_PercEnable  	(self, 	PERC_ASSESSFIGHTSOUND	,	B_AssessFightSound			);
 	Npc_PercEnable  	(self, 	PERC_ASSESSQUIETSOUND	,	B_AssessQuietSound			); // erst mal raus, weil beklauen sonst unmöglich wird
 	Npc_PercEnable  	(self, 	PERC_CATCHTHIEF			,	ZS_CatchThief 				);
@@ -140,8 +140,8 @@ func void ObservingPerception ()
 	Npc_PercEnable  	(self, 	PERC_ASSESSCALL			,	ZS_ReactToCall				);
 	Npc_PercEnable  	(self,	PERC_ASSESSUSEMOB		,	B_AssessUseMob 				);
 	Npc_PercEnable  	(self,	PERC_ASSESSENTERROOM	,	B_AssessEnterRoom			);
-	Npc_PercEnable  	(self, 	PERC_MOVEMOB			,	B_MoveMob					);			
-	Npc_PercEnable  	(self, 	PERC_MOVENPC			,	B_MoveNpc					);		
+	Npc_PercEnable  	(self, 	PERC_MOVEMOB			,	B_MoveMob					);
+	Npc_PercEnable  	(self, 	PERC_MOVENPC			,	B_MoveNpc					);
 
 	Npc_SetPercTime		(self,	1);
 };
@@ -156,30 +156,30 @@ func void ObservingPerception ()
 //////////////////////////////////////////////////////////////////////////
 func void OccupiedPerception ()
 {
-	
-	//  Wahrnehmungen passiv 
-	Npc_PercEnable  	(self,	PERC_ASSESSDAMAGE  		,	ZS_ReactToDamage			);		
-	Npc_PercEnable  	(self,	PERC_ASSESSTHREAT		, 	B_AssessFighter				);		
-	Npc_PercEnable  	(self,	PERC_DRAWWEAPON			, 	B_AssessFighter				);		
-	Npc_PercEnable  	(self, 	PERC_ASSESSMAGIC		,	B_AssessMagic				);		
+
+	//  Wahrnehmungen passiv
+	Npc_PercEnable  	(self,	PERC_ASSESSDAMAGE  		,	ZS_ReactToDamage			);
+	Npc_PercEnable  	(self,	PERC_ASSESSTHREAT		, 	B_AssessFighter				);
+	Npc_PercEnable  	(self,	PERC_DRAWWEAPON			, 	B_AssessFighter				);
+	Npc_PercEnable  	(self, 	PERC_ASSESSMAGIC		,	B_AssessMagic				);
 	Npc_PercEnable  	(self, 	PERC_ASSESSCASTER		,	B_AssessCaster 				);
-//	Npc_PercEnable		(self,  PERC_ASSESSSTOPMAGIC	,   ZS_AssessStopMagic			); 
-	Npc_PercEnable  	(self,	PERC_ASSESSWARN			, 	B_AssessWarn 				);		
+//	Npc_PercEnable		(self,  PERC_ASSESSSTOPMAGIC	,   ZS_AssessStopMagic			);
+	Npc_PercEnable  	(self,	PERC_ASSESSWARN			, 	B_AssessWarn 				);
 	Npc_PercEnable  	(self, 	PERC_ASSESSMURDER		,	ZS_AssessMurder				);
 	Npc_PercEnable  	(self, 	PERC_ASSESSDEFEAT		,	ZS_AssessDefeat				);
 	Npc_PercEnable  	(self,	PERC_ASSESSFIGHTSOUND	,	B_AssessFightSound			);
 	Npc_PercEnable  	(self, 	PERC_ASSESSTHEFT		,	B_AssessTheft 				);
-	Npc_PercEnable  	(self,	PERC_CATCHTHIEF			,	ZS_CatchThief 				);		
-	//Npc_PercEnable  	(self, 	PERC_OBSERVEINTRUDER	,	B_OccupiedObserveIntruder	);	
+	Npc_PercEnable  	(self,	PERC_CATCHTHIEF			,	ZS_CatchThief 				);
+	//Npc_PercEnable  	(self, 	PERC_OBSERVEINTRUDER	,	B_OccupiedObserveIntruder	);
 	Npc_PercEnable  	(self, 	PERC_ASSESSSURPRISE		,	ZS_AssessSurprise			);
 	Npc_PercEnable  	(self, 	PERC_OBSERVESUSPECT		,	B_ObserveSuspect			);
-	Npc_PercEnable  	(self, 	PERC_ASSESSTALK			,	B_AssessTalk 				);		
-	Npc_PercEnable  	(self, 	PERC_ASSESSCALL			,	ZS_ReactToCall				);		
+	Npc_PercEnable  	(self, 	PERC_ASSESSTALK			,	B_AssessTalk 				);
+	Npc_PercEnable  	(self, 	PERC_ASSESSCALL			,	ZS_ReactToCall				);
 	Npc_PercEnable  	(self,	PERC_ASSESSUSEMOB		,	B_AssessUseMob 				);
 	Npc_PercEnable  	(self,	PERC_ASSESSENTERROOM	,	B_AssessEnterRoom			);
-	Npc_PercEnable      (self, 	PERC_MOVEMOB		    ,	B_MoveMob				    );			
-	Npc_PercEnable  	(self, 	PERC_MOVENPC			,	B_MoveNpc				    );	
-};	
+	Npc_PercEnable      (self, 	PERC_MOVEMOB		    ,	B_MoveMob				    );
+	Npc_PercEnable  	(self, 	PERC_MOVENPC			,	B_MoveNpc				    );
+};
 
 //////////////////////////////////////////////////////////////////////////
 //	DeepSleepPerception
@@ -189,15 +189,15 @@ func void OccupiedPerception ()
 //////////////////////////////////////////////////////////////////////////
 func void DeepSleepPerception ()
 {
-	//  Wahrnehmungen passiv 
-	Npc_PercEnable  	(self,	PERC_ASSESSDAMAGE  		,	ZS_ReactToDamage	);		
-	Npc_PercEnable  	(self,	PERC_OBSERVEINTRUDER	,	B_TossAndTurn		);		
-	Npc_PercEnable  	(self,	PERC_ASSESSFIGHTSOUND	,	B_TossAndTurn		);		
-	Npc_PercEnable  	(self,	PERC_ASSESSWARN			,	B_TossAndTurn 		);		
-	Npc_PercEnable  	(self, 	PERC_ASSESSTALK			,	B_TossAndTurn 		);		
-	Npc_PercEnable  	(self, 	PERC_ASSESSCALL			,	B_TossAndTurn		);	
-	Npc_PercEnable  	(self, 	PERC_ASSESSMAGIC		,	B_AssessMagic		);				
-};	
+	//  Wahrnehmungen passiv
+	Npc_PercEnable  	(self,	PERC_ASSESSDAMAGE  		,	ZS_ReactToDamage	);
+	Npc_PercEnable  	(self,	PERC_OBSERVEINTRUDER	,	B_TossAndTurn		);
+	Npc_PercEnable  	(self,	PERC_ASSESSFIGHTSOUND	,	B_TossAndTurn		);
+	Npc_PercEnable  	(self,	PERC_ASSESSWARN			,	B_TossAndTurn 		);
+	Npc_PercEnable  	(self, 	PERC_ASSESSTALK			,	B_TossAndTurn 		);
+	Npc_PercEnable  	(self, 	PERC_ASSESSCALL			,	B_TossAndTurn		);
+	Npc_PercEnable  	(self, 	PERC_ASSESSMAGIC		,	B_AssessMagic		);
+};
 
 //////////////////////////////////////////////////////////////////////////
 //	LightSleepPerception
@@ -207,16 +207,16 @@ func void DeepSleepPerception ()
 
 func void LightSleepPerception ()
 {
-	//  Wahrnehmungen passiv 
-	Npc_PercEnable  	(self,	PERC_ASSESSDAMAGE  		,	ZS_ReactToDamage	);		
-	Npc_PercEnable  	(self,	PERC_ASSESSWARN			,	ZS_WakeUp			);		
-	Npc_PercEnable  	(self,	PERC_ASSESSFIGHTSOUND	,	ZS_WakeUp			);		
-	Npc_PercEnable  	(self,	PERC_CATCHTHIEF			,	ZS_CatchThief 		);		
+	//  Wahrnehmungen passiv
+	Npc_PercEnable  	(self,	PERC_ASSESSDAMAGE  		,	ZS_ReactToDamage	);
+	Npc_PercEnable  	(self,	PERC_ASSESSWARN			,	ZS_WakeUp			);
+	Npc_PercEnable  	(self,	PERC_ASSESSFIGHTSOUND	,	ZS_WakeUp			);
+	Npc_PercEnable  	(self,	PERC_CATCHTHIEF			,	ZS_CatchThief 		);
 	Npc_PercEnable  	(self,	PERC_ASSESSQUIETSOUND	,	B_SleepQuietSound	);
-	Npc_PercEnable  	(self, 	PERC_ASSESSTALK			,	ZS_WakeUp 			);		
+	Npc_PercEnable  	(self, 	PERC_ASSESSTALK			,	ZS_WakeUp 			);
 	Npc_PercEnable  	(self, 	PERC_ASSESSCALL			,	ZS_WakeUp			);
-	Npc_PercEnable  	(self, 	PERC_ASSESSMAGIC		,	B_AssessMagic		);					
-};	
+	Npc_PercEnable  	(self, 	PERC_ASSESSMAGIC		,	B_AssessMagic		);
+};
 
 func void B_SetPerception (VAR C_NPC self)
 {
@@ -228,6 +228,6 @@ func void B_SetPerception (VAR C_NPC self)
 //	else
 //	{
 		ObservingPerception();
-//	};	
+//	};
 };
 

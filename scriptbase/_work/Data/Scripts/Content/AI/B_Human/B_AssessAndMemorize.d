@@ -23,7 +23,7 @@ FUNC VOID B_AssessAndMemorize(VAR INT newsid, VAR INT source, var C_NPC witness,
 // vict			:	Opfer
 {
 	PrintDebugNpc( PD_ZS_CHECK,"B_AssessAndMemorize");
-	
+
 	//SN: Auf Verdacht ein paar Checks...
 	if !C_NpcIsHuman(witness)
 	|| !C_NpcIsHuman(vict)
@@ -40,22 +40,22 @@ FUNC VOID B_AssessAndMemorize(VAR INT newsid, VAR INT source, var C_NPC witness,
 	var int offenderTrueguild;								// Initialisierung der offenderTrueguild Var
 	var int witnessguild;								// Initialisierung der witnessguild Var
 	var int offenderguild;								// Initialisierung der offenderguild Var
-	
-	victimguild 		= Npc_GetTrueGuild ( vict); 			// Zuweisung der Gilde des Übergebenen Vict 
-	offenderTrueGuild 	= Npc_GetTrueGuild ( offender); 		// Zuweisung der Gilde des Übergebenen Offender 
-	witnessguild 		= Npc_GetTrueGuild ( witness); 			// Zuweisung der Gilde des Übergebenen witness 
+
+	victimguild 		= Npc_GetTrueGuild ( vict); 			// Zuweisung der Gilde des Übergebenen Vict
+	offenderTrueGuild 	= Npc_GetTrueGuild ( offender); 		// Zuweisung der Gilde des Übergebenen Offender
+	witnessguild 		= Npc_GetTrueGuild ( witness); 			// Zuweisung der Gilde des Übergebenen witness
 	offenderguild 		= offender.guild;
 	//------------------------------------------------------------------------------------------
 	if (newsid == NEWS_MURDER)
 	{
 		PrintDebugNpc( PD_ZS_CHECK,"...AssessAndMemMurder");
-		Npc_MemoryEntry (witness,source,offender,newsid,vict ); // Und News merken hier sollte eigentlich Gilde als Opfer, es ist aber  
-															 //	möglich, in anderen Zuständen als member von C_Npc auf die Gilde 
+		Npc_MemoryEntry (witness,source,offender,newsid,vict ); // Und News merken hier sollte eigentlich Gilde als Opfer, es ist aber
+															 //	möglich, in anderen Zuständen als member von C_Npc auf die Gilde
 															 //	des Nsc zuzugreifen
 		if (Wld_GetGuildAttitude (witnessguild, victimguild) == ATT_FRIENDLY)
 		{
 			PrintDebugNpc( PD_ZS_CHECK,"...AssessAndMemMurder Knows Player // friendly victim");
-			if (Npc_IsPlayer (offender)) 
+			if (Npc_IsPlayer (offender))
 			{
 				PrintDebugNpc( PD_ZS_CHECK,"...AssessAndMemMurder Knows Player // friendly victim // Player attacks");
 				if (Npc_GetPermAttitude (witness,offender) == ATT_ANGRY)
@@ -70,17 +70,17 @@ FUNC VOID B_AssessAndMemorize(VAR INT newsid, VAR INT source, var C_NPC witness,
 				};
 			};
 		};
-		
+
 	}
 	//-----------------Theft-News--------------------------------------------------------------
 	else if (newsid == NEWS_THEFT)
 	{
 		PrintDebugNpc( PD_ZS_CHECK,"...AssessAndMemTheft");
 		// Bin ich das Opfer ?
-		
+
 		var int ownerguild ;
 		ownerguild = item.ownerguild;
-		if (!Hlp_IsValidItem	(item)) 		
+		if (!Hlp_IsValidItem	(item))
 		{
 			if (B_CompareNpcInstance ( witness,vict ))
 			{
@@ -102,7 +102,7 @@ FUNC VOID B_AssessAndMemorize(VAR INT newsid, VAR INT source, var C_NPC witness,
 				};
 			};
 		}
-		else 
+		else
 		{
 			PrintDebugNpc( PD_ZS_CHECK,"...AssessAndMemTheft Someone stole another something");
 			if (((Wld_GetGuildAttitude(witnessguild, ownerguild) == ATT_FRIENDLY) ||( witnessguild == ownerguild)) && (ownerguild != offenderguild))
@@ -120,14 +120,14 @@ FUNC VOID B_AssessAndMemorize(VAR INT newsid, VAR INT source, var C_NPC witness,
 			};
 		};
 	}
-	
+
 	//----------------------------------------------------------------------------------------------
 	else if (newsid == NEWS_DEFEAT)
 	{
 		PrintDebugNpc( PD_ZS_CHECK,"...NEWS_DEFEAT");
 		// Jp: alte abfrage raus, weil sie doppelt war
 		//if (Npc_IsPlayer	( offender) || Npc_IsPlayer	( vict))
-		
+
 		Npc_MemoryEntry (witness,source,offender,newsid,vict);
 		if (Npc_IsPlayer (offender) )
 		{
@@ -142,7 +142,7 @@ FUNC VOID B_AssessAndMemorize(VAR INT newsid, VAR INT source, var C_NPC witness,
 					PrintDebugNpc( PD_ZS_CHECK,"...permANGRY zum Sieger und weder Buddler, noch Novize, noch Bauer!");
 					Npc_SetTempAttitude (witness,ATT_HOSTILE);
 				}
-				else if (Npc_GetTempAttitude (witness,offender) == ATT_ANGRY && (C_NpcIsWorker	( self))) 
+				else if (Npc_GetTempAttitude (witness,offender) == ATT_ANGRY && (C_NpcIsWorker	( self)))
 				{
 					PrintDebugNpc( PD_ZS_CHECK,"...AssessAndMemDefeat Player (Angry) is offender victim is my guild or friendly but I,m unimportant guild");
 					// Hier evtl noch einen Aufruf hin, der den ZS_AlarmAll startet
@@ -167,7 +167,7 @@ FUNC VOID B_AssessAndMemorize(VAR INT newsid, VAR INT source, var C_NPC witness,
 					PrintDebugNpc( PD_ZS_CHECK,"...AssessAndMemDefeat Player is offender victim is me ( mage guild)");
 					Npc_SetTempAttitude (witness, ATT_HOSTILE);
 				}
-				else 
+				else
 				{
 					PrintDebugNpc( PD_ZS_CHECK,"...AssessAndMemDefeat Player is offender victim is me ( other guild)");
 					if (Npc_GetTempAttitude (witness, offender) != ATT_HOSTILE )
@@ -179,7 +179,7 @@ FUNC VOID B_AssessAndMemorize(VAR INT newsid, VAR INT source, var C_NPC witness,
 			};
 		}
 		// JP: kein defeat mehr als Wiedergutmachung, aber wenn nur Temp Hostile wird die runtergesetzt, da man sonst nach dem Aufwachen direkt wieder niedergeknüppelt wird
-		
+
 		else if (Npc_IsPlayer	( vict))
 		{
 			if ( Npc_GetTempAttitude	( witness, vict) == ATT_HOSTILE)

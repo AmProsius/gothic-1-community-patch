@@ -3,16 +3,16 @@
 func void B_GuardItemsAssessTheft ()
 {
 	PrintDebugNpc( PD_ZS_CHECK, "B_GuardItemsAssessTheft");
-	
+
 	if ( Npc_IsPlayer(other) )
 	{
 		if (Hlp_IsValidItem(item) && !Hlp_IsValidNpc(victim)) // KEIN TASCHENDIEBSTAHL
 		{
 			if (Npc_CanSeeNpcFreeLOS(self, other))
-			{	
+			{
 				B_SayOverlay(self,other,"$HANDSOFF");
 				Npc_SendPassivePerc	(self, 	PERC_ASSESSWARN, self,	other);
-								
+
 				if (C_AmIStronger(self, other))
 				{
 					//if (Npc_GetAttitude(self,other)==ATT_ANGRY)
@@ -33,24 +33,24 @@ func void B_GuardItemsAssessTheft ()
 func void B_AssessTheft ()
 // 8.5.00 Inklusive Gildenbesitzflag umgesetzt
 {
-	
+
 	// MH: Itemschweine behmen IMMER DIEBSTAHL AN (wenn nicht Taschendiebstahl)
 	if (self.aivar[AIV_ITEMSCHWEIN] == TRUE)
 	{
 		B_GuardItemsAssessTheft();
 	};
-	
-	
+
+
 	PrintDebugNpc( PD_ZS_CHECK, "B_AssessTheft");
-	
+
 	var int other_guild;
 	var int self_guild;
 	var int item_ownerguild;
-	
+
 	other_guild 		=	other.guild;
-	self_guild			=	self.guild ;	
+	self_guild			=	self.guild ;
 	// JP: Es gibt keinen Diebstahl von Nsc¥s, nur das Aufheben von Items verursacht eine Theft-Wn, die hierdurch abgefangen wird und auﬂerdem verhindert, daﬂ zwei Leute ein Item aufheben
-	
+
 	if (!Npc_IsPlayer	( other))
 	{
 		PrintDebugNpc( PD_ZS_CHECK, "...anderer Nsc hat ein Item aufgehoben");
@@ -58,9 +58,9 @@ func void B_AssessTheft ()
 	};
 	AI_Quicklook	( self, other);
 	if (Npc_CanSeeNpc/*FreeLOS*/ 	( self, other))
-	{	
+	{
 		PrintDebugNpc( PD_ZS_CHECK, "...NSC kann den Dieb sehen!");
-		if (Hlp_IsValidItem(item) && !Hlp_IsValidNpc(victim)) 
+		if (Hlp_IsValidItem(item) && !Hlp_IsValidNpc(victim))
 		{
 			PrintDebugNpc			(PD_ZS_CHECK, "...Item wurde aufgehoben!");
 			item_ownerguild		= 	item.ownerguild;
@@ -90,7 +90,7 @@ func void B_AssessTheft ()
 					Npc_PerceiveAll		( self);
 					if (!Wld_DetectNpc 	( self, -1, ZS_GetBackItem ,-1))
 					{
-						AI_StartState		( self, ZS_GetBackItem, 0, ""); 
+						AI_StartState		( self, ZS_GetBackItem, 0, "");
 					}
 					else
 					{
@@ -112,13 +112,13 @@ func void B_AssessTheft ()
 			if  C_NpcIsHuman(victim)
 			&&	!C_NpcIsDown(victim)
 			&&	(Wld_GetGuildAttitude(self.guild, victim.guild )==ATT_FRIENDLY || Wld_GetGuildAttitude(self.guild, victim.guild )==ATT_NEUTRAL || Npc_GetPermAttitude (self,other)==ATT_ANGRY)
-			{	
+			{
 				PrintDebugNpc		(PD_ZS_CHECK, "...Opfer FRIENDLY/NEUTRAL oder Dieb ANGRY");
 				B_FullStop			(self);
 				C_LookAtNpc 		(self, other);
 				AI_PointAtNpc 		(self, other);
 				B_Say 				(self, other, "$BEHINDYOU");
-				B_AssessAndMemorize	(NEWS_THEFT, NEWS_SOURCE_WITNESS, self, other, victim); 
+				B_AssessAndMemorize	(NEWS_THEFT, NEWS_SOURCE_WITNESS, self, other, victim);
 				AI_StopPointAt 		(self);
 				Npc_SendPassivePerc (self, PERC_ASSESSWARN, victim, other); // Im Auge behalten, ob SinglePerc reicht um den Dieb durch Bewegung (CAtchThief in AssessWarn) den Dieb mitzubekommen
 				AI_StartState 		(self, ZS_ObservePerson, 0, "");

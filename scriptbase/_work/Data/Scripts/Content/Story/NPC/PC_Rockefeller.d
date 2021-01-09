@@ -8,7 +8,7 @@ INSTANCE PC_Rockefeller(NPC_DEFAULT)
 	level			= 30;
 	voice			= 15;
 	id				= 0;
-	
+
 	//--------- abilities --------
 	attribute[ATR_STRENGTH] =		100;
 	attribute[ATR_DEXTERITY] =		100;
@@ -23,16 +23,16 @@ INSTANCE PC_Rockefeller(NPC_DEFAULT)
 	//						Body-Mesh			Body-Tex	Skin-Color	Head-MMS    		Head-Tex	Teeth-Tex 	Armor-Tex
 	Mdl_SetVisualBody (self,"hum_body_Naked0",	4,			1,			"Hum_Head_Pony",	9, 			0,			EBR_ARMOR_H2);
 
-	Npc_SetTalentSkill		( self, NPC_TALENT_PICKPOCKET,1);Npc_SetTalentValue(self,NPC_TALENT_PICKPOCKET,60); 
-	Npc_SetTalentSkill		( self, NPC_TALENT_SNEAK,	1);	
-	Npc_SetTalentSkill		( self, NPC_TALENT_PICKLOCK,	1);Npc_SetTalentValue(self,NPC_TALENT_PICKLOCK,60); 
+	Npc_SetTalentSkill		( self, NPC_TALENT_PICKPOCKET,1);Npc_SetTalentValue(self,NPC_TALENT_PICKPOCKET,60);
+	Npc_SetTalentSkill		( self, NPC_TALENT_SNEAK,	1);
+	Npc_SetTalentSkill		( self, NPC_TALENT_PICKLOCK,	1);Npc_SetTalentValue(self,NPC_TALENT_PICKLOCK,60);
 	Npc_SetTalentSkill		( self, NPC_TALENT_MAGE,		6);
-	
+
 	Npc_SetTalentSkill    (self, NPC_TALENT_1H,2);
 	Npc_SetTalentSkill	(self, NPC_TALENT_2H,2);
 	Npc_SetTalentSkill	(self, NPC_TALENT_BOW,1);
 	Npc_SetTalentSkill	(self, NPC_TALENT_CROSSBOW,1);
-	
+
 	//-------- inventory --------
 
 //----------------------------------------
@@ -80,7 +80,7 @@ INSTANCE PC_Rockefeller(NPC_DEFAULT)
 //	////CreateInvItems(self,ItArSpeedPotion,5);
 
 
-//Magic Runes	
+//Magic Runes
 	CreateInvItem(self,ItArRuneLight);
 	CreateInvItem(self,ItArRuneFirebolt);
 	CreateInvItem(self,ItArRuneFireball);
@@ -102,7 +102,7 @@ INSTANCE PC_Rockefeller(NPC_DEFAULT)
 
 	CreateInvItem(self,ItArRuneDestroyUndead);
 
-//Magic Scrolls	
+//Magic Scrolls
 	CreateInvItems(self,ItArScrollTrfBloodfly,	10);
 	CreateInvItems(self,ItArScrollTrfCrawler,	10);
 	CreateInvItems(self,ItArScrollTrfLurker,	10);
@@ -148,7 +148,7 @@ INSTANCE PC_Rockefeller(NPC_DEFAULT)
 //----------------------------------------
 //Food.d
 //----------------------------------------
-	CreateInvItems(self,ItFo_mutton_01,20);	
+	CreateInvItems(self,ItFo_mutton_01,20);
 	CreateInvItems(self,ItFoApple,5);
 	CreateInvItems(self,ItFoLoaf,5);
 	CreateInvItems(self,ItFoMutton,10);
@@ -162,7 +162,7 @@ INSTANCE PC_Rockefeller(NPC_DEFAULT)
 	CreateInvItems(self,ItFoWine,5);
 	CreateInvItems(self,ItFo_wineberrys_01,5);
 	CreateInvItems(self,ItFoBeer,5);
-	
+
 //PFLANZEN
 	CreateInvItems(self,ItFo_Plants_Trollberrys_01,5);
 	CreateInvItems(self,ItFo_Plants_Flameberry_01,5);
@@ -188,7 +188,7 @@ INSTANCE PC_Rockefeller(NPC_DEFAULT)
 	CreateInvItems(self,ItFo_Plants_Herb_01,5);
 	CreateInvItems(self,ItMi_Plants_Swampherb_01,5);
 
-	
+
 //----------------------------------------
 //MISC //Schlüssel
 //----------------------------------------
@@ -209,7 +209,7 @@ INSTANCE PC_Rockefeller(NPC_DEFAULT)
 	CreateInvItems(self,ItMiScoop,5);
 	//CreateInvItems(self,ItMiTeleportstone,5);
 	CreateInvItems(self,ItMiNugget,1000);
-	
+
 	//CreateInvItem(self,ItMiDrumstick);
 	CreateInvItem(self,ItMiAlarmhorn);
 	//CreateInvItem(self,ItMiSleepersword );
@@ -268,16 +268,16 @@ INSTANCE PC_Rockefeller(NPC_DEFAULT)
 	CreateInvItem(self,ItRw_Crossbow_04);
 
 	//Orc
-//	CreateInvItem(self,ItRwOrcstaff ); 
-	
-	
-	
+//	CreateInvItem(self,ItRwOrcstaff );
+
+
+
 //----------------------------------------
 //Ammunition.d
 //----------------------------------------
 	CreateInvItems(self,ItAmArrow,50);
 	CreateInvItems(self,ItAmBolt,50);
-	
+
 
 //----------------------------------------
 //Written.d
@@ -315,12 +315,12 @@ INSTANCE PC_Rockefeller(NPC_DEFAULT)
 	CreateInvItem(self,ItWr_Book_Circle_04);
 	CreateInvItem(self,ItWr_Book_Circle_05);
 	CreateInvItem(self,ItWr_Book_Circle_06);
-	
+
 //----------------------------------------
 //Melee_weapons.d
 //----------------------------------------
 	CreateInvItem(self,ItMw_1H_Club_01);
-	CreateInvItem(self,ItMw_1H_Poker_01);	
+	CreateInvItem(self,ItMw_1H_Poker_01);
 	CreateInvItem(self,ItMw_1H_Sickle_01);
 	CreateInvItem(self,ItMw_1H_Mace_Light_01);
 	CreateInvItem(self,ItMw_1H_Sledgehammer_01);
@@ -401,7 +401,7 @@ INSTANCE PC_Rockefeller(NPC_DEFAULT)
 	CreateInvItem(self,ItMw2hOrcAxe04);
 	CreateInvItem(self,ItMw2hOrcMace01);
 
-//-----------------------------------------------------------	
+//-----------------------------------------------------------
 //Amulette
 //-----------------------------------------------------------
 	CreateInvItem(self,ItMi_Amulet_Psi_01);
@@ -422,7 +422,7 @@ INSTANCE PC_Rockefeller(NPC_DEFAULT)
 	CreateInvItem(self,Amulett_der_Erleuchtung);
 	//CreateInvItem(self,Beschwörungsamulett);
 
-//------------------------------------------------------------	
+//------------------------------------------------------------
 //Ringe
 //------------------------------------------------------------
 	CreateInvItem(self,Schutzring_Feuer1);
@@ -477,28 +477,28 @@ INSTANCE PC_Rockefeller(NPC_DEFAULT)
 	CreateInvItem(self,ItFo_Potion_Master_02);
 	CreateInvItem(self,ItFo_Potion_Water_01);
 	CreateInvItem(self,ItFo_Potion_Haste_01);
-	
+
 //---------------------------------------------------------------------
 // Animaltropy
-//---------------------------------------------------------------------	
+//---------------------------------------------------------------------
 	CreateInvItems(self,ItAt_Teeth_01,5);
-	CreateInvItems(self,ItAt_Wolf_01,5);	
-	CreateInvItems(self,ItAt_Wolf_02,5);	
-	CreateInvItems(self,ItAt_Waran_01,5);	
-	CreateInvItems(self,ItAt_Claws_01,5);	
-	CreateInvItems(self,ItAt_Crawler_02,5);	
-	CreateInvItems(self,ItAt_Crawler_01,5);	
-	CreateInvItems(self,ItAt_Shadow_01,5);	
-	CreateInvItems(self,ItAt_Shadow_02,5);	
-	CreateInvItems(self,ItAt_Lurker_01,5);	
-	CreateInvItems(self,ItAt_Lurker_02,5);	
-	CreateInvItems(self,ItAt_Troll_02,5);	
-	CreateInvItems(self,ItAt_Troll_01,5);	
-	CreateInvItems(self,ItAt_Swampshark_02,5);	
-	CreateInvItems(self,ItAt_Swampshark_01,5);	
-	CreateInvItems(self,ItAt_Bloodfly_02,5);	
-	CreateInvItems(self,ItAt_Bloodfly_01,5);	
-	CreateInvItems(self,ItAt_Meatbug_01,5);	
+	CreateInvItems(self,ItAt_Wolf_01,5);
+	CreateInvItems(self,ItAt_Wolf_02,5);
+	CreateInvItems(self,ItAt_Waran_01,5);
+	CreateInvItems(self,ItAt_Claws_01,5);
+	CreateInvItems(self,ItAt_Crawler_02,5);
+	CreateInvItems(self,ItAt_Crawler_01,5);
+	CreateInvItems(self,ItAt_Shadow_01,5);
+	CreateInvItems(self,ItAt_Shadow_02,5);
+	CreateInvItems(self,ItAt_Lurker_01,5);
+	CreateInvItems(self,ItAt_Lurker_02,5);
+	CreateInvItems(self,ItAt_Troll_02,5);
+	CreateInvItems(self,ItAt_Troll_01,5);
+	CreateInvItems(self,ItAt_Swampshark_02,5);
+	CreateInvItems(self,ItAt_Swampshark_01,5);
+	CreateInvItems(self,ItAt_Bloodfly_02,5);
+	CreateInvItems(self,ItAt_Bloodfly_01,5);
+	CreateInvItems(self,ItAt_Meatbug_01,5);
 
 };
 

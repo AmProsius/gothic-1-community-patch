@@ -10,7 +10,7 @@ INSTANCE Info_GRD_275_PreExit (C_INFO)
 	information	= Info_GRD_275_PreExit_Info;
 	permanent	= 0;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC INT Info_GRD_275_PreExit_Condition()
 {
@@ -36,7 +36,7 @@ INSTANCE Info_GRD_275_Exit (C_INFO)
 	information	= Info_GRD_275_Exit_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC INT Info_GRD_275_Exit_Condition()
 {
@@ -63,7 +63,7 @@ INSTANCE Info_GRD_275_WasMachtIhrHier (C_INFO)
 	information	= Info_GRD_275_WasMachtIhrHier_Info;
 	permanent	= 1;
 	description = "What are you doing here?";
-};                       
+};
 
 FUNC INT Info_GRD_275_WasMachtIhrHier_Condition()
 {
@@ -89,7 +89,7 @@ INSTANCE Info_GRD_275_Tips(C_INFO)
 	information	= Info_GRD_275_Tips_Info;
 	permanent	= 1;
 	description = "Have you got any advice for me?";
-};                       
+};
 
 FUNC INT Info_GRD_275_Tips_Condition()
 {

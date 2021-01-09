@@ -15,7 +15,7 @@ INSTANCE Info_Mine_Vlk_4_EXIT(C_INFO)
 	information	= Info_Mine_Vlk_4_EXIT_Info;
 	permanent	= 1;
 	description = "END";
-};                       
+};
 
 FUNC INT Info_Mine_Vlk_4_EXIT_Condition()
 {
@@ -23,7 +23,7 @@ FUNC INT Info_Mine_Vlk_4_EXIT_Condition()
 };
 
 FUNC VOID Info_Mine_Vlk_4_EXIT_Info()
-{	
+{
 	AI_StopProcessInfos	(self);
 };
 
@@ -38,7 +38,7 @@ INSTANCE Info_Mine_Vlk_4_Mine (C_INFO) // E1
 	information	= Info_Mine_Vlk_4_Mine_Info;
 	permanent	= 1;
 	description = "Tell me about the mine.";
-};                       
+};
 
 FUNC INT Info_Mine_Vlk_4_Mine_Condition()
 {
@@ -66,7 +66,7 @@ INSTANCE Info_Mine_Vlk_4_WichtigePersonen(C_INFO)
 	information	= Info_Mine_Vlk_4_WichtigePersonen_Info;
 	permanent	= 1;
 	description = "Who's in charge here?";
-};                       
+};
 
 FUNC INT Info_Mine_Vlk_4_WichtigePersonen_Condition()
 {
@@ -93,7 +93,7 @@ INSTANCE Info_Mine_Vlk_4_Minecrawler(C_INFO)
 	information	= Info_Mine_Vlk_4_Minecrawler_Info;
 	permanent	= 1;
 	description = "What do you know about minecrawlers?";
-};                       
+};
 
 FUNC INT Info_Mine_Vlk_4_Minecrawler_Condition()
 {
@@ -107,7 +107,7 @@ FUNC VOID Info_Mine_Vlk_4_Minecrawler_Info()
 {
 	AI_Output(other,self,"Info_Mine_Vlk_4_Minecrawler_15_00"); //What do you know about minecrawlers?
 	AI_Output(self,other,"Info_Mine_Vlk_4_Minecrawler_01_01"); //If you see one of them crawler scum, whack it between the eyes with your pickaxe. But you have to take good aim, you won't get no second chance.
-	
+
 };
 
 // *************************************************************************
@@ -121,7 +121,7 @@ INSTANCE Info_Mine_Vlk_4_DieLage(C_INFO) // E1
 	information	= Info_Mine_Vlk_4_DieLage_Info;
 	permanent	= 1;
 	description = "How are you?";
-};                       
+};
 
 FUNC INT Info_Mine_Vlk_4_DieLage_Condition()
 {
@@ -136,14 +136,14 @@ FUNC VOID Info_Mine_Vlk_4_DieLage_Info()
 	AI_Output(other,self,"Info_Mine_Vlk_4_DieLage_15_00"); //How are you?
 	AI_Output(self,other,"Info_Mine_Vlk_4_DieLage_01_01"); //I've been better.
 };
-	
+
 // *************************************************************************
 // -------------------------------------------------------------------------
 
 FUNC VOID B_AssignAmbientInfos_Mine_Vlk_4(var c_NPC slf)
 {
-	
-	
+
+
 	Info_Mine_Vlk_4_EXIT.npc					= Hlp_GetInstanceID(slf);
 	Info_Mine_Vlk_4_Minecrawler.npc				= Hlp_GetInstanceID(slf);
 	Info_Mine_Vlk_4_Mine.npc					= Hlp_GetInstanceID(slf);

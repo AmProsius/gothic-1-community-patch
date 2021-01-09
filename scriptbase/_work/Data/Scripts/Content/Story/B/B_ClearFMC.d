@@ -36,13 +36,13 @@ func void B_ClearFMC()
 	B_KillNpc	(SFB_1042_Schuerfer);
 	B_KillNpc	(SFB_1043_Schuerfer);
 	B_KillNpc	(SFB_1044_Schuerfer);
-		
-	//-------- Organisatoren --------		
+
+	//-------- Organisatoren --------
 	B_KillNpc	(ORG_890_Organisator);
 	B_KillNpc	(ORG_891_Organisator);
 	B_KillNpc	(ORG_892_Organisator);
-		
+
 	//-------- Gardisten --------
-	Wld_InsertNpc	( Grd_283_Gardist, "FMC_ENTRANCE" );//FMC-Guard(Mineneingang)			
-	Wld_InsertNpc	( Grd_285_Gardist, "FMC_ENTRANCE" );//FMC-Guard(Mineneingang)	
+	Wld_InsertNpc	( Grd_283_Gardist, "FMC_ENTRANCE" );//FMC-Guard(Mineneingang)
+	Wld_InsertNpc	( Grd_285_Gardist, "FMC_ENTRANCE" );//FMC-Guard(Mineneingang)
 };

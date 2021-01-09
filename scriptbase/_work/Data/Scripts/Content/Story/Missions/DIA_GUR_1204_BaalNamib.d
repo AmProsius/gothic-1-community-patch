@@ -1,5 +1,5 @@
 // ************************************************************
-// 							EXIT 
+// 							EXIT
 // ************************************************************
 
 INSTANCE DIA_BaalNamib_EXIT(C_INFO)
@@ -10,7 +10,7 @@ INSTANCE DIA_BaalNamib_EXIT(C_INFO)
 	information		= DIA_BaalNamib_EXIT_Info;
 	permanent		= 1;
 	description 	= DIALOG_ENDE;
-};                       
+};
 
 FUNC INT DIA_BaalNamib_EXIT_Condition()
 {
@@ -18,12 +18,12 @@ FUNC INT DIA_BaalNamib_EXIT_Condition()
 };
 
 FUNC VOID DIA_BaalNamib_EXIT_Info()
-{	
+{
 	AI_StopProcessInfos	(self);
 };
 
 // ************************************************************
-// 					NICHT ansprechbar (Ungläubiger) 
+// 					NICHT ansprechbar (Ungläubiger)
 // ************************************************************
 // ************************************************************
 
@@ -35,7 +35,7 @@ INSTANCE DIA_BaalNamib_NoTalk(C_INFO)
 	information		= DIA_BaalNamib_NoTalk_Info;
 	permanent		= 1;
 	important 		= 1;
-};                       
+};
 
 FUNC INT DIA_BaalNamib_NoTalk_Condition()
 {
@@ -46,7 +46,7 @@ FUNC INT DIA_BaalNamib_NoTalk_Condition()
 };
 
 FUNC VOID DIA_BaalNamib_NoTalk_Info()
-{	
+{
 	Info_ClearChoices 	(DIA_BaalNamib_NoTalk);
 	Info_Addchoice 		(DIA_BaalNamib_NoTalk,DIALOG_ENDE					,DIA_BaalNamib_NoTalk_ENDE);
 	Info_Addchoice 		(DIA_BaalNamib_NoTalk,"Is everything alright, pal?",DIA_BaalNamib_NoTalk_Imp);
@@ -92,7 +92,7 @@ INSTANCE DIA_BaalNamib_FirstTalk(C_INFO)
 	information		= DIA_BaalNamib_FirstTalk_Info;
 	permanent		= 0;
 	important 		= 1;
-};                       
+};
 
 FUNC INT DIA_BaalNamib_FirstTalk_Condition()
 {
@@ -103,7 +103,7 @@ FUNC INT DIA_BaalNamib_FirstTalk_Condition()
 };
 
 FUNC VOID DIA_BaalNamib_FirstTalk_Info()
-{	
+{
 	AI_Output (self, other,"DIA_BaalNamib_FirstTalk_02_00"); //(sigh)
 	AI_Output (self, other,"DIA_BaalNamib_FirstTalk_02_01"); //The Sleeper has chosen you. Do you really want to join us?
 
@@ -138,11 +138,11 @@ instance  GUR_1204_BaalNamib_ARMOR (C_INFO)
 	information		= GUR_1204_BaalNamib_ARMOR_Info;
 	important		= 0;
 	permanent		= 1;
-	description		= "I'd like to have better armor."; 
+	description		= "I'd like to have better armor.";
 };
 
 FUNC int  GUR_1204_BaalNamib_ARMOR_Condition()
-{	
+{
 	if (Npc_GetTrueGuild (hero) == GIL_NOV)
 	&& (!Npc_HasItems (hero,NOV_ARMOR_H))
 	{
@@ -153,7 +153,7 @@ FUNC int  GUR_1204_BaalNamib_ARMOR_Condition()
 FUNC void  GUR_1204_BaalNamib_ARMOR_Info()
 {
 	AI_Output (hero,self,"GUR_1204_BaalNamib_ARMOR_Info_15_01");//I'd like to have better armor.
-	
+
 	if (Kapitel < 3)
 	{
 		AI_Output (self,other,"GUR_1204_BaalNamib_ARMOR_Info_02_02");//The time has not yet come for you to wear the heavy armor of a novice.
@@ -169,7 +169,7 @@ FUNC void  GUR_1204_BaalNamib_ARMOR_Info()
 		B_GiveInvItems (self, hero, NOV_ARMOR_H, 1);
 		B_GiveInvItems (hero, self, ItMinugget,VALUE_NOV_ARMOR_H);
 	};
-};  
+};
 
 ////////////////////////////////////////
 ////////////////////////////////////////
@@ -178,7 +178,7 @@ FUNC void  GUR_1204_BaalNamib_ARMOR_Info()
 ////////////////////////////////////////
 
 // **************************************************************************
-//					BAAL NAMIB SCHICKT DEN SPIELER ZU YBERION 
+//					BAAL NAMIB SCHICKT DEN SPIELER ZU YBERION
 // **************************************************************************
 INSTANCE Info_BaalNamib_BROTHERHOOD (C_INFO)
 {
@@ -198,13 +198,13 @@ FUNC INT Info_BaalNamib_BROTHERHOOD_Condition()
 FUNC VOID Info_BaalNamib_BROTHERHOOD_Info()
 {
 	AI_Output (other, self,"Info_BaalNamib_BROTHERHOOD_15_01"); //Are there any tasks I can do for the Brotherhood?
-	AI_Output (self, other,"Info_BaalNamib_BROTHERHOOD_02_02"); //Our master, the wise Y'Berion, has sent for a novice. Since you're a member of the community now, go to him and offer your services. 
+	AI_Output (self, other,"Info_BaalNamib_BROTHERHOOD_02_02"); //Our master, the wise Y'Berion, has sent for a novice. Since you're a member of the community now, go to him and offer your services.
 	Info_Clearchoices ( Info_BaalNamib_BROTHERHOOD);
 	Info_Addchoice (Info_BaalNamib_BROTHERHOOD,"Alright, I'll go to see him now.",Info_BaalNamib_BROTHERHOOD_OK);
-	Info_Addchoice (Info_BaalNamib_BROTHERHOOD,"Where can I find Y'Berion?",Info_BaalNamib_BROTHERHOOD_YBWO);  
+	Info_Addchoice (Info_BaalNamib_BROTHERHOOD,"Where can I find Y'Berion?",Info_BaalNamib_BROTHERHOOD_YBWO);
 	Info_Addchoice (Info_BaalNamib_BROTHERHOOD,"Do you know what Y'Berion wants me to do?",Info_BaalNamib_BROTHERHOOD_YBWAS);
 	var C_NPC Kalom;
-	Kalom = Hlp_GetNpc (GUR_1201_CORKALOM); 
+	Kalom = Hlp_GetNpc (GUR_1201_CORKALOM);
 	Npc_ExchangeRoutine (Kalom,"kapitel2");
 	AI_ContinueRoutine (Kalom);
 };
@@ -213,18 +213,18 @@ FUNC VOID Info_BaalNamib_BROTHERHOOD_YBWO()
 	AI_Output (other, self,"Info_BaalNamib_BROTHERHOOD_YBWO_15_01"); //Where can I find Y'Berion?
 	AI_Output (self, other,"Info_BaalNamib_BROTHERHOOD_YBWO_02_02"); //He's inside the temple hill. As always.
 
-};	
+};
 FUNC VOID Info_BaalNamib_BROTHERHOOD_YBWAS()
 {
 	AI_Output (other, self,"Info_BaalNamib_BROTHERHOOD_YBWAS_15_01"); //Do you know what Y'Berion wants me to do?
-	AI_Output (self, other,"Info_BaalNamib_BROTHERHOOD_YBWAS_02_02"); //A great invocation will be taking place. But for it to begin, we need a magical object. 
+	AI_Output (self, other,"Info_BaalNamib_BROTHERHOOD_YBWAS_02_02"); //A great invocation will be taking place. But for it to begin, we need a magical object.
 	AI_Output (self, other,"Info_BaalNamib_BROTHERHOOD_YBWAS_02_03"); //Y'Berion is looking for men brave enough to get him the artifact.
 	AI_Output (other, self,"Info_BaalNamib_BROTHERHOOD_YBWAS_15_04"); //Sounds easy.
 	AI_Output (self, other,"Info_BaalNamib_BROTHERHOOD_YBWAS_02_05"); //If it were easy, we'd already have the object. Talk to Y'Berion first. He'll explain it to you.
-};	
+};
 FUNC VOID Info_BaalNamib_BROTHERHOOD_OK()
 {
 	AI_Output (other, self,"Info_BaalNamib_BROTHERHOOD_OK_15_01"); //Okay, I'll call on him right away.
 	AI_Output (self, other,"Info_BaalNamib_BROTHERHOOD_OK_02_02"); //May the Sleeper protect you.
 	Info_Clearchoices ( Info_BaalNamib_BROTHERHOOD);
-};	
+};

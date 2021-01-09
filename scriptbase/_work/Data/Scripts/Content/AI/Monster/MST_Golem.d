@@ -2,7 +2,7 @@
 **	Golem Prototype														**
 *************************************************************************/
 
-PROTOTYPE Mst_Default_Golem(C_Npc)			
+PROTOTYPE Mst_Default_Golem(C_Npc)
 {
 	name							=	"Golem";
 	guild							=	GIL_GOLEM;
@@ -11,7 +11,7 @@ PROTOTYPE Mst_Default_Golem(C_Npc)
 //--------------------------------------------------------------
 	attribute	[ATR_STRENGTH]		=	150;
 	attribute	[ATR_DEXTERITY]		=	150;
-	
+
 	attribute	[ATR_HITPOINTS_MAX]	=	600;
 	attribute	[ATR_HITPOINTS]		=	600;
 
@@ -39,7 +39,7 @@ PROTOTYPE Mst_Default_Golem(C_Npc)
 	senses_range				= 2000;
 
 	aivar[AIV_MM_Behaviour]		= PASSIVE;
-	
+
 	aivar[AIV_MM_PercRange]		= 1500;
 	aivar[AIV_MM_DrohRange]		= 1500;
 	aivar[AIV_MM_AttackRange]	= 1500;
@@ -152,7 +152,7 @@ INSTANCE FireGolem	(Mst_Default_Golem)
 	//-------- attributes --------
 	attribute	[ATR_STRENGTH]		=	50;	// da Feuerschaden
 	protection	[PROT_MAGIC]		=	0;	// betrifft im wesentlichen die Blitz- und Eiszauber
-	attribute	[ATR_HITPOINTS_MAX]	=	150;// da er nur durch Blitz- und Eiszauber verwundbar ist, muﬂ dieser Wert hier sehr viel niedriger sein 
+	attribute	[ATR_HITPOINTS_MAX]	=	150;// da er nur durch Blitz- und Eiszauber verwundbar ist, muﬂ dieser Wert hier sehr viel niedriger sein
 	attribute	[ATR_HITPOINTS]		=	150;
 	damagetype 						=	DAM_FIRE;
 
@@ -211,7 +211,7 @@ INSTANCE BridgeGolem	(Mst_Default_Golem)
 	//-------- attributes --------
 	attribute	[ATR_STRENGTH]		=	100;
 	attribute	[ATR_DEXTERITY]		=	100;
-	
+
 	attribute	[ATR_HITPOINTS_MAX]	=	250;
 	attribute	[ATR_HITPOINTS]		=	250;
 

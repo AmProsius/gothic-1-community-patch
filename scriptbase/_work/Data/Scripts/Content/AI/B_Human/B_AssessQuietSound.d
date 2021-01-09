@@ -2,7 +2,7 @@ func void B_AssessQuietSound ()
 // 5.5.00 --> SO soll es sein
 {
 	PrintDebugNpc				(PD_ZS_FRAME, "B_AssessQuietSound" );
-	
+
 	PrintGlobals				(PD_ZS_FRAME);
 	// JP: Entfernungsabbruch
 	if (Npc_GetDistToItem(self, item) > PERC_DIST_DIALOG)
@@ -10,7 +10,7 @@ func void B_AssessQuietSound ()
 		PrintDebugNpc			(PD_ZS_FRAME, "... to far" );
 		return;
 	};
-	
+
 	if (Npc_CanSeeSource		(self))
 	{
 		PrintDebugNpc			(PD_ZS_CHECK, "...kann Geräuschquelle sehen!" );
@@ -33,6 +33,6 @@ func void B_AssessQuietSound ()
 			Npc_ClearAIQueue	(self);
 			AI_StartState 		(self, ZS_AssessQuietSound, 0, "");
 		};
-	};	
-};	
+	};
+};
 

@@ -7,10 +7,10 @@ instance TPL_1401_GorNaKosh (Npc_Default)
 	guild =							GIL_TPL;
 	level =							17;
 	flags =							0;
-	
+
 	voice =							13;
 	id =							1401;
-		
+
 	//-------- abilities --------
 	attribute[ATR_STRENGTH] =		85;
 	attribute[ATR_DEXTERITY] =		65;
@@ -28,22 +28,22 @@ instance TPL_1401_GorNaKosh (Npc_Default)
 
 	B_Scale (self);
 	Mdl_SetModelFatness(self,0);
-	
+
 	fight_tactic	=	FAI_HUMAN_STRONG;
 
-	//-------- Talente -------- 
+	//-------- Talente --------
 
 	Npc_SetTalentSkill (self, NPC_TALENT_2H,1);
-	
+
 	//-------- inventory --------
-	
+
 	EquipItem (self, ItMw_2H_Sword_Light_02);
 	CreateInvItem (self, ItFoSoup);
 	CreateInvItem (self, ItMiJoint_1);
-	
-	
-	
-	      
+
+
+
+
 
 	//-------------Daily Routine-------------
 	daily_routine = Rtn_start_1401;
@@ -51,13 +51,13 @@ instance TPL_1401_GorNaKosh (Npc_Default)
 
 FUNC VOID Rtn_start_1401 ()
 {
-    TA_SitAround 	(00,00,12,00,"OM_207");	
+    TA_SitAround 	(00,00,12,00,"OM_207");
 	TA_SitAround	(12,00,24,00,"OM_207");
 };
 
 FUNC VOID Rtn_Gate_1401 ()
 {
-	TA_Guard	(00,00,12,00,"OM_CAVE3_19");	
+	TA_Guard	(00,00,12,00,"OM_CAVE3_19");
 	TA_Guard	(12,00,24,00,"OM_CAVE3_19");
 };
 

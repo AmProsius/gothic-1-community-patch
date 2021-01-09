@@ -1,10 +1,10 @@
-	
+
 //////////////////////////////////////
-//	
+//
 // 	Particle-Effects	v0.01 (<=>Docs)
-//	Class - Definitions 
+//	Class - Definitions
 //	Author: Dieter Hildebrandt
-//	
+//
 //////////////////////////////////////
 
 CLASS C_ParticleFX {
@@ -62,7 +62,7 @@ CLASS C_ParticleFX {
 	VAR INT						visTexIsQuadPoly;			//	0=triMesh, 1=quadMesh
 	VAR FLOAT					visTexAniFPS;
 	VAR INT						visTexAniIsLooping;			//	0=oneShot, 1=looping
-	// color		(nur Tex, lifeSpan-Sync)			
+	// color		(nur Tex, lifeSpan-Sync)
 	VAR STRING					visTexColorStart_S;
 	VAR STRING					visTexColorEnd_S;
 	// size-ani		(nur Tex, lifeSpan-Sync)
@@ -74,7 +74,7 @@ CLASS C_ParticleFX {
 	VAR FLOAT					visAlphaEnd;
 
 	// 7) misc effects
-	
+
 	// trail
 	VAR FLOAT					trlFadeSpeed;
 	VAR STRING					trlTexture_S;

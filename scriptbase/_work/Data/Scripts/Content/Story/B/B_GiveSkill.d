@@ -1,7 +1,7 @@
 func int B_GiveSkill(var C_NPC typ, var int TAL, var int NEW_Wert, var int LP_Cost) //return 1
 {
 	// ---------- Umwandeln von var in const
-	var int TAL_Wert; 
+	var int TAL_Wert;
 	if 		(TAL == NPC_TALENT_1H)			{	TAL_Wert = Npc_GetTalentSkill(typ, NPC_TALENT_1H		);	}
 	else if (TAL == NPC_TALENT_2H)			{	TAL_Wert = Npc_GetTalentSkill(typ, NPC_TALENT_2H		);	}
 	else if (TAL == NPC_TALENT_BOW)			{	TAL_Wert = Npc_GetTalentSkill(typ, NPC_TALENT_BOW		);	}
@@ -16,13 +16,13 @@ func int B_GiveSkill(var C_NPC typ, var int TAL, var int NEW_Wert, var int LP_Co
 
 	// ----------- Bedingungen/LP checken, dann ggf. vergeben
 	if ((TAL_Wert+1) == NEW_Wert)
-	{	
+	{
 		if (typ.lp >= LP_cost)
 		{
 			typ.lp = typ.lp - LP_cost;
-			
-			if (tal == NPC_TALENT_1H)			
-			{	
+
+			if (tal == NPC_TALENT_1H)
+			{
 				Npc_SetTalentSkill(typ, NPC_TALENT_1H, NEW_Wert);
 				Npc_SetTalentValue(typ, NPC_TALENT_1H, Npc_GetTalentValue(typ, NPC_TALENT_1H)+5);
 				PrintScreen	("Learn: Fight with one-handed weapons", -1,-1,"FONT_OLD_20_WHITE.TGA",2);
@@ -98,7 +98,7 @@ func int B_GiveSkill(var C_NPC typ, var int TAL, var int NEW_Wert, var int LP_Co
 				return 0;
 			};
 		}
-		else 
+		else
 		{
 			PrintScreen	("Not enough skill points!", -1,-1,"FONT_OLD_20_WHITE.TGA",2);
 			B_Say (self, other, "$NOLEARNNOPOINTS");
@@ -106,7 +106,7 @@ func int B_GiveSkill(var C_NPC typ, var int TAL, var int NEW_Wert, var int LP_Co
 		};
 	}
 	else // NICHT eine Stufe davor
-	{	
+	{
 		if (TAL_Wert >= NEW_Wert)
 		{
 			B_Say (self, other, "$NOLEARNYOUREBETTER"); //Du bist jetzt schon besser!
@@ -117,28 +117,28 @@ func int B_GiveSkill(var C_NPC typ, var int TAL, var int NEW_Wert, var int LP_Co
 			B_Say (self, other, "$NOLEARNYOUALREADYKNOW"); //Du muﬂt erst Fortgeschritten sein, bevor du ein Meister werden kannst!
 			return 0;
 		};
-	};	
-};	
-	
-	
-
-	
-	
-	
+	};
+};
 
 
-		
-	
-	
-	
 
-	
-	
-	
-	
-	
 
-	
-	
-	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

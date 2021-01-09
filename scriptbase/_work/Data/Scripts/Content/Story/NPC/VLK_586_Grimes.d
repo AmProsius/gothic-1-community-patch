@@ -1,13 +1,13 @@
 instance VLK_586_Grimes (Npc_Default)
 {
 	//-------- primary data --------
-	
+
 	name =							"Grimes";
 	npctype =						npctype_main;
-	guild =							GIL_VLK;      
+	guild =							GIL_VLK;
 	level =							5;
-	
-	
+
+
 	voice =							4;
 	id =							586;
 
@@ -25,22 +25,22 @@ instance VLK_586_Grimes (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Tired.mds");
-	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
+	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin
 	Mdl_SetVisualBody (self,"hum_body_Naked0",3,1,"Hum_Head_Thief", 110, 2, -1);
 
-	B_Scale (self); 
+	B_Scale (self);
 	Mdl_SetModelFatness (self, 0);
-	
-	fight_tactic	=	FAI_HUMAN_COWARD; 
-	
-	//-------- Talents --------                                    
+
+	fight_tactic	=	FAI_HUMAN_COWARD;
+
+	//-------- Talents --------
 	Npc_SetTalentSkill (self, NPC_TALENT_1H,1);
 
-	
-	//-------- inventory --------                                    
+
+	//-------- inventory --------
 
 	CreateInvItem (self, ItFo_Potion_Water_01);
-	EquipItem (self, ItMwPickaxe); 
+	EquipItem (self, ItMwPickaxe);
 
 
 	//-------------Daily Routine-------------

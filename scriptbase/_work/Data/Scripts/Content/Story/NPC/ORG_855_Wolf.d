@@ -1,12 +1,12 @@
 instance ORG_855_Wolf (Npc_Default)
 {
 	//-------- primary data --------
-	
+
 	name =					"Wolf";
 	Npctype =				Npctype_Main;
-	guild =					GIL_ORG;      
+	guild =					GIL_ORG;
 	level =					11;
-	
+
 	voice =					9;
 	id =					855;
 
@@ -24,23 +24,23 @@ instance ORG_855_Wolf (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Relaxed.mds");
-	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
+	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin
 	Mdl_SetVisualBody (self,"hum_body_Naked0",0, 1,"Hum_Head_Bald", 38,  1, ORG_ARMOR_H);
-	
-	B_Scale (self);	
-	Mdl_SetModelFatness (self, 0);		
-	
+
+	B_Scale (self);
+	Mdl_SetModelFatness (self, 0);
+
 	fight_tactic	=	FAI_HUMAN_STRONG;
-	
-	//-------- Talente --------                                    
+
+	//-------- Talente --------
 
 	Npc_SetTalentSkill (self, NPC_TALENT_BOW,1);
 	Npc_SetTalentSkill (self, NPC_TALENT_2H,1);
-	Npc_SetTalentSkill (self, NPC_TALENT_1H,1);	
-		
+	Npc_SetTalentSkill (self, NPC_TALENT_1H,1);
+
 	//-------- inventory --------
-	 B_Give_WolfChapter1Weapons ();                                   
-	CreateInvItems (self, ItKeLockpick,1);		
+	 B_Give_WolfChapter1Weapons ();
+	CreateInvItems (self, ItKeLockpick,1);
 	CreateInvItems (self, ItMiNugget, 12);
 	CreateInvItems (self, ItFoRice,8);
 	CreateInvItems (self, ItFoBooze, 1);
@@ -49,8 +49,8 @@ instance ORG_855_Wolf (Npc_Default)
 	CreateInvItem (self, ItMi_Stuff_Plate_01);
 	CreateInvItem (self, ItMi_Stuff_Barbknife_01);
 	CreateInvItem (self, ItFoMutton);
-	CreateInvItem (self, ItAt_Claws_01);	
-	EquipItem (self, ItMw_1H_Mace_War_01);		
+	CreateInvItem (self, ItAt_Claws_01);
+	EquipItem (self, ItMw_1H_Mace_War_01);
 	CreateInvItems (self, ItAmArrow, 20);
 	CreateInvItems (self, ItFo_wineberrys_01, 5);
 

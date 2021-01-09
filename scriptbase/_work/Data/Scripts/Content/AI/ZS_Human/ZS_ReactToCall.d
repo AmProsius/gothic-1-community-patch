@@ -1,8 +1,8 @@
 func void ZS_ReactToCall ()
 // 8.5.00 Wie Konzept 22.5. Perceptionänderungen
-{	
-	PrintDebugNpc( PD_ZS_FRAME, "ZS_ReactToCall" );			
-	C_ZSInit();	
+{
+	PrintDebugNpc( PD_ZS_FRAME, "ZS_ReactToCall" );
+	C_ZSInit();
 
 	Npc_PercEnable  ( self, PERC_ASSESSENEMY		,	B_AssessEnemy		);
 	Npc_PercEnable  ( self,	PERC_ASSESSFIGHTER		,	B_AssessFighter		);
@@ -19,7 +19,7 @@ func void ZS_ReactToCall ()
 	Npc_PercEnable  ( self,	PERC_CATCHTHIEF			,	ZS_CatchThief 		);
 	Npc_PercEnable  ( self,	PERC_ASSESSTHEFT		,	B_AssessTheft 		);
 	Npc_PercEnable  ( self, PERC_ASSESSTALK			,	B_AssessTalk				);
-	
+
 	AI_TurnToNpc 	(self, other);
 	C_LookAtNpc 	( self, other);
 	if (Npc_GetTempAttitude ( self, other) == ATT_HOSTILE )
@@ -29,7 +29,7 @@ func void ZS_ReactToCall ()
 		B_AssessEnemy			();
 		return;
 	}
-	else 
+	else
 	{
 		PrintDebugNpc( PD_ZS_CHECK, "...nicht feindlich!");
 		AI_PlayAni		(self,	"T_COMEOVERHERE");
@@ -39,8 +39,8 @@ func void ZS_ReactToCall ()
 };
 
 func void ZS_ReactToCall_Wait ()
-{	
-	PrintDebugNpc( PD_ZS_FRAME, "ZS_ReactToCall_Wait" );				
+{
+	PrintDebugNpc( PD_ZS_FRAME, "ZS_ReactToCall_Wait" );
 	Npc_PercEnable  ( self,	PERC_ASSESSDAMAGE,		ZS_ReactToDamage);
 	Npc_PercEnable  ( self, PERC_ASSESSMAGIC,		B_AssessMagic);
 	Npc_PercEnable  ( self, PERC_ASSESSSURPRISE	,	ZS_AssessSurprise	);
@@ -60,15 +60,15 @@ func void ZS_ReactToCall_Wait ()
 func int ZS_ReactToCall_Wait_Loop ()
 {
 	PrintDebugNpc( PD_ZS_LOOP, "ZS_ReactToCall_Wait_Loop" );
-	B_SmartTurnToNpc (self, other);				
+	B_SmartTurnToNpc (self, other);
 	if (Npc_GetStateTime	(self) > 10)
 	{
-		return 1;	
+		return 1;
 	};
 };
 
 func int ZS_ReactToCall_Wait_End ()
-{	
-	PrintDebugNpc( PD_ZS_FRAME, "ZS_ReactToCall_Wait_End" );				
+{
+	PrintDebugNpc( PD_ZS_FRAME, "ZS_ReactToCall_Wait_End" );
 	C_StopLookAt			( self);
 };

@@ -1,5 +1,5 @@
 // ************************************************************
-// 							EXIT 
+// 							EXIT
 // ************************************************************
 
 INSTANCE Info_Yberion_EXIT(C_INFO)
@@ -10,7 +10,7 @@ INSTANCE Info_Yberion_EXIT(C_INFO)
 	information	= Info_Yberion_EXIT_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC INT Info_Yberion_EXIT_Condition()
 {
@@ -18,7 +18,7 @@ FUNC INT Info_Yberion_EXIT_Condition()
 };
 
 FUNC VOID Info_Yberion_EXIT_Info()
-{	
+{
 	AI_StopProcessInfos	(self);
 };
 
@@ -33,7 +33,7 @@ INSTANCE DIA_YBerion_Wache(C_INFO)
 	information	= DIA_YBerion_Wache_Info;
 	permanent	= 1;
 	important 	= 1;
-};                       
+};
 
 FUNC INT DIA_YBerion_Wache_Condition()
 {
@@ -44,7 +44,7 @@ FUNC INT DIA_YBerion_Wache_Condition()
 };
 
 FUNC VOID DIA_YBerion_Wache_Info()
-{	
+{
 	AI_Output			(self,	other,"DIA_YBerion_Wache_12_00"); //What are you doin' here? Who let you in? Guards!
 	B_IntruderAlert		(self,	other);
 	AI_StopProcessInfos	(self);
@@ -60,7 +60,7 @@ INSTANCE DIA_YBerion_Kennen(C_INFO)
 	information	= DIA_YBerion_Kennen_Info;
 	permanent	= 0;
 	description = "Greetings, Master Y'Berion.";
-};                       
+};
 
 FUNC INT DIA_YBerion_Kennen_Condition()
 {
@@ -71,7 +71,7 @@ FUNC INT DIA_YBerion_Kennen_Condition()
 };
 
 FUNC VOID DIA_YBerion_Kennen_Info()
-{	
+{
 	AI_Output (other, self,"DIA_YBerion_Kennen_15_00"); //Greetings, Master Y'Berion.
 	AI_Output (self, other,"DIA_YBerion_Kennen_12_01"); //Ah! I know your face!
 	AI_Output (other, self,"DIA_YBerion_Kennen_15_02"); //Impossible. We've never met before.
@@ -109,7 +109,7 @@ FUNC VOID Info_YBerion_BringFocus_Info()
 	AI_Output (self, other,"Sit_2_PSI_Yberion_BringFocus_Info_12_02"); //That's right. We need a magical focus.
 	AI_Output (self, other,"Sit_2_PSI_Yberion_BringFocus_Info_12_03"); //We sent the novice Nyras to collect the focus. But he hasn't come back yet.
 	AI_Output (self, other,"Sit_2_PSI_Yberion_BringFocus_Info_12_04"); //You could check up for me what has happened!
-	
+
 	Info_ClearChoices	(Info_YBerion_BringFocus);
 	Info_AddChoice		(Info_YBerion_BringFocus,DIALOG_BACK							,	Info_YBerion_BringFocus_BACK);
 	Info_AddChoice		(Info_YBerion_BringFocus,"I'll bring the focus back!",	Info_YBerion_BringFocus_OK);
@@ -157,7 +157,7 @@ INSTANCE Info_YBerion_BringFocus_RUNNING (C_INFO)
 	information	= Info_YBerion_BringFocus_RUNNING_Info;
 	permanent	= 0;
 	description	= "I still haven't found the focus.";
-};                       
+};
 
 FUNC INT Info_YBerion_BringFocus_RUNNING_Condition()
 {
@@ -168,7 +168,7 @@ FUNC INT Info_YBerion_BringFocus_RUNNING_Condition()
 };
 
 FUNC VOID Info_YBerion_BringFocus_RUNNING_Info()
-{	
+{
 	AI_Output (other, self,"Info_YBerion_BringFocus_RUNNING_15_01"); //I still haven't found the focus.
 	AI_Output (self, other,"Info_YBerion_BringFocus_RUNNING_12_02"); //Then search on. The Sleeper will guide the way.
 };
@@ -182,7 +182,7 @@ INSTANCE Info_YBerion_BringFocus_Success (C_INFO)
 	information	= Info_YBerion_BringFocus_Success_Info;
 	permanent	= 0;
 	description	= "I've found the focus.";
-};                       
+};
 
 FUNC INT Info_YBerion_BringFocus_Success_Condition()
 {
@@ -193,7 +193,7 @@ FUNC INT Info_YBerion_BringFocus_Success_Condition()
 };
 
 FUNC VOID Info_YBerion_BringFocus_Success_Info()
-{	
+{
 	AI_Output			(other, self,"Info_YBerion_BringFocus_Success_15_01"); //I've found the focus.
 	AI_Output			(self, other,"Info_YBerion_BringFocus_Success_12_02"); //Excellent. You have done us a great favor.
 	AI_Output			(self, other,"Info_YBerion_BringFocus_Success_12_03"); //Now take the focus back to Cor Kalom. He'll know what needs to be done.
@@ -202,7 +202,7 @@ FUNC VOID Info_YBerion_BringFocus_Success_Info()
 		AI_Output		(other, self,"Info_YBerion_BringFocus_Success_15_04"); //Where can I find this Cor Kalom?
 		AI_Output		(self, other,"Info_YBerion_BringFocus_Success_12_05"); //He spends most of his time in the alchemy lab in the upper section of the catwalks.
 		AI_Output		(self, other,"Info_YBerion_BringFocus_Success_12_06"); //Talk to Lester at the entrance to the Camp... he often guides newcomers around the Camp.
-		B_LogEntry		(CH2_Focus,"Y'Berion told me to take the focus to another guru called Cor Kalom. This Cor Kalom spends the whole day in the alchemy lab."); 
+		B_LogEntry		(CH2_Focus,"Y'Berion told me to take the focus to another guru called Cor Kalom. This Cor Kalom spends the whole day in the alchemy lab.");
 	}
 	else
 	{
@@ -224,7 +224,7 @@ INSTANCE Info_YBerion_NYRAS (C_INFO)
 	information	= Info_YBerion_NYRAS_Info;
 	permanent	= 0;
 	description	= "The novice Nyras has gone mad!";
-};                       
+};
 
 FUNC INT Info_YBerion_NYRAS_Condition()
 {
@@ -235,7 +235,7 @@ FUNC INT Info_YBerion_NYRAS_Condition()
 };
 
 FUNC VOID Info_YBerion_NYRAS_Info()
-{	
+{
 	AI_Output			(other, self,"Info_YBerion_NYRAS_15_01"); //The novice Nyras has gone mad!
 	AI_Output			(other, self,"Info_YBerion_NYRAS_15_02"); //He said that the Sleeper had talked to him and chosen him as his only servant!
 	AI_Output			(other, self,"Info_YBerion_NYRAS_15_03"); //Then he attacked and tried to kill me!
@@ -251,11 +251,11 @@ instance  GUR_1200_Yberion_EARN (C_INFO)
 	information		= GUR_1200_Yberion_EARN_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "What about some kind of reward?"; 
+	description		= "What about some kind of reward?";
 };
 
 FUNC int  GUR_1200_Yberion_EARN_Condition()
-{	
+{
 	if ( YBerion_BringFocus == LOG_SUCCESS) && ( Npc_GetTrueGuild (hero)!= GIL_NOV ) && ( C_IsChapter(2) )
 	{
 		return 1;
@@ -269,7 +269,7 @@ FUNC void  GUR_1200_Yberion_EARN_Info()
 	AI_Output				(self, other,"GUR_1200_Yberion_EARN_Info_12_03"); //Take this amulet as a sign of my gratitude.
 	CreateInvItem	    (self, Schutzamulett_Feuer);
 	B_GiveInvItems	    (self, hero, Schutzamulett_Feuer, 1);
-};  
+};
 
 
 
@@ -288,7 +288,7 @@ instance GUR_1200_Yberion_LASTWORDS (C_INFO)
 };
 
 FUNC int GUR_1200_Yberion_LASTWORDS_Condition()
-{	
+{
 	if ( Npc_KnowsInfo (hero,Info_CorAngar_FindHerb_Success))
 	{
 		return 1;
@@ -305,10 +305,10 @@ FUNC void  GUR_1200_Yberion_LASTWORDS_Info()
 	AI_Output (self, other,"GUR_1200_Yberion_LASTWORDS_Info_12_06"); //Der Schläfer...Ich sah ihn. Er ist ein ...ein ....Dämon!
 	AI_Output (self, other,"GUR_1200_Yberion_LASTWORDS_Info_12_07"); //Wenn du die Barriere noch immer vernichten willst,... geh zum Neuen Lager. Berichte ihnen vom Fokus. Sag ihnen...
 	AI_Output (self, other,"GUR_1200_Yberion_LASTWORDS_Info_12_08"); //...sag ihnen das wir herausgefunden haben, wie sich die Foki aufladen lassen, sie sollen...sollen die Barriere vernichten......ihr müsst ....
-	AI_Output (self, other,"GUR_1200_Yberion_LASTWORDS_Info_12_09"); //...das Böse....darf nicht erwachen .... 
-	
-	
-	
-};  
+	AI_Output (self, other,"GUR_1200_Yberion_LASTWORDS_Info_12_09"); //...das Böse....darf nicht erwachen ....
+
+
+
+};
 // ------------------------------  ----------------------------------
 */

@@ -1,7 +1,7 @@
 instance EBR_100_Gomez (Npc_Default)
 {
 	//-------- primary data --------
-	
+
 	name 		=	"Gomez";
    	npctype  	= 	npctype_main;
    	guild 		=	GIL_EBR;
@@ -9,9 +9,9 @@ instance EBR_100_Gomez (Npc_Default)
 	voice 		=	11;
 	id 			=	100;
 	flags		=	NPC_FLAG_IMMORTAL;
-	
+
 	//-------- abilities --------
-	
+
 	attribute[ATR_STRENGTH] 	= 95;
 	attribute[ATR_DEXTERITY] 	= 80;
 	attribute[ATR_MANA_MAX] 	= 0;
@@ -23,30 +23,30 @@ instance EBR_100_Gomez (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Arrogance.mds");
-	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung	
+	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung
 	Mdl_SetVisualBody (self,"hum_body_Naked0", 0, 1,"Hum_Head_Bald", 85,  4, EBR_ARMOR_H);
 
-	B_Scale (self); 
+	B_Scale (self);
 	Mdl_SetModelFatness(self,0);
-    	
-    	self.aivar[AIV_IMPORTANT] = TRUE;
-	
 
-	//-------- Talente --------  
+    	self.aivar[AIV_IMPORTANT] = TRUE;
+
+
+	//-------- Talente --------
 	Npc_SetTalentSkill (self, NPC_TALENT_2H,2);
 	Npc_SetTalentSkill (self, NPC_TALENT_1H,2);
 	Npc_SetTalentSkill (self, NPC_TALENT_BOW,2);
-			
-	//-------- inventory --------                                    
+
+	//-------- inventory --------
 	EquipItem(self,Innos_Zorn);
 	CreateInvItem (self,ItKe_Gomez_01);
-	
+
 	EquipItem (self,Amulett_der_Macht);
 	EquipItem (self,Schutzring_Total2);
-	
+
 	//------------- ai -------------
 	fight_tactic	=	FAI_HUMAN_MASTER;
-	
+
 	daily_routine	=	Rtn_PreStart_100;
 };
 

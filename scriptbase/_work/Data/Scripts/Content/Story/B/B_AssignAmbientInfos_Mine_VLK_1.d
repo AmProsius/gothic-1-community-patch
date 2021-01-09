@@ -15,7 +15,7 @@ INSTANCE Info_Mine_Vlk_1_EXIT(C_INFO)
 	information	= Info_Mine_Vlk_1_EXIT_Info;
 	permanent	= 1;
 	description = "END";
-};                       
+};
 
 FUNC INT Info_Mine_Vlk_1_EXIT_Condition()
 {
@@ -23,7 +23,7 @@ FUNC INT Info_Mine_Vlk_1_EXIT_Condition()
 };
 
 FUNC VOID Info_Mine_Vlk_1_EXIT_Info()
-{	
+{
 	AI_StopProcessInfos	(self);
 };
 
@@ -38,7 +38,7 @@ INSTANCE Info_Mine_Vlk_1_Mine (C_INFO) // E1
 	information	= Info_Mine_Vlk_1_Mine_Info;
 	permanent	= 1;
 	description = "Tell me about the mine.";
-};                       
+};
 
 FUNC INT Info_Mine_Vlk_1_Mine_Condition()
 {
@@ -66,7 +66,7 @@ INSTANCE Info_Mine_Vlk_1_WichtigePersonen(C_INFO)
 	information	= Info_Mine_Vlk_1_WichtigePersonen_Info;
 	permanent	= 1;
 	description = "Who's in charge here?";
-};                       
+};
 
 FUNC INT Info_Mine_Vlk_1_WichtigePersonen_Condition()
 {
@@ -93,7 +93,7 @@ INSTANCE Info_Mine_Vlk_1_Minecrawler(C_INFO)
 	information	= Info_Mine_Vlk_1_Minecrawler_Info;
 	permanent	= 1;
 	description = "What do you know about minecrawlers?";
-};                       
+};
 
 FUNC INT Info_Mine_Vlk_1_Minecrawler_Condition()
 {
@@ -107,7 +107,7 @@ FUNC VOID Info_Mine_Vlk_1_Minecrawler_Info()
 {
 	AI_Output(other,self,"Info_Mine_Vlk_1_Minecrawler_15_00"); //What do you know about minecrawlers?
 	AI_Output(self,other,"Info_Mine_Vlk_1_Minecrawler_01_01"); //The templars made a deal with Gomez. They kill the crawlers, they get to keep the beasts' mandibles.
-	
+
 };
 
 // *************************************************************************
@@ -121,7 +121,7 @@ INSTANCE Info_Mine_Vlk_1_DieLage(C_INFO) // E1
 	information	= Info_Mine_Vlk_1_DieLage_Info;
 	permanent	= 1;
 	description = "How's it going?";
-};                       
+};
 
 FUNC INT Info_Mine_Vlk_1_DieLage_Condition()
 {

@@ -6,10 +6,10 @@ instance GUR_1211_BaalLukor (Npc_Default)
 	flags		=		NPC_FLAG_IMMORTAL;
 	guild 		=		GIL_GUR;
 	level 		=		50;
-	
+
 	voice 		=		13;
 	id 			=		1211;
-		
+
 	///-------- abilities --------
 	attribute[ATR_STRENGTH]	 		=	20;
 	attribute[ATR_DEXTERITY] 		=	40;
@@ -22,7 +22,7 @@ instance GUR_1211_BaalLukor (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,	"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,	"Humans_Mage.mds");
-	//							body mesh,			bdytex,	skin,	head mesh,			headtex,	teethtex,	ruestung	
+	//							body mesh,			bdytex,	skin,	head mesh,			headtex,	teethtex,	ruestung
 	Mdl_SetVisualBody	(self,	"hum_body_Naked0",	1,		1,		"Hum_Head_Psionic",	20,			1,			GUR_ARMOR_M);
 
 	B_Scale (self);
@@ -33,7 +33,7 @@ instance GUR_1211_BaalLukor (Npc_Default)
 
 	//-------- inventory --------
 	EquipItem			(self,	ItMw_1H_Sword_02);
-	
+
 	//------------- AI -------------
 	daily_routine	=	Rtn_start_1211;
 	fight_tactic	=	FAI_HUMAN_STRONG;

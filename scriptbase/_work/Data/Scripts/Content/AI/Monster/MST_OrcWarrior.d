@@ -2,30 +2,30 @@
 **	Orc WARRIOR Prototype												**
 *************************************************************************/
 
-PROTOTYPE Mst_Default_OrcWarrior(C_Npc)			
+PROTOTYPE Mst_Default_OrcWarrior(C_Npc)
 {
 	name							=	"Orc Warrior";
 	guild							=	GIL_ORCWARRIOR;
 	npctype							=	NPCTYPE_GUARD;
 	voice							=	17;
 	level							=	25;
-//----------------------------------------------------------	
+//----------------------------------------------------------
 	attribute	[ATR_STRENGTH]		=	60;
 	attribute	[ATR_DEXTERITY]		=	50;
-	
+
 	attribute	[ATR_HITPOINTS_MAX]	=	250;
 	attribute	[ATR_HITPOINTS]		=	250;
 
 	attribute	[ATR_MANA_MAX] 		=	0;
 	attribute	[ATR_MANA] 			=	0;
-//----------------------------------------------------------	
+//----------------------------------------------------------
 	protection	[PROT_BLUNT]		=	100;
 	protection	[PROT_EDGE]			=	100;
 	protection	[PROT_POINT]		=	40;
 	protection	[PROT_FIRE]			=	55;
 	protection	[PROT_FLY]			=	30;
 	protection	[PROT_MAGIC]		=	30;
-//----------------------------------------------------------	
+//----------------------------------------------------------
 	damagetype 						=	DAM_EDGE;
 //	damage		[DAM_INDEX_BLUNT]	=	0;
 //	damage		[DAM_INDEX_EDGE]	=	0;
@@ -41,7 +41,7 @@ PROTOTYPE Mst_Default_OrcWarrior(C_Npc)
 	senses_range				= 2000;
 
 	aivar[AIV_MM_Behaviour]		= HUNTER;
-	
+
 	aivar[AIV_MM_PercRange]		= 1200;
 	aivar[AIV_MM_DrohRange]		= 1000;
 	aivar[AIV_MM_AttackRange]	= 700;

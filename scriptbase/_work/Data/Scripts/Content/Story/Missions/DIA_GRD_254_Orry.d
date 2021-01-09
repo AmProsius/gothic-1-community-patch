@@ -1,5 +1,5 @@
 // **************************************************
-// 						 PRE EXIT 
+// 						 PRE EXIT
 // **************************************************
 
 INSTANCE DIA_Orry_PreExit (C_INFO)
@@ -10,10 +10,10 @@ INSTANCE DIA_Orry_PreExit (C_INFO)
 	information	= DIA_Orry_PreExit_Info;
 	permanent	= 0;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC INT DIA_Orry_PreExit_Condition()
-	
+
 	{
 		return 1;
 	};
@@ -25,7 +25,7 @@ FUNC VOID DIA_Orry_PreExit_Info()
 };
 
 // **************************************************
-// 						 EXIT 
+// 						 EXIT
 // **************************************************
 
 INSTANCE DIA_Orry_Exit (C_INFO)
@@ -36,7 +36,7 @@ INSTANCE DIA_Orry_Exit (C_INFO)
 	information	= DIA_Orry_Exit_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC INT DIA_Orry_Exit_Condition()
 {
@@ -62,11 +62,11 @@ INSTANCE DIA_Orry_GuardGate (C_INFO)
 	condition		= DIA_Orry_GuardGate_Condition;
 	information		= DIA_Orry_GuardGate_Info;
 	permanent		= 0;
-	description		= "What are you doing here?"; 
+	description		= "What are you doing here?";
 };
 
 FUNC INT DIA_Orry_GuardGate_Condition()
-{	
+{
 	if (Kapitel <= 1)
 	{
 		return 1;
@@ -113,11 +113,11 @@ INSTANCE DIA_Orry_NewCamp (C_INFO)
 	condition		= DIA_Orry_NewCamp_Condition;
 	information		= DIA_Orry_NewCamp_Info;
 	permanent		= 0;
-	description		= "Why do I have to watch out for the guys from the New Camp?"; 
+	description		= "Why do I have to watch out for the guys from the New Camp?";
 };
 
 FUNC INT DIA_Orry_NewCamp_Condition()
-{	
+{
 	if (Npc_KnowsInfo(hero,DIA_Orry_GuardGate))
 	{
 		return 1;
@@ -142,11 +142,11 @@ INSTANCE DIA_Orry_OldCamp (C_INFO)
 	condition		= DIA_Orry_OldCamp_Condition;
 	information		= DIA_Orry_OldCamp_Info;
 	permanent		= 0;
-	description		= "And the Old Camp?"; 
+	description		= "And the Old Camp?";
 };
 
 FUNC INT DIA_Orry_OldCamp_Condition()
-{	
+{
 	if (Npc_KnowsInfo(hero,DIA_Orry_GuardGate))
 	{
 		return 1;
@@ -171,11 +171,11 @@ INSTANCE DIA_Orry_Shore (C_INFO)
 	condition		= DIA_Orry_Shore_Condition;
 	information		= DIA_Orry_Shore_Info;
 	permanent		= 0;
-	description		= "When I was washed ashore, one of the guys punched me in the face."; 
+	description		= "When I was washed ashore, one of the guys punched me in the face.";
 };
 
 FUNC INT DIA_Orry_Shore_Condition()
-{	
+{
 	if (Npc_KnowsInfo(hero,DIA_Orry_GuardGate))
 	{
 		return 1;
@@ -201,11 +201,11 @@ INSTANCE DIA_Orry_Woman (C_INFO)
 	condition		= DIA_Orry_Woman_Condition;
 	information		= DIA_Orry_Woman_Info;
 	permanent		= 0;
-	description		= "I saw a woman being sent down with the goods."; 
+	description		= "I saw a woman being sent down with the goods.";
 };
 
 FUNC INT DIA_Orry_Woman_Condition()
-{	
+{
 	if (Npc_KnowsInfo(hero,DIA_Orry_GuardGate))
 	{
 		return 1;
@@ -232,11 +232,11 @@ INSTANCE DIA_Orry_Waffe (C_INFO)
 	condition		= DIA_Orry_Waffe_Condition;
 	information		= DIA_Orry_Waffe_Info;
 	permanent		= 0;
-	description		= "I'm looking for a weapon..."; 
+	description		= "I'm looking for a weapon...";
 };
 
 FUNC INT DIA_Orry_Waffe_Condition()
-{	
+{
 	if (Npc_KnowsInfo(hero,DIA_Orry_GuardGate))
 	{
 		return 1;
@@ -249,7 +249,7 @@ FUNC VOID DIA_Orry_Waffe_Info()
 	AI_Output (self, other,"DIA_Orry_Waffe_06_01"); //There should be some old weapons by the derelict mine further down the canyon.
 	AI_Output (self, other,"DIA_Orry_Waffe_06_02"); //But don't go and start a war with nothing but a rusty pickaxe for a weapon - those things are slow and heavy.
 	AI_Output (self, other,"DIA_Orry_Waffe_06_03"); //An inexperienced fighter should never use one of them unless it's an emergency.
-	
+
 };
 
 

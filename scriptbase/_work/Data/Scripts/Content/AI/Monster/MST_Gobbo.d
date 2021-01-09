@@ -2,7 +2,7 @@
 **	GreenGobbo Prototype												**
 *************************************************************************/
 
-PROTOTYPE Mst_Default_GreenGobbo(C_NPC)			
+PROTOTYPE Mst_Default_GreenGobbo(C_NPC)
 {
 	name							=	"Goblin";
 	guild							=	GIL_GOBBO;
@@ -11,7 +11,7 @@ PROTOTYPE Mst_Default_GreenGobbo(C_NPC)
 //------------------------------------------------------------------
 	attribute	[ATR_STRENGTH]		=	20;
 	attribute	[ATR_DEXTERITY]		=	20;
-	
+
 	attribute	[ATR_HITPOINTS_MAX]	=	40;
 	attribute	[ATR_HITPOINTS]		=	40;
 
@@ -39,7 +39,7 @@ PROTOTYPE Mst_Default_GreenGobbo(C_NPC)
 	senses_range	=	3000;		// 30m
 
 	aivar[AIV_MM_Behaviour]		= PACKHUNTER;
-	
+
 	aivar[AIV_MM_PercRange]		= 1500;
 	aivar[AIV_MM_DrohRange]		= 1000;
 	aivar[AIV_MM_AttackRange]	= 700;
@@ -49,7 +49,7 @@ PROTOTYPE Mst_Default_GreenGobbo(C_NPC)
 //------------------------------------------------------------------
 	start_aistate				= ZS_MM_AllScheduler;
 
-	aivar[AIV_MM_RestStart] 	= OnlyRoutine;	
+	aivar[AIV_MM_RestStart] 	= OnlyRoutine;
 };
 //------------------------------------------------------------------
 func void Set_GreenGobbo_Visuals()

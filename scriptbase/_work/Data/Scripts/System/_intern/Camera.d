@@ -1,18 +1,18 @@
-	
+
 
 //////////////////////////////////////
 
-// 	 
+//
 
 //	Cam_sys Class
 
-//	
+//
 
 //////////////////////////////////////
 
-CLASS CCamSys 
+CLASS CCamSys
 {
-	// angles -180 to 180 
+	// angles -180 to 180
 	VAR FLOAT bestRange;
 	VAR FLOAT minRange;
 	VAR FLOAT maxRange;
@@ -32,7 +32,7 @@ CLASS CCamSys
 	VAR FLOAT targetOffsetY;
 	VAR FLOAT targetOffsetZ;
 
-	// dynamic 
+	// dynamic
 	VAR	FLOAT veloTrans;				  	// velocity while easing   to best position
 	VAR FLOAT veloRot;			  			// velocity while rotating to best orientation
 
@@ -45,35 +45,35 @@ CLASS CCamSys
 
 PROTOTYPE CCamSys_Def(CCamSys) {
 
-	bestRange 			= 2.0 ; 
+	bestRange 			= 2.0 ;
 
-	minRange  			= 1.99 ; 
+	minRange  			= 1.99 ;
 
-	maxRange  			= 4.01 ; 
+	maxRange  			= 4.01 ;
 
 	bestElevation			= 0.0 ;
 
 	minElevation			= 0.0;
 
-	maxElevation			= 89.0; 
+	maxElevation			= 89.0;
 
-	bestAzimuth			= 0.0;  
+	bestAzimuth			= 0.0;
 
 	minAzimuth			= -90.0;
 
-	maxAzimuth			= 90.0; 
+	maxAzimuth			= 90.0;
 
-	bestRotZ			= 0.0;  
+	bestRotZ			= 0.0;
 
-	minRotZ				= 0.0;  
+	minRotZ				= 0.0;
 
-	maxRotZ				= 0.0;  
+	maxRotZ				= 0.0;
 
-	rotOffsetX			= 20.0; 
+	rotOffsetX			= 20.0;
 
-	rotOffsetY			= 0.0;  
+	rotOffsetY			= 0.0;
 
-	rotOffsetZ			= 0.0;  
+	rotOffsetZ			= 0.0;
 
 	targetOffsetX			= 0.0;
 	targetOffsetY			= 0.0;
@@ -85,7 +85,7 @@ PROTOTYPE CCamSys_Def(CCamSys) {
 
 	collision			= 1;	// disable collision for this mode (ideal pos must be near player)
 
-	// dynamic 
+	// dynamic
 	veloTrans			= 30;				  	// velocity while easing   to best position
 	veloRot				= 2;			  		// velocity while rotating to best orientation
 

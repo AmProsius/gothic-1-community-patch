@@ -15,7 +15,7 @@ INSTANCE Info_Bau_2_EXIT(C_INFO)
 	information	= Info_Bau_2_EXIT_Info;
 	permanent	= 1;
 	description = "END";
-};                       
+};
 
 FUNC INT Info_Bau_2_EXIT_Condition()
 {
@@ -23,7 +23,7 @@ FUNC INT Info_Bau_2_EXIT_Condition()
 };
 
 FUNC VOID Info_Bau_2_EXIT_Info()
-{	
+{
 	AI_StopProcessInfos	(self);
 };
 
@@ -38,7 +38,7 @@ INSTANCE Info_Bau_2_WichtigePersonen(C_INFO)
 	information	= Info_Bau_2_WichtigePersonen_Info;
 	permanent	= 1;
 	description = "Are you working in the rice fields voluntarily?";
-};                       
+};
 
 FUNC INT Info_Bau_2_WichtigePersonen_Condition()
 {
@@ -51,7 +51,7 @@ FUNC VOID Info_Bau_2_WichtigePersonen_Info()
 	AI_Output(self,other,"Info_Bau_2_WichtigePersonen_02_01"); //Yeah. That's right. Better to be working here of your own free will than being forced into it by the Rice Lord's thugs.
 	AI_Output(other,self,"Info_Bau_2_WichtigePersonen_15_02"); //I see...
 	var C_NPC Ricelord;			Ricelord	= Hlp_GetNpc(Bau_900_Ricelord);
-	Ricelord.aivar[AIV_FINDABLE] = TRUE;	
+	Ricelord.aivar[AIV_FINDABLE] = TRUE;
 };
 
 // *************************************************************************
@@ -65,7 +65,7 @@ INSTANCE Info_Bau_2_DasLager(C_INFO)
 	information	= Info_Bau_2_DasLager_Info;
 	permanent	= 1;
 	description = "What can you tell me about the Camp?";
-};                       
+};
 
 FUNC INT Info_Bau_2_DasLager_Condition()
 {
@@ -77,7 +77,7 @@ FUNC VOID Info_Bau_2_DasLager_Info()
 	AI_Output(other,self,"Info_Bau_2_DasLager_15_00"); //What can you tell me about the Camp?
 	AI_Output(self,other,"Info_Bau_2_DasLager_02_01"); //It's dangerous going there. Lee's mercenaries and the mages are okay, but you gotta watch out for the rogues!
 	var C_NPC Lee;			Lee		= Hlp_GetNpc(Sld_700_Lee);
-	Lee.aivar[AIV_FINDABLE] = TRUE;	
+	Lee.aivar[AIV_FINDABLE] = TRUE;
 	var C_NPC Cronos;		Cronos  = Hlp_GetNpc(KdW_604_Cronos);
 	Cronos.aivar[AIV_FINDABLE] = TRUE;
 };
@@ -93,7 +93,7 @@ INSTANCE Info_Bau_2_DieLage(C_INFO) // E1
 	information	= Info_Bau_2_DieLage_Info;
 	permanent	= 1;
 	description = "You okay?";
-};                       
+};
 
 FUNC INT Info_Bau_2_DieLage_Condition()
 {
@@ -106,7 +106,7 @@ FUNC VOID Info_Bau_2_DieLage_Info()
 	AI_Output(self,other,"Info_Bau_2_DieLage_02_01"); //What do you want? Did the Rice Lord send you? I'm already working as hard as I can!
 	AI_Output(other,self,"Info_Bau_2_DieLage_15_02"); //Nobody sent me, I just want to talk.
 	var C_NPC Ricelord;			Ricelord	= Hlp_GetNpc(Bau_900_Ricelord);
-	Ricelord.aivar[AIV_FINDABLE] = TRUE;	
+	Ricelord.aivar[AIV_FINDABLE] = TRUE;
 };
 
 // *************************************************************************
@@ -120,7 +120,7 @@ INSTANCE Info_Bau_2_Wasser(C_INFO) // E1
 	information	= Info_Bau_2_Wasser_Info;
 	permanent	= 1;
 	description = "Lefty sent me. I've brought you some water.";
-};                       
+};
 
 FUNC INT Info_Bau_2_Wasser_Condition()
 {
@@ -145,7 +145,7 @@ FUNC VOID Info_Bau_2_Wasser_Info()
 			AI_TurnToNpc	(self, hero);
 		};
 		AI_UseItem			(self,	ItFo_Potion_Water_01);
-		
+
 		An_Bauern_verteilt = An_Bauern_verteilt+1;
 		if (An_Bauern_verteilt>=DurstigeBauern)
 		{
@@ -158,7 +158,7 @@ FUNC VOID Info_Bau_2_Wasser_Info()
 		AI_Output(self,other,"Info_Bau_2_Wasser_NOWATER_02_00"); //Water! Hey, man! There's none left! Don't tell me everyone got some except me, again?
 	};
 };
-	
+
 // *************************************************************************
 // -------------------------------------------------------------------------
 
@@ -168,6 +168,6 @@ FUNC VOID B_AssignAmbientInfos_Bau_2(var c_NPC slf)
 	Info_Bau_2_WichtigePersonen.npc		= Hlp_GetInstanceID(slf);
 	Info_Bau_2_DasLager.npc				= Hlp_GetInstanceID(slf);
 	Info_Bau_2_DieLage.npc				= Hlp_GetInstanceID(slf);
-	
+
 	Info_Bau_2_Wasser.npc 				= Hlp_GetInstanceID(slf);
 };

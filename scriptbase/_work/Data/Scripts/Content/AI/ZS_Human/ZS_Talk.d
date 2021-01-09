@@ -12,16 +12,16 @@ FUNC VOID B_RefuseTalk()
 FUNC void ZS_Talk ()
 {
 	PrintDebugNpc(PD_ZS_FRAME,"ZS_Talk");
-	
+
 	//-------- Verhindern von Mehrfachansprechen der NSCs --------
 	if (other.aivar[AIV_INVINCIBLE]==TRUE)
 	{
 		PrintDebugNpc		(PD_ZS_CHECK,	"...SC spricht schon!");
 		AI_ContinueRoutine	(self);
-		return;				
+		return;
 	};
-	
-	C_ZSInit();	
+
+	C_ZSInit();
 	B_SetFaceExpression(self, other); //Attitüde bestimmt Gesichtsausdruck
 
 	self.aivar[AIV_INVINCIBLE]=TRUE;
@@ -41,7 +41,7 @@ FUNC void ZS_Talk ()
 	//Npc_PercEnable  (self, PERC_ASSESSTHEFT		,B_AssessTheft 		);
 
 	// SC zu nah dran
-	if (Npc_GetDistToNpc(other,self) < 80) 
+	if (Npc_GetDistToNpc(other,self) < 80)
 	{
 		AI_Dodge 		(other);
 	};
@@ -51,16 +51,16 @@ FUNC void ZS_Talk ()
 	&&	(self.aivar[AIV_TALKBEFOREATTACK] == FALSE)
 	{
 		Npc_SetTarget 	(self,	other);
-		B_AssessEnemy	();		
+		B_AssessEnemy	();
 	};
-	
-	// AMBIENT-INFOS werden nur Ambient-NSCs (Nicht-Main-NSCs) zugeordnet, 
+
+	// AMBIENT-INFOS werden nur Ambient-NSCs (Nicht-Main-NSCs) zugeordnet,
 	// die KEINE anderen Infos/Aufträge haben
 	//if ( (self.npctype != npctype_main) && (self.npctype != npctype_friend) && (!NPC_CheckInfo(self,0)) && (!Npc_CheckInfo(self,1)) )
 	//{
 	//	B_AssignAmbientInfos (self);
 	//};
-	
+
 	// SC labert NSC an
 	if ( C_BodystateContains(self,BS_WALK) || C_BodystateContains(self,BS_RUN) )
 	{
@@ -74,44 +74,44 @@ FUNC void ZS_Talk ()
 	{
 		// nix sagen
 	};
-	
+
 	// DIALOG geht los, NSC dreht sich zu dir
 	if ( (!C_BodystateContains(self, BS_SIT)) || (!Npc_CanSeeNpc(self, hero)) )
 	{
 		AI_StandUp		(self);
 		AI_TurnToNpc	(self,	hero);
 	};
-	
+
 	B_FullStop			(hero);
 	AI_TurnToNpc		(hero,	self); // SC dreht sich zum Npc
-				
+
 	// NSC begrüßt dich, wenn der Spieler ihn angesprochen hat
 	if (!hero.aivar[AIV_IMPORTANT])
 	{
 		B_GuildGreetings ();
 	};
-	
+
 	// Equipment gestohlen?
 	B_CheckStolenEquipment ();
-	
+
 	// KenneSC-Flag auf TRUE setzen, wenn Main-NSC. (SC-Verkleidung dabei EGAL)
 	if ( (self.npctype == npctype_main) || (self.npctype == npctype_friend) )
 	{
 		Npc_SetKnowsPlayer(self,other);
 	};
-	
+
 	// NEWS checken, wenn der Spieler ihn angesprochen hat
 	if (!hero.aivar[AIV_IMPORTANT])
 	{
 		B_ReactToMemory ();
 	};
-		
+
 	//AMBIENT INFOS
 	B_AssignAmbientInfos(self);
-	
+
 	// Kenne SC (wird für FindNSC-Infos gebraucht)
-	self.aivar[AIV_FINDABLE] = TRUE; 
-	
+	self.aivar[AIV_FINDABLE] = TRUE;
+
 	// START Multiple Choice Dialog
 	AI_ProcessInfos(self);
 };
@@ -119,7 +119,7 @@ FUNC void ZS_Talk ()
 FUNC INT ZS_Talk_Loop ()
 {
     PrintDebugNpc(PD_ZS_LOOP,"ZS_Talk_Loop");
-    
+
    	if (C_BodyStateContains(self,BS_SIT))
 	{
    		if (self.aivar[AIV_HANGAROUNDSTATUS] <= 1) //sitzt auf Boden, NICHT auf Bank, etc.
@@ -127,7 +127,7 @@ FUNC INT ZS_Talk_Loop ()
    			AI_LookAtNpc		(self, other);
    		};
    	};
-   	
+
    	if ( InfoManager_HasFinished() )
    	{
 		PrintDebugNpc(PD_ZS_CHECK,"...InfoManager beendet!");

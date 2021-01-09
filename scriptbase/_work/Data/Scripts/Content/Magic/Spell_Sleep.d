@@ -14,10 +14,10 @@ func int Spell_Logic_Sleep		(var int manaInvested)
 		if (manaInvested >= SPL_SENDCAST_SLEEP)
 		{
 			AI_StartState	(other, ZS_MagicSleep, 0, "");
-			
+
 			return SPL_SENDCAST;
 		};
-	
+
 		return SPL_RECEIVEINVEST;
 	}
 	else

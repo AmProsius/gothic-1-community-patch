@@ -390,7 +390,7 @@ INSTANCE ItAt_StoneGolem_01 (C_Item)
 	description			= name;
 	TEXT[0]				= "This heart stems from the remains";
 	TEXT[1]				= "of a defeated stone golem.";
-	TEXT[2]				= "It has the power to hurl a foe"; 
+	TEXT[2]				= "It has the power to hurl a foe";
 	TEXT[3]				= "through the air.";
 	TEXT[5]				= NAME_Value;					COUNT[5]	= Value_Steinherz;
 };

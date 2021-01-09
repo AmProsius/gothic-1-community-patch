@@ -5,10 +5,10 @@ instance NOV_1313_Novize (Npc_Default)
 	Npctype 		=		Npctype_Ambient;
 	guild 		=		GIL_NOV;
 	level 		=		3;
-	
+
 	voice 		=		2;
 	id 			=		1310;
-		
+
 	//-------- abilities --------
 	attribute[ATR_STRENGTH] 		=	10;
 	attribute[ATR_DEXTERITY] 		=	10;
@@ -21,23 +21,23 @@ instance NOV_1313_Novize (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Relaxed.mds");
-	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
+	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin
 	Mdl_SetVisualBody (self,"hum_body_Naked0", 1, 1 ,"Hum_Head_Bald", 30 ,  1, NOV_ARMOR_L);
 
 	B_Scale (self);
 	Mdl_SetModelFatness(self,-1);
-	
+
 	fight_tactic	=	FAI_HUMAN_COWARD;
 
 	//-------- Talente --------
-	
-		
+
+
 	//-------- inventory --------
 
 	EquipItem (self, ItMw_1H_Hatchet_01);
 	//CreateInvItem (self, ItFoSoup);
 	//CreateInvItem (self, ItMiJoint);
-	
+
 	//-------------Daily Routine-------------
 	daily_routine = Rtn_start_1313;
 };

@@ -6,10 +6,10 @@ instance  Info_Merdarion_EXIT (C_INFO)
 	nr			= 999;
 	condition	= Info_Merdarion_EXIT_Condition;
 	information	= Info_Merdarion_EXIT_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC int  Info_Merdarion_EXIT_Condition()
 {

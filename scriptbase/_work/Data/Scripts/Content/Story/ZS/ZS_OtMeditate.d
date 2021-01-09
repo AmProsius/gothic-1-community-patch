@@ -6,7 +6,7 @@
 func void ZS_OTMeditate()
 {
     PrintDebugNpc(PD_TA_FRAME,"ZS_Meditate");
-	
+
 	//-------- Wahrnehmungen --------
 	Npc_PercEnable  		(self,	PERC_ASSESSENEMY		,	B_AssessEnemy			);
 	Npc_PercEnable  		(self,	PERC_ASSESSDAMAGE		,	B_InterceptAssessDamage	);
@@ -14,19 +14,19 @@ func void ZS_OTMeditate()
 
 	self.senses 		= SENSE_SEE|SENSE_HEAR|SENSE_SMELL;
 	self.senses_range	= 3500;
-	
+
  	//-------- Attitüden checken --------
 	if (Npc_GetPermAttitude(self,hero) != ATT_HOSTILE)
 	{
 		Npc_SetPermAttitude 	(self, ATT_ANGRY);
 	};
-	
+
  	//-------- in Meditier-haltung --------
- 	AI_SetWalkmode (self,NPC_WALK);			// Walkmode für den Zustand 
+ 	AI_SetWalkmode (self,NPC_WALK);			// Walkmode für den Zustand
 	if !(Npc_IsOnFP(self,"MEDITATE"))
 	{
 		AI_GotoWP(self, self.wp);               // Gehe zum Tagesablaufstart
-	};	
+	};
 	if (Wld_IsFPAvailable (self, "MEDITATE"))
 	{
 		AI_GotoFP (self,"MEDITATE");
@@ -36,16 +36,16 @@ func void ZS_OTMeditate()
 	if (Npc_GetDistToNpc (self,other) <= PERC_DIST_INTERMEDIAT)
 	{
 		B_SmartTurnToNpc (self,other);
-	};	
-	
+	};
 
-	
+
+
 	AI_PlayAniBS(self,"T_STAND_2_PRAY",BS_SIT);
 };
 func void ZS_OTMeditate_Loop()
 {
 	PrintDebugNpc(PD_TA_LOOP,"ZS_Meditate_Loop");
-	
+
 	var int praytime;
 	praytime = Hlp_Random (100);
 	if (praytime <= 2)
@@ -64,7 +64,7 @@ func void ZS_OTMeditate_End ()
 {
     C_StopLookAt(self);
 	AI_PlayAniBS(self,"T_PRAY_2_STAND",BS_STAND);
-	
+
 	PrintDebugNpc(PD_TA_FRAME,"ZS_Meditate_End");
 };
 
@@ -82,7 +82,7 @@ func void B_OTMeditate_AssessMurder ()
 		Npc_SetPermAttitude (self, ATT_HOSTILE);
 		Npc_SetTarget		(self, other);
 		AI_StartState		(self,	ZS_Attack, 0 ,"");
-		
+
 		SLF_FIRE = TRUE;
 	};
 };

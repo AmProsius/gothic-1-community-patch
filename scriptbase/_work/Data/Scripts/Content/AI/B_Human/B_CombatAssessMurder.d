@@ -3,7 +3,7 @@ func void B_CombatAssessMurder ()
 {
 	PrintDebugNpc	(PD_ZS_FRAME, "B_CombatAssessMurder" );
 	PrintGlobals	(PD_ZS_CHECK);
-	
+
 	if (Npc_CanSeeNpc (self,other))
 	{
 		PrintDebugNpc( PD_ZS_CHECK, "B_CombatAssessMurder seen");
@@ -34,7 +34,7 @@ func void B_CombatAssessMurder ()
 		};
 	}
 	//JP: auch wenn der Täter nicht gesehen wird, sollten nur bei menschlichen Opfern Murder_News gemerkt werden
-	else if (C_NpcIsHuman(other) && C_NpcIsHuman(victim))  
+	else if (C_NpcIsHuman(other) && C_NpcIsHuman(victim))
 	{
 		PrintDebugNpc		(PD_ZS_CHECK, "B_CombatAssessMurder // only heard");
 		B_AssessAndMemorize (NEWS_MURDER,NEWS_SOURCE_WITNESS, self, NULL, victim);

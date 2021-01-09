@@ -4,10 +4,10 @@
 instance Orc_2001_Sklave(Npc_Default)
 {
 	//-------- primary data --------
-	
+
 	name =							"Orc Slave";
 	slot =							"Orc Slave";
-	guild =							GIL_ORCSLAVE;      
+	guild =							GIL_ORCSLAVE;
 	level =							3;
 	flags =							0;
 	voice =							17;
@@ -16,7 +16,7 @@ instance Orc_2001_Sklave(Npc_Default)
 		//---------	abilities --------
 	attribute[ATR_STRENGTH]			=		90;
 	attribute[ATR_DEXTERITY]		=		20;
-	
+
 	attribute[ATR_HITPOINTS_MAX]	=		250;
 	attribute[ATR_HITPOINTS]		=		250;
 
@@ -27,7 +27,7 @@ instance Orc_2001_Sklave(Npc_Default)
 	protection[PROT_MAGIC]			=		0;
 
 //	talents					=		0;
-	
+
 
 	//-------- visuals --------
 	Mdl_SetVisual		(self,"orc.mds");
@@ -37,32 +37,32 @@ instance Orc_2001_Sklave(Npc_Default)
 	//-------- ai --------
 //	start_aistate				=		ZS_Orc_Stomper;//SN: wegen Überarbeitung Ork-AI entfernt
 	fight_tactic				=		FAI_ORC;
-	senses_range				=		2000;	
+	senses_range				=		2000;
 
 // 			daily routine
-	
+
 	daily_routine = rtn_Nothing_2001;
 };
-	
+
 func void rtn_Nothing_2001()
 {
-	TA_Orc_SitOnFloor  (00,00,12,00,"OM_CAVE3_15"); 
-	TA_Orc_SitOnFloor  (12,00,00,00,"OM_CAVE3_15");  
+	TA_Orc_SitOnFloor  (00,00,12,00,"OM_CAVE3_15");
+	TA_Orc_SitOnFloor  (12,00,00,00,"OM_CAVE3_15");
 };
 
 func void rtn_Stomper_2001()
 {
-	TA_Orc_Stomper (00,00,12,00,"OM_CAVE3_15"); 
-	TA_Orc_Stomper (12,00,00,00,"OM_CAVE3_15");                                                     
+	TA_Orc_Stomper (00,00,12,00,"OM_CAVE3_15");
+	TA_Orc_Stomper (12,00,00,00,"OM_CAVE3_15");
 };
 //*********************************************************************************************************//
 instance Orc_2002_Sklave(Npc_Default)
 {
 	//-------- primary data --------
-	
+
 	name =							"Orc Slave";
 	slot =							"Orc Slave";
-	guild =							GIL_ORCSLAVE;      
+	guild =							GIL_ORCSLAVE;
 	level =							3;
 	flags =							0;
 	voice =							17;
@@ -71,7 +71,7 @@ instance Orc_2002_Sklave(Npc_Default)
 		//---------	abilities --------
 	attribute[ATR_STRENGTH]			=		85;
 	attribute[ATR_DEXTERITY]		=		20;
-	
+
 	attribute[ATR_HITPOINTS_MAX]	=		250;
 	attribute[ATR_HITPOINTS]		=		250;
 
@@ -82,7 +82,7 @@ instance Orc_2002_Sklave(Npc_Default)
 	protection[PROT_MAGIC]			=		0;
 
 //	talents					=		0;
-	
+
 
 	//-------- visuals --------
 	Mdl_SetVisual		(self,"orc.mds");
@@ -92,17 +92,17 @@ instance Orc_2002_Sklave(Npc_Default)
 	//-------- ai --------
 //	start_aistate				=		ZS_Orc_Stomper;//SN: wegen Überarbeitung Ork-AI entfernt
 	fight_tactic				=		FAI_ORC;
-	senses_range				=		2000;	
+	senses_range				=		2000;
 
 // 			daily routine
-	
+
 	daily_routine = rtn_stonemill_2002;
 };
-	
+
 func void rtn_stonemill_2002()
 {
-	TA_Orc_Stonemill (00,00,12,00,"OM_CAVE1_BELLOWS"); 
-	TA_Orc_Stonemill (12,00,00,00,"OM_CAVE1_BELLOWS");  
+	TA_Orc_Stonemill (00,00,12,00,"OM_CAVE1_BELLOWS");
+	TA_Orc_Stonemill (12,00,00,00,"OM_CAVE1_BELLOWS");
 };
 
 

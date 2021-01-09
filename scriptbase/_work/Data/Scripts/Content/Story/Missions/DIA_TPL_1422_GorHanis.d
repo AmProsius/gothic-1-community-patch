@@ -1,5 +1,5 @@
 // **************************************************
-//						 EXIT 
+//						 EXIT
 // **************************************************
 
 instance Info_GorHanis_Exit (C_INFO)
@@ -10,7 +10,7 @@ instance Info_GorHanis_Exit (C_INFO)
 	information		= Info_GorHanis_Exit_Info;
 	permanent		= 1;
 	description 	= DIALOG_ENDE;
-};                       
+};
 
 FUNC INT Info_GorHanis_Exit_Condition()
 {
@@ -34,7 +34,7 @@ instance Info_GorHanis_What(C_INFO)
 	information		= Info_GorHanis_What_Info;
 	permanent		= 0;
 	description 	= "What are you doing here?";
-};                       
+};
 
 FUNC INT Info_GorHanis_What_Condition()
 {
@@ -59,7 +59,7 @@ instance Info_GorHanis_Arena(C_INFO)
 	information		= Info_GorHanis_Arena_Info;
 	permanent		= 1;
 	description 	= "You fight in the arena?";
-};                       
+};
 
 FUNC INT Info_GorHanis_Arena_Condition()
 {
@@ -88,7 +88,7 @@ instance Info_GorHanis_Sleeper(C_INFO)
 	information		= Info_GorHanis_Sleeper_Info;
 	permanent		= 0;
 	description 	= "What is the Sleeper?";
-};                       
+};
 
 FUNC INT Info_GorHanis_Sleeper_Condition()
 {
@@ -119,7 +119,7 @@ instance Info_GorHanis_Summoning (C_INFO)
 	information		= Info_GorHanis_Summoning_Info;
 	permanent		= 0;
 	description 	= "What kind of invocation is it you're planning?";
-};                       
+};
 
 FUNC INT Info_GorHanis_Summoning_Condition()
 {
@@ -148,7 +148,7 @@ instance Info_GorHanis_WayToST(C_INFO)
 	information		= Info_GorHanis_WayToST_Info;
 	permanent		= 1;
 	description 	= "Could you describe the way to your camp?";
-};                       
+};
 
 FUNC INT Info_GorHanis_WayToST_Condition()
 {
@@ -176,7 +176,7 @@ instance Info_GorHanis_Charge (C_INFO)
 	information		= Info_GorHanis_Charge_Info;
 	permanent		= 0;
 	description 	= "I challenge you to a duel in the arena!";
-};                       
+};
 
 FUNC INT Info_GorHanis_Charge_Condition()
 {
@@ -206,7 +206,7 @@ instance Info_GorHanis_ChargeGood (C_INFO)
 	information		= Info_GorHanis_ChargeGood_Info;
 	permanent		= 1;
 	description 	= "Am I now strong enough to fight against you?";
-};                       
+};
 
 FUNC INT Info_GorHanis_ChargeGood_Condition()
 {
@@ -246,7 +246,7 @@ func VOID Info_GorHanis_ChargeGood_Info()
 
 /*
 
-// infos 
+// infos
 instance Info_TPL_1422_GorHanis (C_INFO)
 {
 	npc				= TPL_1422_GorHanis;
@@ -260,7 +260,7 @@ FUNC int Info_TPL_1422_GorHanis_Condition()
 {
 	if ( Npc_KnowsInfo ( hero, Info_PC_Mage_LoadSword3 )) {
 		return 1;
-	};	
+	};
 };
 
 func void Info_TPL_1422_GorHanis_Info()
@@ -276,14 +276,14 @@ instance Info_TPL_1422_GorHanis1 (C_INFO)
 	information		= Info_TPL_1422_GorHanis1_Info;
 	important			= 0;
 	permanent		= 0;
-	description		= "Ich will helfen den Schläfer zu erwecken."; 
+	description		= "Ich will helfen den Schläfer zu erwecken.";
 };
 
 FUNC int Info_TPL_1422_GorHanis1_Condition()
 {
 	if ( Npc_KnowsInfo ( hero, Info_TPL_1422_GorHanis )) {
 		return 1;
-	};	
+	};
 };
 
 func void Info_TPL_1422_GorHanis1_Info()
@@ -301,20 +301,20 @@ instance Info_TPL_1422_GorHanis2 (C_INFO)
 	information		= Info_TPL_1422_GorHanis2_Info;
 	important			= 0;
 	permanent		= 0;
-	description		= "Das geht dich nichts an!"; 
+	description		= "Das geht dich nichts an!";
 };
 
 FUNC int Info_TPL_1422_GorHanis2_Condition()
 {
 	if ( Npc_KnowsInfo ( hero, Info_TPL_1422_GorHanis )) {
 		return 1;
-	};	
+	};
 };
 
 func void Info_TPL_1422_GorHanis2_Info()
 {
 	AI_Output (other, self,"Info_TPL_1422_GorHanis2_15_01"); //Das geht dich nichts an!
-	AI_Output (self, other,"Info_TPL_1422_GorHanis2_08_02"); //Soso, dann lasse ich dich lieber passieren, bevor du mir weh tust (lacht). Am Hohenpriester kommst Du eh nicht vorbei und ich muss mein Schwert nicht mit deinem Blut beschmutzen. 
+	AI_Output (self, other,"Info_TPL_1422_GorHanis2_08_02"); //Soso, dann lasse ich dich lieber passieren, bevor du mir weh tust (lacht). Am Hohenpriester kommst Du eh nicht vorbei und ich muss mein Schwert nicht mit deinem Blut beschmutzen.
 };
 
 
@@ -325,14 +325,14 @@ instance Info_TPL_1422_GorHanis3 (C_INFO)
 	information		= Info_TPL_1422_GorHanis3_Info;
 	important			= 0;
 	permanent		= 0;
-	description		= "Wie seit ihr an dem Priester vorbei gekommen?"; 
+	description		= "Wie seit ihr an dem Priester vorbei gekommen?";
 };
 
 FUNC int Info_TPL_1422_GorHanis3_Condition()
 {
 	if ( Npc_KnowsInfo ( hero, Info_TPL_1422_GorHanis2 )) || ( Npc_KnowsInfo ( hero, Info_TPL_1422_GorHanis1 )) {
 		return 1;
-	};	
+	};
 };
 
 func void Info_TPL_1422_GorHanis3_Info()

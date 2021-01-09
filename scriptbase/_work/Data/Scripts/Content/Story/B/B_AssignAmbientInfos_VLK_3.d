@@ -15,7 +15,7 @@ INSTANCE Info_Vlk_3_EXIT(C_INFO)
 	information	= Info_Vlk_3_EXIT_Info;
 	permanent	= 1;
 	description = "END";
-};                       
+};
 
 FUNC INT Info_Vlk_3_EXIT_Condition()
 {
@@ -23,7 +23,7 @@ FUNC INT Info_Vlk_3_EXIT_Condition()
 };
 
 FUNC VOID Info_Vlk_3_EXIT_Info()
-{	
+{
 	AI_StopProcessInfos	(self);
 };
 
@@ -38,7 +38,7 @@ INSTANCE Info_Vlk_3_EinerVonEuchWerden (C_INFO) // E1
 	information	= Info_Vlk_3_EinerVonEuchWerden_Info;
 	permanent	= 1;
 	description = "How can I join this camp?";
-};                       
+};
 
 FUNC INT Info_Vlk_3_EinerVonEuchWerden_Condition()
 {
@@ -65,10 +65,10 @@ INSTANCE Info_Vlk_3_WichtigePersonen(C_INFO)
 	information	= Info_Vlk_3_WichtigePersonen_Info;
 	permanent	= 1;
 	description = "Who's the boss around here?";
-};                       
+};
 
 FUNC INT Info_Vlk_3_WichtigePersonen_Condition()
-{	
+{
 	if (!C_NpcBelongsToOldcamp (other))
 	{
 		return 1;
@@ -92,7 +92,7 @@ INSTANCE Info_Vlk_3_DasLager(C_INFO)
 	information	= Info_Vlk_3_DasLager_Info;
 	permanent	= 1;
 	description = "What are the most important places here?";
-};                       
+};
 
 FUNC INT Info_Vlk_3_DasLager_Condition()
 {
@@ -117,7 +117,7 @@ INSTANCE Info_Vlk_3_DieLage(C_INFO) // E1
 	information	= Info_Vlk_3_DieLage_Info;
 	permanent	= 1;
 	description = "What's up?";
-};                       
+};
 
 FUNC INT Info_Vlk_3_DieLage_Condition()
 {
@@ -130,14 +130,14 @@ FUNC VOID Info_Vlk_3_DieLage_Info()
 	AI_Output(self,other,"Info_Vlk_3_DieLage_03_01"); //You'll learn soon enough. Be on your guard at all times. Especially at night.
 	AI_Output(self,other,"Info_Vlk_3_DieLage_03_02"); //I haven't slept properly for days. And if you don't sleep in this colony, then you're doing double time!
 };
-	
+
 // *************************************************************************
 // -------------------------------------------------------------------------
 
 FUNC VOID B_AssignAmbientInfos_Vlk_3(var c_NPC slf)
 {
 	B_AssignFindNpc_OC(slf);
-	
+
 	Info_Vlk_3_EXIT.npc					= Hlp_GetInstanceID(slf);
 	Info_Vlk_3_EinerVonEuchWerden.npc	= Hlp_GetInstanceID(slf);
 	Info_Vlk_3_WichtigePersonen.npc		= Hlp_GetInstanceID(slf);

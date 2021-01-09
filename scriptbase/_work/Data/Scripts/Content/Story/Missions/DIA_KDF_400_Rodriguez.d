@@ -1,5 +1,5 @@
 //***********************************************
-//					EXIT	
+//					EXIT
 //***********************************************
 
 instance  DIA_Rodriguez_Exit (C_INFO)
@@ -10,7 +10,7 @@ instance  DIA_Rodriguez_Exit (C_INFO)
 	information	=  DIA_Rodriguez_Exit_Info;
 	permanent	=  1;
 	description =  DIALOG_ENDE;
-};                       
+};
 
 FUNC int  DIA_Rodriguez_Exit_Condition()
 {
@@ -34,7 +34,7 @@ instance  DIA_Rodriguez_Hello (C_INFO)
 	information	=  DIA_Rodriguez_Hello_Info;
 	permanent	=  1;
 	description =  "I'm looking for the High Magician of the Circle of Fire!";
-};                       
+};
 
 FUNC int  DIA_Rodriguez_Hello_Condition()
 {

@@ -1,5 +1,5 @@
 // **************************************
-//					EXIT 
+//					EXIT
 // **************************************
 
 instance  DIA_Skip_Exit (C_INFO)
@@ -10,7 +10,7 @@ instance  DIA_Skip_Exit (C_INFO)
 	information	=  DIA_Skip_Exit_Info;
 	permanent	=  1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC int  DIA_Skip_Exit_Condition()
 {
@@ -36,12 +36,12 @@ instance  DIA_Skip_First (C_INFO)
 	information	=  DIA_Skip_First_Info;
 	permanent	=  0;
 	description = "What do you do here?";
-};                       
+};
 
 FUNC int  DIA_Skip_First_Condition()
 {
 	if ( !( (Npc_GetTrueGuild(other)==GIL_STT) || (Npc_GetTrueGuild(other)==GIL_GRD) || (Npc_GetTrueGuild(other)==GIL_KDF) ) )
-	{	
+	{
 		return 1;
 	};
 };
@@ -58,12 +58,12 @@ FUNC VOID  DIA_Skip_First_Info()
 		Log_CreateTopic	(GE_TraderOC,	LOG_NOTE);
 		B_LogEntry		(GE_TraderOC,"The guard Skip at the back courtyard sells WEAPONS. But only to Gomez' men.");
 	};
-	
+
 	Info_ClearChoices 	(DIA_Skip_First);
 	Info_Addchoice 		(DIA_Skip_First,"I get it. I'll see you.",DIA_Skip_First_BACK);
 	Info_Addchoice 		(DIA_Skip_First,"Thorus sent me. He told me to get myself a weapon.",DIA_Skip_First_Thorus);
 	Info_Addchoice 		(DIA_Skip_First,"Gomez sent me. He told me you'd give me some equipment.",DIA_Skip_First_Gomez);
-		
+
 };
 
 func void DIA_Skip_First_Gomez()
@@ -138,15 +138,15 @@ instance  DIA_Skip_VERPATZT (C_INFO)
 	information	=  DIA_Skip_VERPATZT_Info;
 	permanent	=  1;
 	description = "I just thought I'd come back and ask about that equipment...";
-};                       
+};
 
 FUNC int  DIA_Skip_VERPATZT_Condition()
 {
-	if 	( 
+	if 	(
 		( !( (Npc_GetTrueGuild(other)==GIL_STT) || (Npc_GetTrueGuild(other)==GIL_GRD) || (Npc_GetTrueGuild(other)==GIL_KDF) ) )
-		&& ( (Npc_KnowsInfo(hero,DIA_Skip_First)) && (Skip_TradeFree == FALSE) ) 
+		&& ( (Npc_KnowsInfo(hero,DIA_Skip_First)) && (Skip_TradeFree == FALSE) )
 		)
-	{	
+	{
 		return 1;
 	};
 };
@@ -158,7 +158,7 @@ FUNC VOID  DIA_Skip_VERPATZT_Info()
 };
 
 /*------------------------------------------------------------------------
-							Waffenhandel								
+							Waffenhandel
 ------------------------------------------------------------------------*/
 
 instance  GRD_211_Skip_TRADE (C_INFO)
@@ -167,13 +167,13 @@ instance  GRD_211_Skip_TRADE (C_INFO)
 	condition		= GRD_211_Skip_TRADE_Condition;
 	information		= GRD_211_Skip_TRADE_Info;
 	permanent		= 1;
-	description		= "I could do with a few things."; 
+	description		= "I could do with a few things.";
 	trade 			= 1;
 };
 
 FUNC int  GRD_211_Skip_TRADE_Condition()
 {
-	if ( (Npc_GetTrueGuild(other)==GIL_STT) || (Npc_GetTrueGuild(other)==GIL_GRD) || (Npc_GetTrueGuild(other)==GIL_KDF) 
+	if ( (Npc_GetTrueGuild(other)==GIL_STT) || (Npc_GetTrueGuild(other)==GIL_GRD) || (Npc_GetTrueGuild(other)==GIL_KDF)
 			||	(Skip_TradeFree == TRUE) )
 	{
 		return TRUE;
@@ -185,7 +185,7 @@ FUNC void  GRD_211_Skip_TRADE_Info()
 {
 	AI_Output (other, self,"GRD_211_Skip_TRADE_Info_15_01"); //I could do with a few things.
 	AI_Output (self, other,"GRD_211_Skip_TRADE_Info_12_02"); //I could sell you a few things.
-};  
+};
 
 /*------------------------------------------------------------------------
 //							GARDIST GEWORDEN							//
@@ -200,9 +200,9 @@ instance GRD_211_Skip_WELCOME (C_INFO)
 };
 
 FUNC int  GRD_211_Skip_WELCOME_Condition()
-{	
-	
-	if (Npc_GetTrueGuild (hero) == GIL_GRD) 
+{
+
+	if (Npc_GetTrueGuild (hero) == GIL_GRD)
 	{
 		return TRUE;
 	};

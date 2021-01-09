@@ -5,10 +5,10 @@ instance STT_311_Fisk (Npc_Default)
 	npctype 	=		NPCTYPE_MAIN;
 	guild 		=		GIL_STT;
 	level 		=		7;
-		
+
 	voice 		=		12;
 	id 			=		311;
-		
+
 	//-------- abilities --------
 	attribute[ATR_STRENGTH] 		=	30;
 	attribute[ATR_DEXTERITY] 		=	18;
@@ -26,21 +26,21 @@ instance STT_311_Fisk (Npc_Default)
 
 	B_Scale (self);
 	Mdl_SetModelFatness(self,-1);
-    	
+
     	self.aivar[AIV_IMPORTANT] = TRUE;
-	
-	fight_tactic	=	FAI_HUMAN_STRONG; 
-	
-	//-------- Talente -------- 
-	Npc_SetTalentSkill (self, NPC_TALENT_1H,2);	
-		
+
+	fight_tactic	=	FAI_HUMAN_STRONG;
+
+	//-------- Talente --------
+	Npc_SetTalentSkill (self, NPC_TALENT_1H,2);
+
 	//-------- inventory --------
 	B_Give_FiskChapter1Weapons ();
-		
+
 	//EquipItem	(self, ItMw_1H_Sword_Short_04);
 	CreateInvItems (self, ItKeLockpick,10);
-	
-	
+
+
 	//-------------Daily Routine-------------
 	daily_routine = Rtn_start_311;
 };

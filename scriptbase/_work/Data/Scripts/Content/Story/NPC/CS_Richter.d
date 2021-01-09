@@ -1,10 +1,10 @@
 instance CS_Richter (Npc_Default)
 {
 	//-------- primary data --------
-	
+
 	name 		=	"Judge";
 	npctype     =	npctype_main;
-	guild 		=	GIL_None;      
+	guild 		=	GIL_None;
 	level 		=	5;
 	voice 		=	13;
 	id 			=	3022;
@@ -22,23 +22,23 @@ instance CS_Richter (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Mage.MDS");
-	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
+	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin
 	Mdl_SetVisualBody (self,"hum_body_Naked0",0,1,"Hum_Head_Bald", 89,  1, LAW_ARMOR);
 
 //  Spezialrobe heisst : LAW_ARMOR
 
     B_Scale (self);
 	Mdl_SetModelFatness (self, 0);
-	
+
 	fight_tactic	=	FAI_HUMAN_COWARD;
-	
-	//-------- Talente --------                                    
+
+	//-------- Talente --------
 
 
-	//-------- Spells--------                                    
-	
-	
-	//-------- inventory --------                                    
+	//-------- Spells--------
+
+
+	//-------- inventory --------
 
     //-------------Daily Routine-------------
 	daily_routine = Rtn_start_3022;

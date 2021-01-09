@@ -12,7 +12,7 @@ INSTANCE IEFan1_EXIT (C_INFO)
 	important		= 0;
 	permanent		= 1;
 	description		= DIALOG_ENDE;
-};                       
+};
 
 FUNC INT IEFan1_EXIT_Condition()
 {
@@ -20,7 +20,7 @@ FUNC INT IEFan1_EXIT_Condition()
 };
 
 FUNC VOID IEFan1_EXIT_Info()
-{	
+{
 	AI_StopProcessInfos	( self );
 };
 
@@ -39,15 +39,15 @@ INSTANCE IEFan2_EXIT(C_INFO)
 	important		= 0;
 	permanent		= 1;
 	description		= DIALOG_ENDE;
-};                       
+};
 
 FUNC INT IEFan2_EXIT_Condition()
-{	
+{
 	return 1;
 };
 
 FUNC VOID IEFan2_EXIT_Info()
-{	
+{
 	AI_StopProcessInfos	( self );
 };
 
@@ -66,15 +66,15 @@ INSTANCE IEFan3_EXIT (C_INFO)
 	important		= 0;
 	permanent		= 1;
 	description 	= DIALOG_ENDE;
-};                       
+};
 
 FUNC INT IEFan3_EXIT_Condition()
-{	
+{
 	return 1;
 };
 
 FUNC VOID IEFan3_EXIT_Info()
-{	
+{
 	AI_StopProcessInfos	( self );
 };
 
@@ -93,15 +93,15 @@ INSTANCE IEFan4_EXIT (C_INFO)
 	important		= 0;
 	permanent		= 1;
 	description		= DIALOG_ENDE;
-};                       
+};
 
 FUNC INT IEFan4_EXIT_Condition()
-{	
+{
 	return 1;
 };
 
 FUNC VOID IEFan4_EXIT_Info()
-{	
+{
 	AI_StopProcessInfos	( self );
 };
 

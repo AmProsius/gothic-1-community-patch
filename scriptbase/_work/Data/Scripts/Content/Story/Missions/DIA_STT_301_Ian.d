@@ -7,10 +7,10 @@ instance  STT_301_IAN_Exit (C_INFO)
 	nr			= 999;
 	condition	=  STT_301_IAN_Exit_Condition;
 	information	=  STT_301_IAN_Exit_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC int  STT_301_IAN_Exit_Condition()
 {
@@ -21,7 +21,7 @@ FUNC VOID  STT_301_IAN_Exit_Info()
 {
 	AI_Output			(other, self,"STT_301_IAN_Exit_Info_15_01"); //I'll just have a look around.
 	AI_Output			(self, other,"STT_301_IAN_Exit_Info_13_02"); //Don't make any trouble.
-	
+
 	AI_StopProcessInfos	( self );
 };
 // ***************** Erstes Treffen *****************************
@@ -33,13 +33,13 @@ instance  STT_301_IAN_HI (C_INFO)
 	information		= STT_301_IAN_HI_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "Are you Ian, the boss of the mine?"; 
+	description		= "Are you Ian, the boss of the mine?";
 };
 
 FUNC int  STT_301_IAN_HI_Condition()
-{	
+{
 	if ( ! Npc_KnowsInfo (hero,STT_301_IAN_NEST))
-	{	
+	{
 		return TRUE;
 	};
 };
@@ -47,7 +47,7 @@ FUNC void  STT_301_IAN_HI_Info()
 {
 	AI_Output			(other, self,"STT_301_IAN_HI_Info_15_01"); //Are you Ian, the boss of the mine?
 	AI_Output			(self, other,"STT_301_IAN_HI_Info_13_02"); //Yes, I'm Ian. And this is my mine. So don't touch or break anything.
-}; 
+};
 // ***************** Infos *****************************
 instance STT_301_IAN_GOMEZ  (C_INFO)
 {
@@ -56,11 +56,11 @@ instance STT_301_IAN_GOMEZ  (C_INFO)
 	information		= STT_301_IAN_GOMEZ_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "Isn't that Gomez' mine?"; 
+	description		= "Isn't that Gomez' mine?";
 };
 
 FUNC int  STT_301_IAN_GOMEZ_Condition()
-{	
+{
 	if Npc_KnowsInfo (hero,STT_301_IAN_HI)
 	{
 		return TRUE;
@@ -71,7 +71,7 @@ FUNC void  STT_301_IAN_GOMEZ_Info()
 {
 	AI_Output			(other, self,"STT_301_IAN_GOMEZ_Info_15_01"); //Isn't that Gomez' mine?
 	AI_Output			(self, other,"STT_301_IAN_GOMEZ_Info_13_02"); //Yes, of course this is the mine of the Old Camp. But in here there's only one boss - and that's me.
-}; 
+};
 // ***************** Infos *****************************
 instance  STT_301_IAN_ORE (C_INFO)
 {
@@ -80,7 +80,7 @@ instance  STT_301_IAN_ORE (C_INFO)
 	information		= STT_301_IAN_ORE_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "Can you tell me something about the ore production here? "; 
+	description		= "Can you tell me something about the ore production here? ";
 };
 
 FUNC int  STT_301_IAN_ORE_Condition()
@@ -96,9 +96,9 @@ FUNC void  STT_301_IAN_ORE_Info()
 	AI_Output			(other, self,"STT_301_IAN_ORE_Info_15_01"); //Can you tell me something about the ore production here?
 	AI_Output			(self, other,"STT_301_IAN_ORE_Info_13_02"); //We dig for ore day and night. This means a storage of 200 sacks per month and another 20 sacks which will be melted down.
 	AI_Output			(self, other,"STT_301_IAN_ORE_Info_13_03"); //Hundreds of blades can be forged with the ore we supply to the King.
-	
-}; 
-// ***************** Infos *****************************   
+
+};
+// ***************** Infos *****************************
 instance  STT_301_IAN_MORE (C_INFO)
 {
 	npc				= STT_301_IAN;
@@ -106,7 +106,7 @@ instance  STT_301_IAN_MORE (C_INFO)
 	information		= STT_301_IAN_MORE_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "I've heard that the ore has magical qualities. Tell me about it."; 
+	description		= "I've heard that the ore has magical qualities. Tell me about it.";
 };
 
 FUNC int  STT_301_IAN_MORE_Condition()
@@ -120,9 +120,9 @@ FUNC void  STT_301_IAN_MORE_Info()
 	AI_Output			(other, self,"STT_301_IAN_MORE_Info_15_01"); //I've heard that the ore has magical qualities. Tell me about it.
 	AI_Output			(self, other,"STT_301_IAN_MORE_Info_13_02"); //The magic ore does have special qualities. Weapons forged from it don't break, their blades are sharper than usual ones.
 	AI_Output			(self, other,"STT_301_IAN_MORE_Info_13_03"); //An army equipped with these weapons has a decisive advantage in battle.
-	
-};   
-// ***************** Infos *****************************  
+
+};
+// ***************** Infos *****************************
 instance  STT_301_IAN_MAGIC (C_INFO)
 {
 	npc				= STT_301_IAN;
@@ -130,7 +130,7 @@ instance  STT_301_IAN_MAGIC (C_INFO)
 	information		= STT_301_IAN_MAGIC_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "Tell me more about the ore."; 
+	description		= "Tell me more about the ore.";
 };
 
 FUNC int  STT_301_IAN_MAGIC_Condition()
@@ -144,9 +144,9 @@ FUNC void  STT_301_IAN_MAGIC_Info()
 	AI_Output			(other, self,"STT_301_IAN_MAGIC_Info_15_01"); //Tell me more about the ore.
 	AI_Output			(self, other,"STT_301_IAN_MAGIC_Info_13_02"); //Unfortunately the magic powers of the ore vanish during the smelting process. They know the right smelting technique in the blast furnaces of Nordmar.
 	AI_Output			(self, other,"STT_301_IAN_MAGIC_Info_13_03"); //But even without the magic powers, weapons made from this ore are extremely resistant and do more damage than normal weapons.
-	
-};   
-// ***************** Infos *****************************   
+
+};
+// ***************** Infos *****************************
 instance  STT_301_IAN_MINE (C_INFO)
 {
 	npc				= STT_301_IAN;
@@ -154,12 +154,12 @@ instance  STT_301_IAN_MINE (C_INFO)
 	information		= STT_301_IAN_MINE_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "Tell me about the mine."; 
+	description		= "Tell me about the mine.";
 };
 
 FUNC int  STT_301_IAN_MINE_Condition()
-{	
-	if (Kapitel < 3) 
+{
+	if (Kapitel < 3)
 	&& (Npc_KnowsInfo (hero, STT_301_IAN_HI))
 	{
 		return TRUE;
@@ -176,7 +176,7 @@ func void  STT_301_IAN_MINE_Info()
 	AI_Output			(other, self,"STT_301_IAN_MINE_Info_15_06"); //I'll just have a look around here.
 };
 /*------------------------------------------------------------------------
-					BRING LIST									
+					BRING LIST
 ------------------------------------------------------------------------*/
 
 instance  STT_301_IAN_WANTLIST (C_INFO)
@@ -186,13 +186,13 @@ instance  STT_301_IAN_WANTLIST (C_INFO)
 	information		= STT_301_IAN_WANTLIST_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "I'm here to collect the list for the Camp."; 
+	description		= "I'm here to collect the list for the Camp.";
 };
 
 FUNC int  STT_301_IAN_WANTLIST_Condition()
 {
 	if (Diego_BringList == LOG_RUNNING)
-	&& (!Npc_KnowsInfo (hero,Info_Diego_IanPassword)) 
+	&& (!Npc_KnowsInfo (hero,Info_Diego_IanPassword))
 	{
 		return TRUE;
 	};
@@ -202,10 +202,10 @@ FUNC void  STT_301_IAN_WANTLIST_Info()
 {
 	AI_Output			(other, self,"STT_301_IAN_WANTLIST_Info_15_01"); //I'm here to collect the list for the Camp.
 	AI_Output			(self, other,"STT_301_IAN_WANTLIST_Info_13_02"); //Anybody could say that. Get lost.
-	 
-};  
+
+};
 /*------------------------------------------------------------------------
-							LISTE ABHOLEN									
+							LISTE ABHOLEN
 ------------------------------------------------------------------------*/
 
 instance  STT_301_IAN_GETLIST (C_INFO)
@@ -215,11 +215,11 @@ instance  STT_301_IAN_GETLIST (C_INFO)
 	information		= STT_301_IAN_GETLIST_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "Diego sent me. I'm to collect the list."; 
+	description		= "Diego sent me. I'm to collect the list.";
 };
 
 FUNC int  STT_301_IAN_GETLIST_Condition()
-{	
+{
 	if (Diego_BringList == LOG_RUNNING)
 	&& (Npc_KnowsInfo (hero,Info_Diego_IanPassword))
 	{
@@ -233,20 +233,20 @@ FUNC void  STT_301_IAN_GETLIST_Info()
 	AI_Output			(self, other,"STT_301_IAN_GETLIST_Info_13_02"); //Alright, here's the list. Tell them to hurry up with the deliveries.
 	B_LogEntry  (CH1_BringList,"Ian gave me the list without any problem.");
 	B_GiveInvItems	(self,hero,TheList,1);
-};  
+};
 // **************************************************************************
-// 							MISSION BRING MCQ EIER RUNNING , 
+// 							MISSION BRING MCQ EIER RUNNING ,
 //							oder: Ohne Zahnrad keine Eier
-// **************************************************************************  
+// **************************************************************************
 instance  STT_301_IAN_NEST (C_INFO)
 {
 	npc			=  STT_301_IAN;
 	condition	=  STT_301_IAN_NEST_Condition;
 	information	=  STT_301_IAN_NEST_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 0;
 	description = "There must be a nest of minecrawlers somewhere here.";
-};                       
+};
 
 FUNC int  STT_301_IAN_NEST_Condition()
 {
@@ -269,21 +269,21 @@ FUNC VOID  STT_301_IAN_NEST_Info()
 
 	Ian_gearwheel = LOG_RUNNING;
 };
-// ******************************MISSION RUNNING********************************************  
+// ******************************MISSION RUNNING********************************************
 instance  STT_301_IAN_GEAR_RUN (C_INFO)
 {
 	npc			=  STT_301_IAN;
 	condition	=  STT_301_IAN_GEAR_RUN_Condition;
 	information	=  STT_301_IAN_GEAR_RUN_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 0;
 	description = "A gearwheel? Where am I supposed to get that?";
-};                       
+};
 
 FUNC int  STT_301_IAN_GEAR_RUN_Condition()
 {
 	PrintDebugInt	(PD_MISSION, "Ian_gearwheel: ", Ian_gearwheel);
-	
+
 	if ((Ian_gearwheel == LOG_RUNNING)
 	&&	!Npc_HasItems (hero,ItMi_Stuff_Gearwheel_01))
 	{
@@ -297,16 +297,16 @@ FUNC VOID  STT_301_IAN_GEAR_RUN_Info()
 	AI_Output			(self, other,"STT_301_IAN_GEAR_RUN_Info_13_03"); //But there's an old broken masher in a side shaft. Maybe you'll be lucky there.
 };
 
-// ******************************MISSION SUCCESS********************************************  
+// ******************************MISSION SUCCESS********************************************
 instance  STT_301_IAN_GEAR_SUC (C_INFO)
 {
 	npc			=  STT_301_IAN;
 	condition	=  STT_301_IAN_GEAR_SUC_Condition;
 	information	=  STT_301_IAN_GEAR_SUC_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 0;
 	description = "I have the gearwheel.";
-};                       
+};
 
 FUNC int  STT_301_IAN_GEAR_SUC_Condition()
 {
@@ -320,11 +320,11 @@ FUNC VOID  STT_301_IAN_GEAR_SUC_Info()
 {
 	B_GiveInvItems (hero,self, ItMi_Stuff_Gearwheel_01 ,1);
 	Npc_RemoveInvItem (self,ItMi_Stuff_Gearwheel_01);
-	
+
 	Ian_gearwheel = LOG_SUCCESS;
 	B_GiveXP	(XP_BringGearWheel);
-	
-	var C_Npc Sklave; 				
+
+	var C_Npc Sklave;
 	Sklave = Hlp_GetNpc	(ORC_2001_SKLAVE);
 	Npc_ExchangeRoutine (Sklave,"Stomper");
 
@@ -336,16 +336,16 @@ FUNC VOID  STT_301_IAN_GEAR_SUC_Info()
 	B_LogEntry		(CH2_MCEggs,"I brought Ian the gearwheel from the abandoned ore masher. Ian said I should say EVERYTHING'S GOING TO BE FINE to Asghan. Apparently, that'll make him open the gate to the dark shafts.");
 };
 
-// ******************************GOTO ASGHAN********************************************  
+// ******************************GOTO ASGHAN********************************************
 instance  STT_301_IAN_GOTOASGHAN (C_INFO)
 {
 	npc			=  STT_301_IAN;
 	condition	=  STT_301_IAN_GOTOASGHAN_Condition;
 	information	=  STT_301_IAN_GOTOASGHAN_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 0;
 	description = "I'm still looking for the crawlers' nest.";
-};                       
+};
 
 FUNC int  STT_301_IAN_GOTOASGHAN_Condition()
 {
@@ -369,10 +369,10 @@ instance  STT_301_IAN_AFTERALL (C_INFO)
 	npc			=  STT_301_IAN;
 	condition	=  STT_301_IAN_AFTERALL_Condition;
 	information	=  STT_301_IAN_AFTERALL_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 0;
 	description = "I've found the nest!";
-};                       
+};
 
 FUNC int  STT_301_IAN_AFTERALL_Condition()
 {
@@ -397,10 +397,10 @@ instance  STT_301_IAN_NOTENOUGH (C_INFO)
 	npc			=  STT_301_IAN;
 	condition	=  STT_301_IAN_NOTENOUGH_Condition;
 	information	=  STT_301_IAN_NOTENOUGH_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 0;
 	description = "I've found the nest! And the eggs of the minecrawler queen!";
-};                       
+};
 
 FUNC int  STT_301_IAN_NOTENOUGH_Condition()
 {

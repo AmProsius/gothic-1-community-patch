@@ -109,11 +109,11 @@ const int	SPL_TIME_BERZERK			=	30;	// Berzerk
 
 
 // Ranges für NSC-Magie-Auswahllogik
-const int	SPL_RANGE_ICEATTACK			=	300;	
-const int	SPL_RANGE_WINDFIST			=	1200;	
-const int	SPL_RANGE_STORMFIST			=	1200;	
-const int	SPL_RANGE_SLEEP				=	1000;	
-const int	SPL_RANGE_CHAINLIGHTNING	=	1000; //Opfer in ZS, dort wird schaden angegeben	
+const int	SPL_RANGE_ICEATTACK			=	300;
+const int	SPL_RANGE_WINDFIST			=	1200;
+const int	SPL_RANGE_STORMFIST			=	1200;
+const int	SPL_RANGE_SLEEP				=	1000;
+const int	SPL_RANGE_CHAINLIGHTNING	=	1000; //Opfer in ZS, dort wird schaden angegeben
 
 
 
@@ -255,7 +255,7 @@ const STRING spellFXAniLetters[MAX_SPELL] =
 // Dieser Wert ist auch die Obergrenze für die Reichweite der Spells und sollte sinnvollerweise so hoch sein, wie der Wert für Fernkampf
 
 // FIXME: 	Bei allen Spells, bei denen der Schaden im Opfer-Zustand angegeben ist, kann KEIN Schadenstyp angwegeben werden!
-//			Der Abzug von HPs erfolgt dann über den ChangeAttribute-Befehl! 
+//			Der Abzug von HPs erfolgt dann über den ChangeAttribute-Befehl!
 
 INSTANCE Spell_Light (C_Spell_Proto)
 {
@@ -471,7 +471,7 @@ INSTANCE Spell_ArmyOfDarkness (C_Spell_Proto)
 INSTANCE Spell_MassDeath(C_Spell_Proto)
 {
 	time_per_mana			= 250;
-	damage_per_level		= SPL_DAMAGE_MASSDEATH;	
+	damage_per_level		= SPL_DAMAGE_MASSDEATH;
 	spelltype 				= SPELL_BAD;
 	damageType				= DAM_MAGIC;
 	targetCollectAlgo		= TARGET_COLLECT_ALL_FALLBACK_NONE;	// Opfer werden aber erst durch Kollision mit dem Effekt getötet

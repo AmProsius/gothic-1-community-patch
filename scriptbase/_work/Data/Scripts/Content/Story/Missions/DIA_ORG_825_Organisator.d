@@ -1,5 +1,5 @@
 // **************************************************
-//						 EXIT 
+//						 EXIT
 // **************************************************
 
 instance  Org_825_Organisator_Exit (C_INFO)
@@ -10,7 +10,7 @@ instance  Org_825_Organisator_Exit (C_INFO)
 	information	= Org_825_Organisator_Exit_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC int  Org_825_Organisator_Exit_Condition()
 {
@@ -34,7 +34,7 @@ instance  Org_825_Organisator_PERM (C_INFO)
 	information	= Org_825_Organisator_PERM_Info;
 	permanent	= 1;
 	description = "What are you guarding?";
-};                       
+};
 
 FUNC int  Org_825_Organisator_PERM_Condition()
 {

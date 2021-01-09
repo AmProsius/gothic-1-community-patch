@@ -2,7 +2,7 @@
 **	Meatbug Prototype													**
 *************************************************************************/
 
-PROTOTYPE Mst_Default_Meatbug(C_Npc)			
+PROTOTYPE Mst_Default_Meatbug(C_Npc)
 {
 	name							=	"Meatbug";
 	guild							=	GIL_MEATBUG;
@@ -11,7 +11,7 @@ PROTOTYPE Mst_Default_Meatbug(C_Npc)
 //-------------------------------------------------------
 	attribute	[ATR_STRENGTH]		=	1;
 	attribute	[ATR_DEXTERITY]		=	1;
-	
+
 	attribute	[ATR_HITPOINTS_MAX]	=	10;
 	attribute	[ATR_HITPOINTS]		=	10;
 
@@ -31,11 +31,11 @@ PROTOTYPE Mst_Default_Meatbug(C_Npc)
 //-------------------------------------------------------
 	senses							= SENSE_SMELL;
 	senses_range					= 500;		// 5m
-	
+
 	aivar[AIV_MM_FollowInWater] = FALSE;
 //-------------------------------------------------------
 	start_aistate					= ZS_MM_AllScheduler;
-		
+
 	aivar[AIV_MM_WuselStart] 		= OnlyRoutine;
 };
 //-------------------------------------------------------
@@ -56,6 +56,6 @@ INSTANCE Meatbug	(Mst_Default_Meatbug)
 {
 	Set_Meatbug_Visuals();
 	//Npc_SetToFistMode(self);  //SN: damit der Kleine keine unnötigen PERC_ASSESSFIGHTER auslöst!
-	
+
 	CreateInvItems (self, ItAt_Meatbug_01, 1);
 };

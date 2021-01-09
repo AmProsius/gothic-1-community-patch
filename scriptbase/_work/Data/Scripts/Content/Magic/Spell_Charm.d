@@ -14,6 +14,6 @@ func int Spell_Logic_Charm		(var int manaInvested)
 		Npc_SendSinglePerc ( self, other, PERC_ASSESSMAGIC);
 		return SPL_SENDCAST;
 	};
-	
+
 	return SPL_RECEIVEINVEST;
 };

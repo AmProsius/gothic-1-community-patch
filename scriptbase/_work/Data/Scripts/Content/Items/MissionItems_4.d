@@ -10,9 +10,9 @@
 //	Buch über Golems
 //---------------------------------------------------------------------
 INSTANCE ItWr_GolemBook1(C_Item)
-{	
+{
 	name 					=	"Arcanum Golum - Volume I";
-	
+
 	mainflag 				=	ITEM_KAT_DOCS;
 	flags 					=	ITEM_MISSION;
 
@@ -21,21 +21,21 @@ INSTANCE ItWr_GolemBook1(C_Item)
 	visual 					=	"ItWr_Book_02_05.3ds";
 	material 				=	MAT_LEATHER;
 
-	scemeName				=	"MAP";	
+	scemeName				=	"MAP";
 	on_state[0]				=	UseGolemBook1;
 };
 
 	FUNC VOID UseGolemBook1()
-	{   
+	{
 		var int nDocID;
-		
+
 		nDocID =
-		Doc_Create		()			  ;							// DocManager 
+		Doc_Create		()			  ;							// DocManager
 		Doc_SetPages	( nDocID,  2 );                         //wieviel Pages
-		Doc_SetPage 	( nDocID,  0, "Book_Mage_L.tga"  , 0 		); 
+		Doc_SetPage 	( nDocID,  0, "Book_Mage_L.tga"  , 0 		);
 		Doc_SetPage 	( nDocID,  1, "Book_Mage_R.tga" , 0		);
-		Doc_SetFont 	( nDocID, -1, "font_10_book.tga"); 	// -1 -> all pages 
-		
+		Doc_SetFont 	( nDocID, -1, "font_10_book.tga"); 	// -1 -> all pages
+
 		//1.Seite
 		Doc_SetMargins	( nDocID,  0,  275, 20, 30, 20, 1);  //  0 -> margins are in pixels
 		Doc_PrintLine	( nDocID,  0,"ARCANUM GOLUM - Volume I");
@@ -57,9 +57,9 @@ INSTANCE ItWr_GolemBook1(C_Item)
 	};
 
 INSTANCE ItWr_GolemBook2(C_Item)
-{	
+{
 	name 					=	"Arcanum Golum - Volume II";
-	
+
 	mainflag 				=	ITEM_KAT_DOCS;
 	flags 					=	ITEM_MISSION;
 
@@ -68,21 +68,21 @@ INSTANCE ItWr_GolemBook2(C_Item)
 	visual 					=	"ItWr_Book_02_05.3ds";
 	material 				=	MAT_LEATHER;
 
-	scemeName				=	"MAP";	
+	scemeName				=	"MAP";
 	on_state[0]				=	UseGolemBook2;
 };
 
 	FUNC VOID UseGolemBook2()
-	{   
+	{
 		var int nDocID;
-		
+
 		nDocID =
-		Doc_Create		()			  ;							// DocManager 
+		Doc_Create		()			  ;							// DocManager
 		Doc_SetPages	( nDocID,  2 );                         //wieviel Pages
 
-		Doc_SetPage 	( nDocID,  0, "Book_Mage_L.tga"  , 0 		); 
+		Doc_SetPage 	( nDocID,  0, "Book_Mage_L.tga"  , 0 		);
 		Doc_SetPage 	( nDocID,  1, "Book_Mage_R.tga" , 0		);
-		Doc_SetFont 	( nDocID, -1, "font_10_book.tga"); 	// -1 -> all pages 
+		Doc_SetFont 	( nDocID, -1, "font_10_book.tga"); 	// -1 -> all pages
 
 		//1. Seite
 		Doc_SetMargins	( nDocID,  0,  275, 20, 30, 20, 1   		);  //  0 -> margins are in pixels
@@ -109,9 +109,9 @@ INSTANCE ItWr_GolemBook2(C_Item)
 //	Karte der Oberwelt (mit Ork-Gebiet)
 //---------------------------------------------------------------------
 INSTANCE ItWrWorldmap_Orc(C_Item)
-{	
+{
 	name 					=	"Map";
-	
+
 	mainflag 				=	ITEM_KAT_DOCS;
 	flags 					=	ITEM_MISSION;
 
@@ -120,7 +120,7 @@ INSTANCE ItWrWorldmap_Orc(C_Item)
 	visual 					=	"ItWr_Map_01.3DS";
 	material 				=	MAT_LEATHER;
 
-	scemeName				=	"MAP";	
+	scemeName				=	"MAP";
 	on_state[0]				=	UseWorldmap_Orc;
 
 	description				= "Map of the Colony (supplemented)";
@@ -133,22 +133,22 @@ INSTANCE ItWrWorldmap_Orc(C_Item)
 	FUNC VOID UseWorldmap_Orc()
 	{
 		var int nDocID;
-		
-		nDocID = 	Doc_CreateMap	()			  ;							// DocManager 
+
+		nDocID = 	Doc_CreateMap	()			  ;							// DocManager
 					Doc_SetLevel	( nDocID,	"WORLD.ZEN" );
-					Doc_SetPages	( nDocID, 1 );                         
-					Doc_SetPage 	( nDocID, 0, "Map_World_Orc.tga", 	1	);  //  1 -> DO NOT SCALE 
+					Doc_SetPages	( nDocID, 1 );
+					Doc_SetPage 	( nDocID, 0, "Map_World_Orc.tga", 	1	);  //  1 -> DO NOT SCALE
 					Doc_Show		( nDocID 	);
 	};
 //---------------------------------------------------------------------
 //	Schlüssel zur Freien Mine
 //---------------------------------------------------------------------
 INSTANCE ItKe_Freemine(C_Item)
-{	
+{
 	name 					=	"Key to the Free Mine";
 
 	mainflag 				=	ITEM_KAT_NONE;
-	flags 					=	ITEM_MISSION;	
+	flags 					=	ITEM_MISSION;
 
 	value 					=	3;
 
@@ -163,7 +163,7 @@ INSTANCE ItKe_Freemine(C_Item)
 	//COUNT[2]			= ;
 	//TEXT[3] 			= "";
 	//COUNT[3]			= ;
-	//TEXT[4]				= ""; 
+	//TEXT[4]				= "";
 	////COUNT[4]			= ;
 	TEXT[5]				= NAME_Value;
 	COUNT[5]			= value;
@@ -179,7 +179,7 @@ INSTANCE	OrcMedicine(C_ITEM)
 	mainflag 			= ITEM_KAT_POTIONS;
 	flags 				= ITEM_MISSION;
 
-	value 				= 0;	
+	value 				= 0;
 
 
 	visual 				= "ITFO_POTION_STRENGTH_01.3DS";
@@ -206,25 +206,25 @@ func void UseOrcMedicine ()
 //	Ulu-Mulu (verschafft Zutritt zur Orkstadt)
 //---------------------------------------------------------------------
 INSTANCE UluMulu(C_Item)
-{	
+{
 	name 			=	"Ulu-Mulu";
 
 	mainflag 		=	ITEM_KAT_NF;
-	flags 			=	ITEM_2HD_AXE|ITEM_MISSION;	
+	flags 			=	ITEM_2HD_AXE|ITEM_MISSION;
 
 	value 			=	1000;
-	
+
 	damageTotal		= 	35;
 	damagetype		=	DAM_EDGE;
-	range    		=  	140;		
+	range    		=  	140;
 	cond_atr[2]   	= 	ATR_STRENGTH;
 	cond_value[2]  	= 	30;
 
 	visual 			=	"ItMi_Amulet_Ulumulu_02.3ds";
-	
+
 	visual_skin 	=	0;
 	material 		=	MAT_METAL;
-	
+
 	description		=	name;
 	TEXT[0]			=	"The Ulu-Mulu is a sign of great strength and";
 	TEXT[1]			=	"dignity. The bearer of this standard won't";

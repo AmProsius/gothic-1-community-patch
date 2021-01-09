@@ -8,10 +8,10 @@ instance NOV_1362_Novize (Npc_Default)
 	guild 		=		GIL_GUR;
 	level 		=		30;
 	flags 		=		0;
-	
+
 	voice 		=		3;
 	id 			=		1362;
-		
+
 	//-------- abilities --------
 	attribute[ATR_STRENGTH] 		=	115;
 	attribute[ATR_DEXTERITY] 		=	50;
@@ -35,18 +35,18 @@ instance NOV_1362_Novize (Npc_Default)
 
 	B_Scale (self);
 	Mdl_SetModelFatness(self,0);
-	
+
 	fight_tactic	=	FAI_HUMAN_STRONG;
 
 	//-------- Talente --------
-	
-		
+
+
 	//-------- inventory --------
 
 	CreateInvItem (self, ItMw_2H_Staff_02);
 	//CreateInvItem (self, ItFoSoup);
 	//CreateInvItem (self, ItMiJoint);
-	        
+
 	//-------------Daily Routine-------------
 	daily_routine = Rtn_OT_1362;
 
@@ -55,11 +55,11 @@ instance NOV_1362_Novize (Npc_Default)
 FUNC VOID Rtn_start_1362 ()
 {
 	TA_Meditate	(24,00,06,00,"TPL_408");
-  	TA_Meditate	(06,00,24,00,"TPL_408");	 
+  	TA_Meditate	(06,00,24,00,"TPL_408");
 };
 
 FUNC VOID Rtn_OT_1362 ()
 {
 	TA_OTMeditate	(24,00,06,00,"TPL_390");
-  	TA_OTMeditate	(06,00,24,00,"TPL_390");	 
+  	TA_OTMeditate	(06,00,24,00,"TPL_390");
 };

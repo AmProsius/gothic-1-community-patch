@@ -5,8 +5,8 @@
 func void ZS_HerbAlchemy()
 {
     PrintDebugNpc (PD_TA_FRAME,"ZS_HerbAlchemy");
-    
-	B_SetPerception (self);	
+
+	B_SetPerception (self);
 	if !(C_BodyStateContains(self,BS_MOBINTERACT))
 	{
 		AI_SetWalkmode (self,NPC_WALK);		// Walkmode für den Zustand
@@ -22,7 +22,7 @@ func void ZS_HerbAlchemy()
 func void ZS_HerbAlchemy_Loop ()
 {
     PrintDebugNpc (PD_TA_LOOP,"ZS_HerbAlchemy_Loop");
-        
+
 	var int randomizer;
  	randomizer = Hlp_Random	(20);
     if (Npc_GetStateTime ( self ) >= 100 + randomizer)
@@ -35,7 +35,7 @@ func void ZS_HerbAlchemy_Loop ()
 func void ZS_HerbAlchemy_End ()
 {
 	AI_UseMob (self,"HERB",-1);			// Verlasse diesen Mobsi
-	
+
 	PrintDebugNpc (PD_TA_FRAME,"ZS_HerbAlchemy_End");
 };
 

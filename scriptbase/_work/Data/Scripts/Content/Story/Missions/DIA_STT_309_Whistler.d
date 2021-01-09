@@ -1,5 +1,5 @@
 // **************************************************
-// 						 EXIT 
+// 						 EXIT
 // **************************************************
 
 INSTANCE DIA_Whistler_Exit (C_INFO)
@@ -10,7 +10,7 @@ INSTANCE DIA_Whistler_Exit (C_INFO)
 	information	= DIA_Whistler_Exit_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC INT DIA_Whistler_Exit_Condition()
 {
@@ -23,7 +23,7 @@ FUNC VOID DIA_Whistler_Exit_Info()
 };
 
 // **************************************************
-// 					 Ich bin neu hier 
+// 					 Ich bin neu hier
 // **************************************************
 
 INSTANCE DIA_Whistler_IAmNew (C_INFO)
@@ -34,10 +34,10 @@ INSTANCE DIA_Whistler_IAmNew (C_INFO)
 	information	= DIA_Whistler_IAmNew_Info;
 	permanent	= 0;
 	description = "Hi! I'm new here!";
-};                       
+};
 
 FUNC INT DIA_Whistler_IAmNew_Condition()
-{	
+{
 	if (Npc_GetTrueGuild(hero) == GIL_NONE)
 	{
 		return 1;
@@ -67,7 +67,7 @@ INSTANCE DIA_Whistler_Favour (C_INFO)
 	information	= DIA_Whistler_Favour_Info;
 	permanent	= 0;
 	description = "What kind of favor do you want?";
-};                       
+};
 
 FUNC INT DIA_Whistler_Favour_Condition()
 {
@@ -94,23 +94,23 @@ func void DIA_Whistler_Favour_Ok()
 {
 	AI_Output (other,self,"DIA_Whistler_Favour_Ok_15_00"); //Okay, give me the 100 ore nuggets. I'll get the thing.
 	AI_Output (self,other,"DIA_Whistler_Favour_Ok_11_01"); //Here you go. Come straight back to me!
-	
+
 	Whistler_BuyMySword = LOG_RUNNING;
-	
+
 	if	(Npc_GetTrueGuild(hero) == GIL_NONE)
 	{
 		Log_CreateTopic		(CH1_JoinOC,LOG_MISSION);
 		Log_SetTopicStatus	(CH1_JoinOC,LOG_RUNNING);
 	};
 	B_LogEntry (CH1_JoinOC,"Whistler will help me if I go to see Fisk at the market and buy him a sword. He's given me 100 ore.");
-	
+
 	var C_NPC fisk; fisk = Hlp_GetNpc(Stt_311_Fisk);
-	
+
 	CreateInvItems (self, itminugget, 100);
 	B_GiveInvItems (self, hero, itminugget, 100);
-	
+
 	Whistler_BuyMySword_Day = Wld_GetDay();
-	
+
 	Info_ClearChoices(DIA_Whistler_Favour);
 };
 
@@ -140,7 +140,7 @@ INSTANCE DIA_Whistler_Running110 (C_INFO)
 	information	= DIA_Whistler_Running110_Info;
 	permanent	= 0;
 	description = "Fisk wants 110 ore for his sword now.";
-};                       
+};
 
 FUNC INT DIA_Whistler_Running110_Condition()
 {
@@ -158,7 +158,7 @@ FUNC VOID DIA_Whistler_Running110_Info()
 	AI_Output (self,other,"DIA_Whistler_Running110_11_03"); //Here, take it, and now hurry!
 	CreateInvItems  (self,itminugget,10);
 	B_GiveInvItems  (self, hero, itminugget, 10);
-};	
+};
 
 // **************************************************
 // 				RUNNING - PayBack
@@ -172,7 +172,7 @@ INSTANCE DIA_Whistler_RunningPayBack (C_INFO)
 	information	= DIA_Whistler_RunningPayBack_Info;
 	permanent	= 1;
 	description = "I can't get the sword - here's your 100 ore back.";
-};                       
+};
 
 FUNC INT DIA_Whistler_RunningPayBack_Condition()
 {
@@ -185,15 +185,15 @@ FUNC INT DIA_Whistler_RunningPayBack_Condition()
 FUNC VOID DIA_Whistler_RunningPayBack_Info()
 {
 	AI_Output (other,self,"DIA_Whistler_RunningPayBack_15_00"); //I can't get the sword - here's your 100 ore back.
-	
+
 	if (Npc_HasItems(other,itminugget) >= 100)
 	{
 		AI_Output (self,other,"DIA_Whistler_RunningPayBack_11_01"); //You idiot! We don't need idiots like you here! Get lost!
 		B_GiveInvItems (hero, self, itminugget, 100);
 		Whistler_BuyMySword = LOG_OBSOLETE;
-		
+
 		B_LogEntry (CH1_JoinOC,"I've messed it up, Whistler will never get his sword.");
-		
+
 		AI_StopProcessInfos(self);
 	}
 	else
@@ -201,7 +201,7 @@ FUNC VOID DIA_Whistler_RunningPayBack_Info()
 		AI_Output (self,other,"DIA_Whistler_RunningPayBack_11_02"); //I don't see any 100 ore though - you'd better get them as fast as you can, else you'll be in trouble!
 		AI_StopProcessInfos(self);
 	};
-};	
+};
 
 
 
@@ -218,7 +218,7 @@ INSTANCE DIA_Whistler_MySword_TooLate (C_INFO)
 	information	= DIA_Whistler_MySword_TooLate_Info;
 	permanent	= 0;
 	important 	= 1;
-};                       
+};
 
 FUNC INT DIA_Whistler_MySword_TooLate_Condition()
 {
@@ -231,13 +231,13 @@ FUNC INT DIA_Whistler_MySword_TooLate_Condition()
 FUNC VOID DIA_Whistler_MySword_TooLate_Info()
 {
 	AI_Output (self,other,"DIA_Whistler_MySword_TooLate_11_00"); //Here you are! Wanted to run off with my ore, eh? Come here, sonny!
-	
+
 	Whistler_BuyMySword = LOG_FAILED;
-	
+
 	B_LogEntry (CH1_JoinOC,"I've messed it up. Whistler is really fed up with me.");
-	
+
 	AI_StopProcessInfos	(self);
-	
+
 	Npc_SetPermAttitude (self, ATT_ANGRY);
 	Npc_SetTarget (self,other);
 	AI_StartState (self, ZS_ATTACK, 1, "");
@@ -255,11 +255,11 @@ INSTANCE DIA_Whistler_MySword_Success (C_INFO)
 	information	= DIA_Whistler_MySword_Success_Info;
 	permanent	= 1;
 	description = "I have your sword...";
-};                       
+};
 
 FUNC INT DIA_Whistler_MySword_Success_Condition()
 {
-	if ( 	(Whistler_BuyMySword==LOG_RUNNING) && (Whistler_BuyMySword_Day>(Wld_GetDay()-2)) 
+	if ( 	(Whistler_BuyMySword==LOG_RUNNING) && (Whistler_BuyMySword_Day>(Wld_GetDay()-2))
 		&&	(Npc_HasItems (other,Whistlers_Schwert)>=1) )
 	{
 		return 1;
@@ -271,12 +271,12 @@ FUNC VOID DIA_Whistler_MySword_Success_Info()
 	AI_Output (other,self,"DIA_Whistler_MySword_Success_15_00"); //I have your sword...
 
     B_GiveInvItems (other, self, Whistlers_Schwert, 1);
-	
+
 	AI_Output (self,other,"DIA_Whistler_MySword_Success_11_01"); //Wasn't too hard, was it. Whatever - you do me a favor and I'll do you one.
 	if (Npc_GetTrueGuild (hero) == GIL_NONE)
 	{
 	AI_Output (self,other,"DIA_Whistler_MySword_Success_11_02"); //If Diego should ask after you, I'll speak in your favor. Until then - have a good time!
-	
+
 	B_LogEntry (CH1_JoinOC,"Whistler was content when I gave him the sword he wanted. He'll recommend me to Diego.");
 	}
 	else
@@ -285,7 +285,7 @@ FUNC VOID DIA_Whistler_MySword_Success_Info()
 	};
 	Whistler_BuyMySword = LOG_SUCCESS;
 	B_GiveXP (XP_Whistlerssword);
-    
+
 	AI_StopProcessInfos	( self );
 };
 
@@ -301,7 +301,7 @@ INSTANCE DIA_Whistler_StandardKap1 (C_INFO)
 	information	= DIA_Whistler_StandardKap1_Info;
 	permanent	= 1;
 	description = "How's it going...";
-};                       
+};
 
 FUNC INT DIA_Whistler_StandardKap1_Condition()
 {
@@ -321,8 +321,8 @@ FUNC VOID DIA_Whistler_StandardKap1_Info()
 
 
 
-	
-	
+
+
 
 
 

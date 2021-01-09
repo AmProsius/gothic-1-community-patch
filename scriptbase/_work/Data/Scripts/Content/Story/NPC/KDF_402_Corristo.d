@@ -1,10 +1,10 @@
 instance KDF_402_Corristo (Npc_Default)
 {
 	//-------- primary data --------
-	
+
 	name 		=	"Corristo";
 	npctype		=	npctype_main;
-	guild 		=	GIL_KDF;      
+	guild 		=	GIL_KDF;
 	level 		=	30;
 	voice 		=	14;
 	id 			=	402;
@@ -21,30 +21,30 @@ instance KDF_402_Corristo (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Mage.mds");
-	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
+	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin
 	Mdl_SetVisualBody (self,"hum_body_Naked0",0,1,"Hum_Head_Pony", 84, 1, KDF_ARMOR_H);
 
-	B_Scale (self);		
+	B_Scale (self);
 	Mdl_SetModelFatness (self, 0);
-    	
+
     	self.aivar[AIV_IMPORTANT] = TRUE;
-	
+
 	fight_tactic	=	FAI_HUMAN_MAGE;
-		
-	//-------- Talente --------                                    
+
+	//-------- Talente --------
 	Npc_SetTalentSkill		( self, NPC_TALENT_MAGE,		6);
 
 
-	//-------- Spells--------                                    
+	//-------- Spells--------
 	CreateInvItem(self,ItArRuneFireball);
-		
-	//-------- inventory --------                                    
+
+	//-------- inventory --------
 	CreateInvItems(self, ItFo_Potion_Health_02, 2);
 	CreateInvItems(self, ItFo_Potion_Mana_02, 2);
 	CreateInvItems(self, ItFoWine, 2);
 	EquipItem (self, Schutzring_Magie2_Fire2);
- 	CreateInvItem	(self,ItMi_Stuff_OldCoin_02);	
-   
+ 	CreateInvItem	(self,ItMi_Stuff_OldCoin_02);
+
 
 	//-------------Daily Routine-------------
 

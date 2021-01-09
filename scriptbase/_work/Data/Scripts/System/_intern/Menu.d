@@ -75,33 +75,33 @@ CLASS C_MENU_ITEM
 
 	var		FUNC   	onEventAction[MAX_EVENTS];
 	var		INT    	posx,posy;
-	// VAR		INT    	txtPosX,txtPosY;		// txt offset position in virtual coords relativ to this item	
+	// VAR		INT    	txtPosX,txtPosY;		// txt offset position in virtual coords relativ to this item
 	VAR		INT    	dimx,dimy;		// -1 = AUTODETECT (FONTWISE)
 	VAR		FLOAT  	sizeStartScale;
 	VAR		INT    	flags;
 	VAR 	FLOAT  	openDelayTime;
 	VAR 	FLOAT  	openDuration;
 	VAR 	FLOAT  	userFloat [MAX_USERVARS];
-	VAR 	string 	userString[MAX_USERVARS];	
+	VAR 	string 	userString[MAX_USERVARS];
 	var		int		frameSizeX;
 	var		int		frameSizeY;
 
-}; 
+};
 
-CLASS C_MENU 
+CLASS C_MENU
 {
 	VAR 	STRING 	backPic;
 	VAR 	STRING 	backWorld;
 	VAR 	INT    	posx,posy;
-	VAR 	INT    	dimx,dimy;	
+	VAR 	INT    	dimx,dimy;
 	// VAR     FLOAT  	sizeStartScale;
 	VAR 	INT    	alpha;
 	VAR		STRING 	musicTheme;
 	VAR		INT    	eventTimerMSec;
 	VAR 	STRING 	items[MAX_ITEMS];
-	VAR		INT    	flags;	
-	var		int 	defaultOutGame;	
-	var		int 	defaultInGame;		
+	VAR		INT    	flags;
+	var		int 	defaultOutGame;
+	var		int 	defaultInGame;
 };
 
 PROTOTYPE C_MENU_ITEM_DEF(C_MENU_ITEM)
@@ -116,19 +116,19 @@ PROTOTYPE C_MENU_ITEM_DEF(C_MENU_ITEM)
 	dimx			=	-1;			// -1 = AUTODETECT
 	dimy			=	-1;			// -1 = AUTODETECT
 	flags			=	IT_CHROMAKEYED|IT_TRANSPARENT|IT_SELECTABLE;
-	
+
 	openDelayTime	=	0;
-	openDuration	=	-1;	
-	
+	openDuration	=	-1;
+
 	sizeStartScale  = 	1;
-	
-	userFloat[0]    =	100;	
+
+	userFloat[0]    =	100;
 	userFloat[1]	=	200;
-	
+
 	onSelAction[0]			= 	SEL_ACTION_BACK;
 	onChgSetOption  		=	"";
 	onChgSetOptionSection 	= "INTERNAL";
-	
+
 	frameSizeX		= 0;
 	frameSizeY		= 0;
 };
@@ -139,14 +139,14 @@ PROTOTYPE C_MENU_DEF(C_MENU)
 	posx		=	0;
 	posy		=	0;
 	dimx		=	8191;
-	dimy		= 	8191;	
+	dimy		= 	8191;
 	alpha		=	254;			// NOTE: Must be under 255 to support chroma keying, chroma color is black
 	items[0]	=	"ITEM_BACK";
 	flags		=	MENU_EXCLUSIVE|MENU_DONTSCALE_DIM|MENU_ALIGN_CENTER;
 	eventTimerMSec	=	1000;			// 1 second cycle with EVENT_TIMER
-	musicTheme	=	"";	
+	musicTheme	=	"";
 	defaultOutGame	= -1;		// no item is default
-	defaultInGame	= -1;		// no item is default	
+	defaultInGame	= -1;		// no item is default
 };
 
 

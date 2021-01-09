@@ -1,5 +1,5 @@
 // **************************************
-//					EXIT 
+//					EXIT
 // **************************************
 
 instance DIA_Bartholo_Exit (C_INFO)
@@ -10,7 +10,7 @@ instance DIA_Bartholo_Exit (C_INFO)
 	information	= DIA_Bartholo_Exit_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC int DIA_Bartholo_Exit_Condition()
 {
@@ -34,10 +34,10 @@ INSTANCE Info_Bartholo_HAllo (C_INFO)
 	information	= Info_Bartholo_HAllo_Info;
 	permanent	= 0;
 	description = "Who are you?";
-};                       
+};
 
 FUNC INT Info_Bartholo_HAllo_Condition()
-{	
+{
 	return 1;
 };
 
@@ -63,10 +63,10 @@ INSTANCE Info_Bartholo_PERM (C_INFO)
 	permanent	= 0;
 	description = "I want to make a deal with you.";
 	Trade		= 1;
-};                       
+};
 
 FUNC INT Info_Bartholo_PERM_Condition()
-{	
+{
 //SN: Problematisch, da Bartholo auch einen wichtigen Schlüssel hat!
 //	if (Npc_KnowsInfo(hero, Info_Bartholo_Hallo))
 //	{
@@ -93,10 +93,10 @@ INSTANCE Info_Bartholo_Krautbote (C_INFO)
 	information	= Info_Bartholo_Krautbote_Info;
 	permanent	= 1;
 	description = "I have some weed here for Gomez. Cor Kalom sent it.";
-};                       
+};
 
 FUNC INT Info_Bartholo_Krautbote_Condition()
-{	
+{
 	if (Kalom_Krautbote == LOG_RUNNING)
 	{
 		return 1;
@@ -107,14 +107,14 @@ FUNC VOID Info_Bartholo_Krautbote_Info()
 {
 	AI_Output				(other, self,"Info_Bartholo_Krautbote_15_00"); //I have some weed here for Gomez. Cor Kalom sent it.
 	AI_Output				(self, other,"Info_Bartholo_Krautbote_12_01"); //Show me!
-	
+
 	if (Npc_HasItems(other, itmijoint_3) >= 30)
 	{
 		AI_Output			(self, other,"Info_Bartholo_Krautbote_12_02"); //Hmmmmmmm...
 		AI_Output			(self, other,"Info_Bartholo_Krautbote_12_03"); //Alright! Gomez has been getting impatient. It's lucky for you that you delivered it today!
 		AI_Output			(other, self,"Info_Bartholo_Krautbote_15_04"); //What about the pay?
 		AI_Output			(self, other,"Info_Bartholo_Krautbote_12_05"); //Not so fast... Here, take that. 500 ore is what we agreed on.
-		
+
 		B_GiveInvItems  	(other,self,itmijoint_3,30);
 		CreateInvItems  	(self,itminugget, 500);
 		B_GiveInvItems		(self,other, itminugget, 500);
@@ -145,7 +145,7 @@ instance  DIA_EBR_106_Bartholo_Wait4SC (C_INFO)
 };
 
 FUNC int  DIA_EBR_106_Bartholo_Wait4SC_Condition()
-{	
+{
 	if	ExploreSunkenTower
 	{
 		return TRUE;
@@ -162,7 +162,7 @@ FUNC void  DIA_EBR_106_Bartholo_Wait4SC_Info()
 	AI_Output			(self, other,"Info_Bartholo_12_05");	//Get him, guys, and slice him up!
 
 	AI_StopProcessInfos	(self);
-	
+
 	self.guild 	= GIL_EBR;
-	Npc_SetTrueGuild	(self, GIL_EBR);	
+	Npc_SetTrueGuild	(self, GIL_EBR);
 };

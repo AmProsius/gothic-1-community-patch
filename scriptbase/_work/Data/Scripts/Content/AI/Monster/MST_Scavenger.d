@@ -2,7 +2,7 @@
 **	Scavenger Prototype													**
 *************************************************************************/
 
-PROTOTYPE Mst_Default_Scavenger(C_Npc)			
+PROTOTYPE Mst_Default_Scavenger(C_Npc)
 {
 	name							=	"Scavenger";
 	guild							=	GIL_SCAVENGER;
@@ -11,7 +11,7 @@ PROTOTYPE Mst_Default_Scavenger(C_Npc)
 //---------------------------------------------------------
 	attribute	[ATR_STRENGTH]		=	8;
 	attribute	[ATR_DEXTERITY]		=	8;
-	
+
 	attribute	[ATR_HITPOINTS_MAX]	=	40;
 	attribute	[ATR_HITPOINTS]		=	40;
 
@@ -39,22 +39,22 @@ PROTOTYPE Mst_Default_Scavenger(C_Npc)
 	senses_range				= 3000;		// 30m
 
 	aivar[AIV_MM_Behaviour]		= PASSIVE;
-	
+
 	aivar[AIV_MM_PercRange]		= 1200;
 	aivar[AIV_MM_DrohRange]		= 1000;
 	aivar[AIV_MM_AttackRange]	= 700;
 	aivar[AIV_MM_DrohTime]		= 5;
 	aivar[AIV_MM_FollowTime]	= 10;
 	aivar[AIV_MM_FollowInWater] = TRUE;
-//---------------------------------------------------------	
+//---------------------------------------------------------
 	start_aistate				= ZS_MM_AllScheduler;
-	
-	aivar[AIV_MM_SleepStart] 	= 22;	
+
+	aivar[AIV_MM_SleepStart] 	= 22;
 	aivar[AIV_MM_SleepEnd]		= 6;
 	aivar[AIV_MM_EatGroundStart]= 6;
 	aivar[AIV_MM_EatGroundEnd]	= 22;
 };
-//---------------------------------------------------------	
+//---------------------------------------------------------
 func void Set_Scavenger_Visuals()
 {
 	Mdl_SetVisual			(self,	"Scavenger.mds");

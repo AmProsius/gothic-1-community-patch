@@ -1,10 +1,10 @@
 instance EBR_106_Bartholo (Npc_Default)
 {
 	//-------- primary data --------
-	
+
 	name 		=	"Bartholo";
 	npctype 	= 	npctype_main;
-   	guild 		=	GIL_EBR;      
+   	guild 		=	GIL_EBR;
 	level 		=	70;
 	voice 		=	12;
 	id 			=	106;
@@ -22,27 +22,27 @@ instance EBR_106_Bartholo (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Arrogance.mds");
-	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung	
+	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung
 	Mdl_SetVisualBody (self,"hum_body_Naked0", 0, 1,"Hum_Head_FatBald", 11, 3, EBR_ARMOR_M);
 
-	B_Scale (self); 
+	B_Scale (self);
 	Mdl_SetModelFatness(self,0);
-	
-	self.aivar[AIV_IMPORTANT] = TRUE;
-	
 
-	//-------- Talente --------  
-	
-	
+	self.aivar[AIV_IMPORTANT] = TRUE;
+
+
+	//-------- Talente --------
+
+
 	Npc_SetTalentSkill (self, NPC_TALENT_2H,2);
 	Npc_SetTalentSkill (self, NPC_TALENT_1H,2);
 	Npc_SetTalentSkill (self, NPC_TALENT_BOW,2);
-			
-	//-------- inventory --------                                    
+
+	//-------- inventory --------
 	EquipItem(self,Prankenhieb);
 	CreateInvItem(self,ItFo_Potion_Health_03);
 	CreateInvItem(self,ItKe_Storage_01);
-	
+
 
 	//------------- ai -------------
 	daily_routine	=	Rtn_start_106;
@@ -60,6 +60,6 @@ FUNC VOID Rtn_start_106 ()
 
 func VOID Rtn_OT_106 ()
 {
-	TA_Guard	( 10,00,22,00, "OCC_CHAPEL_STAIRCASE_TOP" );  
+	TA_Guard	( 10,00,22,00, "OCC_CHAPEL_STAIRCASE_TOP" );
 	TA_Guard	( 22,00,10,00, "OCC_CHAPEL_STAIRCASE_TOP" );
 };

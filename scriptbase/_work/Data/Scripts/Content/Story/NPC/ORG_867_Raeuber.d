@@ -1,13 +1,13 @@
 instance ORG_867_Raeuber (Npc_Default)
 {
 	//-------- primary data --------
-	
+
 	name =					Name_Raeuber;
 	Npctype =				NPCTYPE_ROGUE;
-	guild =					GIL_NONE;      
+	guild =					GIL_NONE;
 	level =					12;
 
-	
+
 	voice =					13;
 	id =					867;
 
@@ -25,23 +25,23 @@ instance ORG_867_Raeuber (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 //	Mdl_ApplyOverlayMds	(self,"Humans_Relaxed.mds");
-	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
+	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin
 	Mdl_SetVisualBody (self,"hum_body_Naked0",0, 1,"Hum_Head_Bald",38 ,  4, ORG_ARMOR_L);
-	
-	B_Scale (self);	
-	Mdl_SetModelFatness (self, 0);		
-	
+
+	B_Scale (self);
+	Mdl_SetModelFatness (self, 0);
+
 	fight_tactic	=	FAI_HUMAN_STRONG;
-	
+
 	//-------- Talente ----------
 
 	Npc_SetTalentSkill (self, NPC_TALENT_BOW,1);
 	Npc_SetTalentSkill (self, NPC_TALENT_1H,1);
-	
-	
-	//-------- inventory --------   
-	                                 
-	CreateInvItems (self, ItKeLockpick,3);		
+
+
+	//-------- inventory --------
+
+	CreateInvItems (self, ItKeLockpick,3);
 	CreateInvItems(self, ItMiNugget, 14);
 	CreateInvItems (self, ItFoRice,8);
 	CreateInvItems (self, ItFoBooze, 3);
@@ -61,13 +61,13 @@ instance ORG_867_Raeuber (Npc_Default)
 
 FUNC VOID Rtn_start_867 ()
 {
-    TA_Guard		(13,00,14,00,"LOCATION_11_02");	
+    TA_Guard		(13,00,14,00,"LOCATION_11_02");
     TA_Guard		(14,00,13,00,"LOCATION_11_02");
 };
 
 FUNC VOID Rtn_OMFull_867 ()
 {
-	TA_Guard		(13,00,14,00,"LOCATION_11_02");	
+	TA_Guard		(13,00,14,00,"LOCATION_11_02");
     TA_Guard		(14,00,13,00,"LOCATION_11_02");
 };
 

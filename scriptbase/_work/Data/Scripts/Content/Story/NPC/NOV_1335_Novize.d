@@ -4,11 +4,11 @@ instance NOV_1335_Novize (Npc_Default)
 	name 		=		Name_Novize;
 	Npctype 		=		Npctype_Ambient;
 	guild 		=		GIL_NOV;
-	level 		=		9;	
-	
+	level 		=		9;
+
 	voice 		=		5;
 	id 			=		1335;
-		
+
 	//-------- abilities --------
 	attribute[ATR_STRENGTH] 		=	15;
 	attribute[ATR_DEXTERITY] 		=	15;
@@ -26,20 +26,20 @@ instance NOV_1335_Novize (Npc_Default)
 
 	B_Scale (self);
 	Mdl_SetModelFatness(self,-1);
-	
+
 	fight_tactic	=	FAI_HUMAN_COWARD;
 
 	//-------- Talente --------
-		
-	Npc_SetTalentSkill (self, NPC_TALENT_1H,1);			
-	
+
+	Npc_SetTalentSkill (self, NPC_TALENT_1H,1);
+
 	//-------- inventory --------
 
 	EquipItem (self, ItMw_1H_Axe_Old_01);
 	//CreateInvItem (self, ItFoSoup);
 	//CreateInvItem (self, ItMiJoint);
- 
-	
+
+
 	//-------------Daily Routine-------------
 	daily_routine = Rtn_start_1335;
 };

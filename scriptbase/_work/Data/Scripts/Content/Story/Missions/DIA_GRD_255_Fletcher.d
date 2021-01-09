@@ -1,5 +1,5 @@
 // ************************************************************
-// 			  				   EXIT 
+// 			  				   EXIT
 // ************************************************************
 
 instance  DIA_Fletcher_EXIT (C_INFO)
@@ -8,10 +8,10 @@ instance  DIA_Fletcher_EXIT (C_INFO)
 	nr			=	999;
 	condition	=	DIA_Fletcher_EXIT_Condition;
 	information	=	DIA_Fletcher_EXIT_Info;
-	important	=	0;	
+	important	=	0;
 	permanent	=	1;
 	description =	DIALOG_ENDE;
-};                       
+};
 
 FUNC int  DIA_Fletcher_EXIT_Condition()
 {
@@ -24,7 +24,7 @@ FUNC VOID  DIA_Fletcher_EXIT_Info()
 };
 
 // ************************************************************
-//						FIRST	NACHT				
+//						FIRST	NACHT
 // ************************************************************
 
 instance DIA_Fletcher_First (C_INFO)
@@ -38,7 +38,7 @@ instance DIA_Fletcher_First (C_INFO)
 };
 
 FUNC int  DIA_Fletcher_First_Condition()
-{	
+{
 	if (Wld_IsTime(00,00,06,00))
 	{
 		return 1;
@@ -54,12 +54,12 @@ func void  DIA_Fletcher_First_Info()
 	AI_Output (self, other,"DIA_Fletcher_First_06_04"); //But new guys like you are always trouble. Especially when they sneak around the place at night.
 	AI_Output (self, other,"DIA_Fletcher_First_06_05"); //So why don't you go home and make sure I don't see you here again? There's an empty hut opposite the arena, the one with the canopy. Get some sleep.
 	AI_Output (self, other,"DIA_Fletcher_First_06_06"); //And if I catch you in one of the other huts, I shall personally see to it that you live to regret it.
-	
+
 	AI_StopProcessInfos	(self);
 };
 
 // ************************************************************
-//							Hallo				
+//							Hallo
 // ************************************************************
 	var int fletcher_whytalk;
 // ************************************************************
@@ -75,7 +75,7 @@ instance DIA_Fletcher_Hello (C_INFO)
 };
 
 FUNC int  DIA_Fletcher_Hello_Condition()
-{	
+{
 	if (Npc_IsInState(self,ZS_Talk))
 	{
 		return 1;
@@ -88,7 +88,7 @@ func void  DIA_Fletcher_Hello_Info()
 	AI_Output (self, other,"DIA_Fletcher_Hello_06_01"); //If you want to get rid of your protection money - you've picked the wrong day.
 	AI_Output (other, self,"DIA_Fletcher_Hello_15_02"); //Yeah? Why's that?
 	AI_Output (self, other,"DIA_Fletcher_Hello_06_03"); //Cos I'm not here.
-	
+
 	Info_ClearChoices	(DIA_Fletcher_Hello);
 	Info_AddChoice		(DIA_Fletcher_Hello,"I see.",DIA_Fletcher_Hello_ISee);
 	Info_AddChoice		(DIA_Fletcher_Hello,"Then how come I'm talking to you?",DIA_Fletcher_Hello_WhyTalk);
@@ -117,7 +117,7 @@ func void DIA_Fletcher_Hello_ISee()
 };
 
 // ************************************************************
-//						Wo Nek				
+//						Wo Nek
 // ************************************************************
 
 instance DIA_Fletcher_WoNek (C_INFO)
@@ -131,7 +131,7 @@ instance DIA_Fletcher_WoNek (C_INFO)
 };
 
 func int DIA_Fletcher_WoNek_Condition()
-{	
+{
 	if ( Npc_KnowsInfo(hero,DIA_STT_315_LostNek) || (fletcher_whytalk==TRUE) )
 	{
 		return 1;
@@ -144,14 +144,14 @@ func void  DIA_Fletcher_WoNek_Info()
 	AI_Output (self, other,"DIA_Fletcher_WoNek_06_01"); //No, and I'm not likely to find out.
 	AI_Output (self, other,"DIA_Fletcher_WoNek_06_02"); //If anything, the diggers in this district might know something. But diggers don't talk to guards.
 	AI_Output (self, other,"DIA_Fletcher_WoNek_06_03"); //Especially not now they know I hate this filthy work. I bet they're laughing behind my back!
-	
+
 	Log_CreateTopic		(CH1_LostNek,	LOG_MISSION);
 	Log_SetTopicStatus	(CH1_LostNek,	LOG_RUNNING);
 	B_LogEntry			(CH1_LostNek,"Maybe the diggers in the arena district know where Nek disappeared to.");
 };
 
 // ************************************************************
-//						Trotzdem Schutzgeld				
+//						Trotzdem Schutzgeld
 // ************************************************************
 
 instance DIA_Fletcher_TroSchu (C_INFO)
@@ -165,7 +165,7 @@ instance DIA_Fletcher_TroSchu (C_INFO)
 };
 
 FUNC int  DIA_Fletcher_TroSchu_Condition()
-{	
+{
 	if ( Npc_KnowsInfo(hero,DIA_Fletcher_Hello) )
 	{
 		return 1;
@@ -179,7 +179,7 @@ func void  DIA_Fletcher_TroSchu_Info()
 };
 
 // ************************************************************
-//						Wegen Nek			
+//						Wegen Nek
 // ************************************************************
 	var int fletcher_foundNek;
 // ************************************************************
@@ -195,7 +195,7 @@ instance DIA_Fletcher_WegenNek (C_INFO)
 };
 
 FUNC int  DIA_Fletcher_WegenNek_Condition()
-{	
+{
 	if ( Npc_KnowsInfo(hero,DIA_Fletcher_WoNek) && (fletcher_foundNek==FALSE) )
 	{
 		return 1;
@@ -206,9 +206,9 @@ func void  DIA_Fletcher_WegenNek_Info()
 {
 	AI_Output (other, self,"DIA_Fletcher_WegenNek_15_00"); //It's about Nek...
 	AI_Output (self, other,"DIA_Fletcher_WegenNek_06_01"); //Yeah?
-	
+
 	var C_NPC Nek; Nek = Hlp_GetNpc(Grd_282_Nek);
-	
+
 	if ( (Sly_LostNek == LOG_SUCCESS) || (!Hlp_IsValidNpc(Nek)) )
 	{
 		AI_Output (other, self,"DIA_Fletcher_WegenNek_15_02"); //I think I've found him.
@@ -240,7 +240,7 @@ instance DIA_Fletcher_Problem (C_INFO)
 };
 
 FUNC int  DIA_Fletcher_Problem_Condition()
-{	
+{
 	if ( fletcher_foundNek == TRUE )
 	{
 		return 1;
@@ -251,7 +251,7 @@ func void  DIA_Fletcher_Problem_Info()
 {
 	AI_Output (other, self,"DIA_Fletcher_Problem_15_00"); //What's the problem?
 	AI_Output (self, other,"DIA_Fletcher_Problem_06_01"); //I'm in debt to Scatty, right up to my neck. Now he knows I'm doing Nek's job, he'll be coming round every day...
-};	
+};
 
 
 
@@ -273,7 +273,7 @@ func void  DIA_Fletcher_Problem_Info()
 //#####################################################################
 
 // ************************************************************
-//						GARDIST GEWORDEN					
+//						GARDIST GEWORDEN
 // ************************************************************
 instance Grd_255_Fletcher_WELCOME (C_INFO)
 {
@@ -285,9 +285,9 @@ instance Grd_255_Fletcher_WELCOME (C_INFO)
 };
 
 FUNC int  Grd_255_Fletcher_WELCOME_Condition()
-{	
-	
-	if (Npc_GetTrueGuild (hero) == GIL_GRD) 
+{
+
+	if (Npc_GetTrueGuild (hero) == GIL_GRD)
 	{
 		return TRUE;
 	};
@@ -318,11 +318,11 @@ instance Info_Fletcher_DIE (C_INFO)
 };
 
 FUNC INT Info_Fletcher_DIE_Condition()
-{	
+{
 	if (Kapitel == 4)
 	{
 		return TRUE;
-	};	
+	};
 };
 
 FUNC VOID Info_Fletcher_DIE_Info()
@@ -344,7 +344,7 @@ FUNC VOID Info_Fletcher_DIE_Info()
 		else
 		{
 			AI_Output	(self,hero,"Info_Fletcher_DIE_06_03"); //Hi, traitor! The fact that you used to be one of Gomez' Shadows won't help you now!
-		};			
+		};
 
 		AI_Output		(hero,self,"Info_Fletcher_DIE_15_04"); //Hey, what are you talking about, Fletcher?
 		AI_Output		(self,hero,"Info_Fletcher_DIE_06_05"); //You're in with that New Camp scum, aren't you?
@@ -400,12 +400,12 @@ FUNC VOID Info_Fletcher_DIE_Info()
 	B_SetPermAttitude	(GRD_244_Gardist,	ATT_HOSTILE);
 	B_SetPermAttitude	(GRD_214_Torwache,	ATT_HOSTILE);
 	B_SetPermAttitude	(GRD_215_Torwache,	ATT_HOSTILE);
-	
+
 	if	!Npc_KnowsInfo(hero, Info_Bloodwyn_DIE)
 	{
 		B_LogEntry		(CH4_Firemages,"The gates of the Old Camp are now closed, they're protected by guards. They attack anybody approaching the Camp.");
 	};
-	
+
 	AI_StopProcessInfos	(self);
 };
 

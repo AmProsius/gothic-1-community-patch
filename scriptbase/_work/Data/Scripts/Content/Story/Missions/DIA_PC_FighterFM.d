@@ -7,10 +7,10 @@ INSTANCE Info_GornFM_EXIT (C_INFO)
 	nr   		= 999;
 	condition	= Info_GornFM_EXIT_Condition;
 	information	= Info_GornFM_EXIT_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC INT Info_GornFM_EXIT_Condition()
 {
@@ -27,7 +27,7 @@ func VOID Info_GornFM_EXIT_Info()
 	{
 		AI_Output (self, other,"Info_GornFM_EXIT_09_02"); //See you later.
 	};
-	
+
 	AI_StopProcessInfos	(self);
 };
 
@@ -51,10 +51,10 @@ INSTANCE Info_GornFM_WAIT (C_INFO)
 	npc			= PC_FighterFM;
 	condition	= Info_GornFM_WAIT_Condition;
 	information	= Info_GornFM_WAIT_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 1;
 	description	= "Hold the position, I'll check the situation!";
-};                       
+};
 
 FUNC INT Info_GornFM_WAIT_Condition()
 {
@@ -81,10 +81,10 @@ INSTANCE Info_GornFM_FOLLOW (C_INFO)
 	npc			= PC_FighterFM;
 	condition	= Info_GornFM_FOLLOW_Condition;
 	information	= Info_GornFM_FOLLOW_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 1;
 	description	= "Come on, I need your help.";
-};                       
+};
 
 FUNC INT Info_GornFM_FOLLOW_Condition()
 {

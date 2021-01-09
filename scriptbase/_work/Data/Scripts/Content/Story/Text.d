@@ -259,14 +259,14 @@ CONST STRING TXT_SPELLS_DESC [MAX_SPELL] = {
 };
 */
 
-								
+
 // *****************************************************************************************
 // Kampf-Talente
 // *****************************************************************************************
 
-CONST STRING TXT_TALENTS [NPC_TALENT_MAX] =	
+CONST STRING TXT_TALENTS [NPC_TALENT_MAX] =
 {
-	"",	
+	"",
 	"One-handed Sword",
 	"Two-handed Sword",
 	"Bow",
@@ -281,10 +281,10 @@ CONST STRING TXT_TALENTS [NPC_TALENT_MAX] =
 };
 
 /* SN: wird laut Bert nicht mehr benötigt. Ich kommentier es erst mal eine Version lang aus
-CONST STRING TXT_TALENTS_DESC [NPC_TALENT_MAX] = 
+CONST STRING TXT_TALENTS_DESC [NPC_TALENT_MAX] =
 // FIXME: wo werden die benutzt?
 {
-	"",	
+	"",
 	"NPC_TALENT_1H",
 	"NPC_TALENT_2H",
 	"NPC_TALENT_BOW",
@@ -299,20 +299,20 @@ CONST STRING TXT_TALENTS_DESC [NPC_TALENT_MAX] =
 };
 */
 
-CONST STRING TXT_TALENTS_SKILLS [NPC_TALENT_MAX] = 
+CONST STRING TXT_TALENTS_SKILLS [NPC_TALENT_MAX] =
 {
-	"",	
-	"unskilled|trained|master",						//NPC_TALENT_1H          
-	"unskilled|trained|master",                       //NPC_TALENT_2H           
-	"unskilled|trained|master",                       //NPC_TALENT_BOW         
-	"unskilled|trained|master",                       //NPC_TALENT_CROSSBOW    
-	"unskilled|trained|master",                       //NPC_TALENT_PICKLOCK   
+	"",
+	"unskilled|trained|master",						//NPC_TALENT_1H
+	"unskilled|trained|master",                       //NPC_TALENT_2H
+	"unskilled|trained|master",                       //NPC_TALENT_BOW
+	"unskilled|trained|master",                       //NPC_TALENT_CROSSBOW
+	"unskilled|trained|master",                       //NPC_TALENT_PICKLOCK
 	"unskilled|trained|master",                       //NPC_TALENT_PICKPOCKET
-	"no|Circle 1|Circle 2|Circle 3|Circle 4|Circle 5|Circle 6", //NPC_TALENT_MAGE         
-	"No|Yes",                                              //NPC_TALENT_SNEAK       
-	"|",                                      		        //NPC_TALENT_REGENERATE 
-	"|",                                          		    //NPC_TALENT_FIREMASTER   
-	"No|Yes"                                               //NPC_TALENT_ACROBAT      
+	"no|Circle 1|Circle 2|Circle 3|Circle 4|Circle 5|Circle 6", //NPC_TALENT_MAGE
+	"No|Yes",                                              //NPC_TALENT_SNEAK
+	"|",                                      		        //NPC_TALENT_REGENERATE
+	"|",                                          		    //NPC_TALENT_FIREMASTER
+	"No|Yes"                                               //NPC_TALENT_ACROBAT
 };
 
 // *****************************************************************************************
@@ -425,7 +425,7 @@ const string NAME_TwoHanded		= "Two-handed Weapon";
 
 //----------------- MH: zusätzlich wegen FlexTranslate ---------------------
 
-const string NAME_HealingPerMana = "Healing per Mana"; 
+const string NAME_HealingPerMana = "Healing per Mana";
 
 const string NAME_BuyAttributeSTR = "Strength +";
 const string NAME_BuyAttributeDEX = "Dexterity +";
@@ -489,7 +489,7 @@ const string _STR_MESSAGE_ORE_TAKEN			= " Ore received!"							;
 const string _STR_MESSAGE_TRADE_FAILURE		= "The value of your goods is not high enough."	;
 
 // GILDENAUFNAHMEBEDINGUNG (für die Funktion "B_PrintGuildCondition()" )
-const string _STR_MESSAGE_Joincamp			=	"Condition for admission: Level "; 
+const string _STR_MESSAGE_Joincamp			=	"Condition for admission: Level ";
 
 // nicht beklaubare NSCs
 const string _STR_MESSAGE_CANNOTSTEAL		=	"Cannot be stolen from.";
@@ -527,12 +527,12 @@ const int	_TIME_MESSAGE_CANNOTSTEAL		=	2;
 // ***************************************************************************************
 // Zusammenbauen von Info_AddChoice()-Strings beim Kaufen/Lernen
 // ***************************************************************************************
-const string NAME_BuyArmorPrefix	=	" (";	
-const string NAME_BuyArmorPostfix	=	" ore)";	
-const string NAME_LearnPrefix		=	" (";	
+const string NAME_BuyArmorPrefix	=	" (";
+const string NAME_BuyArmorPostfix	=	" ore)";
+const string NAME_LearnPrefix		=	" (";
 const string NAME_LearnMidfix		=	" ore, ";
-const string NAME_LearnPostfixS		=	"skill point)";	
-const string NAME_LearnPostfixP		=	"skill points)";	
+const string NAME_LearnPostfixS		=	"skill point)";
+const string NAME_LearnPostfixP		=	"skill points)";
 
 const string NAME_LearnStrength_1	=	"Strength +1";
 const string NAME_LearnStrength_5	=	"Strength +5";
@@ -587,7 +587,7 @@ const string NAME_SaturasHighRobe	= 	"High Robe";
 const string NAME_DiegoHeavyShadows	=	"Heavy Shadow's Armor. Protection: Weapons 40, Arrows 5, Fire 20";
 const string NAME_StoneHeavyGuards	= 	"Heavy Guard's Armor. Protection: Weapons 70, Arrows 10, Fire 35";
 const string NAME_StoneGuards		= 	"Guard's Armor. Protection: Weapons 55, Arrows 10, Fire 25";
-const string NAME_WolfBandits		= 	"Bandit's Armor. Protection: Weapons 35, Arrows 5, Fire 15"; 
+const string NAME_WolfBandits		= 	"Bandit's Armor. Protection: Weapons 35, Arrows 5, Fire 15";
 const string NAME_WolfHeavyBandits	= 	"Heavy Bandit's Armor. Protection: Weapons 40, Arrows 5, Fire 20";
 const string NAME_LeeMercs			= 	"Mercenary's Armor. Protection: Weapons 55, Arrows 10, Fire 25";
 const string NAME_LeeHeavyMercs		= 	"Heavy Mercenary's Armor. Protection: Weapons 70, Arrows 10, Fire 35";

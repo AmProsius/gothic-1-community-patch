@@ -1,5 +1,5 @@
 // **************************************************
-// 						 EXIT 
+// 						 EXIT
 // **************************************************
 
 INSTANCE DIA_Jesse_Exit (C_INFO)
@@ -10,7 +10,7 @@ INSTANCE DIA_Jesse_Exit (C_INFO)
 	information	= DIA_Jesse_Exit_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC INT DIA_Jesse_Exit_Condition()
 {
@@ -37,7 +37,7 @@ INSTANCE DIA_Jesse_Hallo (C_INFO)
 };
 
 FUNC INT DIA_Jesse_Hallo_Condition()
-{	
+{
 	if (!Npc_KnowsInfo(hero,DIA_Herek_Bully))
 	{
 		return 1;
@@ -66,7 +66,7 @@ INSTANCE DIA_Jesse_Warn (C_INFO)
 };
 
 FUNC INT DIA_Jesse_Warn_Condition()
-{	
+{
 	if ( (Npc_KnowsInfo(hero,DIA_Herek_Bully)) && (Herek_ProtectionBully==TRUE) )
 	{
 		return 1;
@@ -86,7 +86,7 @@ FUNC VOID DIA_Jesse_Warn_Info()
 // **************************************************
 // 				MISSION Pay 4 Me
 // **************************************************
-	
+
 // ************************************************************
 
 INSTANCE DIA_Jesse_Mission (C_INFO)
@@ -100,7 +100,7 @@ INSTANCE DIA_Jesse_Mission (C_INFO)
 };
 
 FUNC INT DIA_Jesse_Mission_Condition()
-{	
+{
 	if (Npc_KnowsInfo(hero,DIA_Jesse_Mission))
 	{
 		return 1;
@@ -112,7 +112,7 @@ FUNC VOID DIA_Jesse_Mission_Info()
 	AI_Output (other, self,"DIA_Jesse_Mission_15_00"); //Why did you tell me the story about Bloodwyn?
 	AI_Output (self, other,"DIA_Jesse_Mission_03_01"); //Because favors can be returned. And you don't look like somebody who wouldn't understand that.
 	AI_Output (self, other,"DIA_Jesse_Mission_03_02"); //And because I did YOU a favor, I'd like to give you the opportunity to return it.
-	
+
 	Info_ClearChoices	(DIA_Jesse_Mission );
 	Info_AddChoice		(DIA_Jesse_Mission,"Forget it! I don't owe you anything!",DIA_Jesse_Mission_ForgetIt);
 	Info_AddChoice		(DIA_Jesse_Mission,"What exactly do you have in mind?",DIA_Jesse_Mission_What);
@@ -133,7 +133,7 @@ func void DIA_Jesse_Mission_What()
 	AI_Output (self, other,"DIA_Jesse_Mission_What_03_01"); //I don't have any ore left, and Bloodwyn has already fleeced me as well.
 	AI_Output (self, other,"DIA_Jesse_Mission_What_03_02"); //Now that I've helped you, you could give him the 10 ore I owe him, couldn't you? Tell him it's from me.
 	Npc_SetTrueGuild(self,GIL_NONE); //KEIN Schutzgeld
-	
+
 	Info_AddChoice		(DIA_Jesse_Mission,"Me, pay for you? Forget it!",DIA_Jesse_Mission_NO);
 	Info_AddChoice		(DIA_Jesse_Mission,"I'll see what I can do.",DIA_Jesse_Mission_YES);
 };
@@ -143,7 +143,7 @@ func void DIA_Jesse_Mission_YES()
 	AI_Output (other, self,"DIA_Jesse_Mission_YES_15_00"); //I'll see what I can do.
 	AI_Output (self, other,"DIA_Jesse_Mission_YES_03_01"); //Thanks, man! You just saved my day! Tell me when things are settled, will you?
 	Jesse_PayForMe = LOG_RUNNING;
-	
+
 	Info_ClearChoices	(DIA_Jesse_Mission );
 };
 
@@ -172,7 +172,7 @@ INSTANCE DIA_Jesse_MisSuccess (C_INFO)
 };
 
 FUNC INT DIA_Jesse_MisSuccess_Condition()
-{	
+{
 	if (Jesse_PayForMe == LOG_SUCCESS)
 	{
 		return 1;
@@ -184,7 +184,7 @@ FUNC VOID DIA_Jesse_MisSuccess_Info()
 	AI_Output (other, self,"DIA_Jesse_MisSuccess_15_00"); //I paid Bloodwyn!
 	AI_Output (self, other,"DIA_Jesse_MisSuccess_03_01"); //Yeah? Great! Then we're quits now.
 	Npc_SetTrueGuild(self,GIL_VLK); //Schutzgeld GEZAHLT
-	
+
 	Info_ClearChoices	(DIA_Jesse_MisSuccess );
 	Info_AddChoice		(DIA_Jesse_MisSuccess,"WHAAAT? I spent 10 ore on a clue I knew about anyway?",DIA_Jesse_MisSuccess_Waaas);
 	Info_AddChoice		(DIA_Jesse_MisSuccess,"Yeah. You scratch my back, I'll scratch yours.",DIA_Jesse_MisSuccess_Ok);
@@ -202,7 +202,7 @@ func void DIA_Jesse_MisSuccess_Ok()
 };
 
 //a) <Herek tot>
-//b) Herek wird versuchen, 
+//b) Herek wird versuchen,
 
 
 /* */

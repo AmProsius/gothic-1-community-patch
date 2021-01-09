@@ -1,5 +1,5 @@
 // **************************************************
-//						EXIT 
+//						EXIT
 // **************************************************
 
 instance  DIA_Shrat_Exit (C_INFO)
@@ -8,10 +8,10 @@ instance  DIA_Shrat_Exit (C_INFO)
 	nr			=  999;
 	condition	=  DIA_Shrat_Exit_Condition;
 	information	=  DIA_Shrat_Exit_Info;
-	important	=  0;	
+	important	=  0;
 	permanent	=  1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC int  DIA_Shrat_Exit_Condition()
 {
@@ -35,7 +35,7 @@ instance  DIA_Shrat_WhyHere (C_INFO)
 	information	= DIA_Shrat_WhyHere_Info;
 	permanent	= 0;
 	description	= "What are you doing here?";
-};                       
+};
 
 FUNC int  DIA_Shrat_WhyHere_Condition()
 {
@@ -64,7 +64,7 @@ instance DIA_Shrat_JoinPSI (C_INFO)
 	information	= DIA_Shrat_JoinPSI_Info;
 	permanent	= 0;
 	description	= "I want to join the Brotherhood - can you help me?";
-};                       
+};
 
 FUNC int DIA_Shrat_JoinPSI_Condition()
 {
@@ -93,7 +93,7 @@ instance DIA_Shrat_ComeWithMe (C_INFO)
 	information	= DIA_Shrat_ComeWithMe_Info;
 	permanent	= 1;
 	description	= "Let's move around together! Come with me!";
-};                       
+};
 
 FUNC int DIA_Shrat_ComeWithMe_Condition()
 {
@@ -124,7 +124,7 @@ instance DIA_Shrat_LeaveMe (C_INFO)
 	information	= DIA_Shrat_LeaveMe_Info;
 	permanent	= 1;
 	description	= "Our paths separate here - I'll go on on my own.";
-};                       
+};
 
 FUNC int DIA_Shrat_LeaveMe_Condition()
 {

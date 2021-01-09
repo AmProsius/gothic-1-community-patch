@@ -1,5 +1,5 @@
 // **************************************************
-//						 EXIT 
+//						 EXIT
 // **************************************************
 
 instance  Stt_311_Fisk_Exit (C_INFO)
@@ -10,7 +10,7 @@ instance  Stt_311_Fisk_Exit (C_INFO)
 	information	= Stt_311_Fisk_Exit_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC int  Stt_311_Fisk_Exit_Condition()
 {
@@ -34,7 +34,7 @@ instance  Stt_311_Fisk_First (C_INFO)
 	information	= Stt_311_Fisk_First_Info;
 	permanent	= 0;
 	important 	= 1;
-};                       
+};
 
 FUNC int  Stt_311_Fisk_First_Condition()
 {
@@ -45,8 +45,8 @@ FUNC VOID  Stt_311_Fisk_First_Info()
 {
 	AI_Output		(self, other,"Stt_311_Fisk_First_12_00"); //Hey, man! I'm Fisk. I trade goods of all kinds. If you ever need anything - you're in the right place here.
 	Log_CreateTopic (GE_TraderOC,LOG_NOTE);
-	B_LogEntry		(GE_TraderOC,"Fisk, the Shadow, trades with all kinds of goods, especially WEAPONS. He's usually at the market."); 
-	
+	B_LogEntry		(GE_TraderOC,"Fisk, the Shadow, trades with all kinds of goods, especially WEAPONS. He's usually at the market.");
+
 };
 
 // **************************************************
@@ -62,7 +62,7 @@ instance  Stt_311_Fisk_Trade (C_INFO)
 	permanent	= 1;
 	description = "Show me your goods.";
 	trade		= 1;
-};                       
+};
 
 FUNC int  Stt_311_Fisk_Trade_Condition()
 {
@@ -84,7 +84,7 @@ instance  Stt_311_Fisk_WhistlersSword (C_INFO)
 	information	= Stt_311_Fisk_WhistlersSword_Info;
 	permanent	= 1;
 	description = "I'd like to buy a sword - I'd like something more ornamental...";
-};                       
+};
 
 FUNC int  Stt_311_Fisk_WhistlersSword_Condition()
 {
@@ -119,7 +119,7 @@ func void Stt_311_Fisk_WhistlersSword_Fault()
 	AI_Output (self, other,"Stt_311_Fisk_WhistlersSword_Fault_12_01"); //Ah! Just wait... that's right, I nearly charged you too little! Of course I meant 500.
 	AI_Output (other, self,"Stt_311_Fisk_WhistlersSword_Fault_15_02"); //Five hundred?
 	AI_Output (self, other,"Stt_311_Fisk_WhistlersSword_Fault_12_03"); //Too little? You prefer 1000? Fine by me. Well, now that I think about it - I'd rather keep it!
-	
+
 	Fisk_ForgetSword = TRUE;
 	Info_ClearChoices	(Stt_311_Fisk_WhistlersSword );
 };
@@ -127,7 +127,7 @@ func void Stt_311_Fisk_WhistlersSword_Fault()
 func void Stt_311_Fisk_WhistlersSword_TakeIt()
 {
 	AI_Output (other, self,"Stt_311_Fisk_WhistlersSword_TakeIt_15_00"); //Yes, I'll take it.
-	
+
 	if (Npc_HasItems(other,itminugget) >= 110)
 	{
 		AI_Output (self, other,"Stt_311_Fisk_WhistlersSword_TakeIt_12_01"); //You got a good deal here!
@@ -135,7 +135,7 @@ func void Stt_311_Fisk_WhistlersSword_TakeIt()
 		CreateInvItem (self,Whistlers_Schwert);
 		B_GiveInvItems(self, other,Whistlers_Schwert,1);
 		Info_ClearChoices	(Stt_311_Fisk_WhistlersSword );
-		
+
 		Fisk_SwordSold = TRUE;
 	}
 	else
@@ -156,7 +156,7 @@ instance  Stt_311_Fisk_ForgetSword (C_INFO)
 	information	= Stt_311_Fisk_ForgetSword_Info;
 	permanent	= 1;
 	description = "About Whistler's sword...";
-};                       
+};
 
 FUNC int  Stt_311_Fisk_ForgetSword_Condition()
 {
@@ -186,11 +186,11 @@ instance  Stt_311_Fisk_MordragKO (C_INFO)
 	information	= Stt_311_Fisk_MordragKO_Info;
 	permanent	= 0;
 	important 	= 1;
-};                       
+};
 
 FUNC int  Stt_311_Fisk_MordragKO_Condition()
 {
-	if (MordragKO_HauAb == TRUE)  
+	if (MordragKO_HauAb == TRUE)
 	&& (Npc_GetTrueGuild(hero) == GIL_NONE)
 	{
 		return 1;
@@ -215,11 +215,11 @@ func void Stt_311_Fisk_MordragKO_Relax()
 	AI_Output (self, other,"Stt_311_Fisk_MordragKO_Relax_12_01"); //I wouldn't know how you're gonna do that. Unless you get me a new fence from the New Camp!
 	AI_Output (other, self,"Stt_311_Fisk_MordragKO_Relax_15_02"); //How am I supposed to find somebody like that?
 	AI_Output (self, other,"Stt_311_Fisk_MordragKO_Relax_12_03"); //I just told you, I don't believe that you'll ever be on good terms with me.
-	
+
 	Log_CreateTopic(CH1_FiskNewDealer, LOG_MISSION);
 	Log_SetTopicStatus(CH1_FiskNewDealer, LOG_RUNNING);
 	B_LogEntry( CH1_FiskNewDealer,"The tradesman Fisk at the market in the Old Camp wants me to find him a new fence, after I've beaten up Mordrag.");
-	
+
 	Fisk_GetNewHehler = LOG_RUNNING;
 };
 
@@ -227,7 +227,7 @@ func void Stt_311_Fisk_MordragKO_FuckOff()
 {
 	AI_Output (other, self,"Stt_311_Fisk_MordragKO_FuckOff_15_00"); //Then just kiss my ass!
 	Info_ClearChoices(Stt_311_Fisk_MordragKO);
-	
+
 	AI_StopProcessInfos	(self);
 };
 
@@ -249,11 +249,11 @@ instance  Stt_311_Fisk_HehlerSuccess (C_INFO)
 	information	= Stt_311_Fisk_HehlerSuccess_Info;
 	permanent	= 0;
 	description	= "I have somebody from the New Camp who wants to get into business...";
-};                       
+};
 
 FUNC int  Stt_311_Fisk_HehlerSuccess_Condition()
 {
-	if ( (Fisk_GetNewHehler==LOG_RUNNING) && (Npc_KnowsInfo(hero,Org_843_Sharky_Fisk)))  
+	if ( (Fisk_GetNewHehler==LOG_RUNNING) && (Npc_KnowsInfo(hero,Org_843_Sharky_Fisk)))
 	{
 		return 1;
 	};
@@ -267,7 +267,7 @@ FUNC VOID  Stt_311_Fisk_HehlerSuccess_Info()
 	AI_Output (other, self,"Stt_311_Fisk_HehlerSuccess_15_03"); //His name is Sharky.
 	AI_Output (self, other,"Stt_311_Fisk_HehlerSuccess_12_04"); //Sharky? He's even worse than Mordrag.
 	AI_Output (self, other,"Stt_311_Fisk_HehlerSuccess_12_05"); //About Diego... you don't need to worry any more.
-	
+
 	Fisk_GetNewHehler = LOG_SUCCESS;
 	B_GiveXP(XP_fiskdealer);
 
@@ -275,7 +275,7 @@ FUNC VOID  Stt_311_Fisk_HehlerSuccess_Info()
 	B_LogEntry( CH1_FiskNewDealer,"Fisk is content, because Sharky will take over Mordrag's business.");
 };
 /*------------------------------------------------------------------------
-							RÜSTUNG									
+							RÜSTUNG
 ------------------------------------------------------------------------*/
 
 instance  Stt_311_Fisk_ARMOR (C_INFO)
@@ -285,11 +285,11 @@ instance  Stt_311_Fisk_ARMOR (C_INFO)
 	information		= Stt_311_Fisk_ARMOR_Info;
 	important		= 0;
 	permanent		= 1;
-	description		= "Have you got armor for me as well?"; 
+	description		= "Have you got armor for me as well?";
 };
 
 FUNC int  Stt_311_Fisk_ARMOR_Condition()
-{	
+{
 	if (Kapitel < 2)
 	&& (Npc_KnowsInfo (hero, Stt_311_Fisk_First))
 	{
@@ -306,7 +306,7 @@ FUNC void  Stt_311_Fisk_ARMOR_Info()
 	Info_Addchoice (Stt_311_Fisk_ARMOR,B_BuildBuyArmorString(NAME_FiskLightDiggers,VALUE_VLK_ARMOR_L),Stt_311_Fisk_ARMOR_L);
 	Info_Addchoice (Stt_311_Fisk_ARMOR,B_BuildBuyArmorString(NAME_FiskDiggers,VALUE_VLK_ARMOR_M),Stt_311_Fisk_ARMOR_M);
 
-};  
+};
 
 func void Stt_311_Fisk_ARMOR_BACK()
 {
@@ -316,7 +316,7 @@ func void Stt_311_Fisk_ARMOR_BACK()
 func void Stt_311_Fisk_ARMOR_L()
 {
 	AI_Output (other, self,"Stt_311_Fisk_ARMOR_L_Info_15_01"); //Give me the light digger's trousers.
-	
+
 	if (Npc_HasItems (hero,ItMiNugget) <  VALUE_VLK_ARMOR_L)
 	{
 		AI_Output (self, other,"Stt_311_Fisk_ARMOR_L_Info_12_02"); //Come back as soon as you have enough ore!

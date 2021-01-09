@@ -1,5 +1,5 @@
 // ************************************************************
-// 							EXIT 
+// 							EXIT
 // ************************************************************
 INSTANCE Info_BaalLukor_EXIT(C_INFO)
 {
@@ -9,7 +9,7 @@ INSTANCE Info_BaalLukor_EXIT(C_INFO)
 	information		= Info_BaalLukor_EXIT_Info;
 	permanent		= 1;
 	description 	= DIALOG_ENDE;
-};                       
+};
 
 FUNC INT Info_BaalLukor_EXIT_Condition()
 {
@@ -17,7 +17,7 @@ FUNC INT Info_BaalLukor_EXIT_Condition()
 };
 
 FUNC VOID Info_BaalLukor_EXIT_Info()
-{	
+{
 	AI_StopProcessInfos	(self);
 };
 
@@ -42,7 +42,7 @@ FUNC INT Info_BaalLukor_MEET_Condition()
 FUNC VOID Info_BaalLukor_MEET_Info()
 {
 	AI_Output 		(self, other,"Info_BaalLukor_MEET_13_01"); //Thanks for your help. You really arrived in the last moment.
-	
+
 	B_GiveXP		(XP_SaveBaalLukor);
 };
 
@@ -164,8 +164,8 @@ FUNC VOID Info_BaalLukor_FOUNDNONE_Info()
 {
 	AI_Output 		(other, self,"Info_BaalLukor_FOUNDNONE_15_01"); //I can't find a thing!
 	AI_Output 		(self, other,"Info_BaalLukor_FOUNDNONE_13_02"); //We'll need to search the three tunnels.
-	
-	
+
+
 	Npc_ExchangeRoutine	(self, "Follow"); //Björn: Patch2
 };
 
@@ -195,7 +195,7 @@ FUNC VOID Info_BaalLukor_FOUNDONE_Info()
 {
 	AI_Output 		(other, self,"Info_BaalLukor_FOUNDONE_15_01"); //Apparently there is no other half to the parchment!
 	AI_Output 		(self, other,"Info_BaalLukor_FOUNDONE_13_02"); //There must be a second half. We should search all three tunnels!
-	
+
 	Npc_ExchangeRoutine	(self, "Follow"); //Björn: Patch2
 };
 
@@ -269,7 +269,7 @@ FUNC VOID Info_BaalLukor_FIRSTSCROLL_Info()
 		AI_StopProcessInfos	(self);
 		BaalLukor_BringParchment = 1;
 	};
-	
+
 	Npc_ExchangeRoutine	(self, "Follow");
 };
 
@@ -301,8 +301,8 @@ FUNC VOID Info_BaalLukor_SECONDWAIT_Info()
 
 	AI_Output 		(self, other,"Info_BaalLukor_SECONDWAIT_13_01"); //Hmmm... this tunnel leads to a dead end! Maybe you'll find some clues here that'll help us further.
 
-	if (!Npc_HasItems	(hero, OrkParchmentTwo)	) 
-	{	
+	if (!Npc_HasItems	(hero, OrkParchmentTwo)	)
+	{
 		AI_StopProcessInfos	(self);
 		Npc_ExchangeRoutine	(self, "WaitInSideTunnelTwo");
 	};
@@ -415,7 +415,7 @@ FUNC VOID Info_BaalLukor_RUNES_Info()
 	AI_Output		(self, other,"Info_BaalLukor_RUNES_13_03"); //Be silent and take a look at the ornamental runes in this cave.
 	AI_Output		(self, other,"Info_BaalLukor_RUNES_13_04"); //Yeah, these should suffice to translate the two halves of the parchment.
 	B_UseFakeScroll ();
-	//AI_Output		(self, other,"Info_BaalLukor_RUNES_13_05"); //...(murmel)...(murmel)...(murmel)... 
+	//AI_Output		(self, other,"Info_BaalLukor_RUNES_13_05"); //...(murmel)...(murmel)...(murmel)...
 	AI_Output		(self, other,"Info_BaalLukor_RUNES_13_06"); //I have it! It's a teleportation spell. It seems that it can only unfold its powers in a certain place.
 	AI_Output		(self, other,"Info_BaalLukor_RUNES_13_07"); //Strange!
 
@@ -423,7 +423,7 @@ FUNC VOID Info_BaalLukor_RUNES_Info()
 	Npc_RemoveInvItems	(self,			OrkParchmentTwo, 1); //Pergament 2 entfernen
 	//Hier Teleport-Übergabe entfernt --> erst wenn vor wand!
 
-	B_LogEntry			(CH3_OrcGraveyard,"With the aid of wall inscriptions in one of the halls, Baal Lukor was able to translate the scroll. Seems it's a teleportation spell for a very short distance."); 
+	B_LogEntry			(CH3_OrcGraveyard,"With the aid of wall inscriptions in one of the halls, Baal Lukor was able to translate the scroll. Seems it's a teleportation spell for a very short distance.");
 
 
 	Npc_ExchangeRoutine	(self, "Follow"); //Björn: Patch2
@@ -565,10 +565,10 @@ FUNC VOID Info_BaalLukor_DOOR_Info()
 	AI_Output			(self, other,"Info_BaalLukor_DOOR_13_01"); //Behind this wall... that must be it!
 	AI_Output			(self, other,"Info_BaalLukor_DOOR_13_02"); //My magic powers are still very weak.
 	AI_Output			(self, other,"Info_BaalLukor_DOOR_13_03"); //Use the Orcish teleportation spell here, in front of this wall.
-	
+
 	CreateInvItem		(self,			ItArScrollTeleport4); //Teleport erschaffen
 	B_GiveInvItems  	(self, hero,	ItArScrollTeleport4, 1); //Teleport übergeben
-	
+
 	AI_StopProcessInfos	(self);
 };
 
@@ -587,7 +587,7 @@ INSTANCE Info_BaalLukor_TELEPORT (C_INFO)
 FUNC INT Info_BaalLukor_TELEPORT_Condition()
 {
 	if (	Npc_KnowsInfo	(hero, Info_BaalLukor_DOOR)
-	&&		Npc_CanSeeNpcFreeLOS(self,	hero)	
+	&&		Npc_CanSeeNpcFreeLOS(self,	hero)
 	&&		Npc_GetDistToWP	(hero, "GRYD_072")<550				)
 	{
 		return TRUE;

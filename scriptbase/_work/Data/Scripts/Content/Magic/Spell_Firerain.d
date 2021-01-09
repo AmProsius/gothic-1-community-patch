@@ -17,6 +17,6 @@ func int Spell_Logic_Firerain	(var int manaInvested)
 
 	if (manaInvested >= SPL_SENDCAST_FIRERAIN)
 	{ 	return SPL_SENDCAST; 	};
-	
+
 	return SPL_RECEIVEINVEST;
 };

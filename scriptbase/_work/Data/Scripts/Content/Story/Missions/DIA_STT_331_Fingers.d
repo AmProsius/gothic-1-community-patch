@@ -1,5 +1,5 @@
 // **************************************************
-// 						 EXIT 
+// 						 EXIT
 // **************************************************
 
 INSTANCE DIA_STT_331_Fingers_Exit (C_INFO)
@@ -10,7 +10,7 @@ INSTANCE DIA_STT_331_Fingers_Exit (C_INFO)
 	information	= DIA_STT_331_Fingers_Exit_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC INT DIA_STT_331_Fingers_Exit_Condition()
 {
@@ -35,11 +35,11 @@ INSTANCE DIA_Fingers_BecomeShadow (C_INFO)
 	condition		= DIA_Fingers_BecomeShadow_Condition;
 	information		= DIA_Fingers_BecomeShadow_Info;
 	permanent		= 1;
-	description		= "I want to become a Shadow!"; 
+	description		= "I want to become a Shadow!";
 };
 
 FUNC INT DIA_Fingers_BecomeShadow_Condition()
-{	
+{
 	if ( (Fingers_CanTeach == FALSE) )
 	&& (Npc_GetTrueGuild (hero) == GIL_NONE)
 	{
@@ -99,14 +99,14 @@ INSTANCE DIA_Fingers_Lehrer (C_INFO)
 	condition		= DIA_Fingers_Lehrer_Condition;
 	information		= DIA_Fingers_Lehrer_Info;
 	permanent		= 1;
-	description		= "What can you teach me?"; 
+	description		= "What can you teach me?";
 };
 
 FUNC INT DIA_Fingers_Lehrer_Condition()
-{	
+{
 	if (Fingers_CanTeach == TRUE)
 	{
-		return 1;	
+		return 1;
 	};
 };
 
@@ -138,7 +138,7 @@ func void DIA_Fingers_Lehrer_Schleichen()
 func void DIA_Fingers_Lehrer_Lockpick()
 {
 	AI_Output (other, self,"DIA_Fingers_Lehrer_Lockpick_15_00"); //How can I improve my lock-picking skills?
-	
+
 	if (B_GiveSkill(other, NPC_TALENT_PICKLOCK, 1, LPCOST_TALENT_PICKLOCK_1))
 	{
 		AI_Output (self, other,"DIA_Fingers_Lehrer_Lockpick_05_01"); //You'd like to know that, wouldn't you! It's not too difficult to begin with.
@@ -150,7 +150,7 @@ func void DIA_Fingers_Lehrer_Lockpick()
 func void DIA_Fingers_Lehrer_Lockpick2()
 {
 	AI_Output (other, self,"DIA_Fingers_Lehrer_Lockpick2_15_00"); //How can I become an expert at cracking locks?
-	
+
 	if (B_GiveSkill(other, NPC_TALENT_PICKLOCK, 2, LPCOST_TALENT_PICKLOCK_2))
 	{
 		AI_Output (self, other,"DIA_Fingers_Lehrer_Lockpick2_05_01"); //Only when you've gained some experience can you tell when a lockpick is going to break. It makes a different sound!
@@ -181,9 +181,9 @@ func void DIA_Fingers_Lehrer_Pickpocket()
 func void DIA_Fingers_Lehrer_Pickpocket2()
 {
 	AI_Output (other, self,"DIA_Fingers_Lehrer_Pickpocket2_15_00"); //I want to become an expert pickpocket!
-	
+
 	if (B_GiveSkill(other, NPC_TALENT_PICKPOCKET, 2, LPCOST_TALENT_PICKPOCKET_2))
-	{		
+	{
 		AI_Output (self, other,"DIA_Fingers_Lehrer_Pickpocket2_05_01"); //I think you've progressed far enough to be taught the final tricks of the trade.
 		AI_Output (self, other,"DIA_Fingers_Lehrer_Pickpocket2_05_02"); //But you should know that even the best can get caught sometimes.
 		AI_Output (self, other,"DIA_Fingers_Lehrer_Pickpocket2_05_03"); //Take care.
@@ -206,11 +206,11 @@ INSTANCE DIA_Fingers_WhereCavalorn (C_INFO)
 	condition		= DIA_Fingers_WhereCavalorn_Condition;
 	information		= DIA_Fingers_WhereCavalorn_Info;
 	permanent		= 1;
-	description		= "Where can I find Cavalorn?"; 
+	description		= "Where can I find Cavalorn?";
 };
 
 FUNC INT DIA_Fingers_WhereCavalorn_Condition()
-{	
+{
 	if (Fingers_Wherecavalorn == TRUE)
 	{
 		return 1;
@@ -222,7 +222,7 @@ FUNC VOID DIA_Fingers_WhereCavalorn_Info()
 	AI_Output (other, self,"DIA_Fingers_WhereCavalorn_15_00"); //Where can I find Cavalorn?
 	AI_Output (self, other,"DIA_Fingers_WhereCavalorn_05_01"); //He's hunting out in the wild. You'll find him at the path to the New Camp. Westwards of the Old Camp there's a wide canyon.
 	AI_Output (self, other,"DIA_Fingers_WhereCavalorn_05_02"); //In this canyon there's an old woodcutters' hut. You'll find him there.
-	
+
 	B_LogEntry( GE_TeacherOW,"Cavalorn can teach me to sneak. His hut is in a canyon to the west of the Old Camp, in the direction of the New Camp.");
 };
 
@@ -239,11 +239,11 @@ INSTANCE DIA_Fingers_Learnt (C_INFO)
 	condition		= DIA_Fingers_Learnt_Condition;
 	information		= DIA_Fingers_Learnt_Info;
 	permanent		= 1;
-	description		= "You wouldn't speak up for me in front of Diego, would you?"; 
+	description		= "You wouldn't speak up for me in front of Diego, would you?";
 };
 
 FUNC INT DIA_Fingers_Learnt_Condition()
-{	
+{
 	if ( (Fingers_Learnt != LOG_SUCCESS) )
 	&& (Npc_GetTrueGuild (hero) == GIL_NONE)
 	{
@@ -260,7 +260,7 @@ FUNC VOID DIA_Fingers_Learnt_Info()
 		AI_Output (self, other,"DIA_Fingers_Learnt_05_01"); //Yes. You've learned something which makes you quite useful to us.
 		AI_Output (self, other,"DIA_Fingers_Learnt_05_02"); //We can make use of skilled thieves in this camp here. You'll have my vote.
 		Fingers_Learnt = LOG_SUCCESS;
-		
+
 		B_GiveXP (XP_Fingerstrain);
 		B_LogEntry( CH1_JoinOC,"Fingers is really satisfied with my progress.");
 	}
@@ -271,7 +271,7 @@ FUNC VOID DIA_Fingers_Learnt_Info()
 		AI_Output (other, self,"DIA_Fingers_Learnt_15_05"); //How am I supposed to do that?
 		AI_Output (self, other,"DIA_Fingers_Learnt_05_06"); //Learn a thief's skill! You need to become more skilled in sneaking around, pickpocketing or opening locks. Then you'll have my vote.
 		Fingers_Learnt = LOG_RUNNING;
-		
+
 		B_LogEntry( CH1_JoinOC,"Fingers will speak in my favor of me when I learn one of the thieving skills.");
 	};
 };

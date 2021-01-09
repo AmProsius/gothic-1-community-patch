@@ -2,13 +2,13 @@ instance ORG_810_Organisator (Npc_Default)
 // hat den mittleren Organistor-Dress und Bogen3, weil er Attentäter ist
 {
 	//-------- primary data --------
-	
+
 	name =					Name_Organisator;
 	Npctype =				Npctype_Ambient;
-	guild =					GIL_ORG;      
+	guild =					GIL_ORG;
 	level =					15;
 
-	
+
 	voice =					13;
 	id =					810;
 
@@ -26,14 +26,14 @@ instance ORG_810_Organisator (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Relaxed.mds");
-	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
+	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin
 	Mdl_SetVisualBody (self,"hum_body_Naked0",0, 3,"Hum_Head_FatBald", 5, 1,ORG_ARMOR_M);
-	
-	B_Scale (self);	
-	Mdl_SetModelFatness (self, 0);		
-	
+
+	B_Scale (self);
+	Mdl_SetModelFatness (self, 0);
+
 	fight_tactic	=	FAI_HUMAN_STRONG;
-	
+
 	//-------- Talente ----------
 
 	Npc_SetTalentSkill (self, NPC_TALENT_BOW,2);
@@ -42,7 +42,7 @@ instance ORG_810_Organisator (Npc_Default)
 
 	//------- Inventory ---------
 
-	CreateInvItems (self, ItKeLockpick,1);		
+	CreateInvItems (self, ItKeLockpick,1);
 	CreateInvItems(self, ItMiNugget, 15);
 	CreateInvItems (self, ItFoRice,8);
 	CreateInvItems (self, ItFoBooze, 5);

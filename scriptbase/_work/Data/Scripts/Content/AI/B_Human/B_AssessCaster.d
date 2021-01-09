@@ -26,12 +26,12 @@ func void B_AssessCaster()
 	};
 
 	//-------- Freunde ignorieren das Zaubern ! --------
-	if (C_NpcTypeIsFriend(self, other) || (Npc_GetAttitude(self, other)==ATT_FRIENDLY) ) 
+	if (C_NpcTypeIsFriend(self, other) || (Npc_GetAttitude(self, other)==ATT_FRIENDLY) )
 	{
-		PrintDebugNpc	(PD_ZS_CHECK, "...NSC ist NPCTYPE_FRIEND oder ATT_FRIENDLY!" );				
+		PrintDebugNpc	(PD_ZS_CHECK, "...NSC ist NPCTYPE_FRIEND oder ATT_FRIENDLY!" );
 		return;
 	};
-	
+
 	//-------- Zauberkategorie untersuchen ! --------
 	if	(Npc_GetActiveSpellCat(other) == SPELL_BAD  )
 	{
@@ -44,7 +44,7 @@ func void B_AssessCaster()
 	else if (Npc_GetAttitude(self, other) == ATT_HOSTILE)
 	{
 		PrintDebugNpc	(PD_ZS_CHECK,	"...böser Zauberer!");
-		
+
 		B_FullStop		(self);
 		AI_StartState	(self,	ZS_AssessEnemy, 0, "");			//WICHTIG: kein B_AssessEnemy !!!
 	}
@@ -52,7 +52,7 @@ func void B_AssessCaster()
 	&&		((Npc_GetActiveSpell(other) == SPL_SLEEP) || (Npc_GetActiveSpell(other) == SPL_CHARM))
 	{
 		PrintDebugNpc	(PD_ZS_CHECK,	"...Schlaf-/Charmezauber von Durchgangswache gesehen!");
-		
+
 		B_FullStop		(self);
 		AI_StartState	(self,	ZS_AssessEnemy, 0, "");			//WICHTIG: kein B_AssessEnemy !!!
 	}

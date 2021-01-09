@@ -6,7 +6,7 @@ INSTANCE Info_Orc_17_EXIT(C_INFO)
 	information	= Info_Orc_17_EXIT_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC INT Info_Orc_17_EXIT_Condition()
 {
@@ -14,7 +14,7 @@ FUNC INT Info_Orc_17_EXIT_Condition()
 };
 
 FUNC VOID Info_Orc_17_EXIT_Info()
-{	
+{
 	AI_StopProcessInfos	(self);
 };
 

@@ -1,13 +1,13 @@
 instance ORG_804_Organisator (Npc_Default)
 {
 	//-------- primary data --------
-	
+
 	name =					Name_Organisator;
 	Npctype =				NPCTYPE_MAIN;
-	guild =					GIL_ORG;      
+	guild =					GIL_ORG;
 	level =					15;
 
-	
+
 	voice =					6;
 	id =					804;
 
@@ -25,12 +25,12 @@ instance ORG_804_Organisator (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Relaxed.mds");
-	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
+	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin
 	Mdl_SetVisualBody (self,"hum_body_Naked0",0, 0,"Hum_Head_FatBald", 10, 1,ORG_ARMOR_H);
-	
-	B_Scale (self);	
-	Mdl_SetModelFatness (self, 0);		
-	
+
+	B_Scale (self);
+	Mdl_SetModelFatness (self, 0);
+
 	fight_tactic	=	FAI_HUMAN_STRONG;
 
 	//-------- Talente ----------
@@ -41,7 +41,7 @@ instance ORG_804_Organisator (Npc_Default)
 
 	//------- Inventory ---------
 
-	CreateInvItems (self, ItKeLockpick,1);		
+	CreateInvItems (self, ItKeLockpick,1);
 	CreateInvItems(self, ItMiNugget, 12);
 	CreateInvItems (self, ItFoRice,8);
 	CreateInvItems (self, ItFoBooze, 2);
@@ -56,9 +56,9 @@ instance ORG_804_Organisator (Npc_Default)
 	EquipItem (self, ItRw_Bow_Long_01);
 	CreateInvItems (self, ItAmArrow, 20);
 
-	
+
 	//-------------Daily Routine-------------
-	
+
 	daily_routine = Rtn_start_804;
 };
 

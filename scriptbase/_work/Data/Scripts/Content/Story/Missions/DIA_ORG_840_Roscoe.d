@@ -10,7 +10,7 @@ INSTANCE DIA_Roscoe_Exit (C_INFO)
 	information	= DIA_Roscoe_Exit_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC INT DIA_Roscoe_Exit_Condition()
 {
@@ -37,7 +37,7 @@ instance DIA_Roscoe_BringList (C_INFO)
 };
 
 FUNC int  DIA_Roscoe_BringList_Condition()
-{	
+{
 	if (Npc_HasItems(other,TheList)>=1)
 	{
 		return 1;
@@ -72,7 +72,7 @@ instance DIA_Roscoe_Mordrag (C_INFO)
 };
 
 FUNC int  DIA_Roscoe_Mordrag_Condition()
-{	
+{
 	//if (Npc_KnowsInfo (hero, Org_826_Mordrag_AtNewcamp))
 	if	(Npc_HasItems(hero, MordragsRing))
 	{
@@ -108,7 +108,7 @@ instance DIA_Roscoe_WannaJoin (C_INFO)
 };
 
 FUNC int  DIA_Roscoe_WannaJoin_Condition()
-{	
+{
 	if	!Npc_KnowsInfo(hero,DIA_Roscoe_Mordrag)
 	&&	!Npc_KnowsInfo(hero,DIA_Roscoe_BringList)
 	&&	(Npc_GetTrueGuild(hero) == GIL_NONE)
@@ -122,7 +122,7 @@ func void  DIA_Roscoe_WannaJoin_Info()
 {
 	AI_Output (other, self,"DIA_Roscoe_WannaJoin_15_00"); //I want to join your gang.
 	AI_Output (self, other,"DIA_Roscoe_WannaJoin_10_01"); //Many people want to join us. You'll have to make a better offer if you want to pass through this gate.
-	
+
 };
 
 // ****************************************
@@ -140,8 +140,8 @@ instance DIA_Roscoe_ComeAgain (C_INFO)
 };
 
 FUNC int  DIA_Roscoe_ComeAgain_Condition()
-{	
-	
+{
+
 	if 	(
 		( (Npc_HasItems(other,TheList)>=1) && Npc_KnowsInfo(hero,ORG_801_Lares_MordragSentMe) )
 	|| 	( Npc_KnowsInfo(hero,Org_826_Mordrag_AtNewcamp) && Npc_KnowsInfo(hero,ORG_801_Lares_BringList) )
@@ -174,13 +174,13 @@ instance Info_Roscoe_FirstWarn (C_INFO)
 	information	= Info_Roscoe_FirstWarn_Info;
 	permanent	= 1;
 	important	= 1;
-};                       
+};
 
 func int Info_Roscoe_FirstWarn_Condition()
 {
 	if ((hero.aivar[AIV_GUARDPASSAGE_STATUS]== AIV_GPS_BEGIN)
-	&&  (self.aivar[AIV_PASSGATE]			== FALSE		) 
-	&&	(Npc_GetAttitude(self,hero)			!= ATT_FRIENDLY	) 
+	&&  (self.aivar[AIV_PASSGATE]			== FALSE		)
+	&&	(Npc_GetAttitude(self,hero)			!= ATT_FRIENDLY	)
 	&&	(Hlp_StrCmp(Npc_GetNearestWP(self), self.wp)		))
 	{
 		return TRUE;
@@ -196,7 +196,7 @@ func void Info_Roscoe_FirstWarn_Info()
 	AI_Output (self, hero,"Info_Roscoe_FirstWarn_Info_10_02"); //Lares is here - but you need a good reason to disturb him.
 
 	hero.aivar[AIV_LASTDISTTOWP] 		= Npc_GetDistToWP(hero,Roscoe_CHECKPOINT);
-	hero.aivar[AIV_GUARDPASSAGE_STATUS]	= AIV_GPS_FIRSTWARN;	
+	hero.aivar[AIV_GUARDPASSAGE_STATUS]	= AIV_GPS_FIRSTWARN;
 };
 
 //------------------------------------------------------------------------
@@ -210,15 +210,15 @@ instance Info_Roscoe_LastWarn (C_INFO)
 	information	= Info_Roscoe_LastWarn_Info;
 	permanent	= 1;
 	important	= 1;
-};                       
+};
 
 func int Info_Roscoe_LastWarn_Condition()
 {
 	if ((hero.aivar[AIV_GUARDPASSAGE_STATUS]		== AIV_GPS_FIRSTWARN				)
-	&&	(Npc_GetAttitude(self,hero)					!= ATT_FRIENDLY	) 
+	&&	(Npc_GetAttitude(self,hero)					!= ATT_FRIENDLY	)
 	&&  (self.aivar[AIV_PASSGATE]			== FALSE		)
 	&&  (Npc_GetDistToWP(hero,Roscoe_CHECKPOINT)	< (hero.aivar[AIV_LASTDISTTOWP]-100))
-	&&	(Hlp_StrCmp(Npc_GetNearestWP(self),self.wp)										)) 
+	&&	(Hlp_StrCmp(Npc_GetNearestWP(self),self.wp)										))
 	{
 		return TRUE;
 	};
@@ -229,8 +229,8 @@ func int Info_Roscoe_LastWarn_Info()
 	AI_Output (self, hero,"Info_Roscoe_LastWarn_10_00"); //Are you deaf?
 
 	hero.aivar[AIV_LASTDISTTOWP] 		= Npc_GetDistToWP (hero,Roscoe_CHECKPOINT);
-	hero.aivar[AIV_GUARDPASSAGE_STATUS]	= AIV_GPS_LASTWARN;	
-	
+	hero.aivar[AIV_GUARDPASSAGE_STATUS]	= AIV_GPS_LASTWARN;
+
 	AI_StopProcessInfos	(self);
 };
 
@@ -245,15 +245,15 @@ instance Info_Roscoe_Attack (C_INFO)
 	information	= Info_Roscoe_Attack_Info;
 	permanent	= 1;
 	important	= 1;
-};                       
+};
 
 func int Info_Roscoe_Attack_Condition()
 {
 	if ((hero.aivar[AIV_GUARDPASSAGE_STATUS]		== AIV_GPS_LASTWARN					)
-	&&	(Npc_GetAttitude(self,hero)					!= ATT_FRIENDLY	) 
+	&&	(Npc_GetAttitude(self,hero)					!= ATT_FRIENDLY	)
 	&&  (self.aivar[AIV_PASSGATE] == FALSE)
 	&&  (Npc_GetDistToWP(hero,Roscoe_CHECKPOINT)	< (hero.aivar[AIV_LASTDISTTOWP]-100))
-	&&	(Hlp_StrCmp(Npc_GetNearestWP(self),self.wp)										)) 
+	&&	(Hlp_StrCmp(Npc_GetNearestWP(self),self.wp)										))
 	{
 		return 			TRUE;
 	};
@@ -261,11 +261,11 @@ func int Info_Roscoe_Attack_Condition()
 
 func int Info_Roscoe_Attack_Info()
 {
-	
+
 	hero.aivar[AIV_LASTDISTTOWP] 		= 0;
-	hero.aivar[AIV_GUARDPASSAGE_STATUS]	= AIV_GPS_PUNISH;	
-	
-	B_FullStop			(self);	
+	hero.aivar[AIV_GUARDPASSAGE_STATUS]	= AIV_GPS_PUNISH;
+
+	B_FullStop			(self);
 	AI_StopProcessInfos	(self);					// dem Spieler sofort wieder die Kontrolle zurückgeben
 	B_IntruderAlert		(self,	other);
 	B_SetAttackReason	(self,	AIV_AR_INTRUDER);

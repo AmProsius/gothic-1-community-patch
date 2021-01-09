@@ -7,7 +7,7 @@
 /*******************************************************************************************/
 func void B_AssessMagic_Firebolt()
 {
-	PrintDebugNpc( PD_MAGIC, "B_AssessMagic_Firebolt" );	
+	PrintDebugNpc( PD_MAGIC, "B_AssessMagic_Firebolt" );
 
 	//	Damit andere NSCs den Angriff wahrnehmen können
 	Npc_SendPassivePerc(self, PERC_ASSESSFIGHTSOUND, self, other);
@@ -16,7 +16,7 @@ func void B_AssessMagic_Firebolt()
 /*******************************************************************************************/
 func void B_AssessMagic_FireBall()
 {
-	PrintDebugNpc( PD_MAGIC, "B_AssessMagic_FireBall" );	
+	PrintDebugNpc( PD_MAGIC, "B_AssessMagic_FireBall" );
 
 	//	Damit andere NSCs den Angriff wahrnehmen können
 	Npc_SendPassivePerc(self, PERC_ASSESSFIGHTSOUND, self, other);
@@ -25,7 +25,7 @@ func void B_AssessMagic_FireBall()
 /*******************************************************************************************/
 func void B_AssessMagic_Firestorm()
 {
-	PrintDebugNpc( PD_MAGIC, "B_AssessMagic_Firestorm" );	
+	PrintDebugNpc( PD_MAGIC, "B_AssessMagic_Firestorm" );
 
 	//	Damit andere NSCs den Angriff wahrnehmen können
 	Npc_SendPassivePerc(self, PERC_ASSESSFIGHTSOUND, self, other);
@@ -34,7 +34,7 @@ func void B_AssessMagic_Firestorm()
 /*******************************************************************************************/
 func void B_AssessMagic_Firerain()
 {
-	PrintDebugNpc( PD_MAGIC, "B_AssessMagic_Firerain" );	
+	PrintDebugNpc( PD_MAGIC, "B_AssessMagic_Firerain" );
 
 	//	Damit andere NSCs den Angriff wahrnehmen können
 	Npc_SendPassivePerc(self, PERC_ASSESSFIGHTSOUND, self, other);
@@ -44,7 +44,7 @@ func void B_AssessMagic_Firerain()
 /*******************************************************************************************/
 func void B_AssessMagic_ChainLightning()
 {
-	PrintDebugNpc( PD_MAGIC, "B_AssessMagic ...ChainLightning" );	
+	PrintDebugNpc( PD_MAGIC, "B_AssessMagic ...ChainLightning" );
 
 	Npc_PercDisable		(self,	PERC_ASSESSCASTER);
 
@@ -63,7 +63,7 @@ func void B_AssessMagic_ChainLightning()
 /*******************************************************************************************/
 func void B_AssessMagic_Thunderbolt()
 {
-	PrintDebugNpc( PD_MAGIC, "B_AssessMagic_Thunderbolt" );	
+	PrintDebugNpc( PD_MAGIC, "B_AssessMagic_Thunderbolt" );
 
 	//	Damit andere NSCs den Angriff wahrnehmen können
 	Npc_SendPassivePerc(self, PERC_ASSESSFIGHTSOUND, self, other);
@@ -72,11 +72,11 @@ func void B_AssessMagic_Thunderbolt()
 /*******************************************************************************************/
 func void B_AssessMagic_ThunderBall()
 {
-	PrintDebugNpc( PD_MAGIC, "B_AssessMagic ...Thunderball" );	
+	PrintDebugNpc( PD_MAGIC, "B_AssessMagic ...Thunderball" );
 
 	//	Damit andere NSCs den Angriff wahrnehmen können
 	Npc_SendPassivePerc(self, PERC_ASSESSFIGHTSOUND, self, other);
-	
+
 	Npc_ClearAIQueue(self);
 	if ( !Npc_IsDead(self) )
 	{
@@ -87,7 +87,7 @@ func void B_AssessMagic_ThunderBall()
 /*******************************************************************************************/
 func void B_AssessMagic_IceCube()
 {
-	PrintDebugNpc( PD_MAGIC, "B_AssessMagic ...IceCube oder IceWave" );	
+	PrintDebugNpc( PD_MAGIC, "B_AssessMagic ...IceCube oder IceWave" );
 
 	//	Damit andere NSCs den Angriff wahrnehmen können
 	Npc_SendPassivePerc(self, PERC_ASSESSFIGHTSOUND, self, other);
@@ -110,7 +110,7 @@ func void B_AssessMagic_IceCube()
 /*******************************************************************************************/
 func void B_AssessMagic_Fear()
 {
-	PrintDebugNpc( PD_MAGIC, "B_AssessMagic_Fear" );	
+	PrintDebugNpc( PD_MAGIC, "B_AssessMagic_Fear" );
 
 	//	Damit andere NSCs den Angriff wahrnehmen können
 	Npc_SendPassivePerc(self, PERC_ASSESSFIGHTSOUND, self, other);
@@ -124,11 +124,11 @@ func void B_AssessMagic_Fear()
 			(self.guild == GIL_SKELETON)	||
 			(self.guild == GIL_ZOMBIE)			)
 	{
-		PrintDebugNpc	(PD_MAGIC, "...Ziel immun!" );	
+		PrintDebugNpc	(PD_MAGIC, "...Ziel immun!" );
 	}
 	else
 	{
-		PrintDebugNpc	(PD_MAGIC, "...Ziel NICHT immun!" );	
+		PrintDebugNpc	(PD_MAGIC, "...Ziel NICHT immun!" );
 		Npc_ClearAIQueue(self);
 		Npc_SetTarget	(self,	other);
 		if (C_NpcIsHuman(self))
@@ -145,7 +145,7 @@ func void B_AssessMagic_Fear()
 /*******************************************************************************************/
 func void B_Assessmagic_Massdeath()
 {
-	PrintDebugNpc( PD_MAGIC, "B_Assessmagic_Massdeath" );	
+	PrintDebugNpc( PD_MAGIC, "B_Assessmagic_Massdeath" );
 
 	//	Damit andere NSCs den Angriff wahrnehmen können
 	Npc_SendPassivePerc(self, PERC_ASSESSFIGHTSOUND, self, other);
@@ -154,7 +154,7 @@ func void B_Assessmagic_Massdeath()
 /*******************************************************************************************/
 func void B_AssessMagic_Destroyundead()
 {
-	PrintDebugNpc( PD_MAGIC, "B_AssessMagic_Destroyundead" );	
+	PrintDebugNpc( PD_MAGIC, "B_AssessMagic_Destroyundead" );
 
 	//	Damit andere NSCs den Angriff wahrnehmen können
 	Npc_SendPassivePerc(self, PERC_ASSESSFIGHTSOUND, self, other);
@@ -163,7 +163,7 @@ func void B_AssessMagic_Destroyundead()
 /*******************************************************************************************/
 func void B_AssessMagic_Windfist()
 {
-	PrintDebugNpc( PD_MAGIC, "B_AssessMagic_Windfist" );	
+	PrintDebugNpc( PD_MAGIC, "B_AssessMagic_Windfist" );
 
 	//	Damit andere NSCs den Angriff wahrnehmen können
 	Npc_SendPassivePerc(self, PERC_ASSESSFIGHTSOUND, self, other);
@@ -172,7 +172,7 @@ func void B_AssessMagic_Windfist()
 /*******************************************************************************************/
 func void B_AssessMagic_Stormfist()
 {
-	PrintDebugNpc( PD_MAGIC, "B_AssessMagic_Stormfist" );	
+	PrintDebugNpc( PD_MAGIC, "B_AssessMagic_Stormfist" );
 
 	//	Damit andere NSCs den Angriff wahrnehmen können
 	Npc_SendPassivePerc(self, PERC_ASSESSFIGHTSOUND, self, other);
@@ -185,8 +185,8 @@ func void B_AssessMagic_Charm()
 
 	//	Damit andere NSCs den Angriff wahrnehmen können
 	Npc_SendPassivePerc(self, PERC_ASSESSFIGHTSOUND, self, other);
-	
-	Npc_ClearAIQueue		(self);		// alle AI Befehle entfernen	
+
+	Npc_ClearAIQueue		(self);		// alle AI Befehle entfernen
 
 	if (!Npc_IsInState(self, ZS_Unconscious))
 	{
@@ -210,7 +210,7 @@ func void B_AssessMagic_Charm()
 /*******************************************************************************************/
 func void B_AssessMagic_Pyrokinesis()
 {
-	PrintDebugNpc		(PD_MAGIC, "...Pyrokinesis");	
+	PrintDebugNpc		(PD_MAGIC, "...Pyrokinesis");
 	Npc_ClearAIQueue	(self);
 	Npc_PercDisable		(self,	PERC_ASSESSCASTER);
 
@@ -218,7 +218,7 @@ func void B_AssessMagic_Pyrokinesis()
 	Npc_SendPassivePerc	(self,	PERC_ASSESSFIGHTSOUND, self, other);
 	if ( !Npc_IsDead(self) && !Npc_IsInState(self,ZS_Unconscious))
 	{
-		PrintDebugNpc	(PD_MAGIC,	"...weder bewußtlos noch tot!" );	
+		PrintDebugNpc	(PD_MAGIC,	"...weder bewußtlos noch tot!" );
 		AI_StartState	(self,	ZS_Pyro, 0, "");
 	};
 };
@@ -226,7 +226,7 @@ func void B_AssessMagic_Pyrokinesis()
 /*******************************************************************************************/
 func void B_AssessMagic_Berzerk()
 {
-	PrintDebugNpc		(PD_MAGIC, "...Berzerk" );	
+	PrintDebugNpc		(PD_MAGIC, "...Berzerk" );
 
 	//	Damit andere NSCs den Angriff wahrnehmen können
 	Npc_SendPassivePerc	(self, PERC_ASSESSFIGHTSOUND, self, other);
@@ -243,7 +243,7 @@ func void B_AssessMagic_Berzerk()
 /*******************************************************************************************/
 func void B_AssessMagic_Breathofdeath()
 {
-	PrintDebugNpc( PD_MAGIC, "B_AssessMagic_Breathofdeath" );	
+	PrintDebugNpc( PD_MAGIC, "B_AssessMagic_Breathofdeath" );
 
 	//	Damit andere NSCs den Angriff wahrnehmen können
 	Npc_SendPassivePerc(self, PERC_ASSESSFIGHTSOUND, self, other);
@@ -252,7 +252,7 @@ func void B_AssessMagic_Breathofdeath()
 /*******************************************************************************************/
 func void B_AssessMagic_New1()
 {
-	PrintDebugNpc( PD_MAGIC, "B_AssessMagic_New1" );	
+	PrintDebugNpc( PD_MAGIC, "B_AssessMagic_New1" );
 
 	//	Damit andere NSCs den Angriff wahrnehmen können
 	Npc_SendPassivePerc(self, PERC_ASSESSFIGHTSOUND, self, other);
@@ -261,7 +261,7 @@ func void B_AssessMagic_New1()
 /*******************************************************************************************/
 func void B_AssessMagic_Shrink()
 {
-	PrintDebugNpc( PD_MAGIC, "...Shrink" );	
+	PrintDebugNpc( PD_MAGIC, "...Shrink" );
 
 	//	Damit andere NSCs den Angriff wahrnehmen können
 	Npc_SendPassivePerc	(self, PERC_ASSESSFIGHTSOUND, self, other);
@@ -273,7 +273,7 @@ func void B_AssessMagic_Shrink()
 /*******************************************************************************************/
 func void B_AssessMagic_Control()
 {
-	PrintDebugNpc( PD_MAGIC, "...Control" );	
+	PrintDebugNpc( PD_MAGIC, "...Control" );
 
 	//	Damit andere NSCs den Angriff wahrnehmen können
 	Npc_SendPassivePerc	(self, PERC_ASSESSFIGHTSOUND, self, other);
@@ -289,51 +289,51 @@ func void B_AssessMagic ()
 	PrintGlobals		(PD_MAGIC);
 
 	PrintDebugNpc		( PD_MAGIC, "B_AssessMagic" );
-	
+
 	if 		( Npc_GetActiveSpell 	(other) == SPL_FIREBOLT			)		{	B_AssessMagic_Firebolt		();	}
-	else if ( Npc_GetActiveSpell 	(other) == SPL_FIREBALL			)		{	B_AssessMagic_Fireball		();	} 
-	else if ( Npc_GetActiveSpell 	(other) == SPL_FIRESTORM		)		{	B_AssessMagic_Firestorm		();	} 
-	else if ( Npc_GetActiveSpell 	(other) == SPL_FIRERAIN			)		{	B_AssessMagic_Firerain		();	} 
+	else if ( Npc_GetActiveSpell 	(other) == SPL_FIREBALL			)		{	B_AssessMagic_Fireball		();	}
+	else if ( Npc_GetActiveSpell 	(other) == SPL_FIRESTORM		)		{	B_AssessMagic_Firestorm		();	}
+	else if ( Npc_GetActiveSpell 	(other) == SPL_FIRERAIN			)		{	B_AssessMagic_Firerain		();	}
 
-	else if ( Npc_GetActiveSpell 	(other) == SPL_CHAINLIGHTNING	)		{	B_AssessMagic_Chainlightning();	} 
-	else if ( Npc_GetActiveSpell 	(other) == SPL_THUNDERBOLT		)		{	B_AssessMagic_Thunderbolt	();	} 
-	else if ( Npc_GetActiveSpell 	(other) == SPL_THUNDERBALL		)		{	B_AssessMagic_Thunderball	();	} 
-	else if ( Npc_GetActiveSpell 	(other) == SPL_ICECUBE			)		{	B_AssessMagic_Icecube		();	} 
-	else if ( Npc_GetActiveSpell 	(other) == SPL_ICEWAVE			)		{	B_AssessMagic_Icecube		();	} 
+	else if ( Npc_GetActiveSpell 	(other) == SPL_CHAINLIGHTNING	)		{	B_AssessMagic_Chainlightning();	}
+	else if ( Npc_GetActiveSpell 	(other) == SPL_THUNDERBOLT		)		{	B_AssessMagic_Thunderbolt	();	}
+	else if ( Npc_GetActiveSpell 	(other) == SPL_THUNDERBALL		)		{	B_AssessMagic_Thunderball	();	}
+	else if ( Npc_GetActiveSpell 	(other) == SPL_ICECUBE			)		{	B_AssessMagic_Icecube		();	}
+	else if ( Npc_GetActiveSpell 	(other) == SPL_ICEWAVE			)		{	B_AssessMagic_Icecube		();	}
 
-	else if ( Npc_GetActiveSpell 	(other) == SPL_MASSDEATH		)		{	B_Assessmagic_Massdeath		();	} 
-	else if ( Npc_GetActiveSpell 	(other) == SPL_DESTROYUNDEAD	)		{	B_AssessMagic_Destroyundead	();	} 
+	else if ( Npc_GetActiveSpell 	(other) == SPL_MASSDEATH		)		{	B_Assessmagic_Massdeath		();	}
+	else if ( Npc_GetActiveSpell 	(other) == SPL_DESTROYUNDEAD	)		{	B_AssessMagic_Destroyundead	();	}
 
-	else if ( Npc_GetActiveSpell 	(other) == SPL_WINDFIST			)		{	B_AssessMagic_Windfist		();	} 
-	else if ( Npc_GetActiveSpell 	(other) == SPL_STORMFIST		)		{	B_AssessMagic_Stormfist		();	} 
+	else if ( Npc_GetActiveSpell 	(other) == SPL_WINDFIST			)		{	B_AssessMagic_Windfist		();	}
+	else if ( Npc_GetActiveSpell 	(other) == SPL_STORMFIST		)		{	B_AssessMagic_Stormfist		();	}
 	else if ( Npc_GetActiveSpell 	(other) == SPL_CHARM 			) 		{	B_AssessMagic_Charm			();	}
-	else if ( Npc_GetActiveSpell 	(other) == SPL_FEAR				)		{	B_AssessMagic_Fear			();	} 
+	else if ( Npc_GetActiveSpell 	(other) == SPL_FEAR				)		{	B_AssessMagic_Fear			();	}
 	else if ( Npc_GetActiveSpell 	(other) == SPL_PYROKINESIS  	) 		{	B_AssessMagic_Pyrokinesis	();	}
 	else if ( Npc_GetActiveSpell 	(other) == SPL_BERZERK 			) 		{	B_AssessMagic_Berzerk		();	}
-	else if ( Npc_GetActiveSpell 	(other) == SPL_BREATHOFDEATH	)		{	B_AssessMagic_Breathofdeath	();	} 
-	else if ( Npc_GetActiveSpell 	(other) == SPL_NEW1				)		{	B_AssessMagic_New1			();	} 
-	else if ( Npc_GetActiveSpell 	(other) == SPL_CONTROL			)		{	B_AssessMagic_Control		();	} 
+	else if ( Npc_GetActiveSpell 	(other) == SPL_BREATHOFDEATH	)		{	B_AssessMagic_Breathofdeath	();	}
+	else if ( Npc_GetActiveSpell 	(other) == SPL_NEW1				)		{	B_AssessMagic_New1			();	}
+	else if ( Npc_GetActiveSpell 	(other) == SPL_CONTROL			)		{	B_AssessMagic_Control		();	}
 	else if ( Npc_GetActiveSpell 	(other) == SPL_SHRINK 			) 		{	B_AssessMagic_Shrink		();	};
 
 
 // Folgende Sprüche brauchen keinen B_AssessMagic weil sie nicht auf einen NSC wirken:
 
 //	 ( Npc_GetActiveSpell 	(other) == SPL_LIGHT		)			{	B_AssessMagic_Light();			}
-//	 ( Npc_GetActiveSpell 	(other) == SPL_TELEPORT1	)			{	B_AssessMagic_TELEPORT1();		} 
-//	 ( Npc_GetActiveSpell 	(other) == SPL_TELEPORT2	)			{	B_AssessMagic_TELEPORT2();		} 
-//	 ( Npc_GetActiveSpell 	(other) == SPL_TELEPORT3	)			{	B_AssessMagic_TELEPORT3();		} 
-//	 ( Npc_GetActiveSpell 	(other) == SPL_TELEPORT4	)			{	B_AssessMagic_TELEPORT4();		} 
-//	 ( Npc_GetActiveSpell 	(other) == SPL_TELEPORT5	)			{	B_AssessMagic_TELEPORT5();		} 
-//	 ( Npc_GetActiveSpell 	(other) == SPL_HEAL 		)			{	B_AssessMagic_Heal();			} 
-//	 ( Npc_GetActiveSpell 	(other) == SPL_TRANSFORM	) 			{	B_AssessMagic_Transform();		} 
-//	 ( Npc_GetActiveSpell 	(other) == SPL_SUMMONDEMON  ) 			{	B_AssessMagic_SummonDemon();	} 
-//	 ( Npc_GetActiveSpell 	(other) == SPL_SUMMONSKELETON) 			{	B_AssessMagic_SummonSkeleton();	} 
-//	 ( Npc_GetActiveSpell 	(other) == SPL_SUMMONGOLEM  ) 			{	B_AssessMagic_SummonGolem();	} 
+//	 ( Npc_GetActiveSpell 	(other) == SPL_TELEPORT1	)			{	B_AssessMagic_TELEPORT1();		}
+//	 ( Npc_GetActiveSpell 	(other) == SPL_TELEPORT2	)			{	B_AssessMagic_TELEPORT2();		}
+//	 ( Npc_GetActiveSpell 	(other) == SPL_TELEPORT3	)			{	B_AssessMagic_TELEPORT3();		}
+//	 ( Npc_GetActiveSpell 	(other) == SPL_TELEPORT4	)			{	B_AssessMagic_TELEPORT4();		}
+//	 ( Npc_GetActiveSpell 	(other) == SPL_TELEPORT5	)			{	B_AssessMagic_TELEPORT5();		}
+//	 ( Npc_GetActiveSpell 	(other) == SPL_HEAL 		)			{	B_AssessMagic_Heal();			}
+//	 ( Npc_GetActiveSpell 	(other) == SPL_TRANSFORM	) 			{	B_AssessMagic_Transform();		}
+//	 ( Npc_GetActiveSpell 	(other) == SPL_SUMMONDEMON  ) 			{	B_AssessMagic_SummonDemon();	}
+//	 ( Npc_GetActiveSpell 	(other) == SPL_SUMMONSKELETON) 			{	B_AssessMagic_SummonSkeleton();	}
+//	 ( Npc_GetActiveSpell 	(other) == SPL_SUMMONGOLEM  ) 			{	B_AssessMagic_SummonGolem();	}
 //	 ( Npc_GetActiveSpell 	(other) == SPL_ARMYOFDARKNESS) 			{	B_AssessMagic_ArmyOfDarkness();	}
-//	 ( Npc_GetActiveSpell 	(other) == SPL_TELEKINESIS  ) 			{	B_AssessMagic_Telekinesis();	} 
+//	 ( Npc_GetActiveSpell 	(other) == SPL_TELEKINESIS  ) 			{	B_AssessMagic_Telekinesis();	}
 
 };
 
 
 // Anmeldung der AssessMagic-Wahrnehmung, wenn der Player NICHT zustandsgesteuert ist
-const func PLAYER_PERC_ASSESSMAGIC = B_AssessMagic; 			
+const func PLAYER_PERC_ASSESSMAGIC = B_AssessMagic;

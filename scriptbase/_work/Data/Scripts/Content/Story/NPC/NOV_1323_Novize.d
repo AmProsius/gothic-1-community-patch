@@ -8,7 +8,7 @@ instance NOV_1323_Novize (Npc_Default)
 
 	voice 		=		3;
 	id 			=		1323;
-		
+
 	//-------- abilities --------
 	attribute[ATR_STRENGTH] 		=	10;
 	attribute[ATR_DEXTERITY] 		=	10;
@@ -26,18 +26,18 @@ instance NOV_1323_Novize (Npc_Default)
 
 	B_Scale (self);
 	Mdl_SetModelFatness(self,-1);
-	
+
 	fight_tactic	=	FAI_HUMAN_COWARD;
 
 	//-------- Talente --------
-	
-		
+
+
 	//-------- inventory --------
 
 	EquipItem (self, ItMw_1H_Hatchet_01);
 	//CreateInvItem (self, ItFoSoup);
-	
-	EquipItem	(self, ItMiLute);       
+
+	EquipItem	(self, ItMiLute);
 	//-------------Daily Routine-------------
 	daily_routine = Rtn_Start_1323;
 };

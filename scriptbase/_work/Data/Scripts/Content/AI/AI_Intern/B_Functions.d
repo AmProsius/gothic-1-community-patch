@@ -11,13 +11,13 @@
 //////////////////////////////////////////////////////////////////////////
 //	B_GotoWPNextToNpc
 //	=================
-//	Überfrüft, ob der SC/NSC eine Waffe bzw. einen aggresiven Zauber 
+//	Überfrüft, ob der SC/NSC eine Waffe bzw. einen aggresiven Zauber
 //	in der Hand hält.
 //////////////////////////////////////////////////////////////////////////
 func void B_GotoWPNextToNpc (var C_NPC slf, var C_NPC oth)
 {
 	PrintDebugNpc 		(PD_ZS_DETAIL, "B_GotoWPNextToNpc" );
-	
+
 	var string	waypoint;
 	waypoint = Npc_GetNextWP(oth);
 	AI_GotoWP	(slf, waypoint);
@@ -31,7 +31,7 @@ func void B_GotoWPNextToNpc (var C_NPC slf, var C_NPC oth)
 func void B_CantSeeTurn ()
 {
 	PrintDebugNpc		(PD_ZS_DETAIL, "B_CantSeeTurn" );
-	
+
 	if ((!C_BodyStateContains(self, BS_SIT)) && !Npc_CanSeeNpc ( self,other))
 	{
 		PrintDebugNpc	(PD_ZS_CHECK, "B_CantSeeTurn If" );
@@ -46,11 +46,11 @@ func void B_CantSeeTurn ()
 //19.09.00 (SN): VORSICHT, ich habe die Abfrage auf AI-Variable herausgenommen, da das a) Probleme bereitete, und b) nach einem Bugfix auch nicht mehr nötig ist! -> getestet und funktioniert!!!
 func int C_LookAtNpc( var C_NPC slf, var C_NPC oth )
 {
-//	if ( ! slf.aivar[ AIV_ISLOOKING ] )								
-//	{		
+//	if ( ! slf.aivar[ AIV_ISLOOKING ] )
+//	{
 		AI_LookAtNpc( slf, oth );
 		PrintDebugNpc(PD_ZS_DETAIL,"C_LookAtNpc");									// ...dann, glotzen lassen...
-//		slf.aivar[AIV_ISLOOKING] = 1;								// ...und merken, daß es glotzt	
+//		slf.aivar[AIV_ISLOOKING] = 1;								// ...und merken, daß es glotzt
 		return 1;
 //	};
 //	return 0;
@@ -61,14 +61,14 @@ func int C_LookAtNpc( var C_NPC slf, var C_NPC oth )
 // ---------------------------------------------------------------- //
 
 
-func int C_StopLookAt( var C_NPC slf )		 
-{	
+func int C_StopLookAt( var C_NPC slf )
+{
 //	if ( slf.aivar[ AIV_ISLOOKING ] )								// schaut das Monster überhaupt?
-//	{																// ...ja!		
+//	{																// ...ja!
 		AI_StopLookAt( slf );
 		PrintDebugNpc(PD_ZS_DETAIL,"C_StopLookAt");										// ...dann aufhören lassen...
-//		slf.aivar[ AIV_ISLOOKING ] = 0;								// ...und merken, daß es aufgehört hat!	
-		return 1;		
+//		slf.aivar[ AIV_ISLOOKING ] = 0;								// ...und merken, daß es aufgehört hat!
+		return 1;
 //	};
 //	return 0;
 };
@@ -82,7 +82,7 @@ func int C_StopLookAt( var C_NPC slf )
 func void B_SmartTurnToNpc (var C_NPC slf, var C_NPC oth)
 {
 	PrintDebugNpc			(PD_ZS_DETAIL, "B_SmartTurnToNpc" );
-	
+
 	if (!  (C_BodyStateContains(slf,	BS_SIT)
 	||		C_BodyStateContains(slf,	BS_ITEMINTERACT)
 	||		C_BodyStateContains(slf,	BS_MOBINTERACT)
@@ -90,7 +90,7 @@ func void B_SmartTurnToNpc (var C_NPC slf, var C_NPC oth)
     {
 		PrintDebugNpc		(PD_ZS_DETAIL, "...sitzt nicht und ist nicht am Mobsi" );
 		if (!Npc_CanSeeNpc	(slf,	oth))
-		{	
+		{
 			PrintDebugNpc	(PD_ZS_DETAIL, "...kann Ziel nicht sehen!" );
 			AI_TurnToNpc 	(slf, 	 oth);
 		}
@@ -106,13 +106,13 @@ func void B_SmartTurnToNpc (var C_NPC slf, var C_NPC oth)
 //	=====
 //	Läßt den Nsc 'slf' einen SVM-Satz 'text' zum Nsc 'oth' sagen. Der
 //	Sprecher sieht den Gesprächspartner dabei an, bzw. dreht sich, falls
-//	er den Hals zu sehr verrenken müsste. 
+//	er den Hals zu sehr verrenken müsste.
 //////////////////////////////////////////////////////////////////////////
 func void B_Say(var C_NPC slf, var C_Npc oth, var string text)
 {
 	var string pipe;
-	
-	pipe = ConcatStrings("B_Say: ", text);	
+
+	pipe = ConcatStrings("B_Say: ", text);
 	PrintDebugNpc		(PD_ZS_FRAME, pipe );
 
 	B_SmartTurnToNpc	(slf, oth);
@@ -129,8 +129,8 @@ func void B_Say(var C_NPC slf, var C_Npc oth, var string text)
 func void B_SayOverlay(var C_NPC slf, var C_Npc oth, var string text)
 {
 	var string pipe;
-	
-	pipe = ConcatStrings("B_SayOverlay: ", text);	
+
+	pipe = ConcatStrings("B_SayOverlay: ", text);
 	PrintDebugNpc		(PD_ZS_FRAME, pipe );
 
 	B_SmartTurnToNpc	(slf, oth);
@@ -180,11 +180,11 @@ func void B_StandUp (var C_NPC slf)
 //////////////////////////////////////////////////////////////////////////
 func void B_CallComrades()
 {
-	PrintDebugNpc		(PD_ZS_DETAIL,	"B_CallComrades");	
+	PrintDebugNpc		(PD_ZS_DETAIL,	"B_CallComrades");
 
 	B_SayOverlay		(self, 	NULL,	"$COMRADESHELP");
 	Npc_SendPassivePerc	(self, 	PERC_ASSESSWARN,	self,	other);
-};	
+};
 
 //////////////////////////////////////////////////////////////////////////
 //	B_CallGuards
@@ -193,11 +193,11 @@ func void B_CallComrades()
 //////////////////////////////////////////////////////////////////////////
 func void B_CallGuards()
 {
-	PrintDebugNpc		(PD_ZS_DETAIL,	"B_CallGuards");	
+	PrintDebugNpc		(PD_ZS_DETAIL,	"B_CallGuards");
 
 	B_SayOverlay		(self, 	NULL,	"$HELP");
 	Npc_SendPassivePerc	(self, 	PERC_ASSESSWARN,	self,	other);
-};	
+};
 
 //////////////////////////////////////////////////////////////////////////
 //	B_IntruderAlert
@@ -207,22 +207,22 @@ func void B_CallGuards()
 //////////////////////////////////////////////////////////////////////////
 func void B_IntruderAlert(var C_NPC slf, var C_NPC oth)
 {
-	PrintDebugNpc		(PD_ZS_DETAIL,	"B_IntruderAlert");	
+	PrintDebugNpc		(PD_ZS_DETAIL,	"B_IntruderAlert");
 
 	B_SayOverlay		(slf, 	NULL,	"$IntruderAlert");
 	Npc_SendPassivePerc	(slf, 	PERC_ASSESSWARN,	slf,	oth);
-};	
+};
 
 //////////////////////////////////////////////////////////////////////////
 //	B_FullStop
 //	==========
 //	Unterbricht jegliche Animation des NSCs. Hier wurde früher AI_Standup()
 //	verwendet. Dieser Befehl ist in einigen Situationen jedoch zu träge
-//	und wurde durch AI_StandUpQuick() ersetzt 
+//	und wurde durch AI_StandUpQuick() ersetzt
 //////////////////////////////////////////////////////////////////////////
 func void	B_FullStop(var C_NPC npc)
 {
-	PrintDebugNpc		(PD_ZS_DETAIL,	"B_FullStop");	
+	PrintDebugNpc		(PD_ZS_DETAIL,	"B_FullStop");
 
 	Npc_ClearAIQueue	(npc);
 	AI_StandUpQuick		(npc);
@@ -233,13 +233,13 @@ func void	B_FullStop(var C_NPC npc)
 //	===================
 //	Setzt den Wert der Temporären Attitüde auf den der Permanenten!
 //	Symbolisiert die Beruhigung des NSCs.
-//	
+//
 //	Voraussetzungen:
 //	- 'slf' muß ein NSC sein
 //////////////////////////////////////////////////////////////////////////
 func void	B_ResetTempAttitude(var C_NPC slf)
 {
-	PrintDebugNpc		(PD_ZS_DETAIL,	"B_ResetTempAttitude");	
+	PrintDebugNpc		(PD_ZS_DETAIL,	"B_ResetTempAttitude");
 
 	Npc_SetTempAttitude(slf, Npc_GetPermAttitude(slf,hero));
 };
@@ -252,16 +252,16 @@ func void	B_ResetTempAttitude(var C_NPC slf)
 //////////////////////////////////////////////////////////////////////////
 func void	B_WhirlAround(var C_NPC slf, var C_NPC oth)
 {
-	PrintDebugNpc		(PD_ZS_DETAIL,	"B_WhirlAround");	
+	PrintDebugNpc		(PD_ZS_DETAIL,	"B_WhirlAround");
 
 	if (Npc_CanSeeNpc(slf,oth))
 	{
-		PrintDebugNpc	(PD_ZS_DETAIL,	"...KANN Ziel sehen!");	
+		PrintDebugNpc	(PD_ZS_DETAIL,	"...KANN Ziel sehen!");
 		AI_TurnToNpc	(slf,	oth);
 	}
 	else
 	{
-		PrintDebugNpc	(PD_ZS_DETAIL,	"...kann Ziel NICHT sehen!");	
+		PrintDebugNpc	(PD_ZS_DETAIL,	"...kann Ziel NICHT sehen!");
 		AI_WhirlAround	(slf,	oth);
 	};
 };
@@ -274,7 +274,7 @@ func void	B_WhirlAround(var C_NPC slf, var C_NPC oth)
 //////////////////////////////////////////////////////////////////////////
 func void B_DropWeapon(var C_NPC slf)
 {
-	PrintDebugNpc		(PD_ZS_DETAIL,	"B_DropWeapon");	
+	PrintDebugNpc		(PD_ZS_DETAIL,	"B_DropWeapon");
 
 	var C_ITEM	itm;
 	var int		itemid;
@@ -303,7 +303,7 @@ func void B_RegainDroppedWeapon(var C_NPC slf)
 		if	!Npc_IsPlayer(slf)
 		&&	Npc_CanSeeItem(slf,item)
 		{
-			PrintDebugNpc(PD_ZS_CHECK, "...NSC hebt seine Waffen wieder auf!" );				
+			PrintDebugNpc(PD_ZS_CHECK, "...NSC hebt seine Waffen wieder auf!" );
 			AI_TakeItem (slf, item);
 			AI_EquipBestMeleeWeapon(slf);
 			AI_EquipBestRangedWeapon(slf);
@@ -325,7 +325,7 @@ func void B_RegainDroppedArmor(var C_NPC slf)
 	{
 		if (!Npc_IsPlayer(slf))
 		{
-			PrintDebugNpc(PD_ZS_CHECK, "...NSC hebt seine Rüstung wieder auf!" );				
+			PrintDebugNpc(PD_ZS_CHECK, "...NSC hebt seine Rüstung wieder auf!" );
 			AI_TakeItem (slf, item);
 			AI_EquipBestArmor(slf);
 		};
@@ -341,7 +341,7 @@ func void B_RegainDroppedArmor(var C_NPC slf)
 func void	B_GotoFP (var C_NPC slf, var string fp)
 {
 	PrintDebugNpc			(PD_TA_LOOP,	"B_GotoFP");
-	
+
 	if !(Npc_IsOnFP(self,fp))
 	{
 		PrintDebugString	(PD_TA_CHECK,	"...nicht auf passendem Freepoint ", fp);
@@ -366,7 +366,7 @@ func void	B_GotoFP (var C_NPC slf, var string fp)
 func void	B_StopGotoHero ()
 {
 	PrintDebugNpc			(PD_ZS_FRAME,	"B_StopGotoHero");
-	
+
 	if (Npc_IsPlayer(other))
 	{
 		PrintDebugNpc		(PD_ZS_DETAIL,	"...Kollision mit Spieler!");
@@ -378,7 +378,7 @@ func void	B_StopGotoHero ()
 //////////////////////////////////////////////////////////////////////////
 //	B_SetAttackReason
 //	=================
-//	Setzt den Grund des Angriffs eines NSCs, damit später darauf 
+//	Setzt den Grund des Angriffs eines NSCs, damit später darauf
 //	abgefragt werden kann.
 //	Konstanten sind in AI_CONSTANTS.D zu finden
 //////////////////////////////////////////////////////////////////////////
@@ -401,11 +401,11 @@ func void B_KillNpc(var int npcInstance)
 
 	var C_NPC	npc;	npc = Hlp_GetNpc(npcInstance);
 	var int		itemInstance;
-	
+
 	npc.flags = 0;
-	
+
 	CreateInvItem		(npc,ItMi_Stuff_OldCoin_02);		// Mission-Item, das verhindert, daß die Toten entfernt werden
-	
+
 	Npc_ChangeAttribute	(npc, ATR_HITPOINTS, -npc.attribute[ATR_HITPOINTS_MAX]);
 
 	if (Npc_GetInvItemBySlot(npc,INV_WEAPON,1))
@@ -423,7 +423,7 @@ func void B_KillNpc(var int npcInstance)
 	};
 };
 
-// Visualisierung: Schriftstück lesen -> 'self' zieht ein Stück Pergament aus der Tasche und wirft einen Blick drauf 
+// Visualisierung: Schriftstück lesen -> 'self' zieht ein Stück Pergament aus der Tasche und wirft einen Blick drauf
 func void B_UseFakeScroll ()
 {
 	if ( C_BodystateContains(self, BS_SIT) )
@@ -448,7 +448,7 @@ func void B_ChangeGuild(var int npcInstance, var int newGuild)
 
 	var C_NPC	npc;
 	npc = Hlp_GetNpc(npcInstance);
-	
+
 	Npc_SetTrueGuild(npc,newGuild);
 	npc.guild = newGuild;
 };
@@ -467,7 +467,7 @@ func void B_ExchangeRoutine(var int npcInstance, var string newRoutine)
 
 	var C_NPC	npc;
 	npc = Hlp_GetNpc(npcInstance);
-	
+
 	Npc_ExchangeRoutine(npc,	newRoutine);
 	AI_ContinueRoutine (npc);
 };
@@ -483,7 +483,7 @@ func void B_SetPermAttitude(var int npcInstance, var int newAttitude)
 
 	var C_NPC	npc;
 	npc = Hlp_GetNpc(npcInstance);
-	
+
 	Npc_SetAttitude		(npc,	newAttitude);
 	Npc_SetTempAttitude	(npc,	newAttitude);
 };
@@ -515,7 +515,7 @@ func void B_ClearImmortal(var int npcInstance)
 
 	var C_NPC	npc;
 	npc = Hlp_GetNpc(npcInstance);
-	
+
 	npc.flags = 0;
 };
 
@@ -530,7 +530,7 @@ func void B_SetNpcType(var int npcInstance, var int newNpctype)
 
 	var C_NPC	npc;
 	npc = Hlp_GetNpc(npcInstance);
-	
+
 	npc.npctype = newNpctype;
 };
 
@@ -564,12 +564,12 @@ func void B_GiveInvItems(var C_NPC giver, var C_NPC taker, var int itemInstance,
 		    {
 			    msg = ConcatStrings(IntToString(amount), _STR_MESSAGE_ITEM_GIVEN);
 			    PrintScreen	(msg, -1,_YPOS_MESSAGE_GIVEN,"FONT_OLD_10_WHITE.TGA",_TIME_MESSAGE_GIVEN);
-			}   
+			}
 			else
 		    {
 			    msg = ConcatStrings(IntToString(amount),_STR_MESSAGE_ITEMS_GIVEN);
 			    PrintScreen	(msg, -1,_YPOS_MESSAGE_GIVEN,"FONT_OLD_10_WHITE.TGA",_TIME_MESSAGE_GIVEN);
-			};   
+			};
 		};
 	}
 	else if Npc_IsPlayer(taker)
@@ -585,14 +585,14 @@ func void B_GiveInvItems(var C_NPC giver, var C_NPC taker, var int itemInstance,
 		    {
 			    msg = ConcatStrings(IntToString(amount), _STR_MESSAGE_ITEM_TAKEN);
 			    PrintScreen	(msg, -1,_YPOS_MESSAGE_TAKEN,"FONT_OLD_10_WHITE.TGA",_TIME_MESSAGE_TAKEN);
-			}   
+			}
 			else
 		    {
 			    msg = ConcatStrings(IntToString(amount),_STR_MESSAGE_ITEMS_TAKEN);
 			    PrintScreen	(msg, -1,_YPOS_MESSAGE_TAKEN,"FONT_OLD_10_WHITE.TGA",_TIME_MESSAGE_TAKEN);
-			}; 
+			};
 		};
-	};	
+	};
 };
 
 
@@ -611,19 +611,19 @@ func int B_CheckForImportantInfo (var C_NPC slf, var C_NPC oth)
 
 	//-------- Auf Vergabe von Infos & Missionen checken --------
 	if 	(	(oth.aivar[AIV_INVINCIBLE] == FALSE)
-	&&		C_NpcIsHuman(oth)	)	//SC könnte verwandelt sein 
+	&&		C_NpcIsHuman(oth)	)	//SC könnte verwandelt sein
 	{
 		PrintDebugNpc	(PD_ZS_CHECK,	"...SC spricht nicht!");
-		
+
 		//----------- SC ist ein HumanControlled-Npc ---------------
-		var C_NPC her; 	her = Hlp_GetNpc(PC_Hero); 
+		var C_NPC her; 	her = Hlp_GetNpc(PC_Hero);
 		var C_NPC rock; rock = Hlp_GetNpc(PC_Rockefeller);
-		
-		if ( (Hlp_GetInstanceID(her)!=Hlp_GetInstanceID(Hero))&&(Hlp_GetInstanceID(rock)!=Hlp_GetInstanceID(Hero)) ) 
-		{	
+
+		if ( (Hlp_GetInstanceID(her)!=Hlp_GetInstanceID(Hero))&&(Hlp_GetInstanceID(rock)!=Hlp_GetInstanceID(Hero)) )
+		{
 			return FALSE;
 		};
-			
+
 		if	Npc_CheckInfo(slf,1)
 		{
 			PrintDebugNpc	(PD_ZS_CHECK,	"...wichtige Info zu vergeben!");
@@ -643,7 +643,7 @@ func int B_CheckForImportantInfo (var C_NPC slf, var C_NPC oth)
 							PrintDebugNpc	(PD_ZS_CHECK,	"...taucht nicht!");
 							hero.aivar		[AIV_IMPORTANT] = TRUE; // Dialog KOMMT aufgrund einer Important-Info zustande
 							B_FullStop		(oth);
-							
+
 							if (C_BodystateContains(slf, BS_SIT)) || (!Npc_CanSeeNpc(self, hero))
 							{
 								Npc_ClearAIQueue(slf);
@@ -653,7 +653,7 @@ func int B_CheckForImportantInfo (var C_NPC slf, var C_NPC oth)
 							{
 								B_FullStop		(slf);
 							};
-														
+
 							AI_StartState	(slf, ZS_Talk, 0, "");
 							Npc_PercDisable	(slf,	PERC_ASSESSFIGHTER);
 							return			TRUE;
@@ -663,7 +663,7 @@ func int B_CheckForImportantInfo (var C_NPC slf, var C_NPC oth)
 			//};
 		};
 	};
-	
+
 	return FALSE;
 };
 
@@ -706,7 +706,7 @@ func void B_PracticeCombat (var string waypoint)
 		AI_GotoWP				(hero,	waypoint);
 		AI_TurnToNpc			(self,	hero);
 		AI_EquipBestMeleeWeapon	(hero);
-		AI_DrawWeapon			(hero);	
+		AI_DrawWeapon			(hero);
 		AI_PlayAni				(hero,	"T_1HSFREE");
 		AI_RemoveWeapon			(hero);
 		AI_SetWalkmode			(hero,	NPC_WALK);
@@ -726,7 +726,7 @@ func void B_PrintGuildCondition (var int level)
 	PrintDebugNpc	(PD_ZS_FRAME,	"B_PrintGuildCondition");
 
 	var string msg;
-	
+
 	msg = ConcatStrings(_STR_MESSAGE_Joincamp, IntToString(level));
 
 	PrintScreen		(msg, -1,_YPOS_MESSAGE_Joincamp,"font_old_10_white.tga",_TIME_MESSAGE_Joincamp);

@@ -2,7 +2,7 @@
 **	Waran Prototype														**
 *************************************************************************/
 
-PROTOTYPE Mst_Default_Waran(C_Npc)			
+PROTOTYPE Mst_Default_Waran(C_Npc)
 {
 	name							=	"Lizard";
 	guild							=	GIL_WARAN;
@@ -11,7 +11,7 @@ PROTOTYPE Mst_Default_Waran(C_Npc)
 //---------------------------------------------------
 	attribute	[ATR_STRENGTH]		=	40;
 	attribute	[ATR_DEXTERITY]		=	40;
-	
+
 	attribute	[ATR_HITPOINTS_MAX]	=	80;
 	attribute	[ATR_HITPOINTS]		=	80;
 
@@ -39,7 +39,7 @@ PROTOTYPE Mst_Default_Waran(C_Npc)
 	senses_range				= 3000;		// 30m
 
 	aivar[AIV_MM_Behaviour]		= PASSIVE;
-	
+
 	aivar[AIV_MM_PercRange]		= 1400;
 	aivar[AIV_MM_DrohRange]		= 1100;
 	aivar[AIV_MM_AttackRange]	= 700;

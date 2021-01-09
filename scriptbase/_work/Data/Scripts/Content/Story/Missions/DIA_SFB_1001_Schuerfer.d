@@ -1,5 +1,5 @@
 // ************************************************************
-// 			  				   EXIT 
+// 			  				   EXIT
 // ************************************************************
 
 INSTANCE DIA_Sfb_1001_EXIT(C_INFO)
@@ -10,7 +10,7 @@ INSTANCE DIA_Sfb_1001_EXIT(C_INFO)
 	information	= DIA_Sfb_1001_EXIT_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC INT DIA_Sfb_1001_EXIT_Condition()
 {
@@ -18,7 +18,7 @@ FUNC INT DIA_Sfb_1001_EXIT_Condition()
 };
 
 FUNC VOID DIA_Sfb_1001_EXIT_Info()
-{	
+{
 	AI_StopProcessInfos	(self);
 };
 
@@ -34,7 +34,7 @@ INSTANCE DIA_Sfb_1001_Hello(C_INFO)
 	information	= DIA_Sfb_1001_Hello_Info;
 	permanent	= 1;
 	description = "Well, how's the mine going on?";
-};                       
+};
 
 FUNC INT DIA_Sfb_1001_Hello_Condition()
 {
@@ -42,7 +42,7 @@ FUNC INT DIA_Sfb_1001_Hello_Condition()
 };
 
 FUNC VOID DIA_Sfb_1001_Hello_Info()
-{	
+{
 	AI_Output (other, self,"DIA_Sfb_1001_Hello_15_00"); //Well, how's the mine going on?
 	AI_Output (self, other,"DIA_Sfb_1001_Hello_02_01"); //We've done most of it. Just a few more weeks and we'll have enough.
 	AI_StopProcessInfos	(self);

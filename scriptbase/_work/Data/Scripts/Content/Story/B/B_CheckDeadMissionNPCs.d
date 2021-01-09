@@ -13,4 +13,3 @@ func void B_CheckDeadMissionNPCs ()
 };
 
 
-			

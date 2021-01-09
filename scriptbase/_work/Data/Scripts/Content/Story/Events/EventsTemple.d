@@ -8,7 +8,7 @@ FUNC VOID EVT_TPL_07_FUNC_01 ()
 {
 	Wld_InsertNpc  		(OTDEMON,"TPL_096");
 };
- 
+
 FUNC VOID EVT_TPL_07_FUNC_02 ()
 {
 	Wld_InsertNpc  		(OTDEMON,"TPL_096");
@@ -69,25 +69,25 @@ func VOID EVT_TPL_SLEEPERDEMON_01 ()
 };
 
 FUNC VOID EVT_TPL_SLEEPERDEMON_02 ()
-{	
+{
 	AI_PlayAni 	( SLEEPER, "T_HURT" );
 	Wld_InsertNpc	( DEMONLORD,"TPL_389" );
 };
 
 FUNC VOID EVT_TPL_SLEEPERDEMON_03 ()
-{	 	
+{
 	AI_PlayAni 	( SLEEPER, "T_HURT" );
 	Wld_InsertNpc	( DEMONLORD,"TPL_391" );
 };
 
 FUNC VOID EVT_TPL_SLEEPERDEMON_04 ()
-{		
+{
 	AI_PlayAni 	( SLEEPER, "T_HURT" );
 	Wld_InsertNpc	( DEMONLORD,"TPL_409" );
 };
 
 FUNC VOID EVT_TPL_SLEEPERDEMON_05 ()
-{		
+{
 	AI_PlayAni 	( SLEEPER, "T_HURT" );
 	Wld_InsertNpc	( DEMONLORD,"TPL_390" );
 };

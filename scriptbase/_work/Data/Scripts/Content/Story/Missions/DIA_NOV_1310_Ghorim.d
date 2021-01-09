@@ -1,5 +1,5 @@
 // **************************************************
-//						EXIT 
+//						EXIT
 // **************************************************
 
 instance  DIA_Ghorim_Exit (C_INFO)
@@ -8,10 +8,10 @@ instance  DIA_Ghorim_Exit (C_INFO)
 	nr			=  999;
 	condition	=  DIA_Ghorim_Exit_Condition;
 	information	=  DIA_Ghorim_Exit_Info;
-	important	=  0;	
+	important	=  0;
 	permanent	=  1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC int  DIA_Ghorim_Exit_Condition()
 {
@@ -31,7 +31,7 @@ instance  DIA_Ghorim_MissingHarlok (C_INFO)
 	information	= DIA_Ghorim_MissingHarlok_Info;
 	permanent	= 0;
 	description	= "Hi! How's it going?";
-};                       
+};
 
 FUNC int  DIA_Ghorim_MissingHarlok_Condition()
 {
@@ -48,7 +48,7 @@ FUNC VOID  DIA_Ghorim_MissingHarlok_Info()
 	AI_Output (self, other,"DIA_Ghorim_MissingHarlok_02_05"); //Can't leave here while Baal Orun is in charge - the work has to be done either way!
 	AI_Output (self, other,"DIA_Ghorim_MissingHarlok_02_06"); //But you could go there for me - he's staying right under Cor Kalom's alchemy lab, at Fortuno's.
 	AI_Output (self, other,"DIA_Ghorim_MissingHarlok_02_07"); //Tell him to get his butt over here.
-		
+
 	Log_CreateTopic		(CH1_GhorimsRelief,	LOG_MISSION);
 	Log_SetTopicStatus	(CH1_GhorimsRelief,	LOG_RUNNING);
 	B_LogEntry			(CH1_GhorimsRelief,"The novice Ghorim asked me to make lazy Harlok take over from him. Harlok usually hangs around at Fortuno's weed shop.");
@@ -68,7 +68,7 @@ instance  DIA_Ghorim_SUCCESS (C_INFO)
 	information	= DIA_Ghorim_SUCCESS_Info;
 	permanent	= 1;
 	description	= "Well? Has he taken over now?";
-};                       
+};
 
 FUNC int  DIA_Ghorim_SUCCESS_Condition()
 {

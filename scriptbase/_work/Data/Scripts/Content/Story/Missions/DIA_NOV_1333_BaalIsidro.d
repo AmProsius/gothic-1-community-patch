@@ -1,5 +1,5 @@
 // ************************************************************
-// 			  				   EXIT 
+// 			  				   EXIT
 // ************************************************************
 
 INSTANCE DIA_BaalIsidro_EXIT(C_INFO)
@@ -10,7 +10,7 @@ INSTANCE DIA_BaalIsidro_EXIT(C_INFO)
 	information	= DIA_BaalIsidro_EXIT_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC INT DIA_BaalIsidro_EXIT_Condition()
 {
@@ -18,7 +18,7 @@ FUNC INT DIA_BaalIsidro_EXIT_Condition()
 };
 
 FUNC VOID DIA_BaalIsidro_EXIT_Info()
-{	
+{
 	AI_StopProcessInfos	(self);
 };
 
@@ -26,7 +26,7 @@ FUNC VOID DIA_BaalIsidro_EXIT_Info()
 // 							Hallo
 // ************************************************************
 
-INSTANCE DIA_BaalIsidro_Hello(C_INFO) 
+INSTANCE DIA_BaalIsidro_Hello(C_INFO)
 {
 	npc			= Nov_1333_BaalIsidro;
 	nr			= 1;
@@ -34,7 +34,7 @@ INSTANCE DIA_BaalIsidro_Hello(C_INFO)
 	information	= DIA_BaalIsidro_Hello_Info;
 	permanent	= 0;
 	description = "You don't look very happy.";
-};                       
+};
 
 FUNC INT DIA_BaalIsidro_Hello_Condition()
 {
@@ -42,7 +42,7 @@ FUNC INT DIA_BaalIsidro_Hello_Condition()
 };
 
 FUNC VOID DIA_BaalIsidro_Hello_Info()
-{	
+{
 	AI_Output (other, self,"DIA_BaalIsidro_Hello_15_00"); //You don't look very happy.
 	AI_Output (self, other,"DIA_BaalIsidro_Hello_03_01"); //I'm not!
 	AI_Output (self, other,"DIA_BaalIsidro_Hello_03_02"); //I need to get rid of a whole pile of weed.
@@ -54,7 +54,7 @@ FUNC VOID DIA_BaalIsidro_Hello_Info()
 // 					 	TRADE
 // ************************************************************
 
-INSTANCE DIA_BaalIsidro_TRADE(C_INFO) 
+INSTANCE DIA_BaalIsidro_TRADE(C_INFO)
 {
 	npc			= Nov_1333_BaalIsidro;
 	nr			= 800;
@@ -63,7 +63,7 @@ INSTANCE DIA_BaalIsidro_TRADE(C_INFO)
 	permanent	= 1;
 	description = "Show me what you have.";
 	trade 		= 1;
-};                       
+};
 
 FUNC INT DIA_BaalIsidro_TRADE_Condition()
 {
@@ -74,7 +74,7 @@ FUNC INT DIA_BaalIsidro_TRADE_Condition()
 };
 
 FUNC VOID DIA_BaalIsidro_TRADE_Info()
-{	
+{
 	AI_Output (other, self,"DIA_BaalIsidro_TRADE_15_00"); //Show me what you have.
 	AI_Output (self, other,"DIA_BaalIsidro_TRADE_03_01"); //Here...
 };
@@ -83,7 +83,7 @@ FUNC VOID DIA_BaalIsidro_TRADE_Info()
 // 					 Ich verkaufe für dich
 // ************************************************************
 
-INSTANCE DIA_BaalIsidro_GimmeKraut(C_INFO) 
+INSTANCE DIA_BaalIsidro_GimmeKraut(C_INFO)
 {
 	npc			= Nov_1333_BaalIsidro;
 	nr			= 1;
@@ -91,7 +91,7 @@ INSTANCE DIA_BaalIsidro_GimmeKraut(C_INFO)
 	information	= DIA_BaalIsidro_GimmeKraut_Info;
 	permanent	= 0;
 	description = "I could sell the weed for you - for a consideration, of course.";
-};                       
+};
 
 FUNC INT DIA_BaalIsidro_GimmeKraut_Condition()
 {
@@ -102,20 +102,20 @@ FUNC INT DIA_BaalIsidro_GimmeKraut_Condition()
 };
 
 FUNC VOID DIA_BaalIsidro_GimmeKraut_Info()
-{	
+{
 	AI_Output			(other, self,"DIA_BaalIsidro_GimmeKraut_15_00"); //I could sell the weed for you - for a consideration, of course.
 	AI_Output			(self, other,"DIA_BaalIsidro_GimmeKraut_03_01"); //Forget it - I'm not as drunk as all that. You'd just go running away with it.
 
 	Log_CreateTopic		(CH1_DealerJob, LOG_MISSION);
     Log_SetTopicStatus	(CH1_DealerJob, LOG_RUNNING);
-    B_LogEntry			(CH1_DealerJob,"The novice Baal Isidro hangs around at the bar at the lake and gets plastered. He should sell his share of weed stalks, but he doesn't manage to. Perhaps I could convince him to let me do it, but how should I do that?"); 
+    B_LogEntry			(CH1_DealerJob,"The novice Baal Isidro hangs around at the bar at the lake and gets plastered. He should sell his share of weed stalks, but he doesn't manage to. Perhaps I could convince him to let me do it, but how should I do that?");
 };
 
 // ************************************************************
 // 					Baal Kagan hat gepetzt
 // ************************************************************
 
-INSTANCE DIA_BaalIsidro_Problem(C_INFO) 
+INSTANCE DIA_BaalIsidro_Problem(C_INFO)
 {
 	npc			= Nov_1333_BaalIsidro;
 	nr			= 1;
@@ -123,7 +123,7 @@ INSTANCE DIA_BaalIsidro_Problem(C_INFO)
 	information	= DIA_BaalIsidro_Problem_Info;
 	permanent	= 0;
 	description = "You have a problem. Baal Kagan will make sure you'll be replaced.";
-};                       
+};
 
 FUNC INT DIA_BaalIsidro_Problem_Condition()
 {
@@ -134,10 +134,10 @@ FUNC INT DIA_BaalIsidro_Problem_Condition()
 };
 
 FUNC VOID DIA_BaalIsidro_Problem_Info()
-{	
+{
 	AI_Output			(other, self,"DIA_BaalIsidro_Problem_15_00"); //I'll tell you something - you have a problem. Baal Kagan will make sure you'll be replaced.
 	AI_Output			(self, other,"DIA_BaalIsidro_Problem_03_01"); //What? The Sleeper have mercy on me! I need to get rid of the stuff...
-	
+
 	if (BaalIsidro_GotDrink == FALSE)
 	{
 	    B_LogEntry		(CH1_DealerJob,"Baal Isidro was obviously upset when I told him about the plan to substitute him. But it still wasn't enough for him to let me do it.");
@@ -145,7 +145,7 @@ FUNC VOID DIA_BaalIsidro_Problem_Info()
 	else
 	{
 	    B_LogEntry		(CH1_DealerJob,"Baal Kagan's plans to have the alcoholic Baal Isidro replaced finished him off. I think he'll accept my offer now!");
-	};	
+	};
 };
 
 // ************************************************************
@@ -154,7 +154,7 @@ FUNC VOID DIA_BaalIsidro_Problem_Info()
 	var int BaalIsidro_GotDrink;
 // ************************************************************
 
-INSTANCE DIA_BaalIsidro_Drink(C_INFO) 
+INSTANCE DIA_BaalIsidro_Drink(C_INFO)
 {
 	npc			= Nov_1333_BaalIsidro;
 	nr			= 1;
@@ -162,7 +162,7 @@ INSTANCE DIA_BaalIsidro_Drink(C_INFO)
 	information	= DIA_BaalIsidro_Drink_Info;
 	permanent	= 1;
 	description = "Here you go - have another drink on me.";
-};                       
+};
 
 FUNC INT DIA_BaalIsidro_Drink_Condition()
 {
@@ -173,9 +173,9 @@ FUNC INT DIA_BaalIsidro_Drink_Condition()
 };
 
 FUNC VOID DIA_BaalIsidro_Drink_Info()
-{	
+{
 	AI_Output (other, self,"DIA_BaalIsidro_Drink_15_00"); //Here you go - have another drink on me.
-	
+
 	if ( (Npc_HasItems(other,ItFoBooze)>0) || (Npc_HasItems(other,ItFoBeer)>0) || (Npc_HasItems(other,ItFoWine)>0) )
 	{
 		AI_Output (self, other,"DIA_BaalIsidro_Drink_03_01"); //Thanks, man. I'll drink to your health!
@@ -188,7 +188,7 @@ FUNC VOID DIA_BaalIsidro_Drink_Info()
 				AI_StandUp		(self);
 				AI_TurnToNpc	(self, hero);
 			};
-			AI_UseItem		(self,ItFoBooze);		
+			AI_UseItem		(self,ItFoBooze);
 		}
 		else if (Npc_HasItems(other,ItFoBeer))
 		{
@@ -198,7 +198,7 @@ FUNC VOID DIA_BaalIsidro_Drink_Info()
 				AI_StandUp		(self);
 				AI_TurnToNpc	(self, hero);
 			};
-			AI_UseItem		(self,ItFoBeer);		
+			AI_UseItem		(self,ItFoBeer);
 		}
 		else if (Npc_HasItems(other,ItFoWine))
 		{
@@ -208,9 +208,9 @@ FUNC VOID DIA_BaalIsidro_Drink_Info()
 				AI_StandUp		(self);
 				AI_TurnToNpc	(self, hero);
 			};
-			AI_UseItem		(self,ItFoWine);		
+			AI_UseItem		(self,ItFoWine);
 		};
-		
+
 		BaalIsidro_GotDrink = TRUE;
 
 		if	Npc_KnowsInfo(hero,DIA_BaalIsidro_Problem)
@@ -234,7 +234,7 @@ FUNC VOID DIA_BaalIsidro_Drink_Info()
 	var int BaalIsidro_DealerJob;
 // ************************************************************
 
-INSTANCE DIA_BaalIsidro_ThinkAgain(C_INFO) 
+INSTANCE DIA_BaalIsidro_ThinkAgain(C_INFO)
 {
 	npc			= Nov_1333_BaalIsidro;
 	nr			= 1;
@@ -242,7 +242,7 @@ INSTANCE DIA_BaalIsidro_ThinkAgain(C_INFO)
 	information	= DIA_BaalIsidro_ThinkAgain_Info;
 	permanent	= 1;
 	description = "Think about it - give me the weed and we'll share the profit.";
-};                       
+};
 
 FUNC INT DIA_BaalIsidro_ThinkAgain_Condition()
 {
@@ -253,9 +253,9 @@ FUNC INT DIA_BaalIsidro_ThinkAgain_Condition()
 };
 
 FUNC VOID DIA_BaalIsidro_ThinkAgain_Info()
-{	
+{
 	AI_Output (other, self,"DIA_BaalIsidro_ThinkAgain_15_00"); //Think about it - give me the weed and we'll share the profit.
-	
+
 	if ( (BaalIsidro_GotDrink == TRUE) && Npc_KnowsInfo(hero,DIA_BaalIsidro_Problem) )
 	{
 		AI_Output (self, other,"DIA_BaalIsidro_ThinkAgain_03_01"); //Oh man, I need to get rid of the stuff. You wouldn't try to make me look like a fool, would you?
@@ -264,10 +264,10 @@ FUNC VOID DIA_BaalIsidro_ThinkAgain_Info()
 		AI_Output (other, self,"DIA_BaalIsidro_ThinkAgain_15_04"); //Do you know who'll take bigger amounts here?
 		AI_Output (self, other,"DIA_BaalIsidro_ThinkAgain_03_05"); //If I knew that I would have gone myself.
 		AI_Output (self, other,"DIA_BaalIsidro_ThinkAgain_03_06"); //I feel much better now that I'm rid of the stuff.
-		
+
 		BaalIsidro_DealerJob = LOG_RUNNING;
-	    B_LogEntry			(CH1_DealerJob,"Baal Isidro gave me loads of weed stalks. If I sell them he'll give me half of the profit, which would be 200 ore.");	
-	
+	    B_LogEntry			(CH1_DealerJob,"Baal Isidro gave me loads of weed stalks. If I sell them he'll give me half of the profit, which would be 200 ore.");
+
 		//Itemübergabe
 		CreateInvItems		(self,			itmijoint_1, 40);
 		B_GiveInvItems  	(self, other,	itmijoint_1, 50);//Notwendig zur Textausgabe "50 Items übergeben", wird sofort ausgeglichen
@@ -276,7 +276,7 @@ FUNC VOID DIA_BaalIsidro_ThinkAgain_Info()
 		Npc_RemoveInvItems	(other,			itmijoint_1, 40);
 		CreateInvItems		(other,			itmijoint_2, 20);
 		CreateInvItems		(other,			itmijoint_3, 20);
-					
+
 		AI_StopProcessInfos	(self);
 	}
 	else
@@ -289,7 +289,7 @@ FUNC VOID DIA_BaalIsidro_ThinkAgain_Info()
 // 					RUNNING / SUCCESS
 // ************************************************************
 
-INSTANCE DIA_BaalIsidro_RUNNING(C_INFO) 
+INSTANCE DIA_BaalIsidro_RUNNING(C_INFO)
 {
 	npc			= Nov_1333_BaalIsidro;
 	nr			= 1;
@@ -297,7 +297,7 @@ INSTANCE DIA_BaalIsidro_RUNNING(C_INFO)
 	information	= DIA_BaalIsidro_RUNNING_Info;
 	permanent	= 0;
 	description = "I've sold the weed. Here's your 200 ore.";
-};                       
+};
 
 FUNC INT DIA_BaalIsidro_RUNNING_Condition()
 {
@@ -308,10 +308,10 @@ FUNC INT DIA_BaalIsidro_RUNNING_Condition()
 };
 
 FUNC VOID DIA_BaalIsidro_RUNNING_Info()
-{	
+{
 	AI_Output				(other, self,"DIA_BaalIsidro_RUNNING_15_00"); //I've sold the weed.
 	AI_Output				(self, other,"DIA_BaalIsidro_RUNNING_03_01"); //And my 200 ore?
-	
+
 	if (Npc_HasItems(other,itminugget)>=200)
 	{
 		AI_Output			(other, self,"DIA_BaalIsidro_RUNNING_15_02"); //Here it is.
@@ -320,9 +320,9 @@ FUNC VOID DIA_BaalIsidro_RUNNING_Info()
 
 		B_GiveInvItems		(hero, self, ItMiNugget, 200);
 		BaalIsidro_DealerJob = LOG_SUCCESS;
-		
+
 		Log_SetTopicStatus	(CH1_DealerJob, LOG_SUCCESS);
-	    B_LogEntry			(CH1_DealerJob,"Baal Isidro was relieved to get his 200 ore.");	
+	    B_LogEntry			(CH1_DealerJob,"Baal Isidro was relieved to get his 200 ore.");
 	    B_GiveXP			(XP_BaalIsidroPayShare);
 	}
 	else

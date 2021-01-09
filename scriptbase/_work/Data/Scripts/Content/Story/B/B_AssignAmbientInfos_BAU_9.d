@@ -15,7 +15,7 @@ INSTANCE Info_Bau_9_EXIT(C_INFO)
 	information	= Info_Bau_9_EXIT_Info;
 	permanent	= 1;
 	description = "END";
-};                       
+};
 
 FUNC INT Info_Bau_9_EXIT_Condition()
 {
@@ -23,7 +23,7 @@ FUNC INT Info_Bau_9_EXIT_Condition()
 };
 
 FUNC VOID Info_Bau_9_EXIT_Info()
-{	
+{
 	AI_StopProcessInfos	(self);
 };
 
@@ -38,7 +38,7 @@ INSTANCE Info_Bau_9_WichtigePersonen(C_INFO)
 	information	= Info_Bau_9_WichtigePersonen_Info;
 	permanent	= 1;
 	description = "Whose job is it to make sure everything goes according to plan in the fields?";
-};                       
+};
 
 FUNC INT Info_Bau_9_WichtigePersonen_Condition()
 {
@@ -51,7 +51,7 @@ FUNC VOID Info_Bau_9_WichtigePersonen_Info()
 	AI_Output(self,other,"Info_Bau_9_WichtigePersonen_09_01"); //Everyone's! The Rice Lord's supposed to be watching over the work, but if you ask me he spends all day sitting in his bunker counting his sacks.
 	AI_Output(self,other,"Info_Bau_9_WichtigePersonen_09_02"); //Well, him and Homer did set all this up...
 	var C_NPC Ricelord;			Ricelord	= Hlp_GetNpc(Bau_900_Ricelord);
-	Ricelord.aivar[AIV_FINDABLE] = TRUE;	
+	Ricelord.aivar[AIV_FINDABLE] = TRUE;
 };
 
 // *************************************************************************
@@ -65,7 +65,7 @@ INSTANCE Info_Bau_9_DasLager(C_INFO)
 	information	= Info_Bau_9_DasLager_Info;
 	permanent	= 1;
 	description = "Tell me about this camp.";
-};                       
+};
 
 FUNC INT Info_Bau_9_DasLager_Condition()
 {
@@ -90,7 +90,7 @@ INSTANCE Info_Bau_9_DieLage(C_INFO) // E1
 	information	= Info_Bau_9_DieLage_Info;
 	permanent	= 1;
 	description = "How are you?";
-};                       
+};
 
 FUNC INT Info_Bau_9_DieLage_Condition()
 {
@@ -114,7 +114,7 @@ INSTANCE Info_Bau_9_Wasser(C_INFO) // E1
 	information	= Info_Bau_9_Wasser_Info;
 	permanent	= 1;
 	description = "Lefty sent me. I've brought you some water.";
-};                       
+};
 
 FUNC INT Info_Bau_9_Wasser_Condition()
 {
@@ -139,7 +139,7 @@ FUNC VOID Info_Bau_9_Wasser_Info()
 		AI_UseItem			(self,	ItFo_Potion_Water_01);
 
 		AI_Output			(self,other,"Info_Bau_9_Wasser_09_01"); //Thanks, man! A bit longer and I'd have started drinking mud.
-		
+
 		An_Bauern_verteilt = An_Bauern_verteilt+1;
 		if (An_Bauern_verteilt>=DurstigeBauern)
 		{
@@ -152,7 +152,7 @@ FUNC VOID Info_Bau_9_Wasser_Info()
 		AI_Output(self,other,"Info_Bau_9_Wasser_NOWATER_09_00"); //You've run out. I'll get some from the others.
 	};
 };
-	
+
 // *************************************************************************
 // -------------------------------------------------------------------------
 
@@ -162,7 +162,7 @@ FUNC VOID B_AssignAmbientInfos_Bau_9(var c_NPC slf)
 	Info_Bau_9_WichtigePersonen.npc		= Hlp_GetInstanceID(slf);
 	Info_Bau_9_DasLager.npc				= Hlp_GetInstanceID(slf);
 	Info_Bau_9_DieLage.npc				= Hlp_GetInstanceID(slf);
-	
+
 	Info_Bau_9_Wasser.npc				= Hlp_GetInstanceID(slf);
 };
 

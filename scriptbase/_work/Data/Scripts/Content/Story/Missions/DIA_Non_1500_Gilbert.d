@@ -10,7 +10,7 @@ instance DIA_Gilbert_EXIT (C_INFO)
 	information	= DIA_Gilbert_EXIT_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC int DIA_Gilbert_EXIT_Condition()
 {
@@ -34,7 +34,7 @@ instance DIA_Gilbert_First (C_INFO)
 	information	= DIA_Gilbert_First_Info;
 	permanent	= 0;
 	important 	= 1;
-};                       
+};
 
 FUNC int DIA_Gilbert_First_Condition()
 {
@@ -48,7 +48,7 @@ FUNC VOID  DIA_Gilbert_First_Info()
 {
 	AI_Output (self, other,"DIA_Gilbert_First_04_00"); //What are you doing here? Don't often get visitors up here, he he!
 	AI_Output (self, other,"DIA_Gilbert_First_04_01"); //Very clever of you to find my hiding place.
-	
+
 	B_GiveXP(XP_GilbertFound);
 };
 
@@ -64,7 +64,7 @@ instance DIA_Gilbert_Hallo (C_INFO)
 	information	= DIA_Gilbert_Hallo_Info;
 	permanent	= 1;
 	description = "What are you doing here?";
-};                       
+};
 
 FUNC int DIA_Gilbert_Hallo_Condition()
 {

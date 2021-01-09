@@ -1,5 +1,5 @@
 // **************************************************
-//						EXIT 
+//						EXIT
 // **************************************************
 
 instance  DIA_Viran_Exit (C_INFO)
@@ -8,10 +8,10 @@ instance  DIA_Viran_Exit (C_INFO)
 	nr			=  999;
 	condition	=  DIA_Viran_Exit_Condition;
 	information	=  DIA_Viran_Exit_Info;
-	important	=  0;	
+	important	=  0;
 	permanent	=  1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC int  DIA_Viran_Exit_Condition()
 {
@@ -35,7 +35,7 @@ instance  DIA_Viran_What (C_INFO)
 	information	= DIA_Viran_What_Info;
 	permanent	= 0;
 	description	= "What are you doing here?";
-};                       
+};
 
 FUNC int  DIA_Viran_What_Condition()
 {
@@ -64,7 +64,7 @@ instance  DIA_Viran_FetchWeed (C_INFO)
 	information	= DIA_Viran_FetchWeed_Info;
 	permanent	= 0;
 	description	= "Baal Orun sent me. I'm to take the whole harvest to Kalom.";
-};                       
+};
 
 FUNC int  DIA_Viran_FetchWeed_Condition()
 {
@@ -79,12 +79,12 @@ FUNC VOID  DIA_Viran_FetchWeed_Info()
 	AI_Output (other, self,"DIA_Viran_FetchWeed_15_00"); //Baal Orun sent me. I'm to take the whole harvest to Kalom.
 	AI_Output (self, other,"DIA_Viran_FetchWeed_07_01"); //You think it's that easy, do you?
 	AI_Output (self, other,"DIA_Viran_FetchWeed_07_02"); //Anybody could turn up like that. 'Baal Orun sent me' - and whoosh - the whole lot of the weeds were gone.
-	
+
 	Info_ClearChoices 	(DIA_Viran_FetchWeed);
 	Info_Addchoice 		(DIA_Viran_FetchWeed,"Go see him and ask him if you don't believe me!",DIA_Viran_FetchWeed_GotoHim);
 	Info_Addchoice 		(DIA_Viran_FetchWeed,"But Baal Orun really has sent me!",DIA_Viran_FetchWeed_Really);
 };
-	
+
 func void DIA_Viran_FetchWeed_Really()
 {
 	AI_Output (other, self,"DIA_Viran_FetchWeed_Really_15_00"); //But Baal Orun really has sent me!
@@ -112,7 +112,7 @@ instance  DIA_Viran_Bloodflies (C_INFO)
 	information	= DIA_Viran_Bloodflies_Info;
 	permanent	= 0;
 	description	= "And what do you want me to do?";
-};                       
+};
 
 FUNC int  DIA_Viran_Bloodflies_Condition()
 {
@@ -131,7 +131,7 @@ FUNC VOID  DIA_Viran_Bloodflies_Info()
 
 	B_LogEntry			(CH1_DeliverWeed,"Viran will only give me the swampweed once I've killed all the bloodflies within a radius of 20 paces.");
 };
-	
+
 // **************************************************
 //				Running / Success
 // **************************************************
@@ -146,7 +146,7 @@ instance  DIA_Viran_Running (C_INFO)
 	information	= DIA_Viran_Running_Info;
 	permanent	= 1;
 	description	= "I don't see any more bloodflies anywhere.";
-};                       
+};
 
 FUNC int  DIA_Viran_Running_Condition()
 {
@@ -173,7 +173,7 @@ FUNC VOID  DIA_Viran_Running_Info()
 		AI_Output (self, hero,"DIA_Viran_Running_07_04"); //An idiot would be too stupid to fool me, right?
 		AI_Output (self, hero,"DIA_Viran_Running_07_05"); //Here, take the harvest and take it to Cor Kalom.
 		AI_Output (self, hero,"DIA_Viran_Running_07_06"); //If he complains and says it's not enough, tell him to move his butt here himself, to give him an idea of how much hard work it is.
-		
+
 		B_GiveInvItems  (self, hero, ItMi_Plants_Swampherb_01, 50);
 
 		if	Npc_KnowsInfo(hero, DIA_Balor_FetchWeed)
@@ -185,7 +185,7 @@ FUNC VOID  DIA_Viran_Running_Info()
 			B_LogEntry	(CH1_DeliverWeed,"Viran gave me today's swampweed harvest. Doesn't look that much. Perhaps there's a second group of gatherers.");
 		};
 		B_GiveXP		(XP_WeedFromViran);
-				
+
 		Viran_Bloodflies = LOG_SUCCESS;
 		Viran_BotenDay = Wld_GetDay();
 	};
@@ -204,7 +204,7 @@ instance  DIA_Viran_Perm (C_INFO)
 	information	= DIA_Viran_Perm_Info;
 	permanent	= 1;
 	description	= "How's the picking going?";
-};                       
+};
 
 FUNC int  DIA_Viran_Perm_Condition()
 {
@@ -233,7 +233,7 @@ instance  DIA_Viran_RipOff (C_INFO)
 	information	= DIA_Viran_RipOff_Info;
 	permanent	= 0;
 	description	= "I'm to take all the weeds to Cor Kalom again.";
-};                       
+};
 
 FUNC int  DIA_Viran_RipOff_Condition()
 {

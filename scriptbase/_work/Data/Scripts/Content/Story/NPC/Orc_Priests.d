@@ -9,16 +9,16 @@ instance ORC_Priest_1 (Npc_Default)
 	Npctype 	=		Npctype_Main;
 	guild 		=		GIL_ORCSHAMAN;
 	level 		=		800;
-	 	
+
 	voice 		=		17;
 	id 			=		2995;
-	
+
 	//-------- visuals --------
 	Mdl_SetVisual			(self,	"Orc.mds");
 	Mdl_SetVisualBody		(self,	"UOS_Body",		DEFAULT,	DEFAULT,	"",			DEFAULT,  	DEFAULT,	-1);
 	B_Scale					(self);
 	Mdl_SetModelFatness		(self,0);
-	
+
 	//-------- abilities --------
 	attribute[ATR_STRENGTH] 		=	10;
 	attribute[ATR_DEXTERITY] 		=	10;
@@ -33,18 +33,18 @@ instance ORC_Priest_1 (Npc_Default)
 	protection	[PROT_FIRE]			=	25;
 	protection	[PROT_FLY]			=	50;
 	protection	[PROT_MAGIC]		=	0;
-	 	
+
 
 	//-------- talente --------
 	Npc_SetTalentSkill	(self, NPC_TALENT_MAGE, 6);
-	
+
 	//-------- inventory --------
 	CreateInvItem		(self,	ItRwOrcstaff);		// für Magiemodus
 	CreateInvItem 		(self,  Weltenspalter);
 	CreateInvItem		(self,	ItArRunePyrokinesis);
 
 
-  	  
+
 	//------------- ai -------------
 	daily_routine	=	Rtn_PreStart_2995;
 	senses			=	SENSE_SEE|SENSE_HEAR|SENSE_SMELL;
@@ -69,16 +69,16 @@ instance ORC_Priest_2 (Npc_Default)
 	Npctype 	=		Npctype_Main;
 	guild 		=		GIL_ORCSHAMAN;
 	level 		=		800;
-	 	
+
 	voice 		=		17;
 	id 			=		2996;
-		
+
 	//-------- visuals --------
 	Mdl_SetVisual			(self,	"Orc.mds");
 	Mdl_SetVisualBody		(self,	"UOS_Body",		DEFAULT,	DEFAULT,	"",			DEFAULT,  	DEFAULT,	-1);
 	B_Scale					(self);
 	Mdl_SetModelFatness		(self,0);
-	
+
 	//-------- abilities --------
 	attribute[ATR_STRENGTH] 		=	10;
 	attribute[ATR_DEXTERITY] 		=	10;
@@ -93,17 +93,17 @@ instance ORC_Priest_2 (Npc_Default)
 	protection	[PROT_FIRE]			=	25;
 	protection	[PROT_FLY]			=	0;
 	protection	[PROT_MAGIC]		=	1000;
-		
+
 
 	//-------- talente --------
 	Npc_SetTalentSkill	(self, NPC_TALENT_MAGE, 6);
-	
+
 
 	//-------- inventory --------
 	CreateInvItem		(self,	ItRwUdOrcstaff);		// für Magiemodus
 	CreateInvItem 		(self,  Lichtbringer);
    	CreateInvItem		(self,	ItArRuneThunderball);
- 
+
 	//------------- ai -------------
 	daily_routine	=	Rtn_PreStart_2996;
 	senses			=	SENSE_SEE|SENSE_HEAR|SENSE_SMELL;
@@ -128,7 +128,7 @@ instance ORC_Priest_3 (Npc_Default)
 	Npctype 	=		Npctype_Main;
 	guild 		=		GIL_ORCSHAMAN;
 	level 		=		800;
-	 	
+
 	voice 		=		17;
 	id 			=		2997;
 
@@ -137,8 +137,8 @@ instance ORC_Priest_3 (Npc_Default)
 	Mdl_SetVisualBody		(self,	"UOS_Body",		DEFAULT,	DEFAULT,	"",			DEFAULT,  	DEFAULT,	-1);
 	B_Scale					(self);
 	Mdl_SetModelFatness		(self,0);
-	
-	
+
+
 	//-------- abilities --------
 	attribute[ATR_STRENGTH] 		=	10;
 	attribute[ATR_DEXTERITY] 		=	10;
@@ -156,8 +156,8 @@ instance ORC_Priest_3 (Npc_Default)
 
 	//-------- talente --------
 	Npc_SetTalentSkill	(self, NPC_TALENT_MAGE, 6);
-	
-	//-------- inventory --------		
+
+	//-------- inventory --------
 	CreateInvItem		(self,	ItRwUdOrcstaff);		// für Magiemodus
 	CreateInvItem		(self,	Zeitenklinge);
 	CreateInvItem		(self,	ItArRuneChainLightning);
@@ -189,7 +189,7 @@ instance ORC_Priest_4 (Npc_Default)
 	Npctype 	=		Npctype_Main;
 	guild 		=		GIL_ORCSHAMAN;
 	level 		=		800;
-	 	
+
 	voice 		=		17;
 	id 			=		2998;
 
@@ -198,7 +198,7 @@ instance ORC_Priest_4 (Npc_Default)
 	Mdl_SetVisualBody		(self,	"UOS_Body",		DEFAULT,	DEFAULT,	"",			DEFAULT,  	DEFAULT,	-1);
 	B_Scale					(self);
 	Mdl_SetModelFatness		(self,0);
-	
+
 	//-------- abilities --------
 	attribute[ATR_STRENGTH] 		=	10;
 	attribute[ATR_DEXTERITY] 		=	10;
@@ -213,11 +213,11 @@ instance ORC_Priest_4 (Npc_Default)
 	protection	[PROT_FIRE]			=	1000;
 	protection	[PROT_FLY]			=	0;
 	protection	[PROT_MAGIC]		=	0;
-		
+
 	//-------- talente --------
 	Npc_SetTalentSkill	(self, NPC_TALENT_MAGE, 6);
-	
-		
+
+
 	//-------- inventory --------
 	CreateInvItem			(self,	ItRwUdOrcstaff);		// für Magiemodus
 	CreateInvItem			(self, 	Daemonenstreich);
@@ -249,16 +249,16 @@ instance ORC_Priest_5 (Npc_Default)
 	Npctype 	=		NPCTYPE_FRIEND;
 	guild 		=		GIL_ORCSHAMAN;
 	level 		=		1000;
-	 	
+
 	voice 		=		17;
 	id 			=		2999;
-	
+
 	//-------- visuals --------
 	Mdl_SetVisual			(self,	"Orc.mds");
 	Mdl_SetVisualBody		(self,	"UOS_Body",		DEFAULT,	DEFAULT,	"",			DEFAULT,  	DEFAULT,	-1);
 	B_Scale					(self);
 	Mdl_SetModelFatness		(self,0);
-	
+
 
 	//-------- abilities --------
 	attribute[ATR_STRENGTH] 		=	10;
@@ -274,12 +274,12 @@ instance ORC_Priest_5 (Npc_Default)
 	protection	[PROT_FIRE]			=	1000;
 	protection	[PROT_FLY]			=	1000;
 	protection	[PROT_MAGIC]		=	100;
-		
+
 
 	//-------- talente --------
 	Npc_SetTalentSkill	(self, NPC_TALENT_MAGE, 6);
-	
-		
+
+
 	//-------- inventory --------
 	CreateInvItem		(self,	ItRwUdOrcstaff);		// für Magiemodus
 	CreateInvItem		(self, 	Bannklinge);

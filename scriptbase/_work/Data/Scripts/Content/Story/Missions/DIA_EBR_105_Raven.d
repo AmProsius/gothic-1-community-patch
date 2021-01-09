@@ -1,5 +1,5 @@
 // **************************************
-//					EXIT 
+//					EXIT
 // **************************************
 
 instance DIA_Raven_Exit (C_INFO)
@@ -10,7 +10,7 @@ instance DIA_Raven_Exit (C_INFO)
 	information	= DIA_Raven_Exit_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC int DIA_Raven_Exit_Condition()
 {
@@ -34,7 +34,7 @@ instance DIA_Raven_FirstIn (C_INFO)
 	information	= DIA_Raven_FirstIn_Info;
 	permanent	= 0;
 	important 	= 1;
-};                       
+};
 
 FUNC int DIA_Raven_FirstIn_Condition()
 {
@@ -62,7 +62,7 @@ instance DIA_Raven_Who (C_INFO)
 	information	= DIA_Raven_Who_Info;
 	permanent	= 0;
 	description	= "Who are you?";
-};                       
+};
 
 FUNC int DIA_Raven_Who_Condition()
 {
@@ -87,12 +87,12 @@ instance DIA_Raven_Krautbote (C_INFO)
 	information	= DIA_Raven_Krautbote_Info;
 	permanent	= 0;
 	description	= "I have some weed for Gomez from Cor Kalom.";
-};                       
+};
 
 FUNC int DIA_Raven_Krautbote_Condition()
 {
 	if	(KALOM_KRAUTBOTE == LOG_RUNNING)
-	{	
+	{
 		return 1;
 	};
 };
@@ -119,7 +119,7 @@ instance DIA_Raven_Aufnahme (C_INFO)
 	information	= DIA_Raven_Aufnahme_Info;
 	permanent	= 0;
 	description	= "I want to see Gomez. Thorus says I'm to be taken on as a Shadow.";
-};                       
+};
 
 FUNC int DIA_Raven_Aufnahme_Condition()
 {
@@ -135,7 +135,7 @@ FUNC VOID DIA_Raven_Aufnahme_Info()
 	AI_Output (other, self,"DIA_Raven_Aufnahme_15_00"); //I want to see Gomez. Thorus says I'm to be taken on as a Shadow.
 	AI_Output (self, other,"DIA_Raven_Aufnahme_10_01"); //We're always on the lookout for good men. You seem to have your wits about you. You might be okay.
 	AI_Output (self, other,"DIA_Raven_Aufnahme_10_02"); //I'll take you to Gomez. Follow me. And don't touch anything!
-	
+
 	AI_StopProcessInfos	(self);
 	Npc_ExchangeRoutine(self, "GUIDE");
 };
@@ -152,11 +152,11 @@ instance DIA_Raven_There (C_INFO)
 	information	= DIA_Raven_There_Info;
 	permanent	= 0;
 	important	= 1;
-};                       
+};
 
 FUNC int DIA_Raven_There_Condition()
 {
-	if 	( Npc_KnowsInfo(hero,DIA_Raven_Aufnahme) && Hlp_StrCmp(Npc_GetNearestWP(self),"OCC_BARONS_GREATHALL_CENTER_MOVEMENT") ) 
+	if 	( Npc_KnowsInfo(hero,DIA_Raven_Aufnahme) && Hlp_StrCmp(Npc_GetNearestWP(self),"OCC_BARONS_GREATHALL_CENTER_MOVEMENT") )
 	{
 		return 1;
 	};
@@ -166,7 +166,7 @@ FUNC VOID DIA_Raven_There_Info()
 {
 	AI_Output (self, other,"DIA_Raven_There_10_01"); //Gomez is over there. If you don't show him some respect, I'll take pleasure in teaching it to you personally, have you got that?
 	AI_StopProcessInfos	(self);
-		
+
 	Npc_ExchangeRoutine(self, "START");
 };
 
@@ -183,7 +183,7 @@ instance DIA_Raven_PERM (C_INFO)
 	information	= DIA_Raven_PERM_Info;
 	permanent	= 1;
 	description	= "How's the ore trade going?";
-};                       
+};
 
 FUNC int DIA_Raven_PERM_Condition()
 {
@@ -211,7 +211,7 @@ instance DIA_Raven_BinDabei (C_INFO)
 	information	= DIA_Raven_BinDabei_Info;
 	permanent	= 0;
 	description	= "Gomez says I'm in.";
-};                       
+};
 
 FUNC int DIA_Raven_BinDabei_Condition()
 {
@@ -224,16 +224,16 @@ FUNC int DIA_Raven_BinDabei_Condition()
 FUNC VOID DIA_Raven_BinDabei_Info()
 {
 	CreateInvItem		(hero, STT_ARMOR_M);
-	
+
 	CreateInvItem		(self, ItAmArrow);
 	B_GiveInvItems      (self, hero, ItAmArrow, 1);
 	Npc_RemoveInvItem	(hero, ItAmArrow);
-	
+
 	AI_Output			(other, self,"DIA_Raven_BinDabei_15_00"); //Gomez says I'm in.
 	AI_Output			(self, other,"DIA_Raven_BinDabei_10_01"); //Great! In that case, you can prove your worth with a first task.
 	AI_Output			(self, other,"DIA_Raven_BinDabei_10_02"); //It shouldn't be too difficult for you, provided your connections are as good as you say.
 
-	AI_EquipBestArmor	(hero); 
+	AI_EquipBestArmor	(hero);
 };
 
 // *********************************************
@@ -269,9 +269,9 @@ FUNC VOID DIA_Raven_SpySect_Info()
 	AI_Output (self, other,"DIA_Raven_SpySect_10_04"); //The more you find out, the better. It'll take a bit of tact, if you know what I mean.
 	AI_Output (other, self,"DIA_Raven_SpySect_15_05"); //Keep cool, I'm not going to get them angry.
 	AI_Output (self, other,"DIA_Raven_SpySect_10_06"); //I knew you'd understand.
-	
+
 	Raven_SpySect = LOG_RUNNING;
-	
+
 	Log_CreateTopic	(CH1_GoToPsi,	LOG_MISSION);
 	Log_SetTopicStatus (CH1_GoToPsi,	LOG_RUNNING);
 	B_LogEntry (CH1_GoToPsi,"Raven has sent me to the Brotherhood in the swamp on behalf of the Old Camp. I'm to have a look around there and keep my ears open. Maybe I'll get some useful information for the Ore Barons there.");

@@ -3,7 +3,7 @@
 //##							KAPITEL 4
 //##							=========
 //##	Gorn, Cord und 2 Söldner beziehen zwischen NC und FM
-//##	einen provisorischen Wachposten						
+//##	einen provisorischen Wachposten
 //##
 //#####################################################################
 func void B_Story_CordsPost()

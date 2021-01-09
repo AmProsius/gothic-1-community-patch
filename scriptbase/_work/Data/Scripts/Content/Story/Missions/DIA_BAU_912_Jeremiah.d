@@ -10,7 +10,7 @@ instance DIA_Jeremiah_EXIT (C_INFO)
 	information	= DIA_Jeremiah_EXIT_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC int DIA_Jeremiah_EXIT_Condition()
 {
@@ -34,7 +34,7 @@ instance DIA_Jeremiah_Hallo (C_INFO)
 	information	= DIA_Jeremiah_Hallo_Info;
 	permanent	= 0;
 	description = "What are you doing?";
-};                       
+};
 
 FUNC int DIA_Jeremiah_Hallo_Condition()
 {
@@ -46,7 +46,7 @@ FUNC VOID  DIA_Jeremiah_Hallo_Info()
 	AI_Output (other, self,"DIA_Jeremiah_Hallo_15_00"); //What are you doing?
 	AI_Output (self, other,"DIA_Jeremiah_Hallo_04_01"); //I'm making rice schnapps, boy.
 	AI_Output (self, other,"DIA_Jeremiah_Hallo_04_02"); //Here - have a bottle. But don't tell Silas.
-	
+
 	CreateInvItems	(self, ItFoBooze, 1);
 	B_GiveInvItems	(self, other, ItFoBooze, 1);
 };
@@ -65,7 +65,7 @@ instance DIA_Jeremiah_PERM (C_INFO)
 	information	= DIA_Jeremiah_PERM_Info;
 	permanent	= 1;
 	description = "How's the distillery going?";
-};                       
+};
 
 FUNC int DIA_Jeremiah_PERM_Condition()
 {
@@ -77,7 +77,7 @@ FUNC VOID  DIA_Jeremiah_PERM_Info()
 	AI_Output (other, self,"DIA_Jeremiah_PERM_15_00"); //How's the distillery going?
 	AI_Output (self, other,"DIA_Jeremiah_PERM_04_01"); //I can hardly keep up with these guys. Man, can they drink!
 	AI_Output (self, other,"DIA_Jeremiah_PERM_04_02"); //It's a good thing really. While I'm busy, the Rice Lord's lapdogs leave me alone.
-	
+
 	Jeremiah_Bauer = TRUE;
 };
 
@@ -93,7 +93,7 @@ instance DIA_Jeremiah_Horatio (C_INFO)
 	information	= DIA_Jeremiah_Horatio_Info;
 	permanent	= 0;
 	description = "What can you tell me about the Rice Lord?";
-};                       
+};
 
 FUNC int DIA_Jeremiah_Horatio_Condition()
 {

@@ -4,7 +4,7 @@
 func void OrcSlavePerc()
 {
 	Npc_PercEnable( self, PERC_ASSESSDAMAGE,		ZS_OrcSlave_AssessDamage	);
-	Npc_PercEnable( self, PERC_OBSERVEINTRUDER,		B_OrcSlave_Quicklook		);	
+	Npc_PercEnable( self, PERC_OBSERVEINTRUDER,		B_OrcSlave_Quicklook		);
 	Npc_PercEnable( self, PERC_DRAWWEAPON,			B_OrcSlave_Quicklook		);
 	Npc_PercEnable( self, PERC_ASSESSSURPRISE,		B_OrcSlave_Quicklook		);
 
@@ -59,7 +59,7 @@ func void OrcDeepSleepPerc()
 	{
 		DeepSleepPerception();	// Menschen-AI !!!
 	};
-};	
+};
 
 
 //////////////////////////////////////////////////////////////////////////
@@ -80,4 +80,4 @@ func void OrcLightSleepPerc()
 	{
 		LightSleepPerception();	// Menschen-AI !!!
 	};
-};	
+};

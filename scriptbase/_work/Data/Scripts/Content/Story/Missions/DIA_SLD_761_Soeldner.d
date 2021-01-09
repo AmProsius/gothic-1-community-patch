@@ -95,7 +95,7 @@ FUNC int DIA_SLD_761_Soeldner_UMSEHEN_CONDITION()
 };
 
 func void DIA_SLD_761_Soeldner_UMSEHEN_INFO()
-{  
+{
 	AI_Output (other, self,"DIA_SLD_761_Soeldner_UMSEHEN_INFO_15_01"); //I just wanted to have a look around the Camp.
 	AI_Output (self, other,"DIA_SLD_761_Soeldner_UMSEHEN_INFO_03_02");//Then you've come to the wrong place, because this is the mine entrance and you're not admitted here.
 };
@@ -138,7 +138,7 @@ instance DIA_SLD_761_Soeldner_Bribe (C_INFO)
 };
 
 FUNC int DIA_SLD_761_Soeldner_Bribe_CONDITION()
-{	
+{
 	if (Npc_KnowsInfo	(hero,DIA_SLD_761_Soeldner_INMINE))
 	{
 		return 1;
@@ -146,12 +146,12 @@ FUNC int DIA_SLD_761_Soeldner_Bribe_CONDITION()
 };
 
 func void DIA_SLD_761_Soeldner_Bribe_INFO()
-{  
+{
 	AI_Output (other, self,"DIA_SLD_761_Soeldner_Bribe_INFO_15_01");//Is there nothing we can do about it?
 	AI_Output (self, other,"DIA_SLD_761_Soeldner_Bribe_INFO_03_02");//What should there be to do about it?
 	AI_Output (self, other,"DIA_SLD_761_Soeldner_Bribe_INFO_03_03");//One moment, if you're trying to bribe me, you have the wrong man here.
 	AI_Output (other, self,"DIA_SLD_761_Soeldner_Bribe_INFO_15_04");//No, I wasn't trying to bribe anybody, I just thought that...
 	AI_Output (other, self,"DIA_SLD_761_Soeldner_Bribe_INFO_15_05");//I guess I'd best be going.
-	AI_StopProcessInfos	(self); 
+	AI_StopProcessInfos	(self);
 };
 

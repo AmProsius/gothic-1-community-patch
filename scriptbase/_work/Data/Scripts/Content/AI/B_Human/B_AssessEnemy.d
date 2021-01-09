@@ -36,57 +36,57 @@ func void B_AssessEnemy()
 		if ( C_NpcIsHuman(other) )
 		{
 			PrintDebugNpc		(PD_ZS_FRAME, "...Feind ist Mensch!" );
-	
+
 			//-------- Important-Info ! --------
 			if (self.aivar[AIV_TALKBEFOREATTACK])							// Hat der NSC eine "letzte Nachricht" f¸r den Feind?
-			{	
-				PrintDebugNpc	(PD_ZS_CHECK, "...'letzte Nachricht' f¸r den Feind!");				
+			{
+				PrintDebugNpc	(PD_ZS_CHECK, "...'letzte Nachricht' f¸r den Feind!");
 				if	(B_CheckForImportantInfo(self,other))
 				{
 					return;
 				};
  			};
-		
+
 			//-------- NpcTypeFriends ignorieren das HOSTILE --------
-			if (C_NpcTypeIsFriend(self, other) || (Npc_GetAttitude(self, other)==ATT_FRIENDLY) ) 
+			if (C_NpcTypeIsFriend(self, other) || (Npc_GetAttitude(self, other)==ATT_FRIENDLY) )
 			{
-				PrintDebugNpc	(PD_ZS_CHECK, "...NSC ist NPCTYPE_FRIEND oder ATT_FRIENDLY!" );				
+				PrintDebugNpc	(PD_ZS_CHECK, "...NSC ist NPCTYPE_FRIEND oder ATT_FRIENDLY!" );
 				return;
 			};
-		
+
 			//--------Feind wird toleriert --------
-			if (C_OtherIsToleratedEnemy(self, other)) 
+			if (C_OtherIsToleratedEnemy(self, other))
 			{
-				PrintDebugNpc	(PD_ZS_CHECK, "...Feind wird toleriert!" );				
+				PrintDebugNpc	(PD_ZS_CHECK, "...Feind wird toleriert!" );
 				B_TolerateEnemy	(self, other);
 				return;
 			};
-		
+
 			//-------- Enemy spricht gerade --------
-			if (other.aivar[AIV_INVINCIBLE]) 
+			if (other.aivar[AIV_INVINCIBLE])
 			{
-				PrintDebugNpc	(PD_ZS_CHECK, "...Feind spricht gerade!" );				
+				PrintDebugNpc	(PD_ZS_CHECK, "...Feind spricht gerade!" );
 				AI_ContinueRoutine(self);
 				return;
 			};
-		
+
 			//-------- Cutscene-Teilnehmer wird das Waffeziehen verziehen --------
 			if (Npc_IsInCutscene(other))									// Befindet sich der Feind in einer Cutscene?
-			{	
-				PrintDebugNpc	(PD_ZS_CHECK, "...Feind ist in Cutscene!" );				
+			{
+				PrintDebugNpc	(PD_ZS_CHECK, "...Feind ist in Cutscene!" );
 				return;														//... dann verzeihen wir ihm nat¸rlich -> Abbruch des Checks
 			};
-		
+
 			//-------- Also doch ein ganz ordin‰rer Feind! --------
 			B_FullStop			(self);
 			AI_StartState 		(self, 	ZS_AssessEnemy,	0,	"");
-		}		
-	
+		}
+
 		//######## ...dann muﬂ der Enemy ein MONSTER sein ########
 		else
 		{
 			PrintDebugNpc		(PD_ZS_CHECK,	"... 'enemy' ist Monster/Orc!" );
-	
+
 			if	(Npc_GetDistToNpc(self, other) < HAI_DIST_ASSESS_MONSTER)
 			&&	C_NpcIsDangerousMonster(self,other)
 			{

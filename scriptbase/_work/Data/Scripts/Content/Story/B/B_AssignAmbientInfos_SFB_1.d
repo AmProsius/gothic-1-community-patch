@@ -9,13 +9,13 @@
 
 INSTANCE Info_SFB_1_EXIT(C_INFO)
 {
-	
+
 	nr			= 999;
 	condition	= Info_SFB_1_EXIT_Condition;
 	information	= Info_SFB_1_EXIT_Info;
 	permanent	= 1;
 	description = "END";
-};                       
+};
 
 FUNC INT Info_SFB_1_EXIT_Condition()
 {
@@ -23,7 +23,7 @@ FUNC INT Info_SFB_1_EXIT_Condition()
 };
 
 FUNC VOID Info_SFB_1_EXIT_Info()
-{	
+{
 	AI_StopProcessInfos	(self);
 };
 
@@ -31,14 +31,14 @@ FUNC VOID Info_SFB_1_EXIT_Info()
 // 								Einer von Euch werden
 // *************************************************************************
 
-INSTANCE Info_SFB_1_EinerVonEuchWerden (C_INFO) 
+INSTANCE Info_SFB_1_EinerVonEuchWerden (C_INFO)
 {
 	nr			= 4;
 	condition	= Info_SFB_1_EinerVonEuchWerden_Condition;
 	information	= Info_SFB_1_EinerVonEuchWerden_Info;
 	permanent	= 1;
 	description = "How do I join the league of scrapers?";
-};                       
+};
 
 FUNC INT Info_SFB_1_EinerVonEuchWerden_Condition()
 {
@@ -67,7 +67,7 @@ INSTANCE Info_SFB_1_WichtigePersonen(C_INFO)
 	information	= Info_SFB_1_WichtigePersonen_Info;
 	permanent	= 1;
 	description = "Who's in charge around here?";
-};                       
+};
 
 FUNC INT Info_SFB_1_WichtigePersonen_Condition()
 {
@@ -91,7 +91,7 @@ INSTANCE Info_SFB_1_DasLager(C_INFO)
 	information	= Info_SFB_1_DasLager_Info;
 	permanent	= 1;
 	description = "What is this?";
-};                       
+};
 
 FUNC INT Info_SFB_1_DasLager_Condition()
 {
@@ -109,14 +109,14 @@ FUNC VOID Info_SFB_1_DasLager_Info()
 // 									Die Lage
 // *************************************************************************
 
-INSTANCE Info_SFB_1_DieLage(C_INFO) 
+INSTANCE Info_SFB_1_DieLage(C_INFO)
 {
 	nr			= 1;
 	condition	= Info_SFB_1_DieLage_Condition;
 	information	= Info_SFB_1_DieLage_Info;
 	permanent	= 1;
 	description = "How are you doing?";
-};                       
+};
 
 FUNC INT Info_SFB_1_DieLage_Condition()
 {
@@ -129,13 +129,13 @@ FUNC VOID Info_SFB_1_DieLage_Info()
 	AI_Output(self,other,"Info_SFB_1_DieLage_01_01"); //How d'you think? Just as bad as usual. Nothing to eat, lots to do.
 	AI_Output(self,other,"Info_SFB_1_DieLage_01_02"); //The only one of us who doesn't have his hands full is Swiney. Okyl promoted him to spokesman for us scrapers. Now he stands around here all day making sure no-one gets blisters on their hands.
 };
-	
+
 // *************************************************************************
 // -------------------------------------------------------------------------
 
 FUNC VOID B_AssignAmbientInfos_SFB_1(var c_NPC slf)
 {
-	
+
 	Info_SFB_1_EXIT.npc					= Hlp_GetInstanceID(slf);
 	Info_SFB_1_EinerVonEuchWerden.npc	= Hlp_GetInstanceID(slf);
 	Info_SFB_1_WichtigePersonen.npc		= Hlp_GetInstanceID(slf);

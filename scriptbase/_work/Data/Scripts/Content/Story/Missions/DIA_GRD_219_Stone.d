@@ -5,7 +5,7 @@
 
 
 // ************************************************************
-//							Hello					
+//							Hello
 // ************************************************************
 
 instance DIA_Stone_Hello (C_INFO)
@@ -19,9 +19,9 @@ instance DIA_Stone_Hello (C_INFO)
 };
 
 FUNC int  DIA_Stone_Hello_Condition()
-{	
+{
 	if	(Kapitel < 4)
-	{	
+	{
 		return TRUE;
 	};
 };
@@ -33,7 +33,7 @@ func void  DIA_Stone_Hello_Info()
 };
 
 // ************************************************************
-//							Kaufen					
+//							Kaufen
 // ************************************************************
 
 instance DIA_Stone_NotSelling (C_INFO)
@@ -47,7 +47,7 @@ instance DIA_Stone_NotSelling (C_INFO)
 };
 
 FUNC int  DIA_Stone_NotSelling_Condition()
-{	
+{
 	if	(Npc_GetTrueGuild (hero) != GIL_GRD)
 	&&	(Kapitel < 4)
 	{
@@ -80,12 +80,12 @@ instance  GRD_219_Stone_GETSTUFF (C_INFO)
 	information		= GRD_219_Stone_GETSTUFF_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "I need armor."; 
+	description		= "I need armor.";
 };
 
 FUNC int  GRD_219_Stone_GETSTUFF_Condition()
-{	
-	if (Npc_GetTrueGuild (hero) == GIL_GRD) 
+{
+	if (Npc_GetTrueGuild (hero) == GIL_GRD)
 	{
 		return TRUE;
 	};
@@ -108,7 +108,7 @@ FUNC void  GRD_219_Stone_GETSTUFF_Info()
 	B_LogEntry		(GE_BecomeGuard,"I've collected my first guard's armor at the smith Stone's. I could even buy better armor there, but he's prices are high.");
 
 	AI_StopProcessInfos	( self );
-};  
+};
 
 //-----------------------------------------------------
 // BESSERE RÜSTUNG
@@ -120,11 +120,11 @@ instance  GRD_219_Stone_BETTERARMOR (C_INFO)
 	information		= GRD_219_Stone_BETTERARMOR_Info;
 	important		= 0;
 	permanent		= 1;
-	description		= "I need better armor."; 
+	description		= "I need better armor.";
 };
 
 FUNC int  GRD_219_Stone_BETTERARMOR_Condition()
-{	
+{
 	if	(Npc_KnowsInfo (hero,GRD_219_Stone_GETSTUFF))
 	&&	(Kapitel < 4)
 	{
@@ -136,12 +136,12 @@ FUNC void  GRD_219_Stone_BETTERARMOR_Info()
 {
 	AI_Output				(other, self,"GRD_219_Stone_BETTERARMOR_Info_15_01"); //I need better armor.
 	AI_Output				(self, other,"GRD_219_Stone_BETTERARMOR_Info_06_02"); //You can have it when you're ready for it and only if you have enough ore...
-		
+
 	Info_ClearChoices		(GRD_219_Stone_BETTERARMOR);
-	Info_AddChoice			(GRD_219_Stone_BETTERARMOR,	DIALOG_BACK							,	GRD_219_Stone_BETTERARMOR_BACK);	
-	Info_AddChoice			(GRD_219_Stone_BETTERARMOR, B_BuildBuyArmorString(NAME_StoneHeavyGuards,VALUE_GRD_ARMOR_H)	,GRD_219_Stone_BETTERARMOR_H);	
-	Info_AddChoice			(GRD_219_Stone_BETTERARMOR,	B_BuildBuyArmorString(NAME_StoneGuards,VALUE_GRD_ARMOR_M)	,	GRD_219_Stone_BETTERARMOR_M);	
-};  
+	Info_AddChoice			(GRD_219_Stone_BETTERARMOR,	DIALOG_BACK							,	GRD_219_Stone_BETTERARMOR_BACK);
+	Info_AddChoice			(GRD_219_Stone_BETTERARMOR, B_BuildBuyArmorString(NAME_StoneHeavyGuards,VALUE_GRD_ARMOR_H)	,GRD_219_Stone_BETTERARMOR_H);
+	Info_AddChoice			(GRD_219_Stone_BETTERARMOR,	B_BuildBuyArmorString(NAME_StoneGuards,VALUE_GRD_ARMOR_M)	,	GRD_219_Stone_BETTERARMOR_M);
+};
 
 func void GRD_219_Stone_BETTERARMOR_M ()
 {
@@ -195,10 +195,10 @@ INSTANCE DIA_GRD_219_Stone_Exit (C_INFO)
 	nr			= 999;
 	condition	= DIA_GRD_219_Stone_Exit_Condition;
 	information	= DIA_GRD_219_Stone_Exit_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC INT DIA_GRD_219_Stone_Exit_Condition()
 {
@@ -210,26 +210,26 @@ func VOID DIA_GRD_219_Stone_Exit_Info()
 	if ( Npc_KnowsInfo ( hero,  DIA_GRD_219_Stone4  ))
 	{
 		AI_StopProcessInfos	( self );
-		
+
 		var C_NPC Stone;	Stone = Hlp_GetNpc ( GRD_219_Stone );
 
 		TA_BeginOverlay (Stone);
 			TA_Min (Stone, 00, 00, 00, 05, ZS_Position,"OCC_MERCS_HALLWAY_BACK"	);
 			TA_Min (Stone, 00, 05, 00, 10, ZS_Position,"OCC_MERCS_ENTRANCE"		);
-			TA_Min (Stone, 00, 10, 00, 15, ZS_Position,"OCC_SHADOWS_CORNER"		);	
+			TA_Min (Stone, 00, 10, 00, 15, ZS_Position,"OCC_SHADOWS_CORNER"		);
 			TA_Min (Stone, 00, 15, 00, 20, ZS_Position,"OCC_STABLE_ENTRANCE"	);
-			TA_Min (Stone, 00, 20, 72, 00, ZS_Position,"OCC_STABLE_LEFT_FRONT"	);	
+			TA_Min (Stone, 00, 20, 72, 00, ZS_Position,"OCC_STABLE_LEFT_FRONT"	);
 		TA_EndOverlay (Stone);
-		
+
 		AI_Output (self, other,"Info_EXIT_06_02"); //I'll see you.
 
 		AI_StopProcessInfos	( self );
 	}
 	else {
 		AI_Output (self, other,"Info_EXIT_06_03"); //I'll see you.
-					
+
 		AI_StopProcessInfos	( self );
-	};	
+	};
 };
 
 
@@ -260,7 +260,7 @@ FUNC int DIA_GRD_219_Stone_Condition()
 	if (Kapitel >= 5)
 	{
  		return 1;
- 	};	
+ 	};
 };
 
 func void DIA_GRD_219_Stone_Info()
@@ -283,10 +283,10 @@ instance DIA_GRD_219_Stone1 (C_INFO)
 
 FUNC int DIA_GRD_219_Stone1_Condition()
 {
-	if ( Npc_KnowsInfo ( hero, DIA_GRD_219_Stone )) 
-	{			
+	if ( Npc_KnowsInfo ( hero, DIA_GRD_219_Stone ))
+	{
 		return 1;
-	};	
+	};
 };
 
 func void DIA_GRD_219_Stone1_Info()
@@ -322,7 +322,7 @@ FUNC int DIA_GRD_219_Stone3_Condition()
 	if ( Npc_KnowsInfo ( hero, DIA_GRD_219_Stone1 )) && ( Hlp_StrCmp ( Npc_GetNearestWP ( self ), "OCC_STABLE_LEFT_FRONT" ))
 	{
 			return 1;
-	};	
+	};
 };
 
 func void DIA_GRD_219_Stone3_Info()
@@ -349,9 +349,9 @@ instance DIA_GRD_219_Stone2 (C_INFO)
 FUNC int DIA_GRD_219_Stone2_Condition()
 {
 	if ( Npc_KnowsInfo ( hero, DIA_GRD_219_Stone3 ))
-	{			
+	{
 		return 1;
-	};	
+	};
 };
 
 func void DIA_GRD_219_Stone2_Info()
@@ -381,33 +381,33 @@ FUNC int DIA_GRD_219_Stone4_Condition()
 {
 	 if ( Npc_KnowsInfo ( hero, DIA_GRD_219_Stone3 )) && ( Npc_HasItems ( hero, ORE_ARMOR_M)) && ( KnowStone == 0 )  {
 			return 1;
-	 };	
+	 };
 };
 
 func void DIA_GRD_219_Stone4_Info()
 {
 		AI_Output (other, self, "DIA_GRD_219_Stone4_15_01"); //Can you reinforce this ore armor for me?
 		AI_Output (self, other, "DIA_GRD_219_Stone4_06_02"); //Sure I can. Hand it over and hang on a minute.
-	
+
 		AI_UnequipArmor	  ( hero );
 		B_GiveInvItems   (hero, self, ORE_ARMOR_M, 1);
 		Npc_RemoveInvItem   (self, ORE_ARMOR_M);
 
-		B_StartUseMob	( self,	"BSFIRE" );	
+		B_StartUseMob	( self,	"BSFIRE" );
 		AI_Wait			( self,	1);
-		B_StopUseMob	( self,	"BSFIRE" );	
+		B_StopUseMob	( self,	"BSFIRE" );
 		AI_Wait			( self,	1);
-		B_StartUseMob	( self,	"BSANVIL");	
+		B_StartUseMob	( self,	"BSANVIL");
 		AI_Wait			( self,	1);
-		B_StopUseMob	( self,	"BSANVIL" );	
+		B_StopUseMob	( self,	"BSANVIL" );
 		AI_Wait			( self,	1);
 		AI_GotoNpc 		( self, hero );
-		
+
 		CreateInvItem (self,ORE_ARMOR_H);
-		B_GiveInvItems	  (self, hero, ORE_ARMOR_H, 1);	
+		B_GiveInvItems	  (self, hero, ORE_ARMOR_H, 1);
 
 		AI_Output (self, other, "DIA_GRD_219_Stone4_06_03"); //Here is the reinforced armor. We're quits now.
-		
+
 		KnowStone = 1;
 };
 
@@ -427,29 +427,29 @@ FUNC int DIA_GRD_219_Stone5_Condition()
 {
 	 if ( Npc_KnowsInfo ( hero, DIA_GRD_219_Stone3 )) && ( KnowStone == 0 ) {
 			return 1;
-	 };	
+	 };
 };
 
 func void DIA_GRD_219_Stone5_Info()
 {
 		AI_Output (other, self, "DIA_GRD_219_Stone5_15_01"); //I could use a ring to increase my life energy.
 		AI_Output (self, other, "DIA_GRD_219_Stone5_06_02"); //That's not difficult, hold on.
-	
-		B_StartUseMob	( self,	"BSFIRE" );	
+
+		B_StartUseMob	( self,	"BSFIRE" );
 		AI_Wait			( self,	1);
-		B_StopUseMob	( self,	"BSFIRE" );	
+		B_StopUseMob	( self,	"BSFIRE" );
 		AI_Wait			( self,	1);
-		B_StartUseMob	( self,	"BSANVIL");	
+		B_StartUseMob	( self,	"BSANVIL");
 		AI_Wait			( self,	1);
-		B_StopUseMob	( self,	"BSANVIL" );	
+		B_StopUseMob	( self,	"BSANVIL" );
 		AI_Wait			( self,	1);
 		AI_GotoNpc 		( self, hero );
-		
+
 		AI_Output (self, other, "DIA_GRD_219_Stone5_06_03"); //This ring will give you extra life energy. That should be more than enough to settle the score between us.
 
-		CreateInvItem	  ( self, Ring_des_Lebens2 );	
-		B_GiveInvItems	  ( self, other, Ring_des_Lebens2, 1);	
-		
+		CreateInvItem	  ( self, Ring_des_Lebens2 );
+		B_GiveInvItems	  ( self, other, Ring_des_Lebens2, 1);
+
 		KnowStone = 1;
 };
 
@@ -469,29 +469,29 @@ FUNC int DIA_GRD_219_Stone6_Condition()
 {
 	 if ( Npc_KnowsInfo ( hero, DIA_GRD_219_Stone3 )) && ( KnowStone == 0 ){
 			return 1;
-	 };	
+	 };
 };
 
 func void DIA_GRD_219_Stone6_Info()
 {
 		AI_Output (other, self, "DIA_GRD_219_Stone6_15_01"); //I want you to forge me a protection ring.
-		AI_Output (self, other, "DIA_GRD_219_Stone6_06_02"); //A protection ring? Okay, I'll start right away. Just wait a while. 
-		
-		B_StartUseMob	( self,	"BSFIRE" );	
+		AI_Output (self, other, "DIA_GRD_219_Stone6_06_02"); //A protection ring? Okay, I'll start right away. Just wait a while.
+
+		B_StartUseMob	( self,	"BSFIRE" );
 		AI_Wait			( self,	1);
-		B_StopUseMob	( self,	"BSFIRE" );	
+		B_StopUseMob	( self,	"BSFIRE" );
 		AI_Wait			( self,	1);
-		B_StartUseMob	( self,	"BSANVIL");	
+		B_StartUseMob	( self,	"BSANVIL");
 		AI_Wait			( self,	1);
-		B_StopUseMob	( self,	"BSANVIL" );	
+		B_StopUseMob	( self,	"BSANVIL" );
 		AI_Wait			( self,	1);
 		AI_GotoNpc 		( self, hero );
-	
+
 		AI_Output (self, other, "DIA_GRD_219_Stone6_06_03"); //You asked for a protection ring, you have one, so now we're quits.
 
 		CreateInvItem	  ( self, Schutzring_Total2 );
 		B_GiveInvItems     (self, other, Schutzring_Total2, 1);
-		
+
 		KnowStone = 1;
 };
 
@@ -510,28 +510,28 @@ FUNC int DIA_GRD_219_Stone7_Condition()
 {
 	 if ( Npc_KnowsInfo ( hero, DIA_GRD_219_Stone3 )) && ( KnowStone == 0 ) {
 			return 1;
-	 };	
+	 };
 };
 
 func void DIA_GRD_219_Stone7_Info()
 {
 		AI_Output (other, self, "DIA_GRD_219_Stone7_15_01"); //Make me something to increase my magic powers.
 		AI_Output (self, other, "DIA_GRD_219_Stone7_06_02"); //... Something to increase magic powers...? An amulet! That's it, I'll forge an amulet for you. It won't take long.
-	
-		B_StartUseMob	( self,	"BSFIRE" );	
+
+		B_StartUseMob	( self,	"BSFIRE" );
 		AI_Wait			( self,	1);
-		B_StopUseMob	( self,	"BSFIRE" );	
+		B_StopUseMob	( self,	"BSFIRE" );
 		AI_Wait			( self,	1);
-		B_StartUseMob	( self,	"BSANVIL");	
+		B_StartUseMob	( self,	"BSANVIL");
 		AI_Wait			( self,	1);
-		B_StopUseMob	( self,	"BSANVIL" );	
+		B_StopUseMob	( self,	"BSANVIL" );
 		AI_Wait			( self,	1);
 		AI_GotoNpc 		( self, hero );
-		
+
 		AI_Output (self, other, "DIA_GRD_219_Stone7_06_03"); //Right, the amulet's finished, and I must say I've made a good job of it. We're quits now.
 
 		CreateInvItem	  ( self, Amulett_der_Magie );
-		B_GiveInvItems     (self, other, Amulett_der_Magie, 1);	
-		
+		B_GiveInvItems     (self, other, Amulett_der_Magie, 1);
+
 		KnowStone = 1;
 };

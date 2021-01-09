@@ -1,5 +1,5 @@
 // **************************************
-//					EXIT 
+//					EXIT
 // **************************************
 
 instance DIA_Gomez_Exit (C_INFO)
@@ -10,7 +10,7 @@ instance DIA_Gomez_Exit (C_INFO)
 	information	= DIA_Gomez_Exit_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC int DIA_Gomez_Exit_Condition()
 {
@@ -34,7 +34,7 @@ instance DIA_Gomez_Fault (C_INFO)
 	information	= DIA_Gomez_Fault_Info;
 	permanent	= 0;
 	description	= "I came to offer my services.";
-};                       
+};
 
 FUNC int DIA_Gomez_Fault_Condition()
 {
@@ -48,7 +48,7 @@ FUNC VOID DIA_Gomez_Fault_Info()
 {
 	AI_Output (other, self,"DIA_Gomez_Fault_15_00"); //I came to offer my services.
 	AI_Output (self, other,"DIA_Gomez_Fault_11_01"); //You just come marching in here and expect me to concern myself with you, you worm? GUARDS!
-	
+
 	AI_StopProcessInfos	(self);
 	Npc_SetPermAttitude	(self, ATT_HOSTILE);
 	Npc_SetTarget (self,other);
@@ -60,7 +60,7 @@ FUNC VOID DIA_Gomez_Fault_Info()
 // **************************************
 	var int gomez_kontakte;
 // **************************************
-	
+
 
 instance DIA_Gomez_Hello (C_INFO)
 {
@@ -70,7 +70,7 @@ instance DIA_Gomez_Hello (C_INFO)
 	information	= DIA_Gomez_Hello_Info;
 	permanent	= 1;
 	description	= "I have come to offer my services.";
-};                       
+};
 
 FUNC int DIA_Gomez_Hello_Condition()
 {
@@ -84,13 +84,13 @@ FUNC VOID DIA_Gomez_Hello_Info()
 {
 	AI_Output (other, self,"DIA_Gomez_Hello_15_00"); //I have come to offer my services.
 	AI_Output (self, other,"DIA_Gomez_Hello_11_01"); //What makes you think we're interested in your services?
-	
-	Info_ClearChoices	(DIA_Gomez_Hello);																			
+
+	Info_ClearChoices	(DIA_Gomez_Hello);
 	Info_AddChoice		(DIA_Gomez_Hello,"I hope I'm not going to have to chop your head off to prove myself.",DIA_Gomez_Hello_KopfAb);
 	Info_AddChoice		(DIA_Gomez_Hello,"There's only blockheads around here.",DIA_Gomez_Hello_Spinner);
 	Info_AddChoice		(DIA_Gomez_Hello,"I've been traveling around a lot and I have contacts in all the camps.",DIA_Gomez_Hello_Kontakte);
 	Info_AddChoice		(DIA_Gomez_Hello,"I have stood the test of faith.",DIA_Gomez_Hello_ThorusSays);
-	
+
 };
 
 func void DIA_Gomez_Hello_ThorusSays()
@@ -111,7 +111,7 @@ func void DIA_Gomez_Hello_Kontakte()
 	//Info_AddChoice		(DIA_Gomez_Hello,"Zu Lee."	,DIA_Gomez_Hello_Kontakte_Lee);
 	Info_AddChoice		(DIA_Gomez_Hello,"A few of the Baals in the Brotherhood's camp.",DIA_Gomez_Hello_Kontakte_Baals);
 	Info_AddChoice		(DIA_Gomez_Hello,"Cor Kalom.",DIA_Gomez_Hello_Kontakte_Kalom);
-	
+
 	if (gomez_kontakte < 3)
 	{
 	Info_AddChoice		(DIA_Gomez_Hello,"Y'Berion.",DIA_Gomez_Hello_Kontakte_YBerion);
@@ -128,7 +128,7 @@ func void DIA_Gomez_Hello_KopfAb()
 {
 	AI_Output (other, self,"DIA_Gomez_Hello_KopfAb_15_00"); //I hope I'm not going to have to chop your head off to prove that I can handle a weapon.
 	AI_Output (self, other,"DIA_Gomez_Hello_KopfAb_11_01"); //Thers's a fine line between bravery and stupidity.
-	
+
 	AI_StopProcessInfos	(self);
 	Npc_SetPermAttitude	(self, ATT_HOSTILE);
 	Npc_SetTarget		(self,other);
@@ -195,7 +195,7 @@ func void DIA_Gomez_Hello_Kontakte_NLHehler()
 func void DIA_Gomez_Hello_Kontakte_ThatsAll()
 {
 	AI_Output (other, self,"DIA_Gomez_Hello_Kontakte_ThatsAll_15_00"); //Those were the important ones.
-	if (gomez_kontakte >= 4)	
+	if (gomez_kontakte >= 4)
 	{
 		AI_Output (self, other,"DIA_Gomez_Hello_Kontakte_ThatsAll_11_01"); //Not bad - for a beginner...
 		AI_Output (self, other,"DIA_Gomez_Hello_Kontakte_ThatsAll_11_02"); //You shall have your chance.
@@ -220,7 +220,7 @@ instance DIA_Gomez_Dabei (C_INFO)
 	information	= DIA_Gomez_Dabei_Info;
 	permanent	= 0;
 	description	= "Does that mean I'm in?";
-};                       
+};
 
 FUNC int DIA_Gomez_Dabei_Condition()
 {
@@ -236,7 +236,7 @@ FUNC VOID DIA_Gomez_Dabei_Info()
 	AI_Output (other, self,"DIA_Gomez_Dabei_15_00"); //Does that mean I'm in?
 	AI_Output (self, other,"DIA_Gomez_Dabei_11_01"); //You bet it does. You're one of us now, kid.
 	AI_Output (self, other,"DIA_Gomez_Dabei_11_02"); //Raven'll fill you in on everything.
-	
+
 	Npc_SetTrueGuild (hero,GIL_STT );
 	hero.guild = GIL_STT;
 	B_GiveXP (XP_BecomeShadow);
@@ -247,11 +247,11 @@ FUNC VOID DIA_Gomez_Dabei_Info()
 	Log_CreateTopic		(CH1_JoinNC,	LOG_MISSION);
 	Log_SetTopicStatus	(CH1_JoinNC,	LOG_FAILED);
 	B_LogEntry			(CH1_JoinNC,"Since I now belong to Gomez' people I can't be admitted to Lares' gang!");
-	
+
 	Log_CreateTopic		(CH1_JoinPsi,	LOG_MISSION);
 	Log_SetTopicStatus	(CH1_JoinPsi,	LOG_FAILED);
 	B_LogEntry			(CH1_JoinPsi,"From now on the Old Camp is my new home. The Brotherhood of the Sleeper will have to make do without me.");
-	
+
 	AI_StopProcessInfos	(self);
 };
 
@@ -267,7 +267,7 @@ instance DIA_Gomez_NurSo (C_INFO)
 	information	= DIA_Gomez_NurSo_Info;
 	permanent	= 1;
 	description	= "I just thought I'd report in.";
-};                       
+};
 
 FUNC int DIA_Gomez_NurSo_Condition()
 {
@@ -305,7 +305,7 @@ instance  DIA_EBR_100_Gomez_Wait4SC (C_INFO)
 };
 
 FUNC int  DIA_EBR_100_Gomez_Wait4SC_Condition()
-{	
+{
 	if	ExploreSunkenTower
 	{
 		return TRUE;
@@ -318,9 +318,9 @@ FUNC void  DIA_EBR_100_Gomez_Wait4SC_Info()
 	AI_Output (other, self,"DIA_EBR_100_Gomez_Wait4SC_15_03"); //Your men had no right to invade it. I just corrected their attack of megalomania!
 	AI_Output (self, other,"DIA_EBR_100_Gomez_Wait4SC_11_04"); //Talking to me, GOMEZ, in that way shows some courage. But it was foolish of you to turn up here like that.
 	AI_Output (self, other,"DIA_EBR_100_Gomez_Wait4SC_11_05"); //I will personally take care that you never get in my way again.
-	
+
 	AI_StopProcessInfos	( self );
 
 	self.guild 	= GIL_EBR;
-	Npc_SetTrueGuild	( self, GIL_EBR );	
+	Npc_SetTrueGuild	( self, GIL_EBR );
 };

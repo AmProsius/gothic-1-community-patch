@@ -50,9 +50,9 @@ CLASS C_SVM
 
 // im Kampf
 	VAR	STRING	Dead			;			// Tödlich verletzt
-	VAR	STRING	Aargh_1			;			// Treffer kassiert im Kampf	
-	VAR	STRING	Aargh_2			;			// Treffer kassiert im Kampf	
-	VAR	STRING	Aargh_3			;			// Treffer kassiert im Kampf	
+	VAR	STRING	Aargh_1			;			// Treffer kassiert im Kampf
+	VAR	STRING	Aargh_2			;			// Treffer kassiert im Kampf
+	VAR	STRING	Aargh_3			;			// Treffer kassiert im Kampf
 
 	var string	Berzerk			;			// Wahnsinnsschrei im Zustand der Raserei!
 
@@ -220,13 +220,13 @@ CLASS C_SVM
 	VAR	STRING	Om;							// Ommm (Meditation)
 
 // SC Dialog
-	var string	SC_HeyTurnAround;			//SC: Hey du! (Nsc ansprechen, steht mit Rücken zu dir)                                   
-	var string	SC_HeyWaitASecond;			//SC: Warte mal! (Nsc im vorgeigehen anhalten)                                            
-	var string DoesntWork;				
-	var string PickBroke;				
-	var string NeedKey;					
-	var string NoMorePicks;				
-	var string InvFull;					
+	var string	SC_HeyTurnAround;			//SC: Hey du! (Nsc ansprechen, steht mit Rücken zu dir)
+	var string	SC_HeyWaitASecond;			//SC: Warte mal! (Nsc im vorgeigehen anhalten)
+	var string DoesntWork;
+	var string PickBroke;
+	var string NeedKey;
+	var string NoMorePicks;
+	var string InvFull;
 
 };
 
@@ -1451,7 +1451,7 @@ instance SVM_9 (C_SVM)				// brummig		   gemütlicher Hüne, Besonnen, Brummiger B
 	Smalltalk22					=	"SVM_9_Smalltalk22"					;// ... hang on. Better not to go rushing into anything ...
 	Smalltalk23					=	"SVM_9_Smalltalk23"					;// ... I thought that had been cleared up ages ago ...
 	Smalltalk24					=	"SVM_9_Smalltalk24"					;// ... let's talk about something else instead ...
-	Om							= 	"SVM_9_Om"							;// Ommm   
+	Om							= 	"SVM_9_Om"							;// Ommm
 };
 
 

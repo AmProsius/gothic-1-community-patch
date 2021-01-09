@@ -4,10 +4,10 @@ instance  KDF_402_Corristo_Exit (C_INFO)
 	nr			=  999;
 	condition	=  KDF_402_Corristo_Exit_Condition;
 	information	=  KDF_402_Corristo_Exit_Info;
-	important	=  0;	
+	important	=  0;
 	permanent	=  1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC int  KDF_402_Corristo_Exit_Condition()
 {
@@ -29,8 +29,8 @@ instance  Info_Corristo_Intruder (C_INFO)
 	condition	=	Info_Corristo_Intruder_Condition;
 	information	=	Info_Corristo_Intruder_Info;
 	permanent	=	1;
-	important	=	1;	
-};                       
+	important	=	1;
+};
 
 FUNC int  Info_Corristo_Intruder_Condition()
 {
@@ -63,11 +63,11 @@ instance  KDF_402_Corristo_EXPLAINMAGE (C_INFO)
 	information		= KDF_402_Corristo_EXPLAINMAGE_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "Tell me - what is it like to be a magician."; 
+	description		= "Tell me - what is it like to be a magician.";
 };
 
 FUNC int  KDF_402_Corristo_EXPLAINMAGE_Condition()
-{	
+{
 	if (!Npc_KnowsInfo (hero,KDF_402_Corristo_WANNBEKDF))
 	&& (Npc_GetTrueGuild (hero) == GIL_STT)
 	{
@@ -81,7 +81,7 @@ FUNC void  KDF_402_Corristo_EXPLAINMAGE_Info()
 	AI_Output (self, other,"KDF_402_Corristo_EXPLAINMAGE_Info_14_02"); //We are Magicians of Fire. We are the servants of Innos, the highest of all gods.
 	AI_Output (self, other,"KDF_402_Corristo_EXPLAINMAGE_Info_14_03"); //Our magic is a gift from the gods. We've been chosen to act as priests, tutors and judges.
 	AI_Output (self, other,"KDF_402_Corristo_EXPLAINMAGE_Info_14_04"); //It is a gift which is a constant burden to us. A task which determines our lives.
-};  
+};
 //--------------------------------------------------------------------------
 // 							MAGIERAUFNAHME
 //--------------------------------------------------------------------------
@@ -96,7 +96,7 @@ instance KDF_402_Corristo_WANNBEKDF (C_INFO)
 };
 
 FUNC int  KDF_402_Corristo_WANNBEKDF_Condition()
-{	
+{
 	if ( (CorKalom_BringMCQBalls == LOG_SUCCESS) || Npc_KnowsInfo(hero,GRD_200_Thorus_WANNABEMAGE) )
 	&& (Npc_GetTrueGuild(hero) == GIL_STT)
 	{
@@ -108,11 +108,11 @@ func void  KDF_402_Corristo_WANNBEKDF_Info()
 	AI_Output (other, self,"KDF_402_Corristo_WANNBEKDF_Info_15_01"); //I'd like to enter the magic Circle.
 	AI_Output (self, other,"KDF_402_Corristo_WANNBEKDF_Info_14_02"); //So you want to become a Magician of the Circle of Fire? Hm...
 
-	
+
 	if	(hero.level < 10)
 	{
 		AI_Output (self, other,"KDF_402_Corristo_WANNBEKDF_Info_14_04"); //You are not ready yet. Come back when you've learned more.
-		
+
 		AI_StopProcessInfos	( self );
 		B_PrintGuildCondition(10);
 	}
@@ -129,8 +129,8 @@ func void  KDF_402_Corristo_WANNBEKDF_Info()
 	};
 };
 //--------------------------------------------------------------------------
-// 							DIE PROBE 
-//-------------------------------------------------------------------------- 
+// 							DIE PROBE
+//--------------------------------------------------------------------------
 instance  KDF_402_Corristo_KDFTEST (C_INFO)
 {
 	npc				= KDF_402_Corristo;
@@ -138,11 +138,11 @@ instance  KDF_402_Corristo_KDFTEST (C_INFO)
 	information		= KDF_402_Corristo_KDFTEST_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "I'm up for it. Just test me."; 
+	description		= "I'm up for it. Just test me.";
 };
 
 FUNC int  KDF_402_Corristo_KDFTEST_Condition()
-{	
+{
 	if (Corristo_KDFAufnahme == 1)
 	{
 		return TRUE;
@@ -154,10 +154,10 @@ FUNC void  KDF_402_Corristo_KDFTEST_Info()
 	AI_Output (other, self,"KDF_402_Corristo_KDFTEST_Info_15_01"); //I'm up for it. Just test me.
 	AI_Output (self, other,"KDF_402_Corristo_KDFTEST_Info_14_02"); //Good. You have served the Brotherhood in the swamp, have you not?
 	Info_ClearChoices (KDF_402_Corristo_KDFTEST);
-	Info_Addchoice (KDF_402_Corristo_KDFTEST,"Yes",KDF_402_Corristo_KDFTEST_JA); 
-	Info_Addchoice (KDF_402_Corristo_KDFTEST,"No",KDF_402_Corristo_KDFTEST_NO); 
+	Info_Addchoice (KDF_402_Corristo_KDFTEST,"Yes",KDF_402_Corristo_KDFTEST_JA);
+	Info_Addchoice (KDF_402_Corristo_KDFTEST,"No",KDF_402_Corristo_KDFTEST_NO);
 
-};  
+};
 FUNC VOID  KDF_402_Corristo_KDFTEST_JA()
 {
 	AI_Output (other, self,"KDF_402_Corristo_KDFTEST_JA_Info_15_01"); //Yes.
@@ -165,9 +165,9 @@ FUNC VOID  KDF_402_Corristo_KDFTEST_JA()
 	AI_Output (self, other,"KDF_402_Corristo_KDFTEST_JA_Info_14_03"); //What is the name of our god?
 	Corristo_KDFAufnahme = 2;
 	Info_ClearChoices (KDF_402_Corristo_KDFTEST);
-	Info_Addchoice (KDF_402_Corristo_KDFTEST,"Adanos",KDF_402_Corristo_KDFTEST_ADANOS); 
+	Info_Addchoice (KDF_402_Corristo_KDFTEST,"Adanos",KDF_402_Corristo_KDFTEST_ADANOS);
 	Info_Addchoice (KDF_402_Corristo_KDFTEST,"The Sleeper",KDF_402_Corristo_KDFTEST_SLEEPER);
-	Info_Addchoice (KDF_402_Corristo_KDFTEST,"Innos",KDF_402_Corristo_KDFTEST_INNOS); 
+	Info_Addchoice (KDF_402_Corristo_KDFTEST,"Innos",KDF_402_Corristo_KDFTEST_INNOS);
 	Info_Addchoice (KDF_402_Corristo_KDFTEST,"Gomez",KDF_402_Corristo_KDFTEST_GOMEZ);
 };
 
@@ -203,9 +203,9 @@ FUNC VOID  KDF_402_Corristo_KDFTEST_INNOS()
 	AI_Output (self, other,"KDF_402_Corristo_KDFTEST_INNOS_Info_14_03"); //Which is the highest virtue of all?
 	Corristo_KDFAufnahme = 3;
 	Info_ClearChoices (KDF_402_Corristo_KDFTEST);
-	Info_Addchoice (KDF_402_Corristo_KDFTEST,"A warrior's honor.",KDF_402_Corristo_KDFTEST_FIGHT); 
+	Info_Addchoice (KDF_402_Corristo_KDFTEST,"A warrior's honor.",KDF_402_Corristo_KDFTEST_FIGHT);
 	Info_Addchoice (KDF_402_Corristo_KDFTEST,"Humility in the face of magic.",KDF_402_Corristo_KDFTEST_DEMUT);
-	Info_Addchoice (KDF_402_Corristo_KDFTEST,"The discipline of a man.",KDF_402_Corristo_KDFTEST_DISZIPLIN); 
+	Info_Addchoice (KDF_402_Corristo_KDFTEST,"The discipline of a man.",KDF_402_Corristo_KDFTEST_DISZIPLIN);
 	Info_Addchoice (KDF_402_Corristo_KDFTEST,"Awe of the gods.",KDF_402_Corristo_KDFTEST_EHRFURCHT);
 };
 FUNC VOID  KDF_402_Corristo_KDFTEST_GOMEZ()
@@ -272,7 +272,7 @@ instance KDF_402_Corristo_AUFNAHME (C_INFO)
 };
 
 FUNC int  KDF_402_Corristo_AUFNAHME_Condition()
-{	
+{
 	if ( Npc_GetDistToWp (hero,"OCC_CHAPEL_UPSTAIRS") < 500)
 	&& (Corristo_KDFAufnahme == 4)
 	{
@@ -281,11 +281,11 @@ FUNC int  KDF_402_Corristo_AUFNAHME_Condition()
 };
 func void  KDF_402_Corristo_AUFNAHME_Info()
 {
-	
+
 	Corristo_KDFAufnahme = 5;
 	B_Story_Feueraufnahme();
-	AI_UnequipWeapons (hero); 
-	AI_SetWalkmode (hero,NPC_WALK); 
+	AI_UnequipWeapons (hero);
+	AI_SetWalkmode (hero,NPC_WALK);
 	AI_GotoNpc (hero,self);
 	AI_Output  (self, other,"KDF_402_Corristo_AUFNAHME_Info_14_01"); //We are gathered here today to ordain a servant of Fire.
 	AI_Output  (self, other,"KDF_402_Corristo_AUFNAHME_Info_14_02"); //Now take the oath of Fire.
@@ -310,7 +310,7 @@ instance KDF_402_Corristo_ROBE (C_INFO)
 };
 
 FUNC int  KDF_402_Corristo_ROBE_Condition()
-{	
+{
 	if (Npc_KnowsInfo (hero,KDF_402_Corristo_AUFNAHME))
 	{
 		return TRUE;
@@ -318,14 +318,14 @@ FUNC int  KDF_402_Corristo_ROBE_Condition()
 };
 func void  KDF_402_Corristo_ROBE_Info()
 {
-	Snd_Play			("MFX_Heal_Cast"); 
-	
+	Snd_Play			("MFX_Heal_Cast");
+
 	CreateInvItem		(hero,KDF_ARMOR_L);
-	
+
 	CreateInvItem		(self, ItAmArrow);
 	B_GiveInvItems      (self, hero, ItAmArrow, 1);
 	Npc_RemoveInvItem	(hero, ItAmArrow);
-	
+
 	AI_Output			(self, other,"KDF_402_Corristo_ROBE_Info_14_01"); //By uttering the words of the oath you have now entered into a bond with the Fire.
 	AI_Output			(self, other,"KDF_402_Corristo_ROBE_Info_14_02"); //Wear this robe as a sign of the eternal bond.
 	AI_StopProcessInfos	(self);
@@ -333,12 +333,12 @@ func void  KDF_402_Corristo_ROBE_Info()
 	AI_UnequipWeapons	(hero);
 	Npc_SetTrueGuild	(hero,GIL_KDF);
 	hero.guild = GIL_KDF;
-	
+
 	hero.attribute [ATR_HITPOINTS] = hero.attribute [ATR_HITPOINTS_MAX];
 
 	B_LogEntry		(GE_BecomeFiremage,"I've passed the test and sworn the oath of Fire. From now on I'll wear the red robe of the Circle of Fire!");
 	Log_CreateTopic	(GE_TeacherOC,LOG_NOTE);
-	B_LogEntry		(GE_TeacherOC,"Corristo can teach me the magic CIRCLES and increase my MANA. He's in the house of the Magicians of Fire.");	
+	B_LogEntry		(GE_TeacherOC,"Corristo can teach me the magic CIRCLES and increase my MANA. He's in the house of the Magicians of Fire.");
 };
 //--------------------------------------------------------------------------
 // 							MANA KAUFEN
@@ -352,12 +352,12 @@ instance  KDF_402_Corristo_MANA (C_INFO)
 	information		= KDF_402_Corristo_MANA_Info;
 	important		= 0;
 	permanent		= 1;
-	description		= "I need more magic power."; 
+	description		= "I need more magic power.";
 };
 
 FUNC int  KDF_402_Corristo_MANA_Condition()
-{	
-	if (Npc_GetTrueGuild (hero) == GIL_KDF) 
+{
+	if (Npc_GetTrueGuild (hero) == GIL_KDF)
 	{
 		return TRUE;
 	};
@@ -367,12 +367,12 @@ FUNC void  KDF_402_Corristo_MANA_Info()
 {
 	AI_Output (other, self,"KDF_402_Corristo_MANA_Info_15_01"); //I need more magic power.
 	AI_Output (self, other,"KDF_402_Corristo_MANA_Info_14_02"); //I can help you to increase your power. What use you make of it is your affair.
-	
+
 	Info_ClearChoices	(KDF_402_Corristo_MANA);
 	Info_AddChoice		(KDF_402_Corristo_MANA,DIALOG_BACK	,KDF_402_Corristo_MANA_BACK);
 	Info_AddChoice		(KDF_402_Corristo_MANA,B_BuildLearnString(NAME_LearnMana_5,5*LPCOST_ATTRIBUTE_MANA,0)		,KDF_402_Corristo_MANA_MAN_5);
 	Info_AddChoice		(KDF_402_Corristo_MANA,B_BuildLearnString(NAME_LearnMana_1,LPCOST_ATTRIBUTE_MANA,0)		,KDF_402_Corristo_MANA_MAN_1);
-};  
+};
 func void KDF_402_Corristo_MANA_BACK()
 {
 	Info_ClearChoices	(KDF_402_Corristo_MANA);
@@ -409,12 +409,12 @@ instance  KDF_402_Corristo_EXPLAINCIRCLES (C_INFO)
 	information		= KDF_402_Corristo_EXPLAINCIRCLES_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "Please explain the meaning of the magic Circles."; 
+	description		= "Please explain the meaning of the magic Circles.";
 };
 
 FUNC int  KDF_402_Corristo_EXPLAINCIRCLES_Condition()
-{	
-	if (Npc_GetTrueGuild (hero) == GIL_KDF) 
+{
+	if (Npc_GetTrueGuild (hero) == GIL_KDF)
 	{
 		return TRUE;
 	};
@@ -429,7 +429,7 @@ func void  KDF_402_Corristo_EXPLAINCIRCLES_Info()
 	AI_Output (self, other,"KDF_402_Corristo_EXPLAINCIRCLES_Info_14_06"); //But your efforts to reach them will be rewarded with new and powerful spells each time. However, the Circles of magic are more than that.
 	AI_Output (self, other,"KDF_402_Corristo_EXPLAINCIRCLES_Info_14_07"); //They are part of your life. They will always be with you. Make them part of you.
 	AI_Output (self, other,"KDF_402_Corristo_EXPLAINCIRCLES_Info_14_08"); //To understand their might, you need to recognize your own.
-};  
+};
 //--------------------------------------------------------------------------
 // 							DER ERSTE KREIS
 //--------------------------------------------------------------------------
@@ -440,11 +440,11 @@ instance  KDF_402_Corristo_KREIS1 (C_INFO)
 	information		= KDF_402_Corristo_KREIS1_Info;
 	important		= 0;
 	permanent		= 1;
-	description		= B_BuildLearnString(NAME_LearnMage_1, LPCOST_TALENT_MAGE_1,0); 
+	description		= B_BuildLearnString(NAME_LearnMage_1, LPCOST_TALENT_MAGE_1,0);
 };
 
 FUNC int  KDF_402_Corristo_KREIS1_Condition()
-{	
+{
 	if	(Npc_GetTalentSkill (hero,NPC_TALENT_MAGE) == 0)
 	&&	(Npc_KnowsInfo (hero,KDF_402_Corristo_EXPLAINCIRCLES))
 	&&	(Npc_GetTrueGuild (hero) == GIL_KDF)
@@ -456,7 +456,7 @@ FUNC int  KDF_402_Corristo_KREIS1_Condition()
 FUNC void  KDF_402_Corristo_KREIS1_Info()
 {
 	AI_Output (other, self,"KDF_402_Corristo_KREIS1_Info_15_01"); //I am ready to enter the First Circle.
-	
+
 	if (B_GiveSkill(other,NPC_TALENT_MAGE , 1, LPCOST_TALENT_MAGE_1))
 	{
 		AI_Output (self, other,"KDF_402_Corristo_KREIS1_Info_14_02"); //To enter the first of the magic Circles means learning to use magic runes.
@@ -469,7 +469,7 @@ FUNC void  KDF_402_Corristo_KREIS1_Info()
 		AI_Output (self, other,"KDF_402_Corristo_KREIS1_Info_14_09"); //Use the power of the runes to recognize yourself.
 		KDF_402_Corristo_KREIS1.permanent	= 0;
 	};
-};  
+};
 //---------------------------------------------------------------------
 //						DER ZWEITE KREIS
 //---------------------------------------------------------------------
@@ -480,14 +480,14 @@ instance  KDF_402_Corristo_KREIS2 (C_INFO)
 	information		= KDF_402_Corristo_KREIS2_Info;
 	important		= 0;
 	permanent		= 1;
-	description		= B_BuildLearnString(NAME_LearnMage_2, LPCOST_TALENT_MAGE_2,0); 
+	description		= B_BuildLearnString(NAME_LearnMage_2, LPCOST_TALENT_MAGE_2,0);
 };
 
 FUNC int  KDF_402_Corristo_KREIS2_Condition()
-{	
+{
 	if (Npc_GetTalentSkill (hero,NPC_TALENT_MAGE) == 1)
 	&& (Npc_GetTrueGuild (hero) == GIL_KDF)
-	
+
 	{
 		return TRUE;
 	};
@@ -496,7 +496,7 @@ FUNC int  KDF_402_Corristo_KREIS2_Condition()
 FUNC void  KDF_402_Corristo_KREIS2_Info()
 {
 	AI_Output (other, self,"KDF_402_Corristo_KREIS2_Info_15_01"); //I am ready to enter the Second Circle.
-	
+
 	if (B_GiveSkill(other,NPC_TALENT_MAGE , 2, LPCOST_TALENT_MAGE_2))
 	{
 		AI_Output (self, other,"KDF_402_Corristo_KREIS2_Info_14_02"); //You have learned to understand the runes. Now is the time to deepen this understanding.
@@ -509,7 +509,7 @@ FUNC void  KDF_402_Corristo_KREIS2_Info()
 		KDF_402_Corristo_KREIS2.permanent = 0;
 	};
 
-};  
+};
 //---------------------------------------------------------------------
 //						DER DRITTE KREIS
 //---------------------------------------------------------------------
@@ -520,14 +520,14 @@ instance  KDF_402_Corristo_KREIS3 (C_INFO)
 	information		= KDF_402_Corristo_KREIS3_Info;
 	important		= 0;
 	permanent		= 1;
-	description		= B_BuildLearnString(NAME_LearnMage_3, LPCOST_TALENT_MAGE_3,0); 
+	description		= B_BuildLearnString(NAME_LearnMage_3, LPCOST_TALENT_MAGE_3,0);
 };
 
 FUNC int  KDF_402_Corristo_KREIS3_Condition()
-{	
+{
 	if (Npc_GetTalentSkill (hero,NPC_TALENT_MAGE ) == 2)
 	&& (Npc_GetTrueGuild (hero) == GIL_KDF)
-	 
+
 	{
 		return TRUE;
 	};
@@ -547,7 +547,7 @@ FUNC void  KDF_402_Corristo_KREIS3_Info()
 		KDF_402_Corristo_KREIS3.permanent = 0;
 	};
 
-};  
+};
 //---------------------------------------------------------------------
 //						DER VIERTE KREIS
 //---------------------------------------------------------------------
@@ -558,11 +558,11 @@ instance  KDF_402_Corristo_KREIS4 (C_INFO)
 	information		= KDF_402_Corristo_KREIS4_Info;
 	important		= 0;
 	permanent		= 1;
-	description		= B_BuildLearnString(NAME_LearnMage_4, LPCOST_TALENT_MAGE_4,0); 
+	description		= B_BuildLearnString(NAME_LearnMage_4, LPCOST_TALENT_MAGE_4,0);
 };
 
 FUNC int  KDF_402_Corristo_KREIS4_Condition()
-{	
+{
 	if (Npc_GetTalentSkill (hero,NPC_TALENT_MAGE ) == 3)
 	&& (Npc_GetTrueGuild (hero) == GIL_KDF)
 	{
@@ -583,9 +583,9 @@ FUNC void  KDF_402_Corristo_KREIS4_Info()
 		AI_Output (self, other,"KDF_402_Corristo_KREIS4_Info_14_07"); //Understand the magic, then you'll discover the secret of power.
 		KDF_402_Corristo_KREIS4.permanent = 0;
 	};
-};  
+};
 /*------------------------------------------------------------------------
-							SCHWERE ROBE									
+							SCHWERE ROBE
 ------------------------------------------------------------------------*/
 
 instance  KDF_402_Corristo_HEAVYARMOR (C_INFO)
@@ -595,11 +595,11 @@ instance  KDF_402_Corristo_HEAVYARMOR (C_INFO)
 	information		= KDF_402_Corristo_HEAVYARMOR_Info;
 	important		= 0;
 	permanent		= 1;
-	description		= B_BuildBuyArmorString(NAME_CorristoHighRobe,VALUE_KDF_ARMOR_H); 
+	description		= B_BuildBuyArmorString(NAME_CorristoHighRobe,VALUE_KDF_ARMOR_H);
 };
 
 FUNC int  KDF_402_Corristo_HEAVYARMOR_Condition()
-{	
+{
 	if (Npc_GetTrueGuild (hero) == GIL_KDF)
 	{
 		return TRUE;
@@ -609,28 +609,28 @@ FUNC int  KDF_402_Corristo_HEAVYARMOR_Condition()
 FUNC void  KDF_402_Corristo_HEAVYARMOR_Info()
 {
 	AI_Output (other, self,"KDF_402_Corristo_HEAVYARMOR_Info_15_01"); //Master, I'd like to wear the high robe of Fire.
-	if (Kapitel < 3) 
+	if (Kapitel < 3)
 	{
 		AI_Output (self, other,"KDF_402_Corristo_WANNBEKDF_Info_14_04"); //You are not ready yet. Come back when you've learned more.
 		//AI_Output (other, self,"KDF_402_Corristo_HEAVYARMOR_Info_15_02"); //Es ist noch nicht deine Zeit, die hohe Robe zu tragen. //***FALSCHE STIMME***
 	}
-	else if (Npc_HasItems (hero,ItMinugget)< VALUE_KDF_ARMOR_H) 
-	{ 
+	else if (Npc_HasItems (hero,ItMinugget)< VALUE_KDF_ARMOR_H)
+	{
 		AI_Output			(self, other,"KDF_402_Corristo_HEAVYARMOR_Info_14_03"); //You don't own enough ore.
-	}	
+	}
 	else
-	{	
+	{
 		AI_Output			(self, other,"KDF_402_Corristo_HEAVYARMOR_Info_14_04"); //The time has come. You are worthy of wearing the high robe of Fire.
-		
+
 		CreateInvItem		(hero,KDF_ARMOR_H);
-		
+
 		CreateInvItem		(self, ItAmArrow);
 		B_GiveInvItems      (self, hero, ItAmArrow, 1);
 		Npc_RemoveInvItem	(hero, ItAmArrow);
-		
+
 		B_GiveInvItems      (hero, self, ItMinugget,VALUE_KDF_ARMOR_H);
 		AI_EquipBestArmor	(hero);
 		KDF_402_Corristo_HEAVYARMOR.permanent = 0;
 	};
-	
-};  
+
+};

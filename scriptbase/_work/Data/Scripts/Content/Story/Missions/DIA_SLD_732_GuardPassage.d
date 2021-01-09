@@ -1,8 +1,8 @@
 //////////////////////////////////////////////////////////////////////////
 //	DURCHGANGSWACHE
-//	===============	
+//	===============
 //	NSC:		SLD_732_Soeldner
-//	Lager:				
+//	Lager:
 //	Durchgang:
 //	Uhrzeit:
 //
@@ -23,7 +23,7 @@ instance Info_SLD_732_FirstWarn (C_INFO)
 	information	= Info_SLD_732_FirstWarn_Info;
 	permanent	= 1;
 	important	= 1;
-};                       
+};
 
 //------------------------------------------------------------------------
 //	1. Warnung
@@ -31,7 +31,7 @@ instance Info_SLD_732_FirstWarn (C_INFO)
 func int Info_SLD_732_FirstWarn_Condition()
 {
 	if ((hero.aivar[AIV_GUARDPASSAGE_STATUS]== AIV_GPS_BEGIN)
-	&&  (self.aivar[AIV_PASSGATE]			== FALSE		) 
+	&&  (self.aivar[AIV_PASSGATE]			== FALSE		)
 	&&	(Hlp_StrCmp(Npc_GetNearestWP(self), self.wp)		))
 	{
 		return TRUE;
@@ -45,16 +45,16 @@ func void Info_SLD_732_FirstWarn_Info()
 	AI_Output 		(self, hero,"Info_SLD_732_FirstWarn_08_01"); //STOP! Nobody may pass without the password!
 
 	hero.aivar[AIV_LASTDISTTOWP] 		= Npc_GetDistToWP(hero,SLD_732_CHECKPOINT);
-	hero.aivar[AIV_GUARDPASSAGE_STATUS]	= AIV_GPS_FIRSTWARN;	
+	hero.aivar[AIV_GUARDPASSAGE_STATUS]	= AIV_GPS_FIRSTWARN;
 
 	if (Npc_KnowsInfo(hero, Info_Cronos_SLEEPER))
 	{
 		Info_Clearchoices 	(Info_SLD_732_FirstWarn);
-		Info_Addchoice 		(Info_SLD_732_FirstWarn,"Cronos has given me permission!",	Info_SLD_732_Parole_CRONOS);  
-		Info_Addchoice 		(Info_SLD_732_FirstWarn,"No idea, I've forgotten it!",	Info_SLD_732_Parole_FORGOT);  
-		Info_Addchoice 		(Info_SLD_732_FirstWarn,"The password is TERIANTROCH.",	Info_SLD_732_Parole_FALSE2);  
-		Info_Addchoice 		(Info_SLD_732_FirstWarn,"The password is TETRIANDOCH.",	Info_SLD_732_Parole_TRUE);  
-		Info_Addchoice 		(Info_SLD_732_FirstWarn,"The password is TETRIDANOCH.",	Info_SLD_732_Parole_FALSE1);  
+		Info_Addchoice 		(Info_SLD_732_FirstWarn,"Cronos has given me permission!",	Info_SLD_732_Parole_CRONOS);
+		Info_Addchoice 		(Info_SLD_732_FirstWarn,"No idea, I've forgotten it!",	Info_SLD_732_Parole_FORGOT);
+		Info_Addchoice 		(Info_SLD_732_FirstWarn,"The password is TERIANTROCH.",	Info_SLD_732_Parole_FALSE2);
+		Info_Addchoice 		(Info_SLD_732_FirstWarn,"The password is TETRIANDOCH.",	Info_SLD_732_Parole_TRUE);
+		Info_Addchoice 		(Info_SLD_732_FirstWarn,"The password is TETRIDANOCH.",	Info_SLD_732_Parole_FALSE1);
 	}
 	else
 	{
@@ -117,14 +117,14 @@ instance Info_SLD_732_LastWarn (C_INFO)
 	information	= Info_SLD_732_LastWarn_Info;
 	permanent	= 1;
 	important	= 1;
-};                       
+};
 
 func int Info_SLD_732_LastWarn_Condition()
 {
 	if ((hero.aivar[AIV_GUARDPASSAGE_STATUS]		== AIV_GPS_FIRSTWARN				)
-	&&  (self.aivar[AIV_PASSGATE]					== FALSE		) 
+	&&  (self.aivar[AIV_PASSGATE]					== FALSE		)
 	&&  (Npc_GetDistToWP(hero,SLD_732_CHECKPOINT)	< (hero.aivar[AIV_LASTDISTTOWP]-100))
-	&&	(Hlp_StrCmp(Npc_GetNearestWP(self),self.wp)										)) 
+	&&	(Hlp_StrCmp(Npc_GetNearestWP(self),self.wp)										))
 	{
 		return TRUE;
 	};
@@ -151,14 +151,14 @@ instance Info_SLD_732_Attack (C_INFO)
 	information	= Info_SLD_732_Attack_Info;
 	permanent	= 1;
 	important	= 1;
-};                       
+};
 
 func int Info_SLD_732_Attack_Condition()
 {
 	if ((hero.aivar[AIV_GUARDPASSAGE_STATUS]		== AIV_GPS_LASTWARN					)
-	&&  (self.aivar[AIV_PASSGATE]					== FALSE		) 
+	&&  (self.aivar[AIV_PASSGATE]					== FALSE		)
 	&&  (Npc_GetDistToWP(hero,SLD_732_CHECKPOINT)	< (hero.aivar[AIV_LASTDISTTOWP]-100))
-	&&	(Hlp_StrCmp(Npc_GetNearestWP(self),self.wp)										)) 
+	&&	(Hlp_StrCmp(Npc_GetNearestWP(self),self.wp)										))
 	{
 		return 			TRUE;
 	};
@@ -166,11 +166,11 @@ func int Info_SLD_732_Attack_Condition()
 
 func int Info_SLD_732_Attack_Info()
 {
-	
+
 	hero.aivar[AIV_LASTDISTTOWP] 		= 0;
-	hero.aivar[AIV_GUARDPASSAGE_STATUS]	= AIV_GPS_PUNISH;	
-	
-	B_FullStop			(self);	
+	hero.aivar[AIV_GUARDPASSAGE_STATUS]	= AIV_GPS_PUNISH;
+
+	B_FullStop			(self);
 	AI_StopProcessInfos	(self);					// dem Spieler sofort wieder die Kontrolle zurückgeben
 	B_IntruderAlert		(self,	other);
 	B_SetAttackReason	(self,	AIV_AR_INTRUDER);
@@ -190,7 +190,7 @@ instance Info_SLD_732_PAROLE (C_INFO)
 	permanent	= 1;
 	important	= 0;
 	description	= "(say password)";
-};                       
+};
 
 func int Info_SLD_732_PAROLE_Condition()
 {
@@ -204,9 +204,9 @@ func int Info_SLD_732_PAROLE_Condition()
 func int Info_SLD_732_PAROLE_Info()
 {
 	Info_ClearChoices 	(Info_SLD_732_PAROLE);
-	Info_AddChoice 		(Info_SLD_732_PAROLE,"Cronos has given me permission!",	Info_SLD_732_Parole_CRONOS);  
-	Info_AddChoice 		(Info_SLD_732_PAROLE,"No idea, I've forgotten it!",	Info_SLD_732_Parole_FORGOT);  
-	Info_AddChoice 		(Info_SLD_732_PAROLE,"The password is TERIANTROCH.",	Info_SLD_732_Parole_FALSE2);  
-	Info_AddChoice 		(Info_SLD_732_PAROLE,"The password is TETRIANDOCH.",	Info_SLD_732_Parole_TRUE);  
-	Info_AddChoice 		(Info_SLD_732_PAROLE,"The password is TETRIDANOCH.",	Info_SLD_732_Parole_FALSE1);  
+	Info_AddChoice 		(Info_SLD_732_PAROLE,"Cronos has given me permission!",	Info_SLD_732_Parole_CRONOS);
+	Info_AddChoice 		(Info_SLD_732_PAROLE,"No idea, I've forgotten it!",	Info_SLD_732_Parole_FORGOT);
+	Info_AddChoice 		(Info_SLD_732_PAROLE,"The password is TERIANTROCH.",	Info_SLD_732_Parole_FALSE2);
+	Info_AddChoice 		(Info_SLD_732_PAROLE,"The password is TETRIANDOCH.",	Info_SLD_732_Parole_TRUE);
+	Info_AddChoice 		(Info_SLD_732_PAROLE,"The password is TETRIDANOCH.",	Info_SLD_732_Parole_FALSE1);
 };

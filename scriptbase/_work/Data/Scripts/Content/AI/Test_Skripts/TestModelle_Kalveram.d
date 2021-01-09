@@ -1,9 +1,9 @@
 // Fonttestbuch für Französische und was weiß ich für Zeichen!
 
 INSTANCE Fonttestbook(C_Item)
-{	
+{
 	name 					=	"zeichenglumpsche_ascii";
-	
+
 	mainflag 				=	ITEM_KAT_DOCS;
 	flags 					=	ITEM_MISSION;
 
@@ -12,40 +12,40 @@ INSTANCE Fonttestbook(C_Item)
 	visual 					=	"ItWr_Book_02_05.3ds";
 	material 				=	MAT_LEATHER;
 
-	scemeName				=	"MAP";	
+	scemeName				=	"MAP";
 	on_state[0]				=	UseFonttestbook;
 };
 
 
 
 	FUNC VOID UseFonttestbook()
-	{   
+	{
 		var int nDocID;
-		
+
 		nDocID =
-		Doc_Create		()			  ;							// DocManager 
+		Doc_Create		()			  ;							// DocManager
 		Doc_SetPages	( nDocID,  2 );                         //wieviel Pages
-		Doc_SetPage 	( nDocID,  0, "Book_Mage_L.tga"  , 0 		); 
+		Doc_SetPage 	( nDocID,  0, "Book_Mage_L.tga"  , 0 		);
 		Doc_SetPage 	( nDocID,  1, "Book_Mage_R.tga" , 0		);
-				
+
 		//1.Seite
 		Doc_SetMargins	( nDocID,  0,  275, 20, 30, 20, 1);  //  0 -> margins are in pixels
 		Doc_SetFont 	( nDocID,  0, "font_10_book.tga"); 	// -1 -> all pages
 		Doc_PrintLine	( nDocID,  0, "aáàâAÁÀÂ");
-		Doc_SetFont 	( nDocID,  0, "font_15_book.tga"); 	// -1 -> all pages 
+		Doc_SetFont 	( nDocID,  0, "font_15_book.tga"); 	// -1 -> all pages
 		Doc_PrintLine	( nDocID,  0, "aáàâAÁÀÂ");
-		Doc_SetFont 	( nDocID,  0, "font_15_white.tga"); 	// -1 -> all pages 
+		Doc_SetFont 	( nDocID,  0, "font_15_white.tga"); 	// -1 -> all pages
 		Doc_PrintLine	( nDocID,  0, "aáàâAÁÀÂ");
-		Doc_SetFont 	( nDocID,  0, "font_default.tga"); 	// -1 -> all pages 
+		Doc_SetFont 	( nDocID,  0, "font_default.tga"); 	// -1 -> all pages
 		Doc_PrintLine	( nDocID,  0, "aáàâAÁÀÂ");
-		Doc_SetFont 	( nDocID,  0, "font_old_10_white.tga"); 	// -1 -> all pages 
+		Doc_SetFont 	( nDocID,  0, "font_old_10_white.tga"); 	// -1 -> all pages
 		Doc_PrintLine	( nDocID,  0, "aáàâAÁÀÂ");
-		Doc_SetFont 	( nDocID,  0, "font_old_20_white.tga"); 	// -1 -> all pages 
+		Doc_SetFont 	( nDocID,  0, "font_old_20_white.tga"); 	// -1 -> all pages
 		Doc_PrintLine	( nDocID,  0, "aáàâAÁÀÂ");
 
 		//2.Seite
 		Doc_SetMargins	( nDocID, -1, 30, 20, 275, 20, 1);  //  0 -> margins are in pixels (Position des Textes von den Ränder des TGAs aus, links,oben,rechts,unten)
-		Doc_SetFont 	( nDocID,  1, "font_10_book.tga"); 	// -1 -> all pages 
+		Doc_SetFont 	( nDocID,  1, "font_10_book.tga"); 	// -1 -> all pages
 		Doc_PrintLine	( nDocID,  1, "ÝÞßàáâ");
 		Doc_PrintLine	( nDocID,  1, "ãäåæçè");
 		Doc_PrintLine	( nDocID,  1, "éêëìíî");
@@ -54,16 +54,16 @@ INSTANCE Fonttestbook(C_Item)
 		Doc_PrintLine	( nDocID,  1, "ûüýþÿ");
 
 		Doc_Show		( nDocID );
-		
+
 		};
 
 //Savegame Bugfixbooks   ****Björn****
 
 
 INSTANCE Lukor_Bugfixbook(C_Item)
-{	
+{
 	name 					=	"Zwinge Baal Lukor in den Followmode";
-	
+
 	mainflag 				=	ITEM_KAT_DOCS;
 	flags 					=	ITEM_MISSION;
 
@@ -72,21 +72,21 @@ INSTANCE Lukor_Bugfixbook(C_Item)
 	visual 					=	"ItWr_Book_02_05.3ds";
 	material 				=	MAT_LEATHER;
 
-	scemeName				=	"MAP";	
+	scemeName				=	"MAP";
 	on_state[0]				=	UseLukor_Bugfixbook;
 };
 
 	FUNC VOID UseLukor_Bugfixbook()
-	{   
+	{
 		var int nDocID;
-		
+
 		nDocID =
-		Doc_Create		()			  ;							// DocManager 
+		Doc_Create		()			  ;							// DocManager
 		Doc_SetPages	( nDocID,  2 );                         //wieviel Pages
-		Doc_SetPage 	( nDocID,  0, "Book_Mage_L.tga"  , 0 		); 
+		Doc_SetPage 	( nDocID,  0, "Book_Mage_L.tga"  , 0 		);
 		Doc_SetPage 	( nDocID,  1, "Book_Mage_R.tga" , 0		);
-		Doc_SetFont 	( nDocID, -1, "font_10_book.tga"); 	// -1 -> all pages 
-		
+		Doc_SetFont 	( nDocID, -1, "font_10_book.tga"); 	// -1 -> all pages
+
 		//1.Seite
 		Doc_SetMargins	( nDocID,  0,  275, 20, 30, 20, 1);  //  0 -> margins are in pixels
 		Doc_PrintLine	( nDocID,  0, "Zwinge Baal Lukor");
@@ -105,16 +105,16 @@ INSTANCE Lukor_Bugfixbook(C_Item)
 		Doc_PrintLines	( nDocID,  1, "");
 
 		Doc_Show		( nDocID );
-		
+
 		var C_NPC bugfix_baallukor; bugfix_baallukor = Hlp_GetNpc(GUR_1211_BaalLukor);
 		Npc_ExchangeRoutine	(bugfix_baallukor, "Follow");
 		Npc_RemoveInvItem (hero, Lukor_Bugfixbook);
 		Wld_RemoveItem(Lukor_Bugfixbook);
 	};
 INSTANCE Lester_Bugfixbook(C_Item)
-{	
+{
 	name 					=	"Schicke Lester nach Hause";
-	
+
 	mainflag 				=	ITEM_KAT_DOCS;
 	flags 					=	ITEM_MISSION;
 
@@ -123,23 +123,23 @@ INSTANCE Lester_Bugfixbook(C_Item)
 	visual 					=	"ItWr_Book_02_05.3ds";
 	material 				=	MAT_LEATHER;
 
-	scemeName				=	"MAP";	
+	scemeName				=	"MAP";
 	on_state[0]				=	UseLester_Bugfixbook;
 };
 
 
 
 	FUNC VOID UseLester_Bugfixbook()
-	{   
+	{
 		var int nDocID;
-		
+
 		nDocID =
-		Doc_Create		()			  ;							// DocManager 
+		Doc_Create		()			  ;							// DocManager
 		Doc_SetPages	( nDocID,  2 );                         //wieviel Pages
-		Doc_SetPage 	( nDocID,  0, "Book_Mage_L.tga"  , 0 		); 
+		Doc_SetPage 	( nDocID,  0, "Book_Mage_L.tga"  , 0 		);
 		Doc_SetPage 	( nDocID,  1, "Book_Mage_R.tga" , 0		);
-		Doc_SetFont 	( nDocID, -1, "font_10_book.tga"); 	// -1 -> all pages 
-		
+		Doc_SetFont 	( nDocID, -1, "font_10_book.tga"); 	// -1 -> all pages
+
 		//1.Seite
 		Doc_SetMargins	( nDocID,  0,  275, 20, 30, 20, 1);  //  0 -> margins are in pixels
 		Doc_PrintLine	( nDocID,  0, "Zwinge Baal Lukor");
@@ -158,7 +158,7 @@ INSTANCE Lester_Bugfixbook(C_Item)
 		Doc_PrintLines	( nDocID,  1, "");
 
 		Doc_Show		( nDocID );
-		
+
 		var C_NPC bugfix_lester; bugfix_lester = Hlp_GetNpc(PC_PSIONIC);
 		Npc_ExchangeRoutine	(bugfix_lester, "start");
 		Npc_RemoveInvItem (hero, Lester_Bugfixbook);
@@ -234,13 +234,13 @@ instance STT_Test_Schatten (Npc_TestDefault)
 {
 	//-------- primary data --------
 	name 		=	"Testschatten";
-	
+
 	guild			=	GIL_STT;
 	level 		=	13;
-	
+
 	voice		=	12;
-	
-		
+
+
 	//-------- abilities --------
 	attribute[ATR_STRENGTH] 		=	70;
 	attribute[ATR_DEXTERITY] 		=	40;
@@ -255,31 +255,31 @@ instance STT_Test_Schatten (Npc_TestDefault)
 	Mdl_ApplyOverlayMds	(self,"Humans_Relaxed.mds");
 	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung
 	Mdl_SetVisualBody (self,"hum_body_Naked0", 0, 1,"Hum_Head_Pony", 55,  1, STT_ARMOR_M);
-        
+
         B_Scale (self);
         Mdl_SetModelFatness(self,0);
-    	
+
     	self.aivar[AIV_IMPORTANT] = TRUE;
-	
+
 	fight_tactic	=	FAI_HUMAN_STRONG;
 
-	//-------- Talente -------- 
-				
-	Npc_SetTalentSkill( self, NPC_TALENT_1H,2 );			
-	Npc_SetTalentSkill		(self,NPC_TALENT_SNEAK,	1);			
-	Npc_SetTalentSkill		(self,NPC_TALENT_PICKPOCKET,1);Npc_SetTalentValue(self,NPC_TALENT_PICKPOCKET,60); 		
-	Npc_SetTalentSkill		(self,NPC_TALENT_PICKLOCK,	1);Npc_SetTalentValue(self,NPC_TALENT_PICKLOCK,60); 		
-	Npc_SetTalentSkill(self, NPC_TALENT_BOW,1);	
+	//-------- Talente --------
+
+	Npc_SetTalentSkill( self, NPC_TALENT_1H,2 );
+	Npc_SetTalentSkill		(self,NPC_TALENT_SNEAK,	1);
+	Npc_SetTalentSkill		(self,NPC_TALENT_PICKPOCKET,1);Npc_SetTalentValue(self,NPC_TALENT_PICKPOCKET,60);
+	Npc_SetTalentSkill		(self,NPC_TALENT_PICKLOCK,	1);Npc_SetTalentValue(self,NPC_TALENT_PICKLOCK,60);
+	Npc_SetTalentSkill(self, NPC_TALENT_BOW,1);
 	//-------- inventory --------
-	
+
 	CreateInvItem	(self, ItMw_1H_Sword_01 );
 	CreateInvItem	(self, ItRw_Bow_Small_02 );
 	CreateInvItems	(self, ItAmArrow, 10);
 	CreateInvItems	(self, ItFo_Potion_Water_01,4);
 	CreateInvItems	(self, ItFoApple,5);
 	CreateInvItems	(self, ItFoBeer, 3);
-	CreateInvItems  (self, ItFo_Potion_Health_01,4); 
-	
+	CreateInvItems  (self, ItFo_Potion_Health_01,4);
+
 	//-------------Daily Routine-------------
 	start_aistate =  ZS_TestHangAround;
 };
@@ -287,14 +287,14 @@ instance STT_Test_Schatten (Npc_TestDefault)
 instance GRD_Test_Gardist (Npc_TestDefault)
 {
 	//-------- primary data --------
-	
+
 	name 		=	NAME_Gardist;
 	npctype		= 	npctype_guard;
 	guild 		=	GIL_GRD;
 	level 		=	10;
 	voice 		=	7;
-	
-		
+
+
 	//-------- abilities --------
 	attribute[ATR_STRENGTH] 	= 35;
 	attribute[ATR_DEXTERITY] 	= 15;
@@ -307,25 +307,25 @@ instance GRD_Test_Gardist (Npc_TestDefault)
 	// 			animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Militia.mds");
-	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung	
+	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung
 	Mdl_SetVisualBody (self,"hum_body_Naked0", 0, 1,"Hum_Head_FatBald", 19,  1, GRD_ARMOR_L);
-        
+
     	B_Scale (self);
     	Mdl_SetModelFatness(self,0);
-    	
+
     	fight_tactic	=	FAI_HUMAN_STRONG;
 
-	//-------- Talente -------- 
-				
+	//-------- Talente --------
+
 	Npc_SetTalentSkill (self, NPC_TALENT_1H,1);
-	Npc_SetTalentSkill (self, NPC_TALENT_1H,1);		
-			
+	Npc_SetTalentSkill (self, NPC_TALENT_1H,1);
+
 	//-------- inventory --------
-	
+
 	CreateInvItem	(self, ItMw_1H_Sword_01);
 	CreateInvItem	(self, ItFoApple);
-	CreateInvItems	(self, ItMiNugget, 10);		        
-	
+	CreateInvItems	(self, ItMiNugget, 10);
+
 	//-------------Daily Routine-------------
 	start_aistate =  ZS_TestHangAround;
 };
@@ -333,19 +333,19 @@ instance GRD_Test_Gardist (Npc_TestDefault)
 instance VLK_Test_Buddler (Npc_TestDefault)
 {
 	//-------- primary data --------
-	
+
 	name =							Name_Buddler;
 	npctype =						npctype_ambient;
-	guild =							GIL_VLK;      
+	guild =							GIL_VLK;
 	level =							2;
-	
-	
+
+
 	voice =							1;
-	
+
 
 
 	//-------- abilities --------
-	
+
 	attribute[ATR_STRENGTH] =		13;
 	attribute[ATR_DEXTERITY] =		10;
 	attribute[ATR_MANA_MAX] =		0;
@@ -357,19 +357,19 @@ instance VLK_Test_Buddler (Npc_TestDefault)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Tired.mds");
-	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
+	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin
 	Mdl_SetVisualBody (self,"hum_body_Naked0",3,0,"Hum_Head_FatBald", 0,  1, VLK_ARMOR_L);
 
-	B_Scale (self); 
+	B_Scale (self);
 	Mdl_SetModelFatness (self, 0);
-	
-	fight_tactic	=	FAI_HUMAN_COWARD; 
 
-	//-------- Talents  --------                                    
+	fight_tactic	=	FAI_HUMAN_COWARD;
+
+	//-------- Talents  --------
 
 	////Npc_SetTalentSkill (self, NPC_TALENT_1H,1);
-	
-	//-------- inventory --------                                    
+
+	//-------- inventory --------
 
 	CreateInvItem (self, ItMw_1h_Nailmace_01);
 	CreateInvItem (self, ItMwPickaxe);
@@ -384,14 +384,14 @@ instance VLK_Test_Buddler (Npc_TestDefault)
 instance SLD_Test_Soeldner (Npc_TestDefault)
 {
 	//-------- primary data --------
-	
+
 	name 		=	NAME_Soeldner;
 	npctype		= 	npctype_guard;
 	guild 		=	GIL_SLD;
 	level 		=	10;
 	voice 		=	7;
-	
-		
+
+
 	//-------- abilities --------
 	attribute[ATR_STRENGTH] 	= 35;
 	attribute[ATR_DEXTERITY] 	= 15;
@@ -404,25 +404,25 @@ instance SLD_Test_Soeldner (Npc_TestDefault)
 	// 			animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Militia.mds");
-	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung	
+	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung
 	Mdl_SetVisualBody (self,"hum_body_Naked0", 0, 1,"Hum_Head_FatBald", 19,  1, SLD_ARMOR_M);
-        
+
     	B_Scale (self);
     	Mdl_SetModelFatness(self,0);
-    	
+
     	fight_tactic	=	FAI_HUMAN_STRONG;
 
-	//-------- Talente -------- 
-				
+	//-------- Talente --------
+
 	Npc_SetTalentSkill (self, NPC_TALENT_1H,1);
-	Npc_SetTalentSkill (self, NPC_TALENT_1H,1);		
-			
+	Npc_SetTalentSkill (self, NPC_TALENT_1H,1);
+
 	//-------- inventory --------
-	
+
 	CreateInvItem	(self, ItMw_1H_Sword_01);
 	CreateInvItem	(self, ItFoApple);
-	CreateInvItems	(self, ItMiNugget, 10);		        
-	
+	CreateInvItems	(self, ItMiNugget, 10);
+
 	//-------------Daily Routine-------------
 	start_aistate =  ZS_Guard;
 };
@@ -430,19 +430,19 @@ instance SLD_Test_Soeldner (Npc_TestDefault)
 instance SFB_Test_Schuerfer (Npc_TestDefault)
 {
 	//-------- primary data --------
-	
+
 	name =							Name_Schuerfer;
 	npctype =						npctype_ambient;
-	guild =							GIL_SFB;      
+	guild =							GIL_SFB;
 	level =							2;
-	
-	
+
+
 	voice =							1;
-	
+
 
 
 	//-------- abilities --------
-	
+
 	attribute[ATR_STRENGTH] =		13;
 	attribute[ATR_DEXTERITY] =		10;
 	attribute[ATR_MANA_MAX] =		0;
@@ -454,19 +454,19 @@ instance SFB_Test_Schuerfer (Npc_TestDefault)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Tired.mds");
-	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
+	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin
 	Mdl_SetVisualBody (self,"hum_body_Naked0",3,0,"Hum_Head_FatBald", 0,  1, SFB_ARMOR_L);
 
-	B_Scale (self); 
+	B_Scale (self);
 	Mdl_SetModelFatness (self, 0);
-	
-	fight_tactic	=	FAI_HUMAN_COWARD; 
 
-	//-------- Talents  --------                                    
+	fight_tactic	=	FAI_HUMAN_COWARD;
+
+	//-------- Talents  --------
 
 	////Npc_SetTalentSkill (self, NPC_TALENT_1H,1);
-	
-	//-------- inventory --------                                    
+
+	//-------- inventory --------
 
 	CreateInvItem (self, ItMw_1h_Nailmace_01);
 	CreateInvItem (self, ItMwPickaxe);

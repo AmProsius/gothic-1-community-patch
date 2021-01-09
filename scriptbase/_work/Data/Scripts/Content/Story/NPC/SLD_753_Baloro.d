@@ -1,12 +1,12 @@
 instance SLD_753_Baloro (Npc_Default)
 {
 	//-------- primary data --------
-	
+
 	name =							"Baloro";
 	Npctype =					    Npctype_Main;
-	guild =							GIL_SLD;       
+	guild =							GIL_SLD;
 	level =							16;
-	
+
 	voice =							8;
 	id =							753;
 
@@ -24,21 +24,21 @@ instance SLD_753_Baloro (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Militia.mds");
-	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
+	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin
 	Mdl_SetVisualBody (self,"hum_body_Naked0",0, 1,"Hum_Head_Fighter", 51, 2,SLD_ARMOR_M);
-	
+
 	B_Scale (self);
 	Mdl_SetModelFatness (self, 0);
-	
-	fight_tactic	=	FAI_HUMAN_MASTER; 
-	
+
+	fight_tactic	=	FAI_HUMAN_MASTER;
+
 	//-------- Talente --------
-	
+
 	Npc_SetTalentSkill (self, NPC_TALENT_1H,2);
 	Npc_SetTalentSkill (self, NPC_TALENT_2H,1);
-	
 
-	//-------- inventory --------                                    
+
+	//-------- inventory --------
 
 	EquipItem (self, ItMw_1H_Mace_War_03);
 	CreateInvItems (self, ItFoRice,8);
@@ -51,12 +51,12 @@ instance SLD_753_Baloro (Npc_Default)
 	CreateInvItem (self, ItMi_Stuff_Barbknife_01);
 	CreateInvItem (self, ItMi_Stuff_Amphore_01);
 	CreateInvItem	(self,ItMi_Stuff_OldCoin_02);
-	
+
 
 	//-------------Daily Routine-------------
 
 	daily_routine = Rtn_FMCstart_753;
-	
+
 	//------------- //MISSIONs------------------
 
 };

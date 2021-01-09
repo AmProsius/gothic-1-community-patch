@@ -10,9 +10,9 @@ func void B_Orc_ItemHorn()
 		{
 			AI_RemoveWeapon( self );
 		};
-	
+
 		AI_SetWalkmode( self, NPC_WALK );
-	
+
 		if ( Npc_GetBodyState( self ) != BS_ITEMINTERACT )
 		{
 			AI_UseItemToState( self, ItMiAlarmhorn, 1 );
@@ -29,13 +29,13 @@ func void B_Orc_ItemHorn()
 func void B_Orc_ItemEat()
 {
 	PrintDebugNpc( PD_TA_FRAME, "B_Orc_ItemEat" );
-	
+
 	//evtl. Waffe wegpacken
 	if ( Npc_HasReadiedWeapon( self ) )
 	{
 		AI_RemoveWeapon( self );
 	};
-	
+
 	//Guten Appetitt
 	if ( Hlp_Random ( 10 ) < 5 )
 	{
@@ -61,7 +61,7 @@ func void B_Orc_ItemEat()
 		};
 		AI_UseItemToState( self, ItFoLoaf, -1 );
 	};
-	
+
 
 };
 
@@ -78,13 +78,13 @@ func void B_Orc_ItemPotion()
 		AI_RemoveWeapon( self );
 	};
 
-	
+
 	//evtl. in Inv packen
 	if ( !Npc_HasItems( self, ItFoWine ) )
 	{
 		CreateInvItem( self, ItFoWine );
-	};	
-	
+	};
+
 	//Prost
 	if ( Npc_GetBodyState( self ) != BS_ITEMINTERACT )
 	{

@@ -8,13 +8,13 @@
 //
 //  Wenn kein Gesprächpartner gefunden wird, geht der NSC in ZS_Stand !!!
 //////////////////////////////////////////////////////////////////////////
-func void ZS_Smalltalk () 
+func void ZS_Smalltalk ()
 {
     PrintDebugNpc			(PD_TA_FRAME,	"ZS_Smalltalk");
-    
-	B_SetPerception 		(self);	
+
+	B_SetPerception 		(self);
 	AI_SetWalkmode			(self,	NPC_WALK);
-	
+
     //-------- Grobpositionierung --------
 	if (!Npc_IsOnFP(self,"SMALLTALK"))
 	{
@@ -29,11 +29,11 @@ func void ZS_Smalltalk ()
 func void ZS_Smalltalk_Loop()
 {
     PrintDebugNpc			(PD_TA_LOOP,	"ZS_Smalltalk_Loop");
-	
+
 	Npc_PerceiveAll			(self);
 	Wld_DetectNpc(self,	-1, ZS_Smalltalk, -1);
 	PrintGlobals(PD_TA_CHECK);
-	
+
 	if (Wld_DetectNpc(self,	-1, ZS_Smalltalk, -1) && (Npc_GetDistToNpc	(self, other)<HAI_DIST_SMALLTALK))
 	{
 	    AI_TurnToNpc(self,other);
@@ -50,11 +50,11 @@ func void ZS_Smalltalk_Loop()
 // ...das passiert mir nicht...
 // ...an der Gechichte muß wohl doch was dran sein...
 // ...man muß eben aufpassen was man rumerzählt...
-// ...solange ich damit nichts zu tun habe... 
+// ...solange ich damit nichts zu tun habe...
 // ...man darf auch nicht alles glauben, was man hört...
 // ...in seiner Haut will ich trotzdem nicht stecken...
 // ...immer wieder die selbe Leier...
-// ...manche lernen eben garnichts dazu... 
+// ...manche lernen eben garnichts dazu...
 // ...früher wäre das ganz anders gelaufen...
 // ...gequatscht wird viel...
 // ...ich hör nicht mehr auf das Gefasel...
@@ -70,7 +70,7 @@ func void ZS_Smalltalk_Loop()
     	if 		(talktime <   5)
     	{
 			B_Say		( self, NULL, "$SMALLTALK01");
-    	} 
+    	}
     	else if (talktime <  10)
     	{
 			B_Say		( self, NULL, "$SMALLTALK02");
@@ -170,7 +170,7 @@ func void ZS_Smalltalk_Loop()
     	if 		(talktime <   5)
     	{
     		AI_Output (self,NULL,"ZS_SmallTalk_Text01");//Und was glaubst Du, wie es war? Es war ein Trauerspiel. Erst platzt dieser Kerl rein, die Waffe gezogen. Stinksauer.
-    	} 
+    	}
     	else if (talktime <  10)
     	{
     		AI_Output (self,NULL,"ZS_SmallTalk_Text02");//Und just in dem Moment stolpert er über eine Wurzel! Ich hab mich plattgelacht. Sein Gesicht voller Kratzer. Es war herrlich.
@@ -251,14 +251,14 @@ func void ZS_Smalltalk_Loop()
 
     	AI_Wait					(self,	3);
     	Npc_SetStateTime(self, 0);
-    }	
+    }
 	else if (Npc_GetStateTime(self) >= 5)
 	{
 	    PrintDebugNpc		(PD_TA_CHECK,	"... kein Gesprächspartner gefunden!");
-	    
+
 	    AI_StartState	(self, ZS_Stand, 1, "");
 	};
-	
+
 	AI_Wait					(self,	1);
 };
 

@@ -1,7 +1,7 @@
 func void ZS_TestKill ()
 {
 	Npc_PercEnable  ( self,	PERC_ASSESSITEM, KillItem );
-};	
+};
 
 func void ZS_TestKill_Loop ()
 {

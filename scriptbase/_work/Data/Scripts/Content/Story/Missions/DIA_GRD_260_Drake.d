@@ -143,7 +143,7 @@ func void  Grd_260_Drake_Mine_Mehr_Info	()
 	AI_Output			(other,self,"Grd_260_Drake_Mine_Mehr_Info_15_01");//Tell me more about it!
 	AI_Output			(self,other,"Grd_260_Drake_Mine_Mehr_Info_11_02");//If you want to know more, go to Viper. He's the smelter.
 	AI_Output			(self,other,"Grd_260_Drake_Mine_Mehr_Info_11_03");//Or talk to Ian. He's the boss. He organizes everything here in the mine.
-	
+
 };
 
 // ***************** IAN *****************************
@@ -172,7 +172,7 @@ FUNC void  Grd_260_Drake_Ian_Info()
 	AI_Output			(self,other,"Grd_260_Drake_Ian_Info_11_03");//Oh, one more thing - you know Thorus, don't you? Forget him!
 	AI_Output			(self,other,"Grd_260_Drake_Ian_Info_11_04");//There's just one person who has the say in here and that's Ian. He's the boss.
 	AI_Output			(self,other,"Grd_260_Drake_Ian_Info_11_05");//If you get into trouble with him, you'll be in trouble with us all. Understood?
-};	 
+};
 
 /*------------------------------------------------------------------------
 //						GARDEAUFNAHME								//
@@ -187,8 +187,8 @@ instance Grd_260_Drake_GARDEAUFNAHME (C_INFO)
 };
 
 FUNC int  Grd_260_Drake_GARDEAUFNAHME_Condition()
-{	
-	if (Npc_HasItems (hero, ItAt_Crawlerqueen) >= 1) 
+{
+	if (Npc_HasItems (hero, ItAt_Crawlerqueen) >= 1)
 	&& ( Npc_GetTrueGuild  (hero) == GIL_STT)
 	&& (! Npc_KnowsInfo   (hero,Grd_264_Gardist_GARDEAUFNAHME))
 	{

@@ -8,7 +8,7 @@
 func int Spell_Logic_Teleport1(var int manaInvested)
 {
 	PrintDebugNpc		(PD_MAGIC,	"Spell_Logic_Teleport1");
-	
+
 	if (manaInvested>= SPL_SENDCAST_TELEPORT)
 	{
 		AI_Teleport		(self, "OCC_CHAPEL_UPSTAIRS");
@@ -16,6 +16,6 @@ func int Spell_Logic_Teleport1(var int manaInvested)
 
 		return SPL_SENDCAST;
 	};
-	
+
 	return SPL_NEXTLEVEL;
 };

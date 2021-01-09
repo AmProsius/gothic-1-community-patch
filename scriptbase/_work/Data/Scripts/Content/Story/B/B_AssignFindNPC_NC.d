@@ -9,7 +9,7 @@ INSTANCE Info_FindNPC_NC(C_INFO)
 	information	= Info_FindNPC_NC_Info;
 	permanent	= 1;
 	description = "Where can I find ...";
-};                       
+};
 
 FUNC INT Info_FindNPC_NC_Condition()
 {
@@ -26,7 +26,7 @@ FUNC VOID Info_FindNPC_NC_Info()
 	{
 		Info_AddChoice(Info_FindNPC_NC,"...one of the magicians?", Info_FindNPC_NC_Mage);
 	};
-	
+
 	VAR C_NPC Gorn;		Gorn = Hlp_GetNpc(PC_Fighter);
 	if (Gorn.aivar[AIV_FINDABLE] == TRUE)
 	{
@@ -38,7 +38,7 @@ FUNC VOID Info_FindNPC_NC_Info()
 	{
 		Info_AddChoice(Info_FindNPC_NC,"...Lares?", Info_FindNPC_NC_Lares);
 	};
-	
+
 	VAR C_NPC Lee;			Lee	= Hlp_GetNpc(Sld_700_Lee);
 	if (Lee.aivar[AIV_FINDABLE] == TRUE)
 	{
@@ -60,7 +60,7 @@ FUNC VOID Info_FindNPC_NC_Gorn()
 	AI_Output(other,self,"Info_FindNPC_NC_Gorn_15_00"); //Where can I find Gorn?
 
 	VAR C_NPC Gorn;		Gorn = Hlp_GetNpc(PC_Fighter);
-	
+
 	if (Npc_GetDistToNpc(self, Gorn) < PERC_DIST_INTERMEDIAT)
 	{
 		B_PointAtNpc(self,other,Gorn);
@@ -82,7 +82,7 @@ FUNC VOID Info_FindNPC_NC_Gorn()
 				AI_Output(self,other,"Info_FindNPC_NC_Gorn_13_01"); //When you go in the cave, keep to your right. There are a couple of huts right up front. He lives in one of them.
 			};
 		}
-		else if (self.guild == GIL_SLD) 
+		else if (self.guild == GIL_SLD)
 		{
 			if (self.voice == 8)
 			{
@@ -107,7 +107,7 @@ FUNC VOID Info_FindNPC_NC_Lares()
 	AI_Output(other,self,"Info_FindNPC_NC_Lares_15_00"); //Where can I find Lares?
 
 	VAR C_NPC Lares;		Lares = Hlp_GetNpc(Org_801_Lares);
-	
+
 	if (Npc_GetDistToNpc(self, Lares) < PERC_DIST_INTERMEDIAT)
 	{
 		B_PointAtNpc(self,other,Lares);
@@ -129,7 +129,7 @@ FUNC VOID Info_FindNPC_NC_Lares()
 				AI_Output(self,other,"Info_FindNPC_NC_Lares_13_01"); //Right at the back, on the left-hand side of the big cave. You can't miss it. As soon as his guys stop you, you'll know you've found him.
 			};
 		}
-		else if (self.guild == GIL_SLD) 
+		else if (self.guild == GIL_SLD)
 		{
 			if (self.voice == 8)
 			{
@@ -154,7 +154,7 @@ FUNC VOID Info_FindNPC_NC_Lee()
 	AI_Output(other,self,"Info_FindNPC_NC_Lee_15_00"); //Where can I find Lee?
 
 	VAR C_NPC Lee;		Lee = Hlp_GetNpc(Sld_700_Lee);
-	
+
 	if (Npc_GetDistToNpc(self, Lee) < PERC_DIST_INTERMEDIAT)
 	{
 		B_PointAtNpc(self,other,Lee);
@@ -176,7 +176,7 @@ FUNC VOID Info_FindNPC_NC_Lee()
 				AI_Output(self,other,"Info_FindNPC_NC_Lee_13_01"); //Go into the big cave, keep to your right and go right up to the top.
 			};
 		}
-		else if (self.guild == GIL_SLD) 
+		else if (self.guild == GIL_SLD)
 		{
 			if (self.voice == 8)
 			{
@@ -201,7 +201,7 @@ FUNC VOID Info_FindNPC_NC_Mage()
 	AI_Output(other,self,"Info_FindNPC_NC_Cronos_15_00"); //Where can I find a mage?
 
 	VAR C_NPC Cronos;		Cronos = Hlp_GetNpc(KdW_604_Cronos);
-	
+
 	if (Npc_GetDistToNpc(self, Cronos) < PERC_DIST_INTERMEDIAT)
 	{
 		B_PointAtNpc(self,other,Cronos);
@@ -223,7 +223,7 @@ FUNC VOID Info_FindNPC_NC_Mage()
 				AI_Output(self,other,"Info_FindNPC_NC_Cronos_13_01"); //They usually live in the secluded upper section of the cave. But sometimes you see them down at the ore mound in the middle of the cave.
 			};
 		}
-		else if (self.guild == GIL_SLD) 
+		else if (self.guild == GIL_SLD)
 		{
 			if (self.voice == 8)
 			{

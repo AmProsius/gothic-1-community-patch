@@ -1,7 +1,7 @@
-/************************************************************************* 
+/*************************************************************************
  * 							 G_CanSteal
  *************************************************************************
- * PRCONDITIONS: self 	:	Burgler	
+ * PRCONDITIONS: self 	:	Burgler
  *				 other	:	Victim
  *************************************************************************/
 func int G_CanSteal()
@@ -12,8 +12,8 @@ func int G_CanSteal()
 	}
 	else
 	{
-		PrintScreen	(_STR_MESSAGE_CANNOTSTEAL, -1, _YPOS_MESSAGE_CANNOTSTEAL, _STR_FONT_ONSCREEN, _TIME_MESSAGE_CANNOTSTEAL );		
-		
+		PrintScreen	(_STR_MESSAGE_CANNOTSTEAL, -1, _YPOS_MESSAGE_CANNOTSTEAL, _STR_FONT_ONSCREEN, _TIME_MESSAGE_CANNOTSTEAL );
+
 		return FALSE;
 	};
 };

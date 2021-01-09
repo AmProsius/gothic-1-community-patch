@@ -8,10 +8,10 @@ instance  Org_873_Cipher_Exit (C_INFO)
 	nr			=  999;
 	condition	=  Org_873_Cipher_Exit_Condition;
 	information	=  Org_873_Cipher_Exit_Info;
-	important	=  0;	
+	important	=  0;
 	permanent	=  1;
 	description =  DIALOG_ENDE;
-};                       
+};
 
 FUNC int  Org_873_Cipher_Exit_Condition()
 {
@@ -35,7 +35,7 @@ instance  Org_873_Cipher_Hello (C_INFO)
 	information	=  Org_873_Cipher_Hello_Info;
 	permanent	=  0;
 	description = "How's things?";
-};                       
+};
 
 FUNC int  Org_873_Cipher_Hello_Condition()
 {
@@ -66,7 +66,7 @@ instance  Org_873_Cipher_Fisk (C_INFO)
 	information	=  Org_873_Cipher_Fisk_Info;
 	permanent	=  1;
 	description = "Fisk from the Old Camp is looking for a trade partner.";
-};                       
+};
 
 FUNC int  Org_873_Cipher_Fisk_Condition()
 {
@@ -97,7 +97,7 @@ instance  Org_873_Cipher_FromBalor (C_INFO)
 	information	=  Org_873_Cipher_FromBalor_Info;
 	permanent	=  1;
 	description = "What have you got to offer?";
-};                       
+};
 
 FUNC int  Org_873_Cipher_FromBalor_Condition()
 {
@@ -137,7 +137,7 @@ instance  Org_873_Cipher_TRADE (C_INFO)
 	permanent	=  1;
 	description = "Let's make a deal.";
 	trade		= 1;
-};                       
+};
 
 FUNC int  Org_873_Cipher_TRADE_Condition()
 {

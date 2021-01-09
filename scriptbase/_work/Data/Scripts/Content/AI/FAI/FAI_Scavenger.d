@@ -91,7 +91,7 @@ INSTANCE FA_MY_G_STRAFE_15 (C_FightAI)
 // was tun, wenn ich den Gegner im Focus habe?
 INSTANCE FA_MY_G_FOCUS_15 (C_FightAI)
 {
-	move[0] = MOVE_RUN; 
+	move[0] = MOVE_RUN;
 };
 
 

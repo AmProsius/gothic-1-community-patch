@@ -2,7 +2,7 @@
 **	Molerat Prototype													**
 *************************************************************************/
 
-PROTOTYPE Mst_Default_Molerat(C_Npc)			
+PROTOTYPE Mst_Default_Molerat(C_Npc)
 {
 	name							=	"Molerat";
 	guild							=	GIL_MOLERAT;
@@ -12,7 +12,7 @@ PROTOTYPE Mst_Default_Molerat(C_Npc)
 //------------------------------------------------------------
 	attribute	[ATR_STRENGTH]		=	8;
 	attribute	[ATR_DEXTERITY]		=	8;
-	
+
 	attribute	[ATR_HITPOINTS_MAX]	=	40;
 	attribute	[ATR_HITPOINTS]		=	40;
 
@@ -40,7 +40,7 @@ PROTOTYPE Mst_Default_Molerat(C_Npc)
 	senses_range				= 3000;		// 30m
 
 	aivar[AIV_MM_Behaviour]		= PASSIVE;
-	
+
 	aivar[AIV_MM_PercRange]		= 1200;
 	aivar[AIV_MM_DrohRange]		= 1000;
 	aivar[AIV_MM_AttackRange]	= 700;
@@ -68,7 +68,7 @@ INSTANCE Molerat	(Mst_Default_Molerat)
 {
 	Set_Molerat_Visuals();
 	Npc_SetToFistMode(self);
-	
+
 	CreateInvItems (self, ItFoMuttonRaw, 2);
 };
 

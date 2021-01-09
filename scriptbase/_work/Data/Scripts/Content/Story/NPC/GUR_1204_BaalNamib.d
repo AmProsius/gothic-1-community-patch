@@ -8,7 +8,7 @@ instance GUR_1204_BaalNamib (Npc_Default)
 	flags		= 	NPC_FLAG_IMMORTAL;
 	voice 		=	2;
 	id 			=	1204;
-			
+
 	///-------- abilities --------
 	attribute[ATR_STRENGTH] 		=	70;
 	attribute[ATR_DEXTERITY] 		=	55;
@@ -21,7 +21,7 @@ instance GUR_1204_BaalNamib (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Mage.mds");
-	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung	
+	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung
 	Mdl_SetVisualBody (self,"hum_body_Naked0", 1, 1 ,"Hum_Head_Psionic", 20,  1, GUR_ARMOR_M);
 
 	B_Scale (self);
@@ -32,11 +32,11 @@ instance GUR_1204_BaalNamib (Npc_Default)
 
 	//-------- inventory --------
 	CreateInvItem(self, ItArRuneSleep);
-	
+
 	EquipItem (self, Namibs_Keule);
-	
-	
-	
+
+
+
 	//-------------Daily Routine-------------
 	daily_routine = Rtn_Start_1204;
 	fight_tactic	=	FAI_HUMAN_MAGE;

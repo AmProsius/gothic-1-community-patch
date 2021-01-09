@@ -43,7 +43,7 @@ INSTANCE FA_MY_W_FOCUS_14 (C_FightAI)
 	move[3] = MOVE_ATTACK;
 	move[4] = MOVE_ATTACK;
 	move[5] = MOVE_ATTACK;
-		
+
 };
 
 INSTANCE FA_MY_W_NOFOCUS_14 (C_FightAI)
@@ -92,7 +92,7 @@ INSTANCE FA_MY_FK_FOCUS_FAR_14 (C_FightAI)
 	move[2] = MOVE_WAIT;
 	move[3] = MOVE_WAIT;
 	move[4] = MOVE_WAIT;
-	move[5] = MOVE_WAIT;	
+	move[5] = MOVE_WAIT;
 };
 
 INSTANCE FA_MY_FK_NOFOCUS_FAR_14 (C_FightAI)

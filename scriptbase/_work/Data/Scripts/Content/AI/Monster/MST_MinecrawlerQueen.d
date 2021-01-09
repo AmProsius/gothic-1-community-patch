@@ -3,7 +3,7 @@
 **	Minecrawler QUEEN Prototype											**
 *************************************************************************/
 
-PROTOTYPE Mst_Default_MinecrawlerQueen(C_Npc)			
+PROTOTYPE Mst_Default_MinecrawlerQueen(C_Npc)
 {
 	name							=	"Minecrawler Queen";
 	guild							=	GIL_MINECRAWLER;
@@ -12,7 +12,7 @@ PROTOTYPE Mst_Default_MinecrawlerQueen(C_Npc)
 //------------------------------------------------------
 	attribute	[ATR_STRENGTH]		=	100;
 	attribute	[ATR_DEXTERITY]		=	100;
-	
+
 	attribute	[ATR_HITPOINTS_MAX]	=	400;
 	attribute	[ATR_HITPOINTS]		=	400;
 
@@ -40,7 +40,7 @@ PROTOTYPE Mst_Default_MinecrawlerQueen(C_Npc)
 	senses_range				= 3000;
 
 	aivar[AIV_MM_Behaviour]		= PASSIVE;
-	
+
 	aivar[AIV_MM_PercRange]		= 1200;
 	aivar[AIV_MM_DrohRange]		= 1000;
 	aivar[AIV_MM_AttackRange]	= 700;

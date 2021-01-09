@@ -9,32 +9,32 @@
 
 INSTANCE CamModRun(CCamSys_Def)
 {
-	bestRange 			= 2.5 ;  
-	minRange  			= 1.4 ;  
-	maxRange  			= 6.0 ;  
+	bestRange 			= 2.5 ;
+	minRange  			= 1.4 ;
+	maxRange  			= 6.0 ;
 	bestElevation		= 25.0 ;
 	minElevation		= 0.0;
-	maxElevation		= 89.0; 
-	bestAzimuth			= 0.0;  
+	maxElevation		= 89.0;
+	bestAzimuth			= 0.0;
 	minAzimuth			= -90.0;
-	maxAzimuth			= 90.0; 
-	rotOffsetX			= 20.0;   
-	rotOffsetY			= 0.0;  
+	maxAzimuth			= 90.0;
+	rotOffsetX			= 20.0;
+	rotOffsetY			= 0.0;
 };
 
 INSTANCE CamModLookBack(CCamSys_Def)
 {
-	bestRange 			= 0.5 ;  
-	minRange  			= 1.0 ;  
-	maxRange  			= 6.0 ;  
+	bestRange 			= 0.5 ;
+	minRange  			= 1.0 ;
+	maxRange  			= 6.0 ;
 	bestElevation			= 35.0 ;
 	minElevation			= 0.0;
-	maxElevation			= 89.0; 
-	bestAzimuth			= 0.0;  
+	maxElevation			= 89.0;
+	bestAzimuth			= 0.0;
 	minAzimuth			= -90.0;
-	maxAzimuth			= 90.0; 
-	rotOffsetX			= 20.0;   
-	rotOffsetY			= 180.0;  
+	maxAzimuth			= 90.0;
+	rotOffsetX			= 20.0;
+	rotOffsetY			= 180.0;
 	veloRot 			= 5;
 };
 
@@ -62,8 +62,8 @@ INSTANCE CamModDialog(CCamSys_Def)
 	minElevation		= 0.0;
 	maxElevation		= 90.0;
 	bestAzimuth			= 45.0;
-	minAzimuth			= -45.0;  
-	maxAzimuth			= 45.0;   
+	minAzimuth			= -45.0;
+	maxAzimuth			= 45.0;
 	rotOffsetX			= 0.0;
 	rotOffsetY			= -20.0;
 };
@@ -86,17 +86,17 @@ INSTANCE CamModInventory(CCamSys_Def)
 
 INSTANCE CAMMODMELEE (CCAMSYS_DEF)
 {
-	bestRange 			= 2.5 ;  
-	minRange  			= 1.4 ;  
-	maxRange  			= 6.0 ;  
+	bestRange 			= 2.5 ;
+	minRange  			= 1.4 ;
+	maxRange  			= 6.0 ;
 	bestElevation		= 35.0 ;
 	minElevation		= 0.0;
-	maxElevation		= 89.0; 
-	bestAzimuth			= 0.0;  
+	maxElevation		= 89.0;
+	bestAzimuth			= 0.0;
 	minAzimuth			= -90.0;
-	maxAzimuth			= 90.0; 
-	rotOffsetX			= 20.0;   
-	rotOffsetY			= 0.0;  
+	maxAzimuth			= 90.0;
+	rotOffsetX			= 20.0;
+	rotOffsetY			= 0.0;
 };
 
 INSTANCE CamModMeleeMult(CCamSys_Def)
@@ -106,42 +106,42 @@ INSTANCE CamModMeleeMult(CCamSys_Def)
 	maxRange  			= 10.0 ;
 	bestElevation		= 15.0 ;
 	minElevation		= 0.0;
-	maxElevation		= 89.0; 
-	bestAzimuth			= 0.0;  
+	maxElevation		= 89.0;
+	bestAzimuth			= 0.0;
 	minAzimuth			= -90.0;
-	maxAzimuth			= 90.0; 
+	maxAzimuth			= 90.0;
 };
 
 
 INSTANCE CamModRanged(CCamSys_Def)
 {
-	bestRange 			= 3.5 ; 
-	minRange  			= 2.0 ; 
-	maxRange  			= 4.5 ; 
+	bestRange 			= 3.5 ;
+	minRange  			= 2.0 ;
+	maxRange  			= 4.5 ;
 	bestElevation		= 45.0 ;
 	minElevation		= 0.0;
-	maxElevation		= 90.0; 
-	bestAzimuth			= 30.0;  
+	maxElevation		= 90.0;
+	bestAzimuth			= 30.0;
 	minAzimuth			= -30.0;
-	maxAzimuth			= 30.0; 
-	rotOffsetX			= 20.0; 
-	rotOffsetY			= 0.0;  
+	maxAzimuth			= 30.0;
+	rotOffsetX			= 20.0;
+	rotOffsetY			= 0.0;
 };
 
 
 INSTANCE CamModMagic(CCamSys_Def)
 {
-	bestRange 			= 2.5 ;  
-	minRange  			= 1.4 ;  
-	maxRange  			= 6.0 ;  
+	bestRange 			= 2.5 ;
+	minRange  			= 1.4 ;
+	maxRange  			= 6.0 ;
 	bestElevation		= 35.0 ;
 	minElevation		= 0.0;
-	maxElevation		= 89.0; 
-	bestAzimuth			= 0.0;  
+	maxElevation		= 89.0;
+	bestAzimuth			= 0.0;
 	minAzimuth			= -90.0;
-	maxAzimuth			= 90.0; 
-	rotOffsetX			= 20.0;   
-	rotOffsetY			= 0.0;  
+	maxAzimuth			= 90.0;
+	rotOffsetX			= 20.0;
+	rotOffsetY			= 0.0;
 };
 
 
@@ -179,15 +179,15 @@ INSTANCE CamModDive(CCamSys_Def)
 
 INSTANCE CamModJump(CCamSys_Def)
 {
-	bestRange 			= 2.0 ; 
-	minRange  			= 1.0 ; 
-	maxRange  			= 2.5 ; 
+	bestRange 			= 2.0 ;
+	minRange  			= 1.0 ;
+	maxRange  			= 2.5 ;
 	bestElevation		= 35.0 ;
 	minElevation		= 0.0;
-	maxElevation		= 90.0; 
-	bestAzimuth			= 0.0;  
+	maxElevation		= 90.0;
+	bestAzimuth			= 0.0;
 	minAzimuth			= -90.0;
-	maxAzimuth			= 90.0; 
+	maxAzimuth			= 90.0;
 };
 
 
@@ -253,17 +253,17 @@ INSTANCE CamModDeath(CCamSys_Def)
 
 INSTANCE CamModFocus(CCamSys_Def)
 {
-	bestRange 			= 2.5 ; 
-	minRange  			= 1.9 ; 
-	maxRange  			= 3.5 ; 
+	bestRange 			= 2.5 ;
+	minRange  			= 1.9 ;
+	maxRange  			= 3.5 ;
 	bestElevation			= 25.0 ;
 	minElevation			= 0.0;
-	maxElevation			= 90.0; 
-	bestAzimuth			= 45.0;  
+	maxElevation			= 90.0;
+	bestAzimuth			= 45.0;
 	minAzimuth			= -90.0;
-	maxAzimuth			= 90.0; 
-	rotOffsetX			= 0.0; 
-	rotOffsetY			= 0.0;  
+	maxAzimuth			= 90.0;
+	rotOffsetX			= 0.0;
+	rotOffsetY			= 0.0;
 };
 
 
@@ -272,17 +272,17 @@ INSTANCE CamModFocus(CCamSys_Def)
 // DEFAULT
 INSTANCE CamModMOBDefault(CCamSys_Def)
 {
-	bestRange 			= 2.0 ; 
-	minRange  			= 1.4 ; 
-	maxRange  			= 3.0 ; 
+	bestRange 			= 2.0 ;
+	minRange  			= 1.4 ;
+	maxRange  			= 3.0 ;
 	bestElevation		= 35.0 ;
 	minElevation		= 15.0;
-	maxElevation		= 90.0; 
-	bestAzimuth			= 45.0;  
+	maxElevation		= 90.0;
+	bestAzimuth			= 45.0;
 	minAzimuth			= 0.0;
-	maxAzimuth			= 90.0; 
-	rotOffsetX			= 0.0; 
-	rotOffsetY			= 5.0;  
+	maxAzimuth			= 90.0;
+	rotOffsetX			= 0.0;
+	rotOffsetY			= 5.0;
 };
 
 // Tür aufziehen (FRONT)
@@ -473,7 +473,7 @@ INSTANCE CAMMODMOBBARRELO (CCAMSYS_DEF)
 
 INSTANCE CamModFirstPerson(CCamSys_Def)
 {
-	bestRange 			= 2.0 ; 
+	bestRange 			= 2.0 ;
 	minRange  			= 1.5 ;
 	maxRange  			= 2.5 ;
 	bestElevation		= 0.0 ;
@@ -489,15 +489,15 @@ INSTANCE CamModFirstPerson(CCamSys_Def)
 
 INSTANCE CamModLook(CCamSys_Def)
 {
-	bestRange 			= 3.0 ; 
-	minRange  			= 1.5 ; 
-	maxRange  			= 6.5 ; 
+	bestRange 			= 3.0 ;
+	minRange  			= 1.5 ;
+	maxRange  			= 6.5 ;
 	bestElevation		= 30.0 ;
 	minElevation		= -55.0;
-	maxElevation		= 80.0; 
-	bestAzimuth			= 0.0;  
+	maxElevation		= 80.0;
+	bestAzimuth			= 0.0;
 	minAzimuth			= -90.0;
-	maxAzimuth			= 90.0; 
+	maxAzimuth			= 90.0;
 	veloTrans			= 5;
 };
 

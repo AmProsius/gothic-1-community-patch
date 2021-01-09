@@ -2,7 +2,7 @@
 **	Fire Waran Prototype  												**
 *************************************************************************/
 
-PROTOTYPE Mst_Default_FireWaran(C_Npc)			
+PROTOTYPE Mst_Default_FireWaran(C_Npc)
 {
 	name							=	"Fire Lizard";
 	guild							=	GIL_WARAN;
@@ -11,7 +11,7 @@ PROTOTYPE Mst_Default_FireWaran(C_Npc)
 //---------------------------------------------------
 	attribute	[ATR_STRENGTH]		=	80;
 	attribute	[ATR_DEXTERITY]		=	80;
-	
+
 	attribute	[ATR_HITPOINTS_MAX]	=	200;
 	attribute	[ATR_HITPOINTS]		=	200;
 
@@ -39,7 +39,7 @@ PROTOTYPE Mst_Default_FireWaran(C_Npc)
 	senses_range				= 3000;		// 30m
 
 	aivar[AIV_MM_Behaviour]		= PASSIVE;
-	
+
 	aivar[AIV_MM_PercRange]		= 1200;
 	aivar[AIV_MM_DrohRange]		= 1000;
 	aivar[AIV_MM_AttackRange]	= 700;

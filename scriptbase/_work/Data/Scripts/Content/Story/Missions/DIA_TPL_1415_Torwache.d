@@ -1,5 +1,5 @@
 // **************************************************
-// 						 EXIT 
+// 						 EXIT
 // **************************************************
 
 INSTANCE DIA_Tpl_1415_Torwache_Exit (C_INFO)
@@ -10,7 +10,7 @@ INSTANCE DIA_Tpl_1415_Torwache_Exit (C_INFO)
 	information	= DIA_Tpl_1415_Torwache_Exit_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC INT DIA_Tpl_1415_Torwache_Exit_Condition()
 {
@@ -37,7 +37,7 @@ INSTANCE DIA_Tpl_1415_Torwache_First (C_INFO)
 };
 
 FUNC INT DIA_Tpl_1415_Torwache_First_Condition()
-{	
+{
 	if (Kapitel >= 2)
 	{
 		return FALSE;
@@ -47,7 +47,7 @@ FUNC INT DIA_Tpl_1415_Torwache_First_Condition()
 	{
 		Npc_SetRefuseTalk(self,30);
 	};
-	
+
 	if (Npc_RefuseTalk(self) == FALSE)
 	{
 		return TRUE;
@@ -59,10 +59,10 @@ FUNC VOID DIA_Tpl_1415_Torwache_First_Info()
 	AI_Output (self, other,"DIA_Tpl_1415_Torwache_First_13_00"); //Greetings, stranger!
 	AI_Output (self, other,"DIA_Tpl_1415_Torwache_First_13_01"); //You are treading on holy ground. This is the Brotherhood of the Sleeper.
 	AI_Output (self, other,"DIA_Tpl_1415_Torwache_First_13_02"); //What brings you here?
-	
+
 	Info_ClearChoices	(DIA_Tpl_1415_Torwache_First);
 	Info_AddChoice		(DIA_Tpl_1415_Torwache_First,"I'm new here. I wanted to have a look at your camp.",DIA_Tpl_1415_Torwache_First_JustLooking);
-	
+
 	if (Npc_GetTrueGuild (hero) == GIL_NONE)
 	{
 		Info_AddChoice		(DIA_Tpl_1415_Torwache_First,"I want to join you.",DIA_Tpl_1415_Torwache_First_Join);
@@ -101,7 +101,7 @@ INSTANCE DIA_Tpl_1415_Torwache_Sit (C_INFO)
 };
 
 FUNC INT DIA_Tpl_1415_Torwache_Sit_Condition()
-{	
+{
 	return 1;
 };
 
@@ -123,8 +123,8 @@ instance Tpl_1415_Torwache_TEMPLERAUFNAHME	 (C_INFO)
 };
 
 FUNC int  Tpl_1415_Torwache_TEMPLERAUFNAHME_Condition()
-{	
-	if (( Npc_HasItems (hero, ItAt_Crawlerqueen) >= 1) 
+{
+	if (( Npc_HasItems (hero, ItAt_Crawlerqueen) >= 1)
 	|| (CorKalom_BringMCQBalls == LOG_SUCCESS))
 	&& ( Npc_GetTrueGuild  (hero) == GIL_NOV)
 	&& (Npc_GetDistToNpc (hero,self) < 1000)
@@ -134,7 +134,7 @@ FUNC int  Tpl_1415_Torwache_TEMPLERAUFNAHME_Condition()
 };
 func void  Tpl_1415_Torwache_TEMPLERAUFNAHME_Info()
 {
-	AI_GotoNpc (hero,self); 
+	AI_GotoNpc (hero,self);
 	AI_Output (self, other,"Tpl_1415_Torwache_IMPORTANT_Info_13_01"); //Hey, I've heard what happened in the mine. Good work. You deserve to be admitted to the templars!
 	AI_Output (self, other,"Tpl_1415_Torwache_IMPORTANT_Info_13_02"); //Just speak to Cor Angar!
 
@@ -144,7 +144,7 @@ func void  Tpl_1415_Torwache_TEMPLERAUFNAHME_Info()
 
 
 /*------------------------------------------------------------------------
-						Novizenröckchen							
+						Novizenröckchen
 ------------------------------------------------------------------------*/
 
 instance  Tpl_1415_Templer_ROCK (C_INFO)
@@ -154,11 +154,11 @@ instance  Tpl_1415_Templer_ROCK (C_INFO)
 	information		= Tpl_1415_Templer_ROCK_Info;
 	important		= 0;
 	permanent		= 1;
-	description		= "I need armor."; 
+	description		= "I need armor.";
 };
 
 FUNC int  Tpl_1415_Templer_ROCK_Condition()
-{	
+{
 	if (Kapitel < 2)
 	{
 		return TRUE;

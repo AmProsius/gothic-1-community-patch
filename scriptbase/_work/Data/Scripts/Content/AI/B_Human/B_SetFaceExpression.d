@@ -3,9 +3,9 @@ func void B_SetFaceExpression (var C_NPC slf, var C_NPC oth)
 	PrintDebugNpc		(PD_ZS_FRAME,	"B_SetFaceExpression");
 
 	var int attitude;
-	
+
 	attitude = Npc_GetTempAttitude(slf, oth);
-	
+
 	if (Npc_IsInState(self, ZS_Flee) || self.aivar[AIV_WASDEFEATEDBYSC])
 	{
 		PrintDebugNpc		(PD_ZS_CHECK,	"...to frightened!");

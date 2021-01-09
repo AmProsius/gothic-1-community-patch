@@ -1,5 +1,5 @@
 // **************************************************
-//						EXIT 
+//						EXIT
 // **************************************************
 
 instance  DIA_Nyras_Exit (C_INFO)
@@ -10,7 +10,7 @@ instance  DIA_Nyras_Exit (C_INFO)
 	information	=  DIA_Nyras_Exit_Info;
 	permanent	=  1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC int  DIA_Nyras_Exit_Condition()
 {
@@ -78,7 +78,7 @@ func void  DIA_Nyras_Ort_Info()
 	AI_Output			(self, other,"DIA_Nyras_Ort_03_01"); //Well - the Gurus are the most important people here. They spread the word of the Sleeper and pass our master's visions on to the novices.
 	AI_Output			(self, other,"DIA_Nyras_Ort_03_02"); //Of course he's too tired to talk to everybody himself.
 	AI_Output			(self, other,"DIA_Nyras_Ort_03_03"); //But on some days he speaks to us in the temple courtyard and reveals the holy words of the Sleeper.
-	
+
 	Info_ClearChoices 	(DIA_Nyras_Ort);
 	Info_Addchoice 		(DIA_Nyras_Ort,"Tell me about the holy words of the great Sleeper.",DIA_Nyras_Ort_Holy);
 	Info_Addchoice 		(DIA_Nyras_Ort,"And what does he say then?",DIA_Nyras_Ort_Casual);
@@ -103,7 +103,7 @@ func void DIA_Nyras_Ort_Holy()
 };
 
 // ***************************************************
-//						
+//
 // ***************************************************
 
 
@@ -150,11 +150,11 @@ instance  Nov_1303_Nyras_LEAVE (C_INFO)
 	information		= Nov_1303_Nyras_LEAVE_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "I'm searching for the focus."; 
+	description		= "I'm searching for the focus.";
 };
 
 FUNC int  Nov_1303_Nyras_LEAVE_Condition()
-{	
+{
 	if ( Npc_KnowsInfo (hero,Nov_1303_Nyras_GREET))
 	{
 		return 1;
@@ -174,6 +174,6 @@ FUNC void  Nov_1303_Nyras_LEAVE_Info()
 
 	Npc_SetPermAttitude (self,ATT_HOSTILE);
 	AI_StopProcessInfos	(self);
-		
-};  
-  
+
+};
+

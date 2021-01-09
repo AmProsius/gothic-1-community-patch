@@ -5,11 +5,11 @@ instance NOV_1302_Viran (Npc_Default)
 	Npctype	 	=		Npctype_Main;
 	guild 		=		GIL_NOV;
 	level 		=		15;
-	
+
 	voice 		=		7;
 	id 			=		1302;
-		
-	
+
+
 	//-------- abilities --------
 	attribute[ATR_STRENGTH] 		=	15;
 	attribute[ATR_DEXTERITY] 		=	15;
@@ -27,12 +27,12 @@ instance NOV_1302_Viran (Npc_Default)
 
 	B_Scale (self);
 	Mdl_SetModelFatness(self,-1);
-	
+
 	fight_tactic	=	FAI_HUMAN_STRONG;
 
 	//-------- Talente --------
-	
-		
+
+
 	//-------- inventory --------
 
 	EquipItem (self, ItMw_1H_Hatchet_01);
@@ -40,8 +40,8 @@ instance NOV_1302_Viran (Npc_Default)
 	CreateInvItems	(self, ItMiNugget,	5);
 	CreateInvItems	(self, ItFoRice,	2);
 	CreateInvItems	(self, ItFoBooze,	6);
-	
-	
+
+
 	//-------------Daily Routine-------------
 	daily_routine = Rtn_start_1302;
 

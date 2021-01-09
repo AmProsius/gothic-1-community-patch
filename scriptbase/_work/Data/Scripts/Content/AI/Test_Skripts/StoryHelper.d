@@ -8,14 +8,14 @@ INSTANCE SH(NPC_DEFAULT)
 	level			= 10;
 	voice			= 15;
 	id				= 0;
-	
+
 
 	//-------- visuals --------
 	// 						animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	//						Body-Mesh			Body-Tex	Skin-Color	Head-MMS    		Head-Tex	Teeth-Tex 	Armor-Tex
 	Mdl_SetVisualBody (self,"hum_body_Naked0",	4,			1,			"Hum_Head_Pony",	9, 			0,			-1);
-	
+
 	//-------- ai ----------
 	start_aistate = ZS_SH_Hangaround;
 };
@@ -46,10 +46,10 @@ instance  StoryHelper_Exit (C_INFO)
 	nr			=  999;
 	condition	=  StoryHelper_Exit_Condition;
 	information	=  StoryHelper_Exit_Info;
-	important	=  0;	
+	important	=  0;
 	permanent	=  1;
 	description = "END";
-};                       
+};
 
 FUNC int  StoryHelper_Exit_Condition()
 {
@@ -77,11 +77,11 @@ INSTANCE StoryHelper_INFO2 (C_INFO)
 	information		= StoryHelper_INFO2_Info;
 	important		= 0;
 	permanent		= 1;
-	description		= "Kapitel 2"; 
+	description		= "Kapitel 2";
 };
 
 FUNC INT StoryHelper_INFO2_Condition()
-{		
+{
 	return TRUE;
 };
 
@@ -89,7 +89,7 @@ func VOID StoryHelper_INFO2_Info()
 {
 
 	Info_ClearChoices	( StoryHelper_INFO2 );
-	
+
 	Info_AddChoice		( StoryHelper_INFO2, "ZURÜCK"			                			, StoryHelper_BACK2);
 	Info_AddChoice		( StoryHelper_INFO2, "II:  Vorbereitung für die Beschwörung"		, StoryHelper_PrepareRitual );
 	Info_AddChoice		( StoryHelper_INFO2, "II:  Hole den Almanach"						, StoryHelper_CorKalom_BringBook_RUNNING );
@@ -103,13 +103,13 @@ func VOID StoryHelper_INFO2_Info()
 //---------------------------------------------------------------------
 func void StoryHelper_Chapter2Start()
 {
-	
-	//-------- was davor geschah --------	
 
-	//-------- was neu geschieht --------	
+	//-------- was davor geschah --------
+
+	//-------- was neu geschieht --------
 	B_Kapitelwechsel		(2);
-	
-	//-------- Menü --------	
+
+	//-------- Menü --------
 	Info_ClearChoices		(StoryHelper_INFO2);
 	AI_StopProcessInfos		(self);
 };
@@ -119,14 +119,14 @@ func void StoryHelper_Chapter2Start()
 //---------------------------------------------------------------------
 func void StoryHelper_YBerion_BringFocus_SUCCESS()
 {
-	//-------- was davor geschah --------	
+	//-------- was davor geschah --------
 	B_Kapitelwechsel		(2);
 
-	//-------- was neu geschieht --------	
+	//-------- was neu geschieht --------
 	CreateInvItem			(hero, Focus_1);
 	YBerion_BringFocus 		= LOG_SUCCESS;
 
-	//-------- Menü --------	
+	//-------- Menü --------
 	Info_ClearChoices		(StoryHelper_INFO2 );
 	AI_StopProcessInfos		(self);
 };
@@ -136,55 +136,55 @@ func void StoryHelper_YBerion_BringFocus_SUCCESS()
 //---------------------------------------------------------------------
 func void StoryHelper_CorKalom_BringMCQBalls_RUNNING()
 {
-	//-------- was davor geschah --------	
+	//-------- was davor geschah --------
 	B_Kapitelwechsel		(2);
 	YBerion_BringFocus 		= LOG_SUCCESS;
 
-	//-------- was neu geschieht --------	
+	//-------- was neu geschieht --------
 	GUR_1201_CorKalom_WEG_ACCEPT();				// Log-Entry anlegen!
 	CorKalom_BringMCQBalls 	= LOG_RUNNING;
 
-	//-------- Menü --------	
+	//-------- Menü --------
 	Info_ClearChoices		(StoryHelper_INFO2);
 	AI_StopProcessInfos		(self);
-};  
+};
 
 //---------------------------------------------------------------------
 //	Hole den Almanach
 //---------------------------------------------------------------------
 func void StoryHelper_CorKalom_BringBook_RUNNING()
 {
-	//-------- was davor geschah --------	
+	//-------- was davor geschah --------
 	B_Kapitelwechsel		(2);
 	YBerion_BringFocus 		= LOG_SUCCESS;
 
-	//-------- was neu geschieht --------	
+	//-------- was neu geschieht --------
 	CorKalom_BringMCQBalls 	= LOG_SUCCESS;
 	CorKalom_BringBook 		= LOG_RUNNING;
 
-	//-------- Menü --------	
+	//-------- Menü --------
 	Info_ClearChoices		(StoryHelper_INFO2 );
 	AI_StopProcessInfos		(self);
-};  
+};
 
 //---------------------------------------------------------------------
 //	Vorbereitung auf die große Beschwörung
 //---------------------------------------------------------------------
 func void StoryHelper_PrepareRitual()
 {
-	//-------- was davor geschah --------	
+	//-------- was davor geschah --------
 	B_Kapitelwechsel		(2);
 	YBerion_BringFocus 		= LOG_SUCCESS;
 	CorKalom_BringMCQBalls 	= LOG_SUCCESS;
 
-	//-------- was neu geschieht --------	
+	//-------- was neu geschieht --------
 	CorKalom_BringBook 		= LOG_SUCCESS;
 	B_Story_PrepareRitual	();
 
-	//-------- Menü --------	
+	//-------- Menü --------
 	Info_ClearChoices		(StoryHelper_INFO2 );
 	AI_StopProcessInfos		(self);
-};  
+};
 
 //-------- ZURÜCK ---------
 func void StoryHelper_BACK2()
@@ -208,18 +208,18 @@ INSTANCE StoryHelper_INFO3 (C_INFO)
 	information		= StoryHelper_INFO3_Info;
 	important		= 0;
 	permanent		= 1;
-	description		= "Kapitel 3"; 
+	description		= "Kapitel 3";
 };
 
 FUNC INT StoryHelper_INFO3_Condition()
-{		
+{
 	return TRUE;
 };
 
 func void StoryHelper_INFO3_Info()
 {
 	Info_ClearChoices	( StoryHelper_INFO3 );
-	
+
 	Info_AddChoice		( StoryHelper_INFO3, DIALOG_BACK						, StoryHelper_BACK3 );
 	Info_AddChoice		( StoryHelper_INFO3, "III: Saturas  - 4 Foki holen"		, StoryHelper_SaturasBringFoci_RUNNING);
 	Info_AddChoice		( StoryHelper_INFO3, "III: CorAngar - zum NC gehen"		, StoryHelper_CorAngar_SendToNC);
@@ -232,15 +232,15 @@ func void StoryHelper_INFO3_Info()
 //---------------------------------------------------------------------
 func void StoryHelper_OrcGraveyard()
 {
-	//-------- was davor geschah --------	
+	//-------- was davor geschah --------
 	B_Kapitelwechsel		(2);
 	B_Story_PrepareRitual	();
 
-	//-------- was neu geschieht --------	
+	//-------- was neu geschieht --------
 	B_Kapitelwechsel		(3);
 	B_Story_GotoOrcGraveyard();
-	
-	//-------- Menü --------	
+
+	//-------- Menü --------
 	Info_ClearChoices	(StoryHelper_INFO3);
 	AI_StopProcessInfos	(self);
 };
@@ -250,16 +250,16 @@ func void StoryHelper_OrcGraveyard()
 //---------------------------------------------------------------------
 func void StoryHelper_BaalLukor_DEFEAT()
 {
-	//-------- was davor geschah --------	
+	//-------- was davor geschah --------
 	B_Kapitelwechsel		(2);
 	B_Story_PrepareRitual	();
 	B_Kapitelwechsel		(3);
 	B_Story_GotoOrcGraveyard();
 
-	//-------- was neu geschieht --------	
+	//-------- was neu geschieht --------
 	BaalLukor_BringParchment = 4;
-	
-	//-------- Menü --------	
+
+	//-------- Menü --------
 	Info_ClearChoices	( StoryHelper_INFO3 );
 	AI_StopProcessInfos	(self);
 };
@@ -269,19 +269,19 @@ func void StoryHelper_BaalLukor_DEFEAT()
 //---------------------------------------------------------------------
 func void StoryHelper_CorAngar_SendToNC()
 {
-	//-------- was davor geschah --------	
+	//-------- was davor geschah --------
 	B_Kapitelwechsel		(2);
 	B_Story_PrepareRitual	();
 	B_Kapitelwechsel		(3);
 	B_Story_GotoOrcGraveyard();
 
-	//-------- was neu geschieht --------	
+	//-------- was neu geschieht --------
 	B_Story_BackFromOrcGraveyard();
 	CreateInvItem			(hero,	focus_1);
 	CreateInvItem			(hero,	ItWrFokusbuch);
 	B_Story_SentToNC		();
-	
-	//-------- Menü --------	
+
+	//-------- Menü --------
 	Info_ClearChoices	( StoryHelper_INFO3 );
 	AI_StopProcessInfos	(self);
 };
@@ -291,7 +291,7 @@ func void StoryHelper_CorAngar_SendToNC()
 //---------------------------------------------------------------------
 func void StoryHelper_SaturasBringFoci_RUNNING()
 {
-	//-------- was davor geschah --------	
+	//-------- was davor geschah --------
 	B_Kapitelwechsel			(2);
 	B_Story_PrepareRitual		();
 	B_Kapitelwechsel			(3);
@@ -299,10 +299,10 @@ func void StoryHelper_SaturasBringFoci_RUNNING()
 	B_Story_BackFromOrcGraveyard();
 	B_Story_SentToNC			();
 
-	//-------- was neu geschieht --------	
+	//-------- was neu geschieht --------
 	B_Story_BringFoci			();
 
-	//-------- Menü --------	
+	//-------- Menü --------
 	Info_ClearChoices			(StoryHelper_INFO3);
 	AI_StopProcessInfos			(self);
 };
@@ -330,18 +330,18 @@ INSTANCE StoryHelper_INFO4 (C_INFO)
 	information		= StoryHelper_INFO4_Info;
 	important		= 0;
 	permanent		= 1;
-	description		= "Kapitel 4"; 
+	description		= "Kapitel 4";
 };
 
 FUNC INT StoryHelper_INFO4_Condition()
-{		
+{
 	return TRUE;
 };
 
 func void StoryHelper_INFO4_Info()
 {
 	Info_ClearChoices	( StoryHelper_INFO4 );
-	
+
 	Info_AddChoice		( StoryHelper_INFO4, "ZURÜCK"										, StoryHelper_BACK4 );
 	Info_AddChoice		( StoryHelper_INFO4, "IV:  Suche Teile für Ulu-Mulu"				, StoryHelper_SearchForUluMulu);
 	Info_AddChoice		( StoryHelper_INFO4, "IV:  Bereit für Angriff auf die Freie Mine"	, StoryHelper_AttackFreeMine);
@@ -358,7 +358,7 @@ func void StoryHelper_INFO4_Info()
 //---------------------------------------------------------------------
 func void StoryHelper_SaturasBringFoci_SUCCESS()
 {
-	//-------- was davor geschah --------	
+	//-------- was davor geschah --------
 	B_Kapitelwechsel			(2);
 	B_Story_PrepareRitual		();
 	B_Kapitelwechsel			(3);
@@ -367,11 +367,11 @@ func void StoryHelper_SaturasBringFoci_SUCCESS()
 	B_Story_SentToNC			();
 	B_Story_BringFoci			();
 
-	//-------- was neu geschieht --------	
+	//-------- was neu geschieht --------
 	B_Story_BroughtFoci			();
 	B_KapitelWechsel			(4);
 
-	//-------- Menü --------	
+	//-------- Menü --------
 	Info_ClearChoices			(StoryHelper_INFO4);
 	AI_StopProcessInfos			(self);
 };
@@ -381,7 +381,7 @@ func void StoryHelper_SaturasBringFoci_SUCCESS()
 //---------------------------------------------------------------------
 func void StoryHelper_FreeMineAmbush()
 {
-	//-------- was davor geschah --------	
+	//-------- was davor geschah --------
 	B_Kapitelwechsel			(2);
 	B_Story_PrepareRitual		();
 	B_Kapitelwechsel			(3);
@@ -392,10 +392,10 @@ func void StoryHelper_FreeMineAmbush()
 	B_Story_BroughtFoci			();
 	B_KapitelWechsel			(4);
 
-	//-------- was neu geschieht --------	
+	//-------- was neu geschieht --------
 	B_Story_FMTaken				();
 
-	//-------- Menü --------	
+	//-------- Menü --------
 	Info_ClearChoices			(StoryHelper_INFO4);
 	AI_StopProcessInfos			(self);
 };
@@ -405,7 +405,7 @@ func void StoryHelper_FreeMineAmbush()
 //---------------------------------------------------------------------
 func void StoryHelper_SaturasFindXardas()
 {
-	//-------- was davor geschah --------	
+	//-------- was davor geschah --------
 	B_Kapitelwechsel			(2);
 	B_Story_PrepareRitual		();
 	B_Kapitelwechsel			(3);
@@ -417,11 +417,11 @@ func void StoryHelper_SaturasFindXardas()
 	B_KapitelWechsel			(4);
 	B_Story_FMTaken				();
 
-	//-------- was neu geschieht --------	
+	//-------- was neu geschieht --------
 	B_Story_CordsPost			();
 	B_Story_FindXardas			();
-	
-	//-------- Menü --------	
+
+	//-------- Menü --------
 	Info_ClearChoices			(StoryHelper_INFO4);
 	AI_StopProcessInfos			(self);
 };
@@ -431,7 +431,7 @@ func void StoryHelper_SaturasFindXardas()
 //---------------------------------------------------------------------
 func void StoryHelper_XardasIntro()
 {
-	//-------- was davor geschah --------	
+	//-------- was davor geschah --------
 	B_Kapitelwechsel			(2);
 	B_Story_PrepareRitual		();
 	B_Kapitelwechsel			(3);
@@ -445,10 +445,10 @@ func void StoryHelper_XardasIntro()
 	B_Story_CordsPost			();
 	B_Story_FindXardas			();
 
-	//-------- was neu geschieht --------	
+	//-------- was neu geschieht --------
 	B_Story_AccessToXardas		();
-	
-	//-------- Menü --------	
+
+	//-------- Menü --------
 	Info_ClearChoices			(StoryHelper_INFO4);
 	AI_StopProcessInfos			(self);
 };
@@ -458,7 +458,7 @@ func void StoryHelper_XardasIntro()
 //---------------------------------------------------------------------
 func void StoryHelper_XardasFindOrcShaman()
 {
-	//-------- was davor geschah --------	
+	//-------- was davor geschah --------
 	B_Kapitelwechsel			(2);
 	B_Story_PrepareRitual		();
 	B_Kapitelwechsel			(3);
@@ -473,10 +473,10 @@ func void StoryHelper_XardasFindOrcShaman()
 	B_Story_FindXardas			();
 	B_Story_AccessToXardas		();
 
-	//-------- was neu geschieht --------	
+	//-------- was neu geschieht --------
 	B_Story_FindOrcShaman		();
-		
-	//-------- Menü --------	
+
+	//-------- Menü --------
 	Info_ClearChoices			(StoryHelper_INFO4);
 	AI_StopProcessInfos			(self);
 };
@@ -486,7 +486,7 @@ func void StoryHelper_XardasFindOrcShaman()
 //---------------------------------------------------------------------
 func void StoryHelper_AttackFreeMine()
 {
-	//-------- was davor geschah --------	
+	//-------- was davor geschah --------
 	B_Kapitelwechsel			(2);
 	B_Story_PrepareRitual		();
 	B_Kapitelwechsel			(3);
@@ -502,12 +502,12 @@ func void StoryHelper_AttackFreeMine()
 	B_Story_AccessToXardas		();
 	B_Story_FindOrcShaman		();
 
-	//-------- was neu geschieht --------	
+	//-------- was neu geschieht --------
 	B_Story_FoundUrShak			();
 	B_Story_FriendOfUrShak		();
 	B_Story_ReturnedFromUrShak		();
-			
-	//-------- Menü --------	
+
+	//-------- Menü --------
 	Info_ClearChoices			(StoryHelper_INFO4);
 	AI_StopProcessInfos			(self);
 };
@@ -517,7 +517,7 @@ func void StoryHelper_AttackFreeMine()
 //---------------------------------------------------------------------
 func void StoryHelper_SearchForUluMulu()
 {
-	//-------- was davor geschah --------	
+	//-------- was davor geschah --------
 	B_Kapitelwechsel			(2);
 	B_Story_PrepareRitual		();
 	B_Kapitelwechsel			(3);
@@ -536,7 +536,7 @@ func void StoryHelper_SearchForUluMulu()
 	B_Story_FriendOfUrShak		();
 	B_Story_ReturnedFromUrShak	();
 
-	//-------- was neu geschieht --------	
+	//-------- was neu geschieht --------
 	B_Story_CancelFindXardas	();
 	B_Story_GornJoins			();
 	Knows_GetMCPlates = 		TRUE;
@@ -544,8 +544,8 @@ func void StoryHelper_SearchForUluMulu()
 	B_Story_FoundOrcSlave		();
 	B_Story_CuredOrc			();
 	B_Story_LeftFM				();
-				
-	//-------- Menü --------	
+
+	//-------- Menü --------
 	Info_ClearChoices			(StoryHelper_INFO4);
 	AI_StopProcessInfos			(self);
 };
@@ -572,18 +572,18 @@ INSTANCE StoryHelper_INFO5 (C_INFO)
 	information		= StoryHelper_INFO5_Info;
 	important		= 0;
 	permanent		= 1;
-	description		= "Kapitel 5"; 
+	description		= "Kapitel 5";
 };
 
 FUNC INT StoryHelper_INFO5_Condition()
-{		
+{
 	return TRUE;
 };
 
 func void StoryHelper_INFO5_Info()
 {
 	Info_ClearChoices	( StoryHelper_INFO5 );
-	
+
 	Info_AddChoice		( StoryHelper_INFO5, "ZURÜCK"									, StoryHelper_BACK5 );
 	Info_AddChoice		( StoryHelper_INFO5, "V:  URIZIEL ist aufgeladen"				, StoryHelper_UrizielLoaded);
 	Info_AddChoice		( StoryHelper_INFO5, "V:  Bereit für das Laden von URIZIEL"		, StoryHelper_LoadUriziel);
@@ -597,7 +597,7 @@ func void StoryHelper_INFO5_Info()
 //---------------------------------------------------------------------
 func void StoryHelper_ReadyForOrcCity()
 {
-	//-------- was davor geschah --------	
+	//-------- was davor geschah --------
 	B_Kapitelwechsel				(2);
 	B_Story_PrepareRitual			();
 	B_Kapitelwechsel				(3);
@@ -623,12 +623,12 @@ func void StoryHelper_ReadyForOrcCity()
 	B_Story_CuredOrc				();
 	B_Story_LeftFM					();
 
-	//-------- was neu geschieht --------	
+	//-------- was neu geschieht --------
 	B_Story_GotUluMulu				();
 	B_Kapitelwechsel				(5);
 	CreateInvItem					(hero, CRW_ARMOR_H);
-					
-	//-------- Menü --------	
+
+	//-------- Menü --------
 	Info_ClearChoices				(StoryHelper_INFO5);
 	AI_StopProcessInfos				(self);
 };
@@ -638,7 +638,7 @@ func void StoryHelper_ReadyForOrcCity()
 //---------------------------------------------------------------------
 func void StoryHelper_FoundUriziel()
 {
-	//-------- was davor geschah --------	
+	//-------- was davor geschah --------
 	B_Kapitelwechsel				(2);
 	B_Story_PrepareRitual			();
 	B_Kapitelwechsel				(3);
@@ -667,13 +667,13 @@ func void StoryHelper_FoundUriziel()
 	B_Kapitelwechsel				(5);
 	CreateInvItem					(hero, CRW_ARMOR_H);
 
-	//-------- was neu geschieht --------	
+	//-------- was neu geschieht --------
 	EnteredTemple =					TRUE;
 	B_Story_FoundUriziel			();
 	B_Story_EncounteredHighPriest	();
 	B_Story_ShowedUrizielToXardas	();
-						
-	//-------- Menü --------	
+
+	//-------- Menü --------
 	Info_ClearChoices				(StoryHelper_INFO5);
 	AI_StopProcessInfos				(self);
 };
@@ -683,7 +683,7 @@ func void StoryHelper_FoundUriziel()
 //---------------------------------------------------------------------
 func void StoryHelper_ExploreSunkenTower()
 {
-	//-------- was davor geschah --------	
+	//-------- was davor geschah --------
 	B_Kapitelwechsel				(2);
 	B_Story_PrepareRitual			();
 	B_Kapitelwechsel				(3);
@@ -716,10 +716,10 @@ func void StoryHelper_ExploreSunkenTower()
 	B_Story_EncounteredHighPriest	();
 	B_Story_ShowedUrizielToXardas	();
 
-	//-------- was neu geschieht --------	
+	//-------- was neu geschieht --------
 	B_Story_ExploreSunkenTower		();
-							
-	//-------- Menü --------	
+
+	//-------- Menü --------
 	Info_ClearChoices				(StoryHelper_INFO5);
 	AI_StopProcessInfos				(self);
 };
@@ -729,7 +729,7 @@ func void StoryHelper_ExploreSunkenTower()
 //---------------------------------------------------------------------
 func void StoryHelper_LoadUriziel()
 {
-	//-------- was davor geschah --------	
+	//-------- was davor geschah --------
 	B_Kapitelwechsel				(2);
 	B_Story_PrepareRitual			();
 	B_Kapitelwechsel				(3);
@@ -763,12 +763,12 @@ func void StoryHelper_LoadUriziel()
 	B_Story_ShowedUrizielToXardas	();
 	B_Story_ExploreSunkenTower		();
 
-	//-------- was neu geschieht --------	
+	//-------- was neu geschieht --------
 	CreateInvItem					(hero, ORE_ARMOR_M);
 	CreateInvItem					(hero, ItArRuneTeleport1);	// zu den Feuermagiern
 	B_Story_LoadSword				();
-								
-	//-------- Menü --------	
+
+	//-------- Menü --------
 	Info_ClearChoices				(StoryHelper_INFO5);
 	AI_StopProcessInfos				(self);
 };
@@ -778,7 +778,7 @@ func void StoryHelper_LoadUriziel()
 //---------------------------------------------------------------------
 func void StoryHelper_UrizielLoaded()
 {
-	//-------- was davor geschah --------	
+	//-------- was davor geschah --------
 	B_Kapitelwechsel				(2);
 	B_Story_PrepareRitual			();
 	B_Kapitelwechsel				(3);
@@ -814,11 +814,11 @@ func void StoryHelper_UrizielLoaded()
 	CreateInvItem					(hero, ItArRuneTeleport1);	// zu den Feuermagiern
 	B_Story_LoadSword				();
 
-	//-------- was neu geschieht --------	
+	//-------- was neu geschieht --------
 	B_Kapitelwechsel				(6);
 	B_Story_UrizielLoaded			();
-								
-	//-------- Menü --------	
+
+	//-------- Menü --------
 	Info_ClearChoices				(StoryHelper_INFO5);
 	AI_StopProcessInfos				(self);
 };

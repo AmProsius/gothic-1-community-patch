@@ -1,5 +1,5 @@
-// ***************************** 
-//				EXIT 
+// *****************************
+//				EXIT
 // *****************************
 
 instance DIA_TPL_1402_GorNaToth_Exit (C_INFO)
@@ -10,7 +10,7 @@ instance DIA_TPL_1402_GorNaToth_Exit (C_INFO)
 	information	= DIA_TPL_1402_GorNaToth_Exit_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC int DIA_TPL_1402_GorNaToth_Exit_Condition()
 {
@@ -22,8 +22,8 @@ FUNC VOID DIA_TPL_1402_GorNaToth_Exit_Info()
 	AI_StopProcessInfos	( self );
 };
 
-// ***************************** 
-//			Abweisend 
+// *****************************
+//			Abweisend
 // *****************************
 instance DIA_GorNaToth_Abweisend (C_INFO)
 {
@@ -33,12 +33,12 @@ instance DIA_GorNaToth_Abweisend (C_INFO)
 	information	= DIA_GorNaToth_Abweisend_Info;
 	permanent	= 1;
 	description = "Can you train me?";
-};                       
+};
 
 FUNC int DIA_GorNaToth_Abweisend_Condition()
 {
 	if	!Npc_KnowsInfo(hero,DIA_GorNaToth_AngarTalked)
-	&&	!C_NpcBelongsToPsiCamp(hero)  
+	&&	!C_NpcBelongsToPsiCamp(hero)
 	{
 		return 1;
 	};
@@ -51,8 +51,8 @@ FUNC VOID DIA_GorNaToth_Abweisend_Info()
 	AI_StopProcessInfos	(self);
 };
 
-// ***************************** 
-//			AngarTalked 
+// *****************************
+//			AngarTalked
 // *****************************
 
 instance DIA_GorNaToth_AngarTalked (C_INFO)
@@ -63,7 +63,7 @@ instance DIA_GorNaToth_AngarTalked (C_INFO)
 	information	= DIA_GorNaToth_AngarTalked_Info;
 	permanent	= 0;
 	important 	= 1;
-};                       
+};
 
 FUNC int DIA_GorNaToth_AngarTalked_Condition()
 {
@@ -77,9 +77,9 @@ FUNC VOID DIA_GorNaToth_AngarTalked_Info()
 {
 	AI_Output (self, other,"DIA_GorNaToth_AngarTalked_11_00"); //Cor Angar has spoken to you? What did he say?
 	Info_ClearChoices		(DIA_GorNaToth_AngarTalked);
-	Info_AddChoice			(DIA_GorNaToth_AngarTalked,"He says you'd be unworthy of wearing the armor of a templar.",DIA_GorNaToth_AngarTalked_Unworthy);	
-	Info_AddChoice			(DIA_GorNaToth_AngarTalked,"He said he never liked the swampsharks.",DIA_GorNaToth_AngarTalked_Shark);	
-	Info_AddChoice			(DIA_GorNaToth_AngarTalked,"He said I should come back as soon as I'm a templar.",DIA_GorNaToth_AngarTalked_Normal);	
+	Info_AddChoice			(DIA_GorNaToth_AngarTalked,"He says you'd be unworthy of wearing the armor of a templar.",DIA_GorNaToth_AngarTalked_Unworthy);
+	Info_AddChoice			(DIA_GorNaToth_AngarTalked,"He said he never liked the swampsharks.",DIA_GorNaToth_AngarTalked_Shark);
+	Info_AddChoice			(DIA_GorNaToth_AngarTalked,"He said I should come back as soon as I'm a templar.",DIA_GorNaToth_AngarTalked_Normal);
 };
 
 func void DIA_GorNaToth_AngarTalked_Normal()
@@ -118,11 +118,11 @@ instance  TPL_1402_GorNaToth_GETSTUFF (C_INFO)
 	information		= TPL_1402_GorNaToth_GETSTUFF_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "I'd like to collect my templar's armor."; 
+	description		= "I'd like to collect my templar's armor.";
 };
 
 FUNC int  TPL_1402_GorNaToth_GETSTUFF_Condition()
-{	
+{
 	if (Npc_KnowsInfo (hero,GUR_1202_CorAngar_WANNABETPL))
 	&& (Npc_GetTrueGuild (hero) == GIL_TPL)
 	{
@@ -135,20 +135,20 @@ FUNC void  TPL_1402_GorNaToth_GETSTUFF_Info()
 	AI_Output			(other, self,"TPL_1402_GorNaToth_GETSTUFF_Info_15_01"); //I'd like to collect my templar's armor.
 	AI_Output			(self, other,"TPL_1402_GorNaToth_GETSTUFF_Info_11_02"); //I'm delighted to have the honor of handing our armor to the man who found the minecrawler eggs.
 	AI_Output			(self, other,"TPL_1402_GorNaToth_GETSTUFF_Info_11_03"); //May this armor protect you, as the Sleeper protects the Brotherhood!
-	
+
 	B_LogEntry			(GE_BecomeTemplar,"Gor Na Toth gave me my first templars' armor. Now I'm a proper member of the warrior clan!");
 
 	Log_CreateTopic		(GE_TraderPSI,		LOG_NOTE);
 	B_LogEntry			(GE_TraderPSI,"Gor Na Toth has a better templar's ARMOR available. But in return he expects a generous donation to the Brotherhood. During the daytime, he's on the training ground.");
-	
+
 	CreateInvItem		(hero, TPL_ARMOR_L);
-	
+
 	CreateInvItem		(self, ItAmArrow);
 	B_GiveInvItems      (self, hero, ItAmArrow, 1);
 	Npc_RemoveInvItem	(hero, ItAmArrow);
-	
+
 	AI_EquipBestArmor	(hero);
-};  
+};
 
 /*------------------------------------------------------------------------
 //							ARMOR
@@ -160,11 +160,11 @@ instance  TPL_1402_GorNaToth_ARMOR (C_INFO)
 	information		= TPL_1402_GorNaToth_ARMOR_Info;
 	important		= 0;
 	permanent		= 1;
-	description		= "I need better armor."; 
+	description		= "I need better armor.";
 };
 
 FUNC int  TPL_1402_GorNaToth_ARMOR_Condition()
-{	
+{
 	if	(Npc_KnowsInfo(hero,TPL_1402_GorNaToth_GETSTUFF))
 	{
 		return TRUE;
@@ -177,9 +177,9 @@ FUNC void  TPL_1402_GorNaToth_ARMOR_Info()
 	AI_Output				(self, other,"Info_GorNaToth_ARMOR_11_02"); //I could give you better armor, but you must make a generous contribution to the Brotherhood!
 
 	Info_ClearChoices		(TPL_1402_GorNaToth_ARMOR);
-	Info_AddChoice			(TPL_1402_GorNaToth_ARMOR,	DIALOG_BACK	,	TPL_1402_GorNaToth_ARMOR_BACK);	
-	Info_AddChoice			(TPL_1402_GorNaToth_ARMOR,	B_BuildBuyArmorString(NAME_GorNaTothHeavyTpl,VALUE_TPL_ARMOR_H) ,TPL_1402_GorNaToth_ARMOR_H);	
-	Info_AddChoice			(TPL_1402_GorNaToth_ARMOR,	B_BuildBuyArmorString(NAME_GorNaTothTpl,VALUE_TPL_ARMOR_M),	TPL_1402_GorNaToth_ARMOR_M);	
+	Info_AddChoice			(TPL_1402_GorNaToth_ARMOR,	DIALOG_BACK	,	TPL_1402_GorNaToth_ARMOR_BACK);
+	Info_AddChoice			(TPL_1402_GorNaToth_ARMOR,	B_BuildBuyArmorString(NAME_GorNaTothHeavyTpl,VALUE_TPL_ARMOR_H) ,TPL_1402_GorNaToth_ARMOR_H);
+	Info_AddChoice			(TPL_1402_GorNaToth_ARMOR,	B_BuildBuyArmorString(NAME_GorNaTothTpl,VALUE_TPL_ARMOR_M),	TPL_1402_GorNaToth_ARMOR_M);
 
 
 };
@@ -200,13 +200,13 @@ func void TPL_1402_GorNaToth_ARMOR_M ()
 	{
 		AI_Output			(self, hero,"Info_GorNaToth_ARMOR_M_11_04"); //Now that you're able to make the donation, you'll be protected by new armor.
 		B_GiveInvItems	    (hero, self, ItMiNugget,	VALUE_TPL_ARMOR_M);
-		
+
 		CreateInvItem		(hero, TPL_ARMOR_M);
-		
+
 		CreateInvItem		(self, ItAmArrow);
 		B_GiveInvItems      (self, hero, ItAmArrow, 1);
 		Npc_RemoveInvItem	(hero, ItAmArrow);
-		
+
 		AI_EquipBestArmor	(hero);
 	};
 
@@ -262,11 +262,11 @@ INSTANCE TPL_1402_GorNaToth_Teach(C_INFO)
 	information	= TPL_1402_GorNaToth_Teach_Info;
 	permanent	= 1;
 	description = "Can you train me?";
-};                       
+};
 
 FUNC INT TPL_1402_GorNaToth_Teach_Condition()
 {
-	if (C_NpcBelongsToPsiCamp(hero))  
+	if (C_NpcBelongsToPsiCamp(hero))
 	{
 		return TRUE;
 	};
@@ -276,7 +276,7 @@ FUNC VOID TPL_1402_GorNaToth_Teach_Info()
 {
 	AI_Output			(other,self,"TPL_1402_GorNaToth_Teach_15_00"); //Can you train me?
 	AI_Output			(self,other,"TPL_1402_GorNaToth_Teach_11_01"); //Strength and dexterity are as important as the power of the mind.
-	
+
 	Info_ClearChoices	(TPL_1402_GorNaToth_Teach);
 	Info_AddChoice		(TPL_1402_GorNaToth_Teach,DIALOG_BACK									,TPL_1402_GorNaToth_Teach_BACK);
 	Info_AddChoice		(TPL_1402_GorNaToth_Teach,B_BuildLearnString(NAME_LearnStrength_5,5*LPCOST_ATTRIBUTE_STRENGTH,0)			,TPL_1402_GorNaToth_Teach_STR_5);
@@ -376,7 +376,7 @@ func void TPL_1402_GorNaToth_Teach_MAN_5()
 	Info_AddChoice		(TPL_1402_GorNaToth_Teach,B_BuildLearnString(NAME_LearnMana_1,LPCOST_ATTRIBUTE_MANA,0)			,TPL_1402_GorNaToth_Teach_MAN_1);
 };
 /*------------------------------------------------------------------------
-						EINHANDKAMPF	DIE ERSTE LEHRSTUNDE							
+						EINHANDKAMPF	DIE ERSTE LEHRSTUNDE
 ------------------------------------------------------------------------*/
 
 instance  TPL_1402_GorNaToth_TRAIN (C_INFO)
@@ -386,14 +386,14 @@ instance  TPL_1402_GorNaToth_TRAIN (C_INFO)
 	information		= TPL_1402_GorNaToth_TRAIN_Info;
 	important		= 0;
 	permanent		= 1;
-	description		= B_BuildLearnString(NAME_Learn1h_1,LPCOST_TALENT_1H_1,0); 
+	description		= B_BuildLearnString(NAME_Learn1h_1,LPCOST_TALENT_1H_1,0);
 };
 
 FUNC int  TPL_1402_GorNaToth_TRAIN_Condition()
-{	
-	
+{
+
 	if (Npc_GetTalentSkill (hero,NPC_TALENT_1H) < 1)
-	&& (C_NpcBelongsToPsiCamp(hero))  
+	&& (C_NpcBelongsToPsiCamp(hero))
 	{
 		return TRUE;
 	};
@@ -401,14 +401,14 @@ FUNC int  TPL_1402_GorNaToth_TRAIN_Condition()
 };
 FUNC void  TPL_1402_GorNaToth_TRAIN_Info()
 {
-	if	(log_gornatothfight == FALSE) 
+	if	(log_gornatothfight == FALSE)
 	{
 		Log_CreateTopic   	(GE_TeacherPSI,LOG_NOTE);
 		B_LogEntry			(GE_TeacherPSI,"The templar Gor Na Toth can teach me to fight with ONE-HANDED weapons.");
 		log_gornatothfight = TRUE;
 	};
 	AI_Output (other, self,"TPL_1402_GorNaToth_TRAIN_Info_15_00"); //I want to improve my handling of one-handed weapons.
-	
+
 	if B_GiveSkill(hero,NPC_TALENT_1H,1,LPCOST_TALENT_1H_1)
 	{
 		AI_Output			(self,other,"TPL_1402_GorNaToth_TRAIN_11_01"); //That's a good decision! Before you can improve your technique, you'll have to learn how to hold the weapon right.
@@ -423,9 +423,9 @@ FUNC void  TPL_1402_GorNaToth_TRAIN_Info()
 		AI_StopProcessInfos	(self);
 		B_PracticeCombat	("PSI_PATH_6_7");
 	};
-};  
+};
 /*------------------------------------------------------------------------
-						EINHANDKAMPF	DIE ZWEITE LEHRSTUNDE							
+						EINHANDKAMPF	DIE ZWEITE LEHRSTUNDE
 ------------------------------------------------------------------------*/
 
 instance  TPL_1402_GorNaToth_TRAINAGAIN (C_INFO)
@@ -435,13 +435,13 @@ instance  TPL_1402_GorNaToth_TRAINAGAIN (C_INFO)
 	information		= TPL_1402_GorNaToth_TRAINAGAIN_Info;
 	important		= 0;
 	permanent		= 1;
-	description		= B_BuildLearnString(NAME_Learn1h_2,			LPCOST_TALENT_1H_2,0); 
+	description		= B_BuildLearnString(NAME_Learn1h_2,			LPCOST_TALENT_1H_2,0);
 };
 
 FUNC int  TPL_1402_GorNaToth_TRAINAGAIN_Condition()
-{	
+{
 	if (Npc_GetTalentSkill (hero,NPC_TALENT_1H) == 1)
-	&& (C_NpcBelongsToPsiCamp(hero))  
+	&& (C_NpcBelongsToPsiCamp(hero))
 	{
 		return TRUE;
 	};
@@ -461,4 +461,4 @@ FUNC void  TPL_1402_GorNaToth_TRAINAGAIN_Info()
 		AI_StopProcessInfos	(self);
 		B_PracticeCombat	("PSI_PATH_6_7");
 	};
-}; 
+};

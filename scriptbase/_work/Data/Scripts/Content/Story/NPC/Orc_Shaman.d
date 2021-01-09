@@ -6,10 +6,10 @@ instance ORC_2200_Shaman (Mst_Default_OrcShaman)
 	flags	 	=		NPC_FLAG_IMMORTAL;
 	guild 		=		GIL_NONE;
 	level 		=		25;
-	 	
+
 	voice 		=		17;
 	id 			=		2200;
-	
+
 	//-------- abilities --------
 	attribute[ATR_STRENGTH] 		=	75;
 	attribute[ATR_DEXTERITY] 		=	75;
@@ -18,20 +18,20 @@ instance ORC_2200_Shaman (Mst_Default_OrcShaman)
 	attribute[ATR_HITPOINTS_MAX] 	=	400;
 	attribute[ATR_HITPOINTS] 		=	400;
 
-	//----------------------------------------------------------	
+	//----------------------------------------------------------
 	protection	[PROT_BLUNT]		=	90;
 	protection	[PROT_EDGE]			=	90;
 	protection	[PROT_POINT]		=	90;
 	protection	[PROT_FIRE]			=	25;
 	protection	[PROT_FLY]			=	90;
 	protection	[PROT_MAGIC]		=	0;
-	 	
+
 	Mdl_SetVisual			(self,	"Orc.mds");
 	Mdl_SetVisualBody		(self,	"Orc_BodyShaman",DEFAULT,	DEFAULT,	"Orc_HeadShaman",	DEFAULT,  	DEFAULT,	-1);
 
 	B_Scale (self);
 	Mdl_SetModelFatness(self,0);
-	
+
 	fight_tactic	=	FAI_HUMAN_MAGE;
 
 	//-------- Talente --------
@@ -40,7 +40,7 @@ instance ORC_2200_Shaman (Mst_Default_OrcShaman)
 	//-------- inventory --------
 	EquipItem			(self,	ItRwOrcstaff);		// für Magiemodus
 	CreateInvItem		(self,	ItArRuneFireball);
-  	  
+
 	//------------- ai -------------
 	daily_routine 	= Rtn_FMTaken_2200;
 	senses 			= SENSE_SEE|SENSE_HEAR|SENSE_SMELL;

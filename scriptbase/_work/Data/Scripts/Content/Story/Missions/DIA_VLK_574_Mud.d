@@ -5,7 +5,7 @@ var int Mud_NerveRealized;
 // **************************************************
 
 // **************************************************
-// 						 EXIT 
+// 						 EXIT
 // **************************************************
 
 INSTANCE DIA_Mud_Exit (C_INFO)
@@ -16,7 +16,7 @@ INSTANCE DIA_Mud_Exit (C_INFO)
 	information	= DIA_Mud_Exit_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC INT DIA_Mud_Exit_Condition()
 {
@@ -43,7 +43,7 @@ INSTANCE DIA_Mud_FirstEXIT (C_INFO)
 	information	= DIA_Mud_FirstEXIT_Info;
 	permanent	= 0;
 	important 	= 1;
-};                       
+};
 
 FUNC INT DIA_Mud_FirstEXIT_Condition()
 {
@@ -92,11 +92,11 @@ INSTANCE DIA_Mud_ShutUp (C_INFO)
 	information	= DIA_Mud_ShutUp_Info;
 	permanent	= 1;
 	description	= "Could you PLEASE keep quiet for a minute?";
-};                       
+};
 
 FUNC INT DIA_Mud_ShutUp_Condition()
 {
-	
+
 	if (Mud_NerveRealized == TRUE)
 	{
 		return 1;
@@ -122,7 +122,7 @@ INSTANCE DIA_Mud_GetLost (C_INFO)
 	information	= DIA_Mud_GetLost_Info;
 	permanent	= 1;
 	description	= "Get lost!";
-};                       
+};
 
 FUNC INT DIA_Mud_GetLost_Condition()
 {
@@ -147,7 +147,7 @@ INSTANCE DIA_Mud_Defeated (C_INFO)
 	information	= DIA_Mud_Defeated_Info;
 	permanent	= 0;
 	important 	= 1;
-};                       
+};
 
 FUNC INT DIA_Mud_Defeated_Condition()
 {
@@ -162,13 +162,13 @@ FUNC VOID DIA_Mud_Defeated_Info()
 	AI_Output (self, other,"DIA_Mud_GetLost_07_00"); //Hey, man, you hit me! What was that for?
 	AI_Output (other, self,"DIA_Mud_GetLost_15_01"); //I'll hit you again in a second! I'm into that!
 	AI_Output (self, other,"DIA_Mud_GetLost_07_02"); //You're a lunatic, man! I don't want to have anything to do with you!
-	
+
 	AI_StopProcessInfos	(self);
 	Npc_ExchangeRoutine(self,"START");
 };
 
 // **************************************************
-// 						 Nerve 0 
+// 						 Nerve 0
 // **************************************************
 
 INSTANCE DIA_Mud_Nerve_0 (C_INFO)
@@ -179,7 +179,7 @@ INSTANCE DIA_Mud_Nerve_0 (C_INFO)
 	information	= DIA_Mud_Nerve_0_Info;
 	permanent	= 1;
 	important 	= 1;
-};                       
+};
 
 FUNC INT DIA_Mud_Nerve_0_Condition()
 {
@@ -195,7 +195,7 @@ FUNC VOID DIA_Mud_Nerve_0_Info()
 };
 
 // **************************************************
-// 						 Nerve 1 
+// 						 Nerve 1
 // **************************************************
 
 INSTANCE DIA_Mud_Nerve_1 (C_INFO)
@@ -206,7 +206,7 @@ INSTANCE DIA_Mud_Nerve_1 (C_INFO)
 	information	= DIA_Mud_Nerve_1_Info;
 	permanent	= 1;
 	important 	= 1;
-};                       
+};
 
 FUNC INT DIA_Mud_Nerve_1_Condition()
 {
@@ -223,7 +223,7 @@ FUNC VOID DIA_Mud_Nerve_1_Info()
 };
 
 // **************************************************
-// 						 Nerve 2 
+// 						 Nerve 2
 // **************************************************
 
 INSTANCE DIA_Mud_Nerve_2 (C_INFO)
@@ -234,7 +234,7 @@ INSTANCE DIA_Mud_Nerve_2 (C_INFO)
 	information	= DIA_Mud_Nerve_2_Info;
 	permanent	= 1;
 	important 	= 1;
-};                       
+};
 
 FUNC INT DIA_Mud_Nerve_2_Condition()
 {
@@ -261,7 +261,7 @@ INSTANCE DIA_Mud_Nerve_3 (C_INFO)
 	information	= DIA_Mud_Nerve_3_Info;
 	permanent	= 1;
 	important 	= 1;
-};                       
+};
 
 FUNC INT DIA_Mud_Nerve_3_Condition()
 {
@@ -288,7 +288,7 @@ INSTANCE DIA_Mud_Nerve_4 (C_INFO)
 	information	= DIA_Mud_Nerve_4_Info;
 	permanent	= 1;
 	important 	= 1;
-};                       
+};
 
 FUNC INT DIA_Mud_Nerve_4_Condition()
 {
@@ -315,7 +315,7 @@ INSTANCE DIA_Mud_Nerve_5 (C_INFO)
 	information	= DIA_Mud_Nerve_5_Info;
 	permanent	= 1;
 	important 	= 1;
-};                       
+};
 
 FUNC INT DIA_Mud_Nerve_5_Condition()
 {
@@ -342,7 +342,7 @@ INSTANCE DIA_Mud_Nerve_6 (C_INFO)
 	information	= DIA_Mud_Nerve_6_Info;
 	permanent	= 1;
 	important 	= 1;
-};                       
+};
 
 FUNC INT DIA_Mud_Nerve_6_Condition()
 {
@@ -369,7 +369,7 @@ INSTANCE DIA_Mud_Nerve_7 (C_INFO)
 	information	= DIA_Mud_Nerve_7_Info;
 	permanent	= 1;
 	important 	= 1;
-};                       
+};
 
 FUNC INT DIA_Mud_Nerve_7_Condition()
 {
@@ -397,7 +397,7 @@ INSTANCE DIA_Mud_Nerve_8 (C_INFO)
 	information	= DIA_Mud_Nerve_8_Info;
 	permanent	= 1;
 	important 	= 1;
-};                       
+};
 
 FUNC INT DIA_Mud_Nerve_8_Condition()
 {
@@ -424,7 +424,7 @@ INSTANCE DIA_Mud_Nerve_9 (C_INFO)
 	information	= DIA_Mud_Nerve_9_Info;
 	permanent	= 1;
 	important 	= 1;
-};                       
+};
 
 FUNC INT DIA_Mud_Nerve_9_Condition()
 {
@@ -451,7 +451,7 @@ INSTANCE DIA_Mud_Nerve_10 (C_INFO)
 	information	= DIA_Mud_Nerve_10_Info;
 	permanent	= 1;
 	important 	= 1;
-};                       
+};
 
 FUNC INT DIA_Mud_Nerve_10_Condition()
 {
@@ -478,7 +478,7 @@ INSTANCE DIA_Mud_Nerve_11 (C_INFO)
 	information	= DIA_Mud_Nerve_11_Info;
 	permanent	= 1;
 	important 	= 1;
-};                       
+};
 
 FUNC INT DIA_Mud_Nerve_11_Condition()
 {
@@ -505,7 +505,7 @@ INSTANCE DIA_Mud_Nerve_12 (C_INFO)
 	information	= DIA_Mud_Nerve_12_Info;
 	permanent	= 1;
 	important 	= 1;
-};                       
+};
 
 FUNC INT DIA_Mud_Nerve_12_Condition()
 {
@@ -532,7 +532,7 @@ INSTANCE DIA_Mud_Nerve_13 (C_INFO)
 	information	= DIA_Mud_Nerve_13_Info;
 	permanent	= 1;
 	important 	= 1;
-};                       
+};
 
 FUNC INT DIA_Mud_Nerve_13_Condition()
 {
@@ -559,7 +559,7 @@ INSTANCE DIA_Mud_Nerve_14 (C_INFO)
 	information	= DIA_Mud_Nerve_14_Info;
 	permanent	= 1;
 	important 	= 1;
-};                       
+};
 
 FUNC INT DIA_Mud_Nerve_14_Condition()
 {
@@ -587,7 +587,7 @@ INSTANCE DIA_Mud_Nerve_15 (C_INFO)
 	information	= DIA_Mud_Nerve_15_Info;
 	permanent	= 1;
 	important 	= 1;
-};                       
+};
 
 FUNC INT DIA_Mud_Nerve_15_Condition()
 {
@@ -614,7 +614,7 @@ INSTANCE DIA_Mud_Nerve_16 (C_INFO)
 	information	= DIA_Mud_Nerve_16_Info;
 	permanent	= 1;
 	important 	= 1;
-};                       
+};
 
 FUNC INT DIA_Mud_Nerve_16_Condition()
 {
@@ -641,7 +641,7 @@ INSTANCE DIA_Mud_Nerve_17 (C_INFO)
 	information	= DIA_Mud_Nerve_17_Info;
 	permanent	= 1;
 	important 	= 1;
-};                       
+};
 
 FUNC INT DIA_Mud_Nerve_17_Condition()
 {
@@ -668,7 +668,7 @@ INSTANCE DIA_Mud_Nerve_18 (C_INFO)
 	information	= DIA_Mud_Nerve_18_Info;
 	permanent	= 1;
 	important 	= 1;
-};                       
+};
 
 FUNC INT DIA_Mud_Nerve_18_Condition()
 {
@@ -695,7 +695,7 @@ INSTANCE DIA_Mud_Nerve_19 (C_INFO)
 	information	= DIA_Mud_Nerve_19_Info;
 	permanent	= 1;
 	important 	= 1;
-};                       
+};
 
 FUNC INT DIA_Mud_Nerve_19_Condition()
 {

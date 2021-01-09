@@ -10,29 +10,29 @@
 func void ZS_InterceptMadCorKalom()
 {
 	PrintDebugNpc (PD_TA_FRAME,"ZS_InterceptMadCorKalom");
-	
-	//  Wahrnehmungen aktiv 
+
+	//  Wahrnehmungen aktiv
 	Npc_PercEnable  	(self, 	PERC_ASSESSPLAYER		,	B_AssessSCMadCorKalom				);
-	
+
 	Npc_PercEnable  	(self,	PERC_ASSESSDAMAGE		,	B_InterceptMadCorKalomAssessDamage	);
 	Npc_PercEnable  	(self, 	PERC_ASSESSMAGIC		,	B_InterceptMadCorKalomAssessMagic	);
 	Npc_PercEnable  	(self, 	PERC_ASSESSCASTER		,	B_AssessSCMadCorKalom				);
 	Npc_PercEnable  	(self, 	PERC_ASSESSTHREAT		,	B_AssessSCMadCorKalom				);
-	
+
 	Npc_SetPercTime		(self,	0.5);
-	
-	AI_StandUp			(self);				
-	AI_SetWalkmode 		(self,	NPC_WALK);		
-	AI_GotoWP			(self,	self.wp);		
+
+	AI_StandUp			(self);
+	AI_SetWalkmode 		(self,	NPC_WALK);
+	AI_GotoWP			(self,	self.wp);
 	AI_AlignToWP		(self);
 };
 
 func int ZS_InterceptMadCorKalom_Loop ()
 {
 	PrintDebugNpc		(PD_TA_LOOP,"ZS_InterceptMadCorKalom_Loop");
- 	
+
 	AI_Wait				(self,	1);
-	
+
 	return 	LOOP_CONTINUE;
 };
 
@@ -71,7 +71,7 @@ func void B_InterceptMadCorKalomAssessDamage ()
 		AI_StartState	(self,	ZS_Talk, 1, "");
 		return;
 	}
-	
+
 	else
 	{
 		B_FullStop		(self);
@@ -92,7 +92,7 @@ func void B_InterceptMadCorKalomAssessMagic ()
 		AI_StartState	(self,	ZS_Talk, 1, "");
 		return;
 	}
-	
+
 	else
 	{
 		B_FullStop		(self);

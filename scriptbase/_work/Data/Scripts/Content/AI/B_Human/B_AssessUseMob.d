@@ -10,7 +10,7 @@ func void B_AssessUseMob ()
 	{
 		if (Npc_IsDetectedMobOwnedByNpc(other,	self)
 		||	Npc_IsDetectedMobOwnedByGuild(other, self.guild))
-		{	
+		{
 			PrintDebugNpc			(PD_ZS_CHECK,	"...MOB gehört NSC oder seiner Gilde!");
 			if (Npc_GetPermAttitude	(self, other)==ATT_FRIENDLY || self.guild==other.guild)
 			{
@@ -20,7 +20,7 @@ func void B_AssessUseMob ()
 			else
 			{
 				PrintGlobals(PD_ZS_CHECK);
-				
+
 				//---- Täter vermöbeln ----
 				Npc_SetTempAttitude	( self,	ATT_HOSTILE);
 				Npc_ClearAIQueue	( self);
@@ -31,14 +31,14 @@ func void B_AssessUseMob ()
 				Npc_SetTarget 		( self,	other);
 				AI_StartState		( self,	ZS_Attack,	0,	"");
 			};
-		}	
+		}
 		else
 		{
-		    PrintDebugNpc					(PD_ZS_DETAIL,	"not my MoB");		
+		    PrintDebugNpc					(PD_ZS_DETAIL,	"not my MoB");
 		};
-	}	
+	}
 	else
 	{
-	    PrintDebugNpc					(PD_ZS_DETAIL,	"kann SC nicht sehen");	
+	    PrintDebugNpc					(PD_ZS_DETAIL,	"kann SC nicht sehen");
 	};
 };

@@ -62,7 +62,7 @@ INSTANCE VLK_ARMOR_L(C_Item)
 	value 					=	VALUE_VLK_ARMOR_L;
 
 	wear 					=	WEAR_TORSO;
- 
+
 	visual 					=	"vlkl.3ds";
 	visual_change 			=	"Hum_VLKL_ARMOR.asc";
 	visual_skin 			=	0;
@@ -258,7 +258,7 @@ INSTANCE GRD_ARMOR_H(C_Item)
 	value 					=	VALUE_GRD_ARMOR_H;
 
 	wear 					=	WEAR_TORSO;
- 
+
 	visual 					=	"grdh.3ds";
 	visual_change 			=	"Hum_GRDS_ARMOR.asc";
 	visual_skin 			=	0;
@@ -563,7 +563,7 @@ instance SLD_ARMOR_M(C_Item)
 	value 					=	VALUE_SLD_ARMOR_M;
 
 	wear 					=	WEAR_TORSO;
- 
+
 	visual 					=	"sldm.3ds";
 	visual_change 			=	"Hum_SLDM_ARMOR.asc";
 	visual_skin 			=	0;
@@ -666,7 +666,7 @@ INSTANCE NOV_ARMOR_M(C_Item)
 
 	value 					=	VALUE_NOV_ARMOR_M;
 
- 
+
 	visual 					=	"novm.3ds";
 	visual_change 			=	"Hum_NOVM_ARMOR.asc";
 	visual_skin 			=	0;
@@ -1054,7 +1054,7 @@ INSTANCE DMB_ARMOR_M(C_Item)
 **	Spezial-Rüstungen                                                                     **
 *******************************************************************************************/
 
-// FIXME: hier fehlen noch die Visuals für die Erz-Rüstungen und das INV-Item für die CRAWLERPLATTEN-RÜSTUNG 
+// FIXME: hier fehlen noch die Visuals für die Erz-Rüstungen und das INV-Item für die CRAWLERPLATTEN-RÜSTUNG
 
 // Crawler-Plattenrüstung
 INSTANCE CRW_ARMOR_H(C_Item)

@@ -2,7 +2,7 @@
 **	Sleeper Prototype													**
 *************************************************************************/
 
-PROTOTYPE Mst_Default_Sleeper(C_Npc)			
+PROTOTYPE Mst_Default_Sleeper(C_Npc)
 {
 	name							=	"The Sleeper";
 	guild							=	GIL_SLF;
@@ -11,7 +11,7 @@ PROTOTYPE Mst_Default_Sleeper(C_Npc)
 //--------------------------------------------------------------
 	attribute	[ATR_STRENGTH]		=	500;
 	attribute	[ATR_DEXTERITY]		=	500;
-	
+
 	attribute	[ATR_HITPOINTS_MAX]	=	1000;
 	attribute	[ATR_HITPOINTS]		=	1000;
 
@@ -39,7 +39,7 @@ PROTOTYPE Mst_Default_Sleeper(C_Npc)
 	senses_range				= 2000;
 
 	aivar[AIV_MM_Behaviour]		= PASSIVE;
-	
+
 	aivar[AIV_MM_PercRange]		= 1200;
 	aivar[AIV_MM_DrohRange]		= 1000;
 	aivar[AIV_MM_AttackRange]	= 700;
@@ -72,5 +72,5 @@ INSTANCE Sleeper	(Mst_Default_Sleeper)
 func void Rtn_start_Sleeper ()
 {
 	TA_Sleeper	(24,00,06,00,"TPL_395");
-  	TA_Sleeper	(06,00,24,00,"TPL_395"); 
+  	TA_Sleeper	(06,00,24,00,"TPL_395");
 };

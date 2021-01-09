@@ -30,5 +30,5 @@ func void B_InterruptMob ( var string mobsi)
 	Npc_SetStateTime	( self, 0);
 	AI_UseMob	( self, mobsi,1);
 	self.aivar[AIV_DONTUSEMOB] = 1;
-	
+
 };

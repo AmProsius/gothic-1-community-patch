@@ -1,5 +1,5 @@
 // **************************************************
-//						 EXIT 
+//						 EXIT
 // **************************************************
 
 instance  Org_818_Ratford_Exit (C_INFO)
@@ -10,7 +10,7 @@ instance  Org_818_Ratford_Exit (C_INFO)
 	information	= Org_818_Ratford_Exit_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC int  Org_818_Ratford_Exit_Condition()
 {
@@ -34,7 +34,7 @@ instance  Org_818_Ratford_WrongWay (C_INFO)
 	information	= Org_818_Ratford_WrongWay_Info;
 	permanent	= 0;
 	important 	= 1;
-};                       
+};
 
 FUNC int  Org_818_Ratford_WrongWay_Condition()
 {
@@ -60,7 +60,7 @@ instance  Org_818_Ratford_WhatGame (C_INFO)
 	information	= Org_818_Ratford_WhatGame_Info;
 	permanent	= 0;
 	description = "What do you hunt?";
-};                       
+};
 
 FUNC int  Org_818_Ratford_WhatGame_Condition()
 {
@@ -87,7 +87,7 @@ instance  Org_818_Ratford_WhyDangerous (C_INFO)
 	information	= Org_818_Ratford_WhyDangerous_Info;
 	permanent	= 0;
 	description = "Why's this area so dangerous?";
-};                       
+};
 
 FUNC int  Org_818_Ratford_WhyDangerous_Condition()
 {
@@ -114,7 +114,7 @@ instance  Org_818_Ratford_WoEquipment (C_INFO)
 	information	= Org_818_Ratford_WoEquipment_Info;
 	permanent	= 0;
 	description = "Where can I get better equipment?";
-};                       
+};
 
 FUNC int  Org_818_Ratford_WoEquipment_Condition()
 {
@@ -130,7 +130,7 @@ FUNC VOID  Org_818_Ratford_WoEquipment_Info()
 	AI_Output (self, other,"Org_818_Ratford_WoEquipment_07_01"); //The nearest place is the Old Camp. Just follow the path that brought you here.
 	AI_Output (self, other,"Org_818_Ratford_WoEquipment_07_02"); //But you can get the stuff cheaper in our New Camp - provided you know the right people.
 	AI_Output (self, other,"Org_818_Ratford_WoEquipment_07_03"); //If you go to the Old Camp, ask for Mordrag. He's one of us. For just a little ore, he'll sell you the proper goods.
-	
+
 	Log_CreateTopic	(GE_TraderOC, LOG_NOTE);
 	B_LogEntry		(GE_TraderOC,"The rogue Mordrag sells all sorts of goods for reasonable prices in the Old Camp.");
 };
@@ -147,7 +147,7 @@ instance  Org_818_Ratford_MoreLocations (C_INFO)
 	information	= Org_818_Ratford_MoreLocations_Info;
 	permanent	= 0;
 	description = "Tell me more about the areas of the colony.";
-};                       
+};
 
 FUNC int  Org_818_Ratford_MoreLocations_Condition()
 {
@@ -179,7 +179,7 @@ instance Org_818_Ratford_WoKarte (C_INFO)
 	information	= Org_818_Ratford_WoKarte_Info;
 	permanent	= 0;
 	description = "Where do I get a map?";
-};                       
+};
 
 FUNC int Org_818_Ratford_WoKarte_Condition()
 {
@@ -194,7 +194,7 @@ FUNC void Org_818_Ratford_WoKarte_Info()
 	AI_Output (other, self,"Org_818_Ratford_WoKarte_15_00"); //Where do I get a map?
 	AI_Output (self, other,"Org_818_Ratford_WoKarte_07_01"); //Ask the people in the Old Camp. There's a cartographer living there.
 	AI_Output (self, other,"Org_818_Ratford_WoKarte_07_02"); //Maybe you can steal one of his maps! If you manage to do it, take one for me as well!
-	
+
 	Info_ClearChoices(Org_818_Ratford_WoKarte);
 	Info_AddChoice   (Org_818_Ratford_WoKarte,"If I get them without paying, I'll take as many as I can carry!",Org_818_Ratford_WoKarte_Stehlen);
 	Info_AddChoice	 (Org_818_Ratford_WoKarte,"Why? Doesn't he sell the maps? ",Org_818_Ratford_WoKarte_Kaufen);
@@ -204,16 +204,16 @@ func void Org_818_Ratford_WoKarte_Stehlen()
 {
 	AI_Output (other, self,"Org_818_Ratford_WoKarte_Stehlen_15_00"); //If I manage to get them without paying, I'll take as many as I can carry!
 	AI_Output (self, other,"Org_818_Ratford_WoKarte_Stehlen_07_01"); //You're alright! You should consider coming to the New Camp! In case you go there, ask for Lares. He takes care of the new ones. I'm sure he'll have a job for you!
-	
+
 	VAR C_NPC Lares; Lares = Hlp_GetNpc(ORG_801_LARES);
 	Lares.aivar[AIV_FINDABLE]=TRUE;
-	
+
 	Info_ClearChoices(Org_818_Ratford_WoKarte);
 };
 
 func void Org_818_Ratford_WoKarte_Kaufen()
 {
-	AI_Output (other, self,"Org_818_Ratford_WoKarte_Kaufen_15_00"); //Why? Doesn't he sell the maps? 
+	AI_Output (other, self,"Org_818_Ratford_WoKarte_Kaufen_15_00"); //Why? Doesn't he sell the maps?
 	AI_Output (self, other,"Org_818_Ratford_WoKarte_Kaufen_07_01"); //If you get enough ore to pay for them...
 	Info_ClearChoices(Org_818_Ratford_WoKarte);
 };
@@ -230,7 +230,7 @@ instance  Org_818_Ratford_Thanks (C_INFO)
 	information	= Org_818_Ratford_Thanks_Info;
 	permanent	= 0;
 	description = "Thanks for your help.";
-};                       
+};
 
 FUNC int  Org_818_Ratford_Thanks_Condition()
 {

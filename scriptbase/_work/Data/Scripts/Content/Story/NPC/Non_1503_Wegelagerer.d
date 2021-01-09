@@ -2,19 +2,19 @@ instance Non_1503_Wegelagerer (Npc_Default)
 
 {
 	//-------- primary data --------
-	
+
 	name 		=		"Tramp";
 	npctype 	=		npctype_ambient;
-	guild 		=		GIL_NONE;      
+	guild 		=		GIL_NONE;
 	level 		=		9;
-	
-	
+
+
 	voice 		=		6;
 	id 			=		1503;
 
 
 	//-------- abilities --------
-	
+
 	attribute[ATR_STRENGTH] 		=	30;
 	attribute[ATR_DEXTERITY] 		=	15;
 	attribute[ATR_MANA_MAX] 		=	0;
@@ -25,17 +25,17 @@ instance Non_1503_Wegelagerer (Npc_Default)
 	//-------- visuals --------
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
-	//							Body-Mesh			Body-Tex	Skin-Color	Head-MMS			Head-Tex	Teeth-Tex	ARMOR	
+	//							Body-Mesh			Body-Tex	Skin-Color	Head-MMS			Head-Tex	Teeth-Tex	ARMOR
 	Mdl_SetVisualBody	(self,	"hum_body_Naked0", 	3, 			2,			"Hum_Head_FatBald", 	9,  		3, 			-1);
 
-	B_Scale (self); 
+	B_Scale (self);
 	Mdl_SetModelFatness (self, 0);
-	
-	fight_tactic	=	FAI_HUMAN_COWARD; 
-	
-	//-------- Talents  --------                                    
 
-	//-------- inventory --------                                    
+	fight_tactic	=	FAI_HUMAN_COWARD;
+
+	//-------- Talents  --------
+
+	//-------- inventory --------
 	EquipItem 		(self, ItMw_1H_Nailmace_01);
 	CreateInvItems	(self, ItMiNugget, 11);
 	CreateInvItem 	(self, ItFoLoaf);
@@ -51,5 +51,5 @@ FUNC VOID Rtn_start_1503 ()
 	Npc_SetPermAttitude (self, ATT_HOSTILE);
 
 	TA_StandAround		(22,00,06,00,"OW_PATH_BANDITOS01");
-    TA_StandAround		(06,00,22,00,"OW_PATH_BANDITOS01");		
+    TA_StandAround		(06,00,22,00,"OW_PATH_BANDITOS01");
 };

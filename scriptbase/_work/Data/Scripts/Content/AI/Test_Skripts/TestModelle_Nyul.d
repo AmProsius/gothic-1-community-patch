@@ -17,7 +17,7 @@ INSTANCE PC_Nyul(NPC_DEFAULT)
 	level			= 10;
 	voice			= 15;
 	id				= 0;
-	
+
 	//--------- abilities --------
 	attribute[ATR_STRENGTH] =		30;
 	attribute[ATR_DEXTERITY] =		30;
@@ -38,15 +38,15 @@ INSTANCE PC_Nyul(NPC_DEFAULT)
 	//Npc_LearnTalent		( self, TAL_IRONWILL);
 	//Npc_LearnTalent		( self, TAL_MANA);
 	//Npc_LearnTalent		( self, TAL_HEAL);
-	
+
 	//Npc_LearnFightTalent    (self, TAL_NEW_1H2);
 	//Npc_LearnFightTalent	(self, TAL_NEW_1H1);
 	//Npc_LearnFightTalent	(self, TAL_NEW_2H1);
 	//Npc_LearnFightTalent	(self, TAL_NEW_2H2);
 	//Npc_LearnFightTalent	(self, TAL_NEW_BOW1);
 	//Npc_LearnFightTalent	(self, TAL_NEW_CROSSBOW1);
-	
-	
+
+
 	//-------- inventory --------
 
 //----------------------------------------
@@ -59,7 +59,7 @@ INSTANCE PC_Nyul(NPC_DEFAULT)
 //----------------------------------------
 	EquipItem(self,ItRw_Bow_Long_01);
 	CreateInvItem(self,ItRw_Crossbow_01);
-	
+
 //----------------------------------------
 //Ammunition.d
 //----------------------------------------
@@ -74,7 +74,7 @@ INSTANCE PC_Nyul(NPC_DEFAULT)
 //----------------------------------------
 //Artifacts.d
 //----------------------------------------
-//Magic Runes	
+//Magic Runes
 	CreateInvItem(self,ItArRuneLight);
 	CreateInvItem(self,ItArRuneFirebolt);
 	CreateInvItem(self,ItArRuneFireball);
@@ -96,7 +96,7 @@ INSTANCE PC_Nyul(NPC_DEFAULT)
 
 	CreateInvItem(self,ItArRuneDestroyUndead);
 
-//Magic Scrolls	
+//Magic Scrolls
 	CreateInvItems(self,ItArScrollTrfBloodfly,		20);
 	CreateInvItems(self,ItArScrollTrfCrawler,		20);
 	CreateInvItems(self,ItArScrollTrfLurker,		20);
@@ -132,10 +132,10 @@ INSTANCE PC_Nyul(NPC_DEFAULT)
 //----------------------------------------
 //Food.d
 //----------------------------------------
-	CreateInvItems(self,ItFo_mutton_01,20);		
+	CreateInvItems(self,ItFo_mutton_01,20);
 	CreateInvItems(self,ItFoBeer,20);
 	CreateInvItems(self,ItFo_Plants_Trollberrys_01,20);
-	
+
 //----------------------------------------
 //MISC.D
 //----------------------------------------
@@ -147,7 +147,7 @@ INSTANCE PC_Nyul(NPC_DEFAULT)
 //Written.d
 //----------------------------------------
 	CreateInvItem	(self,ItWrWorldmap);
-	
+
 //---------------------------------------------------------------------
 //Potions
 //---------------------------------------------------------------------
@@ -168,7 +168,7 @@ INSTANCE Nyul_16(NPC_DEFAULT)
 
 	voice			= 15;
 	id				= 0;
-	
+
 	//--------- abilities --------
 	attribute[ATR_STRENGTH] =		80;
 	attribute[ATR_DEXTERITY] =		30;
@@ -182,18 +182,18 @@ INSTANCE Nyul_16(NPC_DEFAULT)
 	Mdl_SetVisual		(self,	"HUMANS.MDS");
 	//							Body-Mesh			Body-Tex	Skin-Color	Head-MMS    		Head-Tex	Teeth-Tex 	Armor-Tex
 	Mdl_SetVisualBody 	(self,	"hum_body_Naked0",	4,			1,			"Hum_Head_Pony",	9, 			0,			GRD_ARMOR_M);
-	
+
 	//-------- skills --------
-	//Npc_SetTalentSkill		( self, NPC_TALENT_PICKPOCKET,1);Npc_SetTalentValue(self,NPC_TALENT_PICKPOCKET,60); 
-	//Npc_SetTalentSkill		( self, NPC_TALENT_SNEAK,	1);	
-	Npc_SetTalentSkill	( self, NPC_TALENT_PICKLOCK,	1); Npc_SetTalentValue(self,NPC_TALENT_PICKLOCK,60); 
-	Npc_SetTalentSkill	( self, NPC_TALENT_ACROBAT,	1);	
-	
+	//Npc_SetTalentSkill		( self, NPC_TALENT_PICKPOCKET,1);Npc_SetTalentValue(self,NPC_TALENT_PICKPOCKET,60);
+	//Npc_SetTalentSkill		( self, NPC_TALENT_SNEAK,	1);
+	Npc_SetTalentSkill	( self, NPC_TALENT_PICKLOCK,	1); Npc_SetTalentValue(self,NPC_TALENT_PICKLOCK,60);
+	Npc_SetTalentSkill	( self, NPC_TALENT_ACROBAT,	1);
+
 	Npc_SetTalentSkill	(self, NPC_TALENT_1H,2);
 	Npc_SetTalentSkill	(self, NPC_TALENT_2H,2);
 	Npc_SetTalentSkill	(self, NPC_TALENT_BOW,1);
 	//Npc_SetTalentSkill	(self, NPC_TALENT_CROSSBOW,1);
-	
+
 
 	//-------- inventory --------
 	EquipItem		(self,ItMw_1H_Sword_Bastard_04);
@@ -209,15 +209,15 @@ INSTANCE Nyul_16(NPC_DEFAULT)
 
 	CreateInvItems	(self,ItArScrollWindfist,			10);
 
-	CreateInvItems	(self,ItFo_mutton_01,				20);		
+	CreateInvItems	(self,ItFo_mutton_01,				20);
 	CreateInvItems	(self,ItFoBeer,						20);
 	CreateInvItems	(self,ItFo_Plants_Trollberrys_01,	20);
-	
+
 	CreateInvItems	(self,ItKeLockpick,					30);
 	CreateInvItems	(self,ItLsTorch,					30);
 	CreateInvItems	(self,ItMiNugget,					1000);
 	CreateInvItem 	(self,ItWrWorldmap);
-	
+
 	CreateInvItems	(self,ItFo_Potion_Mana_03, 			20);
 	CreateInvItems	(self,ItFo_Potion_Health_03, 		20);
 };
@@ -236,7 +236,7 @@ INSTANCE Nyul_21(NPC_DEFAULT)
 
 	voice			= 15;
 	id				= 0;
-	
+
 	//--------- abilities --------
 	attribute[ATR_STRENGTH] =		70;
 	attribute[ATR_DEXTERITY] =		20;
@@ -250,13 +250,13 @@ INSTANCE Nyul_21(NPC_DEFAULT)
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	//						Body-Mesh			Body-Tex	Skin-Color	Head-MMS    		Head-Tex	Teeth-Tex 	Armor-Tex
 	Mdl_SetVisualBody 	(self,"hum_body_Naked0",	4,			1,			"Hum_Head_Pony",	9, 			0,			CRW_ARMOR_H);
-	
+
 	//-------- skills --------
-	//Npc_SetTalentSkill		( self, NPC_TALENT_PICKPOCKET,1);Npc_SetTalentValue(self,NPC_TALENT_PICKPOCKET,60); 
-	//Npc_SetTalentSkill	( self, NPC_TALENT_SNEAK,		1);	
-	Npc_SetTalentSkill	(self, NPC_TALENT_PICKLOCK,	1);	Npc_SetTalentValue(self,NPC_TALENT_PICKLOCK,60); 
+	//Npc_SetTalentSkill		( self, NPC_TALENT_PICKPOCKET,1);Npc_SetTalentValue(self,NPC_TALENT_PICKPOCKET,60);
+	//Npc_SetTalentSkill	( self, NPC_TALENT_SNEAK,		1);
+	Npc_SetTalentSkill	(self, NPC_TALENT_PICKLOCK,	1);	Npc_SetTalentValue(self,NPC_TALENT_PICKLOCK,60);
 	Npc_SetTalentSkill 	(self, NPC_TALENT_ACROBAT,1 );
-		
+
 	Npc_SetTalentSkill	(self, NPC_TALENT_1H,2);
 	Npc_SetTalentSkill	(self, NPC_TALENT_2H,2);
 	Npc_SetTalentSkill	(self, NPC_TALENT_BOW,1);
@@ -278,17 +278,17 @@ INSTANCE Nyul_21(NPC_DEFAULT)
 	CreateInvItems	(self,ItArscrollIceCube,			5);
 
 	CreateInvItems	(self,ItArScrollWindfist,			10);
-	
-	CreateInvItems	(self,ItFo_mutton_01,				20);		
+
+	CreateInvItems	(self,ItFo_mutton_01,				20);
 	CreateInvItems	(self,ItFoBeer,						20);
 	CreateInvItems	(self,ItFo_Plants_Trollberrys_01,	20);
-	
+
 	CreateInvItems	(self,ItKeLockpick,					30);
 	CreateInvItems	(self,ItLsTorch,					30);
 	CreateInvItems	(self,ItMiNugget,					1000);
 	CreateInvItem 	(self,ItWrWorldmap);
 	CreateInvItem	(self,UluMulu);
-	
+
 	CreateInvItems	(self,ItFo_Potion_Mana_03, 			20);
 	CreateInvItems	(self,ItFo_Potion_Health_03, 		20);
 };

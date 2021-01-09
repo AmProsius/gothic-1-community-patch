@@ -1,19 +1,19 @@
 instance SFB_1037_Swiney(Npc_Default)
 {
 	//-------- primary data --------
-	
+
 	name =							"Swiney";
 	npctype = 						Npctype_Main;
-	guild =							GIL_SFB;      
+	guild =							GIL_SFB;
 	level =							6;
 	flags =							0;
-	
+
 	voice =							9;
 	id =							1037;
 
 
 	//-------- abilities --------
-	
+
 	attribute[ATR_STRENGTH] =		30;
 	attribute[ATR_DEXTERITY] =		10;
 	attribute[ATR_MANA_MAX] =		0;
@@ -25,17 +25,17 @@ instance SFB_1037_Swiney(Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Tired.mds");
-	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
+	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin
 	Mdl_SetVisualBody (self,"hum_body_Naked0",3,1,"Hum_Head_Psionic", 41,  2,SFB_ARMOR_L);
-	
+
 	B_Scale (self);
 	Mdl_SetModelFatness(self,0);
-	
-	fight_tactic	=	FAI_HUMAN_COWARD; 
-	
-	//-------- Talente --------                                    
 
-	//-------- inventory --------                                    
+	fight_tactic	=	FAI_HUMAN_COWARD;
+
+	//-------- Talente --------
+
+	//-------- inventory --------
 
 	EquipItem (self, ItMwPickaxe);
 	CreateInvItems (self, ItFoRice,6);
@@ -43,8 +43,8 @@ instance SFB_1037_Swiney(Npc_Default)
 	CreateInvItem (self, ItMi_Stuff_Cup_01);
 	CreateInvItem (self, ItFoBooze);
 	CreateInvItem (self, ItMw_1H_Hatchet_01);
-		
-	
+
+
 
 	//-------------Daily Routine-------------
 

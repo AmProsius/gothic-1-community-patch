@@ -5,4 +5,3 @@ func void B_TossAndTurn ()
 	Npc_ClearAIQueue	(self);
 	AI_PlayAni			(self,	"R_BED_RANDOM_2");
 };
-	

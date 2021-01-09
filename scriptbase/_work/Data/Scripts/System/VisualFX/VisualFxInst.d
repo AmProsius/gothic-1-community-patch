@@ -6,7 +6,7 @@ INSTANCE spellFX_SLEEPER_Fireball(CFx_Base_Proto)
 {
 
      	visname_S 				= "MFX_Fireball_INIT";
-		
+
      	emtrjmode_s 			= "FIXED";
 		emTrjOriginNode 		= "BIP01 JAWS";
      	emtrjtargetnode 		= "BIP01 FIRE";
@@ -17,31 +17,31 @@ INSTANCE spellFX_SLEEPER_Fireball(CFx_Base_Proto)
 		emFXCollStat_S	   		= "spellFX_Fireball_COLLIDE";
 		emFXCollDyn_S     		= "spellFX_Fireball_SENDPERCEPTION";
 		emFXCollStatAlign_S		= "COLLISIONNORMAL";
-		emFXCreatedOwnTrj 		= 0; 
+		emFXCreatedOwnTrj 		= 0;
 		emTrjTargetRange	 	= 20;
 		emTrjTargetElev 		= 0;
 		emTrjDynUpdateDelay		= 20000;
 		userString[0]			= "fireballquadmark.tga";
 		userString[1]			= "100 100";
 		userString[2]			= "MUL";
-		lightPresetname   		= "FIRESMALL";	
-		
+		lightPresetname   		= "FIRESMALL";
+
 		};
-		
+
 		INSTANCE spellFX_SLEEPER_fireball_KEY_OPEN (C_ParticleFXEmitKey)
 		{
 				lightrange		= 0.01;
 		};
-		
+
 
 		INSTANCE spellFX_SLEEPER_fireball_KEY_INIT (C_ParticleFXEmitKey)
 		{
 				visname_S 			= "MFX_Fireball_INIT";
 				lightrange		= 0.01;
 		};
-		
+
 		INSTANCE spellFX_SLEEPER_fireball_KEY_INVEST_1 (C_ParticleFXEmitKey)
-		{	
+		{
 				visname_S 	= "MFX_Fireball_INVEST";
 				emCreateFXID	= "spellFX_Fireball_InVEST_BLAST1";
 				lightrange		= 150;
@@ -49,30 +49,30 @@ INSTANCE spellFX_SLEEPER_Fireball(CFx_Base_Proto)
 				sfxisambient	= 1;
 		}								;
 		INSTANCE spellFX_SLEEPER_fireball_KEY_INVEST_2 (C_ParticleFXEmitKey)
-		{	
-				visname_S 	= "MFX_Fireball_INVEST_L2";	
+		{
+				visname_S 	= "MFX_Fireball_INVEST_L2";
 				emCreateFXID	= "spellFX_Fireball_InVEST_BLAST2";
 				sfxid			= "MFX_Fireball_invest2";
 				sfxisambient	= 1;
 		};
 		INSTANCE spellFX_SLEEPER_fireball_KEY_INVEST_3 (C_ParticleFXEmitKey)
 		{
-				visname_S 	= "MFX_Fireball_INVEST_L3";	
+				visname_S 	= "MFX_Fireball_INVEST_L3";
 				emCreateFXID	= "spellFX_Fireball_InVEST_BLAST3";
 				sfxid			= "MFX_Fireball_invest3";
 				sfxisambient	= 1;
 		};
 		INSTANCE spellFX_SLEEPER_fireball_KEY_INVEST_4 (C_ParticleFXEmitKey)
-		{	
-				visname_S 	= "MFX_Fireball_INVEST_L4";	
+		{
+				visname_S 	= "MFX_Fireball_INVEST_L4";
 				emCreateFXID	= "spellFX_Fireball_InVEST_BLAST4";
 				sfxid			= "MFX_Fireball_invest4";
 				sfxisambient	= 1;
-		};		
+		};
 		INSTANCE spellFX_SLEEPER_FireBall_KEY_CAST (C_ParticleFXEmitKey)
 		{
 				lightrange				= 200;
-				visname_S 				= "MFX_Fireball_CAST";		
+				visname_S 				= "MFX_Fireball_CAST";
 				emtrjmode_s 			= "TARGET";
 		     	emtrjeasevel 			= 1400.;
 	 			sfxid					= "MFX_Fireball_Cast";
@@ -86,16 +86,16 @@ INSTANCE spellFX_SLEEPER_Fireball(CFx_Base_Proto)
 };
 
 
-	
+
 //////////////////////////////////////
-//	
+//
 // 	Visual Effects
-//	Instance-Definitions 
-//	
+//	Instance-Definitions
+//
 //////////////////////////////////////
 
 // visual effects config instance
-// WICHTIG: 
+// WICHTIG:
 // die Parameter der Keys verändern die effekte/visuals nur wenn ein Wert ungleich NULL angegeben wird,
 // ausser bei INTEGER Variablen. Das heisst wenn ein KEY benutzt wird und ein Parameter den FX/das Visual ändern
 // soll, so muss dieser bei Floats leicht von 0 verschieden sein (z.B. 0.000001).
@@ -107,7 +107,7 @@ INSTANCE spellFX_SLEEPER_Fireball(CFx_Base_Proto)
 ///   													XX  L I G H T  XX
 ///   													XXXXXXXXXXXXXXXXX
 
-// [EDENFELD] Die spellFX_Light_ACTIVE Instanz muss als Child mit eigener Trajectory an die Haupt spellFX_Light Instanz 
+// [EDENFELD] Die spellFX_Light_ACTIVE Instanz muss als Child mit eigener Trajectory an die Haupt spellFX_Light Instanz
 // gehängt werden, und darf erst beim Casten ein Visual bekommen.
 // nur so kann getestet werden, ob ein etwaiges gecastetes Licht noch aktiv ist. Vorher wurde die spellFX_Light_ACTIVE
 // Instanz über die emCreateFXID Variable getriggert. Die so erzeugten Effekte haben dann aber keinen Bezug mehr zum Licht Spell.
@@ -118,10 +118,10 @@ INSTANCE spellFX_Light(CFx_Base_Proto)
 		visAlpha			= 1;
 		emtrjmode_s 		= "FIXED";
 		emTrjOriginNode 	= "ZS_RIGHTHAND";
-		
+
 		emFXCreate_S 		= "spellFX_Light_ACTIVE";
 		emFXCreatedOwnTrj 	= 1;
-		
+
 		};
 
 		INSTANCE spellFX_Light_KEY_CAST (C_ParticleFXEmitKey)
@@ -146,17 +146,17 @@ INSTANCE spellFX_Light_ACTIVE	(CFx_Base_Proto)
 		lightPresetname 	= "JUSTWHITE";
 
 		};
-		
+
 		INSTANCE spellFX_Light_ACTIVE_KEY_OPEN (C_ParticleFXEmitKey)
 		{
 			lightRange 		= 0.01;
 		};
-		
+
 		INSTANCE spellFX_Light_ACTIVE_KEY_INIT(C_ParticleFXEmitKey)
 		{
 			lightRange 		= 0.01;
 		};
-		
+
 		INSTANCE spellFX_Light_ACTIVE_KEY_CAST 	(C_ParticleFXEmitKey)
 		{
 				visName_S		= "MFX_Light_ORIGIN";
@@ -175,12 +175,12 @@ INSTANCE spellFX_Firebolt	(CFx_Base_Proto)
 {
 
      	visname_S 				= "MFX_Firebolt_INIT";
-		
+
      	emtrjmode_s 			= "FIXED";
 		emTrjOriginNode 		= "ZS_RIGHTHAND";
      	emtrjloopmode_s 		= "NONE";
      	emtrjeasefunc_s 		= "LINEAR";
-     	
+
      	emActionCollStat_S		= "COLLIDE CREATE CREATEQUAD";
      	emActionCollDyn_S		= "COLLIDE CREATEONCE";
      	emFXCollStat_S	   		= "spellFX_Firebolt_COLLIDEFX";
@@ -188,31 +188,31 @@ INSTANCE spellFX_Firebolt	(CFx_Base_Proto)
 		emTrjTargetRange	 	= 20;
 		emTrjTargetElev 		= 0;
 		emTrjDynUpdateDelay		= 20000;
-				
+
 		lightPresetname   		= "FIRESMALL";
-		
+
 		// quadmark
 		userString[0]			= "fireballquadmark.tga";
 		userString[1]			= "40 40";
 		userString[2]			= "MUL";
-				
-		
+
+
 		};
 
 		INSTANCE spellFX_Firebolt_KEY_OPEN	(C_ParticleFXEmitKey)
 		{
 				lightrange = 0.001;
 		};
-		
+
 		INSTANCE spellFX_Firebolt_KEY_INIT (C_ParticleFXEmitKey)
 		{
 				visname_S 			= "MFX_Firebolt_INIT";
 				lightrange = 0.001;
 		};
-		
+
 		INSTANCE spellFX_Firebolt_KEY_CAST (C_ParticleFXEmitKey)
 		{
-				visname_S 				= "mfx_firebolt_cast";		
+				visname_S 				= "mfx_firebolt_cast";
 				emtrjmode_s 			= "TARGET";
 		     	emtrjeasevel 			= 1400.;
 	 			sfxid					= "Torch_Enlight";
@@ -222,7 +222,7 @@ INSTANCE spellFX_Firebolt	(CFx_Base_Proto)
 
 		INSTANCE spellFX_Firebolt_KEY_COLLIDE (C_ParticleFXEmitKey)
 		{
-		     	visname_S 				= "";		
+		     	visname_S 				= "";
 		     	pfx_flygravity_s		= "0 0.0002 0";
 		     	emtrjeasevel 			= 0.000001;
 	 			sfxid		  			= "TORCH_ENLIGHT";
@@ -254,7 +254,7 @@ INSTANCE spellFX_Fireball(CFx_Base_Proto)
 {
 
      	visname_S 				= "MFX_Fireball_INIT";
-		
+
      	emtrjmode_s 			= "FIXED";
 		emTrjOriginNode 		= "ZS_RIGHTHAND";
      	emtrjtargetnode 		= "BIP01 FIRE";
@@ -265,31 +265,31 @@ INSTANCE spellFX_Fireball(CFx_Base_Proto)
 		emFXCollStat_S	   		= "spellFX_Fireball_COLLIDE";
 		emFXCollDyn_S     		= "spellFX_Fireball_SENDPERCEPTION";
 		emFXCollStatAlign_S		= "COLLISIONNORMAL";
-		emFXCreatedOwnTrj 		= 0; 
+		emFXCreatedOwnTrj 		= 0;
 		emTrjTargetRange	 	= 20;
 		emTrjTargetElev 		= 0;
 		emTrjDynUpdateDelay		= 20000;
 		userString[0]			= "fireballquadmark.tga";
 		userString[1]			= "100 100";
 		userString[2]			= "MUL";
-		lightPresetname   		= "FIRESMALL";	
-		
+		lightPresetname   		= "FIRESMALL";
+
 		};
-		
+
 		INSTANCE spellFX_fireball_KEY_OPEN (C_ParticleFXEmitKey)
 		{
 				lightrange		= 0.01;
 		};
-		
+
 
 		INSTANCE spellFX_fireball_KEY_INIT (C_ParticleFXEmitKey)
 		{
 				visname_S 			= "MFX_Fireball_INIT";
 				lightrange		= 0.01;
 		};
-		
+
 		INSTANCE spellFX_fireball_KEY_INVEST_1 (C_ParticleFXEmitKey)
-		{	
+		{
 				visname_S 	= "MFX_Fireball_INVEST";
 				emCreateFXID	= "spellFX_Fireball_InVEST_BLAST1";
 				lightrange		= 150;
@@ -297,30 +297,30 @@ INSTANCE spellFX_Fireball(CFx_Base_Proto)
 				sfxisambient	= 1;
 		}								;
 		INSTANCE spellFX_fireball_KEY_INVEST_2 (C_ParticleFXEmitKey)
-		{	
-				visname_S 	= "MFX_Fireball_INVEST_L2";	
+		{
+				visname_S 	= "MFX_Fireball_INVEST_L2";
 				emCreateFXID	= "spellFX_Fireball_InVEST_BLAST2";
 				sfxid			= "MFX_Fireball_invest2";
 				sfxisambient	= 1;
 		};
 		INSTANCE spellFX_fireball_KEY_INVEST_3 (C_ParticleFXEmitKey)
 		{
-				visname_S 	= "MFX_Fireball_INVEST_L3";	
+				visname_S 	= "MFX_Fireball_INVEST_L3";
 				emCreateFXID	= "spellFX_Fireball_InVEST_BLAST3";
 				sfxid			= "MFX_Fireball_invest3";
 				sfxisambient	= 1;
 		};
 		INSTANCE spellFX_fireball_KEY_INVEST_4 (C_ParticleFXEmitKey)
-		{	
-				visname_S 	= "MFX_Fireball_INVEST_L4";	
+		{
+				visname_S 	= "MFX_Fireball_INVEST_L4";
 				emCreateFXID	= "spellFX_Fireball_InVEST_BLAST4";
 				sfxid			= "MFX_Fireball_invest4";
 				sfxisambient	= 1;
-		};		
+		};
 		INSTANCE spellFX_FireBall_KEY_CAST (C_ParticleFXEmitKey)
 		{
 				lightrange				= 200;
-				visname_S 				= "MFX_Fireball_CAST";		
+				visname_S 				= "MFX_Fireball_CAST";
 				emtrjmode_s 			= "TARGET";
 		     	emtrjeasevel 			= 1400.;
 	 			sfxid					= "MFX_Fireball_Cast";
@@ -381,9 +381,9 @@ instance spellFX_Fireball_COLLIDE		(CFx_Base_Proto)
 		visAlpha			= 1;
 		emtrjmode_s 		= "FIXED";
 		emTrjOriginNode		= "BIP01";
-		lightPresetname   	= "FIRESMALL";	
+		lightPresetname   	= "FIRESMALL";
 };
-		
+
 INSTANCE spellFX_Fireball_COLLIDE_KEY_INVEST_1	(C_ParticleFXEmitKey)  {	visname_S 	= "MFX_Fireball_Collide1";		sfxid	= "MFX_Fireball_Collide1";		};
 INSTANCE spellFX_Fireball_COLLIDE_KEY_INVEST_2	(C_ParticleFXEmitKey)  {	visname_S 	= "MFX_Fireball_Collide2";		sfxid	= "MFX_Fireball_Collide2";		};
 INSTANCE spellFX_Fireball_COLLIDE_KEY_INVEST_3	(C_ParticleFXEmitKey)  {	visname_S 	= "MFX_Fireball_Collide3";		sfxid	= "MFX_Fireball_Collide3";		};
@@ -397,7 +397,7 @@ instance spellFX_Fireball_SENDPERCEPTION	(CFx_Base_Proto)
 		visAlpha			= 1;
 		emTrjOriginNode		= "BIP01";
 		emtrjmode_s 		= "FIXED";
-		lightPresetname   	= "FIRESMALL";	
+		lightPresetname   	= "FIRESMALL";
 		sendAssessMagic		= 1;
 };
 
@@ -417,7 +417,7 @@ INSTANCE spellFX_Firestorm	(CFx_Base_Proto)
 {
 
      	visname_S 				= "MFX_Firestorm_INIT";
-		
+
      	emtrjmode_s 			= "FIXED";
 		emTrjOriginNode 		= "ZS_RIGHTHAND";
      	emtrjtargetnode 		= "BIP01 FIRE";
@@ -426,16 +426,16 @@ INSTANCE spellFX_Firestorm	(CFx_Base_Proto)
      	emActionCollStat_S		= "COLLIDE CREATEONCE CREATEQUAD";
      	emActionCollDyn_S 		= "COLLIDE CREATEONCE";
 		emFXCollStat_S	   		= "spellFX_Firestorm_SPREAD";
-		emFXCollDyn_S     		= "spellFX_Firestorm_SPREAD";		
+		emFXCollDyn_S     		= "spellFX_Firestorm_SPREAD";
 		emTrjTargetRange	 	= 20;
 		emTrjTargetElev 		= 0;
 		emTrjDynUpdateDelay		= 20000;
 		emFXInvestORIGIN_S 		= "spellFX_Firestorm_INVESTSOUND";
-		
+
 		userString[0]			= "fireballquadmark.tga";
 		userString[1]			= "100 100";
 		userString[2]			= "MUL";
-		
+
 		lightPresetname   		= "FIRESMALL";
 		};
 
@@ -449,20 +449,20 @@ INSTANCE spellFX_Firestorm	(CFx_Base_Proto)
 				visname_S 			= "MFX_Firestorm_INIT";
 				lightrange			= 0.01;
 		};
-		
+
 		INSTANCE spellFX_Firestorm_KEY_INVEST_1	(C_ParticleFXEmitKey)	{	lightrange	= 100;	emCreateFXID	= "spellFX_Firestorm_INVESTBLAST1";	};
 		INSTANCE spellFX_Firestorm_KEY_INVEST_2	(C_ParticleFXEmitKey)	{	lightrange	= 200;	emCreateFXID	= "spellFX_Firestorm_INVESTBLAST2";	};
 		INSTANCE spellFX_Firestorm_KEY_INVEST_3	(C_ParticleFXEmitKey)	{	lightrange	= 300;	emCreateFXID	= "spellFX_Firestorm_INVESTBLAST3";	};
 		INSTANCE spellFX_Firestorm_KEY_INVEST_4	(C_ParticleFXEmitKey)	{	lightrange	= 400;	emCreateFXID	= "spellFX_Firestorm_INVESTBLAST4";	};
-		
+
 		INSTANCE spellFX_Firestorm_KEY_CAST (C_ParticleFXEmitKey)
 		{
-				visname_S 				= "MFX_Firestorm_CAST";		
+				visname_S 				= "MFX_Firestorm_CAST";
 				emtrjmode_s 			= "TARGET";
 		     	emtrjeasevel 			= 1400.;
 	 			sfxid					= "MFX_Firestorm_Cast";
 	 			sfxisambient			= 1;
-				emCheckCollision 		= 1;	 			
+				emCheckCollision 		= 1;
 				lightrange				= 200;
 		};
 
@@ -478,7 +478,7 @@ INSTANCE spellFX_FireStorm_INVESTSOUND	(CFX_Base_Proto)
 		visname_s		= "simpleglow.tga";
 		visalpha		= 0.01;
 		sfxid			= "MFX_Firestorm_Invest";
-		sfxisambient	= 1;		
+		sfxisambient	= 1;
 };
 
 
@@ -519,7 +519,7 @@ INSTANCE spellFX_Firestorm_SPREAD	(CFx_Base_Proto)
 {
 
      	visname_S 				= "MFX_Firestorm_SPREAD";
-		
+
      	emtrjmode_s 			= "FIXED";
 		emTrjOriginNode 		= "ZS_RIGHTHAND";
      	emtrjtargetnode 		= "BIP01 FIRE";
@@ -536,22 +536,22 @@ INSTANCE spellFX_Firestorm_SPREAD	(CFx_Base_Proto)
 		userString[0]			= "fireballquadmark.tga";
 		userString[1]			= "40 40";
 		userString[2]			= "MUL";
-		lightPresetname   		= "FIRESMALL";	
-		
+		lightPresetname   		= "FIRESMALL";
+
 		emFXCreate_S			= "spellFX_Firestorm_COLLIDE";
-		
+
 		sfxid					= "MFX_FIrestorm_Collide";
 		sfxisambient			= 1;
-		
-		
+
+
 };
 
 instance spellFX_Firestorm_COLLIDE		(CFx_Base_Proto)
-{	
+{
 		visname_S 				= "MFX_Fireball_Collide3";
 		visAlpha				= 1;
 		emtrjmode_s 			= "FIXED";
-		lightPresetname   		= "FIRESMALL";	
+		lightPresetname   		= "FIRESMALL";
 		sfxid					= "MFX_Fireball_Collide3";
 };
 
@@ -563,11 +563,11 @@ instance spellFX_Firestorm_COLLIDE		(CFx_Base_Proto)
 INSTANCE spellFX_FireRain(CFx_Base_Proto)
 {
 
-     	visname_S 				= "MFX_Firerain_INIT";		
+     	visname_S 				= "MFX_Firerain_INIT";
      	emtrjmode_s 			= "FIXED";
 		emTrjOriginNode 		= "ZS_RIGHTHAND";
      	emtrjloopmode_s 		= "NONE";
-     	
+
      	emFXInvestOrigin_S 		= "spellFX_FireRAin_INVESTGLOW";
 		};
 
@@ -579,7 +579,7 @@ INSTANCE spellFX_FireRain(CFx_Base_Proto)
 
 INSTANCE spellFX_FireRain_RAIN		(CFx_Base_Proto)
 {
-		visname_S 				= "MFX_FireRain_Rain";		
+		visname_S 				= "MFX_FireRain_Rain";
 		emtrjmode_s 			= "FIXED";
 		emTrjOriginNode 		= "ZS_RIGHTHAND";
 		emActionCollDyn_S		= "CREATEONCE";
@@ -597,7 +597,7 @@ INSTANCE spellFX_FireRain_SUB(CFx_Base_Proto)		// vorrübergehend, bis er hardcod
      	emtrjmode_s 			= "FIXED";
 		emTrjOriginNode 		= "BIP01 HEAD";
 };
-	
+
 
 INSTANCE spellFX_FireRain_INVESTGLOW	(CFx_Base_Proto)
 {
@@ -625,12 +625,12 @@ instance spellFX_Speed(CFx_Base_Proto)
 		};
 
 		instance spellFX_Speed_KEY_INVEST_1 	(C_ParticleFXEmitKey)
-		{	
+		{
 			emCreateFXID		= "spellFX_Speed_START";
 		};
-		
+
 		instance spellFX_Speed_KEY_CAST 	(C_ParticleFXEmitKey)
-		{	
+		{
 			pfx_ppsisloopingChg = 1;
 };
 
@@ -648,7 +648,7 @@ instance spellFX_Speed_ORIGIN	(CFx_Base_Proto)		// HEAL ORIGIN wird automatisch 
 		visname_S 		= "MFX_Heal_Invest";
 		visAlpha		= 1;
 		LightPresetname 	= "AURA";
-	
+
 		emtrjmode_s 		= "FIXED";
 };
 
@@ -665,7 +665,7 @@ instance spellFX_Teleport(CFx_Base_Proto)
 
 		emtrjmode_s 		= "FIXED";
 		emTrjOriginNode 	= "ZS_RIGHTHAND";
-			
+
 		emFXInvestOrigin_S 	= "spellFX_Teleport_ORIGIN";
 		lightpresetname		= "AURA";
 
@@ -680,20 +680,20 @@ instance spellFX_Teleport(CFx_Base_Proto)
 		{
 			lightrange 		= 0.1;
 		};
-		
+
 		instance spellFX_Teleport_KEY_INVEST_1	(C_ParticleFXEmitKey)
 		{
 			lightrange		= 200;
 		};
-		
+
 		instance spellFX_Teleport_KEY_CAST 	(C_ParticleFXEmitKey)
-		{	
+		{
 			emCreateFXID	= "spellFX_Teleport_CAST";
 			pfx_ppsIsLoopingChg = 1;
 			lightrange 		= 500;
 		};
 
-instance spellFX_Teleport_ORIGIN	(CFx_Base_Proto)		
+instance spellFX_Teleport_ORIGIN	(CFx_Base_Proto)
 {
 		visname_S 			= "MFX_TELEPORT_INVEST";
 		emtrjmode_s 		= "FIXED";
@@ -703,21 +703,21 @@ instance spellFX_Teleport_ORIGIN	(CFx_Base_Proto)
 		sfxisambient	= 1;
 };
 
-instance spellFX_Teleport_RING	(CFx_Base_Proto)		
+instance spellFX_Teleport_RING	(CFx_Base_Proto)
 {
 		visname_S 			= "MFX_TELEPORT_RING";
 		emtrjmode_s 		= "FIXED";
 		emTrjOriginNode 	= "BIP01";
 };
 
-instance spellFX_Teleport_CAST	(CFx_Base_Proto)		
+instance spellFX_Teleport_CAST	(CFx_Base_Proto)
 {
 		visname_S 			= "MFX_TELEPORT_CAST";
 		emtrjmode_s 		= "FIXED";
 		emTrjOriginNode 	= "BIP01";
 		sfxid				= "MFX_teleport_Cast";
 		sfxisambient		= 1;
-	
+
 		emtrjmode_s 		= "FIXED";
 };
 
@@ -729,7 +729,7 @@ instance spellFX_Teleport_CAST	(CFx_Base_Proto)
 instance spellFX_Heal(CFx_Base_Proto)
 {
 		visname_S 			= "MFX_Heal_INIT";
-		
+
 		emtrjmode_s 		= "FIXED";
 		emTrjOriginNode 	= "ZS_RIGHTHAND";
 		emFXInvestOrigin_S 	= "spellFX_Heal_ORIGIN";
@@ -737,7 +737,7 @@ instance spellFX_Heal(CFx_Base_Proto)
 		};
 
 		instance spellFX_Heal_KEY_CAST 	(C_ParticleFXEmitKey)
-		{	
+		{
 			pfx_ppsisloopingChg = 1;
 };
 
@@ -786,7 +786,7 @@ INSTANCE spellFX_Transform	(CFx_Base_Proto)
 				visname_S 			= "MFX_Transform_ORIGIN";
 				emCreateFXID		= "spellFX_Transform_GLOW_SFX";
 		};
-						
+
 		instance spellFX_transform_KEY_CAST			(C_ParticleFXEmitKey)
 		{
 				pfx_ppsisloopingChg = 1;
@@ -836,7 +836,7 @@ INSTANCE spellFX_Lightning	(CFx_Base_Proto)
 		visAlphaBlendFunc_S = "ADD";
 		visTexAniFPS 		= 17;
 		visTexAniIsLooping 	= 1;
-		
+
 		emtrjmode_s 		= "FIXED";
 		emtrjNumKeys    	= 4;
 		emtrjnumkeysvar 	= 1;
@@ -853,21 +853,21 @@ INSTANCE spellFX_Lightning	(CFx_Base_Proto)
 
 		INSTANCE spellFX_Lightning_KEY_INIT			(C_ParticleFXEmitKey)
 		{
-				visName_S 			= "MFX_Lightning_Origin";		
+				visName_S 			= "MFX_Lightning_Origin";
 		};
-		
+
 		INSTANCE spellFX_Lightning_KEY_INVEST_1		(C_ParticleFXEmitKey)
 		{
 				visName_S 			= "Lightning_Single.ltn";
 				emtrjmode_s 		= "TARGET LINE RANDOM";
 				emtrjeasevel 			= 3000.;
 		};
-		
+
 		INSTANCE spellFX_Lightning_KEY_CAST			(C_ParticleFXEmitKey)
 		{
-				
+
 };
-				
+
 
 ///   													XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ///   													XX  C H A I N - L I G H T N I N G  XX
@@ -880,7 +880,7 @@ INSTANCE spellFX_ChainLightning(CFx_Base_Proto)
 		visAlphaBlendFunc_S = "ADD";
 		visTexAniFPS 		= 17;
 		visTexAniIsLooping 	= 1;
-		
+
 		emFXCreate_S 		= "spellFX_ChainLightning_Origin";
 		emtrjmode_s 		= "FIXED";
 		emtrjNumKeys    	= 12;
@@ -894,9 +894,9 @@ INSTANCE spellFX_ChainLightning(CFx_Base_Proto)
 		emselfrotvel_s 		= "0 0 50";
 		emTrjTargetRange	= 20;
 		emTrjTargetElev 	= 0;
-		
+
 };
-		
+
 
 INSTANCE spellFX_ChainLightning_ORIGIN	(CFx_Base_Proto)
 {
@@ -915,13 +915,13 @@ INSTANCE spellFX_ChainLightning_ORIGIN	(CFx_Base_Proto)
 		{
 				LightRange	= 0.01;
 		};
-		
+
 		INSTANCE spellFX_ChainLightning_Origin_KEY_INVEST_1		(C_ParticleFXEmitKey)
 		{
 				sfxID			= "MFX_Lightning_Origin";
 				LightRange	= 200;
 };
-				
+
 
 ///   													XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ///   													XX  T H U N D E R B O L T  XX
@@ -931,7 +931,7 @@ INSTANCE spellFX_Thunderbolt	(CFx_Base_Proto)
 {
 
      	visname_S 				= "MFX_Thunderebolt_INIT";
-		
+
      	emtrjmode_s 			= "FIXED";
 		emTrjOriginNode 		= "ZS_RIGHTHAND";
      	emtrjtargetnode 		= "BIP01 FIRE";
@@ -940,13 +940,13 @@ INSTANCE spellFX_Thunderbolt	(CFx_Base_Proto)
      	emActionCollStat_S		= "COLLIDE CREATE";
      	emActionCollDyn_S 		= "COLLIDE CREATEONCE";
 		emFXCollStat_S	   		= "spellFX_Thunderbolt_COLLIDE";
-		emFXCollDyn_S     		= "spellFX_Thunderbolt_SENDPERCEPTION";		
+		emFXCollDyn_S     		= "spellFX_Thunderbolt_SENDPERCEPTION";
 		emTrjTargetRange	 	= 20;
 		emTrjTargetElev 		= 0;
 		emTrjDynUpdateDelay		= 20000;
 
 		//visAlpha				= 0;
-		
+
 		};
 
 		INSTANCE spellFX_Thunderbolt_KEY_INIT (C_ParticleFXEmitKey)
@@ -954,10 +954,10 @@ INSTANCE spellFX_Thunderbolt	(CFx_Base_Proto)
 				visname_S 			= "MFX_Thunderbolt_INIT";
 				scaleDuration			= 0.5;
 		};
-		
+
 		INSTANCE spellFX_Thunderbolt_KEY_CAST (C_ParticleFXEmitKey)
 		{
-				visname_S 				= "MFX_Thunderbolt_CAST";		
+				visname_S 				= "MFX_Thunderbolt_CAST";
 				emtrjmode_s 			= "TARGET";
 		     	emtrjeasevel 			= 1400.;
 	 			sfxid					= "MFX_Thunderbolt_Cast";
@@ -997,7 +997,7 @@ INSTANCE spellFX_Thunderball	(CFx_Base_Proto)
 {
 
      	visname_S 				= "MFX_Thunderball_INIT";
-		
+
      	emtrjmode_s 			= "FIXED";
 		emTrjOriginNode 		= "ZS_RIGHTHAND";
      	emtrjtargetnode 		= "BIP01 FIRE";
@@ -1014,8 +1014,8 @@ INSTANCE spellFX_Thunderball	(CFx_Base_Proto)
 		userString[0]			= "fireballquadmark.tga";
 		userString[1]			= "100 100";
 		userString[2]			= "MUL";
-		lightPresetname   		= "AURA";	
-		
+		lightPresetname   		= "AURA";
+
 		};
 
 		INSTANCE spellFX_Thunderball_KEY_OPEN(C_ParticleFXEmitKey)
@@ -1029,9 +1029,9 @@ INSTANCE spellFX_Thunderball	(CFx_Base_Proto)
 				visname_S 		= "MFX_Thunderball_INIT";
 				lightrange		= 0.01;
 		};
-		
+
 		INSTANCE spellFX_Thunderball_KEY_INVEST_1 (C_ParticleFXEmitKey)
-		{	
+		{
 				visname_S 		= "MFX_Thunderball_INVEST";
 				emCreateFXID	= "spellFX_Thunderball_InVEST_BLAST1";
 				lightrange		= 50;
@@ -1039,32 +1039,32 @@ INSTANCE spellFX_Thunderball	(CFx_Base_Proto)
 				sfxisambient	= 1;
 		}								;
 		INSTANCE spellFX_Thunderball_KEY_INVEST_2 (C_ParticleFXEmitKey)
-		{	
-				visname_S 		= "MFX_Thunderball_INVEST_L2";	
+		{
+				visname_S 		= "MFX_Thunderball_INVEST_L2";
 				emCreateFXID	= "spellFX_Thunderball_InVEST_BLAST2";
 				sfxid			= "MFX_Thunderball_invest2";
 				sfxisambient	= 1;
 		};
 		INSTANCE spellFX_Thunderball_KEY_INVEST_3 (C_ParticleFXEmitKey)
 		{
-				visname_S 		= "MFX_Thunderball_INVEST_L3";	
+				visname_S 		= "MFX_Thunderball_INVEST_L3";
 				emCreateFXID	= "spellFX_Thunderball_InVEST_BLAST3";
 				sfxid			= "MFX_Thunderball_invest3";
 				sfxisambient	= 1;
 		};
 		INSTANCE spellFX_Thunderball_KEY_INVEST_4 (C_ParticleFXEmitKey)
-		{	
-				visname_S 		= "MFX_Thunderball_INVEST_L4";	
+		{
+				visname_S 		= "MFX_Thunderball_INVEST_L4";
 				emCreateFXID	= "spellFX_Thunderball_InVEST_BLAST4";
 				sfxid			= "MFX_Thunderball_invest4";
 				sfxisambient	= 1;
 		};
-		
-		
+
+
 		INSTANCE spellFX_Thunderball_KEY_CAST (C_ParticleFXEmitKey)
 		{
 				lightrange		= 200;
-				visname_S 		= "MFX_Thunderball_CAST";		
+				visname_S 		= "MFX_Thunderball_CAST";
 				emtrjmode_s 	= "TARGET";
 		     	emtrjeasevel 	= 1400.;
 	 			sfxid			= "MFX_Thunderball_Cast";
@@ -1083,7 +1083,7 @@ instance spellFX_Thunderball_InVEST_BLAST1		(CFx_Base_Proto)
 		visname_S 				= "MFX_Thunderball_INVEST_BLAST";
 		visAlpha				= 1;
 		emtrjmode_s 			= "FIXED";
-		//lightPresetname 		= "WHITEBLEND";	
+		//lightPresetname 		= "WHITEBLEND";
 		sfxid					= "MFX_Thunderball_invest1";
 		sfxisambient			= 1;
 		visAlpha 				= 0.3;
@@ -1094,7 +1094,7 @@ instance spellFX_Thunderball_InVEST_BLAST2	(CFx_Base_Proto)
 		visname_S 				= "MFX_Thunderball_INVEST_BLAST";
 		visAlpha				= 1;
 		emtrjmode_s 			= "FIXED";
-		//lightPresetname 		= "WHITEBLEND";	
+		//lightPresetname 		= "WHITEBLEND";
 		sfxid					= "MFX_Thunderball_invest2";
 		sfxisambient			= 1;
 		visAlpha 				= 0.5;
@@ -1105,7 +1105,7 @@ instance spellFX_Thunderball_InVEST_BLAST3		(CFx_Base_Proto)
 		visname_S 				= "MFX_Thunderball_INVEST_BLAST";
 		visAlpha				= 1;
 		emtrjmode_s 			= "FIXED";
-		//lightPresetname 		= "WHITEBLEND";	
+		//lightPresetname 		= "WHITEBLEND";
 		sfxid					= "MFX_Thunderball_invest3";
 		sfxisambient			= 1;
 		visAlpha 				= 0.8;
@@ -1116,7 +1116,7 @@ instance spellFX_Thunderball_InVEST_BLAST4		(CFx_Base_Proto)
 		visname_S 				= "MFX_Thunderball_INVEST_BLAST";
 		visAlpha				= 1;
 		emtrjmode_s 			= "FIXED";
-		//lightPresetname 		= "WHITEBLEND";	
+		//lightPresetname 		= "WHITEBLEND";
 		sfxid					= "MFX_Thunderball_invest4";
 		sfxisambient			= 1;
 		visAlpha 				= 1;
@@ -1130,10 +1130,10 @@ instance spellFX_Thunderball_COLLIDE		(CFx_Base_Proto)
 		visAlpha				= 1;
 		emTrjOriginNode			= "BIP01";
 		emtrjmode_s 			= "FIXED";
-		lightPresetname   		= "FIRESMALL";	
-		
+		lightPresetname   		= "FIRESMALL";
+
 };
-		
+
 INSTANCE spellFX_Thunderball_COLLIDE_KEY_INVEST_1	(C_ParticleFXEmitKey)  {	visname_S 	= "MFX_Thunderball_Collide1";		sfxid	= "MFX_Thunderball_Collide1";		};
 INSTANCE spellFX_Thunderball_COLLIDE_KEY_INVEST_2	(C_ParticleFXEmitKey)  {	visname_S 	= "MFX_Thunderball_Collide2";		sfxid	= "MFX_Thunderball_Collide2";		};
 INSTANCE spellFX_Thunderball_COLLIDE_KEY_INVEST_3	(C_ParticleFXEmitKey)  {	visname_S 	= "MFX_Thunderball_Collide3";		sfxid	= "MFX_Thunderball_Collide3";		};
@@ -1148,7 +1148,7 @@ INSTANCE spellFX_IceCube	(CFx_Base_Proto)
 {
 
      	visname_S 				= "MFX_Icecube_INIT";
-		
+
      	emtrjmode_s 			= "FIXED";
 		emTrjOriginNode 		= "ZS_RIGHTHAND";
      	emtrjtargetnode 		= "BIP01 FIRE";
@@ -1157,14 +1157,14 @@ INSTANCE spellFX_IceCube	(CFx_Base_Proto)
      	emActionCollStat_S		= "COLLIDE CREATEONCE";
      	emActionCollDyn_S 		= "COLLIDE CREATEONCE";
 		emFXCollStat_S	   		= "spellFX_IceCube_COLLIDE";
-		emFXCollDyn_S     		= "spellFX_Icespell_TARGET";		
+		emFXCollDyn_S     		= "spellFX_Icespell_TARGET";
 		emTrjTargetRange	 	= 20;
 		emTrjTargetElev 		= 0;
 		emTrjDynUpdateDelay		= 20000;
-		
+
 		emFXInvestOrigin_S		= "spellFX_Icespell_Invest";
 		//visAlpha				= 0;
-		
+
 		lightPresetname   		= "AURA";
 		};
 
@@ -1179,10 +1179,10 @@ INSTANCE spellFX_IceCube	(CFx_Base_Proto)
 				Lightrange				= 0.01;
 				scaleDuration			= 0.5;
 		};
-		
+
 		INSTANCE spellFX_IceCube_KEY_CAST (C_ParticleFXEmitKey)
 		{
-				visname_S 				= "MFX_ICECUBE_CAST";		
+				visname_S 				= "MFX_ICECUBE_CAST";
 				emtrjmode_s 			= "TARGET";
 		     	emtrjeasevel 			= 1400.;
 	 			emCheckCollision		= 1;
@@ -1224,17 +1224,17 @@ instance spellFX_Icespell_Invest		(CFx_Base_Proto)
 INSTANCE spellFX_Icewave(CFx_Base_Proto)
 {
 
-     	visname_S 			= "MFX_IceCUBE_INIT";		
+     	visname_S 			= "MFX_IceCUBE_INIT";
      	emtrjmode_s 			= "FIXED";
 		emTrjOriginNode 		= "ZS_RIGHTHAND";
      	emtrjloopmode_s 		= "NONE";
-     	
+
      	emFXInvestOrigin_S		= "spellFX_Icespell_Invest";
      	};
 
 		INSTANCE spellFX_Icewave_KEY_INIT(C_ParticleFXEmitKey)
 		{
-				visname_S 			= "MFX_IceCUBE_INIT";		
+				visname_S 			= "MFX_IceCUBE_INIT";
 		};
 
 		INSTANCE spellFX_Icewave_KEY_CAST(C_ParticleFXEmitKey)
@@ -1242,12 +1242,12 @@ INSTANCE spellFX_Icewave(CFx_Base_Proto)
 				emCreateFXID		= "spellFX_Icewave_WAVE";
 				pfx_ppsIsLoopingChg = 1;
 				sfxid				= "MFX_Icewave_Cast";
-				sfxisambient		= 1;				
+				sfxisambient		= 1;
 };
 
 INSTANCE spellFX_Icewave_WAVE	(CFx_Base_Proto)
 {
-		visname_S 				= "MFX_Icewave_WAVE";		
+		visname_S 				= "MFX_Icewave_WAVE";
 		emTrjOriginNode 		= "ZS_RIGHTHAND";
 		emActionCollDyn_S		= "CREATEONCE";
      	emFXCollDyn_S			= "spellFX_IceSpell_TARGET";
@@ -1281,8 +1281,8 @@ INSTANCE spellFX_Icewave_SUB(CFx_Base_Proto)		// vorrübergehend, bis er hardcodi
      	emtrjmode_s 			= "FIXED";
 		emTrjOriginNode 		= "BIP01 HEAD";
 };
-	
-		
+
+
 ///   													XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ///   													XX  S U M M O N   D E M O N  XX
 ///   													XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -1296,35 +1296,35 @@ instance spellFX_Demon  (CFx_Base_Proto)
 		emtrjmode_s 		= "FIXED";
 		emTrjOriginNode 	= "ZS_RIGHTHAND";
 		LightPresetname 	= "REDAMBIENCE";	//ToDo: "REDAMBIENCE"
-		
+
 		emFXInvestOrigin_S	= "spellFX_Demon_INVEST";
-		
+
 		};
-		
+
 		instance spellFX_Demon_KEY_OPEN(C_ParticleFXEmitKey)
-		{	
+		{
 				LightRange = 0.01;
 		};
 
 
 		instance spellFX_Demon_KEY_INIT		(C_ParticleFXEmitKey)
-		{	
+		{
 				LightRange = 0.01;
 		};
-		
-		instance spellFX_Demon_KEY_INVEST_1 (C_ParticleFXEmitKey) {	LightRange = 400;	};		
+
+		instance spellFX_Demon_KEY_INVEST_1 (C_ParticleFXEmitKey) {	LightRange = 400;	};
 		instance spellFX_Demon_KEY_INVEST_2 (C_ParticleFXEmitKey) {};
 		instance spellFX_Demon_KEY_INVEST_3 (C_ParticleFXEmitKey) {		emCreateFXID = 	"FX_EarthQuake";	};
 
 		instance spellFX_Demon_KEY_CAST		(C_ParticleFXEmitKey)
-		{	
+		{
 			//emCreateFXID		= "spellFX_Demon_ORIGIN";
 			pfx_ppsisloopingchg = 1;
 };
 
 INSTANCE spellFX_Demon_INVEST	(CFx_Base_Proto)
 {
-		visname_S 				= "MFX_SummonDemon_Invest";		
+		visname_S 				= "MFX_SummonDemon_Invest";
 		emTrjOriginNode 		= "Bip01";
 };
 
@@ -1341,29 +1341,29 @@ instance spellFX_Skeleton  (CFx_Base_Proto)
 
 		emtrjmode_s 		= "FIXED";
 		emTrjOriginNode 	= "ZS_RIGHTHAND";
-		LightPresetname 	= "REDAMBIENCE";	
-		
+		LightPresetname 	= "REDAMBIENCE";
+
 		emFXInvestOrigin_S	= "spellFX_Demon_INVEST";
-		
+
 		};
-		
+
 		instance spellfx_skeleton_KEY_OPEN(C_ParticleFXEmitKey)
 		{
 				LightRange = 0.01;
 		};
-		
+
 		instance spellfx_skeleton_KEY_INIT		(C_ParticleFXEmitKey)
 		{
 				LightRange = 0.01;
 		};
-		
-		instance spellFX_skeleton_KEY_INVEST_1 (C_ParticleFXEmitKey) {	LightRange = 400;	};		
+
+		instance spellFX_skeleton_KEY_INVEST_1 (C_ParticleFXEmitKey) {	LightRange = 400;	};
 		instance spellFX_skeleton_KEY_INVEST_2 (C_ParticleFXEmitKey) {};
 		instance spellFX_skeleton_KEY_INVEST_3 (C_ParticleFXEmitKey) {		emCreateFXID = 	"FX_EarthQuake";	};
 
-		
+
 		instance spellFX_Skeleton_KEY_CAST		(C_ParticleFXEmitKey)
-		{	
+		{
 				//emCreateFXID		= "spellFX_Demon_ORIGIN";
 				pfx_ppsisloopingchg = 1;
 				LightRange = 200;
@@ -1383,11 +1383,11 @@ instance spellFX_Golem	(CFx_Base_Proto)
 		emtrjmode_s 		= "FIXED";
 		emTrjOriginNode 	= "ZS_RIGHTHAND";
 		LightPresetname 	= "REDAMBIENCE";
-		
+
 		emFXInvestOrigin_S	= "spellFX_Demon_INVEST";
-		
+
 		};
-		
+
 
 		instance spellFX_Golem_KEY_OPEN(C_ParticleFXEmitKey)
 		{
@@ -1398,13 +1398,13 @@ instance spellFX_Golem	(CFx_Base_Proto)
 		{
 				LightRange = 0.01;
 		};
-		
-		instance spellFX_Golem_KEY_INVEST_1 (C_ParticleFXEmitKey) {		LightRange = 400;	};		
+
+		instance spellFX_Golem_KEY_INVEST_1 (C_ParticleFXEmitKey) {		LightRange = 400;	};
 		instance spellFX_Golem_KEY_INVEST_2 (C_ParticleFXEmitKey) {};
 		instance spellFX_Golem_KEY_INVEST_3 (C_ParticleFXEmitKey) {		emCreateFXID = 	"FX_EarthQuake";	};
 
 		instance spellFX_Golem_KEY_CAST		(C_ParticleFXEmitKey)
-		{	
+		{
 				//emCreateFXID		= "spellFX_Golem_ORIGIN";
 				pfx_ppsisloopingchg = 1;
 				LightRange = 200;
@@ -1423,11 +1423,11 @@ instance spellFX_ArmyOfDarkness		(CFx_Base_Proto)
 		emtrjmode_s 		= "FIXED";
 		emTrjOriginNode 	= "ZS_RIGHTHAND";
 		LightPresetname 	= "REDAMBIENCE";
-		
+
 		emFXInvestOrigin_S	= "spellFX_Demon_INVEST";
-		
+
 		};
-		
+
 		instance spellFX_ArmyOfDarkness_KEY_OPEN(C_ParticleFXEmitKey)
 		{
 				LightRange = 0.01;
@@ -1437,17 +1437,17 @@ instance spellFX_ArmyOfDarkness		(CFx_Base_Proto)
 		{
 				LightRange = 0.01;
 		};
-		
-		instance spellFX_ArmyOfDarkness_KEY_INVEST_1 (C_ParticleFXEmitKey) {		LightRange = 400;		};		
+
+		instance spellFX_ArmyOfDarkness_KEY_INVEST_1 (C_ParticleFXEmitKey) {		LightRange = 400;		};
 		instance spellFX_ArmyOfDarkness_KEY_INVEST_2 (C_ParticleFXEmitKey) {};
 		instance spellFX_ArmyOfDarkness_KEY_INVEST_3 (C_ParticleFXEmitKey) {		emCreateFXID = 	"FX_EarthQuake";	};
-		
+
 		instance spellFX_ArmyOfDarkness_KEY_CAST		(C_ParticleFXEmitKey)
-		{	
+		{
 			emCreateFXID		= "spellFX_ArmyOfDarkness_ORIGIN";
 			pfx_ppsisloopingchg = 1;
 };
-		
+
 /*instance spellFX_ArmyOfDarkness_ORIGIN  (CFx_Base_Proto)
 {
 		visname_S 		= "MFX_Summondemon_INVEST";
@@ -1467,18 +1467,18 @@ instance spellFX_ArmyOfDarkness		(CFx_Base_Proto)
 INSTANCE spellFX_MassDeath(CFx_Base_Proto)
 {
 
-     	visname_S 				= "MFX_MassDeath_INIT";		
+     	visname_S 				= "MFX_MassDeath_INIT";
      	emtrjmode_s 			= "FIXED";
 		emTrjOriginNode 		= "ZS_RIGHTHAND";
      	emtrjloopmode_s 		= "NONE";
 		emFXInvestOrigin_S	   	= "spellFX_Massdeath_INITGLOW";
-		emFXCreatedOwnTrj 		= 0; 
-		
+		emFXCreatedOwnTrj 		= 0;
+
 		};
 
 		INSTANCE spellFX_MassDeath_KEY_INIT(C_ParticleFXEmitKey)
 		{
-				visname_S 			= "MFX_MassDeath_INIT";		
+				visname_S 			= "MFX_MassDeath_INIT";
 		};
 
 		INSTANCE spellFX_MassDeath_KEY_CAST(C_ParticleFXEmitKey)
@@ -1489,7 +1489,7 @@ INSTANCE spellFX_MassDeath(CFx_Base_Proto)
 
 INSTANCE spellFX_MassDeath_GROUND		(CFx_Base_Proto)
 {
-		visname_S 				= "MFX_MassDeath_CAST";		
+		visname_S 				= "MFX_MassDeath_CAST";
 		emTrjOriginNode 		= "BIP01 R Foot";
 		emActionCollDyn_S		= "CREATEONCE";
      	emFXCollDyn_S			= "spellFX_MassDeath_Target";
@@ -1508,8 +1508,8 @@ INSTANCE spellFX_MassDeath_SUB(CFx_Base_Proto)		// vorrübergehend, bis er hardco
      	emtrjmode_s 			= "FIXED";
 		emTrjOriginNode 		= "BIP01 HEAD";
 };
-	
-		
+
+
 INSTANCE spellFX_MassDeath_Target(CFx_Base_Proto)
 {
 		visname_S 				= "MFX_Massdeath_TARGET";
@@ -1539,7 +1539,7 @@ INSTANCE spellFX_DestroyUndead(CFx_Base_Proto)
 {
 
      	visname_S 				= "MFX_DestroyUndead_INIT";
-		
+
      	emtrjmode_s 			= "FIXED";
 		emTrjOriginNode 		= "ZS_RIGHTHAND";
      	emtrjtargetnode 		= "BIP01 FIRE";
@@ -1548,7 +1548,7 @@ INSTANCE spellFX_DestroyUndead(CFx_Base_Proto)
      	emActionCollStat_S		= "COLLIDE CREATE";
      	emActionCollDyn_S 		= "COLLIDE CREATEONCE";
 		emFXCollStat_S	   		= "spellFX_Destroyundead_COLLIDE";
-		emFXCollDyn_S     		= "spellFX_Destroyundead_SENDPERCEPTION";		
+		emFXCollDyn_S     		= "spellFX_Destroyundead_SENDPERCEPTION";
 		emTrjTargetRange	 	= 20;
 		emTrjTargetElev 		= 0;
 		emTrjDynUpdateDelay		= 20000;
@@ -1558,10 +1558,10 @@ INSTANCE spellFX_DestroyUndead(CFx_Base_Proto)
 		{
 				visname_S 			= "MFX_DestroyUndead_INIT";
 		};
-		
+
 		INSTANCE spellFX_DestroyUndead_KEY_CAST (C_ParticleFXEmitKey)
 		{
-				visname_S 				= "MFX_DestroyUndead_CAST";		
+				visname_S 				= "MFX_DestroyUndead_CAST";
 				emtrjmode_s 			= "TARGET";
 		     	emtrjeasevel 			= 800.;
 	 			sfxid					= "MFX_DestroyUndead_Cast";
@@ -1580,7 +1580,7 @@ INSTANCE spellFX_Destroyundead_COLLIDE		(CFx_Base_Proto)
 	lightpresetname		= "AURA";
 	sfxid				= "MFX_DESTROYUNDEAD_COLLIDE";
 	sfxisambient		= 1;
-}; 
+};
 
 INSTANCE spellFX_Destroyundead_SENDPERCEPTION	(CFx_Base_Proto)
 {
@@ -1592,7 +1592,7 @@ INSTANCE spellFX_Destroyundead_SENDPERCEPTION	(CFx_Base_Proto)
 	sendassessmagic		= 1;
 	sfxid				= "MFX_DESTROYUNDEAD_COLLIDE";
 	sfxisambient		= 1;
-}; 
+};
 
 
 ///   													XXXXXXXXXXXXXXXXXXXXXXXX
@@ -1618,21 +1618,21 @@ INSTANCE spellFX_WindFist(CFx_Base_Proto)
 		emActionCollDyn_S 	= "CREATEONCE";
 		emFXCollDyn_S	   	= "spellFX_Windfist_Target";	//Sendet perception
 		emFXInvestOrigin_S	= "spellFX_Windfist_Invest";
-		
-		
+
+
 		};
-		
+
 		INSTANCE spellFX_WINDFIST_KEY_INIT (C_ParticleFXEmitKey)
 		{
 				emCheckCollision	= 0;
 		};
-		
+
 		INSTANCE spellFX_Windfist_KEY_INVEST_1	(C_ParticleFXEmitKey)	{	emCreateFXID	= "spellFX_Windfist_INVESTBLAST";	};
 		INSTANCE spellFX_Windfist_KEY_INVEST_2	(C_ParticleFXEmitKey)	{	emCreateFXID	= "spellFX_Windfist_INVESTBLAST";	};
 		INSTANCE spellFX_Windfist_KEY_INVEST_3	(C_ParticleFXEmitKey)	{	emCreateFXID	= "spellFX_Windfist_INVESTBLAST";	};
 		INSTANCE spellFX_Windfist_KEY_INVEST_4	(C_ParticleFXEmitKey)	{	emCreateFXID	= "spellFX_Windfist_INVESTBLAST";	};
-		
-		
+
+
 		INSTANCE spellFX_WINDFIST_KEY_CAST	 (C_ParticleFXEmitKey)
 		{
 				visname_S 				= "simpleglow.tga";
@@ -1641,7 +1641,7 @@ INSTANCE spellFX_WindFist(CFx_Base_Proto)
 	 			emCheckCollision		= 1;
 				emCreateFXID			= "spellFX_WINDFIST_CAST";
 };
-		
+
 
 INSTANCE spellFX_Windfist_Invest (CFx_Base_Proto)
 {
@@ -1694,17 +1694,17 @@ INSTANCE spellFX_Stormfist	(CFx_Base_Proto)
 		emtrjdynupdatedelay = 200000;
 		emTrjTargetRange	= 100;
 		emTrjTargetElev 	= 1;
-		
+
 		emActionCollDyn_S 	= "CREATEONCE";
 		emFXCollDyn_S	   	= "spellFX_Windfist_Target";
 		emFXInvestOrigin_S	= "spellFX_Windfist_Invest";
 		};
-		
+
 		INSTANCE spellFX_Stormfist_KEY_INIT (C_ParticleFXEmitKey)
 		{
 				emCheckCollision	= 0;
 		};
-		
+
 		INSTANCE spellFX_Stormfist_KEY_CAST	 (C_ParticleFXEmitKey)
 		{
 				visname_s			= "MFX_STORMFIST_CAST";
@@ -1712,7 +1712,7 @@ INSTANCE spellFX_Stormfist	(CFx_Base_Proto)
 				sfxid				= "MFX_Stormfist_Cast";
 				sfxisambient		= 1;
 };
-		
+
 
 INSTANCE spellFX_Stormfist_Invest (CFx_Base_Proto)
 {
@@ -1742,7 +1742,7 @@ INSTANCE spellFX_Stormfist_Invest (CFx_Base_Proto)
 		emFXCollDyn_S	   	= "spellFX_Windfist_Target";
 		emFXInvestOrigin_S	= "spellFX_Windfist_Invest";
 		};
-		
+
 		INSTANCE spellFX_Stormfist_SUB_KEY_CAST	(C_ParticleFXEmitKey)
 		{
 				visname_S 				= "MFX_STORMFIST_CAST";
@@ -1796,13 +1796,13 @@ INSTANCE spellFX_telekinesis_KEY_INVEST_1	(C_ParticleFXEmitKey)
 INSTANCE spellFX_telekinesis_KEY_CAST	(C_ParticleFXEmitKey)
 {
 		visname_s			= "MFX_Telekinesis_TargetEnd";
-		
+
 };
 
 /*INSTANCE spellFX_telekinesis_KEY_STOP (C_ParticleFXEmitKey)
 {
 		visname_s			= "MFX_Telekinesis_TargetEnd";
-		
+
 };*/
 
 INSTANCE spellFX_telekinesis_Origin		(CFx_Base_Proto)
@@ -1868,14 +1868,14 @@ INSTANCE spellFX_Charm	(CFx_Base_Proto)
 		emtrjloopmode_s 	= "NONE";
 		emtrjeasefunc_s 	= "LINEAR";
 		emtrjdynupdatedelay = 0.;
-				
+
 		//emFXInvestOrigin_S 	= "spellFX_Sleep_ORIGIN";
-		
+
 		};
-		
+
 		INSTANCE spellFX_Charm_KEY_CAST (C_ParticleFXEmitKey)
 		{
-				visname_S 				= "MFX_CHARM_ORIGIN";		
+				visname_S 				= "MFX_CHARM_ORIGIN";
 				emtrjmode_s 			= "TARGET";
 		     	emtrjeasevel 			= 1400.;
 		     	sfxid					= "MFX_Charm_Cast";
@@ -1898,36 +1898,36 @@ INSTANCE spellFX_Sleep	(CFx_Base_Proto)
 		emtrjloopmode_s 	= "NONE";
 		emtrjeasefunc_s 	= "LINEAR";
 		emtrjdynupdatedelay = 0.;
-				
+
 		//emFXInvestOrigin_S 	= "spellFX_Sleep_ORIGIN";
 		//emFXInvestTarget_S 	= "spellFX_Sleep_TARGET";
-		
+
 		};
-		
+
 		INSTANCE spellFX_Sleep_KEY_INIT	(C_ParticleFXEmitKey)
 		{
 				visname_S				= "MFX_SLEEP_INIT";
 		};
-		
+
 		INSTANCE spellFX_Sleep_KEY_CAST (C_ParticleFXEmitKey)
 		{
-				visname_S 				= "MFX_SLEEP_ORIGIN";		
+				visname_S 				= "MFX_SLEEP_ORIGIN";
 				//emtrjmode_s 			= "TARGET";
 		     	emtrjeasevel 			= 1400.;
 		     	sfxid					= "MFX_Sleep_Cast";
-		     	
+
 				//emCreateFXID 			= "FX_CAST2";
 };
 
 
-		
+
 instance spellFX_Sleep_ORIGIN	(CFx_Base_Proto)
 {
 		visname_S 		= "MFX_SLEEP_ORIGIN";
 		emtrjmode_s 		= "FIXED";
 		emtrjoriginnode 	= "ZS_RIGHTHAND";
 		emtrjdynupdatedelay 	= 0;
-	
+
 		//sendAssessMagic	= 1;
 };
 
@@ -1938,7 +1938,7 @@ instance spellFX_Sleep_TARGET	(CFx_Base_Proto)
 		emtrjmode_s 		= "FIXED";
 		emtrjoriginnode 	= "BIP01";
 		emtrjdynupdatedelay 	= 0;
-	
+
 		//sendAssessMagic	= 1;
 };
 
@@ -1952,7 +1952,7 @@ INSTANCE spellFX_Pyrokinesis(CFx_Base_Proto)
 {
 		visname_S 		= "MFX_Pyrokinesis_INIT";
 		visAlpha		= 1;
-		
+
 		emtrjmode_s 		= "FIXED";
 		emTrjOriginNode 	= "ZS_RIGHTHAND";
 		emtrjtargetnode 	= "BIP01 HEAD";
@@ -1968,13 +1968,13 @@ INSTANCE spellFX_Pyrokinesis(CFx_Base_Proto)
 
 		INSTANCE spellFX_Pyrokinesis_KEY_CAST (C_ParticleFXEmitKey)
 		{
-				pfx_ppsIsLoopingChg = 1; 			
+				pfx_ppsIsLoopingChg = 1;
 };
 
 INSTANCE spellFX_Pyrokinesis_TARGET(CFx_Base_Proto)
 {
 	visname_S 		= "MFX_Pyrokinesis_TARGET";
-	
+
 	emtrjmode_s 		= "FIXED";
 	emTrjOriginNode 	= "BIP01 HEAD";
 	lightPresetname 	= "FIRESMALL";
@@ -1982,7 +1982,7 @@ INSTANCE spellFX_Pyrokinesis_TARGET(CFx_Base_Proto)
 	emTrjTargetElev 	= 0;
 	sendAssessMagic		= 1;
 	emtrjdynupdatedelay = 0.01;
-	
+
 	sfxid				= "MFX_Pyrokinesis_target";
 	sfxisambient		= 1;
 };
@@ -2001,7 +2001,7 @@ INSTANCE spellFX_Control(CFx_Base_Proto)
 {
 		visName_S			=  "MFX_CONTROL_INIT";
 		vissize_s			= "1 1";
-		
+
 		emtrjmode_s 		= "FIXED";
 		emtrjoriginnode 	= "ZS_RIGHTHAND";
 		emtrjtargetnode 	= "BIP01 HEAD";
@@ -2012,8 +2012,8 @@ INSTANCE spellFX_Control(CFx_Base_Proto)
 		//emselfrotvel_s 	= "0 0 50";
 		emTrjTargetRange 	= 0;
 		emTrjTargetElev  	= 0;
-		
-		emFXInvestTarget_S 	= "spellFX_Control_TARGET";	
+
+		emFXInvestTarget_S 	= "spellFX_Control_TARGET";
 		emFXInvestOrigin_S	= "spellFX_Control_BRIDGE";
 		};
 
@@ -2022,9 +2022,9 @@ INSTANCE spellFX_Control(CFx_Base_Proto)
 				visname_s	= "simpleglow.tga";
 				sfxid		= "MFX_CONTROL_STARTINVEST";
 				sfxisambient= 1;
-				
+
 		};
-		
+
 		INSTANCE spellFX_Control_KEY_CAST		(C_ParticleFXEmitKey)
 		{
 				pfx_ppsIsLoopingChg 	= 1;
@@ -2046,19 +2046,19 @@ INSTANCE spellFX_Control_TARGET(CFx_Base_Proto)
 INSTANCE spellFX_Control_BRIDGE	(CFx_Base_Proto)
 {
 		visname_S 			= "MFX_CONTROL_BRIDGE";
-		
+
 		emtrjmode_s 		= "TARGET LINE";
 		emTrjOriginNode 	= "BIP01 HEAD";
 		emtrjtargetnode 	= "BIP01 HEAD";
 		emTrjTargetRange	= 0;
 		emTrjTargetElev 	= 0;
 		emFXCreate_S		= "spellFX_Control_ORIGIN";
-		
+
 		sfxid				= "MFX_CONTROL_INVEST";
 		sfxisambient		= 1;
-		
+
 		};
-		
+
 		INSTANCE spellFX_Control_BRIDGE_KEY_INIT	(C_ParticleFXEmitKey)
 		{
 				emtrjeasevel	= 0.01;
@@ -2091,23 +2091,23 @@ INSTANCE spellFX_Fear(CFx_Base_Proto)
 		emTrjOriginNode 	= "ZS_RIGHTHAND";
 		emtrjdynupdatedelay = 10000;
 		};
-	
+
 		INSTANCE spellFX_Fear_KEY_OPEN (C_ParticleFXEmitKey)
 		{
 		     	emtrjeasevel 	= 0.;
 		};
-		
+
 		INSTANCE spellFX_Fear_KEY_INVEST_1	(C_ParticleFXEmitKey)
 		{
 				emCreateFXID	= "FX_EarthQuake";
 		};
-		
+
 		INSTANCE spellFX_Fear_KEY_CAST (C_ParticleFXEmitKey)
 		{
 				visname_s 		= "MFX_FEAR_ORIGIN";
 		     	emCreateFXID	= "spellFX_Fear_Face";
 };
-		
+
 
 INSTANCE spellFX_Fear_Face		(CFx_Base_Proto)
 {
@@ -2124,7 +2124,7 @@ INSTANCE spellFX_Fear_Face		(CFx_Base_Proto)
 
 INSTANCE spellFX_Fear_WAVE	(CFx_Base_Proto)
 {
-		visname_S 				= "MFX_FEAR_WAVE";		
+		visname_S 				= "MFX_FEAR_WAVE";
 		emTrjOriginNode 		= "BIP01";
 		emActionCollDyn_S		= "CREATEONCE";
      	emFXCollDyn_S			= "spellFX_Fear_SENDPERCEPTION";
@@ -2153,15 +2153,15 @@ INSTANCE spellFX_Berzerk	(CFx_Base_Proto)
 		emtrjloopmode_s 	= "NONE";
 		emtrjeasefunc_s 	= "LINEAR";
 		emtrjdynupdatedelay = 0.;
-				
+
 		//emFXInvestOrigin_S 	= "spellFX_Sleep_ORIGIN";
 		//emFXInvestTarget_S 	= "spellFX_Sleep_TARGET";
-		
+
 		};
-		
+
 		INSTANCE spellFX_Berzerk_KEY_CAST (C_ParticleFXEmitKey)
 		{
-				visname_S 				= "MFX_BERZERK_ORIGIN";		
+				visname_S 				= "MFX_BERZERK_ORIGIN";
 				emtrjmode_s 			= "TARGET";
 		     	emtrjeasevel 			= 1400.;
 		     	sfxid					= "MFX_Berzerk_Cast";
@@ -2170,14 +2170,14 @@ INSTANCE spellFX_Berzerk	(CFx_Base_Proto)
 };
 
 
-		
+
 instance spellFX_Berzerk_ORIGIN	(CFx_Base_Proto)
 {
 		visname_S 		= "MFX_CHARM_ORIGIN";
 		emtrjmode_s 		= "FIXED";
 		emtrjoriginnode 	= "ZS_RIGHTHAND";
 		emtrjdynupdatedelay 	= 0;
-	
+
 		//sendAssessMagic	= 1;
 };
 
@@ -2202,17 +2202,17 @@ INSTANCE spellFX_BreathOfDeath	(CFx_Base_Proto)
 		emTrjTargetElev 	= 1;
 		emActionCollDyn_S 	= "CREATEONCE";
 		emFXCollDyn_S	   	= "spellFX_BreathOfDeath_Target";
-		
+
 		emFXInvestOrigin_S	= "spellFX_BreathOfDeath_Invest";
-		
-		
+
+
 		};
-		
+
 		INSTANCE spellFX_BreathOfDeath_KEY_INIT (C_ParticleFXEmitKey)
 		{
 				emCheckCollision	= 0;
 		};
-		
+
 		INSTANCE spellFX_BreathOfDeath_KEY_CAST	 (C_ParticleFXEmitKey)
 		{
 				visname_S 				= "simpleglow.tga";
@@ -2221,7 +2221,7 @@ INSTANCE spellFX_BreathOfDeath	(CFx_Base_Proto)
 	 			emCheckCollision		= 1;
 				emCreateFXID			= "spellFX_BreathOfDeath_CAST";
 };
-		
+
 
 INSTANCE spellFX_BreathOfDeath_Invest (CFx_Base_Proto)
 {
@@ -2271,7 +2271,7 @@ INSTANCE spellFX_Shrink(CFx_Base_Proto)
 		emTrjTargetElev 	= 0;
 		lightpresetname		= "AURA";
 		emFXInvestOrigin_S	= "spellFX_SHRINK_ORIGIN";
-		
+
 		};
 
 
@@ -2286,7 +2286,7 @@ INSTANCE spellFX_Shrink(CFx_Base_Proto)
 				emtrjeasevel		= 0.01;
 				LightRange			= 0.01;
 		};
-		
+
 		INSTANCE spellFX_Shrink_KEY_CAST	(C_ParticleFXEmitKey)
 		{
 				emtrjmode_s 		= "TARGET LINE";
@@ -2422,8 +2422,8 @@ INSTANCE spellFX_Firespell_HUMANSMOKE	(CFx_Base_Proto)
 };
 
 // ChainLightning Effekt auf Target, wird vom Programm direkt angesprochen
-instance FX_Electric	(CFx_Base_Proto)		
-{				
+instance FX_Electric	(CFx_Base_Proto)
+{
 		visname_S 		= "MFX_Thunderball_Target";
 		emTrjOriginNode = "BIP01 Head";
 		emtrjmode_s 	= "FIXED";
@@ -2577,7 +2577,7 @@ instance spellFX_IceSpell_TARGET			(CFx_Base_Proto)
 		sendAssessMagic		= 1;
 		emAdjustShpToOrigin = 1;
 		sfxid				= "MFX_Icecube_Target";
-		
+
 };
 
 // Earth Quake FX
@@ -2617,7 +2617,7 @@ INSTANCE TRANSFORM_CASTBLEND(CFx_Base_Proto)
 	userString[0]	=   "0.5";
 	userString[1]	=	"255 0 0 255";
 	userString[2]	=	"0.5";
-	emFXLifeSpan    =	0.6;	
+	emFXLifeSpan    =	0.6;
 };
 
 INSTANCE TRANSFORM_NOPLACEFX(CFx_Base_Proto)
@@ -2626,7 +2626,7 @@ INSTANCE TRANSFORM_NOPLACEFX(CFx_Base_Proto)
 	userString[0]	=   "1";
 	userString[1]	=	"255 0 0 100";
 	userString[2]	=	"1.5";
-	emFXLifeSpan    =	0.6;		
+	emFXLifeSpan    =	0.6;
 };
 
 
@@ -2664,7 +2664,7 @@ INSTANCE BARRIERE_PC_SHOOT(CFx_Base_Proto)
 INSTANCE BARRIERE_PC_WARNING(CFx_Base_Proto)
 {
 	emTrjOriginNode 	= "BIP01 TOE";
-	visname_S 		= "MFX_lightning_target";	
+	visname_S 		= "MFX_lightning_target";
 	emtrjmode_s 		= "FIXED";
 	emtrjdynupdatedelay 	= 0.;
 	lightPresetname 	= "AURA";

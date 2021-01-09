@@ -48,10 +48,10 @@ const string	CH1_KalomsRecipe		=	"Recipe of the Sect";
 const string	CH1_BringList     		=	"Test of Faith";
 const string	CH1_GoToPsi     		=	"The Big Thing of the Brotherhood";
 //Aufnahme Neues Lager
-const string	CH1_JoinNC             	=   "Admission to the New Camp";    
+const string	CH1_JoinNC             	=   "Admission to the New Camp";
 const string	CH1_CarryWater			=	"Water Carrier for Lefty";
 const string	CH1_DamLurker           =   "Lurker at the Dam";
-const string	CH1_SpreadJoints        =   "Canvassing of Customers"; 
+const string	CH1_SpreadJoints        =   "Canvassing of Customers";
 const string	CH1_DealerJob           =   "The Weed Merchant";
 const string	CH1_ShrikesHut			=	"Shrike's Hut";
 const string	CH1_HoratiosTeachings	=	"Horatio the Peasant";

@@ -2,14 +2,14 @@ func void ZS_WatchFight ()
 {
 	PrintDebugNpc			(PD_ZS_FRAME,"ZS_WatchFight");
 	C_ZSInit				();
-	
-	Npc_PercEnable  		(self,	PERC_ASSESSDAMAGE	,	ZS_ReactToDamage	);	
+
+	Npc_PercEnable  		(self,	PERC_ASSESSDAMAGE	,	ZS_ReactToDamage	);
 	Npc_PercEnable  		(self,	PERC_ASSESSMAGIC	,	B_AssessMagic		);
 	Npc_PercEnable  		(self,	PERC_ASSESSSURPRISE	,	ZS_AssessSurprise	);
 	Npc_PercEnable  		(self,	PERC_ASSESSENEMY	,	B_AssessEnemy		);
-	Npc_PercEnable  		(self,	PERC_ASSESSMURDER	,	ZS_AssessMurder		);	
-	Npc_PercEnable  		(self,	PERC_ASSESSDEFEAT	,	ZS_AssessDefeat		);	
-	Npc_PercEnable  		(self,	PERC_CATCHTHIEF		,	ZS_CatchThief 		);		
+	Npc_PercEnable  		(self,	PERC_ASSESSMURDER	,	ZS_AssessMurder		);
+	Npc_PercEnable  		(self,	PERC_ASSESSDEFEAT	,	ZS_AssessDefeat		);
+	Npc_PercEnable  		(self,	PERC_CATCHTHIEF		,	ZS_CatchThief 		);
 	Npc_PercEnable  		(self,	PERC_ASSESSTALK		,	B_RefuseTalk 		);
 	Npc_PercEnable 			(self,	PERC_ASSESSFIGHTSOUND,	B_CheerFight);
 	AI_RemoveWeapon			(self);
@@ -32,7 +32,7 @@ func void ZS_WatchFight ()
 func int ZS_WatchFight_Loop ()
 {
 	PrintDebugNpc				(PD_ZS_LOOP,	"ZS_WatchFight_Loop");
-	
+
 	if (Npc_IsDead(other) || Npc_IsDead(victim))
 	{
 		PrintDebugNpc			(PD_ZS_LOOP,"...Workaraound für nicht ankommende PERC_ASSESSMURDER!");
@@ -43,7 +43,7 @@ func int ZS_WatchFight_Loop ()
 		PrintDebugNpc			(PD_ZS_LOOP,"...Workaround für nicht ankommende PERC_ASSESSDEFEAT!");
 		return					LOOP_END;
 	};
-	
+
 	if (Npc_IsInState(other,ZS_Attack) || Npc_IsInState (victim,ZS_Attack))	// ...wird noch gekämpft?
 	{
 		PrintDebugNpc			(PD_ZS_CHECK,	"...es wird noch gekämpft!");
@@ -51,7 +51,7 @@ func int ZS_WatchFight_Loop ()
 		if ( (Npc_GetDistToNpc(self,other)<PERC_DIST_INTERMEDIAT) || (Npc_GetDistToNpc(self,victim)<PERC_DIST_INTERMEDIAT) )
 		{
 			PrintDebugNpc		(PD_ZS_CHECK,	"...Kombatanten sind noch nah genug!");
-	
+
 			//-------- Random Jubel --------
 			var int jubel;
 			jubel = Hlp_Random (100);
@@ -62,7 +62,7 @@ func int ZS_WatchFight_Loop ()
 				B_Say 			(self,	NULL,	"$HEYHEYHEY");
 				return			LOOP_CONTINUE;
 			};
-	
+
 			//-------- Random Anim --------
 			var int anim;
 			anim = Hlp_Random (100);
@@ -70,7 +70,7 @@ func int ZS_WatchFight_Loop ()
 			else if	(anim < 10)	{	AI_TurnToNpc(self, victim);		AI_PlayAni	(self, "T_WATCHFIGHTRANDOM2");	}
 			else if	(anim < 15)	{	AI_TurnToNpc(self, victim);		AI_PlayAni	(self, "T_WATCHFIGHTRANDOM3");	}
 			else if	(anim < 20)	{	AI_TurnToNpc(self, victim);		AI_PlayAni	(self, "T_WATCHFIGHTRANDOM4");	};
-			
+
 			//-------- auf Distanz gehen/bleiben --------
 			if (Npc_GetDistToNpc(self, other) < PERC_DIST_WATCHFIGHT)
 			{
@@ -106,7 +106,7 @@ func int ZS_WatchFight_Loop ()
 };
 
 func void ZS_WatchFight_End ()
-{	
+{
 	PrintDebugNpc		(PD_ZS_FRAME, "ZS_WatchFight_End" );
 	Npc_ClearAIQueue	(self); //MH: ggf. "Aufschaukler" killen (s. B_CheerFight)
 	AI_PlayAni			(self, "T_WATCHFIGHT_2_STAND");

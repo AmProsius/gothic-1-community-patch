@@ -5,7 +5,7 @@ var int _STR_MESSAGE_WHEEL_STUCKS_AGAIN;
 
 
 FUNC int MC_OLDMINE_ASGHAN ()
-{	
+{
 	PrintDebugNpc	(PD_ITEM_MOBSI,	"MC_OLDMINE_ASGHAN");
 
 	if (Npc_KnowsInfo(hero,Grd_263_Asghan_OPEN_NOW) && _STR_MESSAGE_WHEEL_STUCKS_AGAIN==0)
@@ -46,7 +46,7 @@ func int MC_OLDMINE_ENTRANCE ()
 //	Klosterruine
 //***************************************************************************
 FUNC int MC_MONASTERYRUIN_GATE ()
-{	
+{
 	PrintDebugNpc		(PD_ITEM_MOBSI,	"MC_MONASTERYRUIN_GATE");
 
 	if (MonasteryRuin_GateOpen == FALSE)
@@ -55,8 +55,8 @@ FUNC int MC_MONASTERYRUIN_GATE ()
 		AI_UseMob		(hero,"VWHEEL",1);
 		AI_UseMob		(hero,"VWHEEL",-1);
 
-		MonasteryRuin_GateOpen = TRUE;	
-		
+		MonasteryRuin_GateOpen = TRUE;
+
 		return 			TRUE;
 	}
 	else
@@ -70,10 +70,10 @@ FUNC int MC_MONASTERYRUIN_GATE ()
 //	Ork-Friedhof
 //***************************************************************************
 FUNC int MC_OGY_GATE ()
-{	
+{
 	PrintDebugNpc		(PD_ITEM_MOBSI,	"MC_OGY_GATE");
 
-	if (CorAngar_GotoOGY) 
+	if (CorAngar_GotoOGY)
 	{
 		PrintDebugNpc	(PD_ITEM_MOBSI,	"...closed");
 
@@ -94,20 +94,20 @@ FUNC int MC_OGY_GATE ()
 //***************************************************************************
 var int	FM_GateOpen;
 FUNC int MC_FM_GATE ()
-{	
+{
 	PrintDebugNpc		(PD_ITEM_MOBSI,	"MC_FM_GATE");
 
-	if ((Kapitel == 4) && (FM_GateOpen == FALSE)) 
+	if ((Kapitel == 4) && (FM_GateOpen == FALSE))
 	{
 		PrintDebugNpc	(PD_ITEM_MOBSI,	"...closed");
 		AI_UseMob		(hero,"VWHEEL",1);
 		AI_UseMob		(hero,"VWHEEL",-1);
 
-		FM_GateOpen = TRUE;	
-	
+		FM_GateOpen = TRUE;
+
 		// falls die Gardisten sofort attackiert wurden, Gorn hier auch nochmal zum Tor runterschicken
 		B_ExchangeRoutine	(PC_Fighter,	"WaitFM");
-		
+
 		return 			TRUE;
 	}
 	else
@@ -128,7 +128,7 @@ FUNC int MC_FM_GATE ()
 //	Trollschlucht
 //***************************************************************************
 FUNC int EVT_TROLLSCHLUCHT_GATE_TRIGGER ()
-{	
+{
 	PrintDebugNpc	(PD_ITEM_MOBSI,	"EVT_TROLLSCHLUCHT_GATE_TRIGGER");
 
 	if (Saturas_BringFoci > 0)
@@ -155,12 +155,12 @@ FUNC int EVT_TROLLSCHLUCHT_GATE_TRIGGER ()
 		    Wld_InsertNpc		(BlackGobboWarrior,"LOCATION_12_13");
 		    Wld_InsertNpc		(BlackGobboWarrior,"LOCATION_12_13");
 		    Wld_InsertNpc		(BlackGobboWarrior,"LOCATION_12_13");
-		    
+
 		    Wld_InsertNpc		(BlackGobboWarrior,"LOCATION_12_14");
 		    Wld_InsertNpc		(BlackGobboWarrior,"LOCATION_12_14");
 		    Wld_InsertNpc		(BlackGobboWarrior,"LOCATION_12_14");
 		    Wld_InsertNpc		(BlackGobboWarrior,"LOCATION_12_14");
-	
+
 			return TRUE;
 		}
 		else	// Troll_Wheel == 3
@@ -171,7 +171,7 @@ FUNC int EVT_TROLLSCHLUCHT_GATE_TRIGGER ()
 	else
 	{
 		G_PrintScreen	(_STR_MESSAGE_WHEEL_STUCKS);
-	};	
+	};
 };
 
 //***************************************************************************
@@ -179,17 +179,17 @@ FUNC int EVT_TROLLSCHLUCHT_GATE_TRIGGER ()
 //***************************************************************************
 var int	OrcCity_GateOpen;
 FUNC int MC_OrcCity_Gate ()
-{	
+{
 	PrintDebugNpc		(PD_ITEM_MOBSI,	"MC_OrcCity_Gate");
 
-	if ((Kapitel >= 5) && (OrcCity_GateOpen == FALSE)) 
+	if ((Kapitel >= 5) && (OrcCity_GateOpen == FALSE))
 	{
 		PrintDebugNpc	(PD_ITEM_MOBSI,	"...closed");
 		AI_UseMob		(hero,"VWHEEL",1);
 		AI_UseMob		(hero,"VWHEEL",-1);
 
-		OrcCity_GateOpen = TRUE;	
-		
+		OrcCity_GateOpen = TRUE;
+
 		return 			TRUE;
 	}
 	else
@@ -209,13 +209,13 @@ FUNC int MC_OrcCity_Gate ()
 //	Ork-Stadt - ‰uﬂeres Tempeltor
 //***************************************************************************
 FUNC int MC_OrcCity_Sunctum_OuterGate ()	// heiﬂt absichtlich "Sunctum"
-{	
+{
 	PrintDebugNpc		(PD_ITEM_MOBSI,	"MC_OrcCity_Sanctum_OuterGate");
 
 	OrcCity_Sanctum_OuterGateTried = TRUE;
 
 	if	(Kapitel >= 5)
-	&&	(Npc_HasItems(hero,ItMi_Stuff_Idol_Sleeper_01)) 
+	&&	(Npc_HasItems(hero,ItMi_Stuff_Idol_Sleeper_01))
 	&&	(OrcCity_Sanctum_OuterGateOpen == FALSE)
 	{
 		PrintDebugNpc	(PD_ITEM_MOBSI,	"...closed");
@@ -225,19 +225,19 @@ FUNC int MC_OrcCity_Sunctum_OuterGate ()	// heiﬂt absichtlich "Sunctum"
 		AI_UseMob		(hero,"LEVER",1);
 		AI_UseMob		(hero,"LEVER",-1);
 
-		OrcCity_Sanctum_OuterGateOpen = TRUE;	
-		
+		OrcCity_Sanctum_OuterGateOpen = TRUE;
+
 		return 			TRUE;
 	}
 	else
 	{
 		PrintDebugNpc	(PD_ITEM_MOBSI,	"...open");
-		
+
 		if	!OrcCity_Sanctum_OuterGateOpen
 		{
 			G_PrintScreen	(_STR_MESSAGE_OCLEVER_STUCKS);
 		};
-		
+
 		return 			FALSE;
 	};
 };

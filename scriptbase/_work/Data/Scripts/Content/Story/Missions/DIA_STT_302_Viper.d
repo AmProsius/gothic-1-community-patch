@@ -7,10 +7,10 @@ instance  Stt_302_Viper_Exit (C_INFO)
 	nr			=  999;
 	condition	=  Stt_302_Viper_Exit_Condition;
 	information	=  Stt_302_Viper_Exit_Info;
-	important	=  0;	
+	important	=  0;
 	permanent	=  1;
 	description =  DIALOG_ENDE;
-};                       
+};
 
 FUNC int  Stt_302_Viper_Exit_Condition()
 {
@@ -30,7 +30,7 @@ instance  Stt_302_Viper_GREET (C_INFO)
 	information		= Stt_302_Viper_GREET_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "I hear you're the smelter."; 
+	description		= "I hear you're the smelter.";
 };
 
 FUNC int  Stt_302_Viper_GREET_Condition()
@@ -43,7 +43,7 @@ FUNC void  Stt_302_Viper_GREET_Info()
 {
 	AI_Output (other, self,"Stt_302_Viper_GREET_Info_15_01"); //I hear you're the smelter.
 	AI_Output (self, other,"Stt_302_Viper_GREET_Info_11_02"); //You're a smart boy indeed.
-};  
+};
 // ***************************** SCHMELZGESCHICHTE ****************************************//
 instance  Stt_302_Viper_MELT (C_INFO)
 {
@@ -52,12 +52,12 @@ instance  Stt_302_Viper_MELT (C_INFO)
 	information		= Stt_302_Viper_MELT_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "I hear you only melt down part of the ore."; 
+	description		= "I hear you only melt down part of the ore.";
 };
 
 FUNC int  Stt_302_Viper_MELT_Condition()
-{	
-	if Npc_KnowsInfo (hero,Stt_302_Viper_GREET) && Npc_KnowsInfo (hero,Grd_260_Drake_Mine_Mehr) 
+{
+	if Npc_KnowsInfo (hero,Stt_302_Viper_GREET) && Npc_KnowsInfo (hero,Grd_260_Drake_Mine_Mehr)
 	{
 		return 1;
 	};
@@ -79,14 +79,14 @@ instance  Stt_302_Viper_BUY (C_INFO)
 	information		= Stt_302_Viper_BUY_Info;
 	important		= 0;
 	permanent		= 1;
-	description		= "Can you give me ore?"; 
+	description		= "Can you give me ore?";
 	trade           = 1;
 };
 
 FUNC int  Stt_302_Viper_BUY_Condition()
-{	
+{
 	if Npc_KnowsInfo (hero,Stt_302_Viper_GREET)
-	{ 
+	{
 		return 1;
 	};
 

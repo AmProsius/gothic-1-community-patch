@@ -10,7 +10,7 @@ INSTANCE Info_GRD_276_Exit (C_INFO)
 	information	= Info_GRD_276_Exit_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC INT Info_GRD_276_Exit_Condition()
 {
@@ -34,10 +34,10 @@ INSTANCE Info_GRD_276_Tips(C_INFO)
 	information	= Info_GRD_276_Tips_Info;
 	permanent	= 0;
 	description = "Hi! I'm new here.";
-};                       
+};
 
 FUNC INT Info_GRD_276_Tips_Condition()
-{	
+{
 	if (Kapitel <= 2)
 	{
 		return 1;
@@ -61,7 +61,7 @@ INSTANCE Info_GRD_276_Bla(C_INFO)
 	information	= Info_GRD_276_Bla_Info;
 	permanent	= 1;
 	description = "Is that the Old Camp over there?";
-};                       
+};
 
 FUNC INT Info_GRD_276_Bla_Condition()
 {

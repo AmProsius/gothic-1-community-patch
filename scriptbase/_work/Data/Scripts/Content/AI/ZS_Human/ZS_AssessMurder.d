@@ -21,11 +21,11 @@
 //		->	Wenn ANGRY/HOSTILE zum Mordopfer 			-> spöttischer Kommentar
 //////////////////////////////////////////////////////////////////////////
 FUNC VOID ZS_AssessMurder ()
-{	
-	PrintDebugNpc			(PD_ZS_FRAME,	"ZS_AssessMurder" );	
+{
+	PrintDebugNpc			(PD_ZS_FRAME,	"ZS_AssessMurder" );
 
 	C_ZSInit				();
-	
+
 	Npc_PercEnable  		(self,	PERC_ASSESSENEMY	,	B_AssessEnemy		);
 
 	Npc_PercEnable  		(self,	PERC_ASSESSDAMAGE	,	ZS_ReactToDamage 	);
@@ -41,12 +41,12 @@ FUNC VOID ZS_AssessMurder ()
 		{
 			PrintDebugNpc		(PD_ZS_CHECK,	"...Mord von Monster!");
 			Npc_SetTarget		(self,	other);
-			
+
 			Npc_GetTarget		( self);
 			AI_StartState		(self,	ZS_AssessMonster,	0,	"");
 			return;
 		}
-	
+
 		//-------- Mord an Monster ! --------
 		else if (!C_NpcIsHuman(victim))
 		{
@@ -55,7 +55,7 @@ FUNC VOID ZS_AssessMurder ()
 			return;
 		};
 
-	
+
 		PrintDebugNpc		(PD_ZS_CHECK,	"ZS_AssessMurder/Npc_CanSeeNpc" );
 
 		//-------- Morden Sehen & Merken ! --------
@@ -64,13 +64,13 @@ FUNC VOID ZS_AssessMurder ()
 
 		//-------- Schützling einer Wache wurde umgehauen ! --------
 		if (C_ChargeWasAttacked(self, victim, other))
-		{ 
+		{
 			PrintDebugNpc	(PD_ZS_CHECK,	"...NSC ist Wache und ein Schützling wurde gemordet!");
 			B_DrawWeapon	(self,	other);
 			AI_StartState 	(self,  ZS_ProclaimAndPunish, 0, "");
 			return;
 		};
-	
+
 		//-------- führte Mordbewertung in B_AssessAndMemorize zu HOSTILE ? --------
 		if (Npc_GetAttitude(self,other)==ATT_HOSTILE)
 		{

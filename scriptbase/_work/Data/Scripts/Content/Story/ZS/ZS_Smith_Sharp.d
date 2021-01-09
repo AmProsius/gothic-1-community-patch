@@ -3,11 +3,11 @@
 *******************************************/
 
 func void ZS_Smith_Sharp ()
-{	
+{
     PrintDebugNpc 	(PD_TA_FRAME,	"ZS_Smith_Sharp");
-    
-	B_SetPerception (self);    
-	B_StartUseMob	(self, "BSSHARP");	
+
+	B_SetPerception (self);
+	B_StartUseMob	(self, "BSSHARP");
 };
 
 func void ZS_Smith_Sharp_Loop ()

@@ -2,7 +2,7 @@ func void B_Orc_AssessSomethingEvil()
 {
 	PrintDebugNpc( PD_ORC_FRAME, "B_Orc_AssessSomethingEvil" );
 
-	Npc_PercDisable( self, PERC_ASSESSTHREAT );		//vermeide Selbst-Aufrufe!	
+	Npc_PercDisable( self, PERC_ASSESSTHREAT );		//vermeide Selbst-Aufrufe!
 
 	//wenn ein Nicht-Ork die Waffe zieht
 	if ( other.guild < GIL_SEPERATOR_ORC )

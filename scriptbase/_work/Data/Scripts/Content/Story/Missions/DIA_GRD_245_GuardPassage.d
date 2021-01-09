@@ -1,5 +1,5 @@
 // **************************************
-//					EXIT 
+//					EXIT
 // **************************************
 
 instance DIA_GRD_245_Exit (C_INFO)
@@ -10,7 +10,7 @@ instance DIA_GRD_245_Exit (C_INFO)
 	information	= DIA_GRD_245_Exit_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC int DIA_GRD_245_Exit_Condition()
 {
@@ -34,7 +34,7 @@ instance DIA_GRD_245_Hello (C_INFO)
 	information	= DIA_GRD_245_Hello_Info;
 	permanent	= 1;
 	description	= "What's in this house?";
-};                       
+};
 
 FUNC int DIA_GRD_245_Hello_Condition()
 {

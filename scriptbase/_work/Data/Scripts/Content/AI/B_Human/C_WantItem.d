@@ -14,12 +14,12 @@
 func int C_WantItem ()
 {
 	PrintDebugNpc( PD_ZS_DETAIL, "C_WantItem" );
-	var int itemvalue ;			itemvalue 		= item.value;           
-	var int levelbewertung;     levelbewertung 	= (self.level)*10; 
+	var int itemvalue ;			itemvalue 		= item.value;
+	var int levelbewertung;     levelbewertung 	= (self.level)*10;
 	var int selfGuild;			selfGuild		= Npc_GetTrueGuild(self);
 	var int bodyGuild;			bodyGuild		= Npc_GetTrueGuild(other);
 	var int itemGuild;			itemGuild		= item.ownerguild;
-	
+
 	if (Hlp_IsValidItem (item))
 	{
 		PrintDebugString( PD_ZS_DETAIL, "...'item': ", item.name);
@@ -29,7 +29,7 @@ func int C_WantItem ()
 			PrintDebugNpc(PD_ZS_DETAIL, "...'item' gehört NSC oder seiner Gilde -> JA!");
 			return TRUE;
 		};
-	
+
 		if 		(item.flags==ITEM_MISSION)
 		{
 			PrintDebugNpc( PD_ZS_DETAIL, "...'item' ist Missionsgegenstand -> NEIN!");
@@ -40,7 +40,7 @@ func int C_WantItem ()
 					(
 						(bodyGuild 	== itemGuild )	||
 						(selfGuild 	!= itemGuild )
-					)		
+					)
 				)
 		{
 			PrintDebugNpc( PD_ZS_DETAIL, "...'item' ist Rüstung und geht micht nichts an -> NEIN!");
@@ -70,7 +70,7 @@ func int C_WantItem ()
 				PrintDebugNpc( PD_ZS_DETAIL, "...'item' ist zu billig -> NEIN!");
 				return FALSE;
 			};
-		};		
+		};
 	}
 	else
 	{

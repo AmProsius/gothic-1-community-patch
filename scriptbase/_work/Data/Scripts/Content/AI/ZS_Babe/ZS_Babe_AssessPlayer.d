@@ -1,5 +1,5 @@
 func void ZS_Babe_AssessPlayer ()
-{	
+{
 	PrintDebugNpc	( PD_ZS_FRAME, "ZS_Babe_AssessPlayer" );
 
 // falls noch die Nacktrüstung angezogen ist, ausziehen!
@@ -16,13 +16,13 @@ func int ZS_Babe_AssessPlayer_Loop ()
 	{
 		B_SmartTurnToNpc (self, other);
 	};
-	if ( Npc_GetDistToNpc( self, other ) > PERC_DIST_DIALOG ) 
+	if ( Npc_GetDistToNpc( self, other ) > PERC_DIST_DIALOG )
 	{
 		C_StopLookAt( self );
 		AI_ContinueRoutine( self );
-	};	
+	};
 	return 0;
-	
+
 };
 
 func void ZS_Babe_AssessPlayer_End ()
@@ -34,5 +34,4 @@ func void ZS_Babe_AssessPlayer_End ()
 
 
 
-	
-	
+

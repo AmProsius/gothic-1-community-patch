@@ -59,7 +59,7 @@ var int Thorus_MordragMageMessenger;
 
 var int	EnteredOldMine;
 var int Kalom_TalkedTo;
-var int KALOM_KRAUTBOTE; 
+var int KALOM_KRAUTBOTE;
 var int Kalom_DeliveredWeed;
 var int Lefty_WorkDay;
 var int Lefty_Mission;
@@ -89,8 +89,8 @@ var int Snipes_deal;
 var int Ian_gearwheel;
 var int CorKalom_BringBook;
 var int CorKalom_BringMCQBalls;
-var int YBerion_BringFocus; 
-var int PresseTourJanuar2001; 
+var int YBerion_BringFocus;
+var int PresseTourJanuar2001;
 var int Corristo_KDFAufnahme;
 var int Saturas_KDWAufnahme;
 
@@ -98,7 +98,7 @@ var int Saturas_KDWAufnahme;
 //	KAPITEL 3
 //---------------------------------------------------------------------
 var int CorAngar_GotoOGY;	//TRUE oder FALSE
-var int CorAngar_FindHerb; 
+var int CorAngar_FindHerb;
 var int	Fortuno_HasYBerionHerbs;	// TRUE oder FALSE
 var int Yberion_dead;
 var int BaalLukor_BringParchment;
@@ -118,9 +118,9 @@ var int	Saturas_BringFoci;
 		// 5:	5 Foki abgeliefert
 var int MonasteryRuin_GateOpen;
 		// TRUE oder FALSE
-		
+
 var int Troll_Wheel;
-		//für Wheel in der Trollschlucht		
+		//für Wheel in der Trollschlucht
 		// 0:	Auftrag nicht vergeben
 		// 1:	1x vom Spieler angepackt
 		// 2:	Winde von Diego repariert
@@ -129,8 +129,8 @@ var int Troll_Wheel;
 //	KAPITEL 4
 //---------------------------------------------------------------------
 
-var int warned_gorn_or_lester; 			//TRUE oder FALSE			
-var int oldHeroGuild;		
+var int warned_gorn_or_lester; 			//TRUE oder FALSE
+var int oldHeroGuild;
 var int FMTaken;
 var int Lee_freeminereport;
 var int FindXardas;
@@ -185,7 +185,7 @@ const int	XP_Kharimlost		=   50;
 const int	XP_kharimvictory	=  200;
 const int	XP_Snafcook			=  100;
 const int	XP_Slysearchfornek	=  250;
-const int	XP_Thorusmordragko	=  250;	
+const int	XP_Thorusmordragko	=  250;
 const int	XP_Thorusmordragdead=  300;
 const int	XP_fiskdealer		=  300;
 const int	XP_BecomeShadow		= 1000;
@@ -320,37 +320,37 @@ const int	XP_LoadedUriziel			=	5000;
 //##
 //#####################################################################
 
-const int	LPCOST_ATTRIBUTE_STRENGTH	=	1;	
-const int	LPCOST_ATTRIBUTE_DEXTERITY	=	1;	
-const int	LPCOST_ATTRIBUTE_MANA		=	1;	
+const int	LPCOST_ATTRIBUTE_STRENGTH	=	1;
+const int	LPCOST_ATTRIBUTE_DEXTERITY	=	1;
+const int	LPCOST_ATTRIBUTE_MANA		=	1;
 
-const int	LPCOST_TALENT_MAGE_1		=	10;	
-const int	LPCOST_TALENT_MAGE_2		=	15;	
-const int	LPCOST_TALENT_MAGE_3		=	20;	
-const int	LPCOST_TALENT_MAGE_4		=	25;	
-const int	LPCOST_TALENT_MAGE_5		=	30;	
-const int	LPCOST_TALENT_MAGE_6		=	40;	
+const int	LPCOST_TALENT_MAGE_1		=	10;
+const int	LPCOST_TALENT_MAGE_2		=	15;
+const int	LPCOST_TALENT_MAGE_3		=	20;
+const int	LPCOST_TALENT_MAGE_4		=	25;
+const int	LPCOST_TALENT_MAGE_5		=	30;
+const int	LPCOST_TALENT_MAGE_6		=	40;
 
-const int	LPCOST_TALENT_1H_1			=	10;	
-const int	LPCOST_TALENT_1H_2			=	20;	
-const int	LPCOST_TALENT_2H_1			=	30;	
-const int	LPCOST_TALENT_2H_2			=	40;	
+const int	LPCOST_TALENT_1H_1			=	10;
+const int	LPCOST_TALENT_1H_2			=	20;
+const int	LPCOST_TALENT_2H_1			=	30;
+const int	LPCOST_TALENT_2H_2			=	40;
 
-const int	LPCOST_TALENT_BOW_1			=	10;	
-const int	LPCOST_TALENT_BOW_2			=	20;	
-const int	LPCOST_TALENT_CROSSBOW_1	=	10;	
-const int	LPCOST_TALENT_CROSSBOW_2	=	20;	
+const int	LPCOST_TALENT_BOW_1			=	10;
+const int	LPCOST_TALENT_BOW_2			=	20;
+const int	LPCOST_TALENT_CROSSBOW_1	=	10;
+const int	LPCOST_TALENT_CROSSBOW_2	=	20;
 
-const int	LPCOST_TALENT_ACROBAT		=	10;	
-const int	LPCOST_TALENT_SNEAK			=	10;	
-const int	LPCOST_TALENT_PICKLOCK_1	=	10;	
-const int	LPCOST_TALENT_PICKLOCK_2	=	20;	
-const int	LPCOST_TALENT_PICKPOCKET_1	=	10;	
-const int	LPCOST_TALENT_PICKPOCKET_2	=	20;	
+const int	LPCOST_TALENT_ACROBAT		=	10;
+const int	LPCOST_TALENT_SNEAK			=	10;
+const int	LPCOST_TALENT_PICKLOCK_1	=	10;
+const int	LPCOST_TALENT_PICKLOCK_2	=	20;
+const int	LPCOST_TALENT_PICKPOCKET_1	=	10;
+const int	LPCOST_TALENT_PICKPOCKET_2	=	20;
 /*-------------------------------------------------------------------------
 
 						LOG EINTRAGS VARIABLEN
-( da die Logeinträge nicht einfach so in permanenten Infos stehen dürfen!) 
+( da die Logeinträge nicht einfach so in permanenten Infos stehen dürfen!)
 
 --------------------------------------------------------------------------*/
 var int log_gornatothfight;

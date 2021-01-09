@@ -28,11 +28,11 @@ func int ZS_Orc_Attack_Loop ()
 	};
 
 	if ( C_NpcIsDown( other ) )
-	{	
+	{
 		PrintDebugNpc	(PD_ORC_CHECK, "Orc_Attack_Loop: Gegner tot" );
 		return 			LOOP_END;
 	};
-		
+
 	if (Npc_GetTarget(self) && !C_NpcIsDown(other)) //other = target
 	{
 		PrintDebugNpc	(PD_ORC_LOOP, "...Ziel vorhanden!");
@@ -49,22 +49,22 @@ func int ZS_Orc_Attack_Loop ()
 			};
 		}
 		else if (C_BodystateContains(other,BS_SWIM) || C_BodystateContains(other,BS_DIVE))
-		{		
+		{
 				return LOOP_END;
 		}
 		else
 		{
 			Npc_SetStateTime (self,0);
 		};
-		
-		AI_Attack		(self); 
-	
+
+		AI_Attack		(self);
+
 	}
 	else // GetTarget = FALSE
 	{
 		Npc_PerceiveAll		(self);		// nötig, da Npc_IsNextTargetAvailable() und Npc_GetNextTarget() auf der Liste der zuletzt Wahrgenommenen VOBs beruht
-		if (Npc_IsNextTargetAvailable (self))	
-		{	
+		if (Npc_IsNextTargetAvailable (self))
+		{
 			if (C_NpcIsDown(other))
 			{
 				return LOOP_END;

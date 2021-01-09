@@ -29,10 +29,10 @@ INSTANCE DIA_ORG_833_Buster_Exit (C_INFO)
 	nr			= 999;
 	condition	= DIA_ORG_833_Buster_Exit_Condition;
 	information	= DIA_ORG_833_Buster_Exit_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC INT DIA_ORG_833_Buster_Exit_Condition()
 {
@@ -41,7 +41,7 @@ FUNC INT DIA_ORG_833_Buster_Exit_Condition()
 
 FUNC VOID DIA_ORG_833_Buster_Exit_Info()
 {
-	
+
 	AI_StopProcessInfos	( self );
 };
 
@@ -54,11 +54,11 @@ INSTANCE DIA_ORG_833_Buster3 (C_INFO)
 	information		= DIA_ORG_833_Buster3_Info;
 	important		= 0;
 	permanent		= 1;
-	description		= "How can you help me?"; 
+	description		= "How can you help me?";
 };
 
 FUNC INT DIA_ORG_833_Buster3_Condition()
-{	
+{
 	return Npc_KnowsInfo(hero,DIA_ORG_833_Buster);
 };
 
@@ -79,14 +79,14 @@ func VOID DIA_ORG_833_Buster3_Info()
 FUNC void DIA_ORG_833_Buster_Train1()
 {
 	Info_ClearChoices	( DIA_ORG_833_Buster3 );
-	
+
 	if (B_GiveSkill(other,NPC_TALENT_ACROBAT , 1, LPCOST_TALENT_ACROBAT))
 	{
 		AI_Output (self, other,"DIA_ORG_833_Buster3_02_02"); //As soon as you've gained control of your body, you'll be able to jump much further.
 		AI_Output (self, other,"DIA_ORG_833_Buster3_02_03"); //You'll learn how to roll off and what's the best way to land when falling. But don't forget, you're not immortal!
 		AI_Output (self, other,"DIA_ORG_833_Buster3_02_04"); //Acrobatics can also be very useful during a battle. You'll be able to change the distance between you and your foe very quickly. Good luck!
-	};		
-};  
+	};
+};
 
 
 // **************** Back ************************

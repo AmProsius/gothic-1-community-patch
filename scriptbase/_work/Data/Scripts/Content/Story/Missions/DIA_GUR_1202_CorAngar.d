@@ -16,7 +16,7 @@ instance DIA_GUR_1202_CorAngar_Exit (C_INFO)
 	information	= DIA_GUR_1202_CorAngar_Exit_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC int DIA_GUR_1202_CorAngar_Exit_Condition()
 {
@@ -28,8 +28,8 @@ FUNC VOID DIA_GUR_1202_CorAngar_Exit_Info()
 	AI_StopProcessInfos	( self );
 };
 
-// ************************	
-//		Später Trainer 
+// ************************
+//		Später Trainer
 // ************************
 
 instance DIA_CorAngar_LaterTrainer (C_INFO)
@@ -40,7 +40,7 @@ instance DIA_CorAngar_LaterTrainer (C_INFO)
 	information	= DIA_CorAngar_LaterTrainer_Info;
 	permanent	= 0;
 	description = "Will you train me?";
-};                       
+};
 
 FUNC int DIA_CorAngar_LaterTrainer_Condition()
 {
@@ -55,7 +55,7 @@ FUNC VOID DIA_CorAngar_LaterTrainer_Info()
 	AI_Output(self,other,"GUR_1202_CorAngar_LaterTrainer_08_03"); //I dedicate my time only to those belonging to the Holy Circle of Templars.
 };
 
-// ************************	
+// ************************
 //		Wie Templer
 // ************************
 
@@ -67,7 +67,7 @@ instance DIA_CorAngar_WieTempler (C_INFO)
 	information	= DIA_CorAngar_WieTempler_Info;
 	permanent	= 1;
 	description = "How can I become a templar?";
-};                       
+};
 
 FUNC int DIA_CorAngar_WieTempler_Condition()
 {
@@ -102,11 +102,11 @@ INSTANCE GUR_1202_CorAngar_Teach(C_INFO)
 	information	= GUR_1202_CorAngar_Teach_Info;
 	permanent	= 1;
 	description = "Can you train my strength and dexterity?";
-};                       
+};
 
 FUNC INT GUR_1202_CorAngar_Teach_Condition()
 {
-	if (C_NpcBelongsToPsiCamp(hero))  
+	if (C_NpcBelongsToPsiCamp(hero))
 	{
 		return TRUE;
 	};
@@ -116,7 +116,7 @@ FUNC VOID GUR_1202_CorAngar_Teach_Info()
 {
 	AI_Output(other,self,"GUR_1202_CorAngar_Teach_15_00"); //Can you train my strength and dexterity?
 	AI_Output(self,other,"GUR_1202_CorAngar_Teach_08_01"); //Every warrior requires strength and dexterity.
-	
+
 	Info_ClearChoices	(GUR_1202_CorAngar_Teach);
 	Info_AddChoice		(GUR_1202_CorAngar_Teach,DIALOG_BACK									,GUR_1202_CorAngar_Teach_BACK);
 	Info_AddChoice		(GUR_1202_CorAngar_Teach,B_BuildLearnString(NAME_LearnStrength_5,5*LPCOST_ATTRIBUTE_STRENGTH,0)			,GUR_1202_CorAngar_Teach_STR_5);
@@ -184,11 +184,11 @@ instance  GUR_1202_CorAngar_WANNABETPL (C_INFO)
 	information		= GUR_1202_CorAngar_WANNABETPL_Info;
 	important		= 0;
 	permanent		= 1;
-	description		= "I want to become a templar!"; 
+	description		= "I want to become a templar!";
 };
 
 FUNC int  GUR_1202_CorAngar_WANNABETPL_Condition()
-{	
+{
 	if (CorKalom_BringMCQBalls == LOG_SUCCESS)
 	&& (Npc_GetTrueGuild (hero) == GIL_NOV)
 	{
@@ -199,9 +199,9 @@ FUNC int  GUR_1202_CorAngar_WANNABETPL_Condition()
 FUNC void  GUR_1202_CorAngar_WANNABETPL_Info()
 {
 	AI_Output			(other, self,"GUR_1202_CorAngar_WANNABETPL_Info_15_01"); //I want to become a templar!
-	
+
 	if	(hero.level < 10)
-	{ 
+	{
 		AI_Output		(self, other,"GUR_1202_CorAngar_WANNABETPL_Info_08_02"); //You are not yet ready. You can join us as soon as you've gathered more experience.
 	    GUR_1202_CorAngar_WANNABETPL.permanent = 1;
     }
@@ -235,11 +235,11 @@ instance  GUR_1202_CorAngar_ZWEIHAND1 (C_INFO)
 	information		= GUR_1202_CorAngar_ZWEIHAND1_Info;
 	important		= 0;
 	permanent		= 1;
-	description		= B_BuildLearnString(NAME_Learn2h_1,	LPCOST_TALENT_2H_1,0); 
+	description		= B_BuildLearnString(NAME_Learn2h_1,	LPCOST_TALENT_2H_1,0);
 };
 
 FUNC int  GUR_1202_CorAngar_ZWEIHAND1_Condition()
-{	
+{
 	if (Npc_GetTalentSkill  (hero,NPC_TALENT_2H) < 1)
 	&& (Npc_GetTalentSkill  (hero,NPC_TALENT_1H) == 2)
 	&& (Npc_GetTrueGuild    (hero) == GIL_TPL)
@@ -251,7 +251,7 @@ FUNC int  GUR_1202_CorAngar_ZWEIHAND1_Condition()
 FUNC void  GUR_1202_CorAngar_ZWEIHAND1_Info()
 {
 	AI_Output			(other, self,"GUR_1202_CorAngar_ZWEIHAND1_Info_15_01"); //I want to learn how to handle a two-handed sword.
-	
+
 	if (B_GiveSkill(other,NPC_TALENT_2H , 1, LPCOST_TALENT_2H_1))
 	{
 		AI_Output			(self, other,"GUR_1202_CorAngar_ZWEIHAND1_Info_08_02"); //Fighting with two-handed weapons requires certain levels of strength and dexterity.
@@ -264,7 +264,7 @@ FUNC void  GUR_1202_CorAngar_ZWEIHAND1_Info()
 		AI_StopProcessInfos	(self);
 		B_PracticeCombat	("PSI_PATH_6_7");
 	};
-};  
+};
 //-------------------------------------------------------------------------
 //							ZWEIHANDKAMPF LERNEN STUFE 2
 //-------------------------------------------------------------------------
@@ -275,11 +275,11 @@ instance  GUR_1202_CorAngar_ZWEIHAND2 (C_INFO)
 	information		= GUR_1202_CorAngar_ZWEIHAND2_Info;
 	important		= 0;
 	permanent		= 1;
-	description		= B_BuildLearnString(NAME_Learn2h_2,	LPCOST_TALENT_2H_2,0); 
+	description		= B_BuildLearnString(NAME_Learn2h_2,	LPCOST_TALENT_2H_2,0);
 };
 
 FUNC int  GUR_1202_CorAngar_ZWEIHAND2_Condition()
-{	
+{
 	if (Npc_GetTalentSkill  (hero,NPC_TALENT_2H) == 1)
 	&& (Npc_GetTrueGuild    (hero) == GIL_TPL)
 	{
@@ -290,7 +290,7 @@ FUNC int  GUR_1202_CorAngar_ZWEIHAND2_Condition()
 FUNC void  GUR_1202_CorAngar_ZWEIHAND2_Info()
 {
 	AI_Output			(other, self,"GUR_1202_CorAngar_ZWEIHAND2_Info_15_01");		//I want to learn more about fighting with two-handed weapons.
-	
+
 	if (B_GiveSkill(other,NPC_TALENT_2H , 2, LPCOST_TALENT_2H_2))
 	{
 		AI_Output			(self, other,"GUR_1202_CorAngar_ZWEIHAND2_Info_08_02"); //You're now in command of the dance with the blade. Now I'll show you how to master the fight.
@@ -306,12 +306,12 @@ FUNC void  GUR_1202_CorAngar_ZWEIHAND2_Info()
 		AI_StopProcessInfos	(self);
 		B_PracticeCombat	("PSI_PATH_6_7");
 	};
-};  
+};
 
-  
-  
-  
-  
+
+
+
+
 //#####################################################################
 //##
 //##
@@ -319,7 +319,7 @@ FUNC void  GUR_1202_CorAngar_ZWEIHAND2_Info()
 //##
 //##
 //#####################################################################
- 
+
 // **************************************************************************
 // 				nach der großen Beschwörung
 // **************************************************************************
@@ -330,11 +330,11 @@ instance  GUR_1202_CorAngar_SENDS (C_INFO)
 	information		= GUR_1202_CorAngar_SENDS_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "What happens now?"; 
+	description		= "What happens now?";
 };
 
 FUNC int  GUR_1202_CorAngar_SENDS_Condition()
-{	
+{
 	if	(Kapitel == 3)
 	&&	(CorAngar_GotoOGY == FALSE)
 	{
@@ -354,11 +354,11 @@ FUNC void  GUR_1202_CorAngar_SENDS_Info()
 	AI_Output			(self, other,"GUR_1202_CorAngar_SENDS_Info_08_08"); //My task is to protect the Enlightened One. I must stay here with Y'Berion and guard him.
 	AI_Output			(self, other,"GUR_1202_CorAngar_SENDS_Info_08_09"); //You have done good service for the Camp. I trust you more than anybody else here.
 	AI_Output			(self, other,"GUR_1202_CorAngar_SENDS_Info_08_10"); //I am asking you to go to the Orc cemetery and report to me what the templars have found.
-	
+
 	Info_ClearChoices	(GUR_1202_CorAngar_SENDS);
 	Info_AddChoice		(GUR_1202_CorAngar_SENDS,"What will I get in exchange?",	GUR_1202_CorAngar_SENDS_EARN);
 	Info_AddChoice		(GUR_1202_CorAngar_SENDS,"I'll get on my way right now!",	GUR_1202_CorAngar_SENDS_KNOW);
-};  
+};
 func void GUR_1202_CorAngar_SENDS_EARN()
 {
 	AI_Output			(other, self,"GUR_1202_CorAngar_SENDS_EARN_Info_15_01"); //What will I get in exchange?
@@ -371,14 +371,14 @@ func void GUR_1202_CorAngar_SENDS_KNOW()
 {
 	AI_Output			(other, self,"GUR_1202_CorAngar_SENDS_KNOW_Info_15_01"); //I'll get on my way right now!
 	AI_Output			(self, other,"GUR_1202_CorAngar_SENDS_KNOW_Info_08_02"); //Before you go, take this ring. May it protect you in battle!
-	
+
 	B_Story_GotoOrcGraveyard();
 
 	CreateInvItem		(self, Schutzring_Geschosse1);
 	B_GiveInvItems      (self, hero, Schutzring_Geschosse1, 1);
 	Info_ClearChoices	(GUR_1202_CorAngar_SENDS);
 };
-	
+
 instance  GUR_1202_CorAngar_WHERE (C_INFO)
 {
 	npc				= GUR_1202_CorAngar;
@@ -386,11 +386,11 @@ instance  GUR_1202_CorAngar_WHERE (C_INFO)
 	information		= GUR_1202_CorAngar_WHERE_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "Where is the Orc cemetery?"; 
+	description		= "Where is the Orc cemetery?";
 };
 
 FUNC int  GUR_1202_CorAngar_WHERE_Condition()
-{	
+{
 	if ( Npc_KnowsInfo (hero,GUR_1202_CorAngar_SENDS) )
 	{
 		return 1;
@@ -403,7 +403,7 @@ FUNC void  GUR_1202_CorAngar_WHERE_Info()
 	AI_Output			(self, other,"GUR_1202_CorAngar_WHERE_Info_08_02"); //Not far from here. The novice Talas knows the way. You'll find him in the temple courtyard. He'll guide you there.
 
 	B_LogEntry		(CH3_OrcGraveyard,"The novice Talas will show me the way to the Orc cemetery. He's waiting for me at the temple forecourt.");
-};  
+};
 
 // **************************************************************************
 // 				nach dem Ork-Friedhof
@@ -415,13 +415,13 @@ instance  GUR_1202_CorAngar_AFTER (C_INFO)
 	information		= GUR_1202_CorAngar_AFTER_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "I've been to the Orc cemetery."; 
+	description		= "I've been to the Orc cemetery.";
 };
 
 FUNC int  GUR_1202_CorAngar_AFTER_Condition()
 {
-	  
-	if   ( BaalLukor_BringParchment == 4 ) 
+
+	if   ( BaalLukor_BringParchment == 4 )
 	{
 		return	1;
 	};
@@ -429,7 +429,7 @@ FUNC int  GUR_1202_CorAngar_AFTER_Condition()
 
 FUNC void  GUR_1202_CorAngar_AFTER_Info()
 {
-	
+
 	AI_Output			(other, self,"GUR_1202_CorAngar_AFTER_Info_15_01"); //I've been to the Orc cemetery. There was NOTHING THERE. No Sleeper, no sign, no nothing.
 	AI_Output			(self, other,"GUR_1202_CorAngar_AFTER_Info_08_02"); //What about Baal Lukor and the templars?
 	AI_Output			(other, self,"GUR_1202_CorAngar_AFTER_Info_15_03"); //They're all dead.
@@ -442,12 +442,12 @@ FUNC void  GUR_1202_CorAngar_AFTER_Info()
 	AI_Output			(self, other,"GUR_1202_CorAngar_AFTER_Info_08_10"); //It cannot... cannot... IRRELEVANT!
 	AI_Output			(self, other,"GUR_1202_CorAngar_AFTER_Info_08_11"); //The most important thing is that Baal Lukor did not succeed in his madness.
 	AI_Output			(self, other,"GUR_1202_CorAngar_AFTER_Info_08_12"); //Y'Berion is our only hope now.
-	 
+
 
 	B_GiveXP			(XP_ReportToCorAngar);
 	B_Story_BackFromOrcGraveyard();
-};  
-	
+};
+
 // **************************************************************************
 // 				MISSION: Find Herb
 // **************************************************************************
@@ -463,7 +463,7 @@ INSTANCE Info_CorAngar_FindHerb (C_INFO)
 
 func INT Info_CorAngar_FindHerb_Condition()
 {
-	  
+
 	if   ( Npc_KnowsInfo (hero,GUR_1202_CorAngar_AFTER) )
 	{
 		return	1;
@@ -479,7 +479,7 @@ FUNC VOID Info_CorAngar_FindHerb_Info()
 	AI_Output			(self, other,"Mis_3_NC_CorAngar_FindHerb_08_05"); //Please hurry!
 	AI_StopProcessInfos	(self);
 	CorAngar_FindHerb = LOG_RUNNING;
-	
+
 	Log_CreateTopic		(CH3_FindHerbs,	LOG_MISSION);
 	Log_SetTopicStatus	(CH3_FindHerbs,	LOG_RUNNING);
 	B_LogEntry		(CH3_FindHerbs,"Y'Berion is still unconscious. Cor Angar asked me to collect five medical herbs of the strongest kind.");
@@ -493,9 +493,9 @@ INSTANCE Info_CorAngar_FindHerb_WHERE (C_INFO)
 	condition	= Info_CorAngar_FindHerb_WHERE_Condition;
 	information	= Info_CorAngar_FindHerb_WHERE_Info;
 	permanent	= 0;
-	important	= 0; 
+	important	= 0;
 	description = "Where can I find these plants?";
-};                       
+};
 
 FUNC INT Info_CorAngar_FindHerb_WHERE_Condition()
 {
@@ -523,9 +523,9 @@ INSTANCE Info_CorAngar_FindHerb_LOOK (C_INFO)
 	condition	= Info_CorAngar_FindHerb_LOOK_Condition;
 	information	= Info_CorAngar_FindHerb_LOOK_Info;
 	permanent	= 0;
-	important	= 0; 
+	important	= 0;
 	description = "How will I recognize these herbs?";
-};                       
+};
 
 FUNC INT Info_CorAngar_FindHerb_LOOK_Condition()
 {
@@ -555,9 +555,9 @@ INSTANCE Info_CorAngar_FindHerb_Running (C_INFO)
 	condition	= Info_CorAngar_FindHerb_Running_Condition;
 	information	= Info_CorAngar_FindHerb_Running_Info;
 	permanent	= 1;
-	important	= 0; 
+	important	= 0;
 	description = "I haven't found enough healing herbs yet.";
-};                       
+};
 
 FUNC INT Info_CorAngar_FindHerb_Running_Condition()
 {
@@ -582,7 +582,7 @@ FUNC VOID Info_CorAngar_FindHerb_Running_Info()
 	{
 		var C_NPC	fortuno;
 		fortuno = Hlp_GetNpc(Nov_1357_Fortuno);
-		CreateInvItems		(fortuno,	ItFo_Plants_Herb_03,	5);	
+		CreateInvItems		(fortuno,	ItFo_Plants_Herb_03,	5);
 
 		Fortuno_HasYBerionHerbs = TRUE;
 		B_LogEntry		(CH3_FindHerbs,"Fortuno, the herb trader of the Brotherhood, might have such medical herbs.");
@@ -597,18 +597,18 @@ INSTANCE Info_CorAngar_FindHerb_Success (C_INFO)
 	information	= Info_CorAngar_FindHerb_Success_Info;
 	permanent	= 0;
 	description	= "I have the healing herbs for Y'Berion.";
-};                       
+};
 
 FUNC INT Info_CorAngar_FindHerb_Success_Condition()
 {
 	if ( Npc_HasItems ( other, ItFo_Plants_Herb_03 ) >= 5 ) && ( CorAngar_FindHerb == LOG_RUNNING )
 	{
 		return TRUE;
-	};	
+	};
 };
 
 FUNC VOID Info_CorAngar_FindHerb_Success_Info()
-{	
+{
 	AI_Output			(other, self,"Info_CorAngar_FindHerb_Success_15_01"); //I have the healing herbs for Y'Berion.
 	AI_Output			(self, other,"Info_CorAngar_FindHerb_Success_08_02"); //Well done. Y'Berion woke up for a short time while you were out.
 	AI_Output			(other, self,"Info_CorAngar_FindHerb_Success_15_03"); //Did he say anything?
@@ -621,7 +621,7 @@ FUNC VOID Info_CorAngar_FindHerb_Success_Info()
 	B_GiveXP  			(XP_FindHerbs);
 
 	CorAngar_FindHerb = LOG_SUCCESS;
-	
+
 	B_LogEntry		(CH3_FindHerbs,"I've given Cor Angar enough medical herbs. Now we can only hope that we're not too late.");
 	Log_SetTopicStatus	(CH3_FindHerbs,	LOG_SUCCESS);
 
@@ -648,10 +648,10 @@ FUNC VOID Info_CorAngar_FindHerb_Success_Info()
 	AI_Output			(other, self,"GUR_1202_CorAngar_DEATH_Info_15_08"); //Damn, how can we get the focus now?
 	AI_Output			(self, other,"GUR_1202_CorAngar_DEATH_Info_08_09"); //I believe he left the book and focus in his laboratory. Here is the key for the chest.
 
-	CreateInvItem		(self,			ITKE_PSI_KALOM_01); 
+	CreateInvItem		(self,			ITKE_PSI_KALOM_01);
 	B_GiveInvItems		(self,	other,	ITKE_PSI_KALOM_01,	1);
 };
- 
+
 // ------------------------------ TELEPORT ----------------------------------
 INSTANCE Info_CorAngar_TELEPORT (C_INFO)
 {
@@ -660,18 +660,18 @@ INSTANCE Info_CorAngar_TELEPORT (C_INFO)
 	information	= Info_CorAngar_TELEPORT_Info;
 	permanent	= 0;
 	important	= 1;
-};                       
+};
 
 FUNC INT Info_CorAngar_TELEPORT_Condition()
 {
 	if	Npc_KnowsInfo(hero,Info_CorAngar_FindHerb_Success)
 	{
 		return TRUE;
-	};	
+	};
 };
 
 FUNC VOID Info_CorAngar_TELEPORT_Info()
-{	
+{
 	AI_GotoNpc			(self, hero);
 	AI_Output			(self, hero,"Info_CorAngar_TELEPORT_08_01"); //One moment!
 	AI_Output			(hero, self,"Info_CorAngar_TELEPORT_15_02"); //Yes?
@@ -682,4 +682,4 @@ FUNC VOID Info_CorAngar_TELEPORT_Info()
 	//-------- Spieler wird losgeschickt --------
 	B_Story_SentToNC	();
 };
- 
+

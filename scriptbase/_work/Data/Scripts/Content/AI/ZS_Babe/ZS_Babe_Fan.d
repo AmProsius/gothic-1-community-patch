@@ -16,7 +16,7 @@ func void ZS_Babe_Fan ()
 	{
 		CreateInvItem	( self, ItMiWedel);
 	};
-	
+
 	if (Wld_IsFPAvailable (self,"FAN"))
 	{
 		AI_GotoFp (self,"FAN");
@@ -29,10 +29,10 @@ func void ZS_Babe_Fan ()
 	}
 	else
 	{
-		AI_GotoWP(self, self.wp); 
+		AI_GotoWP(self, self.wp);
 		AI_AlignToWP (self);
 	};
-	
+
 };
 
 func void ZS_Babe_Fan_Loop ()

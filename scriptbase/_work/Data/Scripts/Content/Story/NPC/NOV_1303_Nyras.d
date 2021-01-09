@@ -7,9 +7,9 @@ instance NOV_1303_Nyras (Npc_Default)
 	level 		=		6;
 	voice 		=		3;
 	id 			=		1303;
-	
+
 	flags		= NPC_FLAG_IMMORTAL;
-		
+
 	//-------- abilities --------
 	attribute[ATR_STRENGTH] 		=	24;
 	attribute[ATR_DEXTERITY] 		=	13;
@@ -23,18 +23,18 @@ instance NOV_1303_Nyras (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Mage.mds");
-	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung	
+	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung
 	Mdl_SetVisualBody (self,"hum_body_Naked0", 1, 1,"Hum_Head_FatBald", 22,  1, NOV_ARMOR_M);
 
 	B_Scale (self);
 	Mdl_SetModelFatness(self,-1);
-	
+
 	fight_tactic	=	FAI_HUMAN_STRONG;
 
 	//-------- Talente --------
-		
-	Npc_SetTalentSkill (self, NPC_TALENT_1H,1);			
-	
+
+	Npc_SetTalentSkill (self, NPC_TALENT_1H,1);
+
 	//-------- inventory --------
 
 	EquipItem 		(self, ItMw_1H_Mace_04);
@@ -42,7 +42,7 @@ instance NOV_1303_Nyras (Npc_Default)
 	CreateInvItems	(self, ItFoRice,	5);
 	CreateInvItems	(self, ItFoBooze,	3);
 	CreateInvItems	(self, ItMiJoint_1,	1);
-	
+
 	//-------------Daily Routine-------------
 	daily_routine = Rtn_Start_1303;
 };

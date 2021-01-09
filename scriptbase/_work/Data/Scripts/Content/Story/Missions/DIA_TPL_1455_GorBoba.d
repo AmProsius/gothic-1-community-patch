@@ -1,4 +1,4 @@
-// infos 
+// infos
 instance Info_TPL_1455_GorBoba (C_INFO)
 {
 	npc				= TPL_1455_GorBoba;
@@ -26,14 +26,14 @@ instance Info_TPL_1455_GorBoba1 (C_INFO)
 	information		= Info_TPL_1455_GorBoba1_Info;
 	important		= 0;
 	permanent		= 0;
-	description 	= "And YOU are gonna stop me?";	
+	description 	= "And YOU are gonna stop me?";
 };
 
 FUNC int Info_TPL_1455_GorBoba1_Condition()
 {
 	if ( Npc_KnowsInfo ( hero, Info_TPL_1455_GorBoba )) {
 		return 1;
-	};	
+	};
 };
 
 func void Info_TPL_1455_GorBoba1_Info()
@@ -45,10 +45,10 @@ func void Info_TPL_1455_GorBoba1_Info()
 	AI_Output (self, other,"Info_TPL_1455_GorBoba1_08_05"); //Prepare to meet your Creator!
 
 	AI_StopProcessInfos	( self );
-	
+
 	Log_CreateTopic        ( "Orktempel", LOG_NOTE );
-	B_LogEntry            ( "Orktempel","GorBoba wanted to stop me. He told me that Kalom and his supporters had been given powers by the high priest to make them invincible by human weapons."); 
+	B_LogEntry            ( "Orktempel","GorBoba wanted to stop me. He told me that Kalom and his supporters had been given powers by the high priest to make them invincible by human weapons.");
 
 	Npc_SetAttitude 		( self, ATT_HOSTILE );
-	Npc_SetTempAttitude 	( self, ATT_HOSTILE );	
+	Npc_SetTempAttitude 	( self, ATT_HOSTILE );
 };

@@ -9,7 +9,7 @@ func int Spell_Logic_Pyrokinesis	(var int manaInvested)
 {
 	PrintDebugNpc		(PD_MAGIC,	"Spell_Logic_Pyrokinesis");
 
-	if	( Npc_IsDead(other) 			|| 
+	if	( Npc_IsDead(other) 			||
 		  Npc_IsInState(other,ZS_Unconscious)	||
 		(other.guild == GIL_SLF) 		||
 		(other.guild == GIL_DEMON)		||
@@ -22,5 +22,5 @@ func int Spell_Logic_Pyrokinesis	(var int manaInvested)
 	};
 
 	return SPL_NEXTLEVEL;
-	
+
 };

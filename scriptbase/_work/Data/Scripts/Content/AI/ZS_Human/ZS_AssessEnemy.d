@@ -27,7 +27,7 @@
 //	- ZS_CatchThief: von ZS_ auf B_AssessEnemy umbauen!
 //////////////////////////////////////////////////////////////////////////
 func void ZS_AssessEnemy ()
-{		
+{
 	PrintDebugNpc			(PD_ZS_FRAME,	"ZS_AssessEnemy");
 	C_ZSInit				();
 
@@ -39,7 +39,7 @@ func void ZS_AssessEnemy ()
 
 	B_FullStop 				(self);
 	B_WhirlAround			(self,	other);
-	
+
 	//######## NSC ist WACHE oder BOSS ########
 	if	C_NpcIsGuard(self)
 	||	C_NpcIsGuardArcher(self)
@@ -51,7 +51,7 @@ func void ZS_AssessEnemy ()
 		{
 			B_CallComrades	();
 		};
-		
+
 		//---- NSC greift an ! ----
 		if (Npc_IsPlayer(other))
 		{
@@ -66,7 +66,7 @@ func void ZS_AssessEnemy ()
 			return;
 		};
 	}
-	
+
 	//######## NSC ist WORKER ########
 	else
 	{
@@ -79,7 +79,7 @@ func void ZS_AssessEnemy ()
 		}
 
 		//---- NSC kämpft ! ----
-		else 
+		else
 		{
 			if (Npc_IsPlayer(other))
 			{
@@ -94,7 +94,7 @@ func void ZS_AssessEnemy ()
 				return;
 			};
 		};
-	};	
+	};
 };
 
 

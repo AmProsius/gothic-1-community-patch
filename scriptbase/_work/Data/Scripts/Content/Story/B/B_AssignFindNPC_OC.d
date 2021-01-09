@@ -9,7 +9,7 @@ INSTANCE Info_FindNPC_OC(C_INFO)
 	information	= Info_FindNPC_OC_Info;
 	permanent	= 1;
 	description = "Where can I find ...";
-};                       
+};
 
 FUNC INT Info_FindNPC_OC_Condition()
 {
@@ -26,7 +26,7 @@ FUNC VOID Info_FindNPC_OC_Info()
 	{
 		Info_AddChoice(Info_FindNPC_OC,"...Diego?", Info_FindNPC_OC_Diego);
 	};
-	
+
 	VAR C_NPC Thorus;		Thorus 	= Hlp_GetNpc(GRD_200_Thorus);
 	if (Thorus.aivar[AIV_FINDABLE] == TRUE)
 	{
@@ -48,7 +48,7 @@ FUNC VOID Info_FindNPC_OC_Diego()
 	AI_Output(other,self,"Info_FindNPC_Diego_15_00"); //Where can I find Diego?
 
 	VAR C_NPC Diego;		Diego	= Hlp_GetNpc(PC_THIEF);
-	
+
 	if (Npc_GetDistToNpc(self, Diego) < PERC_DIST_INTERMEDIAT)
 	{
 		B_PointAtNpc(self,other,Diego);
@@ -74,7 +74,7 @@ FUNC VOID Info_FindNPC_OC_Diego()
 				AI_Output(self,other,"Info_FindNPC_OC_Diego_04_01"); //During the day he's usually at the castle entrance with Thorus.
 			};
 		}
-		else if (self.guild == GIL_GRD) 
+		else if (self.guild == GIL_GRD)
 		{
 			if (self.voice == 6)
 			{
@@ -89,7 +89,7 @@ FUNC VOID Info_FindNPC_OC_Diego()
 				AI_Output(self,other,"Info_FindNPC_OC_Diego_13_01"); //During the day he's usually at the castle entrance with Thorus.
 			};
 		}
-		else if (self.guild == GIL_STT) 
+		else if (self.guild == GIL_STT)
 		{
 			if (self.voice == 10)
 			{
@@ -112,9 +112,9 @@ FUNC VOID Info_FindNPC_OC_Diego()
 FUNC VOID Info_FindNPC_OC_Thorus()
 {
 	AI_Output(other,self,"Info_FindNPC_OC_Thorus_15_00"); //Where can I find Thorus?
-	
+
 	VAR C_NPC Thorus;		Thorus 	= Hlp_GetNpc(GRD_200_Thorus);
-	
+
 	if (Npc_GetDistToNpc(self, Thorus) < PERC_DIST_INTERMEDIAT)
 	{
 		B_PointAtNpc(self,other,Thorus);
@@ -140,7 +140,7 @@ FUNC VOID Info_FindNPC_OC_Thorus()
 				AI_Output(self,other,"Info_FindNPC_OC_Thorus_04_01"); //He usually stands at the castle entrance.
 			};
 		}
-		else if (self.guild == GIL_GRD) 
+		else if (self.guild == GIL_GRD)
 		{
 			if (self.voice == 6)
 			{
@@ -155,7 +155,7 @@ FUNC VOID Info_FindNPC_OC_Thorus()
 				AI_Output(self,other,"Info_FindNPC_OC_Thorus_13_01"); //He usually stands at the castle entrance.
 			};
 		}
-		else if (self.guild == GIL_STT) 
+		else if (self.guild == GIL_STT)
 		{
 			if (self.voice == 10)
 			{

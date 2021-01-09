@@ -1,5 +1,5 @@
 // **************************************************
-// 						 EXIT 
+// 						 EXIT
 // **************************************************
 
 INSTANCE DIA_Scatty_Exit (C_INFO)
@@ -10,7 +10,7 @@ INSTANCE DIA_Scatty_Exit (C_INFO)
 	information	= DIA_Scatty_Exit_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC INT DIA_Scatty_Exit_Condition()
 {
@@ -23,7 +23,7 @@ FUNC VOID DIA_Scatty_Exit_Info()
 };
 
 // **************************************************
-// 					 Was machst du hier 
+// 					 Was machst du hier
 // **************************************************
 
 INSTANCE DIA_Scatty_WhatDoYouDo (C_INFO)
@@ -34,7 +34,7 @@ INSTANCE DIA_Scatty_WhatDoYouDo (C_INFO)
 	information	= DIA_Scatty_WhatDoYouDo_Info;
 	permanent	= 0;
 	description = "What's your job here?";
-};                       
+};
 
 FUNC INT DIA_Scatty_WhatDoYouDo_Condition()
 {
@@ -63,10 +63,10 @@ INSTANCE DIA_Scatty_JoinOC (C_INFO)
 	information	= DIA_Scatty_JoinOC_Info;
 	permanent	= 0;
 	description = "I want to join the Camp. Can you help me?";
-};                       
+};
 
 FUNC INT DIA_Scatty_JoinOC_Condition()
-{	
+{
 	if (Npc_GetTrueGuild (hero) == GIL_NONE)
 	{
 		return 1;
@@ -78,14 +78,14 @@ FUNC VOID DIA_Scatty_JoinOC_Info()
 	AI_Output (self,other,"DIA_Scatty_JoinOC_01_01"); //I might be able to, if you manage to impress me.
 	AI_Output (self,other,"DIA_Scatty_JoinOC_01_02"); //Some of the best fighters from all three camps come here to compete against each other.
 	AI_Output (self,other,"DIA_Scatty_JoinOC_01_03"); //Challenge one of them to a fight. I'll watch you, and if you're good maybe I'll think about it.
-	
+
 	Scatty_ChargeKirgo = LOG_RUNNING;
 	Scatty_ChargeKharim = LOG_RUNNING;
 	Scatty_ChargeGorHanis = LOG_RUNNING;
 	var C_NPC Kirgo; 	Kirgo = Hlp_GetNpc(Grd_251_Kirgo);			Kirgo.aivar[AIV_WASDEFEATEDBYSC] = FALSE;		Kirgo.aivar[AIV_HASDEFEATEDSC] = FALSE;
 	var C_NPC Kharim;	Kharim = Hlp_GetNpc(Sld_729_Kharim);		Kharim.aivar[AIV_WASDEFEATEDBYSC] = FALSE;		Kharim.aivar[AIV_HASDEFEATEDSC] = FALSE;
 	var C_NPC GorHanis;	GorHanis = Hlp_GetNpc(Tpl_1422_GorHanis);	GorHanis.aivar[AIV_WASDEFEATEDBYSC] = FALSE;	GorHanis.aivar[AIV_HASDEFEATEDSC] = FALSE;
-	
+
 	B_LogEntry( CH1_JoinOC,"Scatty, the master of the arena, will be impressed if I challenge one of the fighters.");
 };
 
@@ -101,11 +101,11 @@ INSTANCE DIA_Scatty_KirgoSuccess (C_INFO)
 	information	= DIA_Scatty_KirgoSuccess_Info;
 	permanent	= 0;
 	description = "I fought Kirgo!";
-};                       
+};
 
 FUNC INT DIA_Scatty_KirgoSuccess_Condition()
 {
-	var C_NPC Kirgo; 	Kirgo = Hlp_GetNpc(Grd_251_Kirgo);			
+	var C_NPC Kirgo; 	Kirgo = Hlp_GetNpc(Grd_251_Kirgo);
 
 	if ( (Scatty_ChargeKirgo == LOG_RUNNING) && (Kirgo_Charged == TRUE) && ( (Kirgo.aivar[AIV_WASDEFEATEDBYSC] == TRUE) || (Kirgo.aivar[AIV_HASDEFEATEDSC] == TRUE) ) )
 	{
@@ -115,22 +115,22 @@ FUNC INT DIA_Scatty_KirgoSuccess_Condition()
 
 FUNC VOID DIA_Scatty_KirgoSuccess_Info()
 {
-	var C_NPC Kirgo; 	Kirgo = Hlp_GetNpc(Grd_251_Kirgo);	
-	
+	var C_NPC Kirgo; 	Kirgo = Hlp_GetNpc(Grd_251_Kirgo);
+
 	AI_Output (other,self,"DIA_Scatty_KirgoSuccess_15_00"); //I fought Kirgo!
 	if (Kirgo.aivar[AIV_HASDEFEATEDSC] == TRUE)
 	{
 		AI_Output (self,other,"DIA_Scatty_KirgoSuccess_01_01"); //Yeah, and you lost!
 		AI_Output (self,other,"DIA_Scatty_KirgoSuccess_01_02"); //Surely you don't expect me to be impressed by that...
 		Scatty_ChargeKirgo = LOG_FAILED;
-		
+
 		B_LogEntry( CH1_JoinOC,"The fact that Kirgo has defeated me didn't impress Scatty at all.");
 	}
 	else if (Kirgo.aivar[AIV_WASDEFEATEDBYSC] == TRUE)
 	{
 		AI_Output (self,other,"DIA_Scatty_KirgoSuccess_01_03"); //And you defeated him! That's not bad for a beginner like you! I'm impressed!
 		Scatty_ChargeKirgo = LOG_SUCCESS;
-		
+
 		B_LogEntry( CH1_JoinOC,"Scatty was impressed by my fight against Kirgo.");
 		B_GiveXP (XP_kirgovictory);
 	};
@@ -148,11 +148,11 @@ INSTANCE DIA_Scatty_KHARIMSuccess (C_INFO)
 	information	= DIA_Scatty_KHARIMSuccess_Info;
 	permanent	= 0;
 	description = "I challenged Kharim!";
-};                       
+};
 
 FUNC INT DIA_Scatty_KHARIMSuccess_Condition()
 {
-	var C_NPC KHARIM; 	KHARIM = Hlp_GetNpc(Sld_729_Kharim);			
+	var C_NPC KHARIM; 	KHARIM = Hlp_GetNpc(Sld_729_Kharim);
 
 	if ( (Scatty_ChargeKHARIM == LOG_RUNNING) && (Kharim_Charged == TRUE) && ( (KHARIM.aivar[AIV_WASDEFEATEDBYSC] == TRUE) || (KHARIM.aivar[AIV_HASDEFEATEDSC] == TRUE) ) )
 	{
@@ -162,8 +162,8 @@ FUNC INT DIA_Scatty_KHARIMSuccess_Condition()
 
 FUNC VOID DIA_Scatty_KHARIMSuccess_Info()
 {
-	var C_NPC KHARIM; 	KHARIM = Hlp_GetNpc(Sld_729_Kharim);	
-	
+	var C_NPC KHARIM; 	KHARIM = Hlp_GetNpc(Sld_729_Kharim);
+
 	AI_Output (other,self,"DIA_Scatty_KHARIMSuccess_15_00"); //I challenged Kharim!
 	if (KHARIM.aivar[AIV_HASDEFEATEDSC] == TRUE)
 	{
@@ -176,14 +176,14 @@ FUNC VOID DIA_Scatty_KHARIMSuccess_Info()
 		Scatty_ChargeKHARIM = LOG_FAILED;
 		B_GiveXP(XP_Kharimlost);
 		B_LogEntry( CH1_JoinOC,"I've been beaten by Kharim! Scatty liked my courage, but not my fighting.");
-		
+
 	}
 	else if (KHARIM.aivar[AIV_WASDEFEATEDBYSC] == TRUE)
 	{
 		AI_Output (self,other,"DIA_Scatty_KHARIMSuccess_01_04"); //And you knocked him down! I have to admit that wasn't bad going. He's always been known as one of the toughest fighters.
 		AI_Output (self,other,"DIA_Scatty_KHARIMSuccess_01_05"); //I'm deeply impressed!
 		Scatty_ChargeKHARIM = LOG_SUCCESS;
-		
+
 		B_LogEntry( CH1_JoinOC,"I've given it to Kharim! Scatty was impressed.");
 		B_GiveXP(XP_kharimvictory);
 	};
@@ -202,7 +202,7 @@ INSTANCE DIA_Scatty_OtherCamps (C_INFO)
 	information	= DIA_Scatty_OtherCamps_Info;
 	permanent	= 0;
 	description = "Why do you let the people from the other camps fight here?";
-};                       
+};
 
 FUNC INT DIA_Scatty_OtherCamps_Condition()
 {
@@ -232,7 +232,7 @@ INSTANCE DIA_Scatty_WannaBet (C_INFO)
 	information	= DIA_Scatty_WannaBet_Info;
 	permanent	= 1;
 	description = "I want to place a bet.";
-};                       
+};
 
 FUNC INT DIA_Scatty_WannaBet_Condition()
 {
@@ -247,7 +247,7 @@ FUNC VOID DIA_Scatty_WannaBet_Info()
 	AI_Output (other,self,"DIA_Scatty_WannaBet_15_00"); //I want to place a bet.
 	AI_Output (self,other,"DIA_Scatty_WannaBet_01_01"); //But there's no fight on.
 	AI_Output (self,other,"DIA_Scatty_WannaBet_01_02"); //The next fight's due in a couple of days. There'll be an announcement.
-	
+
 };
 
 // **************************************************
@@ -262,7 +262,7 @@ INSTANCE DIA_Scatty_WannaFight (C_INFO)
 	information	= DIA_Scatty_WannaFight_Info;
 	permanent	= 1;
 	description = "I want to fight in the arena!";
-};                       
+};
 
 FUNC INT DIA_Scatty_WannaFight_Condition()
 {
@@ -291,7 +291,7 @@ INSTANCE DIA_Scatty_TRAIN (C_INFO)
 	information	= DIA_Scatty_TRAIN_Info;
 	permanent	= 1;
 	description = "Do you train fighters at all?";
-};                       
+};
 
 FUNC INT DIA_Scatty_TRAIN_Condition()
 {
@@ -315,11 +315,11 @@ FUNC VOID DIA_Scatty_TRAIN_Info()
 
 	Info_ClearChoices	(DIA_Scatty_TRAIN );
 	Info_AddChoice		(DIA_Scatty_TRAIN,DIALOG_BACK		,DIA_Scatty_TRAIN_BACK);
-	if 	(Npc_GetTalentSkill(hero, NPC_TALENT_1H) == 1) 
+	if 	(Npc_GetTalentSkill(hero, NPC_TALENT_1H) == 1)
 	{
 		Info_AddChoice		(DIA_Scatty_TRAIN,B_BuildLearnString(NAME_Learn1h_2, LPCOST_TALENT_1H_2,150)	,DIA_Scatty_TRAIN_2h);
 	};
-	if 	(Npc_GetTalentSkill(hero, NPC_TALENT_1H) == 0) 
+	if 	(Npc_GetTalentSkill(hero, NPC_TALENT_1H) == 0)
 	{
 		Info_AddChoice		(DIA_Scatty_TRAIN,B_BuildLearnString(NAME_Learn1h_1, LPCOST_TALENT_1H_1,50)	,DIA_Scatty_TRAIN_1h);
 	};
@@ -333,7 +333,7 @@ func void DIA_Scatty_TRAIN_BACK()
 func void DIA_Scatty_TRAIN_1h()
 {
 	AI_Output (other,self,"DIA_Scatty_TRAIN_1h_15_00"); //I want to improve my handling of one-handed weapons.
-	
+
 	if (Npc_HasItems(other,itminugget) >= 50)
 	{
 		if (B_GiveSkill(other, NPC_TALENT_1H, 1, LPCOST_TALENT_1H_1))
@@ -357,7 +357,7 @@ func void DIA_Scatty_TRAIN_1h()
 func void DIA_Scatty_TRAIN_2h()
 {
 	AI_Output (other,self,"DIA_Scatty_TRAIN_2h_15_01"); //Teach me how to handle one-handed weapons more skillfully.
-	
+
 	if (Npc_HasItems(other,itminugget) >= 150)
 	{
 		if (B_GiveSkill(other, NPC_TALENT_1H, 2, LPCOST_TALENT_1H_2))

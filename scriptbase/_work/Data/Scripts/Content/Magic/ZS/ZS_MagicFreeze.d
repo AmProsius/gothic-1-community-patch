@@ -1,5 +1,5 @@
 func void B_StopMagicFreeze()
-{	
+{
 	PrintDebugNpc		(PD_MAGIC,	"B_StopMagicFreeze");
 	PrintGlobals		(PD_MAGIC);
 
@@ -31,17 +31,17 @@ func int ZS_MagicFreeze()
 	{
 		AI_PlayAniBS 		(self, "T_STAND_2_FREEZE_VICTIM", BS_UNCONSCIOUS);
 	};
-	
+
 	if (self.attribute[ATR_HITPOINTS] > (SPL_FREEZE_DAMAGE+1-self.protection[PROT_MAGIC]))
 	{
-		//	DAMAGE: Opfer verliert HPs nur wenn er noch mehr hat als der verursachte Schaden (keine Ohnmacht oder Tod!) 
+		//	DAMAGE: Opfer verliert HPs nur wenn er noch mehr hat als der verursachte Schaden (keine Ohnmacht oder Tod!)
 		B_MagicHurtNpc 		(other,	SPL_FREEZE_DAMAGE);
 	};
 };
 
 
 func int ZS_MagicFreeze_Loop ()
-{	
+{
 	PrintDebugNpc			(PD_ZS_LOOP, "ZS_MagicFreeze_Loop" );
 
 	if (Npc_GetStateTime(self) > SPL_TIME_FREEZE)

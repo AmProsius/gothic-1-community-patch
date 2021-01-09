@@ -10,7 +10,7 @@ func void B_Story_AccessToXardas()
 	B_GiveXP		(XP_DeliveredGolemhearts);
 
 	//-------- Tagesabläufe ändern --------
-	
+
 	//-------- globale Variable setzen --------
 	FindGolemHearts = 4;
 };

@@ -1,7 +1,7 @@
 instance EBR_108_Velaya (Npc_Default)
 {
 	//-------- primary data --------
-	
+
 	name 		=	"Velaya";
 	npctype		= 	npctype_main;
 	guild 		=	GIL_BAB;
@@ -21,16 +21,16 @@ instance EBR_108_Velaya (Npc_Default)
 	//-------- visuals --------
 	// 					animations
 	Mdl_SetVisual		(self,"BABE.MDS");
-	//							Body-Mesh			Body-Tex	Skin-Color	Head-MMS			Head-Tex	Teeth-Tex	ARMOR	
+	//							Body-Mesh			Body-Tex	Skin-Color	Head-MMS			Head-Tex	Teeth-Tex	ARMOR
 	Mdl_SetVisualBody	(self,	"Bab_body_Naked0", 	0, 			1,			"Bab_Head_Hair1", 	0,  		DEFAULT, 	-1);
-	
+
 	self.aivar[AIV_IMPORTANT] = TRUE;
-	
+
 	fight_tactic	=	FAI_HUMAN_COWARD;
 
-	//-------- Talente -------- 		
-	
-	//-------- inventory --------                                    
+	//-------- Talente --------
+
+	//-------- inventory --------
 	CreateInvItem (self, ItMiBrush);
 	CreateInvItem (self, ItMiWedel);
 
@@ -47,7 +47,7 @@ FUNC VOID Rtn_start_108 () //Gomez Zimmer 24h
 	TA_Babe_SitAround	(14,00,16,00,	"OCC_BARONS_UPSTAIRS_LEFT_BACK_ROOM_FRONT");
 	TA_Bathing_Babe		(16,00,19,00,	"OCC_BARONS_UPSTAIRS_LEFT_BACK_ROOM_FRONT");
 	TA_Babe_SitAround	(19,00,01,00,	"OCC_BARONS_UPSTAIRS_LEFT_BACK_ROOM_FRONT");
-	
+
 };
 
 

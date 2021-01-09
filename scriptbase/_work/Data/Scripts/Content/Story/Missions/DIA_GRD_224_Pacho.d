@@ -7,10 +7,10 @@ instance Info_Pacho_EXIT (C_INFO)
 	nr			= 999;
 	condition	= Info_Pacho_EXIT_Condition;
 	information	= Info_Pacho_EXIT_Info;
-	important	= 0;	
+	important	= 0;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC INT Info_Pacho_EXIT_Condition()
 {

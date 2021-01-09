@@ -1,19 +1,19 @@
 instance VLK_538_Huno (Npc_Default)
 {
 	//-------- primary data --------
-	
+
 	name =							"Huno";
 	npctype =						npctype_Main;
-	guild =							GIL_VLK;      
+	guild =							GIL_VLK;
 	level =							12;
-	
-	
+
+
 	voice =							9;
 	id =							538;
 
 
 	//-------- abilities --------
-	
+
 	attribute[ATR_STRENGTH] =		55;
 	attribute[ATR_DEXTERITY] =		15;
 	attribute[ATR_MANA_MAX] =		0;
@@ -25,21 +25,21 @@ instance VLK_538_Huno (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Tired.mds");
-	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
+	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin
 	Mdl_SetVisualBody (self,"hum_body_Naked0",2,1,"Hum_Head_Bald", 71,  4, VLK_ARMOR_L);
 
-        B_Scale (self); 
+        B_Scale (self);
         Mdl_SetModelFatness (self, 1);
-    	
-    	self.aivar[AIV_IMPORTANT] = TRUE;
-	
-	fight_tactic	=	FAI_HUMAN_COWARD; 
 
-	//-------- Talents  --------                                    
+    	self.aivar[AIV_IMPORTANT] = TRUE;
+
+	fight_tactic	=	FAI_HUMAN_COWARD;
+
+	//-------- Talents  --------
 
 	Npc_SetTalentSkill (self, NPC_TALENT_1H,1);
-	
-	//-------- inventory --------                                    
+
+	//-------- inventory --------
 	EquipItem 		(self,	ItMw_1H_Sledgehammer_01);
 
 	CreateInvItems	(self,	ItMiSwordRaw,		10);
@@ -54,7 +54,7 @@ instance VLK_538_Huno (Npc_Default)
 FUNC VOID Rtn_start_538 ()
 {
 	TA_Sleep		(22,00,08,00,"OCR_HUT_35");
-	
+
 	TA_Smith_Fire	(08,00,08,10,"OCR_HUT_34");
 	TA_Smith_Anvil	(08,10,08,20,"OCR_HUT_34");
 	TA_Smith_Fire	(08,20,08,30,"OCR_HUT_34");
@@ -74,8 +74,8 @@ FUNC VOID Rtn_start_538 ()
 	TA_Smith_Fire	(10,20,10,30,"OCR_HUT_34");
 	TA_Smith_Anvil	(10,30,10,40,"OCR_HUT_34");
 	TA_Smith_Cool	(10,40,10,50,"OCR_HUT_34");
-	TA_Smith_Anvil	(10,50,11,00,"OCR_HUT_34");    
-          
+	TA_Smith_Anvil	(10,50,11,00,"OCR_HUT_34");
+
 	TA_Smith_Fire	(11,00,11,10,"OCR_HUT_34");
 	TA_Smith_Anvil	(11,10,11,20,"OCR_HUT_34");
 	TA_Smith_Fire	(11,20,11,30,"OCR_HUT_34");
@@ -90,7 +90,7 @@ FUNC VOID Rtn_start_538 ()
 	TA_Smith_Anvil	(12,30,12,40,"OCR_HUT_34");
 	TA_Smith_Cool	(12,40,12,50,"OCR_HUT_34");
 	TA_Smith_Anvil	(12,50,13,00,"OCR_HUT_34");
-          
+
 	TA_Smith_Fire	(13,00,13,10,"OCR_HUT_34");
 	TA_Smith_Anvil	(13,10,13,20,"OCR_HUT_34");
 	TA_Smith_Fire	(13,20,13,30,"OCR_HUT_34");
@@ -146,7 +146,7 @@ FUNC VOID Rtn_start_538 ()
 	TA_Smith_Anvil	(20,30,20,40,"OCR_HUT_34");
 	TA_Smith_Cool	(20,40,20,50,"OCR_HUT_34");
 	TA_Smith_Anvil	(20,50,21,00,"OCR_HUT_34");
-	
+
 	TA_Smith_Fire	(21,00,21,10,"OCR_HUT_34");
 	TA_Smith_Anvil	(21,10,21,20,"OCR_HUT_34");
 	TA_Smith_Fire	(21,20,21,30,"OCR_HUT_34");

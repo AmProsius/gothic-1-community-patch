@@ -25,7 +25,7 @@ const int	Value_Fackel			=	2;
 
 const int	Value_Sumpfkraut		=	8;
 const int	Value_Pfeife			=	10;
-const int	Value_Rasiermesser		=	5;// EX 25 NIEDRIGER WERT WEIL ES VIEL DAVON GIBT!!! 
+const int	Value_Rasiermesser		=	5;// EX 25 NIEDRIGER WERT WEIL ES VIEL DAVON GIBT!!!
 const int	Value_Münze				=	0;// BITTE AUF 0 LASSEN, DAFÜR IST SIE DA, FÜR SONST NIX!!!!! M.F.
 const int	Value_Schüssel			=	4;
 const int	Value_Kerzenständer		=	10;

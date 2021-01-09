@@ -1,14 +1,14 @@
 instance GRD_282_Nek (Npc_Default)
 {
 	//-------- primary data --------
-	
+
 	name 		=	"Dead Guard";  //Nek
 	npctype		= 	npctype_main;
 	guild 		=	GIL_GRD;
 	level 		=	10;
 	voice 		=	7;
 	id 			=	282;
-		
+
 	//-------- abilities --------
 	attribute[ATR_STRENGTH] 	= 40;
 	attribute[ATR_DEXTERITY] 	= 20;
@@ -21,24 +21,24 @@ instance GRD_282_Nek (Npc_Default)
 	// 			animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Militia.mds");
-	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung	
+	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung
 	Mdl_SetVisualBody (self,"hum_body_Naked0", 0, 0,"Hum_Head_FatBald", 2,  1, GRD_ARMOR_L);
-        
+
     	B_Scale (self);
     	Mdl_SetModelFatness(self,0);
-    	
+
     	fight_tactic	=	FAI_HUMAN_STRONG;
 
-	//-------- Talente -------- 
-				
+	//-------- Talente --------
+
 	Npc_SetTalentSkill (self, NPC_TALENT_1H,1);
-	Npc_SetTalentSkill (self, NPC_TALENT_1H,1);		
-			
+	Npc_SetTalentSkill (self, NPC_TALENT_1H,1);
+
 	//-------- inventory --------
-	
+
 	CreateInvItem	(self, Neks_Amulett);
-	CreateInvItems	(self, ItMiNugget, 10);		        
-	
+	CreateInvItems	(self, ItMiNugget, 10);
+
 	//-------------Daily Routine-------------
 	daily_routine = Rtn_start_282;
 };

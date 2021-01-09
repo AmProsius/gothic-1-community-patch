@@ -9,7 +9,7 @@ instance DIA_Milten_EXIT (C_INFO)
 	information	= DIA_Milten_EXIT_Info;
 	permanent	= 1;
 	description = DIALOG_ENDE;
-};                       
+};
 
 FUNC INT DIA_Milten_EXIT_Condition()
 {
@@ -41,7 +41,7 @@ instance DIA_Milten_First (C_INFO)
 	information	= DIA_Milten_First_Info;
 	permanent	= 0;
 	important 	= 1;
-};                       
+};
 
 FUNC INT DIA_Milten_First_Condition()
 {
@@ -69,7 +69,7 @@ instance DIA_Milten_Hello (C_INFO)
 	information	= DIA_Milten_Hello_Info;
 	permanent	= 0;
 	description = "I'm looking for the High Magician of the Circle of Fire.";
-};                       
+};
 
 FUNC INT DIA_Milten_Hello_Condition()
 {
@@ -88,7 +88,7 @@ func VOID DIA_Milten_Hello_Info()
 //*********************************************
 //					GotoCorristo
 //*********************************************
-	
+
 instance DIA_Milten_GotoCorristo (C_INFO)
 {
 	npc			= PC_MAGE;
@@ -97,12 +97,12 @@ instance DIA_Milten_GotoCorristo (C_INFO)
 	information	= DIA_Milten_GotoCorristo_Info;
 	permanent	= 0;
 	important	= 1;
-};                       
+};
 
 FUNC INT DIA_Milten_GotoCorristo_Condition()
 {
 	if  ( (CorKalom_BringMCQBalls == LOG_SUCCESS) || Npc_KnowsInfo(hero,GRD_200_Thorus_WANNABEMAGE) )
-	&&  (Npc_GetTrueGuild (hero) == GIL_STT) 
+	&&  (Npc_GetTrueGuild (hero) == GIL_STT)
 	{
 		return 1;
 	};
@@ -122,18 +122,18 @@ func VOID DIA_Milten_GotoCorristo_Info()
 		AI_Output (other, self,"DIA_Milten_Letter_Give_15_00"); //Here it is.
 		B_GiveXP(XP_XardasLetter);
 		if		Npc_HasItems(other,ItWr_Fire_Letter_01)
-		{ 
+		{
 			B_GiveInvItems(other, self, ItWr_Fire_Letter_01, 1);
 		}
-		else if	Npc_HasItems(other,ItWr_Fire_Letter_02) 
-		{ 
+		else if	Npc_HasItems(other,ItWr_Fire_Letter_02)
+		{
 			B_GiveInvItems(other, self, ItWr_Fire_Letter_02, 1);
 		};
 		AI_Output (other, self,"GUR_1200_Yberion_EARN_Info_15_01"); //What about some kind of reward?
 		AI_Output (self,hero,"Info_Milten_SHSEAL_02_05"); //There will be no need for that now.
 		//***kopierte AI_outputs ENDE***
 	};
-	
+
 	AI_Output (self, other,"DIA_Milten_GotoCorristo_02_01"); //We have heard what you achieved in the Old Mine. Without the minecrawlers, ore mining has become much safer.
 	AI_Output (self, other,"DIA_Milten_GotoCorristo_02_02"); //Corristo knows of your achievements, too. He wishes to speak to you. Go to him.
 };
@@ -152,7 +152,7 @@ instance DIA_Milten_Letter (C_INFO)
 	information	= DIA_Milten_Letter_Info;
 	permanent	= 0;
 	description = "I have a letter for the High Magician of the Circle of Fire.";
-};                       
+};
 
 FUNC INT DIA_Milten_Letter_Condition()
 {
@@ -178,25 +178,25 @@ func void DIA_Milten_Letter_Give()
 {
 	AI_Output (other, self,"DIA_Milten_Letter_Give_15_00"); //Here it is.
 	B_UseFakeScroll();
-	
+
 	B_GiveXP(XP_XardasLetter);
 	AI_Output (self, other,"DIA_Milten_Letter_Give_02_03"); //This letter is addressed to Xardas!
 	AI_Output (other, self,"DIA_Milten_Letter_Give_15_04"); //What's so exciting about that?
 	AI_Output (self, other,"DIA_Milten_Letter_Give_02_05"); //Xardas has not been a servant of Innos for ages. He left us some years ago and turned towards black magic.
 	AI_Output (self, other,"DIA_Milten_Letter_Give_02_06"); //He lives in a tower in the middle of the Orc land and concentrates on his studies.
 	AI_Output (self, other,"DIA_Milten_Letter_Give_02_07"); //He said he would go his own way to find out what went wrong with the Barrier.
-	
+
 	AI_Output (self, other,"DIA_Milten_Letter_Give_02_08"); //Wait here. I'll be back in a moment.
 	AI_StopProcessInfos	(self);
 	AI_GotoWP (self, "OCC_CHAPEL_STAIRCASE_TOP");
 	AI_GotoWP (self, "OCC_CHAPEL_ENTRANCE");
 
 	if		Npc_HasItems(other,ItWr_Fire_Letter_01)
-	{ 
+	{
 		B_GiveInvItems(other, self, ItWr_Fire_Letter_01, 1);
 	}
-	else if	Npc_HasItems(other,ItWr_Fire_Letter_02) 
-	{ 
+	else if	Npc_HasItems(other,ItWr_Fire_Letter_02)
+	{
 		B_GiveInvItems(other, self, ItWr_Fire_Letter_02, 1);
 	};
 	milten_HasLetter = TRUE;
@@ -241,7 +241,7 @@ instance DIA_Milten_ComesBack (C_INFO)
 	information	= DIA_Milten_ComesBack_Info;
 	permanent	= 0;
 	important	= 1;
-};                       
+};
 
 FUNC INT DIA_Milten_ComesBack_Condition()
 {
@@ -267,7 +267,7 @@ func VOID DIA_Milten_ComesBack_Info()
 //*********************************************
 //			Wo finde ich Torrez?
 //*********************************************
-	
+
 instance DIA_Milten_WoTorrez (C_INFO)
 {
 	npc			= PC_MAGE;
@@ -276,7 +276,7 @@ instance DIA_Milten_WoTorrez (C_INFO)
 	information	= DIA_Milten_WoTorrez_Info;
 	permanent	= 0;
 	description	= "Where can I find Torrez?";
-};                       
+};
 
 FUNC INT DIA_Milten_WoTorrez_Condition()
 {
@@ -296,7 +296,7 @@ func VOID DIA_Milten_WoTorrez_Info()
 //*********************************************
 //				Noch ein Brief
 //*********************************************
-	
+
 instance DIA_Milten_NochEinBrief (C_INFO)
 {
 	npc			= PC_MAGE;
@@ -305,7 +305,7 @@ instance DIA_Milten_NochEinBrief (C_INFO)
 	information	= DIA_Milten_NochEinBrief_Info;
 	permanent	= 0;
 	description = "I have a letter from the Magicians of Water.";
-};                       
+};
 
 FUNC INT DIA_Milten_NochEinBrief_Condition()
 {
@@ -320,7 +320,7 @@ func VOID DIA_Milten_NochEinBrief_Info()
 	AI_Output (other, self,"DIA_Milten_NochEinBrief_15_00"); //I have a letter from the Magicians of Water.
 	AI_Output (self, other,"DIA_Milten_NochEinBrief_02_01"); //Ah! Very good! I'll give it to Corristo.
 	AI_Output (self, other,"DIA_Milten_NochEinBrief_02_02"); //When you're back in the New Camp, the Magicians of Water will surely reward you for your efforts.
-	
+
 	Cronos_Messenger = LOG_SUCCESS;
 	B_GiveInvItems (other,self,Cronos_Brief,1);
 };
@@ -328,7 +328,7 @@ func VOID DIA_Milten_NochEinBrief_Info()
 //*********************************************
 //					PERM
 //*********************************************
-	
+
 instance DIA_Milten_PERM (C_INFO)
 {
 	npc			= PC_MAGE;
@@ -337,7 +337,7 @@ instance DIA_Milten_PERM (C_INFO)
 	information	= DIA_Milten_PERM_Info;
 	permanent	= 0;
 	description = "Tell me something about the Magicians of Fire.";
-};                       
+};
 
 FUNC INT DIA_Milten_PERM_Condition()
 {
@@ -359,7 +359,7 @@ func VOID DIA_Milten_PERM_Info()
 //*********************************************
 //					WannaMage
 //*********************************************
-	
+
 instance DIA_Milten_WannaMage (C_INFO)
 {
 	npc			= PC_MAGE;
@@ -368,7 +368,7 @@ instance DIA_Milten_WannaMage (C_INFO)
 	information	= DIA_Milten_WannaMage_Info;
 	permanent	= 1;
 	description = "I want to become a magician's apprentice, too. Just like you.";
-};                       
+};
 
 FUNC INT DIA_Milten_WannaMage_Condition()
 {
@@ -390,8 +390,8 @@ func VOID DIA_Milten_WannaMage_Info()
 
 
 
-		
-	
+
+
 
 
 
@@ -424,13 +424,13 @@ FUNC int Info_Milten_SHWAIT_Condition()
 	if ( Npc_GetDistToWP ( hero, "OW_PATH_274")<1000)
 	{
 		return 1;
-	};	
+	};
 };
 
 func void Info_Milten_SHWAIT_Info()
 {
 	AI_GotoNpc		(self,hero);
-	
+
 	AI_Output		(self,hero,"Info_Milten_SHWAIT_02_01"); //Greetings! My friend Lester from the swamp camp told me about your great deeds there!
 	AI_Output		(self,hero,"Info_Milten_SHWAIT_02_02"); //I am impressed. You have become very strong.
 	AI_Output		(hero,self,"Info_Milten_SHWAIT_15_03"); //I do my best.
@@ -455,7 +455,7 @@ FUNC int Info_Milten_SHGORN_Condition()
 	if (Npc_KnowsInfo(hero, Info_Milten_SHWAIT) && Npc_KnowsInfo(hero, Info_Gorn_RUINSUCCESS))
 	{
 		return TRUE;
-	};	
+	};
 };
 
 func void Info_Milten_SHGORN_Info()
@@ -484,7 +484,7 @@ FUNC int Info_Milten_SHLESTER_Condition()
 	if (Npc_KnowsInfo(hero, Info_Milten_SHWAIT) && Npc_KnowsInfo(hero, PC_Psionic_FINISH))
 	{
 		return TRUE;
-	};	
+	};
 };
 
 func void Info_Milten_SHLESTER_Info()
@@ -513,7 +513,7 @@ FUNC int Info_Milten_SHYOU_Condition()
 	if (Npc_KnowsInfo(hero, Info_Milten_SHWAIT))
 	{
 		return 1;
-	};	
+	};
 };
 
 func void Info_Milten_SHYOU_Info()
@@ -544,7 +544,7 @@ FUNC int Info_Milten_SHME_Condition()
 	&&	!Npc_KnowsInfo(hero, Info_Milten_SHACCEPT)
 	{
 		return 1;
-	};	
+	};
 };
 
 func void Info_Milten_SHME_Info()
@@ -571,7 +571,7 @@ FUNC int Info_Milten_SHPROBLEM_Condition()
 	if (Npc_KnowsInfo(hero, Info_Milten_SHYOU))
 	{
 		return TRUE;
-	};	
+	};
 };
 
 func void Info_Milten_SHPROBLEM_Info()
@@ -601,7 +601,7 @@ FUNC int Info_Milten_SHFOCUS_Condition()
 	if (Npc_KnowsInfo(hero, Info_Milten_SHPROBLEM))
 	{
 		return TRUE;
-	};	
+	};
 };
 
 func void Info_Milten_SHFOCUS_Info()
@@ -630,7 +630,7 @@ FUNC int Info_Milten_SHSEAL_Condition()
 	if (Npc_KnowsInfo(hero, Info_Milten_SHPROBLEM))
 	{
 		return TRUE;
-	};	
+	};
 };
 
 func void Info_Milten_SHSEAL_Info()
@@ -662,7 +662,7 @@ FUNC int Info_Milten_SHTALISMAN_Condition()
 	if (Npc_KnowsInfo(hero, Info_Milten_SHFOCUS))
 	{
 		return TRUE;
-	};	
+	};
 };
 
 func void Info_Milten_SHTALISMAN_Info()
@@ -691,7 +691,7 @@ FUNC int Info_Milten_SHOFFER_Condition()
 	&&		Npc_KnowsInfo(hero, Info_Milten_SHTALISMAN)	)
 	{
 		return TRUE;
-	};	
+	};
 };
 
 func void Info_Milten_SHOFFER_Info()
@@ -724,7 +724,7 @@ FUNC int Info_Milten_SHOFFER2_Condition()
 	if (	Npc_KnowsInfo(hero, Info_Milten_SHOFFER)	)
 	{
 		return TRUE;
-	};	
+	};
 };
 
 func void Info_Milten_SHOFFER2_Info()
@@ -756,7 +756,7 @@ FUNC int Info_Milten_SHACCEPT_Condition()
 	if (	Npc_KnowsInfo(hero, Info_Milten_SHOFFER2)	)
 	{
 		return TRUE;
-	};	
+	};
 };
 
 func void Info_Milten_SHACCEPT_Info()
@@ -772,7 +772,7 @@ func void Info_Milten_SHACCEPT_Info()
 	Log_SetTopicStatus	(CH3_Stonehenge,	LOG_RUNNING);
 	B_LogEntry		(CH3_Stonehenge,"I met Milten, the Magician of Fire, near the ring of stone. He told me that one of the focus stones I'm looking for was in a crypt underneath the stone formation.");
 	B_LogEntry		(CH3_Stonehenge,"Milten gave me a spell scroll to defeat the undead guardian in the crypt. We'll get into the crypt together.");
-	
+
 	CreateInvItem		(self,	ItArScrollDestroyUndead);
 	B_GiveInvItems  (self, hero, ItArScrollDestroyUndead, 1);
 
@@ -798,14 +798,14 @@ FUNC int Info_Milten_SHARRIVED_Condition()
 	if (Npc_KnowsInfo(hero, Info_Milten_SHACCEPT) && (Npc_GetDistToWP(hero, "OW_PATH_3_STONES")<500) )
 	{
 		return TRUE;
-	};	
+	};
 };
 
 func void Info_Milten_SHARRIVED_Info()
 {
 	AI_GotoNpc			(self,hero);
 
-	AI_Output			(self,hero,"Info_Milten_SHARRIVED_02_01"); //Here we are. The tunnel here leads directly to the tomb. 
+	AI_Output			(self,hero,"Info_Milten_SHARRIVED_02_01"); //Here we are. The tunnel here leads directly to the tomb.
 	AI_Output			(hero,self,"Info_Milten_SHARRIVED_15_02"); //Then let's go and visit the guard!
 
   	self.aivar[AIV_PARTYMEMBER] =	TRUE;
@@ -834,7 +834,7 @@ FUNC int Info_Milten_SHHEAL_Condition()
 	&&		(Npc_HasItems(hero,ItFo_Potion_Health_02) == 0)								)
 	{
 		return TRUE;
-	};	
+	};
 };
 
 func void Info_Milten_SHHEAL_Info()
@@ -849,7 +849,7 @@ func void Info_Milten_SHHEAL_Info()
 	else
 	{
 		AI_Output			(self,hero,"Info_Milten_SHHEAL_02_03"); //I don't have any healing potion left.
-	};	
+	};
 
 	AI_StopProcessInfos		(self);
 };
@@ -877,7 +877,7 @@ FUNC int Info_Milten_SHRUNNING_Condition()
 	&&	(keeperFound && !Npc_IsDead(other))							// Wächter noch nicht besiegt...
 	{
 		return TRUE;
-	};	
+	};
 };
 
 func void Info_Milten_SHRUNNING_Info()
@@ -906,11 +906,11 @@ FUNC int Info_Milten_SHSCROLL_Condition()
 	keeperFound = Wld_DetectNpc(self, ZombieTheKeeper, NOFUNC, -1);
 	if (	(keeperFound && !Npc_IsDead(other))							// Wächter noch nicht besiegt...
 	&&		Npc_KnowsInfo(hero, Info_Milten_SHACCEPT)
-	&&		(Npc_HasItems(hero, ItArScrollDestroyUndead)==0)	
+	&&		(Npc_HasItems(hero, ItArScrollDestroyUndead)==0)
 	&&		(Npc_HasItems(hero, ItArRuneDestroyUndead)==0)	)
 	{
 		return TRUE;
-	};	
+	};
 };
 
 func void Info_Milten_SHSCROLL_Info()
@@ -942,11 +942,11 @@ instance Info_Milten_SHNEWSCROLL (C_INFO)
 FUNC int Info_Milten_SHNEWSCROLL_Condition()
 {
 	if (	Npc_KnowsInfo(hero, Info_Milten_SHSCROLL)
-	&&		!Npc_KnowsInfo(hero, Info_Milten_SHSUCCESS)	
+	&&		!Npc_KnowsInfo(hero, Info_Milten_SHSUCCESS)
 	&&		((Npc_HasItems(hero, ItArScrollDestroyUndead)>0) ||	(Npc_HasItems(hero, ItArRuneDestroyUndead)>0))	)
 	{
 		return TRUE;
-	};	
+	};
 };
 
 func void Info_Milten_SHNEWSCROLL_Info()
@@ -975,12 +975,12 @@ instance Info_Milten_SHLEAVE (C_INFO)
 FUNC int Info_Milten_SHLEAVE_Condition()
 {
 	if	 Npc_KnowsInfo(hero, Info_Milten_SHACCEPT)
-	&&	!Npc_KnowsInfo(hero, Info_Milten_SHSUCCESS)		
+	&&	!Npc_KnowsInfo(hero, Info_Milten_SHSUCCESS)
 	&&	(Npc_GetDistToWP(hero, "OW_PATH_3_STONES")>10000)
   	&&	(self.aivar[AIV_PARTYMEMBER] ==	TRUE)
 	{
 		return TRUE;
-	};	
+	};
 };
 
 func void Info_Milten_SHLEAVE_Info()
@@ -1016,7 +1016,7 @@ FUNC int Info_Milten_SHCONTINUE_Condition()
 	&&	(Npc_GetDistToWP(hero, "OW_PATH_3_STONES")<9000)
 	{
 		return TRUE;
-	};	
+	};
 };
 
 func void Info_Milten_SHCONTINUE_Info()
@@ -1048,7 +1048,7 @@ FUNC int Info_Milten_SHSUCCESS_Condition()
 	if (Npc_KnowsInfo(hero, Info_Milten_SHACCEPT) && Npc_HasItems(hero, ItMi_OrcTalisman))
 	{
 		return TRUE;
-	};	
+	};
 };
 
 func void Info_Milten_SHSUCCESS_Info()
@@ -1059,12 +1059,12 @@ func void Info_Milten_SHSUCCESS_Info()
 	AI_Output			(hero,self,"Info_Milten_SHSUCCESS_15_02"); //Here, take it. That was our deal!
 	AI_Output			(self,hero,"Info_Milten_SHSUCCESS_02_03"); //Thank you, my friend. I never forget anybody who helped me.
 	AI_Output			(self,hero,"Info_Milten_SHSUCCESS_02_04"); //I'll go back to the Old Camp, perhaps we'll meet there.
-	
+
 	B_GiveInvItems	(hero,self,	ItMi_OrcTalisman, 1);
-	
+
 	B_LogEntry		(CH3_Stonehenge,"Together we defeated the GUARDIAN under the ring of stone. Milten took his share of the booty and returned to the Old Camp.");
 	B_LogEntry		(CH3_Stonehenge,"Saturas will be happy that I found a focus here!");
-	
+
   	self.aivar[AIV_PARTYMEMBER] =	FALSE;
 	Npc_ExchangeRoutine	(self, "ReturnToOC");
 	AI_StopProcessInfos	(self);
@@ -1099,7 +1099,7 @@ FUNC int Info_Milten_OCWARN_Condition()
 	if (Kapitel == 4)
 	{
 		return TRUE;
-	};	
+	};
 };
 
 func void Info_Milten_OCWARN_Info()
@@ -1148,7 +1148,7 @@ FUNC int Info_Milten_OCMINE_Condition()
 	if (Npc_KnowsInfo(hero, Info_Milten_OCWARN) && !Npc_KnowsInfo(hero, Info_Diego_OCRETREAT))
 	{
 		return TRUE;
-	};	
+	};
 };
 
 func void Info_Milten_OCMINE_Info()
@@ -1177,7 +1177,7 @@ FUNC int Info_Milten_OCKDW_Condition()
 	if (Npc_KnowsInfo(hero, Info_Milten_OCWARN) && !Npc_KnowsInfo(hero, Info_Diego_OCRETREAT))
 	{
 		return TRUE;
-	};	
+	};
 };
 
 func void Info_Milten_OCKDW_Info()
@@ -1206,7 +1206,7 @@ FUNC int Info_Milten_OCWHY_Condition()
 	if (Npc_KnowsInfo(hero, Info_Milten_OCKDW))
 	{
 		return TRUE;
-	};	
+	};
 };
 
 func void Info_Milten_OCWHY_Info()
@@ -1234,7 +1234,7 @@ FUNC int Info_Milten_OCYOU_Condition()
 	if (Npc_KnowsInfo(hero, Info_Milten_OCKDW))
 	{
 		return TRUE;
-	};	
+	};
 };
 
 func void Info_Milten_OCYOU_Info()
@@ -1243,7 +1243,7 @@ func void Info_Milten_OCYOU_Info()
 	AI_Output			(self,hero,"Info_Milten_OCYOU_02_02"); //No. Diego and I agreed to keep an eye on the two gates and to warn our unsuspecting friends from the other camps.
 
 	if (!Npc_KnowsInfo(hero, Info_Diego_OCSTORY))
-	{	
+	{
 		AI_Output		(self,hero,"Info_Milten_OCYOU_02_03"); //Please talk to Diego!
 	}
 	else
@@ -1272,7 +1272,7 @@ FUNC int Info_Milten_OCDIEGO_Condition()
 	&& !Npc_KnowsInfo(hero, Info_Diego_OCSTORY)
 	{
 		return TRUE;
-	};	
+	};
 };
 
 func void Info_Milten_OCDIEGO_Info()
@@ -1319,7 +1319,7 @@ FUNC int Info_Milten_LOADSWORD_Condition()
 	if (LoadSword)
 	{
 		return TRUE;
-	};	
+	};
 };
 
 func void Info_Milten_LOADSWORD_Info()
@@ -1341,7 +1341,7 @@ instance Info_Milten_LOADSWORD1 (C_INFO)
 	information		= Info_Milten_LOADSWORD1_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "Milten, I need your help!"; 
+	description		= "Milten, I need your help!";
 };
 
 FUNC int Info_Milten_LOADSWORD1_Condition()
@@ -1349,7 +1349,7 @@ FUNC int Info_Milten_LOADSWORD1_Condition()
 	if	Npc_KnowsInfo(hero, Info_Milten_LOADSWORD)
 	{
 		return 1;
-	};	
+	};
 };
 
 func void Info_Milten_LOADSWORD1_Info()
@@ -1381,7 +1381,7 @@ FUNC int Info_Milten_LSAWAY_Condition()
 	&&	(Npc_GetDistToWP(hero, "NC_KDW04_IN") < 500)
 	{
 		return TRUE;
-	};	
+	};
 };
 
 func void Info_Milten_LSAWAY_Info()
@@ -1414,7 +1414,7 @@ instance Info_Milten_LOADSWORD4 (C_INFO)
 	information		= Info_Milten_LOADSWORD4_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "Xardas gave me this magic spell!"; 
+	description		= "Xardas gave me this magic spell!";
 };
 
 FUNC int Info_Milten_LOADSWORD4_Condition()
@@ -1422,7 +1422,7 @@ FUNC int Info_Milten_LOADSWORD4_Condition()
 	if	Npc_KnowsInfo(hero, Info_Milten_LSAWAY)
 	{
 		return 1;
-	};	
+	};
 };
 
 func void Info_Milten_LOADSWORD4_Info()
@@ -1450,7 +1450,7 @@ instance Info_Milten_LSRISK (C_INFO)
 	information		= Info_Milten_LSRISK_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "We'll have to take that risk!"; 
+	description		= "We'll have to take that risk!";
 };
 
 FUNC int Info_Milten_LSRISK_Condition()
@@ -1458,7 +1458,7 @@ FUNC int Info_Milten_LSRISK_Condition()
 	if	Npc_KnowsInfo(hero, Info_Milten_LOADSWORD4)
 	{
 		return TRUE;
-	};	
+	};
 };
 
 func void Info_Milten_LSRISK_Info()
@@ -1472,7 +1472,7 @@ func void Info_Milten_LSRISK_Info()
 	AI_Output			(self, hero,"Info_Milten_LSRISK_02_07"); //Besides, it seems Xardas trusts you as well.
 	AI_Output			(self, hero,"Info_Milten_LSRISK_02_08"); //Meet me down at the ore mound, and... Don't tell anybody!
 	AI_Output			(hero, self,"Info_Milten_LSRISK_15_09"); //Good, let's meet at the ore mound! See you there!
-	
+
 	B_LogEntry			(CH5_Uriziel,"I could convince my friend Milten to help me transfer the energy to the sword. We'll meet at the bottom of the ore mound of the Magicians of Water.");
 	Npc_ExchangeRoutine	(self,	"LSOreHeap");
 	B_ExchangeRoutine	(Sld_726_Soeldner,	"loadsword");
@@ -1499,7 +1499,7 @@ FUNC int Info_Milten_LSOREHEAP_Condition()
 	&&	(Npc_GetDistToWP(hero, "NC_PATH41") < 500)
 	{
 		return TRUE;
-	};	
+	};
 };
 
 func void Info_Milten_LSOREHEAP_Info()
@@ -1508,7 +1508,7 @@ func void Info_Milten_LSOREHEAP_Info()
 
 	AI_Output			(self, hero,"Info_Milten_LSOREHEAP_02_01"); //Have you got the sword and the spell?
 };
-	
+
 //***************************************************************************
 //	Info LSNOW
 //***************************************************************************
@@ -1519,7 +1519,7 @@ instance Info_Milten_LSNOW (C_INFO)
 	information		= Info_Milten_LSNOW_Info;
 	important		= 0;
 	permanent		= 0;
-	description		= "Here, take the spell!"; 
+	description		= "Here, take the spell!";
 };
 
 FUNC int Info_Milten_LSNOW_Condition()
@@ -1530,7 +1530,7 @@ FUNC int Info_Milten_LSNOW_Condition()
 	&&	(Npc_GetDistToWP(hero, "NC_PATH41") < 1000)
 	{
 		return TRUE;
-	};	
+	};
 };
 
 func void Info_Milten_LSNOW_Info()
@@ -1540,8 +1540,8 @@ func void Info_Milten_LSNOW_Info()
 	AI_Output			(self, hero,"Info_Milten_LSNOW_02_03"); //As ready as one can be for this crazy plan.
 	AI_Output			(hero, self,"Info_Milten_LSNOW_15_04"); //Then let's do it!
 
-	B_GiveInvItems 	(hero, self, Scroll4Milten, 1);	
-	B_GiveInvItems 	(hero, self, Mythrilklinge01, 1);	
+	B_GiveInvItems 	(hero, self, Scroll4Milten, 1);
+	B_GiveInvItems 	(hero, self, Mythrilklinge01, 1);
 
 	StartChaptersSix = TRUE;
 
@@ -1566,7 +1566,7 @@ FUNC int Info_Milten_CHAPTERSIX_Condition()
 	&&	StartChaptersSix
 	{
 		return TRUE;
-	};	
+	};
 };
 
 func void Info_Milten_CHAPTERSIX_Info()
@@ -1574,7 +1574,7 @@ func void Info_Milten_CHAPTERSIX_Info()
 	AI_StopProcessInfos	(self);
 	B_Kapitelwechsel	(6);
 };
-	
+
 //---------------------------------------------------------------------
 //	Info LSDONE
 //---------------------------------------------------------------------
@@ -1592,7 +1592,7 @@ FUNC int Info_Milten_LSDONE_Condition()
 	if	(Kapitel == 6)
 	{
 		return TRUE;
-	};	
+	};
 };
 
 func void Info_Milten_LSDONE_Info()
@@ -1614,7 +1614,7 @@ func void Info_Milten_LSDONE_Info()
 	AI_Output				(self, hero,"Info_Milten_LSDONE_02_07"); //Don't worry about me, I'll think of something. Go now!
 
 	B_Story_UrizielLoaded	();
-	
+
 	AI_StopProcessInfos	(self);
 };
 

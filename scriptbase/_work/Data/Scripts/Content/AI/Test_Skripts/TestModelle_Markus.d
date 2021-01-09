@@ -1,16 +1,16 @@
 /**********************************************************
-* Overlay Testmodell									  
-**********************************************************/  
+* Overlay Testmodell
+**********************************************************/
 instance PC_Mini (C_NPC)
-{   
+{
 	//-------- primary data --------
-	
+
 	name =							"Mini";
-	guild =							GIL_NONE;      
+	guild =							GIL_NONE;
 	level =							10;
 	voice =							11;//4
 	id =							3001;
-	
+
 
 
 	//-------- abilities --------
@@ -24,30 +24,30 @@ instance PC_Mini (C_NPC)
 	//-------- visuals --------
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
-	//						body mesh     ,		bdytex,	skin,	head mesh     ,		headtex,	teethtex,	ruestung	
+	//						body mesh     ,		bdytex,	skin,	head mesh     ,		headtex,	teethtex,	ruestung
 	Mdl_SetVisualBody (self,"hum_body_Naked0",	3,		1,		"Hum_Head_Pony", 	77,  		DEFAULT,	-1);
-	
-	//-------- inventory --------                                    
+
+	//-------- inventory --------
 	//Npc_LearnTalent		( self, TAL_SNEAK);
-		
+
 	// FAI
-	
+
 	fight_tactic = FAI_HUMAN_COWARD;
-	
+
 	//-------------Daily Routine-------------
 //	daily_routine = Rtn_start_3001;
 };
 
 instance OverlayTestmodell (C_NPC)
-{   
+{
 	//-------- primary data --------
-	
+
 	name =							"ATestmodell";
-	guild =							GIL_BAU;      
+	guild =							GIL_BAU;
 	level =							10;
 	voice =							11;//4
 	id =							3001;
-	
+
 
 
 	//-------- abilities --------
@@ -61,15 +61,15 @@ instance OverlayTestmodell (C_NPC)
 	//-------- visuals --------
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
-	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
+	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin
 	Mdl_SetVisualBody (self,"hum_body_Naked0",DEFAULT,DEFAULT,"Hum_Head_Bald", DEFAULT,  DEFAULT,-1);
-	
+
 	Mdl_ApplyOverlayMds (self,"Humans_1hST1.mds");
 	Mdl_ApplyOverlayMds (self,"Humans_1hST2.mds");
-	
+
 	Mdl_ApplyOverlayMds (self,"Humans_2hST1.mds");
 	Mdl_ApplyOverlayMds (self,"Humans_2hST2.mds");
-	
+
 	Mdl_ApplyOverlayMds (self,"Humans_BowT1.mds");
 	Mdl_ApplyOverlayMds (self,"Humans_BowT2.mds");
 
@@ -89,27 +89,27 @@ instance OverlayTestmodell (C_NPC)
 	Mdl_ApplyOverlayMds (self,"Humans_Sprint.mds");
 
 	B_Scale (self);
-	
-	
-	//-------- inventory --------                                    
 
-		
+
+	//-------- inventory --------
+
+
 	// FAI
-	
+
 	fight_tactic = FAI_HUMAN_COWARD;
-	
+
 	//-------------Daily Routine-------------
 //	daily_routine = Rtn_start_3001;
 };
 
 /**********************************************************
 * Bade Babe
-**********************************************************/  
+**********************************************************/
 instance Bathbabe (C_NPC)
 {
 	//-------- primary data -----n
 	name =					"bathing babe";
-	guild =					GIL_EBR;      
+	guild =					GIL_EBR;
 	level =					3;
 	voice =					11;//18;// Babe 1;
 	id =					3009;
@@ -126,10 +126,10 @@ instance Bathbabe (C_NPC)
 	//-------- visuals --------
 	// 				animations
 	Mdl_SetVisual		(self,"BABE.MDS");
-	//						body mesh     ,		bdytex,	skin,	head mesh     ,		headtex,	teethtex,	ruestung	
+	//						body mesh     ,		bdytex,	skin,	head mesh     ,		headtex,	teethtex,	ruestung
 	Mdl_SetVisualBody (self,"Bab_body_Naked0",	DEFAULT, 	1 ,	"Bab_Head_Hair1", 	3 ,  		DEFAULT, 	-1);
-	
-	//-------- inventory --------                                    
+
+	//-------- inventory --------
 	//CreateInvItems(self, ItFoWine, 4);
 	//CreateInvItem (self, ItMiBrush);
 

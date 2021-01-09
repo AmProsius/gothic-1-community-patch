@@ -1,12 +1,12 @@
 instance ORG_800_Organisator (Npc_Default)
 {
 	//-------- primary data --------
-	
+
 	name =					Name_Organisator;
 	Npctype =				Npctype_Ambient;
-	guild =							GIL_ORG;      
+	guild =							GIL_ORG;
 	level =							15;
-	
+
 	voice =							13;
 	id =							800;
 
@@ -24,15 +24,15 @@ instance ORG_800_Organisator (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Relaxed.mds");
-	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
+	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin
 	Mdl_SetVisualBody (self,"hum_body_Naked0",0, 1,"Hum_Head_Fatbald", 35, 2,ORG_ARMOR_H);
-	
-	B_Scale (self);	
-	Mdl_SetModelFatness (self, 0);	
-	
+
+	B_Scale (self);
+	Mdl_SetModelFatness (self, 0);
+
 	fight_tactic	=	FAI_HUMAN_STRONG;
-	
-	
+
+
 	//-------- Talente ----------
 
 	Npc_SetTalentSkill (self, NPC_TALENT_BOW,1);
@@ -40,7 +40,7 @@ instance ORG_800_Organisator (Npc_Default)
 
 	//------- Inventory ---------
 
-	CreateInvItems (self, ItKeLockpick,3);		
+	CreateInvItems (self, ItKeLockpick,3);
 	CreateInvItems(self, ItMiNugget, 18);
 	CreateInvItems (self, ItFoRice,8);
 	CreateInvItems (self, ItFoBooze, 3);
@@ -63,8 +63,8 @@ instance ORG_800_Organisator (Npc_Default)
 
 FUNC VOID Rtn_start_800 ()
 {
-	TA_Sleep		(00,30,08,00,"NC_HUT26_IN");	
-	TA_SitCampfire	(08,00,00,30,"NC_PATH17_MOVEMENT");	
+	TA_Sleep		(00,30,08,00,"NC_HUT26_IN");
+	TA_SitCampfire	(08,00,00,30,"NC_PATH17_MOVEMENT");
 };
 
 

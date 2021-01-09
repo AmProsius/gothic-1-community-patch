@@ -9,13 +9,13 @@
 
 INSTANCE Info_Mine_Sld_11_EXIT(C_INFO)
 {
-	
+
 	nr			= 999;
 	condition	= Info_Mine_Sld_11_EXIT_Condition;
 	information	= Info_Mine_Sld_11_EXIT_Info;
 	permanent	= 1;
 	description = "END";
-};                       
+};
 
 FUNC INT Info_Mine_Sld_11_EXIT_Condition()
 {
@@ -23,7 +23,7 @@ FUNC INT Info_Mine_Sld_11_EXIT_Condition()
 };
 
 FUNC VOID Info_Mine_Sld_11_EXIT_Info()
-{	
+{
 	AI_StopProcessInfos	(self);
 };
 
@@ -38,7 +38,7 @@ INSTANCE Info_Mine_Sld_11_EinerVonEuchWerden (C_INFO) // E1
 	information	= Info_Mine_Sld_11_EinerVonEuchWerden_Info;
 	permanent	= 1;
 	description = "How do I join you?";
-};                       
+};
 
 FUNC INT Info_Mine_Sld_11_EinerVonEuchWerden_Condition()
 {
@@ -49,7 +49,7 @@ FUNC INT Info_Mine_Sld_11_EinerVonEuchWerden_Condition()
 	{
 		return TRUE;
 	};
-};	
+};
 
 FUNC VOID Info_Mine_Sld_11_EinerVonEuchWerden_Info()
 {
@@ -69,7 +69,7 @@ INSTANCE Info_Mine_Sld_11_WichtigePersonen(C_INFO)
 	information	= Info_Mine_Sld_11_WichtigePersonen_Info;
 	permanent	= 1;
 	description = "Who gives the orders here?";
-};                       
+};
 
 FUNC INT Info_Mine_Sld_11_WichtigePersonen_Condition()
 {
@@ -94,7 +94,7 @@ INSTANCE Info_Mine_Sld_11_DasLager(C_INFO)
 	information	= Info_Mine_Sld_11_DasLager_Info;
 	permanent	= 1;
 	description = "Anything special go on here?";
-};                       
+};
 
 FUNC INT Info_Mine_Sld_11_DasLager_Condition()
 {
@@ -119,7 +119,7 @@ INSTANCE Info_Mine_Sld_11_DieLage(C_INFO) // E1
 	information	= Info_Mine_Sld_11_DieLage_Info;
 	permanent	= 1;
 	description = "How's it going?";
-};                       
+};
 
 FUNC INT Info_Mine_Sld_11_DieLage_Condition()
 {
@@ -131,14 +131,14 @@ FUNC VOID Info_Mine_Sld_11_DieLage_Info()
 	AI_Output(other,self,"Info_Mine_Sld_11_DieLage_15_00"); //How's it going?
 	AI_Output(self,other,"Info_Mine_Sld_11_DieLage_011_01"); //It's quiet. A bit too quiet for my liking.
 };
-	
+
 // *************************************************************************
 // -------------------------------------------------------------------------
 
 FUNC VOID B_AssignAmbientInfos_Mine_Sld_11(var c_NPC slf)
 {
 	//B_AssignFindNpcInfos(slf);
-	
+
 	Info_Mine_Sld_11_EXIT.npc					= Hlp_GetInstanceID(slf);
 	Info_Mine_Sld_11_EinerVonEuchWerden.npc	= Hlp_GetInstanceID(slf);
 	Info_Mine_Sld_11_WichtigePersonen.npc		= Hlp_GetInstanceID(slf);

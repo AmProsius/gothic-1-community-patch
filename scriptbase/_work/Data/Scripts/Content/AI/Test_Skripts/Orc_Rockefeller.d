@@ -3,13 +3,13 @@ INSTANCE Orc_Rockefeller (Mst_Default_OrcWarrior)
 	//-------- primary data	--------
 	name						=		"Orc Rockefeller";
 	Set_OrcWarrior_Visuals();
-	
 
-	
+
+
 //----------------------------------------
 //Food.d
 //----------------------------------------
-	CreateInvItems(self,ItFo_mutton_01,20);		
+	CreateInvItems(self,ItFo_mutton_01,20);
 	CreateInvItems(self,ItFoApple,5);
 	CreateInvItems(self,ItFoLoaf,5);
 	CreateInvItems(self,ItFoMutton,20);
@@ -22,7 +22,7 @@ INSTANCE Orc_Rockefeller (Mst_Default_OrcWarrior)
 	CreateInvItems(self,ItFoWine,5);
 	CreateInvItems(self,ItFo_wineberrys_01,5);
 	CreateInvItems(self,ItFoBeer,5);
-	
+
 //PFLANZEN
 	CreateInvItems(self,ItFo_Plants_Trollberrys_01,5);
 	CreateInvItems(self,ItFo_Plants_Flameberry_01,5);
@@ -95,7 +95,7 @@ INSTANCE Orc_Rockefeller (Mst_Default_OrcWarrior)
 	CreateInvItem(self,ItMw2hOrcAxe02);
 //	CreateInvItem(self,ItMw2hOrcAxe03);
 	CreateInvItem(self,ItMw2hOrcMace01);
-	
+
 //----------------------------------------
 //Ammunition.d
 //----------------------------------------
@@ -116,15 +116,15 @@ INSTANCE Shaman_Rockefeller (Mst_Default_OrcWarrior)
 	attribute	[ATR_MANA] 			=	50;
 
 	fight_tactic					=	FAI_HUMAN_MAGE;
-	
-	Set_OrcShaman_Visuals();
-	
 
-	
+	Set_OrcShaman_Visuals();
+
+
+
 //----------------------------------------
 //Food.d
 //----------------------------------------
-	CreateInvItems(self,ItFo_mutton_01,20);		
+	CreateInvItems(self,ItFo_mutton_01,20);
 	CreateInvItems(self,ItFoApple,5);
 	CreateInvItems(self,ItFoLoaf,5);
 	CreateInvItems(self,ItFoMutton,20);
@@ -137,7 +137,7 @@ INSTANCE Shaman_Rockefeller (Mst_Default_OrcWarrior)
 	CreateInvItems(self,ItFoWine,5);
 	CreateInvItems(self,ItFo_wineberrys_01,5);
 	CreateInvItems(self,ItFoBeer,5);
-	
+
 //PFLANZEN
 	CreateInvItems(self,ItFo_Plants_Trollberrys_01,5);
 	CreateInvItems(self,ItFo_Plants_Flameberry_01,5);
@@ -209,7 +209,7 @@ INSTANCE Shaman_Rockefeller (Mst_Default_OrcWarrior)
 	CreateInvItem(self,ItMw2hOrcAxe02);
 	CreateInvItem(self,ItMw2hOrcAxe03);
 	CreateInvItem(self,ItMw2hOrcMace01);
-	
+
 //----------------------------------------
 //Ammunition.d
 //----------------------------------------
@@ -230,15 +230,15 @@ INSTANCE UdShaman_Rockefeller (Mst_Default_OrcWarrior)
 	attribute	[ATR_MANA] 			=	50;
 
 	fight_tactic					=	FAI_HUMAN_MAGE;
-	
-	Set_UndeadOrcShaman_Visuals();
-	
 
-	
+	Set_UndeadOrcShaman_Visuals();
+
+
+
 //----------------------------------------
 //Food.d
 //----------------------------------------
-	CreateInvItems(self,ItFo_mutton_01,20);		
+	CreateInvItems(self,ItFo_mutton_01,20);
 	CreateInvItems(self,ItFoApple,5);
 	CreateInvItems(self,ItFoLoaf,5);
 	CreateInvItems(self,ItFoMutton,20);
@@ -251,7 +251,7 @@ INSTANCE UdShaman_Rockefeller (Mst_Default_OrcWarrior)
 	CreateInvItems(self,ItFoWine,5);
 	CreateInvItems(self,ItFo_wineberrys_01,5);
 	CreateInvItems(self,ItFoBeer,5);
-	
+
 //PFLANZEN
 	CreateInvItems(self,ItFo_Plants_Trollberrys_01,5);
 	CreateInvItems(self,ItFo_Plants_Flameberry_01,5);
@@ -323,7 +323,7 @@ INSTANCE UdShaman_Rockefeller (Mst_Default_OrcWarrior)
 	CreateInvItem(self,ItMw2hOrcAxe02);
 	CreateInvItem(self,ItMw2hOrcAxe03);
 	CreateInvItem(self,ItMw2hOrcMace01);
-	
+
 //----------------------------------------
 //Ammunition.d
 //----------------------------------------

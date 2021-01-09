@@ -4,14 +4,14 @@
 instance Bau_940_Riddler (Npc_Default)
 {
 	//-------- primary data --------
-	
-	name 		=	"Corpse";  
+
+	name 		=	"Corpse";
 	npctype		= 	npctype_main;
 	guild 		=	GIL_BAU;
 	level 		=	10;
 	voice 		=	7;
 	id 			=	940;
-		
+
 	//-------- abilities --------
 	attribute[ATR_STRENGTH] 	= 13;
 	attribute[ATR_DEXTERITY]	= 10;
@@ -19,29 +19,29 @@ instance Bau_940_Riddler (Npc_Default)
 	attribute[ATR_MANA] 		= 0;
 	attribute[ATR_HITPOINTS_MAX]= 64;
 	attribute[ATR_HITPOINTS] 	= 64;
-	
+
 	//-------- visuals --------
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Tired.mds");
-	//			body mesh     ,bdytex,skin,head mesh     ,headtex5,teethtex,ruestung		
-	Mdl_SetVisualBody (self,"hum_body_Naked0",3,1,"Hum_Head_Pony",110 , 1,-1);	
+	//			body mesh     ,bdytex,skin,head mesh     ,headtex5,teethtex,ruestung
+	Mdl_SetVisualBody (self,"hum_body_Naked0",3,1,"Hum_Head_Pony",110 , 1,-1);
 	B_Scale (self);
 	Mdl_SetModelFatness(self,0);
-	
-	fight_tactic	=	FAI_HUMAN_COWARD; 
-        
-  	//-------- Talente -------- 
-			
+
+	fight_tactic	=	FAI_HUMAN_COWARD;
+
+  	//-------- Talente --------
+
 	//-------- inventory --------
 
-	CreateInvItems	(self, ItMiNugget, 302);	
+	CreateInvItems	(self, ItMiNugget, 302);
 	CreateInvItems 	(self, ItFoRice,6);
 	CreateInvItem 	(self, ItFoBooze);
 	CreateInvItem	(self, theriddle6);
 	CreateInvItems 	(self, ItArScrollTrfBloodfly,2);
-	CreateInvItem 	(self, Lebensamulett);	        
-	
+	CreateInvItem 	(self, Lebensamulett);
+
 	//-------------Daily Routine-------------
 	daily_routine = Rtn_start_940;
 };

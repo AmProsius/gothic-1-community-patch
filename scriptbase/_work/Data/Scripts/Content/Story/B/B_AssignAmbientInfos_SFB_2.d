@@ -14,7 +14,7 @@ INSTANCE Info_SFB_2_Pre(C_INFO)
 	information	= Info_SFB_2_Pre_Info;
 	permanent	= 0;
 	important 	= 1;
-};                       
+};
 
 FUNC INT Info_SFB_2_Pre_Condition()
 {
@@ -22,7 +22,7 @@ FUNC INT Info_SFB_2_Pre_Condition()
 };
 
 FUNC VOID Info_SFB_2_Pre_Info()
-{	
+{
 	AI_Output(self,other,"Info_SFB_2_EinerVonEuchWerden_02_00"); //What do you want? I don't want to get into any trouble.
 };
 
@@ -32,13 +32,13 @@ FUNC VOID Info_SFB_2_Pre_Info()
 
 INSTANCE Info_SFB_2_EXIT(C_INFO)
 {
-	
+
 	nr			= 999;
 	condition	= Info_SFB_2_EXIT_Condition;
 	information	= Info_SFB_2_EXIT_Info;
 	permanent	= 1;
 	description = "END";
-};                       
+};
 
 FUNC INT Info_SFB_2_EXIT_Condition()
 {
@@ -46,7 +46,7 @@ FUNC INT Info_SFB_2_EXIT_Condition()
 };
 
 FUNC VOID Info_SFB_2_EXIT_Info()
-{	
+{
 	AI_StopProcessInfos	(self);
 };
 
@@ -54,14 +54,14 @@ FUNC VOID Info_SFB_2_EXIT_Info()
 // 								Einer von Euch werden
 // *************************************************************************
 
-INSTANCE Info_SFB_2_EinerVonEuchWerden (C_INFO) 
+INSTANCE Info_SFB_2_EinerVonEuchWerden (C_INFO)
 {
 	nr			= 4;
 	condition	= Info_SFB_2_EinerVonEuchWerden_Condition;
 	information	= Info_SFB_2_EinerVonEuchWerden_Info;
 	permanent	= 1;
 	description = "What do I have to do to join you?";
-};                       
+};
 
 FUNC INT Info_SFB_2_EinerVonEuchWerden_Condition()
 {
@@ -88,7 +88,7 @@ INSTANCE Info_SFB_2_WichtigePersonen(C_INFO)
 	information	= Info_SFB_2_WichtigePersonen_Info;
 	permanent	= 1;
 	description = "Who's in charge here.";
-};                       
+};
 
 FUNC INT Info_SFB_2_WichtigePersonen_Condition()
 {
@@ -113,7 +113,7 @@ INSTANCE Info_SFB_2_DasLager(C_INFO)
 	information	= Info_SFB_2_DasLager_Info;
 	permanent	= 1;
 	description = "I need to know more about the Camp.";
-};                       
+};
 
 FUNC INT Info_SFB_2_DasLager_Condition()
 {
@@ -130,14 +130,14 @@ FUNC VOID Info_SFB_2_DasLager_Info()
 // 									Die Lage
 // *************************************************************************
 
-INSTANCE Info_SFB_2_DieLage(C_INFO) 
+INSTANCE Info_SFB_2_DieLage(C_INFO)
 {
 	nr			= 1;
 	condition	= Info_SFB_2_DieLage_Condition;
 	information	= Info_SFB_2_DieLage_Info;
 	permanent	= 1;
 	description = "What's life like here?";
-};                       
+};
 
 FUNC INT Info_SFB_2_DieLage_Condition()
 {
@@ -152,8 +152,8 @@ FUNC VOID Info_SFB_2_DieLage_Info()
 	AI_Output(self,other,"Info_SFB_2_DieLage_02_03"); //Are you from the Old Camp?
 	AI_Output(self,other,"Info_SFB_2_DieLage_02_04"); //If you're from the Old Camp, just you remember I don't want any trouble!
 	AI_StopProcessInfos	(self);
-};	
-	
+};
+
 // *************************************************************************
 // -------------------------------------------------------------------------
 
@@ -161,7 +161,7 @@ FUNC VOID B_AssignAmbientInfos_SFB_2(var c_NPC slf)
 {
 
 	Info_SFB_2_Pre.npc					= Hlp_GetInstanceID(slf);
-	
+
 	Info_SFB_2_EXIT.npc					= Hlp_GetInstanceID(slf);
 	Info_SFB_2_EinerVonEuchWerden.npc	= Hlp_GetInstanceID(slf);
 	Info_SFB_2_WichtigePersonen.npc		= Hlp_GetInstanceID(slf);

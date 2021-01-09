@@ -15,7 +15,7 @@ INSTANCE Info_Mine_Vlk_3_EXIT(C_INFO)
 	information	= Info_Mine_Vlk_3_EXIT_Info;
 	permanent	= 1;
 	description = "END";
-};                       
+};
 
 FUNC INT Info_Mine_Vlk_3_EXIT_Condition()
 {
@@ -23,7 +23,7 @@ FUNC INT Info_Mine_Vlk_3_EXIT_Condition()
 };
 
 FUNC VOID Info_Mine_Vlk_3_EXIT_Info()
-{	
+{
 	AI_StopProcessInfos	(self);
 };
 
@@ -38,7 +38,7 @@ INSTANCE Info_Mine_Vlk_3_Mine (C_INFO) // E1
 	information	= Info_Mine_Vlk_3_Mine_Info;
 	permanent	= 1;
 	description = "Tell me about the mine.";
-};                       
+};
 
 FUNC INT Info_Mine_Vlk_3_Mine_Condition()
 {
@@ -52,7 +52,7 @@ FUNC VOID Info_Mine_Vlk_3_Mine_Info()
 {
 	AI_Output(other,self,"Info_Mine_Vlk_3_Mine_15_00"); //Tell me about the mine.
 	AI_Output(self,other,"Info_Mine_Vlk_3_Mine_01_01"); //We all have to work hard for weeks on end, we never get to see the light of day. There is no escape. The only way out is death.
-	
+
 };
 
 // *************************************************************************
@@ -66,7 +66,7 @@ INSTANCE Info_Mine_Vlk_3_WichtigePersonen(C_INFO)
 	information	= Info_Mine_Vlk_3_WichtigePersonen_Info;
 	permanent	= 1;
 	description = "Who calls the shots around here?";
-};                       
+};
 
 FUNC INT Info_Mine_Vlk_3_WichtigePersonen_Condition()
 {
@@ -93,7 +93,7 @@ INSTANCE Info_Mine_Vlk_3_Minecrawler(C_INFO)
 	information	= Info_Mine_Vlk_3_Minecrawler_Info;
 	permanent	= 1;
 	description = "What do you know about minecrawlers?";
-};                       
+};
 
 FUNC INT Info_Mine_Vlk_3_Minecrawler_Condition()
 {
@@ -121,7 +121,7 @@ INSTANCE Info_Mine_Vlk_3_DieLage(C_INFO) // E1
 	information	= Info_Mine_Vlk_3_DieLage_Info;
 	permanent	= 1;
 	description = "How's it going?";
-};                       
+};
 
 FUNC INT Info_Mine_Vlk_3_DieLage_Condition()
 {
@@ -137,7 +137,7 @@ FUNC VOID Info_Mine_Vlk_3_DieLage_Info()
 	AI_Output(self,other,"Info_Mine_Vlk_3_DieLage_01_01"); //Well, my back aches, my arms feel like they're gonna drop off, my tongue's bone dry and I'm dead tired.
 	AI_Output(self,other,"Info_Mine_Vlk_3_DieLage_01_02"); //And the constant hammering of the pickaxes is slowly driving me round the bend.
 };
-	
+
 // *************************************************************************
 // -------------------------------------------------------------------------
 

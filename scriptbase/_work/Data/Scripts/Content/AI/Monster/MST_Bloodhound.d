@@ -2,7 +2,7 @@
 **	Bloodhound Prototype	(Anims wie Shadowbeast)						**
 *************************************************************************/
 
-PROTOTYPE Mst_Default_Bloodhound(C_Npc)			
+PROTOTYPE Mst_Default_Bloodhound(C_Npc)
 {
 	name							=	"Bloodhound";
 	guild							=	GIL_SHADOWBEAST;
@@ -11,7 +11,7 @@ PROTOTYPE Mst_Default_Bloodhound(C_Npc)
 //----------------------------------------------------------------
 	attribute	[ATR_STRENGTH]		=	90;
 	attribute	[ATR_DEXTERITY]		=	90;
-	
+
 	attribute	[ATR_HITPOINTS_MAX]	=	160;
 	attribute	[ATR_HITPOINTS]		=	160;
 
@@ -40,7 +40,7 @@ PROTOTYPE Mst_Default_Bloodhound(C_Npc)
 	senses_range				= 3000;
 
 	aivar[AIV_MM_Behaviour]		= HUNTER;
-	
+
 	aivar[AIV_MM_PercRange]		= 2500;
 	aivar[AIV_MM_DrohRange]		= 2000;
 	aivar[AIV_MM_AttackRange]	= 1800;

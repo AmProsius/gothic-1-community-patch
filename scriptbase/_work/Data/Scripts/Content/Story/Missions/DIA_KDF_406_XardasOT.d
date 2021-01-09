@@ -11,15 +11,15 @@ instance  Info_Xardas_OT (C_INFO)
 	condition		= Info_Xardas_OT_Condition;
 	information		= Info_Xardas_OT_Info;
 	important		= 1;
-	permanent		= 0; 
+	permanent		= 0;
 };
 
 FUNC int  Info_Xardas_OT_Condition()
-{	
+{
 	if (Npc_GetDistToWP(self, "TPL_331") < 1000)
-	{			
+	{
 		return TRUE;
-	}; 
+	};
 };
 
 FUNC void  Info_Xardas_OT_Info()
@@ -39,11 +39,11 @@ FUNC void  Info_Xardas_OT_Info()
 	AI_Output			(other, self,"Info_Xardas_OT_15_13"); //What's wrong with you?
 	AI_Output			(self, other,"Info_Xardas_OT_14_14"); //I... must...
 
-	Npc_ExchangeRoutine	(self,	"DRAINED"); 
-	
+	Npc_ExchangeRoutine	(self,	"DRAINED");
+
 	Log_CreateTopic		(CH6_Sleeper,	LOG_MISSION);
 	Log_SetTopicStatus	(CH6_Sleeper,	LOG_RUNNING);
 	B_LogEntry			(CH6_Sleeper,"The time has come. I must be just a short distance away from the Sleeper's resting place. Xardas suddenly appeared and gave me instructions for the fight. The five hearts of the undead Orc shamans are in shrines, I need to pierce them with the five blades I've got on me. This is the only way to defeat the Sleeper. Sounds quite simple ...");
-	
+
 	AI_StopProcessInfos	(self);
-};		
+};
