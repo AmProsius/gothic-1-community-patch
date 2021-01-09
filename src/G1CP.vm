@@ -1,7 +1,6 @@
 [BEGINVDF]
-Comment=Gothic 1 Community Patch
-BaseDir=.\
-VDFName=.\..\build\G1CP.vdf
+
+; Do not use this file - run make instead
 
 [FILES]
 ; Resources (list the specific files from _work here)

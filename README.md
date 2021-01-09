@@ -12,3 +12,14 @@ The patch should be compatible with the following software:
 * Bonne
 * catalinux
 * mud-freak
+
+## Building
+Building the project is fully automated. VDF and NSIS setup are created in the sub-directory `build` by running `make`, `make all`, or `make remake` from Windows command prompt.
+
+To build, the paths to the following software are required to be in the `PATH` environment variable:
+
+ - [Make](http://gnuwin32.sourceforge.net/packages/make.htm)
+ - [GothicVDFS](http://www.bendlins.de/nico/gothic2/)
+ - [NSIS (Nullsoft Scriptable Install System)](https://nsis.sourceforge.io/)
+
+The Makefile is written and supported for Windows only.
