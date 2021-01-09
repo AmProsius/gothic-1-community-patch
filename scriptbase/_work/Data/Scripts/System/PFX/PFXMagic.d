@@ -1,8 +1,8 @@
 
 //////////////////////////////////////
 //
-// 	Particle-Effects
-//	Instance-Definitions
+//   Particle-Effects
+//   Instance-Definitions
 //
 //////////////////////////////////////
 
@@ -11,9 +11,9 @@
 // INSTANCE PartikelEffekt1 (C_ParticleFXProto)
 
 
-///   													XXXXXXXXXXXXXXXXXXXXXXX
-///   													XX  P R A C T I C E  XX
-///   													XXXXXXXXXXXXXXXXXXXXXXX
+///                                                                   XXXXXXXXXXXXXXXXXXXXXXX
+///                                                                   XX  P R A C T I C E  XX
+///                                                                   XXXXXXXXXXXXXXXXXXXXXXX
 
 
 INSTANCE PRACTICEMAGIC_01A (C_PARTICLEFX)
@@ -225,9 +225,9 @@ INSTANCE PRACTICEMAGIC_04 (C_PARTICLEFX)
 };
 
 
-///   													XXXXXXXXXXXXXXXXXXXXXXX
-///   													XX  S C R I P T      XX
-///   													XXXXXXXXXXXXXXXXXXXXXXX
+///                                                                   XXXXXXXXXXXXXXXXXXXXXXX
+///                                                                   XX  S C R I P T      XX
+///                                                                   XXXXXXXXXXXXXXXXXXXXXXX
 
 
 INSTANCE MFX_TELEPORT_SKRIPT (C_PARTICLEFX)
@@ -259,9 +259,9 @@ INSTANCE MFX_TELEPORT_SKRIPT (C_PARTICLEFX)
 };
 
 
-///   													XXXXXXXXXXXXXXXXXXXXXXX
-///   													XX  S P A W N   F X  XX
-///   													XXXXXXXXXXXXXXXXXXXXXXX
+///                                                                   XXXXXXXXXXXXXXXXXXXXXXX
+///                                                                   XX  S P A W N   F X  XX
+///                                                                   XXXXXXXXXXXXXXXXXXXXXXX
 
 
 INSTANCE MFX_SPAWN_CAST (C_PARTICLEFX)
@@ -327,9 +327,9 @@ INSTANCE MFX_SPAWN_CHILD (C_PARTICLEFX)
      visalphaend = 255.000000000;
 };
 
-///   													XXXXXXXXXXXXXXXXX
-///   													XX  L I G H T  XX
-///   													XXXXXXXXXXXXXXXXX
+///                                                                   XXXXXXXXXXXXXXXXX
+///                                                                   XX  L I G H T  XX
+///                                                                   XXXXXXXXXXXXXXXXX
 
 
 INSTANCE MFX_LIGHT_INIT (C_PARTICLEFX)
@@ -428,9 +428,9 @@ INSTANCE MFX_LIGHT_ORIGIN_LESS (C_PARTICLEFX)
      visalphaend = 255.000000000;
 };
 
-///   													XXXXXXXXXXXXXXXXXXXXXXX
-///   													XX  F I R E B O L T  XX
-///   													XXXXXXXXXXXXXXXXXXXXXXX
+///                                                                   XXXXXXXXXXXXXXXXXXXXXXX
+///                                                                   XX  F I R E B O L T  XX
+///                                                                   XXXXXXXXXXXXXXXXXXXXXXX
 
 INSTANCE MFX_FIREBOLT_INIT (C_PARTICLEFX)
 {
@@ -550,9 +550,9 @@ INSTANCE MFX_FIREBOLT_COLLIDE (C_PARTICLEFX)
      visalphastart = 255.000000000;
 };
 
-///   													XXXXXXXXXXXXXXXXXXXXXXX
-///   													XX  F I R E B A L L  XX
-///   													XXXXXXXXXXXXXXXXXXXXXXX
+///                                                                   XXXXXXXXXXXXXXXXXXXXXXX
+///                                                                   XX  F I R E B A L L  XX
+///                                                                   XXXXXXXXXXXXXXXXXXXXXXX
 
 INSTANCE MFX_FIREBALL_INIT (C_PARTICLEFX)
 {
@@ -671,12 +671,12 @@ PROTOTYPE MFX_FIREBALL_INVEST_PROTO (C_PARTICLEFX)
 
 
 
-INSTANCE MFX_FIREBALL_INVEST	(MFX_FIREBALL_INVEST_PROTO)
+INSTANCE MFX_FIREBALL_INVEST  (MFX_FIREBALL_INVEST_PROTO)
 {
-	 ppsvalue = 10;
-	 lsppartavg = 1000.000000000;
-	 vistexcolorstart_s = "200 50 50";
-	 vistexcolorend_s = "200 0 0";
+      ppsvalue = 10;
+      lsppartavg = 1000.000000000;
+      vistexcolorstart_s = "200 50 50";
+      vistexcolorend_s = "200 0 0";
      vissizeendscale = 5.000000000;
      shpdim_s = "6";
      visalphastart = 180;
@@ -684,9 +684,9 @@ INSTANCE MFX_FIREBALL_INVEST	(MFX_FIREBALL_INVEST_PROTO)
 
 INSTANCE MFX_FIREBALL_INVEST_L1 (MFX_FIREBALL_INVEST_PROTO)
 {
-	 ppsvalue = 10;
-	 lsppartavg = 1000.000000000;
-	 vistexcolorstart_s = "200 100 100";
+      ppsvalue = 10;
+      lsppartavg = 1000.000000000;
+      vistexcolorstart_s = "200 100 100";
      vistexcolorend_s = "200 50 50";
      vissizeendscale = 5.000000000;
      shpdim_s = "6";
@@ -695,9 +695,9 @@ INSTANCE MFX_FIREBALL_INVEST_L1 (MFX_FIREBALL_INVEST_PROTO)
 
 INSTANCE MFX_FIREBALL_INVEST_L2 (MFX_FIREBALL_INVEST_PROTO)
 {
-	 ppsvalue = 13;
-	 lsppartavg = 1300.000000000;
-	 vistexcolorstart_s = "220 150 150";
+      ppsvalue = 13;
+      lsppartavg = 1300.000000000;
+      vistexcolorstart_s = "220 150 150";
      vistexcolorend_s = "220 100 100";
      vissizeendscale = 6.000000000;
      shpdim_s = "14";
@@ -706,9 +706,9 @@ INSTANCE MFX_FIREBALL_INVEST_L2 (MFX_FIREBALL_INVEST_PROTO)
 
 INSTANCE MFX_FIREBALL_INVEST_L3 (MFX_FIREBALL_INVEST_PROTO)
 {
-	 ppsvalue = 16;
-	 lsppartavg = 1600.000000000;
-	 vistexcolorstart_s = "235 200 200";
+      ppsvalue = 16;
+      lsppartavg = 1600.000000000;
+      vistexcolorstart_s = "235 200 200";
      vistexcolorend_s = "235 150 150";
      vissizeendscale = 7.000000000;
      shpdim_s = "22";
@@ -717,9 +717,9 @@ INSTANCE MFX_FIREBALL_INVEST_L3 (MFX_FIREBALL_INVEST_PROTO)
 
 INSTANCE MFX_FIREBALL_INVEST_L4 (MFX_FIREBALL_INVEST_PROTO)
 {
-	 ppsvalue = 20;
-	 lsppartavg = 2000.000000000;
-	 vistexcolorstart_s = "255 255 255";
+      ppsvalue = 20;
+      lsppartavg = 2000.000000000;
+      vistexcolorstart_s = "255 255 255";
      vistexcolorend_s = "255 200 200";
      vissizeendscale = 8.000000000;
      shpdim_s = "30";
@@ -770,7 +770,7 @@ PROTOTYPE MFX_FIREBALL_CAST_PROTO (C_PARTICLEFX)
 
 INSTANCE MFX_FIREBALL_CAST (MFX_FIREBALL_CAST_PROTO)
 {
-	 vistexcolorstart_s = "200 100 100";
+      vistexcolorstart_s = "200 100 100";
      vistexcolorend_s = "200 0 0";
      vissizeendscale = 1.000000000;
      lsppartavg = 200.000000000;
@@ -977,7 +977,7 @@ PROTOTYPE MFX_FIREBALL_COLLIDE_PROTO (C_PARTICLEFX)
 };
 
 
-INSTANCE MFX_FIREBALL_COLLIDE1	 (MFX_FIREBALL_COLLIDE_PROTO)
+INSTANCE MFX_FIREBALL_COLLIDE1      (MFX_FIREBALL_COLLIDE_PROTO)
 {
      ppsvalue = 10.000000000;
      lsppartavg = 1400.000000000;
@@ -985,7 +985,7 @@ INSTANCE MFX_FIREBALL_COLLIDE1	 (MFX_FIREBALL_COLLIDE_PROTO)
      visalphastart = 130.000000000;
 };
 
-INSTANCE MFX_FIREBALL_COLLIDE2	 (MFX_FIREBALL_COLLIDE_PROTO)
+INSTANCE MFX_FIREBALL_COLLIDE2      (MFX_FIREBALL_COLLIDE_PROTO)
 {
      ppsvalue = 20.000000000;
      lsppartavg = 1600.000000000;
@@ -993,7 +993,7 @@ INSTANCE MFX_FIREBALL_COLLIDE2	 (MFX_FIREBALL_COLLIDE_PROTO)
      visalphastart = 180.000000000;
 };
 
-INSTANCE MFX_FIREBALL_COLLIDE3	 (MFX_FIREBALL_COLLIDE_PROTO)
+INSTANCE MFX_FIREBALL_COLLIDE3      (MFX_FIREBALL_COLLIDE_PROTO)
 {
      ppsvalue = 30.000000000;
      lsppartavg = 1800.000000000;
@@ -1002,7 +1002,7 @@ INSTANCE MFX_FIREBALL_COLLIDE3	 (MFX_FIREBALL_COLLIDE_PROTO)
      ppscreateem_s = "MFX_FIREBALL_COLLIDE_SPARKS";
 };
 
-INSTANCE MFX_FIREBALL_COLLIDE4	 (MFX_FIREBALL_COLLIDE_PROTO)
+INSTANCE MFX_FIREBALL_COLLIDE4      (MFX_FIREBALL_COLLIDE_PROTO)
 {
      ppsvalue = 40.000000000;
      lsppartavg = 2000.000000000;
@@ -1095,9 +1095,9 @@ INSTANCE MFX_FIREBALL_COLLIDE_WALLGLOW (C_PARTICLEFX)
 
 
 
-///   													XXXXXXXXXXXXXXXXXXXXXXXXX
-///   													XX  F I R E S T O R M  XX
-///   													XXXXXXXXXXXXXXXXXXXXXXXXX
+///                                                                   XXXXXXXXXXXXXXXXXXXXXXXXX
+///                                                                   XX  F I R E S T O R M  XX
+///                                                                   XXXXXXXXXXXXXXXXXXXXXXXXX
 
 INSTANCE MFX_FIRESTORM_INIT (C_PARTICLEFX)
 {
@@ -1383,9 +1383,9 @@ INSTANCE MFX_FIRESTORM_SPREAD (C_PARTICLEFX)
 };
 
 
-///   													XXXXXXXXXXXXXXXXXXXXXXX
-///   													XX  F I R E R A I N  XX
-///   													XXXXXXXXXXXXXXXXXXXXXXX
+///                                                                   XXXXXXXXXXXXXXXXXXXXXXX
+///                                                                   XX  F I R E R A I N  XX
+///                                                                   XXXXXXXXXXXXXXXXXXXXXXX
 
 
 INSTANCE MFX_FIRERAIN_INIT (C_PARTICLEFX)
@@ -1590,9 +1590,9 @@ INSTANCE MFX_FIRERAIN_TARGET (C_PARTICLEFX)
 
 
 
-///   													XXXXXXXXXXXXXXXXX
-///   													XX  S P E E D  XX
-///   													XXXXXXXXXXXXXXXXX
+///                                                                   XXXXXXXXXXXXXXXXX
+///                                                                   XX  S P E E D  XX
+///                                                                   XXXXXXXXXXXXXXXXX
 
 
 INSTANCE MFX_SPEED_FOOTSTEPS (C_PARTICLEFX)
@@ -1635,9 +1635,9 @@ INSTANCE MFX_SPEED_FOOTSTEPS (C_PARTICLEFX)
 };
 
 
-///   													XXXXXXXXXXXXXXXXXXXXXXX
-///   													XX  T E L E P O R T  XX
-///   													XXXXXXXXXXXXXXXXXXXXXXX
+///                                                                   XXXXXXXXXXXXXXXXXXXXXXX
+///                                                                   XX  T E L E P O R T  XX
+///                                                                   XXXXXXXXXXXXXXXXXXXXXXX
 
 
 INSTANCE MFX_TELEPORT_INIT (C_PARTICLEFX)
@@ -1766,9 +1766,9 @@ INSTANCE MFX_TELEPORT_CAST (C_PARTICLEFX)
 };
 
 
-///   													XXXXXXXXXXXXXXX
-///   													XX  H E A L  XX
-///   													XXXXXXXXXXXXXXX
+///                                                                   XXXXXXXXXXXXXXX
+///                                                                   XX  H E A L  XX
+///                                                                   XXXXXXXXXXXXXXX
 
 INSTANCE MFX_HEAL_INIT (C_PARTICLEFX)
 {
@@ -1870,9 +1870,9 @@ INSTANCE MFX_HEAL_INVEST (C_PARTICLEFX)
      trlwidth = 10.000000000;
 };
 
-///   													XXXXXXXXXXXXXXXXXXXXXXXXXXX
-///   													XX  T R A N S F O R M    XX
-///   													XXXXXXXXXXXXXXXXXXXXXXXXXXX
+///                                                                   XXXXXXXXXXXXXXXXXXXXXXXXXXX
+///                                                                   XX  T R A N S F O R M    XX
+///                                                                   XXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 
 INSTANCE MFX_TRANSFORM_INIT (C_PARTICLEFX)
@@ -2040,14 +2040,14 @@ INSTANCE MFX_TRANSFORM_ORIGIN (C_PARTICLEFX)
 };
 
 
-///   													XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-///   													XX  T R A N S F O R M    ( S P E C I E S )  XX
-///   													XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+///                                                                   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+///                                                                   XX  T R A N S F O R M    ( S P E C I E S )  XX
+///                                                                   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 
-///   													XXXXXXXXXXXXXXXXXXXXXXXXX
-///   													XX  L I G H T N I N G  XX
-///   													XXXXXXXXXXXXXXXXXXXXXXXXX
+///                                                                   XXXXXXXXXXXXXXXXXXXXXXXXX
+///                                                                   XX  L I G H T N I N G  XX
+///                                                                   XXXXXXXXXXXXXXXXXXXXXXXXX
 
 
 INSTANCE MFX_LIGHTNING_ORIGIN (C_PARTICLEFX)
@@ -2133,14 +2133,14 @@ INSTANCE MFX_LIGHTNING_TARGET (C_PARTICLEFX)
 };
 
 
-///   													XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-///   													XX  C H A I N - L I G H T N I N G  XX
-///   													XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+///                                                                   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+///                                                                   XX  C H A I N - L I G H T N I N G  XX
+///                                                                   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 
-///   													XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-///   													XX  T H U N D E R B O L T  XX
-///   													XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+///                                                                   XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+///                                                                   XX  T H U N D E R B O L T  XX
+///                                                                   XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 INSTANCE MFX_THUNDERBOLT_INIT (C_PARTICLEFX)
 {
@@ -2263,9 +2263,9 @@ INSTANCE MFX_THUNDERBOLT_COLLIDE (C_PARTICLEFX)
      visalphastart = 255.000000000;
 };
 
-///   													XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-///   													XX  T H U N D E R B A L L  XX
-///   													XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+///                                                                   XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+///                                                                   XX  T H U N D E R B A L L  XX
+///                                                                   XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 INSTANCE MFX_THUNDERBALL_INIT (C_PARTICLEFX)
 {
      ppsvalue = 40.000000000;
@@ -2387,10 +2387,10 @@ PROTOTYPE MFX_THUNDERBALL_INVEST_PROTO (C_PARTICLEFX)
 
 
 
-INSTANCE MFX_THUNDERBALL_INVEST	(MFX_THUNDERBALL_INVEST_PROTO)
+INSTANCE MFX_THUNDERBALL_INVEST    (MFX_THUNDERBALL_INVEST_PROTO)
 {
-	 ppsvalue = 10;
-	 vissizeendscale = 5.000000000;
+      ppsvalue = 10;
+      vissizeendscale = 5.000000000;
      shpdim_s = "6";
      visalphastart = 180;
      visalphaend = 180;
@@ -2398,17 +2398,17 @@ INSTANCE MFX_THUNDERBALL_INVEST	(MFX_THUNDERBALL_INVEST_PROTO)
 
 INSTANCE MFX_THUNDERBALL_INVEST_L1 (MFX_THUNDERBALL_INVEST_PROTO)
 {
-	 ppsvalue = 10;
-	 vissizeendscale = 5.000000000;
+      ppsvalue = 10;
+      vissizeendscale = 5.000000000;
      shpdim_s = "6";
      visalphastart = 180;
-	 visalphaend = 180;
+      visalphaend = 180;
 };
 
 INSTANCE MFX_THUNDERBALL_INVEST_L2 (MFX_THUNDERBALL_INVEST_PROTO)
 {
-	 ppsvalue = 13;
-	 vissizeendscale = 6.000000000;
+      ppsvalue = 13;
+      vissizeendscale = 6.000000000;
      shpdim_s = "14";
      visalphastart = 200;
      visalphaend = 200;
@@ -2416,20 +2416,20 @@ INSTANCE MFX_THUNDERBALL_INVEST_L2 (MFX_THUNDERBALL_INVEST_PROTO)
 
 INSTANCE MFX_THUNDERBALL_INVEST_L3 (MFX_THUNDERBALL_INVEST_PROTO)
 {
-	 ppsvalue = 16;
-	 vissizeendscale = 7.000000000;
+      ppsvalue = 16;
+      vissizeendscale = 7.000000000;
      shpdim_s = "22";
      visalphastart = 220;
-	 visalphaend = 220;
+      visalphaend = 220;
 };
 
 INSTANCE MFX_THUNDERBALL_INVEST_L4 (MFX_THUNDERBALL_INVEST_PROTO)
 {
-	 ppsvalue = 20;
-	 vissizeendscale = 8.000000000;
+      ppsvalue = 20;
+      vissizeendscale = 8.000000000;
      shpdim_s = "30";
      visalphastart = 255;
-	 visalphaend = 255;
+      visalphaend = 255;
 };
 
 
@@ -2473,12 +2473,12 @@ PROTOTYPE MFX_THUNDERBALL_CAST_PROTO (C_PARTICLEFX)
      vissizeendscale = 1.500000000;
      visalphafunc_s = "ADD";
      visalphastart = 255.000000000;
-	 visalphaend = 255.000000000;
+      visalphaend = 255.000000000;
 };
 
 INSTANCE MFX_THUNDERBALL_CAST (MFX_THUNDERBALL_CAST_PROTO)
 {
-	 vissizeendscale = 1.000000000;
+      vissizeendscale = 1.000000000;
      shpdim_s = "10";
      visalphastart = 180;
      visalphaend = 180;
@@ -2487,7 +2487,7 @@ INSTANCE MFX_THUNDERBALL_CAST (MFX_THUNDERBALL_CAST_PROTO)
 
 INSTANCE MFX_THUNDERBALL_CAST_L1 (MFX_THUNDERBALL_CAST_PROTO)
 {
-	 vissizeendscale = 1.000000000;
+      vissizeendscale = 1.000000000;
      shpdim_s = "10";
      vissizestart_s = "15 15";
      visalphastart = 100;
@@ -2497,8 +2497,8 @@ INSTANCE MFX_THUNDERBALL_CAST_L1 (MFX_THUNDERBALL_CAST_PROTO)
 
 INSTANCE MFX_THUNDERBALL_CAST_L2 (MFX_THUNDERBALL_CAST_PROTO)
 {
-	 ppsvalue		= 700;
-	 vissizeendscale = 1.000000000;
+      ppsvalue      = 700;
+      vissizeendscale = 1.000000000;
      vissizestart_s = "20 20";
      shpdim_s = "15";
      visalphastart = 150;
@@ -2508,19 +2508,19 @@ INSTANCE MFX_THUNDERBALL_CAST_L2 (MFX_THUNDERBALL_CAST_PROTO)
 
 INSTANCE MFX_THUNDERBALL_CAST_L3 (MFX_THUNDERBALL_CAST_PROTO)
 {
-	 ppsvalue		= 800;
-	 vissizeendscale = 2.000000000;
+      ppsvalue      = 800;
+      vissizeendscale = 2.000000000;
      vissizestart_s = "25 25";
      shpdim_s = "20";
      visalphastart = 200;
-	 visalphaend = 200;
+      visalphaend = 200;
 };
 
 
 INSTANCE MFX_THUNDERBALL_CAST_L4 (MFX_THUNDERBALL_CAST_PROTO)
 {
-	 ppsvalue		= 900;
-	 vissizeendscale = 2.000000000;
+      ppsvalue      = 900;
+      vissizeendscale = 2.000000000;
      vissizestart_s = "30 30";
      shpdim_s = "30";
      visalphastart = 255;
@@ -2571,21 +2571,21 @@ PROTOTYPE MFX_THUNDERBALL_COLLIDE_PROTO (C_PARTICLEFX)
 };
 
 
-INSTANCE MFX_THUNDERBALL_COLLIDE1	 (MFX_THUNDERBALL_COLLIDE_PROTO)
+INSTANCE MFX_THUNDERBALL_COLLIDE1   (MFX_THUNDERBALL_COLLIDE_PROTO)
 {
      ppsvalue = 10.000000000;
      vissizestart_s = "40 40";
      visalphastart = 130.000000000;
 };
 
-INSTANCE MFX_THUNDERBALL_COLLIDE2	 (MFX_THUNDERBALL_COLLIDE_PROTO)
+INSTANCE MFX_THUNDERBALL_COLLIDE2   (MFX_THUNDERBALL_COLLIDE_PROTO)
 {
      ppsvalue = 20.000000000;
      vissizestart_s = "50 50";
      visalphastart = 180.000000000;
 };
 
-INSTANCE MFX_THUNDERBALL_COLLIDE3	 (MFX_THUNDERBALL_COLLIDE_PROTO)
+INSTANCE MFX_THUNDERBALL_COLLIDE3   (MFX_THUNDERBALL_COLLIDE_PROTO)
 {
      ppsvalue = 30.000000000;
      vissizestart_s = "60 60";
@@ -2593,7 +2593,7 @@ INSTANCE MFX_THUNDERBALL_COLLIDE3	 (MFX_THUNDERBALL_COLLIDE_PROTO)
      ppscreateem_s = "MFX_THUNDERBALL_COLLIDE_SPARKS";
 };
 
-INSTANCE MFX_THUNDERBALL_COLLIDE4	 (MFX_THUNDERBALL_COLLIDE_PROTO)
+INSTANCE MFX_THUNDERBALL_COLLIDE4   (MFX_THUNDERBALL_COLLIDE_PROTO)
 {
      ppsvalue = 40.000000000;
      vissizestart_s = "70 70";
@@ -2684,9 +2684,9 @@ INSTANCE MFX_THUNDERBALL_COLLIDE_WALLGLOW (C_PARTICLEFX)
 
 
 
-///   													XXXXXXXXXXXXXXXXXXXXX
-///   													XX  I C E C U B E  XX
-///   													XXXXXXXXXXXXXXXXXXXXX
+///                                                                   XXXXXXXXXXXXXXXXXXXXX
+///                                                                   XX  I C E C U B E  XX
+///                                                                   XXXXXXXXXXXXXXXXXXXXX
 
 
 INSTANCE MFX_ICECUBE_INIT (C_PARTICLEFX)
@@ -2861,7 +2861,7 @@ INSTANCE MFX_ICESPELL_TARGETEND (C_PARTICLEFX)
 };
 
 
-INSTANCE MFX_ICESPELL_COLLIDE	(C_PARTICLEFX)
+INSTANCE MFX_ICESPELL_COLLIDE (C_PARTICLEFX)
 {
      ppsvalue = 200.000000000;
      ppsscalekeys_s = "1";
@@ -2906,9 +2906,9 @@ INSTANCE MFX_ICESPELL_COLLIDE	(C_PARTICLEFX)
 };
 
 
-///   													XXXXXXXXXXXXXXXXXXXXX
-///   													XX  I C E W A V E  XX
-///   													XXXXXXXXXXXXXXXXXXXXX
+///                                                                   XXXXXXXXXXXXXXXXXXXXX
+///                                                                   XX  I C E W A V E  XX
+///                                                                   XXXXXXXXXXXXXXXXXXXXX
 
 INSTANCE MFX_ICEWAVE_WAVE (C_PARTICLEFX)
 {
@@ -2948,9 +2948,9 @@ INSTANCE MFX_ICEWAVE_WAVE (C_PARTICLEFX)
      trltexture_s = "LIGHTNING_BIG_A0.TGA";
 };
 
-///   													XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-///   													XX  S U M M O N   D E M O N  XX
-///   													XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+///                                                                   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+///                                                                   XX  S U M M O N   D E M O N  XX
+///                                                                   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 INSTANCE MFX_SUMMONDEMON_INIT (C_PARTICLEFX)
 {
@@ -3034,7 +3034,7 @@ INSTANCE MFX_SUMMONDEMON_INVEST (C_PARTICLEFX)
 };
 
 
-INSTANCE SPAWN_DEMON	(C_PARTICLEFX)
+INSTANCE SPAWN_DEMON     (C_PARTICLEFX)
 {
      ppsvalue = 300.000000000;
      ppsscalekeys_s = "1 1 1 1 1 1 1 1 1 ";
@@ -3071,16 +3071,16 @@ INSTANCE SPAWN_DEMON	(C_PARTICLEFX)
      visalphastart = 255.000000000;
 };
 
-///   													XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-///   													XX  S U M M O N   S K E L E T O N  XX
-///   													XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+///                                                                   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+///                                                                   XX  S U M M O N   S K E L E T O N  XX
+///                                                                   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 
-///   													XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-///   													XX  S U M M O N   G O L E M  XX
-///   													XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+///                                                                   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+///                                                                   XX  S U M M O N   G O L E M  XX
+///                                                                   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
-INSTANCE SPAWN_GOLEM	(C_PARTICLEFX)
+INSTANCE SPAWN_GOLEM     (C_PARTICLEFX)
 {
      ppsvalue = 300.000000000;
      ppsscalekeys_s = "1 1 1 1 1 1 1 1 1 ";
@@ -3118,14 +3118,14 @@ INSTANCE SPAWN_GOLEM	(C_PARTICLEFX)
 };
 
 
-///   													XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-///   													XX  A R M Y   O F   D A R K N E S S  XX
-///   													XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+///                                                                   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+///                                                                   XX  A R M Y   O F   D A R K N E S S  XX
+///                                                                   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 
-///   													XXXXXXXXXXXXXXXXXXXXXXXXX
-///   													XX  M A S S D E A T H  XX
-///   													XXXXXXXXXXXXXXXXXXXXXXXXX
+///                                                                   XXXXXXXXXXXXXXXXXXXXXXXXX
+///                                                                   XX  M A S S D E A T H  XX
+///                                                                   XXXXXXXXXXXXXXXXXXXXXXXXX
 
 
 INSTANCE MFX_MASSDEATH_INIT (C_PARTICLEFX)
@@ -3281,9 +3281,9 @@ INSTANCE MFX_MASSDEATH_TARGET (C_PARTICLEFX)
 };
 
 
-///   													XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-///   													XX  D E S T R O Y   U N D E A D  XX
-///   													XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+///                                                                   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+///                                                                   XX  D E S T R O Y   U N D E A D  XX
+///                                                                   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 
 INSTANCE MFX_DESTROYUNDEAD_INIT (C_PARTICLEFX)
@@ -3532,9 +3532,9 @@ INSTANCE MFX_DESTROYUNDEAD_SOUL_CLOUD (C_PARTICLEFX)
 };
 
 
-///   													XXXXXXXXXXXXXXXXXXXXXXXX
-///   													XX  W I N D F I S T   XX	// schleudert nur einen
-///   													XXXXXXXXXXXXXXXXXXXXXXXX
+///                                                                   XXXXXXXXXXXXXXXXXXXXXXXX
+///                                                                   XX  W I N D F I S T   XX // schleudert nur einen
+///                                                                   XXXXXXXXXXXXXXXXXXXXXXXX
 
 INSTANCE MFX_WINDFIST_INIT (C_PARTICLEFX)
 {
@@ -3743,9 +3743,9 @@ INSTANCE MFX_WINDFIST_TARGET (C_PARTICLEFX)
 };
 
 
-///   													XXXXXXXXXXXXXXXXXXXXXXXXXX
-///   													XX  S T O R M F I S T   XX
-///   													XXXXXXXXXXXXXXXXXXXXXXXXXX
+///                                                                   XXXXXXXXXXXXXXXXXXXXXXXXXX
+///                                                                   XX  S T O R M F I S T   XX
+///                                                                   XXXXXXXXXXXXXXXXXXXXXXXXXX
 
 
 INSTANCE MFX_STORMFIST_CAST (C_PARTICLEFX)
@@ -3787,9 +3787,9 @@ INSTANCE MFX_STORMFIST_CAST (C_PARTICLEFX)
      trltexture_s = "WHITECLOUD.TGA";
 };
 
-///   													XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-///   													XX  T E L E K I N E S I S  XX
-///   													XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+///                                                                   XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+///                                                                   XX  T E L E K I N E S I S  XX
+///                                                                   XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 INSTANCE MFX_TELEKINESIS_INIT (C_PARTICLEFX)
 {
@@ -3930,17 +3930,17 @@ INSTANCE MFX_TELEKINESIS_TARGETEND (C_PARTICLEFX)
      visalphastart = 255.000000000;
 };
 
-///   													XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-///   													XX  M A S T E R   T E L E K I N E S I S  XX		// kann auch NPCs anheben
-///   													XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+///                                                                   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+///                                                                   XX  M A S T E R   T E L E K I N E S I S  XX       // kann auch NPCs anheben
+///                                                                   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 
-INSTANCE MFX_MasterTelekinesis_INIT		(C_PARTICLEFX)
+INSTANCE MFX_MasterTelekinesis_INIT          (C_PARTICLEFX)
 {
      ppsvalue = 20.;
-	 ppsislooping = 0;
-	 ppsfps   = 0.5;
-	 ppsScaleKeys_S = "1.0";
+      ppsislooping = 0;
+      ppsfps   = 0.5;
+      ppsScaleKeys_S = "1.0";
      shptype_s = "SPHERE";
      shpfor_s = "object";
      shpdistribtype_s = "RAND";
@@ -3964,9 +3964,9 @@ INSTANCE MFX_MasterTelekinesis_INIT		(C_PARTICLEFX)
 
 
 
-///   													XXXXXXXXXXXXXXXXXX
-///   													XX  C H A R M   XX
-///   													XXXXXXXXXXXXXXXXXX
+///                                                                   XXXXXXXXXXXXXXXXXX
+///                                                                   XX  C H A R M   XX
+///                                                                   XXXXXXXXXXXXXXXXXX
 
 INSTANCE MFX_CHARM_INIT (C_PARTICLEFX)
 {
@@ -4086,9 +4086,9 @@ INSTANCE MFX_CHARM_TARGET (C_PARTICLEFX)
 };
 
 
-///   													XXXXXXXXXXXXXXXXX
-///   													XX  S L E E P  XX
-///   													XXXXXXXXXXXXXXXXX
+///                                                                   XXXXXXXXXXXXXXXXX
+///                                                                   XX  S L E E P  XX
+///                                                                   XXXXXXXXXXXXXXXXX
 
 INSTANCE MFX_SLEEP_INIT (C_PARTICLEFX)
 {
@@ -4208,9 +4208,9 @@ INSTANCE MFX_SLEEP_TARGET (C_PARTICLEFX)
 };
 
 
-///   													XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-///   													XX  P Y R O K I N E S I S  XX
-///   													XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+///                                                                   XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+///                                                                   XX  P Y R O K I N E S I S  XX
+///                                                                   XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 INSTANCE MFX_PYROKINESIS_INIT (C_PARTICLEFX)
 {
@@ -4334,9 +4334,9 @@ INSTANCE MFX_PYROKINESIS_TARGET (C_PARTICLEFX)
 };
 
 
-///   													XXXXXXXXXXXXXXXXXXXXX
-///   													XX  C O N T R O L  XX
-///   													XXXXXXXXXXXXXXXXXXXXX
+///                                                                   XXXXXXXXXXXXXXXXXXXXX
+///                                                                   XX  C O N T R O L  XX
+///                                                                   XXXXXXXXXXXXXXXXXXXXX
 
 INSTANCE MFX_CONTROL_INIT (C_PARTICLEFX)
 {
@@ -4484,9 +4484,9 @@ INSTANCE MFX_CONTROL_TARGET (C_PARTICLEFX)
 };
 
 
-///   													XXXXXXXXXXXXXXX
-///   													XX  F E A R  XX
-///   													XXXXXXXXXXXXXXX
+///                                                                   XXXXXXXXXXXXXXX
+///                                                                   XX  F E A R  XX
+///                                                                   XXXXXXXXXXXXXXX
 
 
 INSTANCE MFX_FEAR_INIT (C_PARTICLEFX)
@@ -4649,9 +4649,9 @@ INSTANCE MFX_FEAR_WAVE (C_PARTICLEFX)
 
 
 
-///   													XXXXXXXXXXXXXXXXXXXX
-///   													XX  F O R G E T	  XX
-///   													XXXXXXXXXXXXXXXXXXXX
+///                                                                   XXXXXXXXXXXXXXXXXXXX
+///                                                                   XX  F O R G E T       XX
+///                                                                   XXXXXXXXXXXXXXXXXXXX
 
 INSTANCE MFX_FORGET_INIT (C_PARTICLEFX)
 {
@@ -4732,9 +4732,9 @@ INSTANCE MFX_FORGET_ORIGIN (C_PARTICLEFX)
      visalphaend = 255.000000000;
 };
 
-///   													XXXXXXXXXXXXXXXXXXXXX
-///   													XX  B E R Z E R K  XX
-///   													XXXXXXXXXXXXXXXXXXXXX
+///                                                                   XXXXXXXXXXXXXXXXXXXXX
+///                                                                   XX  B E R Z E R K  XX
+///                                                                   XXXXXXXXXXXXXXXXXXXXX
 
 INSTANCE MFX_BERZERK_INIT (C_PARTICLEFX)
 {
@@ -4856,9 +4856,9 @@ INSTANCE MFX_BERZERK_TARGET (C_PARTICLEFX)
 
 
 
-///   													XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-///   													XX  B R E A T H   O F   D E A T H  XX
-///   													XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+///                                                                   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+///                                                                   XX  B R E A T H   O F   D E A T H  XX
+///                                                                   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 INSTANCE MFX_BREATHOFDEATH_INIT (C_PARTICLEFX)
 {
@@ -5039,14 +5039,14 @@ INSTANCE MFX_BREATHOFDEATH_COLLIDE (C_PARTICLEFX)
 
 
 
-///   													XXXXXXXXXXXXXXXXXX
-///   													XX  D A N C E   XX
-///   													XXXXXXXXXXXXXXXXXX
+///                                                                   XXXXXXXXXXXXXXXXXX
+///                                                                   XX  D A N C E   XX
+///                                                                   XXXXXXXXXXXXXXXXXX
 
 
-///   													XXXXXXXXXXXXXXXXXXXX
-///   													XX  S H R I N K   XX
-///   													XXXXXXXXXXXXXXXXXXXX
+///                                                                   XXXXXXXXXXXXXXXXXXXX
+///                                                                   XX  S H R I N K   XX
+///                                                                   XXXXXXXXXXXXXXXXXXXX
 
 
 INSTANCE MFX_SHRINK_INIT (C_PARTICLEFX)
@@ -5130,18 +5130,18 @@ INSTANCE MFX_SHRINK_TARGET (C_PARTICLEFX)
 
 
 
-///   													XXXXXXXXXXXXXXXXXXXXXX
-///   													XX  U N D R E S S   XX
-///   													XXXXXXXXXXXXXXXXXXXXXX
+///                                                                   XXXXXXXXXXXXXXXXXXXXXX
+///                                                                   XX  U N D R E S S   XX
+///                                                                   XXXXXXXXXXXXXXXXXXXXXX
 
 
 
 
-///   													XXXXXXXXXXXXXXXXXXXX
-///   													XXXXXXXXXXXXXXXXXXXX
-///   													XX  G L O B A L   XX
-///   													XXXXXXXXXXXXXXXXXXXX
-///   													XXXXXXXXXXXXXXXXXXXX
+///                                                                   XXXXXXXXXXXXXXXXXXXX
+///                                                                   XXXXXXXXXXXXXXXXXXXX
+///                                                                   XX  G L O B A L   XX
+///                                                                   XXXXXXXXXXXXXXXXXXXX
+///                                                                   XXXXXXXXXXXXXXXXXXXX
 
 
 // HUMAN oder VOB brennt nach Feuerschaden
@@ -5260,9 +5260,9 @@ INSTANCE PFX2(C_PARTICLEFX)
 INSTANCE HUMAN1(C_PARTICLEFX)
 {
      ppsvalue = 20.;
-	 ppsislooping = 0;
-	 ppsfps   = 0.4;
-	 ppsScaleKeys_S = "1.0";
+      ppsislooping = 0;
+      ppsfps   = 0.4;
+      ppsScaleKeys_S = "1.0";
      shptype_s = "SPHERE";
      shpfor_s = "object";
      shpdistribtype_s = "RAND";
@@ -5287,9 +5287,9 @@ INSTANCE HUMAN1(C_PARTICLEFX)
 INSTANCE HUMAN2(C_PARTICLEFX)
 {
      ppsvalue = 15.;
-	 ppsislooping = 0;
-	 ppsfps   = 0.4;
-	 ppsScaleKeys_S = "1.0";
+      ppsislooping = 0;
+      ppsfps   = 0.4;
+      ppsScaleKeys_S = "1.0";
      shptype_s = "box";
      shpfor_s = "object";
      shpdistribtype_s = "RAND";
@@ -5315,9 +5315,9 @@ INSTANCE HUMAN2(C_PARTICLEFX)
 INSTANCE HUMAN_ELECTRIC(C_PARTICLEFX)
 {
      ppsvalue = 20.;
-	 ppsislooping = 0;
-	 ppsfps   = 0.4;
-	 ppsScaleKeys_S = "1.0";
+      ppsislooping = 0;
+      ppsfps   = 0.4;
+      ppsScaleKeys_S = "1.0";
      shptype_s = "SPHERE";
      shpfor_s = "object";
      shpdistribtype_s = "RAND";
@@ -5342,9 +5342,9 @@ INSTANCE HUMAN_ELECTRIC(C_PARTICLEFX)
 INSTANCE WALL1(C_PARTICLEFX)
 {
      ppsvalue = 20.;
-	 ppsislooping = 0;
-	 ppsfps   = 0.8;
-	 ppsScaleKeys_S = "1.0";
+      ppsislooping = 0;
+      ppsfps   = 0.8;
+      ppsScaleKeys_S = "1.0";
      shptype_s = "SPHERE";
      shpfor_s = "object";
      shpdistribtype_s = "RAND";
@@ -5423,7 +5423,7 @@ INSTANCE EXPLOSION2 (C_PARTICLEFX)
 {
      ppsvalue = 15.;
      ppsscalekeys_s = "1";
-	 ppsislooping = 0;
+      ppsislooping = 0;
      ppsfps = 0.5;
      ppscreateem_s = "ZZTEST_EXPL_DEBRIS";
      shptype_s = "BOX";
@@ -5448,7 +5448,7 @@ INSTANCE EXPLOSION3 (C_PARTICLEFX)
 {
      ppsvalue = 15.;
      ppsscalekeys_s = "1";
-	 ppsislooping = 0;
+      ppsislooping = 0;
      ppsfps = 0.5;
      ppscreateem_s = "ZZTEST_EXPL_DEBRIS";
      shptype_s = "BOX";
@@ -5522,7 +5522,7 @@ INSTANCE NEW(C_PARTICLEFX)
      vissizeendscale = 15.;
      visalphafunc_s = "ADD";
      visalphastart = 255.;
-	 visalphaend   = 100.;
+      visalphaend   = 100.;
 };
 
 INSTANCE FBNEW (C_PARTICLEFX)
@@ -5591,7 +5591,7 @@ INSTANCE FB_TAIL(C_PARTICLEFX)
      flygravity_s = "0 -0.0001 0";
      visname_s = "FIRETAIL.TGA";
      visorientation_s = "VELO";
-	 vistexisquadpoly = 1;
+      vistexisquadpoly = 1;
      vistexcolorstart_s = "180 180 50";
      vistexcolorend_s = "150 0 0";
      vissizestart_s = "12 20";
@@ -5751,8 +5751,8 @@ INSTANCE BLAST(C_PARTICLEFX)
 {
      ppsvalue = 10.;
      ppsscalekeys_s = "3 2 1";
-	 //ppsIsLooping = 1;
-	 ppsfps = 1;
+      //ppsIsLooping = 1;
+      ppsfps = 1;
      shptype_s = "CIRCLE";
      shpfor_s = "object";
      shpdistribtype_s = "WALK";

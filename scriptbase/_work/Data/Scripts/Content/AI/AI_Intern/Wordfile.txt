@@ -1,5 +1,5 @@
 /L1"PB Feedback" Block Comment On = <U Block Comment Off = > String Chars = | File Extensions = PBF
-/Delimiters = ~@$^&*=|\[]:;"' ,	.?
+/Delimiters = ~@$^&*=|\[]:;"' , .?
 /C1
 +1+
 -1-
@@ -151,7 +151,7 @@ MeshLib
 ani aniAlias aniBlend aniComb aniSync
 eventSwapMesh
 /L4"C/C++" Line Comment = // Block Comment On = /* Block Comment Off = */ String Chars = "' File Extensions = C CPP H HPP AWK
-/Delimiters = ~!@%^&*()-+=|\/{}[]:;"'<> ,	.?
+/Delimiters = ~!@%^&*()-+=|\/{}[]:;"'<> ,   .?
 /C1
 auto
 break
@@ -182,7 +182,7 @@ this try
 virtual
 __multiple_inheritance __single_inheritance __virtual_inheritance
 /L5"HTML" Nocase Noquote HTML_LANG Block Comment On = <! Block Comment Off = > File Extensions = HTM HTML ASP
-/Delimiters = ~!@$%^&*()-+=|\{}[]:;"'<> ,	.?
+/Delimiters = ~!@$%^&*()-+=|\{}[]:;"'<> ,   .?
 /C1
 <A </A> <ABOVE> <ADDRESS> </ADDRESS> <APPLET </APPLET> <ARRAY> <AREA </AREA
 <B> </B> <BASE <BASEFONT <BGSOUND <BIG> </BIG> <BLINK> </BLINK> <BLOCKQUOTE> </BLOCKQUOTE> <BODY <BODY> </BODY> <BOX> <BR <BR>

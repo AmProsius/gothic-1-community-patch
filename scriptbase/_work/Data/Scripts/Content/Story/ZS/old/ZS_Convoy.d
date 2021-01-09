@@ -9,12 +9,12 @@ FUNC VOID ZS_Convoy ()
 {
     PrintDebugNpc(PD_TA_FRAME,"ZS_Convoy");
 
-	B_SetPerception (self);
+    B_SetPerception (self);
 
-	AI_SetWalkmode (self,NPC_WALK);		// Walkmode für den Zustand
-	AI_TakeMob(self,"BACKPACK");
+    AI_SetWalkmode (self,NPC_WALK);     // Walkmode für den Zustand
+    AI_TakeMob(self,"BACKPACK");
 
-	AI_GotoWP(self, self.wp);           // Gehe zum Tagesablaufstart
+    AI_GotoWP(self, self.wp);           // Gehe zum Tagesablaufstart
 };
 
 FUNC VOID ZS_Convoy_Loop ()
