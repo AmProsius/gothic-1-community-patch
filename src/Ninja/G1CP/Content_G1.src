@@ -1,6 +1,14 @@
 Ikarus
 LeGo
 
-// LIST YOUR FILES HERE
+// Misc files
+Content\version.d
+Content\localization.d
 
+// Session fixes
+Content\Fixes\Session\fix059_FixEquipBestWeapons.d
+
+// Game save fixes
+
+// Initialization
 Content\NinjaInit.d
