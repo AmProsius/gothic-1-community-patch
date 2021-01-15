@@ -4,9 +4,15 @@
 func void Ninja_G1CP_Menu(var int menuPtr) {
     MEM_InitAll();
 
+    // // Version check
+    // if (NINJA_VERSION < 2308) {
+    //     MEM_SendToSpy(zERR_TYPE_FATAL, "G1CP requires at least Ninja 2.3.08 or higher");
+    // };
+
     // Initialize one-time-per-session fixes
     const int once = 0;
     if (!once) {
+        Ninja_G1CP_TestSuite();
         FixEquipBestWeapons_Init(); // #59
 
         once = 1;
@@ -19,6 +25,6 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
  */
 func void Ninja_G1CP_Init() {
     // Wrapper for "LeGo_Init" to ensure correct LeGo initialization without breaking the mod
-    // LeGo_MergeFlags( /* DESIRED LEGO PACKAGES */ ); // Not in use yet
+    LeGo_MergeFlags(LeGo_ConsoleCommands);
 
 };

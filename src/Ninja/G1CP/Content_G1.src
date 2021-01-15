@@ -3,12 +3,16 @@ LeGo
 
 // Misc files
 Content\version.d
+Content\misc.d
 Content\localization.d
+Content\testsuite.d
 
 // Session fixes
 Content\Fixes\Session\fix059_FixEquipBestWeapons.d
 
 // Game save fixes
+
+// Tests
 
 // Initialization
 Content\NinjaInit.d
