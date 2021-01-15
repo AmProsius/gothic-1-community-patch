@@ -1,5 +1,5 @@
 /*
- * #15 Vendors equip strongest weapon
+ * #15 Horatio may lower STRENGTH
  *
  * The hero is first given strength < 100 and then strength > 100 before each calling the original dialog.
  *
@@ -16,9 +16,9 @@ func int Ninja_G1CP_Test_015() {
     var int strengthBak; strengthBak = hero.attribute[/*ATR_STRENGTH*/4];
 
     // First pass: strength < 100
-    hero.attribute[/*ATR_STRENGTH*/4] = 80;
+    hero.attribute[/*ATR_STRENGTH*/4] = 10;
     MEM_CallByID(symbId);
-    if (hero.attribute[/*ATR_STRENGTH*/4] <= 80) {
+    if (hero.attribute[/*ATR_STRENGTH*/4] <= 10) {
         Ninja_G1CP_TestsuiteErrorDetail(15, "Strength was not increased when below 100");
         hero.attribute[/*ATR_STRENGTH*/4] = strengthBak;
         return FALSE;
