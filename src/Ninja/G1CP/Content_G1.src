@@ -13,6 +13,7 @@ Content\Fixes\Session\fix059_FixEquipBestWeapons.d
 // Game save fixes
 
 // Tests
+Content\Tests\test059.d
 
 // Initialization
 Content\NinjaInit.d
