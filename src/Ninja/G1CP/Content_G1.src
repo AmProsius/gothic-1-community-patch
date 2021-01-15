@@ -8,11 +8,13 @@ Content\localization.d
 Content\testsuite.d
 
 // Session fixes
+Content\Fixes\Session\fix015_HoratioStrength.d
 Content\Fixes\Session\fix059_FixEquipBestWeapons.d
 
 // Game save fixes
 
 // Tests
+Content\Tests\test015.d
 Content\Tests\test059.d
 
 // Initialization
