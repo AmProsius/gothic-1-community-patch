@@ -13,7 +13,7 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
     const int once = 0;
     if (!once) {
         Ninja_G1CP_TestSuite();
-        FixEquipBestWeapons_Init(); // #59
+        Ninja_G1CP_059_FixEquipBestWeapons();                           // #59
 
         once = 1;
     };
