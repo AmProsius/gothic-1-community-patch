@@ -7,12 +7,16 @@ Content\misc.d
 Content\localization.d
 Content\testsuite.d
 
+Content\Misc\Npc_CanSeeVob.d
+
 // Session fixes
+Content\Fixes\Session\fix003_RegainDroppedWeapon.d
 Content\Fixes\Session\fix059_FixEquipBestWeapons.d
 
 // Game save fixes
 
 // Tests
+Content\Tests\test003.d
 Content\Tests\test059.d
 
 // Initialization

@@ -13,6 +13,7 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
     const int once = 0;
     if (!once) {
         Ninja_G1CP_TestSuite();
+        Ninja_G1CP_003_RegainDroppedWeapon();                           // #3
         Ninja_G1CP_059_FixEquipBestWeapons();                           // #59
 
         once = 1;
@@ -25,6 +26,6 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
  */
 func void Ninja_G1CP_Init() {
     // Wrapper for "LeGo_Init" to ensure correct LeGo initialization without breaking the mod
-    LeGo_MergeFlags(LeGo_ConsoleCommands);
+    LeGo_MergeFlags(LeGo_ConsoleCommands | LeGo_AI_Function);
 
 };
