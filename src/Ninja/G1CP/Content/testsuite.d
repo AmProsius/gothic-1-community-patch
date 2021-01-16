@@ -9,12 +9,18 @@
  *
  * Errors and other messages should not be reported to the zSpy directly but using this function instead
  *    Ninja_G1CP_TestsuiteErrorDetail(int testNr, string message)
+ *
+ * Tests that require manual confirmation from the user typically have to teleport the hero or similar. This would
+ * interfere when all tests are run at once (i.e. 'test all'). Therefore, before any such actions are taken, the test
+ * function should check whether 'Ninja_G1CP_TestsuiteAllowManual' is TRUE. This is the case when the test is run
+ * specifically with 'test ID'.
  */
 
-/*
- * Collect error details
- */
+/* Collect error details */
 const string Ninja_G1CP_TestsuiteMsg = "";
+
+/* Allow or disallow manual tests */
+const int Ninja_G1CP_TestsuiteAllowManual = 0;
 
 /*
  * Initialization function
@@ -84,6 +90,9 @@ func string Ninja_G1CP_TestsuiteAll(var string _) {
     var string msg;
     var string infos; infos = "";
 
+    // Do not trigger manual tests
+    Ninja_G1CP_TestsuiteAllowManual = FALSE;
+
     // Iterate over and call all tests
     repeat(i, currSymbolTableLength); var int i;
         var zCPar_Symbol symb; symb = _^(MEM_GetSymbolByIndex(i));
@@ -141,6 +150,9 @@ func string Ninja_G1CP_TestsuiteAll(var string _) {
 func string Ninja_G1CP_TestsuiteCmd(var string command) {
     var int retInt;
     var string retStr;
+
+    // Allow to trigger manual tests
+    Ninja_G1CP_TestsuiteAllowManual = TRUE;
 
     // Reset error details
     Ninja_G1CP_TestsuiteMsg = "";
