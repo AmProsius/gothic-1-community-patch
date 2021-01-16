@@ -64,9 +64,16 @@ func int Ninja_G1CP_Test_016_RunDialog(var string dialogName, var string needsIn
     // Set the variable to TRUE
     Ninja_G1CP_SetAIVar(MEM_FindParserSymbol("Grd_212_Torwache"), "AIV_PASSGATE", TRUE);
 
+    // Backup told status of required dialog
+    backupTold = Npc_KnowsInfo(hero, MEM_FindParserSymbol(needsInfo));
+    Ninja_G1CP_SetInfoTold(needsInfo, TRUE);
+
     // Call dialog condition function
     MEM_CallByID(symbId);
     var int ret; ret = MEM_PopIntResult();
+
+    // Restore told status of required dialog
+    Ninja_G1CP_SetInfoTold(needsInfo, backupTold);
 
     // Restore value
     Ninja_G1CP_SetAIVar(MEM_FindParserSymbol("Grd_212_Torwache"), "AIV_PASSGATE", backupValue);
