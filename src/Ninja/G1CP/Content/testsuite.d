@@ -9,12 +9,18 @@
  *
  * Errors and other messages should not be reported to the zSpy directly but using this function instead
  *    Ninja_G1CP_TestsuiteErrorDetail(int testNr, string message)
+ *
+ * Tests that require manual confirmation from the user typically have to teleport the hero or similar. This would
+ * interfere when all tests are run at once (i.e. 'test all'). Therefore, before any such actions are taken, the test
+ * function should check whether 'Ninja_G1CP_TestsuiteAllowManual' is TRUE. This is the case when the test is run
+ * specifically with 'test ID'.
  */
 
-/*
- * Collect error details
- */
+/* Collect error details */
 const string Ninja_G1CP_TestsuiteMsg = "";
+
+/* Allow or disallow manual tests */
+const int Ninja_G1CP_TestsuiteAllowManual = 0;
 
 /*
  * Initialization function
@@ -53,7 +59,7 @@ func void Ninja_G1CP_TestsuiteErrorDetail(var int id, var string msg) {
         Ninja_G1CP_TestsuiteMsg = ConcatStrings(Ninja_G1CP_TestsuiteMsg, "|");
     };
     Ninja_G1CP_TestsuiteMsg = ConcatStrings(Ninja_G1CP_TestsuiteMsg, "  Test ");
-    Ninja_G1CP_TestsuiteMsg = ConcatStrings(Ninja_G1CP_TestsuiteMsg, Ninja_G1CP_LFill(IntToString(id), "0", 3));
+    Ninja_G1CP_TestsuiteMsg = ConcatStrings(Ninja_G1CP_TestsuiteMsg, Ninja_G1CP_LFill(IntToString(id), " ", 3));
     Ninja_G1CP_TestsuiteMsg = ConcatStrings(Ninja_G1CP_TestsuiteMsg, ": ");
     Ninja_G1CP_TestsuiteMsg = ConcatStrings(Ninja_G1CP_TestsuiteMsg, msg);
 };
@@ -83,6 +89,9 @@ func string Ninja_G1CP_TestsuiteAll(var string _) {
     var int manual; manual = 0;
     var string msg;
     var string infos; infos = "";
+
+    // Do not trigger manual tests
+    Ninja_G1CP_TestsuiteAllowManual = FALSE;
 
     // Iterate over and call all tests
     repeat(i, currSymbolTableLength); var int i;
@@ -141,6 +150,9 @@ func string Ninja_G1CP_TestsuiteAll(var string _) {
 func string Ninja_G1CP_TestsuiteCmd(var string command) {
     var int retInt;
     var string retStr;
+
+    // Allow to trigger manual tests
+    Ninja_G1CP_TestsuiteAllowManual = TRUE;
 
     // Reset error details
     Ninja_G1CP_TestsuiteMsg = "";
