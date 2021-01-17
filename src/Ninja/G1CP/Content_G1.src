@@ -5,6 +5,7 @@ LeGo
 Content\version.d
 Content\misc.d
 Content\localization.d
+Content\menuVersionNumber.d
 Content\testsuite.d
 
 // Session fixes
