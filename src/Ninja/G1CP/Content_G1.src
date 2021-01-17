@@ -13,6 +13,7 @@ Content\Misc\Npc_CanSeeVob.d
 // Session fixes
 Content\Fixes\Session\fix003_RegainDroppedWeapon.d
 Content\Fixes\Session\fix015_HoratioStrength.d
+Content\Fixes\Session\fix017_JackalProtectionMoney.d
 Content\Fixes\Session\fix059_FixEquipBestWeapons.d
 
 // Game save fixes
@@ -20,6 +21,7 @@ Content\Fixes\Session\fix059_FixEquipBestWeapons.d
 // Tests
 Content\Tests\test003.d
 Content\Tests\test015.d
+Content\Tests\test017.d
 Content\Tests\test059.d
 
 // Initialization
