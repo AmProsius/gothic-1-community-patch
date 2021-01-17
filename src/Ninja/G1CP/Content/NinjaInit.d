@@ -14,6 +14,7 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
     if (!once) {
         Ninja_G1CP_MenuVersionNumber();
         Ninja_G1CP_TestSuite();
+        Ninja_G1CP_015_HoratioStrength();                               // #15
         Ninja_G1CP_059_FixEquipBestWeapons();                           // #59
 
         once = 1;
