@@ -7,6 +7,9 @@ Content\misc.d
 Content\localization.d
 Content\testsuite.d
 
+Content\Misc\aivar.d
+Content\Misc\info.d
+
 // Session fixes
 Content\Fixes\Session\fix016_ThorusBribeDialog.d
 Content\Fixes\Session\fix059_FixEquipBestWeapons.d
