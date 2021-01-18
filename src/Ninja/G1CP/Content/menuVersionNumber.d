@@ -19,17 +19,7 @@ func void Ninja_G1CP_MenuVersionNumber_Hook() {
     x = PS_VMax - (x + xDiff);
 
     // Build version string
-    var int minor; minor =  Ninja_G1CP_Version % 100;
-    var int major; major = (Ninja_G1CP_Version % 10000)   /   100;
-    var int  base;  base = (Ninja_G1CP_Version % 1000000) / 10000;
-    var string version; version = "G1CP ";
-    version = ConcatStrings(version, IntToString(base));
-    version = ConcatStrings(version, ".");
-    version = ConcatStrings(version, IntToString(major));
-    if (minor != 0) {
-        version = ConcatStrings(version, ".");
-        version = ConcatStrings(version, IntToString(minor));
-    };
+    var string version; version = Ninja_G1CP_GetVersionString(TRUE, FALSE, FALSE);
     var int textPtr; textPtr = _@s(version);
 
     // Place it on the menu
