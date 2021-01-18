@@ -8,11 +8,14 @@ Content\localization.d
 Content\menuVersionNumber.d
 Content\testsuite.d
 
+Content\Misc\aivar.d
+Content\Misc\info.d
 Content\Misc\Npc_CanSeeVob.d
 
 // Session fixes
 Content\Fixes\Session\fix003_RegainDroppedWeapon.d
 Content\Fixes\Session\fix015_HoratioStrength.d
+Content\Fixes\Session\fix016_ThorusBribeDialog.d
 Content\Fixes\Session\fix017_JackalProtectionMoney.d
 Content\Fixes\Session\fix059_FixEquipBestWeapons.d
 
@@ -21,6 +24,7 @@ Content\Fixes\Session\fix059_FixEquipBestWeapons.d
 // Tests
 Content\Tests\test003.d
 Content\Tests\test015.d
+Content\Tests\test016.d
 Content\Tests\test017.d
 Content\Tests\test059.d
 
