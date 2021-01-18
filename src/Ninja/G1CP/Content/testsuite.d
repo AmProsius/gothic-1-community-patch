@@ -59,7 +59,7 @@ func void Ninja_G1CP_TestsuiteErrorDetail(var int id, var string msg) {
         Ninja_G1CP_TestsuiteMsg = ConcatStrings(Ninja_G1CP_TestsuiteMsg, "|");
     };
     Ninja_G1CP_TestsuiteMsg = ConcatStrings(Ninja_G1CP_TestsuiteMsg, "  Test ");
-    Ninja_G1CP_TestsuiteMsg = ConcatStrings(Ninja_G1CP_TestsuiteMsg, Ninja_G1CP_LFill(IntToString(id), "0", 3));
+    Ninja_G1CP_TestsuiteMsg = ConcatStrings(Ninja_G1CP_TestsuiteMsg, Ninja_G1CP_LFill(IntToString(id), " ", 3));
     Ninja_G1CP_TestsuiteMsg = ConcatStrings(Ninja_G1CP_TestsuiteMsg, ": ");
     Ninja_G1CP_TestsuiteMsg = ConcatStrings(Ninja_G1CP_TestsuiteMsg, msg);
 };

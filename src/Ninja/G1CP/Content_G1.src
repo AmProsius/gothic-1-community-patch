@@ -5,16 +5,33 @@ LeGo
 Content\version.d
 Content\misc.d
 Content\localization.d
+Content\menuVersionNumber.d
 Content\testsuite.d
+
+Content\Misc\aivar.d
+Content\Misc\info.d
+Content\Misc\Npc_CanSeeVob.d
 
 // Session fixes
 Content\Fixes\Session\fix001_FixNpcSleep.d
+Content\Fixes\Session\fix003_RegainDroppedWeapon.d
+Content\Fixes\Session\fix007_PracticeSwordWithWeapon.d
+Content\Fixes\Session\fix015_HoratioStrength.d
+Content\Fixes\Session\fix016_ThorusBribeDialog.d
+Content\Fixes\Session\fix017_JackalProtectionMoney.d
+Content\Fixes\Session\fix018_BloodwynProtectionMoney.d
 Content\Fixes\Session\fix059_FixEquipBestWeapons.d
 
 // Game save fixes
 
 // Tests
 Content\Tests\test001.d
+Content\Tests\test003.d
+Content\Tests\test007.d
+Content\Tests\test015.d
+Content\Tests\test016.d
+Content\Tests\test017.d
+Content\Tests\test018.d
 Content\Tests\test059.d
 
 // Initialization

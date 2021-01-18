@@ -12,8 +12,15 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
     // Initialize one-time-per-session fixes
     const int once = 0;
     if (!once) {
+        Ninja_G1CP_MenuVersionNumber();
         Ninja_G1CP_TestSuite();
         Ninja_G1CP_001_FixNpcSleep();                                   // #1
+        Ninja_G1CP_003_RegainDroppedWeapon();                           // #3
+        Ninja_G1CP_007_PracticeSwordWithWeapon();                       // #7
+        Ninja_G1CP_015_HoratioStrength();                               // #15
+        Ninja_G1CP_016_ThorusBribeDialog();                             // #16
+        Ninja_G1CP_017_JackalProtectionMoney();                         // #17
+        Ninja_G1CP_018_BloodwynProtectionMoney();                       // #18
         Ninja_G1CP_059_FixEquipBestWeapons();                           // #59
 
         once = 1;
@@ -26,6 +33,6 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
  */
 func void Ninja_G1CP_Init() {
     // Wrapper for "LeGo_Init" to ensure correct LeGo initialization without breaking the mod
-    LeGo_MergeFlags(LeGo_ConsoleCommands);
+    LeGo_MergeFlags(LeGo_ConsoleCommands | LeGo_AI_Function);
 
 };
