@@ -14,6 +14,7 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
     if (!once) {
         Ninja_G1CP_MenuVersionNumber();
         Ninja_G1CP_TestSuite();
+        Ninja_G1CP_001_FixNpcSleep();                                   // #1
         Ninja_G1CP_003_RegainDroppedWeapon();                           // #3
         Ninja_G1CP_007_PracticeSwordWithWeapon();                       // #7
         Ninja_G1CP_015_HoratioStrength();                               // #15
