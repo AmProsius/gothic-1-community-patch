@@ -15,6 +15,7 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
         Ninja_G1CP_MenuVersionNumber();
         Ninja_G1CP_TestSuite();
         Ninja_G1CP_003_RegainDroppedWeapon();                           // #3
+        Ninja_G1CP_007_PracticeSwordWithWeapon();                       // #7
         Ninja_G1CP_015_HoratioStrength();                               // #15
         Ninja_G1CP_016_ThorusBribeDialog();                             // #16
         Ninja_G1CP_017_JackalProtectionMoney();                         // #17
