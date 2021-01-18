@@ -96,12 +96,12 @@ func void Ninja_G1CP_Test_007_NpcRemove() {
     AI_Function_I(hero, Wld_RemoveNpc, Ninja_G1CP_Test_007_Npc);
 };
 func void Ninja_G1CP_Test_007_Success() {
-    Print(ConcatStrings(ConcatStrings("Test 3 passed (PART ", IntToString(Ninja_G1CP_Test_007_Pass-1)), " of 2)"));
+    Print(ConcatStrings(ConcatStrings("Test 7 passed (PART ", IntToString(Ninja_G1CP_Test_007_Pass-1)), " of 2)"));
     Ninja_G1CP_Test_007_NpcRemove();
     Ninja_G1CP_Test_007_Pass += 1;
 };
 func void ZS_Ninja_G1CP_Test_007_NpcRountine_End() {
-    Print(ConcatStrings(ConcatStrings("Test 3 failed (PART ", IntToString(Ninja_G1CP_Test_007_Pass-1)), " of 2)"));
+    Print(ConcatStrings(ConcatStrings("Test 7 failed (PART ", IntToString(Ninja_G1CP_Test_007_Pass-1)), " of 2)"));
     Ninja_G1CP_Test_007_NpcRemove();
     Ninja_G1CP_Test_007_Pass += 1;
 };
