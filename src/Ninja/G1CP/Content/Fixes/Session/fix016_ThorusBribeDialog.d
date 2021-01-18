@@ -10,20 +10,12 @@ func void Ninja_G1CP_016_ThorusBribeDialog() {
  * This function intercepts the dialog condition to introduce more conditions
  */
 func int Ninja_G1CP_016_ThorusBribeDialog_Hook1() {
-    // Add potentially missing symbols locally
-    var int Diego_GomezAudience;
-
-    // Fill the local symbols
-    var int symbPtr; symbPtr = MEM_GetSymbol("Diego_GomezAudience");
-    if (symbPtr) {
-        Diego_GomezAudience = MEM_ReadInt(symbPtr + zCParSymbol_content_offset);
-    };
-
-    // Check if passage is granted
-    var int passGate; passGate = Ninja_G1CP_GetAIVar(MEM_FindParserSymbol("Grd_212_Torwache"), "AIV_PASSGATE", 0);
+    // Check if passage to the castle is granted
+    var int passGate1; passGate1 = Ninja_G1CP_GetAIVar(MEM_FindParserSymbol("Grd_212_Torwache"), "AIV_PASSGATE", 0);
+    var int passGate2; passGate2 = Ninja_G1CP_GetAIVar(MEM_FindParserSymbol("Grd_213_Torwache"), "AIV_PASSGATE", 0);
 
     // Add the new condition (other conditions remain untouched)
-    if (Diego_GomezAudience) || (passGate) {
+    if (passGate1) || (passGate2) {
         return FALSE;
     };
 
@@ -35,20 +27,12 @@ func int Ninja_G1CP_016_ThorusBribeDialog_Hook1() {
  * Exact copy of the function above. Need unique functions for both because of the way Daedalus hooks work
  */
 func int Ninja_G1CP_016_ThorusBribeDialog_Hook2() {
-    // Add potentially missing symbols locally
-    var int Diego_GomezAudience;
-
-    // Fill the local symbols
-    var int symbPtr; symbPtr = MEM_GetSymbol("Diego_GomezAudience");
-    if (symbPtr) {
-        Diego_GomezAudience = MEM_ReadInt(symbPtr + zCParSymbol_content_offset);
-    };
-
-    // Check if passage is granted
-    var int passGate; passGate = Ninja_G1CP_GetAIVar(MEM_FindParserSymbol("Grd_212_Torwache"), "AIV_PASSGATE", 0);
+    // Check if passage to the castle is granted
+    var int passGate1; passGate1 = Ninja_G1CP_GetAIVar(MEM_FindParserSymbol("Grd_212_Torwache"), "AIV_PASSGATE", 0);
+    var int passGate2; passGate2 = Ninja_G1CP_GetAIVar(MEM_FindParserSymbol("Grd_213_Torwache"), "AIV_PASSGATE", 0);
 
     // Add the new condition (other conditions remain untouched)
-    if (Diego_GomezAudience) || (passGate) {
+    if (passGate1) || (passGate2) {
         return FALSE;
     };
 
