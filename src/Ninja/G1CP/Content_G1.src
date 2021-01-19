@@ -27,6 +27,7 @@ Content\Fixes\Session\fix059_FixEquipBestWeapons.d
 // Tests
 Content\Tests\test001.d
 Content\Tests\test003.d
+Content\Tests\test006.d
 Content\Tests\test007.d
 Content\Tests\test015.d
 Content\Tests\test016.d
