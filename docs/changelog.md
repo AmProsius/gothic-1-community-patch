@@ -2,6 +2,7 @@
 
 ## EN
 * Fix #1: NPCs no longer wake up immediately after going to bed but remain sleeping.
+* Fix #2: NPCs open closed doors properly and walk through them.
 * Fix #3: NPCs now always pick up their weapons after a lost fight.
 * Fix #7: NPCs no longer practice weapon training without a weapon.
 * Fix #15: The player doesn't lose Strength as part of the quest "Horatio the Peasant" if he had more than 100 Strength.
@@ -12,6 +13,7 @@
 
 ## DE
 * Fix #1: NSCs wachen nicht länger sofort auf, nachdem sie ins Bett gegangen sind, sondern bleiben liegen.
+* Fix #2: NSCs öffnen nun korrekt geschlossene Türen und gehen hindurch.
 * Fix #3: NSCs heben nun immer ihre Waffen nach einem verlorenen Kampf auf.
 * Fix #7: NSCs trainieren nicht länger ohne eine Waffe in der Hand.
 * Fix #15: Der Spieler verliert keine Stärke mehr im Zuge der Quest "Horatio der Bauer", wenn er vorher mehr als 100 Stärke hatte.
