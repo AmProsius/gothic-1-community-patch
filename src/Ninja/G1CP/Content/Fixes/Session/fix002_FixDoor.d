@@ -19,6 +19,7 @@ func void Ninja_G1CP_002_FixDoor_Hook() {
         && (Ninja_G1CP_GetAIVar(Hlp_GetInstanceID(self), "AIV_MOVINGMOB", 1)) { // AI-var was set to 1 or does not exist
             AI_UseMob(self, door,  1);                                          // Just to be safe
             AI_UseMob(self, door, -1);                                          // Actual fix
+            AI_ContinueRoutine(self);                                           // Continue to walk through the door
         };
     };
 };
