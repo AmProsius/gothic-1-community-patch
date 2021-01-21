@@ -65,9 +65,9 @@ func void Ninja_G1CP_003_RegainDroppedWeapon_Hook(var C_Npc slf) {
     const int AI_EquipBestRangedWeapon_p = 6655079; //0x658C67
     const int once = 0;
     if (!once) {
-        MemoryProtectionOverride(AI_TakeItem_p, 2);
-        MemoryProtectionOverride(AI_EquipBestMeleeWeapon_p, 2);
-        MemoryProtectionOverride(AI_EquipBestRangedWeapon_p, 2);
+        MemoryProtectionOverride(AI_TakeItem_p, 4);
+        MemoryProtectionOverride(AI_EquipBestMeleeWeapon_p, 4);
+        MemoryProtectionOverride(AI_EquipBestRangedWeapon_p, 4);
         once = 1;
     };
     const int orig = 3296983179; /*8B F8 83 C4*/
