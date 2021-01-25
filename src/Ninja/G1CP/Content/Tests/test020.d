@@ -7,31 +7,39 @@
  * Expected behavior: The hero will receive one beer from Kirgo (automatically removed after the test is complete)
  */
 func int Ninja_G1CP_Test_020() {
+    // Check status of the test
+    var int passed; passed = TRUE;
+
     // Find Kirgo first
     var int symbId; symbId = MEM_FindParserSymbol("Grd_251_Kirgo");
     if (symbId == -1) {
         Ninja_G1CP_TestsuiteErrorDetail(20, "NPC 'Grd_251_Kirgo' not found");
-        return FALSE;
+        passed = FALSE;
     };
 
     // Check if Kirgo exists in the world
-    var C_Npc kirgo; kirgo = Hlp_GetNpc(Grd_251_Kirgo);
+    var C_Npc kirgo; kirgo = Hlp_GetNpc(symbId);
     if (!Hlp_IsValidNpc(kirgo)) {
         Ninja_G1CP_TestsuiteErrorDetail(20, "'Grd_251_Kirgo' is not a valid NPC");
-        return FALSE;
+        passed = FALSE;
     };
 
     // Check if the dialog function exists
     var int funcId; funcId = MEM_FindParserSymbol("Info_Kirgo_Charge_Beer");
     if (funcId == -1) {
         Ninja_G1CP_TestsuiteErrorDetail(20, "Dialog function 'Info_Kirgo_Charge_Beer' not found");
-        return FALSE;
+        passed = FALSE;
     };
 
     // Check if the beer item exists
     var int beerId; beerId = MEM_FindParserSymbol("ItFoBeer");
     if (beerId == -1) {
         Ninja_G1CP_TestsuiteErrorDetail(20, "Item 'ItFoBeer' not found");
+        passed = FALSE;
+    };
+
+    // At the latest now, we need to stop if there are fails already
+    if (!passed) {
         return FALSE;
     };
 
@@ -51,7 +59,7 @@ func int Ninja_G1CP_Test_020() {
     MEM_CallByID(funcId);
 
     // Restore self and other
-    self = MEM_CpyInst(slfBak);
+    self  = MEM_CpyInst(slfBak);
     other = MEM_CpyInst(othBak);
 
     // Stop the output units
