@@ -26,6 +26,7 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
         Ninja_G1CP_018_BloodwynProtectionMoney();                       // #18
         Ninja_G1CP_019_ScorpioFightDialog();                            // #19
         Ninja_G1CP_020_KirgoGivesBeer();                                // #20
+        Ninja_G1CP_029_BusterAcrobatics();                              // #29
         Ninja_G1CP_059_FixEquipBestWeapons();                           // #59
 
         once = 1;
