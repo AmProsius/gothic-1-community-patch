@@ -8,7 +8,7 @@
 func int Ninja_G1CP_Test_017() {
     var int symbId; symbId = MEM_FindParserSymbol("Info_Jackal_Hello_Condition");
     if (symbId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail(17, "Original dialog not found");
+        Ninja_G1CP_TestsuiteErrorDetail("Original dialog not found");
         return FALSE;
     };
 
@@ -27,7 +27,7 @@ func int Ninja_G1CP_Test_017() {
 
     // Check return value
     if (ret) {
-        Ninja_G1CP_TestsuiteErrorDetail(17, "Dialog condition failed");
+        Ninja_G1CP_TestsuiteErrorDetail("Dialog condition failed");
         return FALSE;
     } else {
         return TRUE;

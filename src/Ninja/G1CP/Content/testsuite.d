@@ -8,7 +8,7 @@
  * return type, then they will be marked as to be manually confirmed.
  *
  * Errors and other messages should not be reported to the zSpy directly but using this function instead
- *    Ninja_G1CP_TestsuiteErrorDetail(int testNr, string message)
+ *    Ninja_G1CP_TestsuiteErrorDetail(string message)
  *
  * Tests that require manual confirmation from the user typically have to teleport the hero or similar. This would
  * interfere when all tests are run at once (i.e. 'test all'). Therefore, before any such actions are taken, the test
@@ -54,10 +54,26 @@ func int Ninja_G1CP_TestsuiteRun(var int id) {
 /*
  * Add error message (to be printed in the end)
  */
-func void Ninja_G1CP_TestsuiteErrorDetail(var int id, var string msg) {
+func void Ninja_G1CP_TestsuiteErrorDetail(var string msg) {
     if (!Hlp_StrCmp(Ninja_G1CP_TestsuiteMsg, "")) {
         Ninja_G1CP_TestsuiteMsg = ConcatStrings(Ninja_G1CP_TestsuiteMsg, "|");
     };
+
+    // Obtain test number
+    var int id;
+    var int callerID; callerID = MEM_GetFuncIDByOffset(MEM_GetCallerStackPos());
+    if (callerID < 0) || (callerID >= currSymbolTableLength) {
+        id = -1;
+    } else {
+        var string callerName; callerName = MEM_ReadString(MEM_GetSymbolByIndex(callerID));
+        var int prefixLen; prefixLen = STR_Len("Ninja_G1CP_Test_000");
+        if (STR_Len(callerName) < prefixLen) {
+            id = -1;
+        } else {
+            id = STR_ToInt(STR_SubStr(callerName, prefixLen-3, 3));
+        };
+    };
+
     Ninja_G1CP_TestsuiteMsg = ConcatStrings(Ninja_G1CP_TestsuiteMsg, "  Test ");
     Ninja_G1CP_TestsuiteMsg = ConcatStrings(Ninja_G1CP_TestsuiteMsg, Ninja_G1CP_LFill(IntToString(id), " ", 3));
     Ninja_G1CP_TestsuiteMsg = ConcatStrings(Ninja_G1CP_TestsuiteMsg, ": ");
@@ -132,6 +148,7 @@ func string Ninja_G1CP_TestsuiteAll(var string _) {
             MEM_SendToSpy(zERR_TYPE_INFO, msg);
         };
     end;
+    MEM_Info("");
 
     // Print error details
     Ninja_G1CP_TestsuitePrintErrors();

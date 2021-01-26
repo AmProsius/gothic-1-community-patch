@@ -15,14 +15,14 @@ func void Ninja_G1CP_Test_010() {
     Wld_InsertNpc(Ninja_G1CP_Test_010_Npc, wp);
     var C_Npc test; test = Hlp_GetNpc(Ninja_G1CP_Test_010_Npc);
     if (!Hlp_IsValidNpc(test)) {
-        Ninja_G1CP_TestsuiteErrorDetail(10, "Failed to insert NPC");
+        Ninja_G1CP_TestsuiteErrorDetail("Failed to insert NPC");
         return;
     };
 
     // Check for ZS_FollowPC
     var int symbId; symbId = MEM_FindParserSymbol("ZS_FollowPC");
     if (!symbId) {
-        Ninja_G1CP_TestsuiteErrorDetail(10, "'ZS_FollowPC' not found");
+        Ninja_G1CP_TestsuiteErrorDetail("'ZS_FollowPC' not found");
         return;
     };
 
