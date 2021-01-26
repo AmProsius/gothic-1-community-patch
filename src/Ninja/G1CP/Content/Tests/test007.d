@@ -17,7 +17,7 @@ func void Ninja_G1CP_Test_007() {
     // Check if AI state exists
     var int symbId; symbId = MEM_FindParserSymbol("ZS_PracticeSword");
     if (symbId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail(7, "AI state 'ZS_PracticeSword' does not exist");
+        Ninja_G1CP_TestsuiteErrorDetail("AI state 'ZS_PracticeSword' does not exist");
         return;
     };
 
@@ -29,7 +29,7 @@ func void Ninja_G1CP_Test_007() {
     Wld_InsertNpc(Ninja_G1CP_Test_007_Npc, wp);
     var C_Npc test; test = Hlp_GetNpc(Ninja_G1CP_Test_007_Npc);
     if (!Hlp_IsValidNpc(test)) {
-        Ninja_G1CP_TestsuiteErrorDetail(7, "Failed to insert NPC");
+        Ninja_G1CP_TestsuiteErrorDetail("Failed to insert NPC");
         return;
     };
 

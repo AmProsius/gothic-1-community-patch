@@ -8,7 +8,7 @@
 func int Ninja_G1CP_Test_015() {
     var int symbId; symbId = MEM_FindParserSymbol("DIA_Horatio_HelpSTR_LEARN_NOW");
     if (symbId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail(15, "Original dialog not found");
+        Ninja_G1CP_TestsuiteErrorDetail("Original dialog not found");
         return FALSE;
     };
 
@@ -19,7 +19,7 @@ func int Ninja_G1CP_Test_015() {
     hero.attribute[/*ATR_STRENGTH*/4] = 10;
     MEM_CallByID(symbId);
     if (hero.attribute[/*ATR_STRENGTH*/4] <= 10) {
-        Ninja_G1CP_TestsuiteErrorDetail(15, "Strength was not increased when below 100");
+        Ninja_G1CP_TestsuiteErrorDetail("Strength was not increased when below 100");
         hero.attribute[/*ATR_STRENGTH*/4] = strengthBak;
         return FALSE;
     };
@@ -28,7 +28,7 @@ func int Ninja_G1CP_Test_015() {
     hero.attribute[/*ATR_STRENGTH*/4] = 1000;
     MEM_CallByID(symbId);
     if (hero.attribute[/*ATR_STRENGTH*/4] != 1000) {
-        Ninja_G1CP_TestsuiteErrorDetail(15, "Strength was reset to 100");
+        Ninja_G1CP_TestsuiteErrorDetail("Strength was reset to 100");
         hero.attribute[/*ATR_STRENGTH*/4] = strengthBak;
         return FALSE;
     };

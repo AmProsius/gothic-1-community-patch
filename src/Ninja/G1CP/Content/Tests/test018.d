@@ -8,7 +8,7 @@
 func int Ninja_G1CP_Test_018() {
     var int symbId; symbId = MEM_FindParserSymbol("Info_Bloodwyn_Hello_Condition");
     if (symbId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail(18, "Original dialog not found");
+        Ninja_G1CP_TestsuiteErrorDetail("Original dialog not found");
         return FALSE;
     };
 
@@ -27,7 +27,7 @@ func int Ninja_G1CP_Test_018() {
 
     // Check return value
     if (ret) {
-        Ninja_G1CP_TestsuiteErrorDetail(18, "Dialog condition failed");
+        Ninja_G1CP_TestsuiteErrorDetail("Dialog condition failed");
         return FALSE;
     } else {
         return TRUE;
