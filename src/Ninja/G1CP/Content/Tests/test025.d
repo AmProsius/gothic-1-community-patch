@@ -12,21 +12,21 @@ func int Ninja_G1CP_Test_025() {
     // Find the dialog condition function
     var int funcId; funcId = MEM_FindParserSymbol("KDW_600_Saturas_HEAVYARMOR_Condition");
     if (funcId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail(25, "Original dialog not found");
+        Ninja_G1CP_TestsuiteErrorDetail("Original dialog not found");
         passed = FALSE;
     };
 
     // Find the symbol
     var int robeId; robeId = MEM_FindParserSymbol("KDW_ARMOR_H");
     if (robeId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail(25, "Item 'KDW_ARMOR_H' not found");
+        Ninja_G1CP_TestsuiteErrorDetail("Item 'KDW_ARMOR_H' not found");
         passed = FALSE;
     };
 
     // Find the guild
     var int symbPtr; symbPtr = MEM_GetSymbol("GIL_KDW");
     if (!symbPtr) {
-        Ninja_G1CP_TestsuiteErrorDetail(25, "Variable 'GIL_KDW' not found");
+        Ninja_G1CP_TestsuiteErrorDetail("Variable 'GIL_KDW' not found");
         passed = FALSE;
     };
 
@@ -62,7 +62,7 @@ func int Ninja_G1CP_Test_025() {
 
     // Check return value
     if (ret) {
-        Ninja_G1CP_TestsuiteErrorDetail(25, "Dialog condition failed");
+        Ninja_G1CP_TestsuiteErrorDetail("Dialog condition failed");
         return FALSE;
     } else {
         return TRUE;
