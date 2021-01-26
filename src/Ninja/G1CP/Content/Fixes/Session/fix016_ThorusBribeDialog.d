@@ -11,8 +11,8 @@ func void Ninja_G1CP_016_ThorusBribeDialog() {
  */
 func int Ninja_G1CP_016_ThorusBribeDialog_Hook1() {
     // Check if passage to the castle is granted
-    var int passGate1; passGate1 = Ninja_G1CP_GetAIVar(MEM_FindParserSymbol("Grd_212_Torwache"), "AIV_PASSGATE", 0);
-    var int passGate2; passGate2 = Ninja_G1CP_GetAIVar(MEM_FindParserSymbol("Grd_213_Torwache"), "AIV_PASSGATE", 0);
+    var int passGate1; passGate1 = Ninja_G1CP_IdGetAIVar(MEM_FindParserSymbol("Grd_212_Torwache"), "AIV_PASSGATE", 0);
+    var int passGate2; passGate2 = Ninja_G1CP_IdGetAIVar(MEM_FindParserSymbol("Grd_213_Torwache"), "AIV_PASSGATE", 0);
 
     // Add the new condition (other conditions remain untouched)
     if (passGate1) || (passGate2) {
@@ -28,8 +28,8 @@ func int Ninja_G1CP_016_ThorusBribeDialog_Hook1() {
  */
 func int Ninja_G1CP_016_ThorusBribeDialog_Hook2() {
     // Check if passage to the castle is granted
-    var int passGate1; passGate1 = Ninja_G1CP_GetAIVar(MEM_FindParserSymbol("Grd_212_Torwache"), "AIV_PASSGATE", 0);
-    var int passGate2; passGate2 = Ninja_G1CP_GetAIVar(MEM_FindParserSymbol("Grd_213_Torwache"), "AIV_PASSGATE", 0);
+    var int passGate1; passGate1 = Ninja_G1CP_IdGetAIVar(MEM_FindParserSymbol("Grd_212_Torwache"), "AIV_PASSGATE", 0);
+    var int passGate2; passGate2 = Ninja_G1CP_IdGetAIVar(MEM_FindParserSymbol("Grd_213_Torwache"), "AIV_PASSGATE", 0);
 
     // Add the new condition (other conditions remain untouched)
     if (passGate1) || (passGate2) {
