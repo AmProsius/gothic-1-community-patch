@@ -20,7 +20,7 @@ func int Ninja_G1CP_Test_059() {
     Wld_InsertNpc(Ninja_G1CP_Test_059_Npc, wp);
     var zCVob test; test = Hlp_GetNpc(Ninja_G1CP_Test_059_Npc);
     if (!Hlp_IsValidNpc(test)) {
-        Ninja_G1CP_TestsuiteErrorDetail(59, "Failed to insert NPC");
+        Ninja_G1CP_TestsuiteErrorDetail("Failed to insert NPC");
         return FALSE;
     };
 
@@ -44,7 +44,7 @@ func int Ninja_G1CP_Test_059() {
         } else {
             weapName = "None";
         };
-        Ninja_G1CP_TestsuiteErrorDetail(59, ConcatStrings("Incorrect weapon equipped: ", weapName));
+        Ninja_G1CP_TestsuiteErrorDetail(ConcatStrings("Incorrect weapon equipped: ", weapName));
         return FALSE;
     };
 
