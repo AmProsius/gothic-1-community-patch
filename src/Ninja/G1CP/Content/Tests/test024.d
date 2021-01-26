@@ -17,41 +17,41 @@ func int Ninja_G1CP_Test_024() {
     // Find Cor Kalom first
     var int symbId; symbId = MEM_FindParserSymbol("GUR_1201_CorKalom");
     if (symbId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail(20, "NPC 'GUR_1201_CorKalom' not found");
+        Ninja_G1CP_TestsuiteErrorDetail("NPC 'GUR_1201_CorKalom' not found");
         passed = FALSE;
     };
 
     // Check if Cor Kalom exists in the world
     var C_Npc kalom; kalom = Hlp_GetNpc(symbId);
     if (!Hlp_IsValidNpc(kalom)) {
-        Ninja_G1CP_TestsuiteErrorDetail(20, "'GUR_1201_CorKalom' is not a valid NPC");
+        Ninja_G1CP_TestsuiteErrorDetail("'GUR_1201_CorKalom' is not a valid NPC");
         passed = FALSE;
     };
 
     // Check if dialog exists
     var int funcId; funcId = MEM_FindParserSymbol("Info_Kalom_KrautboteBACK_Info");
     if (funcId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail(24, "Dialog function 'Info_Kalom_KrautboteBACK_Info' not found");
+        Ninja_G1CP_TestsuiteErrorDetail("Dialog function 'Info_Kalom_KrautboteBACK_Info' not found");
         passed = FALSE;
     };
 
     // Check if the ore nugget item exists
     var int nuggetId; nuggetId = MEM_FindParserSymbol("ItMiNugget");
     if (nuggetId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail(20, "Item 'ItMiNugget' not found");
+        Ninja_G1CP_TestsuiteErrorDetail("Item 'ItMiNugget' not found");
         passed = FALSE;
     };
 
     // Obtain symbols
     var int drugMonopolPtr; drugMonopolPtr = MEM_GetSymbol("Kalom_DrugMonopol");
     if (!drugMonopolPtr) {
-        Ninja_G1CP_TestsuiteErrorDetail(24, "Variable 'Kalom_DrugMonopol' not found");
+        Ninja_G1CP_TestsuiteErrorDetail("Variable 'Kalom_DrugMonopol' not found");
         passed = FALSE;
     };
     drugMonopolPtr += zCParSymbol_content_offset;
     var int krautbotePtr; krautbotePtr = MEM_GetSymbol("Kalom_Krautbote");
     if (!krautbotePtr) {
-        Ninja_G1CP_TestsuiteErrorDetail(24, "Variable 'Kalom_Krautbote' not found");
+        Ninja_G1CP_TestsuiteErrorDetail("Variable 'Kalom_Krautbote' not found");
         passed = FALSE;
     };
     krautbotePtr += zCParSymbol_content_offset;
@@ -101,11 +101,11 @@ func int Ninja_G1CP_Test_024() {
 
     // Confirm the fix
     if (drugMonopolAfter != LOG_RUNNING) {
-        Ninja_G1CP_TestsuiteErrorDetail(24, "Mission 'Kalom_DrugMonopol' was wrongfully closed");
+        Ninja_G1CP_TestsuiteErrorDetail("Mission 'Kalom_DrugMonopol' was wrongfully closed");
         passed = FALSE;
     };
     if (krautboteAfter != LOG_SUCCESS) {
-        Ninja_G1CP_TestsuiteErrorDetail(24, "Mission 'Kalom_Krautbote' is still open");
+        Ninja_G1CP_TestsuiteErrorDetail("Mission 'Kalom_Krautbote' is still open");
         passed = FALSE;
     };
 
