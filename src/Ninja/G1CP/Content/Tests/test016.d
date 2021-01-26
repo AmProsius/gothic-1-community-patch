@@ -14,19 +14,19 @@ func int Ninja_G1CP_Test_016_RunDialog(var string dialogName, var string needsIn
     // Check if dialog exists
     symbId = MEM_FindParserSymbol(dialogName);
     if (symbId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail(16, ConcatStrings("Original dialog not found: ", dialogName));
+        Ninja_G1CP_TestsuiteErrorDetail(ConcatStrings("Original dialog not found: ", dialogName));
         return FALSE;
     };
 
     // Check if NPC and AI-variable exist
-    backupValue = Ninja_G1CP_GetAIVar(MEM_FindParserSymbol("Grd_212_Torwache"), "AIV_PASSGATE", -42);
+    backupValue = Ninja_G1CP_IdGetAIVar(MEM_FindParserSymbol("Grd_212_Torwache"), "AIV_PASSGATE", -42);
     if (backupValue == -42) {
-        Ninja_G1CP_TestsuiteErrorDetail(16, "'Grd_212_Torwache' or 'AIV_PASSGATE' does not exist");
+        Ninja_G1CP_TestsuiteErrorDetail("'Grd_212_Torwache' or 'AIV_PASSGATE' does not exist");
         return FALSE;
     };
 
     // Set the variable to TRUE
-    Ninja_G1CP_SetAIVar(MEM_FindParserSymbol("Grd_212_Torwache"), "AIV_PASSGATE", TRUE);
+    Ninja_G1CP_IdSetAIVar(MEM_FindParserSymbol("Grd_212_Torwache"), "AIV_PASSGATE", TRUE);
 
     // Backup told status of required dialog
     backupTold = Npc_KnowsInfo(hero, MEM_FindParserSymbol(needsInfo));
@@ -40,11 +40,11 @@ func int Ninja_G1CP_Test_016_RunDialog(var string dialogName, var string needsIn
     Ninja_G1CP_SetInfoTold(needsInfo, backupTold);
 
     // Restore value
-    Ninja_G1CP_SetAIVar(MEM_FindParserSymbol("Grd_212_Torwache"), "AIV_PASSGATE", backupValue);
+    Ninja_G1CP_IdSetAIVar(MEM_FindParserSymbol("Grd_212_Torwache"), "AIV_PASSGATE", backupValue);
 
     // Check return value
     if (ret) {
-        Ninja_G1CP_TestsuiteErrorDetail(16, ConcatStrings("Dialog condition failed: ", dialogName));
+        Ninja_G1CP_TestsuiteErrorDetail(ConcatStrings("Dialog condition failed: ", dialogName));
         return FALSE;
     };
 

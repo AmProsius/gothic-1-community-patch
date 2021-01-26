@@ -15,14 +15,14 @@ func int Ninja_G1CP_Test_019() {
     // Check if dialog exists
     funcId = MEM_FindParserSymbol("DIA_Scorpio_REFUSETRAIN_Condition");
     if (funcId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail(19, "Original dialog not found");
+        Ninja_G1CP_TestsuiteErrorDetail("Original dialog not found");
         return FALSE;
     };
 
     // Check if variable exists
     symbPtr = MEM_GetSymbol("Kapitel");
     if (!symbPtr) {
-        Ninja_G1CP_TestsuiteErrorDetail(19, "Variable 'Kapitel' not found");
+        Ninja_G1CP_TestsuiteErrorDetail("Variable 'Kapitel' not found");
         return FALSE;
     };
 
@@ -57,7 +57,7 @@ func int Ninja_G1CP_Test_019() {
 
     // Check return value
     if (ret) {
-        Ninja_G1CP_TestsuiteErrorDetail(19, "Dialog condition failed");
+        Ninja_G1CP_TestsuiteErrorDetail("Dialog condition failed");
         return FALSE;
     } else {
         return TRUE;

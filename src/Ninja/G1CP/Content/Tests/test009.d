@@ -14,7 +14,7 @@ func void Ninja_G1CP_Test_009() {
     if (MEM_FindParserSymbol("ZS_Flee") == -1)
     || (MEM_FindParserSymbol("ZS_Flee_Loop") == -1)
     || (MEM_FindParserSymbol("ZS_Flee_End") == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail(9, "'ZS_Flee' (or sub-functions) not found");
+        Ninja_G1CP_TestsuiteErrorDetail("'ZS_Flee' (or sub-functions) not found");
         return;
     };
 

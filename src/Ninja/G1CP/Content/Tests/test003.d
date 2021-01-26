@@ -15,7 +15,7 @@ func void Ninja_G1CP_Test_003() {
     Wld_InsertNpc(Ninja_G1CP_Test_003_Npc, wp);
     var C_Npc test; test = Hlp_GetNpc(Ninja_G1CP_Test_003_Npc);
     if (!Hlp_IsValidNpc(test)) {
-        Ninja_G1CP_TestsuiteErrorDetail(3, "Failed to insert NPC");
+        Ninja_G1CP_TestsuiteErrorDetail("Failed to insert NPC");
         return;
     };
 
