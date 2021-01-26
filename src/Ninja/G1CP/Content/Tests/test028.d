@@ -1,7 +1,7 @@
 /*
  * #28 Mordrag doesn't refuse to escort the player
  *
- * The hero is given a new guild, attitude and guard status and the condition function of the dialog is called.
+ * A variable is temporarily set and the condition function of the dialog is called.
  *
  * Expected behavior: The condition function will return FALSE.
  */
