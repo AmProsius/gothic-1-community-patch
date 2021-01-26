@@ -31,6 +31,7 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
         Ninja_G1CP_025_SaturasSellsRobe();                              // #25
         Ninja_G1CP_026_LaresGuardAttacks();                             // #26
         Ninja_G1CP_028_MordragNoEscort();                               // #28
+        Ninja_G1CP_029_BusterAcrobatics();                              // #29
         Ninja_G1CP_059_FixEquipBestWeapons();                           // #59
 
         once = 1;

@@ -30,6 +30,7 @@ Content\Fixes\Session\fix024_CorKalomWrongQuest.d
 Content\Fixes\Session\fix025_SaturasSellsRobe.d
 Content\Fixes\Session\fix026_LaresGuardAttacks.d
 Content\Fixes\Session\fix028_MordragNoEscort.d
+Content\Fixes\Session\fix029_BusterAcrobatics.d
 Content\Fixes\Session\fix059_FixEquipBestWeapons.d
 
 // Game save fixes
@@ -52,6 +53,7 @@ Content\Tests\test024.d
 Content\Tests\test025.d
 Content\Tests\test026.d
 Content\Tests\test028.d
+Content\Tests\test029.d
 Content\Tests\test059.d
 
 // Initialization
