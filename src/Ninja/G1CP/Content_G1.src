@@ -25,6 +25,7 @@ Content\Fixes\Session\fix017_JackalProtectionMoney.d
 Content\Fixes\Session\fix018_BloodwynProtectionMoney.d
 Content\Fixes\Session\fix019_ScorpioFightDialog.d
 Content\Fixes\Session\fix020_KirgoGivesBeer.d
+Content\Fixes\Session\fix026_LaresGuardAttacks.d
 Content\Fixes\Session\fix059_FixEquipBestWeapons.d
 
 // Game save fixes
@@ -42,6 +43,7 @@ Content\Tests\test017.d
 Content\Tests\test018.d
 Content\Tests\test019.d
 Content\Tests\test020.d
+Content\Tests\test026.d
 Content\Tests\test059.d
 
 // Initialization
