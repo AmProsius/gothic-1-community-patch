@@ -16,28 +16,28 @@ func int Ninja_G1CP_Test_026() {
     // Check if the dialog exists
     var int symbId; symbId = MEM_FindParserSymbol("Info_Org_804_FirstWarn_Condition");
     if (symbId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail(26, "Original dialog not found");
+        Ninja_G1CP_TestsuiteErrorDetail("Original dialog not found");
         passed = FALSE;
     };
 
     // Find the guard NPC
     var int guardId; guardId = MEM_FindParserSymbol("Org_804_Organisator");
     if (guardId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail(26, "Npc 'Org_804_Organisator' not found");
+        Ninja_G1CP_TestsuiteErrorDetail("Npc 'Org_804_Organisator' not found");
         passed = FALSE;
     };
 
     // Check if NPC exists
     var C_Npc guard; guard = Hlp_GetNpc(guardId);
     if (!Hlp_IsValidNpc(guard)) {
-        Ninja_G1CP_TestsuiteErrorDetail(26, "Npc 'Org_804_Organisator' is not a valid NPC");
+        Ninja_G1CP_TestsuiteErrorDetail("Npc 'Org_804_Organisator' is not a valid NPC");
         passed = FALSE;
     };
 
     // Find the guild
     var int symbPtr; symbPtr = MEM_GetSymbol("GIL_GRD");
     if (!symbPtr) {
-        Ninja_G1CP_TestsuiteErrorDetail(26, "Variable 'GIL_GRD' not found");
+        Ninja_G1CP_TestsuiteErrorDetail("Variable 'GIL_GRD' not found");
         passed = FALSE;
     };
 
@@ -79,7 +79,7 @@ func int Ninja_G1CP_Test_026() {
 
     // Check return value
     if (ret) {
-        Ninja_G1CP_TestsuiteErrorDetail(26, "Dialog condition failed");
+        Ninja_G1CP_TestsuiteErrorDetail("Dialog condition failed");
         return FALSE;
     } else {
         return TRUE;
