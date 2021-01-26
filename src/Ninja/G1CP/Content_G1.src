@@ -25,6 +25,8 @@ Content\Fixes\Session\fix017_JackalProtectionMoney.d
 Content\Fixes\Session\fix018_BloodwynProtectionMoney.d
 Content\Fixes\Session\fix019_ScorpioFightDialog.d
 Content\Fixes\Session\fix020_KirgoGivesBeer.d
+Content\Fixes\Session\fix022_YBerionAttacks.d
+Content\Fixes\Session\fix024_CorKalomWrongQuest.d
 Content\Fixes\Session\fix025_SaturasSellsRobe.d
 Content\Fixes\Session\fix059_FixEquipBestWeapons.d
 
@@ -43,6 +45,8 @@ Content\Tests\test017.d
 Content\Tests\test018.d
 Content\Tests\test019.d
 Content\Tests\test020.d
+Content\Tests\test022.d
+Content\Tests\test024.d
 Content\Tests\test025.d
 Content\Tests\test059.d
 
