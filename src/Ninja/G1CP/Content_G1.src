@@ -11,6 +11,7 @@ Content\testsuite.d
 Content\Misc\aivar.d
 Content\Misc\info.d
 Content\Misc\Npc_CanSeeVob.d
+Content\Misc\waypoint.d
 
 // Session fixes
 Content\Fixes\Session\fix001_FixNpcSleep.d
@@ -34,6 +35,7 @@ Content\Fixes\Session\fix029_BusterAcrobatics.d
 Content\Fixes\Session\fix059_FixEquipBestWeapons.d
 
 // Game save fixes
+Content\Fixes\Gamesave\fix053_OldMineLadders.d
 
 // Tests
 Content\Tests\test001.d
@@ -54,6 +56,7 @@ Content\Tests\test025.d
 Content\Tests\test026.d
 Content\Tests\test028.d
 Content\Tests\test029.d
+Content\Tests\test053.d
 Content\Tests\test059.d
 
 // Initialization

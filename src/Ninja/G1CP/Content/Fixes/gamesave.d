@@ -12,10 +12,12 @@ func void Ninja_G1CP_HookGameSaveFixes() {
  * Apply all game save sensitive fixes
  */
 func void Ninja_G1CP_GamesaveFixes_Add() {
+    Ninja_G1CP_053_OldMineLadders();
 };
 
 /*
  * Revert all game save sensitive fixes
  */
 func void Ninja_G1CP_GamesaveFixes_Revert() {
+    Ninja_G1CP_053_OldMineLadders_Revert();
 };
