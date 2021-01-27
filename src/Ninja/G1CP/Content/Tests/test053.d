@@ -7,9 +7,13 @@
  */
 func void Ninja_G1CP_Test_053() {
     if (Ninja_G1CP_TestsuiteAllowManual) {
-        const int oCGame__TriggerChangeLevel = 6542464; //0x63D480
-        CALL_zStringPtrParam("OM_185");
-        CALL_zStringPtrParam("OLDMINE.ZEN");
-        CALL__thiscall(_@(MEM_Game), oCGame__TriggerChangeLevel);
+        if (!Hlp_StrCmp(MEM_World.worldFilename, "OLDMINE.ZEN")) {
+            const int oCGame__TriggerChangeLevel = 6542464; //0x63D480
+            CALL_zStringPtrParam("OM_185");
+            CALL_zStringPtrParam("OLDMINE.ZEN");
+            CALL__thiscall(_@(MEM_Game), oCGame__TriggerChangeLevel);
+        } else {
+            AI_Teleport(hero, "OM_185");
+        };
     };
 };
