@@ -3,28 +3,38 @@
  */
 
 /* Old positions of the ladders (Integerfloats for precision) */
-const int Ninja_G1CP_053_OldMineLadders_PosL1old[16] = {1056645348, 1039739221,  1063053323, -996629510,
-                                                        1036063365, 1064967154, -1102844970, -975445247,
-                                                       -1084372949, 1043555876,  1055881796, -981167673,
-                                                                 0,          0,           0, 1065353216};
-const int Ninja_G1CP_053_OldMineLadders_PosL2old[16] = {1054446790, 1042272444,  1063535493, -996953302,
-                                                        1023915813, 1065045910, -1103093957, -975519819,
-                                                       -1083730910, 1038076817,  1054012091, -981016188,
-                                                                 0,          0,           0, 1065353216};
+const int Ninja_G1CP_053_OldMineLadders_L1PosOld[16] = {
+    1056645348, 1039739221,  1063053323, -996629510,
+    1036063365, 1064967154, -1102844970, -975445247,
+   -1084372949, 1043555876,  1055881796, -981167673,
+             0,          0,           0, 1065353216
+};
+const int Ninja_G1CP_053_OldMineLadders_L2PosOld[16] = {
+    1054446790, 1042272444,  1063535493, -996953302,
+    1023915813, 1065045910, -1103093957, -975519819,
+   -1083730910, 1038076817,  1054012091, -981016188,
+             0,          0,           0, 1065353216
+};
 /* New positions of the ladders */
-const int Ninja_G1CP_053_OldMineLadders_PosL1new[16] = {1056177182, -2147483648, 1063325801,  -996629510,
-                                                                 0,  1065353216,          0,  -975445247,
-                                                       -1084157847, -2147483648, 1056177182,  -981167673,
-                                                                 0,           0,          0,  1065353216};
-const int Ninja_G1CP_053_OldMineLadders_PosL2new[16] = {1054262023, -2147483648, 1063805944,  -996953302,
-                                                                 0,  1065353216,          0,  -975519819,
-                                                       -1083677704, -2147483648, 1054262023,  -981016188,
-                                                                 0,           0,          0,  1065353216};
+const int Ninja_G1CP_053_OldMineLadders_L1PosNew[16] = {
+    1056177182, -2147483648, 1063325801,  -996629510,
+             0,  1065353216,          0,  -975445247,
+   -1084157847, -2147483648, 1056177182,  -981167673,
+             0,           0,          0,  1065353216
+};
+const int Ninja_G1CP_053_OldMineLadders_L2PosNew[16] = {
+    1054262023, -2147483648, 1063805944,  -996953302,
+             0,  1065353216,          0,  -975519819,
+   -1083677704, -2147483648, 1054262023,  -981016188,
+             0,           0,          0,  1065353216
+};
 /* Position of the new plank connecting the ladders to the cliff */
-const float Ninja_G1CP_053_OldMineLadders_PlkPos[16] = {0.419457, 0.000000, 0.907775, -1000.000000,
-                                                        0.000000, 1.000000, 0.000000, -6625.000000,
-                                                       -0.907775, 0.000000, 0.419457, -4300.000000,
-                                                        0.000000, 0.000000, 0.000000,     1.000000};
+const float Ninja_G1CP_053_OldMineLadders_PlkPos[16] = {
+    0.419457, 0.000000, 0.907775, -1000.000000,
+    0.000000, 1.000000, 0.000000, -6625.000000,
+   -0.907775, 0.000000, 0.419457, -4300.000000,
+    0.000000, 0.000000, 0.000000,     1.000000
+};
 
 /*
  * This function applies the changes of #53
@@ -69,7 +79,7 @@ func void Ninja_G1CP_053_OldMineLadders() {
 
         // Check if it is in certain range of the way point
         var int dist; dist = Ninja_G1CP_GetDistToWp(vobPtr, wpPtr);
-        if (dist > castToIntf(300.0)) {
+        if (dist > castToIntf(distToWp)) {
             continue;
         };
 
@@ -89,12 +99,12 @@ func void Ninja_G1CP_053_OldMineLadders() {
         };
 
         // Confirm exact position and update it
-        if (MEM_CompareWords(vobPtr+60, _@(Ninja_G1CP_053_OldMineLadders_PosL1old), 16)) {
+        if (MEM_CompareWords(vobPtr+60, _@(Ninja_G1CP_053_OldMineLadders_L1PosOld), 16)) {
             MEM_RenameVob(vobPtr, name1);
-            MEM_CopyWords(_@(Ninja_G1CP_053_OldMineLadders_PosL1new), vobPtr+60, 16);
-        } else if (MEM_CompareWords(vobPtr+60, _@(Ninja_G1CP_053_OldMineLadders_PosL2old), 16)) {
+            MEM_CopyWords(_@(Ninja_G1CP_053_OldMineLadders_L1PosNew), vobPtr+60, 16);
+        } else if (MEM_CompareWords(vobPtr+60, _@(Ninja_G1CP_053_OldMineLadders_L2PosOld), 16)) {
             MEM_RenameVob(vobPtr, name2);
-            MEM_CopyWords(_@(Ninja_G1CP_053_OldMineLadders_PosL2new), vobPtr+60, 16);
+            MEM_CopyWords(_@(Ninja_G1CP_053_OldMineLadders_L2PosNew), vobPtr+60, 16);
         } else {
             continue;
         };
@@ -174,13 +184,13 @@ func void Ninja_G1CP_053_OldMineLadders_Revert() {
     vobPtr = MEM_SearchVobByName(name1);
     if (vobPtr) {
         MEM_RenameVob(vobPtr, mobName);
-        MEM_CopyWords(_@(Ninja_G1CP_053_OldMineLadders_PosL1old), vobPtr+60, 16);
+        MEM_CopyWords(_@(Ninja_G1CP_053_OldMineLadders_L1PosOld), vobPtr+60, 16);
         ASM_Run(call);
     };
     vobPtr = MEM_SearchVobByName(name2);
     if (vobPtr) {
         MEM_RenameVob(vobPtr, mobName);
-        MEM_CopyWords(_@(Ninja_G1CP_053_OldMineLadders_PosL2old), vobPtr+60, 16);
+        MEM_CopyWords(_@(Ninja_G1CP_053_OldMineLadders_L2PosOld), vobPtr+60, 16);
         ASM_Run(call);
     };
 };
