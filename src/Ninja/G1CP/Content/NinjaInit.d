@@ -14,6 +14,7 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
     if (!once) {
         Ninja_G1CP_MenuVersionNumber();
         Ninja_G1CP_TestSuite();
+        Ninja_G1CP_HookGameSaveFixes();
         Ninja_G1CP_001_FixNpcSleep();                                   // #1
         Ninja_G1CP_002_FixDoor();                                       // #2
         Ninja_G1CP_003_RegainDroppedWeapon();                           // #3
@@ -45,5 +46,8 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
 func void Ninja_G1CP_Init() {
     // Wrapper for "LeGo_Init" to ensure correct LeGo initialization without breaking the mod
     LeGo_MergeFlags(LeGo_ConsoleCommands | LeGo_AI_Function);
+
+    // Re-initialize game save fixes
+    Ninja_G1CP_GamesaveFixes_Add();
 
 };

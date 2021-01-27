@@ -57,4 +57,5 @@ Content\Tests\test029.d
 Content\Tests\test059.d
 
 // Initialization
+Content\Fixes\gamesave.d
 Content\NinjaInit.d
