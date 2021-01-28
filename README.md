@@ -17,6 +17,7 @@ Additionally no new game has to be started. This patch can be turned on and off 
 ## Contributors
 * AmProsius
 * catalinstoian
+* Issues
 * mud-freak
 
 ## Building
