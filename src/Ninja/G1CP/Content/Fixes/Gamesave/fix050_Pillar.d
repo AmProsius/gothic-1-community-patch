@@ -87,6 +87,9 @@ func void Ninja_G1CP_050_Pillar() {
             call = CALL_End();
         };
         v.bitfield[0] = bits;
+
+        // There can only be one pillar of these exact properties at the identical position (otherwise tough luck)
+        break;
     end;
 };
 
