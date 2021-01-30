@@ -1,14 +1,21 @@
 /*
  * #2 NPCs don't use doors properly
  */
-func void Ninja_G1CP_002_FixDoor() {
-    HookDaedalusFuncS("B_MoveMob", "Ninja_G1CP_002_FixDoor_Hook");
+func int Ninja_G1CP_002_FixDoor() {
+    if (MEM_FindParserSymbol("B_MoveMob") != -1) {
+        HookDaedalusFuncS("B_MoveMob", "Ninja_G1CP_002_FixDoor_Hook");
+        return TRUE;
+    } else {
+        return FALSE;
+    };
 };
 
 /*
  * This function intercepts the NPC state to introduce more conditions
  */
 func void Ninja_G1CP_002_FixDoor_Hook() {
+    Ninja_G1CP_ReportFuncToSpy();
+
     // Call original function
     ContinueCall();
 

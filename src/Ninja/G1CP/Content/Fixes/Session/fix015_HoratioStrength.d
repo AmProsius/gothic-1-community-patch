@@ -1,8 +1,16 @@
 /*
  * #15 Horatio may lower STRENGTH
  */
-func void Ninja_G1CP_015_HoratioStrength() {
-    HookDaedalusFuncS("DIA_Horatio_HelpSTR_LEARN_NOW", "Ninja_G1CP_015_HoratioStrength_Hook");
+func int Ninja_G1CP_015_HoratioStrength() {
+    const int PrintScreen_popped = 6630384; //0x652BF0
+
+    if (MEM_FindParserSymbol("DIA_Horatio_HelpSTR_LEARN_NOW") != -1)
+    && (Ninja_G1CP_IsMemAvail(PrintScreen_popped, "8B 35 BC A6 8D 00")) {
+        HookDaedalusFuncS("DIA_Horatio_HelpSTR_LEARN_NOW", "Ninja_G1CP_015_HoratioStrength_Hook");
+        return TRUE;
+    } else {
+        return FALSE;
+    };
 };
 
 /*
@@ -14,12 +22,20 @@ const int Ninja_G1CP_015_HoratioStrength_StrBak = 0;
  * This function wraps around DIA_Horatio_HelpSTR_LEARN_NOW to reinstate the strength if it decreased
  */
 func void Ninja_G1CP_015_HoratioStrength_Hook() {
+    Ninja_G1CP_ReportFuncToSpy();
+
+    const int PrintScreen_popped = 6630384; //0x652BF0
+
+    // Define possibly missing symbols locally
+    const int ATR_STRENGTH = 4;
+
     // Backup the strength before the dialog
-    Ninja_G1CP_015_HoratioStrength_StrBak = hero.attribute[/*ATR_STRENGTH*/4];
+    Ninja_G1CP_015_HoratioStrength_StrBak = hero.attribute[ATR_STRENGTH];
 
     // Place hook to fix on-screen information
-    const int PrintScreen_popped = 6630384; //0x652BF0
-    HookEngineF(PrintScreen_popped, 6, Ninja_G1CP_015_HoratioStrength_PrintFix);
+    if (Ninja_G1CP_IsMemAvail(PrintScreen_popped, "8B 35 BC A6 8D 00")) {
+        HookEngineF(PrintScreen_popped, 6, Ninja_G1CP_015_HoratioStrength_PrintFix);
+    };
 
     // Call the original DIA_Horatio_HelpSTR_LEARN_NOW
     ContinueCall();
@@ -28,8 +44,8 @@ func void Ninja_G1CP_015_HoratioStrength_Hook() {
     RemoveHookF(PrintScreen_popped, 6, Ninja_G1CP_015_HoratioStrength_PrintFix);
 
     // If lower, reset strength to before
-    if (hero.attribute[/*ATR_STRENGTH*/4] < Ninja_G1CP_015_HoratioStrength_StrBak) {
-        hero.attribute[/*ATR_STRENGTH*/4] = Ninja_G1CP_015_HoratioStrength_StrBak;
+    if (hero.attribute[ATR_STRENGTH] < Ninja_G1CP_015_HoratioStrength_StrBak) {
+        hero.attribute[ATR_STRENGTH] = Ninja_G1CP_015_HoratioStrength_StrBak;
     };
 };
 
@@ -37,6 +53,8 @@ func void Ninja_G1CP_015_HoratioStrength_Hook() {
  * This function hooks PrintScreen (temporarily, see above) and replaces the on-screen text if necessary
  */
 func void Ninja_G1CP_015_HoratioStrength_PrintFix() {
+    Ninja_G1CP_ReportFuncToSpy();
+
     // Get text parameter
     var zString zstr; zstr = _^(ESP+60);
     var int pos; pos = zstr.len-3;

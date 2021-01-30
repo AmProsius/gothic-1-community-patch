@@ -1,23 +1,32 @@
 /*
  * #9 NPCs freeze when fleeing
  */
-func void Ninja_G1CP_009_FixFlee() {
-    HookDaedalusFuncS("ZS_Flee_Loop", "Ninja_G1CP_009_FixFlee_Hook");
+func int Ninja_G1CP_009_FixFlee() {
+    const int AI_Wait_popped = 6644536; //0x656338
+
+    if (MEM_FindParserSymbol("ZS_Flee_Loop") != -1)
+    && (Ninja_G1CP_IsMemAvail(AI_Wait_popped, "8B F8 83 C4") == 1) {
+        HookDaedalusFuncS("ZS_Flee_Loop", "Ninja_G1CP_009_FixFlee_Hook");
+
+        MemoryProtectionOverride(AI_Wait_popped, 4);
+
+        return TRUE;
+    } else {
+        return FALSE;
+    };
 };
 
 /*
  * This function intercepts the NPC state to introduce more conditions
  */
 func int Ninja_G1CP_009_FixFlee_Hook() {
-    // Temporarily disable AI_Wait
+    Ninja_G1CP_ReportFuncToSpy();
+
     const int AI_Wait_popped = 6644536; //0x656338
-    const int once = 0;
-    if (!once) {
-        MemoryProtectionOverride(AI_Wait_popped, 4);
-        once = 1;
-    };
     const int orig = 3296983179; /*8B F8 83 C4*/
     const int newb = 3296984881; /*31 FF 83 C4*/
+
+    // Temporarily disable AI_Wait
     if (MEM_ReadInt(AI_Wait_popped) == orig) {
         MEM_WriteInt(AI_Wait_popped, newb);
     };

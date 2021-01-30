@@ -8,9 +8,15 @@ Content\localization.d
 Content\menuVersionNumber.d
 Content\testsuite.d
 
+Content\Report\indent.d
+Content\Report\memInfoLvl.d
+Content\Report\reportFuncToSpy.d
+
 Content\Misc\aivar.d
 Content\Misc\info.d
 Content\Misc\Npc_CanSeeVob.d
+
+Content\Fixes\record.d
 
 // Session fixes
 Content\Fixes\Session\fix001_FixNpcSleep.d
@@ -59,5 +65,6 @@ Content\Tests\test050.d
 Content\Tests\test059.d
 
 // Initialization
+Content\Report\initWrapper.d
 Content\Fixes\gamesave.d
 Content\NinjaInit.d

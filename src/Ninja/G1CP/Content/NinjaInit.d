@@ -10,10 +10,10 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
     };
 
     // Initialize one-time-per-session fixes
-    const int once = 0;
-    if (!once) {
+    if (Ninja_G1CP_InitStart()) {
         Ninja_G1CP_MenuVersionNumber();
         Ninja_G1CP_TestSuite();
+        Ninja_G1CP_AppliedInit();
         Ninja_G1CP_HookGameSaveFixes();
         Ninja_G1CP_001_FixNpcSleep();                                   // #1
         Ninja_G1CP_002_FixDoor();                                       // #2
@@ -34,8 +34,7 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
         Ninja_G1CP_028_MordragNoEscort();                               // #28
         Ninja_G1CP_029_BusterAcrobatics();                              // #29
         Ninja_G1CP_059_FixEquipBestWeapons();                           // #59
-
-        once = 1;
+        Ninja_G1CP_InitEnd();
     };
 };
 
@@ -48,6 +47,6 @@ func void Ninja_G1CP_Init() {
     LeGo_MergeFlags(LeGo_ConsoleCommands | LeGo_AI_Function);
 
     // Re-initialize game save fixes
-    Ninja_G1CP_GamesaveFixes_Add();
+    Ninja_G1CP_GamesaveFixes_Apply();
 
 };

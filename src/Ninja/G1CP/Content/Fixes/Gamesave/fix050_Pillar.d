@@ -25,7 +25,13 @@ const float Ninja_G1CP_050_Pillar_PosNew[16] = {
 /*
  * This function applies the changes of #50
  */
-func void Ninja_G1CP_050_Pillar() {
+func int Ninja_G1CP_050_Pillar() {
+    // Before anything else, check if the memory was modified
+    const int oCMobInter__StopInteraction_End = 6816979; //0x6804D3
+    if (!Ninja_G1CP_IsMemAvail(oCMobInter__StopInteraction_End, "8B 8C 24 8C 00 00 00")) {
+        return FALSE;
+    };
+
     // Find all vobs of matching name
     var int arrPtr; arrPtr = MEM_SearchAllVobsByName("MOBSISEULE");
 
@@ -89,14 +95,17 @@ func void Ninja_G1CP_050_Pillar() {
         v.bitfield[0] = bits;
 
         // There can only be one pillar of these exact properties at the identical position (otherwise tough luck)
-        break;
+        return TRUE;
     end;
+
+    // Pillar not found
+    return FALSE;
 };
 
 /*
  * This function reverts the changes of #50
  */
-func void Ninja_G1CP_050_Revert() {
+func int Ninja_G1CP_050_PillarRevert() {
     var int vobPtr; vobPtr = MEM_SearchVobByName("NINJA_G1CP_050_PILLAR");
     if (vobPtr) {
         // Revert name
@@ -122,17 +131,30 @@ func void Ninja_G1CP_050_Revert() {
         };
         v.bitfield[0] = bits;
     };
+
+    // Remove the hook function again if it had been applied before
+    const int oCMobInter__StopInteraction_End = 6816979; //0x6804D3
+    RemoveHookF(oCMobInter__StopInteraction_End, 7, Ninja_G1CP_050_Pillar_FixBbox);
+
+    // Found and reverted pillar
+    return (vobPtr != 0);
 };
 
 /*
  * State function of the mob to be called after interaction is complete
  */
 func void Ninja_G1CP_050_Pillar_StateFunc_S1() {
+    Ninja_G1CP_ReportFuncToSpy();
+
     // Can't update the bounding box yet. Wait for complete stop
     const int oCMobInter__StopInteraction_End = 6816979; //0x6804D3
-    HookEngineF(oCMobInter__StopInteraction_End, 7, Ninja_G1CP_050_Pillar_FixBbox);
+    if (Ninja_G1CP_IsMemAvail(oCMobInter__StopInteraction_End, "8B 8C 24 8C 00 00 00")) {
+        HookEngineF(oCMobInter__StopInteraction_End, 7, Ninja_G1CP_050_Pillar_FixBbox);
+    };
 };
 func void Ninja_G1CP_050_Pillar_FixBbox() {
+    Ninja_G1CP_ReportFuncToSpy();
+
     var int vobPtr; vobPtr = ESI;
     if (!Hlp_StrCmp(MEM_ReadString(vobPtr+16), "NINJA_G1CP_050_PILLAR"))
     || (!Hlp_Is_oCMobInter(vobPtr)) {

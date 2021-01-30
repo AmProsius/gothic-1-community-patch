@@ -1,12 +1,24 @@
 /*
  * #10 Companions don't adjust their walking speed
  */
-func void Ninja_G1CP_010_FollowWalkMode() {
-    // Only register hooks, if both functions are found
+func int Ninja_G1CP_010_FollowWalkMode() {
+    const int AI_SetWalkMode_popped = 6648584; //0x657308
+
     if (MEM_FindParserSymbol("ZS_FollowPC_Loop")    != -1)
-    && (MEM_FindParserSymbol("B_FollowPC_AssessSC") != -1) {
+    && (MEM_FindParserSymbol("B_FollowPC_AssessSC") != -1)
+    && (Ninja_G1CP_IsMemAvail(AI_SetWalkMode_popped, "8B F8 83 C4 14")) {
         HookDaedalusFuncS("ZS_FollowPC_Loop", "Ninja_G1CP_010_FollowWalkMode_Hook");
         HookDaedalusFuncS("B_FollowPC_AssessSC", "Ninja_G1CP_010_FollowWalkMode_AssessSCHook");
+
+        // Create empty hook (if there is a problem, rather fail now than later during the game)
+        if (!IsHooked(AI_SetWalkMode_popped)) {
+            HookEngineF(AI_SetWalkMode_popped, 5, Ninja_G1CP_010_FollowWalkMode_SetModeHook);
+            RemoveHookF(AI_SetWalkMode_popped, 0, Ninja_G1CP_010_FollowWalkMode_SetModeHook);
+        };
+
+        return TRUE;
+    } else {
+        return FALSE;
     };
 };
 
@@ -14,6 +26,10 @@ func void Ninja_G1CP_010_FollowWalkMode() {
  * This function intercepts the NPC state to introduce more conditions
  */
 func int Ninja_G1CP_010_FollowWalkMode_Hook() {
+    Ninja_G1CP_ReportFuncToSpy();
+
+    const int AI_SetWalkMode_popped = 6648584; //0x657308
+
     // Define possibly missing symbols locally
     const int BS_FLAG_INTERRUPTABLE = 32768;
     const int BS_WALK               = 1 | BS_FLAG_INTERRUPTABLE;
@@ -25,7 +41,6 @@ func int Ninja_G1CP_010_FollowWalkMode_Hook() {
     };
 
     // Place hook to intercept setting the walk mode
-    const int AI_SetWalkMode_popped = 6648584; //0x657308
     HookEngineF(AI_SetWalkMode_popped, 5, Ninja_G1CP_010_FollowWalkMode_SetModeHook);
 
     // Call the original function (There might be other important changes that we do not want to overwrite!)
@@ -40,6 +55,8 @@ func int Ninja_G1CP_010_FollowWalkMode_Hook() {
 };
 
 func void Ninja_G1CP_010_FollowWalkMode_SetModeHook() {
+    Ninja_G1CP_ReportFuncToSpy();
+
     // Define possibly missing symbols locally
     const int BS_FLAG_INTERRUPTABLE = 32768;
     const int BS_WALK               = 1 | BS_FLAG_INTERRUPTABLE;
@@ -64,6 +81,8 @@ func void Ninja_G1CP_010_FollowWalkMode_SetModeHook() {
 
 
 func void Ninja_G1CP_010_FollowWalkMode_AssessSCHook() {
+    Ninja_G1CP_ReportFuncToSpy();
+
     // Define possibly missing symbols locally
     const int BS_FLAG_INTERRUPTABLE = 32768;
     const int BS_WALK               = 1 | BS_FLAG_INTERRUPTABLE;

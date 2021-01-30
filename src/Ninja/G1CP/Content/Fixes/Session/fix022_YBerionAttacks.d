@@ -1,14 +1,22 @@
 /*
  * #22 Y'Berion doesn't attack the player
  */
-func void Ninja_G1CP_022_YBerionAttacks() {
-    HookDaedalusFuncS("DIA_YBerion_Wache_Info", "Ninja_G1CP_022_YBerionAttacks_Hook");
+func int Ninja_G1CP_022_YBerionAttacks() {
+    if (MEM_FindParserSymbol("DIA_YBerion_Wache_Info") != -1)
+    && (MEM_FindParserSymbol("ZS_ATTACK")              != -1) {
+        HookDaedalusFuncS("DIA_YBerion_Wache_Info", "Ninja_G1CP_022_YBerionAttacks_Hook");
+        return TRUE;
+    } else {
+        return FALSE;
+    };
 };
 
 /*
  * This function intercepts the dialog function
  */
 func void Ninja_G1CP_022_YBerionAttacks_Hook() {
+    Ninja_G1CP_ReportFuncToSpy();
+
     // Continue with the original function
     ContinueCall();
 

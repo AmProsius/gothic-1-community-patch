@@ -8,8 +8,25 @@
  *
  * This fix requires LeGo AI-Functions.
  */
-func void Ninja_G1CP_003_RegainDroppedWeapon() {
-    HookDaedalusFuncS("B_RegainDroppedWeapon", "Ninja_G1CP_003_RegainDroppedWeapon_Hook");
+func int Ninja_G1CP_003_RegainDroppedWeapon() {
+    const int AI_TakeItem_p              = 6660155; //0x65A03B
+    const int AI_EquipBestMeleeWeapon_p  = 6654871; //0x658B97
+    const int AI_EquipBestRangedWeapon_p = 6655079; //0x658C67
+
+    if (MEM_FindParserSymbol("B_RegainDroppedWeapon") != -1)
+    && (Ninja_G1CP_IsMemAvail(AI_TakeItem_p,              "8B F8 83 C4") == 1) // 1 == cannot be hooked
+    && (Ninja_G1CP_IsMemAvail(AI_EquipBestMeleeWeapon_p,  "8B F8 83 C4") == 1)
+    && (Ninja_G1CP_IsMemAvail(AI_EquipBestRangedWeapon_p, "8B F8 83 C4") == 1) {
+        HookDaedalusFuncS("B_RegainDroppedWeapon", "Ninja_G1CP_003_RegainDroppedWeapon_Hook");
+
+        MemoryProtectionOverride(AI_TakeItem_p, 4);
+        MemoryProtectionOverride(AI_EquipBestMeleeWeapon_p, 4);
+        MemoryProtectionOverride(AI_EquipBestRangedWeapon_p, 4);
+
+        return TRUE;
+    } else {
+        return FALSE;
+    };
 };
 
 /*
@@ -56,22 +73,18 @@ func void Ninja_G1CP_003_RegainDroppedWeapon_Logic(var C_Npc slf) {
  * This function disables part of the external function calls of the original function
  */
 func void Ninja_G1CP_003_RegainDroppedWeapon_Hook(var C_Npc slf) {
+    Ninja_G1CP_ReportFuncToSpy();
+
+    const int AI_TakeItem_p              = 6660155; //0x65A03B
+    const int AI_EquipBestMeleeWeapon_p  = 6654871; //0x658B97
+    const int AI_EquipBestRangedWeapon_p = 6655079; //0x658C67
+    const int orig = 3296983179; /*8B F8 83 C4*/
+    const int newb = 3296984881; /*31 FF 83 C4*/
+
     // Extra sugar: Back up the global symbol
     var int itemBak; itemBak = _@(item);
 
     // Temporarily disable AI_TakeItem, AI_EquipBestRangedWeapon and AI_EquipBestMeleeWeapon
-    const int AI_TakeItem_p              = 6660155; //0x65A03B
-    const int AI_EquipBestMeleeWeapon_p  = 6654871; //0x658B97
-    const int AI_EquipBestRangedWeapon_p = 6655079; //0x658C67
-    const int once = 0;
-    if (!once) {
-        MemoryProtectionOverride(AI_TakeItem_p, 4);
-        MemoryProtectionOverride(AI_EquipBestMeleeWeapon_p, 4);
-        MemoryProtectionOverride(AI_EquipBestRangedWeapon_p, 4);
-        once = 1;
-    };
-    const int orig = 3296983179; /*8B F8 83 C4*/
-    const int newb = 3296984881; /*31 FF 83 C4*/
     if (MEM_ReadInt(AI_TakeItem_p)              == orig) { MEM_WriteInt(AI_TakeItem_p,              newb); };
     if (MEM_ReadInt(AI_EquipBestMeleeWeapon_p)  == orig) { MEM_WriteInt(AI_EquipBestMeleeWeapon_p,  newb); };
     if (MEM_ReadInt(AI_EquipBestRangedWeapon_p) == orig) { MEM_WriteInt(AI_EquipBestRangedWeapon_p, newb); };

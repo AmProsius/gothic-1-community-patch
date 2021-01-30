@@ -1,14 +1,21 @@
 /*
  * #7 NPCs practice sword training without a weapon
  */
-func void Ninja_G1CP_007_PracticeSwordWithWeapon() {
-    HookDaedalusFuncS("ZS_PracticeSword_Loop", "Ninja_G1CP_007_PracticeSwordWithWeapon_Hook");
+func int Ninja_G1CP_007_PracticeSwordWithWeapon() {
+    if (MEM_FindParserSymbol("ZS_PracticeSword_Loop") != -1) {
+        HookDaedalusFuncS("ZS_PracticeSword_Loop", "Ninja_G1CP_007_PracticeSwordWithWeapon_Hook");
+        return TRUE;
+    } else {
+        return FALSE;
+    };
 };
 
 /*
  * This function intercepts the state loop to draw a weapon if non is readied
  */
 func void Ninja_G1CP_007_PracticeSwordWithWeapon_Hook() {
+    Ninja_G1CP_ReportFuncToSpy();
+
     // Define possibly missing symbols locally
     const int INV_WEAPON  = 1;
     const int ITEM_KAT_NF = 2;

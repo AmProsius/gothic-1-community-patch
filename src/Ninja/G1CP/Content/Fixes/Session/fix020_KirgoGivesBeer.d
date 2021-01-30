@@ -1,9 +1,16 @@
 /*
  * #20 Kirgo doesn't give a beer to the player
  */
-func void Ninja_G1CP_020_KirgoGivesBeer() {
-    HookDaedalusFuncS("Info_Kirgo_Charge_Beer", "Ninja_G1CP_020_KirgoGivesBeer_Hook1");
-    HookDaedalusFuncS("B_GiveInvItems", "Ninja_G1CP_020_KirgoGivesBeer_Hook2");
+func int Ninja_G1CP_020_KirgoGivesBeer() {
+    if (MEM_FindParserSymbol("Info_Kirgo_Charge_Beer") != -1)
+    && (MEM_FindParserSymbol("B_GiveInvItems")         != -1)
+    && (MEM_FindParserSymbol("ItFoBeer")               != -1) {
+        HookDaedalusFuncS("Info_Kirgo_Charge_Beer", "Ninja_G1CP_020_KirgoGivesBeer_Hook1");
+        HookDaedalusFuncS("B_GiveInvItems", "Ninja_G1CP_020_KirgoGivesBeer_Hook2");
+        return TRUE;
+    } else {
+        return FALSE;
+    };
 };
 
 /* Indicator if fix is running at the moment */
@@ -13,6 +20,8 @@ const int Ninja_G1CP_020_KirgoGivesBeer_Active = FALSE;
  * This function intercepts the dialog to introduce more conditions
  */
 func void Ninja_G1CP_020_KirgoGivesBeer_Hook1() {
+    Ninja_G1CP_ReportFuncToSpy();
+
     var int numBeers;
 
     // Set fix to running
@@ -45,6 +54,8 @@ func void Ninja_G1CP_020_KirgoGivesBeer_Hook1() {
  * Intercept B_GiveInvItems - make sure to only perform actions if the fix is in progress
  */
 func void Ninja_G1CP_020_KirgoGivesBeer_Hook2(var C_Npc giver, var C_Npc taker, var int itemInstance, var int amount) {
+    Ninja_G1CP_ReportFuncToSpy();
+
     // Only add actions if fix is currently in progress
     if (Ninja_G1CP_020_KirgoGivesBeer_Active) {
         // Double check who is giving to who (don't check Kirgo, in case his instance name changed)

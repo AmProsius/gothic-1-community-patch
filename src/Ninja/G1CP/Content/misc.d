@@ -3,6 +3,32 @@
  */
 
 /*
+ * Compare bytes in memory (TRUE/FALSE) or check if hooked (-1)
+ */
+func int Ninja_G1CP_IsMemAvail(var int addr, var string hex) {
+    if (IsHooked(addr)) {
+        return -1;
+    };
+    var int len; len = STR_SplitCount(hex, " ");
+    if (len != (STR_Len(hex)+1)/3) {
+        MEM_Error("Malformatted string. Expecting format 'XX XX XX'");
+        return FALSE;
+    };
+    var int c; var string s;
+    var zString zstr; zstr = _^(_@s(s));
+    repeat(i, len); var int i;
+        s = STR_Split(hex, " ", i);
+        c =  MEMINT_HexCharToInt(MEM_ReadByte(zstr.ptr+0))<<4;
+        c += MEMINT_HexCharToInt(MEM_ReadByte(zstr.ptr+1));
+        if (MEM_ReadByte(addr+i) != c) {
+            return FALSE;
+        };
+    end;
+    return TRUE;
+};
+
+
+/*
  * Left fill a string with a token string to fill total length
  */
 func string Ninja_G1CP_LFill(var string str, var string fill, var int total) {
