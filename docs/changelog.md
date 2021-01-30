@@ -19,6 +19,7 @@
 * Fix #26: Roscoe now attacks the player instead of repeating himself telling the player to go.
 * Fix #28: Mordrag no longer escorts the player to the New Camp if the player forcibly threw him out of the Old Camp.
 * Fix #29: Buster no longer teaches Acrobatics if the player already gained the skill.
+* Fix #50: The pillar in the Monastery Ruins now falls in the right directions and has collision.
 * Fix #59: Vendors don't re-equip their weapon when the player sells them a more powerful one. However, due to important game mechanics, they will still equip a weapon if they didn't have a weapon of that type (meelee, ranged) equipped before.
 
 ## DE
@@ -40,4 +41,5 @@
 * Fix #26: Roscoe greift den Spieler nun an, statt ihm in einer Dialogschleife zu sagen, er solle verschwinden.
 * Fix #28: Mordrag bringt den Spieler nicht mehr zum Neuen Lager, wenn dieser ihn vorher verprügelt und aus dem Alten Lager vertireben hat.
 * Fix #29: Buster bringt dem Spieler nicht mehr Akrobatik bei, wenn dieser das Talent bereits gelernt hat.
+* Fix #50: Die Säule in der Klosterruine fällt jetzt in die richtige Richtung und hat Kollision.
 * Fix #59: Händler rüsten nicht mehr ihre Waffe um, wenn der Spieler ihnen eine stärkere verkauft. Aufgrund einer wichtigen Spielmechanik wird allerdings eine Waffe ausgerüstet, sofern der Händler vorher noch keine Waffe diese Art (Nahkampf, Fernkampf) ausgerüstet hatte.
