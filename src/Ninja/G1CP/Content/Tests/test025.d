@@ -16,6 +16,20 @@ func int Ninja_G1CP_Test_025() {
         passed = FALSE;
     };
 
+    // Find Saturas
+    var int symbId; symbId = MEM_FindParserSymbol("KDW_600_Saturas");
+    if (symbId == -1) {
+        Ninja_G1CP_TestsuiteErrorDetail("NPC 'KDW_600_Saturas' not found");
+        passed = FALSE;
+    };
+
+    // Check if Saturas exists in the world
+    var C_Npc saturas; saturas = Hlp_GetNpc(symbId);
+    if (!Hlp_IsValidNpc(saturas)) {
+        Ninja_G1CP_TestsuiteErrorDetail("'KDW_600_Saturas' is not a valid NPC");
+        passed = FALSE;
+    };
+
     // Find the symbol
     var int robeId; robeId = MEM_FindParserSymbol("KDW_ARMOR_H");
     if (robeId == -1) {
@@ -49,9 +63,21 @@ func int Ninja_G1CP_Test_025() {
     // Give the robe to the hero
     CreateInvItem(hero, robeId);
 
+    // Backup self and other
+    var C_Npc slfBak; slfBak = MEM_CpyInst(self);
+    var C_Npc othBak; othBak = MEM_CpyInst(other);
+
+    // Set self and other
+    self  = MEM_CpyInst(saturas);
+    other = MEM_CpyInst(hero);
+
     // Call dialog condition function
     MEM_CallByID(funcId);
     var int ret; ret = MEM_PopIntResult();
+
+    // Restore self and other
+    self  = MEM_CpyInst(slfBak);
+    other = MEM_CpyInst(othBak);
 
     // Remove the robe again
     Npc_RemoveInvItems(hero, robeId, 1);

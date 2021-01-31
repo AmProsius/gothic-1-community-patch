@@ -10,9 +10,23 @@ func int Ninja_G1CP_Test_029() {
     var int passed; passed = TRUE;
 
     // Check if the dialog exists
-    var int symbId; symbId = MEM_FindParserSymbol("DIA_ORG_833_Buster3_Condition");
-    if (symbId == -1) {
+    var int funcId; funcId = MEM_FindParserSymbol("DIA_ORG_833_Buster3_Condition");
+    if (funcId == -1) {
         Ninja_G1CP_TestsuiteErrorDetail("Original dialog not found");
+        passed = FALSE;
+    };
+
+    // Find Buster
+    var int symbId; symbId = MEM_FindParserSymbol("ORG_833_Buster");
+    if (symbId == -1) {
+        Ninja_G1CP_TestsuiteErrorDetail("Npc 'ORG_833_Buster' not found");
+        passed = FALSE;
+    };
+
+    // Check if Buster exists in the world
+    var C_Npc buster; buster = Hlp_GetNpc(symbId);
+    if (!Hlp_IsValidNpc(buster)) {
+        Ninja_G1CP_TestsuiteErrorDetail("Npc 'ORG_833_Buster' is not a valid NPC");
         passed = FALSE;
     };
 
@@ -32,16 +46,22 @@ func int Ninja_G1CP_Test_029() {
     // Backup values
     var int talentBak; talentBak = Npc_GetTalentSkill(hero, NPC_TALENT_ACROBAT);                // Talent
     var int toldBak; toldBak = Npc_KnowsInfo(hero, MEM_FindParserSymbol("DIA_ORG_833_Buster")); // Told status
+    var C_Npc slfBak; slfBak = MEM_CpyInst(self);                                               // Self
+    var C_Npc othBak; othBak = MEM_CpyInst(other);                                              // Other
 
     // Set new values
     Npc_SetTalentSkill(hero, NPC_TALENT_ACROBAT, TRUE);                                         // Talent
     Ninja_G1CP_SetInfoTold("DIA_ORG_833_Buster", TRUE);                                         // Told status
+    self  = MEM_CpyInst(buster);                                                                // Self
+    other = MEM_CpyInst(hero);                                                                  // Other
 
     // Call dialog condition function
-    MEM_CallByID(symbId);
+    MEM_CallByID(funcId);
     var int ret; ret = MEM_PopIntResult();
 
     // Restore values
+    self  = MEM_CpyInst(slfBak);                                                                // Self
+    other = MEM_CpyInst(othBak);                                                                // Other
     Npc_SetTalentSkill(hero, NPC_TALENT_ACROBAT, talentBak);                                    // Talent
     Ninja_G1CP_SetInfoTold("DIA_ORG_833_Buster", toldBak);                                      // Told status
 

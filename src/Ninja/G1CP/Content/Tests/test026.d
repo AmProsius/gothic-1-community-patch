@@ -14,8 +14,8 @@ func int Ninja_G1CP_Test_026() {
     var int passed; passed = TRUE;
 
     // Check if the dialog exists
-    var int symbId; symbId = MEM_FindParserSymbol("Info_Org_804_FirstWarn_Condition");
-    if (symbId == -1) {
+    var int funcId; funcId = MEM_FindParserSymbol("Info_Org_804_FirstWarn_Condition");
+    if (funcId == -1) {
         Ninja_G1CP_TestsuiteErrorDetail("Original dialog not found");
         passed = FALSE;
     };
@@ -66,16 +66,16 @@ func int Ninja_G1CP_Test_026() {
     other = MEM_CpyInst(hero);                                                             // Other
 
     // Call dialog condition function
-    MEM_CallByID(symbId);
+    MEM_CallByID(funcId);
     var int ret; ret = MEM_PopIntResult();
 
     // Restore values
-    self  = MEM_CpyInst(slfBak);                                                           // Attitude
-    other = MEM_CpyInst(othBak);                                                           // Player guild
-    Ninja_G1CP_SetAIVar(hero, "AIV_GUARDPASSAGE_STATUS", aiVarBak);                        // Waypoint
-    guard.wp = wpBak;                                                                      // AI variable
-    hero.guild = guildBak;                                                                 // Self
-    Npc_SetTempAttitude(guard, attitBak);                                                  // Other
+    self  = MEM_CpyInst(slfBak);                                                           // Self
+    other = MEM_CpyInst(othBak);                                                           // Other
+    Ninja_G1CP_SetAIVar(hero, "AIV_GUARDPASSAGE_STATUS", aiVarBak);                        // AI variable
+    guard.wp = wpBak;                                                                      // Waypoint
+    hero.guild = guildBak;                                                                 // Player guild
+    Npc_SetTempAttitude(guard, attitBak);                                                  // Attitude
 
     // Check return value
     if (ret) {

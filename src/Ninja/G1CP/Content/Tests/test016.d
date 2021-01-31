@@ -7,21 +7,45 @@
  * Expected behavior: The condition functions will return FALSE.
  */
 func int Ninja_G1CP_Test_016_RunDialog(var string dialogName, var string needsInfo) {
+    var int funcId;
     var int symbId;
+    var C_Npc thorus;
     var int backupValue;
     var int backupTold;
 
+    // Check status of the test
+    var int passed; passed = TRUE;
+
     // Check if dialog exists
-    symbId = MEM_FindParserSymbol(dialogName);
-    if (symbId == -1) {
+    funcId = MEM_FindParserSymbol(dialogName);
+    if (funcId == -1) {
         Ninja_G1CP_TestsuiteErrorDetail(ConcatStrings("Original dialog not found: ", dialogName));
-        return FALSE;
+        passed = FALSE;
+    };
+
+    // Find Thorus
+    symbId = MEM_FindParserSymbol("Grd_200_Thorus");
+    if (symbId == -1) {
+        Ninja_G1CP_TestsuiteErrorDetail("NPC 'Grd_200_Thorus' not found");
+        passed = FALSE;
+    };
+
+    // Check if Thorus exists in the world
+    thorus = Hlp_GetNpc(symbId);
+    if (!Hlp_IsValidNpc(thorus)) {
+        Ninja_G1CP_TestsuiteErrorDetail("'Grd_200_Thorus' is not a valid NPC");
+        passed = FALSE;
     };
 
     // Check if NPC and AI-variable exist
     backupValue = Ninja_G1CP_IdGetAIVar(MEM_FindParserSymbol("Grd_212_Torwache"), "AIV_PASSGATE", -42);
     if (backupValue == -42) {
         Ninja_G1CP_TestsuiteErrorDetail("'Grd_212_Torwache' or 'AIV_PASSGATE' does not exist");
+        passed = FALSE;
+    };
+
+    // At the latest now, we need to stop if there are fails already
+    if (!passed) {
         return FALSE;
     };
 
@@ -32,9 +56,21 @@ func int Ninja_G1CP_Test_016_RunDialog(var string dialogName, var string needsIn
     backupTold = Npc_KnowsInfo(hero, MEM_FindParserSymbol(needsInfo));
     Ninja_G1CP_SetInfoTold(needsInfo, TRUE);
 
+    // Backup self and other
+    var C_Npc slfBak; slfBak = MEM_CpyInst(self);
+    var C_Npc othBak; othBak = MEM_CpyInst(other);
+
+    // Set self and other
+    self  = MEM_CpyInst(thorus);
+    other = MEM_CpyInst(hero);
+
     // Call dialog condition function
-    MEM_CallByID(symbId);
+    MEM_CallByID(funcId);
     var int ret; ret = MEM_PopIntResult();
+
+    // Restore self and other
+    self  = MEM_CpyInst(slfBak);
+    other = MEM_CpyInst(othBak);
 
     // Restore told status of required dialog
     Ninja_G1CP_SetInfoTold(needsInfo, backupTold);
