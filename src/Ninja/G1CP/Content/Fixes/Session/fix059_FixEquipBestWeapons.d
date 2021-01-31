@@ -7,14 +7,17 @@
  */
 func int Ninja_G1CP_059_FixEquipBestWeapons() {
     const int oCNpc__Enable_equipBestWeapons = 6955616; //0x6A2260
-    const string orig = "6A 02 8B CE E8 B7 7F 00 00 6A 04 8B CE E8 AE 7F 00 00";
+    const string orig1 = "6A 02 8B CE E8 B7 7F 00 00 6A 04 8B CE E8 AE 7F 00 00"; // Original
+    const string orig2 = "6A 02 8B CE E8 B7 7F 00 00 6A 04 8B CE E8 7E 64 F0 FF"; // 3rd party fix
 
-    if (Ninja_G1CP_IsMemAvail(oCNpc__Enable_equipBestWeapons, orig) == 1) { // 1 == cannot be hooked
+    if (Ninja_G1CP_IsMemAvail(oCNpc__Enable_equipBestWeapons, orig1) == 1) // 1 == cannot be hooked
+    || (Ninja_G1CP_IsMemAvail(oCNpc__Enable_equipBestWeapons, orig2) == 1) {
         // Remove default equipping of best melee and ranged weapon to add more conditions
         const int nop20Bytes[5] = {-1869574000, -1869574000, -1869574000, -1869574000, -1869574000}; //0x90 * 20
         MemoryProtectionOverride(oCNpc__Enable_equipBestWeapons, 18);
         MEM_CopyBytes(_@(nop20Bytes), oCNpc__Enable_equipBestWeapons, 18);
         HookEngineF(oCNpc__Enable_equipBestWeapons, 5, Ninja_G1CP_059_FixEquipBestWeapons_Hook);
+
         return TRUE;
     } else {
         return FALSE;
