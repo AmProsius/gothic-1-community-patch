@@ -41,6 +41,7 @@ Content\Fixes\Session\fix026_LaresGuardAttacks.d
 Content\Fixes\Session\fix028_MordragNoEscort.d
 Content\Fixes\Session\fix029_BusterAcrobatics.d
 Content\Fixes\Session\fix031_WolfPlateDialog.d
+Content\Fixes\Session\fix040_AlephKeyDialog.d
 Content\Fixes\Session\fix059_FixEquipBestWeapons.d
 
 // Game save fixes
@@ -66,6 +67,7 @@ Content\Tests\test026.d
 Content\Tests\test028.d
 Content\Tests\test029.d
 Content\Tests\test031.d
+Content\Tests\test040.d
 Content\Tests\test050.d
 Content\Tests\test059.d
 
