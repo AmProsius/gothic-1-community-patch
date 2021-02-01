@@ -22,6 +22,7 @@
 * Fix #31: Wolf can't be offered Minecrawler's Armor Plates any longer if the player already gave him the requested amount.
 * Fix #36: Fisk's quest "New Fence for Fisk" is now available regardless of how the quest "Thorus' Quest" is (successfully) completed.
 * Fix #38: Snaf now offers the dialog about Nek even when the quest "Snaf's Recipe" is completed.
+* Fix #43: The screen information about skill learning now contains proper whitespace.
 * Fix #50: The pillar in the Monastery Ruins now falls in the right directions and has collision.
 * Fix #59: Vendors don't re-equip their weapon when the player sells them a more powerful one. However, due to important game mechanics, they will still equip a weapon if they didn't have a weapon of that type (meelee, ranged) equipped before.
 
