@@ -16,7 +16,7 @@
 * Fix #22: Y'Berion now attacks the player instead of repeating himself calling the guards.
 * Fix #24: Cor Kalom now correctly closes the quest "Taking Weeds to Gomez" instead of "The Weed Monopoly".
 * Fix #25: Saturas no longer offers to sell a High Robe of Water if the player already obtained one.
-* Fix #26: Roscoe now attacks the player instead of repeating himself telling the player to go.
+* Fix #26: Lares' guard now attacks the player instead of repeating himself telling the player to go.
 * Fix #28: Mordrag no longer escorts the player to the New Camp if the player forcibly threw him out of the Old Camp.
 * Fix #29: Buster no longer teaches Acrobatics if the player already gained the skill.
 * Fix #50: The pillar in the Monastery Ruins now falls in the right directions and has collision.
@@ -38,7 +38,7 @@
 * Fix #22: Y'Berion greift den Spieler nun an, statt in einer Dialogschleife die Wachen zu rufen.
 * Fix #24: Cor Kalom schließt nun korrekterweise die Quest "Kraut zu Gomez bringen" statt "Das Krautmonopol".
 * Fix #25: Saturas bietet nun keine Große Wasserrobe mehr an, wenn der Spieler bereits eine erworben hat.
-* Fix #26: Roscoe greift den Spieler nun an, statt ihm in einer Dialogschleife zu sagen, er solle verschwinden.
+* Fix #26: Lares' Wache greift den Spieler nun an, statt ihm in einer Dialogschleife zu sagen, er solle verschwinden.
 * Fix #28: Mordrag bringt den Spieler nicht mehr zum Neuen Lager, wenn dieser ihn vorher verprügelt und aus dem Alten Lager vertireben hat.
 * Fix #29: Buster bringt dem Spieler nicht mehr Akrobatik bei, wenn dieser das Talent bereits gelernt hat.
 * Fix #50: Die Säule in der Klosterruine fällt jetzt in die richtige Richtung und hat Kollision.
