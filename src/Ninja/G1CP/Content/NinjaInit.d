@@ -27,6 +27,8 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
         Ninja_G1CP_028_MordragNoEscort();                               // #28
         Ninja_G1CP_029_BusterAcrobatics();                              // #29
         Ninja_G1CP_031_WolfPlateDialog();                               // #31
+        Ninja_G1CP_036_FiskFenceQuest();                                // #36
+        Ninja_G1CP_038_SnafDialogNek();                                 // #38
         Ninja_G1CP_040_AlephKeyDialog();                                // #40
         Ninja_G1CP_059_FixEquipBestWeapons();                           // #59
         Ninja_G1CP_InitEnd();
