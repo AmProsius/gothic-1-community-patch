@@ -118,6 +118,9 @@ func int Ninja_G1CP_InitWrapper(var int pos, var int endParam, var int revert) {
  * Record the initialization process and record any failures
  */
 func int Ninja_G1CP_InitStart() {
+    // Here is where Ikarus is initialized the very first time
+    MEM_InitAll();
+
     // Do slow function ID/offset retrieval only the first time
     const int sessioninit   = 0;
     const int gameinit      = 0;
@@ -151,8 +154,8 @@ func int Ninja_G1CP_InitStart() {
         };
         pos += 5;
 
-        // Get some annoying prints out of the way
-        MEM_Free(create(zCArray@));
+        // Run first time initialization
+        Ninja_G1CP_InitOnce();
 
     } else if (callerId == gameinit) {
         action = "Initializing ";

@@ -2,13 +2,6 @@
  * Menu initialization function called by Ninja every time a menu is opened
  */
 func void Ninja_G1CP_Menu(var int menuPtr) {
-    MEM_InitAll();
-
-    // Version check
-    if (NINJA_VERSION < 2308) {
-        MEM_SendToSpy(zERR_TYPE_FATAL, "G1CP requires at least Ninja 2.3.08 or higher");
-    };
-
     // Initialize one-time-per-session fixes
     if (Ninja_G1CP_InitStart()) {
         Ninja_G1CP_MenuVersionNumber();

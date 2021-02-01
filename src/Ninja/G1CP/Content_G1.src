@@ -1,6 +1,9 @@
 Ikarus
 LeGo
 
+// Constants
+Content\constants.d
+
 // Misc files
 Content\version.d
 Content\misc.d
@@ -65,6 +68,7 @@ Content\Tests\test050.d
 Content\Tests\test059.d
 
 // Initialization
+Content\initOnce.d
 Content\Report\initWrapper.d
 Content\Fixes\gamesave.d
 Content\NinjaInit.d
