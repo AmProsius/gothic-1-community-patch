@@ -20,6 +20,7 @@
 * Fix #28: Mordrag no longer escorts the player to the New Camp if the player forcibly threw him out of the Old Camp.
 * Fix #29: Buster no longer teaches Acrobatics if the player already gained the skill.
 * Fix #31: Wolf can't be offered Minecrawler's Armor Plates any longer if the player already gave him the requested amount.
+* Fix #38: Snaf now offers the dialog about Nek even when the quest "Snaf's Recipe" is completed.
 * Fix #50: The pillar in the Monastery Ruins now falls in the right directions and has collision.
 * Fix #59: Vendors don't re-equip their weapon when the player sells them a more powerful one. However, due to important game mechanics, they will still equip a weapon if they didn't have a weapon of that type (meelee, ranged) equipped before.
 
