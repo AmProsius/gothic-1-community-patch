@@ -30,6 +30,7 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
         Ninja_G1CP_036_FiskFenceQuest();                                // #36
         Ninja_G1CP_038_SnafDialogNek();                                 // #38
         Ninja_G1CP_059_FixEquipBestWeapons();                           // #59
+        Ninja_G1CP_060_JesseQuest();                                    // #60
         Ninja_G1CP_InitEnd();
     };
 };
