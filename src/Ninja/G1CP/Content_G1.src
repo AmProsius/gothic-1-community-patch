@@ -43,8 +43,11 @@ Content\Fixes\Session\fix029_BusterAcrobatics.d
 Content\Fixes\Session\fix031_WolfPlateDialog.d
 Content\Fixes\Session\fix036_FiskFenceQuest.d
 Content\Fixes\Session\fix038_SnafDialogNek.d
+Content\Fixes\Session\fix040_AlephKeyDialog.d
+Content\Fixes\Session\fix043_EN_SkillMissingWhitespace.d
 Content\Fixes\Session\fix059_FixEquipBestWeapons.d
 Content\Fixes\Session\fix060_JesseQuest.d
+Content\Fixes\Session\fix079_WolfDexDialog.d
 
 // Game save fixes
 Content\Fixes\Gamesave\fix050_Pillar.d
@@ -71,9 +74,12 @@ Content\Tests\test029.d
 Content\Tests\test031.d
 Content\Tests\test036.d
 Content\Tests\test038.d
+Content\Tests\test040.d
+Content\Tests\test043.d
 Content\Tests\test050.d
 Content\Tests\test059.d
 Content\Tests\test060.d
+Content\Tests\test079.d
 
 // Initialization
 Content\initOnce.d
