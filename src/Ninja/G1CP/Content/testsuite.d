@@ -109,6 +109,9 @@ func string Ninja_G1CP_TestsuiteAll(var string _) {
     // Do not trigger manual tests
     Ninja_G1CP_TestsuiteAllowManual = FALSE;
 
+    // Remember the data stack position
+    var int stkPosBefore; stkPosBefore = MEM_Parser.datastack_sptr;
+
     // Iterate over and call all tests
     repeat(i, currSymbolTableLength); var int i;
         var zCPar_Symbol symb; symb = _^(MEM_GetSymbolByIndex(i));
@@ -116,7 +119,11 @@ func string Ninja_G1CP_TestsuiteAll(var string _) {
         && (STR_Len(symb.name) == 19)
         && ((symb.bitfield & zCPar_Symbol_bitfield_type) == zPAR_TYPE_FUNC) {
             msg = ConcatStrings(STR_SubStr(symb.name, 11, 8), " .... ");
+
+            // Reset the data stack position and call the test function
+            MEM_Parser.datastack_sptr = stkPosBefore;
             MEM_CallByID(i);
+
             if (symb.offset == (zPAR_TYPE_INT >> 12)) {
                 if (MEM_PopIntResult()) {
                     msg = ConcatStrings(msg, "[PASSED]|");
