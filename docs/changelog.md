@@ -26,6 +26,7 @@
 * Fix #43: The dialog choices about learning skills now contain proper whitespace.
 * Fix #50: The pillar in the Monastery Ruins now falls in the right directions and has collision.
 * Fix #59: Vendors don't re-equip their weapon when the player sells them a more powerful one. However, due to important game mechanics, they will still equip a weapon if they didn't have a weapon of that type (meelee, ranged) equipped before.
+* Fix #79: Wolf now only trains dexterity if the player is part of the New Camp.
 
 ## DE
 * Fix #1: NSCs wachen nicht mehr sofort auf, nachdem sie ins Bett gegangen sind, sondern bleiben liegen.
@@ -52,3 +53,4 @@
 * Fix #40: Aleph bietet den Schlüssel nun nicht noch einmal an, wenn der Spieler ihn schon erhalten hat.
 * Fix #50: Die Säule in der Klosterruine fällt jetzt in die richtige Richtung und hat Kollision.
 * Fix #59: Händler rüsten nicht mehr ihre Waffe um, wenn der Spieler ihnen eine stärkere verkauft. Aufgrund einer wichtigen Spielmechanik wird allerdings eine Waffe ausgerüstet, sofern der Händler vorher noch keine Waffe diese Art (Nahkampf, Fernkampf) ausgerüstet hatte.
+* Fix #79: Wolf lehrt nun nur dann Geschicklichkeit, wenn der Spieler teil des Neuen Lagers ist.

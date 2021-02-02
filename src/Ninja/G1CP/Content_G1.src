@@ -46,6 +46,7 @@ Content\Fixes\Session\fix038_SnafDialogNek.d
 Content\Fixes\Session\fix040_AlephKeyDialog.d
 Content\Fixes\Session\fix043_EN_SkillMissingWhitespace.d
 Content\Fixes\Session\fix059_FixEquipBestWeapons.d
+Content\Fixes\Session\fix079_WolfDexDialog.d
 
 // Game save fixes
 Content\Fixes\Gamesave\fix050_Pillar.d
@@ -76,6 +77,7 @@ Content\Tests\test040.d
 Content\Tests\test043.d
 Content\Tests\test050.d
 Content\Tests\test059.d
+Content\Tests\test079.d
 
 // Initialization
 Content\initOnce.d
