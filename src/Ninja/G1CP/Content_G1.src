@@ -15,6 +15,7 @@ Content\Report\indent.d
 Content\Report\memInfoLvl.d
 Content\Report\reportFuncToSpy.d
 
+Content\Misc\findInFunc.d
 Content\Misc\aivar.d
 Content\Misc\info.d
 Content\Misc\Npc_CanSeeVob.d
