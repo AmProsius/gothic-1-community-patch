@@ -26,6 +26,7 @@ const int Ninja_G1CP_TestsuiteAllowManual = 0;
  * Initialization function
  */
 func void Ninja_G1CP_Testsuite() {
+    CC_Register(Ninja_G1CP_TestsuiteList, "test list", "List all tests of G1CP");
     CC_Register(Ninja_G1CP_TestsuiteAll, "test all", "Run complete test suite for G1CP");
     CC_Register(Ninja_G1CP_TestsuiteCmd, "test ", "Run test from test suite for G1CP");
 };
@@ -113,7 +114,7 @@ func string Ninja_G1CP_TestsuiteAll(var string _) {
     var int stkPosBefore; stkPosBefore = MEM_Parser.datastack_sptr;
 
     // Iterate over and call all tests
-    repeat(i, Ninja_G1CP_SymbEnd); var int i; if (!i) { i += Ninja_G1CP_SymbStart; }; // From SymbStart to SymbEnd
+    repeat(i, Ninja_G1CP_SymbEnd); var int i; if (!i) { i = Ninja_G1CP_SymbStart; }; // From SymbStart to SymbEnd
 
         var zCPar_Symbol symb; symb = _^(MEM_GetSymbolByIndex(i));
         if (STR_StartsWith(symb.name, "NINJA_G1CP_TEST_"))
@@ -198,4 +199,62 @@ func string Ninja_G1CP_TestsuiteCmd(var string command) {
     Ninja_G1CP_TestsuiteMsg = "";
 
     return retStr;
+};
+
+func string Ninja_G1CP_TestsuiteList(var string _) {
+    var string automatic; automatic = "Automatic: ";
+    var string manual;    manual    = "Manual:    ";
+
+    // Iterate over and call all tests
+    repeat(i, Ninja_G1CP_SymbEnd); var int i; if (!i) { i = Ninja_G1CP_SymbStart; }; // From SymbStart to SymbEnd
+
+        // Compare symbol name
+        var zCPar_Symbol symb; symb = _^(MEM_GetSymbolByIndex(i));
+        if (STR_StartsWith(symb.name, "NINJA_G1CP_TEST_"))
+        && (STR_Len(symb.name) == 19)
+        && ((symb.bitfield & zCPar_Symbol_bitfield_type) == zPAR_TYPE_FUNC) {
+            var string msg;
+
+            // Get test ID
+            var int id; id = STR_ToInt(STR_SubStr(symb.name, 16, 3));
+            msg = IntToString(id); // Trim leading zeros
+
+            // Check if fix is not applied
+            if (!Ninja_G1CP_IsFixApplied(id) > 0) {
+                msg = ConcatStrings(ConcatStrings("(", msg), ")");
+            };
+
+            // Check if manual or automatic
+            if (symb.offset == (zPAR_TYPE_INT >> 12)) {
+                automatic = ConcatStrings(ConcatStrings(automatic, msg), ",");
+            } else {
+                manual = ConcatStrings(ConcatStrings(manual, msg), ",");
+            };
+        };
+    end;
+
+    // Remove trailing commas
+    automatic = STR_Prefix(automatic, STR_Len(automatic)-1);
+    manual = STR_Prefix(manual, STR_Len(manual)-1);
+
+    // Format and return strings
+    var string ret;
+    if (SB_New()) {
+        SB(automatic);
+        if (Hlp_StrCmp(automatic, "Automatic:")) {
+            SB(" None");
+        };
+        SBc(10);
+        SBc(13);
+        SBc(10);
+        SBc(13);
+        SB(manual);
+        if (Hlp_StrCmp(manual, "Manual:   ")) {
+            SB(" None");
+        };
+        ret = SB_ToString();
+        SB_Destroy();
+    };
+
+    return ret;
 };
