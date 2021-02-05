@@ -83,7 +83,7 @@ func int Ninja_G1CP_InitWrapper(var int pos, var int endParam, var int revert) {
                     };
 
                     // Set message color
-                    status = ((!status) || (status == 7)) + 2; // zERR_TYPE_WARN or zERR_TYPE_FAULT
+                    status = ((!status) || (status == 6)) + 2; // zERR_TYPE_WARN or zERR_TYPE_FAULT
                 };
 
                 // Print to zSpy
