@@ -4,6 +4,9 @@ LeGo
 // Constants
 Content\constants.d
 
+// Loop-up table
+Content\Fixes\record.d
+
 // Misc files
 Content\version.d
 Content\misc.d
@@ -19,8 +22,6 @@ Content\Misc\findInFunc.d
 Content\Misc\aivar.d
 Content\Misc\info.d
 Content\Misc\Npc_CanSeeVob.d
-
-Content\Fixes\record.d
 
 // Session fixes
 Content\Fixes\Session\fix001_FixNpcSleep.d

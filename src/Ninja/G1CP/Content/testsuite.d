@@ -220,7 +220,7 @@ func string Ninja_G1CP_TestsuiteList(var string _) {
             msg = IntToString(id); // Trim leading zeros
 
             // Check if fix is not applied
-            if (!Ninja_G1CP_IsFixApplied(id) > 0) {
+            if (Ninja_G1CP_IsFixApplied(id) <= 0) {
                 msg = ConcatStrings(ConcatStrings("(", msg), ")");
             };
 
