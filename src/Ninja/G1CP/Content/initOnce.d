@@ -12,4 +12,13 @@ func void Ninja_G1CP_InitOnce() {
 
     // Get some annoying prints out of the way
     MEM_Free(create(zCArray@));
+
+    // Find start and end of the symbols that are introduced by G1CP
+    Ninja_G1CP_SymbStart = Ninja_Symbols_Start_G1CP;
+    Ninja_G1CP_SymbEnd = MEM_FindParserSymbol("Ninja_Symbols_End_G1CP");
+    // LeGo might be squeezed in
+    var int LeGoEnd; LeGoEnd = MEM_FindParserSymbol("LEGO_MERGEFLAGS");
+    if (LeGoEnd > Ninja_Symbols_Start_G1CP) {
+        Ninja_G1CP_SymbStart = LeGoEnd;
+    };
 };

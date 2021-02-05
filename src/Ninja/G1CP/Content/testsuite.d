@@ -113,7 +113,8 @@ func string Ninja_G1CP_TestsuiteAll(var string _) {
     var int stkPosBefore; stkPosBefore = MEM_Parser.datastack_sptr;
 
     // Iterate over and call all tests
-    repeat(i, currSymbolTableLength); var int i;
+    repeat(i, Ninja_G1CP_SymbEnd); var int i; if (!i) { i += Ninja_G1CP_SymbStart; }; // From SymbStart to SymbEnd
+
         var zCPar_Symbol symb; symb = _^(MEM_GetSymbolByIndex(i));
         if (STR_StartsWith(symb.name, "NINJA_G1CP_TEST_"))
         && (STR_Len(symb.name) == 19)
