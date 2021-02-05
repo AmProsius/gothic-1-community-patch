@@ -3,9 +3,10 @@
 ### Goal
 This patch's goal is to fix the remaining bugs of a game that is nearly 20 years old. It is not the intention of the patch to make gameplay changes or introduce new features (e.g. cut content).
 
-### Compatibility 
-This patch is compatible to every other patch and every mod that expands the main game.
-Additionally no new game has to be started. This patch can be turned on and off at every time.
+### Features 
+* The G1CP is compatible to every other patch and every mod that expands the main game.
+* The G1CP is compatible with existing save games, no new game has to be started. We recommend to start a new game though, because some fixes wouldn't be applied otherwise.
+* The G1CP can be uninstalled at any time. Existing save games can be played further without the patch.
 
 ### Requirements 
 * Ninja 
