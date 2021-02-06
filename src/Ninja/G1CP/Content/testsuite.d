@@ -120,7 +120,17 @@ func string Ninja_G1CP_TestsuiteAll(var string _) {
         if (STR_StartsWith(symb.name, "NINJA_G1CP_TEST_"))
         && (STR_Len(symb.name) == 19)
         && ((symb.bitfield & zCPar_Symbol_bitfield_type) == zPAR_TYPE_FUNC) {
-            msg = ConcatStrings(STR_SubStr(symb.name, 11, 8), " .... ");
+            // Test name
+            msg = STR_SubStr(symb.name, 11, 8);
+
+            // Check if currently applied or not
+            var int id; id = STR_ToInt(STR_SubStr(symb.name, 16, 3));
+            if (Ninja_G1CP_IsFixApplied(id) > 0) {
+                msg = ConcatStrings(msg, " .");
+            } else {
+                msg = ConcatStrings(msg, "* ");
+            };
+            msg = ConcatStrings(msg, "... ");
 
             // Reset the data stack position and call the test function
             MEM_Parser.datastack_sptr = stkPosBefore;
