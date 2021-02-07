@@ -24,7 +24,7 @@ func int Ninja_G1CP_Test_024() {
     // Check if Cor Kalom exists in the world
     var C_Npc kalom; kalom = Hlp_GetNpc(symbId);
     if (!Hlp_IsValidNpc(kalom)) {
-        Ninja_G1CP_TestsuiteErrorDetail("'GUR_1201_CorKalom' is not a valid NPC");
+        Ninja_G1CP_TestsuiteErrorDetail("NPC 'GUR_1201_CorKalom' not valid");
         passed = FALSE;
     };
 

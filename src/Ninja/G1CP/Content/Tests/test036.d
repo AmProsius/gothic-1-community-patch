@@ -17,35 +17,21 @@ func int Ninja_G1CP_Test_036() {
     // Check if the dialog exists
     var int funcId; funcId = MEM_FindParserSymbol("Stt_311_Fisk_MordragKO_Condition");
     if (funcId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("Dialog 'Stt_311_Fisk_MordragKO_Condition' not found");
-        passed = FALSE;
-    };
-
-    // Find Fisk
-    var int symbId; symbId = MEM_FindParserSymbol("Stt_311_Fisk");
-    if (symbId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("Npc 'Stt_311_Fisk' not found");
-        passed = FALSE;
-    };
-
-    // Check if Fisk exists in the world
-    var C_Npc fisk; fisk = Hlp_GetNpc(symbId);
-    if (!Hlp_IsValidNpc(fisk)) {
-        Ninja_G1CP_TestsuiteErrorDetail("Npc 'Stt_311_Fisk' is not a valid NPC");
+        Ninja_G1CP_TestsuiteErrorDetail("Dialog condition 'Stt_311_Fisk_MordragKO_Condition' not found");
         passed = FALSE;
     };
 
     // Find Mordrag
-    symbId = MEM_FindParserSymbol("Org_826_Mordrag");
+    var int symbId; symbId = MEM_FindParserSymbol("Org_826_Mordrag");
     if (symbId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("Npc 'Org_826_Mordrag' not found");
+        Ninja_G1CP_TestsuiteErrorDetail("NPC 'Org_826_Mordrag' not found");
         passed = FALSE;
     };
 
     // Check if Mordrag exists in the world
     var C_Npc mordrag; mordrag = Hlp_GetNpc(symbId);
     if (!Hlp_IsValidNpc(mordrag)) {
-        Ninja_G1CP_TestsuiteErrorDetail("Npc 'Org_826_Mordrag' is not a valid NPC");
+        Ninja_G1CP_TestsuiteErrorDetail("NPC 'Org_826_Mordrag' not valid");
         passed = FALSE;
     };
 
@@ -81,7 +67,7 @@ func int Ninja_G1CP_Test_036() {
     // Set new values
     MEM_WriteInt(hauAbPtr, FALSE);                               // Variable
     Npc_SetTrueGuild(hero, GIL_NONE);                            // Guild
-    self  = MEM_CpyInst(fisk);                                   // Self
+    self  = MEM_CpyInst(hero);                                   // Self
     other = MEM_CpyInst(hero);                                   // Other
 
     // Now do two passes for each OR-condition

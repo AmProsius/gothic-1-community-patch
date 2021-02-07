@@ -12,21 +12,7 @@ func int Ninja_G1CP_Test_028() {
     // Check if the dialog exists
     var int funcId; funcId = MEM_FindParserSymbol("Org_826_Mordrag_GotoNewcamp_Condition");
     if (funcId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("Original dialog not found");
-        passed = FALSE;
-    };
-
-    // Find Mordrag
-    var int symbId; symbId = MEM_FindParserSymbol("ORG_826_Mordrag");
-    if (symbId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("Npc 'ORG_826_Mordrag' not found");
-        passed = FALSE;
-    };
-
-    // Check if Mordrag exists in the world
-    var C_Npc mordrag; mordrag = Hlp_GetNpc(symbId);
-    if (!Hlp_IsValidNpc(mordrag)) {
-        Ninja_G1CP_TestsuiteErrorDetail("Npc 'ORG_826_Mordrag' is not a valid NPC");
+        Ninja_G1CP_TestsuiteErrorDetail("Dialog condition 'Org_826_Mordrag_GotoNewcamp_Condition' not found");
         passed = FALSE;
     };
 
@@ -52,7 +38,7 @@ func int Ninja_G1CP_Test_028() {
     // Set new values
     MEM_WriteInt(hauAbPtr, TRUE);                                                                        // Variable
     Ninja_G1CP_SetInfoTold("Org_826_Mordrag_JoinNewcamp", TRUE);                                         // Told status
-    self  = MEM_CpyInst(mordrag);                                                                        // Self
+    self  = MEM_CpyInst(hero);                                                                           // Self
     other = MEM_CpyInst(hero);                                                                           // Other
 
     // Call dialog condition function

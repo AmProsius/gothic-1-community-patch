@@ -16,7 +16,7 @@ func int Ninja_G1CP_Test_079() {
     // Check if the dialog exists
     var int funcId; funcId = MEM_FindParserSymbol("ORG_855_Wolf_Teach_Condition");
     if (funcId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("Dialog function 'ORG_855_Wolf_Teach_Condition' not found");
+        Ninja_G1CP_TestsuiteErrorDetail("Dialog condition 'ORG_855_Wolf_Teach_Condition' not found");
         passed = FALSE;
     };
 
@@ -50,7 +50,7 @@ func int Ninja_G1CP_Test_079() {
     var C_Npc othBak; othBak = MEM_CpyInst(other);               // Other
 
     // Set self and other
-    self  = MEM_NullToInst();
+    self  = MEM_CpyInst(hero);
     other = MEM_CpyInst(hero);
 
     // Do two passes (first one should yield true, second false)
@@ -65,7 +65,7 @@ func int Ninja_G1CP_Test_079() {
     MEM_CallByID(funcId);
     ret1 = MEM_PopIntResult();
     if (ret1) {
-        Ninja_G1CP_TestsuiteErrorDetail("Dialog function returned true for GIL_GRD");
+        Ninja_G1CP_TestsuiteErrorDetail("Dialog condition returned true for GIL_GRD");
     };
 
     // Second pass
@@ -76,7 +76,7 @@ func int Ninja_G1CP_Test_079() {
     MEM_CallByID(funcId);
     ret2 = MEM_PopIntResult();
     if (!ret2) {
-        Ninja_G1CP_TestsuiteErrorDetail("Dialog function returned false for GIL_ORG");
+        Ninja_G1CP_TestsuiteErrorDetail("Dialog condition returned false for GIL_ORG");
     };
 
     // Restore values

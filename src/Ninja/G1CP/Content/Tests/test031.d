@@ -5,11 +5,11 @@
  *
  * Expected behavior: The condition functions will return FALSE.
  */
-func int Ninja_G1CP_Test_031_RunDialog(var C_Npc wolf, var int itmInst, var int num, var string dialogName) {
+func int Ninja_G1CP_Test_031_RunDialog(var int itmInst, var int num, var string dialogName) {
     // Check if dialog exists
     var int funcId; funcId = MEM_FindParserSymbol(dialogName);
     if (funcId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail(ConcatStrings("Original dialog not found: ", dialogName));
+        Ninja_G1CP_TestsuiteErrorDetail(ConcatStrings(ConcatStrings("Dialog condition '", dialogName), "' not found"));
         return FALSE;
     };
 
@@ -21,7 +21,7 @@ func int Ninja_G1CP_Test_031_RunDialog(var C_Npc wolf, var int itmInst, var int 
     // Set new values
     Ninja_G1CP_SetInfoTold("Info_Wolf_MCPLATESENOUGH", TRUE);                                         // Told status
     CreateInvItems(hero, itmInst, num);                                                               // Create items
-    self  = MEM_CpyInst(wolf);                                                                        // Self
+    self  = MEM_CpyInst(hero);                                                                        // Self
     other = MEM_CpyInst(hero);                                                                        // Other
 
     // Call dialog condition function
@@ -36,7 +36,7 @@ func int Ninja_G1CP_Test_031_RunDialog(var C_Npc wolf, var int itmInst, var int 
 
     // Check return value
     if (ret) {
-        Ninja_G1CP_TestsuiteErrorDetail(ConcatStrings("Dialog condition failed: ", dialogName));
+        Ninja_G1CP_TestsuiteErrorDetail(ConcatStrings(ConcatStrings("Dialog condition '", dialogName), "' failed"));
         return FALSE;
     };
 
@@ -45,20 +45,6 @@ func int Ninja_G1CP_Test_031_RunDialog(var C_Npc wolf, var int itmInst, var int 
 func int Ninja_G1CP_Test_031() {
     // Check status of the test
     var int passed; passed = TRUE;
-
-    // Find Wolf
-    var int symbId; symbId = MEM_FindParserSymbol("ORG_855_Wolf");
-    if (symbId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("Npc 'ORG_855_Wolf' not found");
-        passed = FALSE;
-    };
-
-    // Check if Wolf exists in the world
-    var C_Npc wolf; wolf = Hlp_GetNpc(symbId);
-    if (!Hlp_IsValidNpc(wolf)) {
-        Ninja_G1CP_TestsuiteErrorDetail("Npc 'ORG_855_Wolf' is not a valid NPC");
-        passed = FALSE;
-    };
 
     // Find item
     var int itmInst; itmInst = MEM_FindParserSymbol("ItAt_Crawler_02");
@@ -92,8 +78,8 @@ func int Ninja_G1CP_Test_031() {
 
     // Run dialogs
     var int ret; ret = 0;
-    ret += Ninja_G1CP_Test_031_RunDialog(wolf, itmInst, 1,  "Info_Wolf_MCPLATESFEW_Condition");
-    ret += Ninja_G1CP_Test_031_RunDialog(wolf, itmInst, 15, "Info_Wolf_MCPLATESENOUGH_Condition");
+    ret += Ninja_G1CP_Test_031_RunDialog(itmInst, 1,  "Info_Wolf_MCPLATESFEW_Condition");
+    ret += Ninja_G1CP_Test_031_RunDialog(itmInst, 15, "Info_Wolf_MCPLATESENOUGH_Condition");
 
     // Restore values
     MEM_WriteInt(knowsPlatesPtr, knowsPlatesBak);

@@ -9,7 +9,7 @@ func int Ninja_G1CP_Test_040() {
     // Check if the dialog exists
     var int funcId; funcId = MEM_FindParserSymbol("VLK_585_Aleph_DIRTY_Condition");
     if (funcId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("Dialog function 'VLK_585_Aleph_DIRTY_Condition' not found");
+        Ninja_G1CP_TestsuiteErrorDetail("Dialog condition 'VLK_585_Aleph_DIRTY_Condition' not found");
         return FALSE;
     };
 
@@ -24,7 +24,7 @@ func int Ninja_G1CP_Test_040() {
     Ninja_G1CP_SetInfoTold("GRD_271_ULBERT_DRUNK", TRUE);                                             // Told status
     Ninja_G1CP_SetInfoTold("GRD_261_Brandick_ALEPH", TRUE);                                           // Told status
     Ninja_G1CP_SetInfoTold("VLK_585_Aleph_SCHUPPEN", TRUE);                                           // Told status
-    self  = MEM_NullToInst();                                                                         // Self
+    self  = MEM_CpyInst(hero);                                                                        // Self
     other = MEM_CpyInst(hero);                                                                        // Other
 
     // Call dialog condition function

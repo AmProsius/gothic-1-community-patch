@@ -8,8 +8,6 @@
  */
 func int Ninja_G1CP_Test_016_RunDialog(var string dialogName, var string needsInfo) {
     var int funcId;
-    var int symbId;
-    var C_Npc thorus;
     var int backupValue;
     var int backupTold;
 
@@ -19,28 +17,14 @@ func int Ninja_G1CP_Test_016_RunDialog(var string dialogName, var string needsIn
     // Check if dialog exists
     funcId = MEM_FindParserSymbol(dialogName);
     if (funcId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail(ConcatStrings("Original dialog not found: ", dialogName));
-        passed = FALSE;
-    };
-
-    // Find Thorus
-    symbId = MEM_FindParserSymbol("Grd_200_Thorus");
-    if (symbId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("NPC 'Grd_200_Thorus' not found");
-        passed = FALSE;
-    };
-
-    // Check if Thorus exists in the world
-    thorus = Hlp_GetNpc(symbId);
-    if (!Hlp_IsValidNpc(thorus)) {
-        Ninja_G1CP_TestsuiteErrorDetail("'Grd_200_Thorus' is not a valid NPC");
+        Ninja_G1CP_TestsuiteErrorDetail(ConcatStrings(ConcatStrings("Dialog condition '", dialogName), "' not found"));
         passed = FALSE;
     };
 
     // Check if NPC and AI-variable exist
     backupValue = Ninja_G1CP_IdGetAIVar(MEM_FindParserSymbol("Grd_212_Torwache"), "AIV_PASSGATE", -42);
     if (backupValue == -42) {
-        Ninja_G1CP_TestsuiteErrorDetail("'Grd_212_Torwache' or 'AIV_PASSGATE' does not exist");
+        Ninja_G1CP_TestsuiteErrorDetail("NPC 'Grd_212_Torwache' or variable 'AIV_PASSGATE' not found");
         passed = FALSE;
     };
 
@@ -61,7 +45,7 @@ func int Ninja_G1CP_Test_016_RunDialog(var string dialogName, var string needsIn
     var C_Npc othBak; othBak = MEM_CpyInst(other);
 
     // Set self and other
-    self  = MEM_CpyInst(thorus);
+    self  = MEM_CpyInst(hero);
     other = MEM_CpyInst(hero);
 
     // Call dialog condition function
@@ -80,7 +64,7 @@ func int Ninja_G1CP_Test_016_RunDialog(var string dialogName, var string needsIn
 
     // Check return value
     if (ret) {
-        Ninja_G1CP_TestsuiteErrorDetail(ConcatStrings("Dialog condition failed: ", dialogName));
+        Ninja_G1CP_TestsuiteErrorDetail(ConcatStrings(ConcatStrings("Dialog condition '", dialogName), "' failed"));
         return FALSE;
     };
 

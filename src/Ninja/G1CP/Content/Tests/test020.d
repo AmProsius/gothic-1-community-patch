@@ -20,7 +20,7 @@ func int Ninja_G1CP_Test_020() {
     // Check if Kirgo exists in the world
     var C_Npc kirgo; kirgo = Hlp_GetNpc(symbId);
     if (!Hlp_IsValidNpc(kirgo)) {
-        Ninja_G1CP_TestsuiteErrorDetail("'Grd_251_Kirgo' is not a valid NPC");
+        Ninja_G1CP_TestsuiteErrorDetail("NPC 'Grd_251_Kirgo' not valid");
         passed = FALSE;
     };
 

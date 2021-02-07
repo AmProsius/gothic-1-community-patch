@@ -22,7 +22,7 @@ func void Ninja_G1CP_Test_010() {
     // Check for ZS_FollowPC
     var int symbId; symbId = MEM_FindParserSymbol("ZS_FollowPC");
     if (!symbId) {
-        Ninja_G1CP_TestsuiteErrorDetail("'ZS_FollowPC' not found");
+        Ninja_G1CP_TestsuiteErrorDetail("AI state 'ZS_FollowPC' not found");
         return;
     };
 

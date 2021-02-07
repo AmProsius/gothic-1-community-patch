@@ -6,32 +6,10 @@
  * Expected behavior: The condition function will return FALSE.
  */
 func int Ninja_G1CP_Test_018() {
-    // Check status of the test
-    var int passed; passed = TRUE;
-
     // Check if dialog exists
     var int funcId; funcId = MEM_FindParserSymbol("Info_Bloodwyn_Hello_Condition");
     if (funcId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("Dialog 'Info_Bloodwyn_Hello_Condition' not found");
-        passed = FALSE;
-    };
-
-    // Find Bloodwyn
-    var int symbId; symbId = MEM_FindParserSymbol("GRD_233_Bloodwyn");
-    if (symbId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("NPC 'GRD_233_Bloodwyn' not found");
-        passed = FALSE;
-    };
-
-    // Check if Bloodwyn exists in the world
-    var C_Npc bloodwyn; bloodwyn = Hlp_GetNpc(symbId);
-    if (!Hlp_IsValidNpc(bloodwyn)) {
-        Ninja_G1CP_TestsuiteErrorDetail("'GRD_233_Bloodwyn' is not a valid NPC");
-        passed = FALSE;
-    };
-
-    // At the latest now, we need to stop if there are fails already
-    if (!passed) {
+        Ninja_G1CP_TestsuiteErrorDetail("Dialog condition 'Info_Bloodwyn_Hello_Condition' not found");
         return FALSE;
     };
 
@@ -46,7 +24,7 @@ func int Ninja_G1CP_Test_018() {
     var C_Npc othBak; othBak = MEM_CpyInst(other);
 
     // Set self and other
-    self  = MEM_CpyInst(bloodwyn);
+    self  = MEM_CpyInst(hero);
     other = MEM_CpyInst(hero);
 
     // Call dialog condition function

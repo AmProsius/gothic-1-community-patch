@@ -16,21 +16,21 @@ func int Ninja_G1CP_Test_026() {
     // Check if the dialog exists
     var int funcId; funcId = MEM_FindParserSymbol("Info_Org_804_FirstWarn_Condition");
     if (funcId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("Original dialog not found");
+        Ninja_G1CP_TestsuiteErrorDetail("Dialog condition 'Info_Org_804_FirstWarn_Condition' not found");
         passed = FALSE;
     };
 
     // Find the guard NPC
     var int guardId; guardId = MEM_FindParserSymbol("Org_804_Organisator");
     if (guardId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("Npc 'Org_804_Organisator' not found");
+        Ninja_G1CP_TestsuiteErrorDetail("NPC 'Org_804_Organisator' not found");
         passed = FALSE;
     };
 
     // Check if NPC exists
     var C_Npc guard; guard = Hlp_GetNpc(guardId);
     if (!Hlp_IsValidNpc(guard)) {
-        Ninja_G1CP_TestsuiteErrorDetail("Npc 'Org_804_Organisator' is not a valid NPC");
+        Ninja_G1CP_TestsuiteErrorDetail("NPC 'Org_804_Organisator' not valid");
         passed = FALSE;
     };
 

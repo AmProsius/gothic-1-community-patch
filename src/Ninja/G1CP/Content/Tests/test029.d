@@ -12,21 +12,7 @@ func int Ninja_G1CP_Test_029() {
     // Check if the dialog exists
     var int funcId; funcId = MEM_FindParserSymbol("DIA_ORG_833_Buster3_Condition");
     if (funcId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("Original dialog not found");
-        passed = FALSE;
-    };
-
-    // Find Buster
-    var int symbId; symbId = MEM_FindParserSymbol("ORG_833_Buster");
-    if (symbId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("Npc 'ORG_833_Buster' not found");
-        passed = FALSE;
-    };
-
-    // Check if Buster exists in the world
-    var C_Npc buster; buster = Hlp_GetNpc(symbId);
-    if (!Hlp_IsValidNpc(buster)) {
-        Ninja_G1CP_TestsuiteErrorDetail("Npc 'ORG_833_Buster' is not a valid NPC");
+        Ninja_G1CP_TestsuiteErrorDetail("Dialog condition 'DIA_ORG_833_Buster3_Condition' not found");
         passed = FALSE;
     };
 
@@ -52,7 +38,7 @@ func int Ninja_G1CP_Test_029() {
     // Set new values
     Npc_SetTalentSkill(hero, NPC_TALENT_ACROBAT, TRUE);                                         // Talent
     Ninja_G1CP_SetInfoTold("DIA_ORG_833_Buster", TRUE);                                         // Told status
-    self  = MEM_CpyInst(buster);                                                                // Self
+    self  = MEM_CpyInst(hero);                                                                  // Self
     other = MEM_CpyInst(hero);                                                                  // Other
 
     // Call dialog condition function

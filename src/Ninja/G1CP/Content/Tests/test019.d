@@ -18,21 +18,7 @@ func int Ninja_G1CP_Test_019() {
     // Check if dialog exists
     funcId = MEM_FindParserSymbol("DIA_Scorpio_REFUSETRAIN_Condition");
     if (funcId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("Dialog 'DIA_Scorpio_REFUSETRAIN_Condition' not found");
-        passed = FALSE;
-    };
-
-    // Find Scorpio
-    var int symbId; symbId = MEM_FindParserSymbol("Grd_205_Scorpio");
-    if (symbId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("NPC 'Grd_205_Scorpio' not found");
-        passed = FALSE;
-    };
-
-    // Check if Scorpio exists in the world
-    var C_Npc scorpio; scorpio = Hlp_GetNpc(symbId);
-    if (!Hlp_IsValidNpc(scorpio)) {
-        Ninja_G1CP_TestsuiteErrorDetail("'Grd_205_Scorpio' is not a valid NPC");
+        Ninja_G1CP_TestsuiteErrorDetail("Dialog condition 'DIA_Scorpio_REFUSETRAIN_Condition' not found");
         passed = FALSE;
     };
 
@@ -69,7 +55,7 @@ func int Ninja_G1CP_Test_019() {
     var C_Npc othBak; othBak = MEM_CpyInst(other);
 
     // Set self and other
-    self  = MEM_CpyInst(scorpio);
+    self  = MEM_CpyInst(hero);
     other = MEM_CpyInst(hero);
 
     // Call dialog condition function

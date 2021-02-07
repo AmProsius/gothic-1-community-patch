@@ -12,29 +12,10 @@ func int Ninja_G1CP_Test_015() {
     // Check status of the test
     var int passed; passed = TRUE;
 
-    // Find Horatio first
-    var int symbId; symbId = MEM_FindParserSymbol("Bau_901_Horatio");
-    if (symbId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("NPC 'Bau_901_Horatio' not found");
-        passed = FALSE;
-    };
-
-    // Check if Horatio exists in the world
-    var C_Npc horatio; horatio = Hlp_GetNpc(symbId);
-    if (!Hlp_IsValidNpc(horatio)) {
-        Ninja_G1CP_TestsuiteErrorDetail("'Bau_901_Horatio' is not a valid NPC");
-        passed = FALSE;
-    };
-
     // Check if the dialog function exists
     var int funcId; funcId = MEM_FindParserSymbol("DIA_Horatio_HelpSTR_LEARN_NOW");
     if (funcId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("Original dialog not found");
-        passed = FALSE;
-    };
-
-    // At the latest now, we need to stop if there are fails already
-    if (!passed) {
+        Ninja_G1CP_TestsuiteErrorDetail("Dialog function 'DIA_Horatio_HelpSTR_LEARN_NOW' not found");
         return FALSE;
     };
 
@@ -46,7 +27,7 @@ func int Ninja_G1CP_Test_015() {
     var C_Npc othBak; othBak = MEM_CpyInst(other);
 
     // Set self and other
-    self  = MEM_CpyInst(horatio);
+    self  = MEM_CpyInst(hero);
     other = MEM_CpyInst(hero);
 
     // First pass: strength < 100

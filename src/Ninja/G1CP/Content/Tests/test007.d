@@ -17,7 +17,7 @@ func void Ninja_G1CP_Test_007() {
     // Check if AI state exists
     var int symbId; symbId = MEM_FindParserSymbol("ZS_PracticeSword");
     if (symbId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("AI state 'ZS_PracticeSword' does not exist");
+        Ninja_G1CP_TestsuiteErrorDetail("AI state 'ZS_PracticeSword' not found");
         return;
     };
 
@@ -85,7 +85,7 @@ func int  ZS_Ninja_G1CP_Test_007_NpcRountine_Loop() {
             AI_Function(hero, Ninja_G1CP_Test_007_Success);
         } else {
             // Send to zSpy directly here because it is after the test has finished
-            MEM_SendToSpy(zERR_TYPE_FAULT, "  Test   7: AI state 'ZS_PracticeSword' does not exist");
+            MEM_SendToSpy(zERR_TYPE_FAULT, "  Test   7: AI state 'ZS_PracticeSword' not found");
         };
         return 1;
     };

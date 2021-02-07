@@ -15,21 +15,7 @@ func int Ninja_G1CP_Test_038() {
     // Check if the dialog exists
     var int funcId; funcId = MEM_FindParserSymbol("DIA_Snaf_WhereNek_Condition");
     if (funcId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("Dialog function 'DIA_Snaf_WhereNek_Condition' not found");
-        passed = FALSE;
-    };
-
-    // Find Snaf
-    var int symbId; symbId = MEM_FindParserSymbol("VLK_581_Snaf");
-    if (symbId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("Npc 'VLK_581_Snaf' not found");
-        passed = FALSE;
-    };
-
-    // Check if Snaf exists in the world
-    var C_Npc snaf; snaf = Hlp_GetNpc(symbId);
-    if (!Hlp_IsValidNpc(snaf)) {
-        Ninja_G1CP_TestsuiteErrorDetail("Npc 'VLK_581_Snaf' is not a valid NPC");
+        Ninja_G1CP_TestsuiteErrorDetail("Dialog condition 'DIA_Snaf_WhereNek_Condition' not found");
         passed = FALSE;
     };
 
@@ -53,7 +39,7 @@ func int Ninja_G1CP_Test_038() {
 
     // Set new values
     MEM_WriteInt(questPtr, LOG_SUCCESS);                // Variable
-    self  = MEM_CpyInst(snaf);                          // Self
+    self  = MEM_CpyInst(hero);                          // Self
     other = MEM_CpyInst(hero);                          // Other
 
     // Call dialog condition function
