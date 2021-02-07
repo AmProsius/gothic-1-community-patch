@@ -9,6 +9,7 @@ func int Ninja_G1CP_079_WolfDexDialog() {
     var int cond1Id; cond1Id = MEM_FindParserSymbol("GIL_GRD");
     var int cond2Id; cond2Id = MEM_GetSymbol("C_NpcBelongsToNewCamp");
     var int funcExt; funcExt = MEM_FindParserSymbol("Npc_GetTrueGuild");
+    var int trueId; trueId = MEM_FindParserSymbol("TRUE");
 
     // Check if all needed functions exist
     if (funcId != -1) && (cond1Id != -1) && (cond2Id) {
@@ -36,13 +37,17 @@ func int Ninja_G1CP_079_WolfDexDialog() {
             // Find "GIL_GRD"
             if (((par == cond1Id) && (tok  == zPAR_TOK_PUSHVAR))  // GIL_GRD (constant)
             ||  ((par == GIL_GRD) && (tok  == zPAR_TOK_PUSHINT))) // GIL_GRD (literal integer)
-            && (i+3 < len) { // Prevent error below
+            && (i+6 < len) { // Prevent error below
 
-                // Verify the context: (Npc_GetTrueGuild(xxxx) == GIL_GRD)
+                // Verify the context: if (Npc_GetTrueGuild(xxxx) == GIL_GRD) { return TRUE; ...
                 if (MEM_ArrayRead(tokens, i+1) == zPAR_TOK_PUSHINST)
                 && (MEM_ArrayRead(tokens, i+2) == zPAR_TOK_CALLEXTERN)
                 && (MEM_ArrayRead(params, i+2) == funcExt)
-                && (MEM_ArrayRead(tokens, i+3) == zPAR_OP_EQUAL) {
+                && (MEM_ArrayRead(tokens, i+3) == zPAR_OP_EQUAL)
+                && (MEM_ArrayRead(tokens, i+4) == zPAR_TOK_JUMPF)
+                && (((MEM_ArrayRead(tokens, i+5) == zPAR_TOK_PUSHVAR) && (MEM_ArrayRead(params, i+5) == trueId))
+                ||  ((MEM_ArrayRead(tokens, i+5) == zPAR_TOK_PUSHINT) && (MEM_ArrayRead(params, i+5) == TRUE)))
+                && (MEM_ArrayRead(tokens, i+6) == zPAR_TOK_RET) {
 
                     /* Overwrite the entire condition: (C_NpcBelongsToNewCamp(xxxx) == TRUE)
 
