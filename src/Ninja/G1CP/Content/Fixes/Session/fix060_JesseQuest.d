@@ -9,6 +9,7 @@ func int Ninja_G1CP_060_JesseQuest() {
     var int cond1Id; cond1Id = MEM_FindParserSymbol("DIA_Jesse_Mission");
     var int cond2Id; cond2Id = MEM_FindParserSymbol("DIA_Jesse_Warn");
     var int funcExt; funcExt = MEM_FindParserSymbol("Npc_KnowsInfo");
+    var int trueId; trueId = MEM_FindParserSymbol("TRUE");
 
     // Check if all needed functions exist
     if (funcId != -1) && (cond1Id != -1) && (cond2Id != -1) {
@@ -25,13 +26,15 @@ func int Ninja_G1CP_060_JesseQuest() {
 
             // Find "DIA_Jesse_Mission"
             if (MEM_ArrayRead(params, i) == cond1Id)
-            && (i+2 < len) { // Prevent error below
+            && (i+4 < len) { // Prevent error below
 
-                // Verify the context: Npc_KnowsInfo(xxxx, "DIA_Jesse_Mission") without ! in front
+                // Verify the context: if (Npc_KnowsInfo(xxxx, "DIA_Jesse_Mission")) { return TRUE; ...
                 if (MEM_ArrayRead(tokens, i)   == zPAR_TOK_PUSHINT)
-                && (MEM_ArrayRead(tokens, i+1) == zPAR_TOK_CALLEXTERN)
-                && (MEM_ArrayRead(params, i+1) == funcExt)
-                && (MEM_ArrayRead(tokens, i+2) != zPAR_OP_UN_NOT) {
+                && (MEM_ArrayRead(tokens, i+1) == zPAR_TOK_CALLEXTERN) && (MEM_ArrayRead(params, i+1) == funcExt)
+                && (MEM_ArrayRead(tokens, i+2) == zPAR_TOK_JUMPF)
+                && (((MEM_ArrayRead(tokens, i+3) == zPAR_TOK_PUSHVAR) && (MEM_ArrayRead(params, i+3) == trueId))
+                ||  ((MEM_ArrayRead(tokens, i+3) == zPAR_TOK_PUSHINT) && (MEM_ArrayRead(params, i+3) == TRUE)))
+                && (MEM_ArrayRead(tokens, i+4) == zPAR_TOK_RET) {
 
                     // Overwrite "DIA_Jesse_Mission" with "DIA_Jesse_Warn"
                     var int pos; pos = MEM_ArrayRead(positions, i)+1; // Tok+1 = Param
