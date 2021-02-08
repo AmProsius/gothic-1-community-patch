@@ -11,10 +11,10 @@ func int Ninja_G1CP_012_RangedDoubleXP() {
     var int cond3Id; cond3Id = MEM_FindParserSymbol("AIV_WASDEFEATEDBYSC");
     var int funcExt; funcExt = MEM_FindParserSymbol("Npc_WasInState");
 
-    // Check if all needed functions exist
+    // Check if all needed symbols exist
     if (funcId != -1) && (cond1Id != -1) && (cond3Id != -1) {
 
-        // Get the byte code of the dialog condition function
+        // Get the byte code of the function
         var int tokens; tokens = MEM_ArrayCreate();
         var int params; params = MEM_ArrayCreate();
         var int positions; positions = MEM_ArrayCreate();
@@ -24,7 +24,7 @@ func int Ninja_G1CP_012_RangedDoubleXP() {
         // Iterate over the tokens
         repeat(i, len); var int i;
 
-            // Find "Npc_WasInState"
+            // Find "ZS_Unconscious"
             if (MEM_ArrayRead(params, i) == cond1Id)
             && (i+2 < len) { // Prevent errors below
 
@@ -55,7 +55,7 @@ func int Ninja_G1CP_012_RangedDoubleXP() {
 };
 
 /*
- * Intercepting condition function
+ * Intercepting function
  */
 func int Ninja_G1CP_012_RangedDoubleXP_Condition(var C_Npc slf, var int state) {
     Ninja_G1CP_ReportFuncToSpy();

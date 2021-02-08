@@ -41,10 +41,6 @@ func void Ninja_G1CP_Test_012() {
     };
 };
 
-
-/*
- * The actual test will run through the NPC's AI state (see below)
- */
 instance Ninja_G1CP_Test_012_Npc(C_Npc) {
     name          = "Test 12";
     attribute[0]  = 2;
