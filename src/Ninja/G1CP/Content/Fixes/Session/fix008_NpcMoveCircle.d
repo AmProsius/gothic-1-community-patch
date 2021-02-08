@@ -32,7 +32,7 @@ func int Ninja_G1CP_008_NpcMoveCircle() {
         // Iterate over the tokens
         repeat(i, len); var int i;
 
-            // First change: Find "ZS_Unconscious"
+            // First change: Find "B_GotoFP"
             if (MEM_ArrayRead(params, i) == bGotoFP_offset)
             && (i+3 < len) { // Prevent errors below
 
