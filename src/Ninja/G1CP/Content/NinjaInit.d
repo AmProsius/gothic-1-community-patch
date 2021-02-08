@@ -12,6 +12,7 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
         Ninja_G1CP_002_FixDoor();                                       // #2
         Ninja_G1CP_003_RegainDroppedWeapon();                           // #3
         Ninja_G1CP_007_PracticeSwordWithWeapon();                       // #7
+        Ninja_G1CP_008_NpcMoveCircle();                                 // #8
         Ninja_G1CP_009_FixFlee();                                       // #9
         Ninja_G1CP_010_FollowWalkMode();                                // #10
         Ninja_G1CP_015_HoratioStrength();                               // #15

@@ -28,6 +28,7 @@ Content\Fixes\Session\fix001_FixNpcSleep.d
 Content\Fixes\Session\fix002_FixDoor.d
 Content\Fixes\Session\fix003_RegainDroppedWeapon.d
 Content\Fixes\Session\fix007_PracticeSwordWithWeapon.d
+Content\Fixes\Session\fix008_NpcMoveCircle.d
 Content\Fixes\Session\fix009_FixFlee.d
 Content\Fixes\Session\fix010_FollowWalkMode.d
 Content\Fixes\Session\fix015_HoratioStrength.d
@@ -59,6 +60,7 @@ Content\Tests\test001.d
 Content\Tests\test002.d
 Content\Tests\test003.d
 Content\Tests\test007.d
+Content\Tests\test008.d
 Content\Tests\test009.d
 Content\Tests\test010.d
 Content\Tests\test015.d
