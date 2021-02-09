@@ -14,7 +14,7 @@ func int Ninja_G1CP_Test_043() {
 
     // Check if function exists
     var int funcId; funcId = MEM_FindParserSymbol("B_BuildLearnString");
-    if (funcId == 1) {
+    if (funcId == -1) {
         Ninja_G1CP_TestsuiteErrorDetail("Function 'B_BuildLearnString' not found");
         return FALSE;
     };
