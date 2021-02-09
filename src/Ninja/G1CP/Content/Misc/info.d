@@ -1,26 +1,33 @@
 /*
+ * Get info in a safe way (instance might not be initialized!)
+ */
+func int Ninja_G1CP_GetInfo(var string infoName) {
+    MEM_InitGlobalInst();
+
+    var int symbId; symbId = MEM_FindParserSymbol(infoName);
+    var int infoMan; infoMan = MEM_Game.infoman;
+
+    const int oCInfoManager__GetInformation = 6703616; //0x664A00
+    const int call = 0;
+    if (CALL_Begin(call)) {
+        CALL_IntParam(_@(symbId));
+        CALL_PutRetValTo(_@(ret));
+        CALL__thiscall(_@(infoMan), oCInfoManager__GetInformation);
+        call = CALL_End();
+    };
+
+    var int ret;
+    return +ret;
+};
+
+
+/*
  * Function to set the told status of infos
  */
 func void Ninja_G1CP_SetInfoTold(var string infoName, var int isTold) {
-    var int symbPtr; symbPtr = MEM_GetSymbol(infoName);
-    if (!symbPtr) {
-        return;
+    var int ptr; ptr = Ninja_G1CP_GetInfo(infoName);
+    if (ptr) {
+        var oCInfo info; info = _^(ptr);
+        info.told = !!isTold;
     };
-    var zCPar_Symbol symb; symb = _^(symbPtr);
-
-    // Verify that it is an instance
-    if ((symb.bitfield & zCPar_Symbol_bitfield_type) != zPAR_TYPE_INSTANCE)
-    || (!symb.offset)
-    || (!symb.parent) {
-        return;
-    };
-
-    // Verify that it is a C_Info instance
-    if (!Hlp_StrCmp(MEM_ReadString(symb.parent), "C_INFO")) {
-        return;
-    };
-
-    // Assign
-    var oCInfo info; info = _^(symb.offset-oCInfo_C_INFO_Offset);
-    info.told = !!isTold;
 };
