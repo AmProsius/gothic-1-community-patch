@@ -30,6 +30,7 @@ Content\Fixes\Session\fix003_RegainDroppedWeapon.d
 Content\Fixes\Session\fix007_PracticeSwordWithWeapon.d
 Content\Fixes\Session\fix009_FixFlee.d
 Content\Fixes\Session\fix010_FollowWalkMode.d
+Content\Fixes\Session\fix012_RangedDoubleXP.d
 Content\Fixes\Session\fix015_HoratioStrength.d
 Content\Fixes\Session\fix016_ThorusBribeDialog.d
 Content\Fixes\Session\fix017_JackalProtectionMoney.d
@@ -61,6 +62,7 @@ Content\Tests\test003.d
 Content\Tests\test007.d
 Content\Tests\test009.d
 Content\Tests\test010.d
+Content\Tests\test012.d
 Content\Tests\test015.d
 Content\Tests\test016.d
 Content\Tests\test017.d
