@@ -14,6 +14,7 @@
 * Fix #18: Bloodwyn doesn't ask for protection money anymore if the player has already joined a camp.
 * Fix #19: Scorpio can no longer be asked "Can you teach me to fight?" after he fled from the Old Camp to Cavalorn. Note: The player can still learn how to fight from him since that is a different dialog option.
 * Fix #20: Kirgo now correctly gives a beer to the player.
+* Fix #21: Fletcher now no longer reopens the quest "Vanished Guard".
 * Fix #22: Y'Berion now attacks the player instead of repeating himself calling the guards.
 * Fix #24: Cor Kalom now correctly closes the quest "Taking Weeds to Gomez" instead of "The Weed Monopoly".
 * Fix #25: Saturas no longer offers to sell a High Robe of Water if the player already obtained one.
