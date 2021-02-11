@@ -14,6 +14,7 @@
 * Fix #18: Bloodwyn doesn't ask for protection money anymore if the player has already joined a camp.
 * Fix #19: Scorpio can no longer be asked "Can you teach me to fight?" after he fled from the Old Camp to Cavalorn. Note: The player can still learn how to fight from him since that is a different dialog option.
 * Fix #20: Kirgo now correctly gives a beer to the player.
+* Fix #21: Fletcher no longer reopens the quest "Vanished Guard" if it was closed before talking to him.
 * Fix #22: Y'Berion now attacks the player instead of repeating himself calling the guards.
 * Fix #24: Cor Kalom now correctly closes the quest "Taking Weeds to Gomez" instead of "The Weed Monopoly".
 * Fix #25: Saturas no longer offers to sell a High Robe of Water if the player already obtained one.
@@ -46,6 +47,7 @@
 * Fix #18: Bloodwyn verlangt kein Schutzgeld mehr vom Spieler, sobald dieser sich einem Lager angeschlossen hat.
 * Fix #19: Scorpio kann nicht mehr gefragt werden: "Kannst du mir beibringen zu kämpfen?", nachdem er aus dem Alten Lager zu Cavalorn geflohen ist. Hinweis: Der Spieler kann immer noch von ihm Nahkampf lernen, da dies eine andere Dialogoption ist.
 * Fix #20: Kirgo gibt dem Spieler nun korrekterweise ein Bier.
+* Fix #21: Fletcher öffnet die Quest "Verschwundener Gardist" nicht mehr, wenn sie bereits abgeschlossen wurde, bevor der Spieler mit ihm gesprochen hat.
 * Fix #22: Y'Berion greift den Spieler nun an, statt in einer Dialogschleife die Wachen zu rufen.
 * Fix #24: Cor Kalom schließt nun korrekterweise die Quest "Kraut zu Gomez bringen" statt "Das Krautmonopol".
 * Fix #25: Saturas bietet nun keine Große Wasserrobe mehr an, wenn der Spieler bereits eine erworben hat.
