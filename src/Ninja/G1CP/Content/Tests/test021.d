@@ -21,14 +21,7 @@ func int Ninja_G1CP_Test_021() {
         passed = FALSE;
     };
 
-    // Obtain symbols
-    var int questStatusPtr; questStatusPtr = MEM_GetSymbol("Sly_LostNek");
-    if (!questStatusPtr) {
-        Ninja_G1CP_TestsuiteErrorDetail("Variable 'Sly_LostNek' not found");
-        passed = FALSE;
-    };
-    questStatusPtr += zCParSymbol_content_offset;
-
+    // Obtain log topic name
     var string CH1_LostNek;
     var int topicNamePtr; topicNamePtr = MEM_GetSymbol("CH1_LostNek");
     if (topicNamePtr) {
@@ -44,12 +37,10 @@ func int Ninja_G1CP_Test_021() {
     };
 
     // Back up the values
-    var int questStatusBak; questStatusBak = MEM_ReadInt(questStatusPtr);
     var int topicStatusBak; topicStatusBak = Ninja_G1CP_GetTopicStatus(CH1_LostNek);
     var int guildTrueBak; guildTrueBak = Npc_GetTrueGuild(hero);
 
     // Set the variables
-    MEM_WriteInt(questStatusPtr, LOG_SUCCESS);
     Log_CreateTopic(CH1_LostNek, LOG_MISSION);
     Log_SetTopicStatus(CH1_LostNek, LOG_SUCCESS);
     Npc_SetTrueGuild(hero, GIL_NONE);
@@ -78,7 +69,6 @@ func int Ninja_G1CP_Test_021() {
 
     // Restore the variables
     Npc_SetTrueGuild(hero, guildTrueBak);
-    MEM_WriteInt(questStatusPtr, questStatusBak);
     if (topicStatusBak == -1) {
         Ninja_G1CP_RemoveTopic(CH1_LostNek);
     } else {

@@ -57,22 +57,15 @@ func int Ninja_G1CP_021_FletcherClosedQuest() {
 };
 
 /*
- * Give the desired log status, check if changing it is allowed
+ * Determine if changing the status of the topic is allowed
  */
-func int Ninja_G1CP_021_AllowTopicCall(var int status) {
+func int Ninja_G1CP_021_AllowTopicCall(var string topic) {
+    // Define possibly missing symbols locally
     const int GIL_NONE    = 0;
-    const int LOG_RUNNING = 1;
     const int LOG_SUCCESS = 2;
 
-    // Find "Sly_LostNek"
-    var int Sly_LostNek; Sly_LostNek = 0;
-    var int symbPtr; symbPtr = MEM_GetSymbol("Sly_LostNek");
-    if (symbPtr) {
-        Sly_LostNek = MEM_ReadInt(symbPtr + zCParSymbol_content_offset);
-    };
-
-    // Allow to create topic if ...
-    return (status != LOG_RUNNING) || ((Sly_LostNek != LOG_SUCCESS) && (Npc_GetTrueGuild(hero) == GIL_NONE));
+    // Allow to open topic if ...
+    return (Ninja_G1CP_GetTopicStatus(topic) != LOG_SUCCESS) && (Npc_GetTrueGuild(hero) == GIL_NONE);
 };
 
 /*
@@ -83,10 +76,8 @@ func void Ninja_G1CP_021_CreateTopic(var string topic, var int section) {
 
     // Define possibly missing symbols locally
     const int LOG_MISSION = 0;
-    const int LOG_RUNNING = 1;
 
-    if (Ninja_G1CP_021_AllowTopicCall(LOG_RUNNING)) // There is no status for Log_CreateTopic
-    || (section != LOG_MISSION) {
+    if (Ninja_G1CP_021_AllowTopicCall(topic)) || (section != LOG_MISSION) {
         Log_CreateTopic(topic, section);
     };
 };
@@ -94,11 +85,14 @@ func void Ninja_G1CP_021_CreateTopic(var string topic, var int section) {
 /*
  * Wrapper function for Ninja_G1CP_021_SetTopicStatus
  */
-func void Ninja_G1CP_021_SetTopicStatus(var string topic, var int status) {
+func void Ninja_G1CP_021_SetTopicStatus(var string topic, var int newStatus) {
     Ninja_G1CP_ReportFuncToSpy();
 
-    if (Ninja_G1CP_021_AllowTopicCall(status)) {
-        Log_SetTopicStatus(topic, status);
+    // Define possibly missing symbols locally
+    const int LOG_RUNNING = 1;
+
+    if (Ninja_G1CP_021_AllowTopicCall(topic)) || (newStatus != LOG_RUNNING) {
+        Log_SetTopicStatus(topic, newStatus);
     };
 };
 
