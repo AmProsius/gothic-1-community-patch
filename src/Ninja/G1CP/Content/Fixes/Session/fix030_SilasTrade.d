@@ -25,7 +25,7 @@ func int Ninja_G1CP_030_SilasTrade() {
         // Check context: permanent = 0 or to symbol containing 0
         if (MEM_ReadByte(pos-5) == zPAR_TOK_PUSHVAR) {
             var int varId; varId = MEM_ReadInt(pos-4);
-            if (varId <= 0) && (varId >= currSymbolTableLength) {
+            if (varId <= 0) || (varId >= currSymbolTableLength) {
                 continue;
             };
             var int varSymbPtr; varSymbPtr = MEM_GetSymbolByIndex(varId);
