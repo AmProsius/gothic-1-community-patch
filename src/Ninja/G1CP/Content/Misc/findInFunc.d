@@ -33,3 +33,63 @@ func int Ninja_G1CP_FindInFunc(var int funcId, var int needle, var int byteCount
 
     return all;
 };
+
+/*
+ * Replace any function calls within a function with a call to another
+ * The function returns the number of replacements
+ */
+func int Ninja_G1CP_ReplaceCallInFunc(var int funcId, var int needleCallId, var int replaceCallId) {
+    // Make sure all exist
+    if (funcId < 0)        || (funcId >= currSymbolTableLength)
+    || (needleCallId < 0)  || (needleCallId >= currSymbolTableLength)
+    || (replaceCallId < 0) || (replaceCallId >= currSymbolTableLength) {
+        return 0;
+    };
+
+    // More thorough check of needle and replacement
+    var zCPar_Symbol needleSymb; needleSymb = _^(MEM_GetSymbolByIndex(needleCallId));
+    var int type; type = (needleSymb.bitfield & zCPar_Symbol_bitfield_type);
+    if (type != zPAR_TYPE_FUNC) && (type != zPAR_TYPE_PROTOTYPE) && (type != zPAR_TYPE_INSTANCE) {
+       return 0;
+    };
+    var zCPar_Symbol replaceSymb; replaceSymb = _^(MEM_GetSymbolByIndex(replaceCallId));
+    type = (replaceSymb.bitfield & zCPar_Symbol_bitfield_type);
+    if (type != zPAR_TYPE_FUNC) && (type != zPAR_TYPE_PROTOTYPE) && (type != zPAR_TYPE_INSTANCE) {
+       return 0;
+    };
+
+    // Decide if Daedalus or external function
+    const int word[2] = {0, 0};
+    if (needleSymb.bitfield & zPAR_FLAG_EXTERNAL) {
+        word[0] = zPAR_TOK_CALLEXTERN << 24;
+        word[1] = needleCallId;
+    } else {
+        word[0] = zPAR_TOK_CALL << 24;
+        word[1] = needleSymb.content;
+    };
+
+    // Find function calls
+    var int matches; matches = Ninja_G1CP_FindInFunc(funcId, _@(word)+3, 5);
+
+    // Safety first
+    if (!matches) {
+        return 0;
+    };
+
+    // Overwrite each occurrence
+    repeat(i, MEM_ArraySize(matches)); var int i;
+        var int pos; pos = MEM_ArrayRead(matches, i);
+        if (replaceSymb.bitfield & zPAR_FLAG_EXTERNAL) {
+            MEM_WriteByte(pos,  zPAR_TOK_CALLEXTERN);
+            MEM_WriteInt(pos+1, replaceCallId);
+        } else {
+            MEM_WriteByte(pos,  zPAR_TOK_CALL);
+            MEM_WriteInt(pos+1, replaceSymb.content);
+        };
+    end;
+
+    // Free the array and return
+    var int count; count = MEM_ArraySize(matches);
+    MEM_Free(matches);
+    return count;
+};
