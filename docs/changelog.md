@@ -25,6 +25,7 @@
 * Fix #31: Wolf can't be offered Minecrawler's Armor Plates any longer if the player already gave him the requested amount.
 * Fix #36: Fisk's quest "New Fence for Fisk" is now available regardless of how the quest "Thorus' Quest" is (successfully) completed.
 * Fix #38: Snaf now offers the dialog about Nek even when the quest "Snaf's Recipe" is completed.
+* Fix #39: Fingers no longer offers to teach level two of pickpocketing and lock picking before level one has been learned.
 * Fix #40: Aleph doesn't offer to sell the key anymore when the player already obtained it.
 * Fix #43: The dialog choices about learning skills now contain proper whitespace.
 * Fix #49: The description of the dungeon key is corrected to "Opens the dungeons of the old camp.".
@@ -58,6 +59,7 @@
 * Fix #31: Wolf können keine Minecrawlerpanzerplatten mehr angeboten werden, wenn der Spieler ihm schon die erforderliche Anzahl gebracht hat.
 * Fix #36: Fisks Quest "Neuer Hehler für Fisk" is nun immer erhältlich, egal, wie Thorus' Quest "Auftrag von Thorus" (erfolgreich) beendet wurde.  
 * Fix #38: Snaf spricht nun auch über Nek, wenn die Quest "Snafs Rezept" abgeschlossen wurde. 
+* Fix #39: Fingers bringt dem Spieler nicht mehr Taschendiebstahl und Schlösserknacken auf Stufe zwei bei, wenn Stufe eins jeweils noch nicht gelernt wurde.
 * Fix #40: Aleph bietet den Schlüssel nun nicht noch einmal an, wenn der Spieler ihn schon erhalten hat.
 * Fix #49: Die Beschreibung des Kerkerschlüssels ist korrigiert zu "öffnet den Kerker des Alten Lagers.".
 * Fix #50: Die Säule in der Klosterruine fällt jetzt in die richtige Richtung und hat Kollision.
