@@ -34,6 +34,7 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
         Ninja_G1CP_038_SnafDialogNek();                                 // #38
         Ninja_G1CP_039_FingersTeachDialog();                            // #39
         Ninja_G1CP_040_AlephKeyDialog();                                // #40
+        Ninja_G1CP_042_GuardExitDialog();                               // #42
         Ninja_G1CP_043_EN_SkillMissingWhitespace();                     // #43
         Ninja_G1CP_049_DungeonKeyText();                                // #49
         Ninja_G1CP_059_FixEquipBestWeapons();                           // #59
