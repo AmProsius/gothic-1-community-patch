@@ -2,58 +2,34 @@
  * #21 Fletcher reopens closed quest
  */
 func int Ninja_G1CP_021_FletcherClosedQuest() {
-    var int applied1; applied1 = FALSE;
-    var int applied2; applied2 = FALSE;
+    var int applied1; var int applied2;
 
     // Check if necessary symbols exist
     var int funcId; funcId = MEM_FindParserSymbol("DIA_Fletcher_WoNek_Info");
-    if (funcId == -1) || (MEM_FindParserSymbol("Sly_LostNek") == -1) {
+    if (funcId == -1) {
         return FALSE;
     };
 
-    var int matches;
-    var int s;
-    var int funcOffset;
+    // Get the symbol indices of all functions
+    var int createOrgId; createOrgId = MEM_GetFuncId(Log_CreateTopic);
+    var int statusOrgId; statusOrgId = MEM_GetFuncId(Log_SetTopicStatus);
+    var int createNewId; createNewId = MEM_GetFuncId(Ninja_G1CP_021_CreateTopic);
+    var int statusNewId; statusNewId = MEM_GetFuncId(Ninja_G1CP_021_SetTopicStatus);
 
-    // Find "Log_CreateTopic(xxxx, xxxx)" in the function
-    s = SB_New();
-    SBc(zPAR_TOK_CALLEXTERN); SBw(MEM_FindParserSymbol("Log_CreateTopic"));
-    matches = Ninja_G1CP_FindInFunc(funcId, SB_GetStream(), SB_Length());
-    SB_Destroy();
+    // Replace any function calls to Log_CreateTopic and Log_SetTopicStatus
+    applied1 = Ninja_G1CP_ReplaceCallInFunc(funcId, createOrgId, createNewId);
+    applied2 = Ninja_G1CP_ReplaceCallInFunc(funcId, statusOrgId, statusNewId);
 
-    funcOffset = MEM_GetFuncOffset(Ninja_G1CP_021_CreateTopic);
+    // Revert any changes if not BOTH were replaced
+    if (!applied1) || (!applied2) {
+        var int r;
+        r = Ninja_G1CP_ReplaceCallInFunc(funcId, createNewId, createOrgId);
+        r = Ninja_G1CP_ReplaceCallInFunc(funcId, statusNewId, statusOrgId);
+        return FALSE;
+    };
 
-    // Iterate over all matches
-    repeat(i, MEM_ArraySize(matches)); var int i;
-
-        // Overwrite "Log_CreateTopic(xxxx, xxxx)" with "Ninja_G1CP_021_CreateTopic(xxxx, xxxx)"
-        var int pos; pos = MEM_ArrayRead(matches, i);
-        MEM_WriteByte(pos, zPAR_TOK_CALL);
-        MEM_WriteInt(pos+1, funcOffset);
-
-        applied1 += 1;
-    end;
-
-    // Find "Log_SetTopicStatus(xxxx, xxxx)" in the function
-    s = SB_New();
-    SBc(zPAR_TOK_CALLEXTERN); SBw(MEM_FindParserSymbol("Log_SetTopicStatus"));
-    matches = Ninja_G1CP_FindInFunc(funcId, SB_GetStream(), SB_Length());
-    SB_Destroy();
-
-    funcOffset = MEM_GetFuncOffset(Ninja_G1CP_021_SetTopicStatus);
-
-    // Iterate over all matches
-    repeat(i, MEM_ArraySize(matches)); var int i;
-
-        // Overwrite "Log_SetTopicStatus(xxxx, xxxx)" with "Ninja_G1CP_021_SetTopicStatus(xxxx, xxxx)"
-        var int pos; pos = MEM_ArrayRead(matches, i);
-        MEM_WriteByte(pos, zPAR_TOK_CALL);
-        MEM_WriteInt(pos+1, funcOffset);
-
-        applied2 += 1;
-    end;
-
-    return (applied1) && (applied2);
+    // Return true only if both were replaced
+    return TRUE;
 };
 
 /*
