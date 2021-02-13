@@ -81,9 +81,25 @@ func int Ninja_G1CP_011_PassGuardsCombatMode() {
 func int Ninja_G1CP_011_CheckInfo(var C_Npc slf, var C_Npc oth) {
     Ninja_G1CP_ReportFuncToSpy();
 
+    // Define possibly missing symbols locally
+    const int PERC_ASSESSTALK  = 19;
+    const int PERC_DIST_DIALOG = 0;
+    const int oCNpc__percRange = 9288224; //0x8DBA20
+    PERC_DIST_DIALOG = roundf(MEM_ReadIntArray(oCNpc__percRange, PERC_ASSESSTALK));
+
     // The original function call to "B_CheckForImportantInfo" has issues with distances to the player:
     // It triggers a dialog even if the NPC is too far way. Instead, just check for infos (instead of triggering them).
     var int cond1; cond1 = Npc_CheckInfo(slf, 1);
+
+    // Check if the player is in range to trigger the dialog (a check that is missing in "B_CheckForImportantInfo")
+    if (cond1) {
+        if (Npc_CanSeeNpcFreeLOS(slf, oth)) && (Npc_GetDistToNpc(slf, oth) < PERC_DIST_DIALOG) {
+            // B_CheckForImportantInfo(slf, oth)
+            MEM_PushInstParam(slf);
+            MEM_PushInstParam(oth);
+            MEM_CallByString("B_CheckForImportantInfo");
+        };
+    };
 
     // Additional condition: Is the NPC a guard and is the player trespassing?
     // Npc_IsInState(slf, ZS_GuardPassage)
