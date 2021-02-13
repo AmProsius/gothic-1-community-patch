@@ -34,9 +34,8 @@ func int Ninja_G1CP_012_RangedDoubleXP() {
                 && (MEM_ArrayRead(tokens, i+2) != zPAR_OP_UN_NOT) {
 
                     // Overwrite "Npc_WasInState" with "Ninja_G1CP_012_RangedDoubleXP_Condition"
-                    var int pos; pos = MEM_ArrayRead(positions, i+1);
-                    MEM_WriteByte(pos, zPAR_TOK_CALL);
-                    MEM_WriteInt(pos+1, MEM_ReadInt(cond2Id + zCParSymbol_content_offset));
+                    MEMINT_OverrideFunc_Ptr = MEM_ArrayRead(positions, i+1);
+                    MEMINT_OFTokPar(zPAR_TOK_CALL, MEM_ReadInt(cond2Id + zCParSymbol_content_offset));
 
                     // That's all
                     applied = TRUE;

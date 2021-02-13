@@ -42,41 +42,38 @@ func void Ninja_G1CP_ReportFuncToSpy() {
         str_id = MEM_FindParserSymbol("Ninja_G1CP_ReportFuncToSpy.str");
     };
 
-    var int s;
     var int ptr;
     var int popPos;
 
     // Inject bytes before the function is called
-    s = SB_New();
-    SBc(zPAR_TOK_PUSHVAR);    SBw(str_id);
-    SBc(zPAR_TOK_PUSHINT);    SBw(namePtr);
-    SBc(zPAR_TOK_CALL);       SBw(mem_readstring_offset);
-    SBc(zPAR_TOK_CALLEXTERN); SBw(concatstrings_id);
-    SBc(zPAR_TOK_PUSHINT);    SBw(level);
-    SBc(zPAR_TOK_CALL);       SBw(mem_infoext_offset);
+    ptr = MEM_Alloc(51);
+    MEMINT_OverrideFunc_Ptr = ptr;
+    MEMINT_OFTokPar(zPAR_TOK_PUSHVAR,     str_id);
+    MEMINT_OFTokPar(zPAR_TOK_PUSHINT,     namePtr);
+    MEMINT_OFTokPar(zPAR_TOK_CALL,        mem_readstring_offset);
+    MEMINT_OFTokPar(zPAR_TOK_CALLEXTERN,  concatstrings_id);
+    MEMINT_OFTokPar(zPAR_TOK_PUSHINT,     level);
+    MEMINT_OFTokPar(zPAR_TOK_CALL,        mem_infoext_offset);
     if (!doNotIndent) { // Do not indent if the end of the function cannot be intercepted to un-indent
-        SBc(zPAR_TOK_PUSHINT);    SBw(namePtr);
-        SBc(zPAR_TOK_CALL);       SBw(mem_readstring_offset);
-        SBc(zPAR_TOK_PUSHINT);    SBw(1);
-        SBc(zPAR_TOK_CALL);       SBw(indent_offset);
+        MEMINT_OFTokPar(zPAR_TOK_PUSHINT, namePtr);
+        MEMINT_OFTokPar(zPAR_TOK_CALL,    mem_readstring_offset);
+        MEMINT_OFTokPar(zPAR_TOK_PUSHINT, 1);
+        MEMINT_OFTokPar(zPAR_TOK_CALL,    indent_offset);
     };
-    SBc(zPAR_TOK_RET);
-    ptr = SB_GetStream();
-    SB_Release();
+    MEMINT_OFTok(zPAR_TOK_RET);
     popPos = ptr - currParserStackAddress;
     // Replace the call to here
     MEM_WriteInt(posStart+currParserStackAddress-4, popPos);
 
     // Inject bytes after the function is called
     if (!doNotIndent) { // Not possible if the function was called by the engine
-        s = SB_New();
-        SBc(zPAR_TOK_PUSHINT);    SBw(namePtr);
-        SBc(zPAR_TOK_CALL);       SBw(mem_readstring_offset);
-        SBc(zPAR_TOK_PUSHINT);    SBw(-1);
-        SBc(zPAR_TOK_CALL);       SBw(indent_offset);
-        SBc(zPAR_TOK_JUMP);       SBw(ret);
-        ptr = SB_GetStream();
-        SB_Release();
+        ptr = MEM_Alloc(25);
+        MEMINT_OverrideFunc_Ptr = ptr;
+        MEMINT_OFTokPar(zPAR_TOK_PUSHINT, namePtr);
+        MEMINT_OFTokPar(zPAR_TOK_CALL,    mem_readstring_offset);
+        MEMINT_OFTokPar(zPAR_TOK_PUSHINT, -1);
+        MEMINT_OFTokPar(zPAR_TOK_CALL,    indent_offset);
+        MEMINT_OFTokPar(zPAR_TOK_JUMP,    ret);
         popPos = ptr - currParserStackAddress;
         // Replace the return offset
         MEM_WriteInt(MEM_GetFrameBoundary() + 3*MEMINT_DoStackFrameSize - MEMINT_DoStackPopPosOffset, popPos);

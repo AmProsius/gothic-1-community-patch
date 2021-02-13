@@ -78,13 +78,11 @@ func int Ninja_G1CP_ReplaceCallInFunc(var int funcId, var int needleCallId, var 
 
     // Overwrite each occurrence
     repeat(i, MEM_ArraySize(matches)); var int i;
-        var int pos; pos = MEM_ArrayRead(matches, i);
+        MEMINT_OverrideFunc_Ptr = MEM_ArrayRead(matches, i);
         if (replaceSymb.bitfield & zPAR_FLAG_EXTERNAL) {
-            MEM_WriteByte(pos,  zPAR_TOK_CALLEXTERN);
-            MEM_WriteInt(pos+1, replaceCallId);
+            MEMINT_OFTokPar(zPAR_TOK_CALLEXTERN, replaceCallId);
         } else {
-            MEM_WriteByte(pos,  zPAR_TOK_CALL);
-            MEM_WriteInt(pos+1, replaceSymb.content);
+            MEMINT_OFTokPar(zPAR_TOK_CALL, replaceSymb.content);
         };
     end;
 

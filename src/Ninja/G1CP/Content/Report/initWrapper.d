@@ -143,8 +143,8 @@ func int Ninja_G1CP_InitStart() {
         revert = FALSE;
 
         // Do not call session initialization again (overwrite the condition in 'Ninja_G1CP_Menu' to FALSE)
-        MEM_WriteByte(pos-5, zPAR_TOK_PUSHINT);
-        MEM_WriteInt(pos-4,  FALSE);
+        MEMINT_OverrideFunc_Ptr = pos-5;
+        MEMINT_OFTokPar(zPAR_TOK_PUSHINT, FALSE);
 
         // Confirm the instructions that will happen after this function returns
         if (MEM_ReadByte(pos) != zPAR_TOK_JUMPF) {

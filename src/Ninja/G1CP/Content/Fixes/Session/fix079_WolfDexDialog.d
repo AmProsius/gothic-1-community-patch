@@ -52,16 +52,15 @@ func int Ninja_G1CP_079_WolfDexDialog() {
                     /* Overwrite the entire condition: (C_NpcBelongsToNewCamp(xxxx) == TRUE)
 
                         Pos  Original                                       Overwrite to
-                         0   zPAR_TOK_PUSHVAR/INT   GIL_GRD                 zPAR_TOK_PUSHVAR   TRUE
+                         0   zPAR_TOK_PUSHVAR/INT   GIL_GRD                 zPAR_TOK_PUSHINT   1
                          5   zPAR_TOK_PUSHINST      xxxx
                         10   zPAR_TOK_CALLEXTERN    Npc_GetTrueGuild        zPAR_TOK_CALL      C_NpcBelongsToNewCamp
                         15   zPAR_OP_EQUAL
                     */
-                    var int pos; pos = MEM_ArrayRead(positions, i);
-                    MEM_WriteByte(pos,    zPAR_TOK_PUSHVAR);
-                    MEM_WriteInt( pos+1,  MEM_FindParserSymbol("TRUE"));
-                    MEM_WriteByte(pos+10, zPAR_TOK_CALL);
-                    MEM_WriteInt( pos+11, MEM_ReadInt(cond2Id + zCParSymbol_content_offset));
+                    MEMINT_OverrideFunc_Ptr = MEM_ArrayRead(positions, i);
+                    MEMINT_OFTokPar(zPAR_TOK_PUSHINT, 1);
+                    MEMINT_OverrideFunc_Ptr += 5;
+                    MEMINT_OFTokPar(zPAR_TOK_CALL,    MEM_ReadInt(cond2Id + zCParSymbol_content_offset));
 
                     // That's all
                     applied = TRUE;

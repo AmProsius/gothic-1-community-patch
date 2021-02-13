@@ -12,11 +12,9 @@ func int Ninja_G1CP_049_DungeonKeyText() {
     };
 
     // Find "text = xxx" in the instance function
-    var int s; s = SB_New();
-    SBc(zPAR_TOK_PUSHVAR);   SBw(itemTextSymbId);
-    SBc(zPAR_TOK_ASSIGNSTR);
-    var int matches; matches = Ninja_G1CP_FindInFunc(symbId, SB_GetStream(), SB_Length());
-    SB_Destroy();
+    const int bytes[3] = {zPAR_TOK_PUSHVAR<<24, 0, zPAR_TOK_ASSIGNSTR};
+    bytes[1] = itemTextSymbId;
+    var int matches; matches = Ninja_G1CP_FindInFunc(symbId, _@(bytes)+3, 6);
 
     // We are looking for all overwritten text (at least 2 occurrences)
     if (MEM_ArraySize(matches) >= 2) {
@@ -25,16 +23,14 @@ func int Ninja_G1CP_049_DungeonKeyText() {
         repeat(i, MEM_ArraySize(matches)); var int i; if (!i) { i = 1; }; // Skip the first occurrence
 
             // Write the correct byte code at a new address: "text[i] = xxxx"
-            s = SB_New();
-            SBc(zPAR_TOK_PUSH_ARRAYVAR); SBw(itemTextSymbId); SBc(i);
-            SBc(zPAR_TOK_RET);
-            var int ptr; ptr = SB_GetStream();
-            SB_Release();
+            var int ptr; ptr = MEM_Alloc(7);
+            MEMINT_OverrideFunc_Ptr = ptr;
+            MEMINT_OFTokPar(zPAR_TOK_PUSH_ARRAYVAR, itemTextSymbId); MEMINT_OFTok(i);
+            MEMINT_OFTok(zPAR_TOK_RET);
 
             // Overwrite "text = xxx" with a call to the above bytes
-            var int pos; pos = MEM_ArrayRead(matches, i);
-            MEM_WriteByte(pos, zPAR_TOK_CALL);
-            MEM_WriteInt(pos+1, ptr - currParserStackAddress);
+            MEMINT_OverrideFunc_Ptr = MEM_ArrayRead(matches, i);
+            MEMINT_OFTokPar(zPAR_TOK_CALL, ptr - currParserStackAddress);
 
             applied += 1;
         end;
