@@ -19,6 +19,7 @@ Content\Report\memInfoLvl.d
 Content\Report\reportFuncToSpy.d
 
 Content\Misc\findInFunc.d
+Content\Misc\funcByteCodeToSpy.d
 Content\Misc\aivar.d
 Content\Misc\info.d
 Content\Misc\topic.d
