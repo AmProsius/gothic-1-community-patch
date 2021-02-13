@@ -43,6 +43,7 @@ Content\Fixes\Session\fix022_YBerionAttacks.d
 Content\Fixes\Session\fix024_CorKalomWrongQuest.d
 Content\Fixes\Session\fix025_SaturasSellsRobe.d
 Content\Fixes\Session\fix026_LaresGuardAttacks.d
+Content\Fixes\Session\fix027_DraxTeachingDialog.d
 Content\Fixes\Session\fix028_MordragNoEscort.d
 Content\Fixes\Session\fix029_BusterAcrobatics.d
 Content\Fixes\Session\fix030_SilasTrade.d
@@ -80,6 +81,7 @@ Content\Tests\test022.d
 Content\Tests\test024.d
 Content\Tests\test025.d
 Content\Tests\test026.d
+Content\Tests\test027.d
 Content\Tests\test028.d
 Content\Tests\test029.d
 Content\Tests\test030.d

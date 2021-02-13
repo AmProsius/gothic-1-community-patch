@@ -19,6 +19,7 @@
 * Fix #24: Cor Kalom now correctly closes the quest "Taking Weeds to Gomez" instead of "The Weed Monopoly".
 * Fix #25: Saturas no longer offers to sell a High Robe of Water if the player already obtained one.
 * Fix #26: Lares' guard now attacks the player instead of repeating himself telling the player to go.
+* Fix #27: Drax no longer teaches hunting skills before the player has given him a beer.
 * Fix #28: Mordrag no longer escorts the player to the New Camp if the player forcibly threw him out of the Old Camp.
 * Fix #29: Buster no longer teaches Acrobatics if the player already gained the skill.
 * Fix #30: Silas now trades with the player more than once.
@@ -54,6 +55,7 @@
 * Fix #24: Cor Kalom schließt nun korrekterweise die Quest "Kraut zu Gomez bringen" statt "Das Krautmonopol".
 * Fix #25: Saturas bietet nun keine Große Wasserrobe mehr an, wenn der Spieler bereits eine erworben hat.
 * Fix #26: Lares' Wache greift den Spieler nun an, statt ihm in einer Dialogschleife zu sagen, er solle verschwinden.
+* Fix #27: Drax bringt dem Spieler nicht mehr Jagdtalente bei bevor dieser ihm nicht ein Bier spendiert hat.
 * Fix #28: Mordrag bringt den Spieler nicht mehr zum Neuen Lager, wenn dieser ihn vorher verprügelt und aus dem Alten Lager vertireben hat.
 * Fix #29: Buster bringt dem Spieler nicht mehr Akrobatik bei, wenn dieser das Talent bereits gelernt hat.
 * Fix #30: Silas handelt mit dem Spieler nun mehr als nur einmal.
