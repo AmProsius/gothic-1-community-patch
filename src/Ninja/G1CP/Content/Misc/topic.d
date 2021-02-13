@@ -1,7 +1,7 @@
 /*
- * Function to get the log topic status
+ * Find a topic by its name
  */
-func int Ninja_G1CP_GetTopicStatus(var string topic) {
+func int Ninja_G1CP_GetTopic(var string topic) {
     // Iterate over all topics (irrespective of their section)
     var int list; list = oCLogManager_Ptr;
     var zCList l;
@@ -9,17 +9,78 @@ func int Ninja_G1CP_GetTopicStatus(var string topic) {
         l = _^(list);
         list = l.next;
         if (l.data) {
-
-            // Check for match
             var oCLogTopic logTopic; logTopic = _^(l.data);
             if (Hlp_StrCmp(logTopic.m_strDescription, topic)) {
-                return logTopic.m_enuStatus;
+                return l.data;
             };
         };
     end;
 
     // Not found
-    return -1;
+    return 0;
+};
+
+/*
+ * Get the section of a log topic (LOG_MISSION or LOG_NOTE)
+ */
+func int Ninja_G1CP_GetTopicSection(var string topic) {
+    var int lt; lt = Ninja_G1CP_GetTopic(topic);
+    if (lt) {
+        var oCLogTopic logTopic; logTopic = _^(lt);
+        return logTopic.m_enuSection;
+    } else {
+        return -1;
+    };
+};
+
+/*
+ * Get the status of a log topic
+ */
+func int Ninja_G1CP_GetTopicStatus(var string topic) {
+    var int lt; lt = Ninja_G1CP_GetTopic(topic);
+    if (lt) {
+        var oCLogTopic logTopic; logTopic = _^(lt);
+        return logTopic.m_enuStatus;
+    } else {
+        return -1;
+    };
+};
+
+/*
+ * Function to check whether a the log topic has a certain entry
+ */
+func int Ninja_G1CP_TopicHasEntry(var string topic, var string entry) {
+    var int lt; lt = Ninja_G1CP_GetTopic(topic);
+    if (lt) {
+        var oCLogTopic logTopic; logTopic = _^(lt);
+
+        // Iterate over all entries of that topic
+        var int list; list = _@(logTopic.m_lstEntries_data);
+        var zCList l;
+        while(list);
+            l = _^(list);
+            list = l.next;
+            if (Hlp_StrCmp(MEM_ReadString(l.data), entry)) {
+                return TRUE;
+            };
+        end;
+
+    };
+
+    // Not found
+    return FALSE;
+};
+
+/*
+ * Rename the topic (does not perform any safety checks, i.e. if there is already a topic of the same name)
+ * Use with caution!
+ */
+func void Ninja_G1CP_RenameTopic(var string topic, var string newName) {
+    var int lt; lt = Ninja_G1CP_GetTopic(topic);
+    if (lt) {
+        var oCLogTopic logTopic; logTopic = _^(lt);
+        logTopic.m_strDescription = newName;
+    };
 };
 
 /*
