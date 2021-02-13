@@ -14,6 +14,7 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
         Ninja_G1CP_007_PracticeSwordWithWeapon();                       // #7
         Ninja_G1CP_009_FixFlee();                                       // #9
         Ninja_G1CP_010_FollowWalkMode();                                // #10
+        Ninja_G1CP_011_PassGuardsCombatMode();                          // #11
         Ninja_G1CP_012_RangedDoubleXP();                                // #12
         Ninja_G1CP_015_HoratioStrength();                               // #15
         Ninja_G1CP_016_ThorusBribeDialog();                             // #16
