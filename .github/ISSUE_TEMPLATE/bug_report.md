@@ -2,7 +2,7 @@
 name: Bug report
 about: Create a report to improve the G1CP.
 title: ''
-labels: ''
+labels: 'validation required'
 assignees: ''
 
 ---
