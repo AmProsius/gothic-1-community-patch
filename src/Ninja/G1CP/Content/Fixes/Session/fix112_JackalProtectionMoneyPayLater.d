@@ -1,11 +1,11 @@
 /*
  * #112 The player doesn't lose ore when paying protection money to Jackal later
  */
-func int Ninja_G1CP_112_JackalProtectionMoneyPay() {
+func int Ninja_G1CP_112_JackalProtectionMoneyPayLater() {
     if (MEM_FindParserSymbol("Info_Jackal_Hello_Pay") != -1)
     && (MEM_FindParserSymbol("Jackal_ProtectionPaid") != -1)
     && (MEM_FindParserSymbol("ItMiNugget")            != -1) {
-        HookDaedalusFuncS("Info_Jackal_Hello_Pay", "Ninja_G1CP_112_JackalProtectionMoneyPay_Hook");
+        HookDaedalusFuncS("Info_Jackal_Hello_Pay", "Ninja_G1CP_112_JackalProtectionMoneyPayLater_Hook");
         return TRUE;
     } else {
         return FALSE;
@@ -15,7 +15,7 @@ func int Ninja_G1CP_112_JackalProtectionMoneyPay() {
 /*
  * This function intercepts the dialog to introduce more actions
  */
-func void Ninja_G1CP_112_JackalProtectionMoneyPay_Hook() {
+func void Ninja_G1CP_112_JackalProtectionMoneyPayLater_Hook() {
     Ninja_G1CP_ReportFuncToSpy();
 
     // Status before
