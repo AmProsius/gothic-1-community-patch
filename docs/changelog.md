@@ -37,7 +37,7 @@
 * Fix #60: Jesse's quest is now available.
 * Fix #78: Human NPCs now correctly recognize orcs as enemies. This fixes Baal Lukor's behavior in the orc graveyard.
 * Fix #79: Wolf now only trains dexterity if the player is part of the New Camp.
-* Fix #102: The player now correctly loses 10 ore if he chooses to pay for Jesse.
+* Fix #102: The player now correctly loses 10 ore if he chooses to pay protection money for Jesse.
 
 ## DE
 * Fix #1: NSCs wachen nicht mehr sofort auf, nachdem sie ins Bett gegangen sind, sondern bleiben liegen.

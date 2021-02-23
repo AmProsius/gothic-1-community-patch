@@ -13,20 +13,6 @@ func int Ninja_G1CP_Test_102() {
     // Check status of the test
     var int passed; passed = TRUE;
 
-    // Find Bloodwyn first
-    var int symbId; symbId = MEM_FindParserSymbol("GRD_233_Bloodwyn");
-    if (symbId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("NPC 'GRD_233_Bloodwyn' not found");
-        passed = FALSE;
-    };
-
-    // Check if Bloodwyn exists in the world
-    var C_Npc bloodwyn; bloodwyn = Hlp_GetNpc(symbId);
-    if (!Hlp_IsValidNpc(bloodwyn)) {
-        Ninja_G1CP_TestsuiteErrorDetail("NPC 'GRD_233_Bloodwyn' not valid");
-        passed = FALSE;
-    };
-
     // Check if the dialog function exists
     var int funcId; funcId = MEM_FindParserSymbol("Info_Bloodwyn_PayForJesse_Info");
     if (funcId == -1) {
@@ -69,7 +55,8 @@ func int Ninja_G1CP_Test_102() {
     MEM_WriteInt(topicPtr, LOG_RUNNING);
 
     // Set self and other
-    self  = MEM_CpyInst(bloodwyn);
+    GetItemHelper();
+    self  = MEM_CpyInst(Item_Helper);
     other = MEM_CpyInst(hero);
 
     // Two passes
