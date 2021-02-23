@@ -1,10 +1,10 @@
 /*
  * #109 The player doesn't lose ore when paying protection money to Bloodwyn again
  */
-func int Ninja_G1CP_109_BloodwynProtectionMoneySecond() {
+func int Ninja_G1CP_109_BloodwynProtectionMoneyPayLater() {
     if (MEM_FindParserSymbol("Info_Bloodwyn_PayDay_PayAgain") != -1)
     && (MEM_FindParserSymbol("ItMiNugget")                    != -1) {
-        HookDaedalusFuncS("Info_Bloodwyn_PayDay_PayAgain", "Ninja_G1CP_109_BloodwynProtectionMoneySecond_Hook");
+        HookDaedalusFuncS("Info_Bloodwyn_PayDay_PayAgain", "Ninja_G1CP_109_BloodwynProtectionMoneyPayLater_Hook");
         return TRUE;
     } else {
         return FALSE;
@@ -14,7 +14,7 @@ func int Ninja_G1CP_109_BloodwynProtectionMoneySecond() {
 /*
  * This function intercepts the dialog to introduce more actions
  */
-func void Ninja_G1CP_109_BloodwynProtectionMoneySecond_Hook() {
+func void Ninja_G1CP_109_BloodwynProtectionMoneyPayLater_Hook() {
     Ninja_G1CP_ReportFuncToSpy();
 
     // Remember how much ore the player has before the dialog

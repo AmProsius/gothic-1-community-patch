@@ -43,7 +43,7 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
         Ninja_G1CP_060_JesseQuest();                                    // #60
         Ninja_G1CP_078_HumanAttackOrc();                                // #78
         Ninja_G1CP_079_WolfDexDialog();                                 // #79
-        Ninja_G1CP_109_BloodwynProtectionMoneySecond();                 // #109
+        Ninja_G1CP_109_BloodwynProtectionMoneyPayLater();               // #109
         Ninja_G1CP_InitEnd();
     };
 };
