@@ -11,9 +11,9 @@ func int Ninja_G1CP_Test_112() {
     var int passed; passed = TRUE;
 
     // Check if the dialog function exists
-    var int funcId; funcId = MEM_FindParserSymbol("Info_Jackal_Hello_Pay");
+    var int funcId; funcId = MEM_FindParserSymbol("Info_Jackal_Schutz_Info");
     if (funcId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("Dialog function 'Info_Jackal_Hello_Pay' not found");
+        Ninja_G1CP_TestsuiteErrorDetail("Dialog function 'Info_Jackal_Schutz_Info' not found");
         passed = FALSE;
     };
 
