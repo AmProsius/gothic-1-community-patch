@@ -37,6 +37,7 @@
 * Fix #60: Jesse's quest is now available.
 * Fix #78: Human NPCs now correctly recognize orcs as enemies. This fixes Baal Lukor's behavior in the orc graveyard.
 * Fix #79: Wolf now only trains dexterity if the player is part of the New Camp.
+* Fix #112: The player now correctly loses 10 ore if he chooses to pay the protection money to Jackal.
 
 ## DE
 * Fix #1: NSCs wachen nicht mehr sofort auf, nachdem sie ins Bett gegangen sind, sondern bleiben liegen.
@@ -74,3 +75,4 @@
 * Fix #60: Jesses Quest ist nun verfügbar.
 * Fix #78: Menschliche NPCs erkennen Orks nun als Gegner an. Damit ist Baal Lukors Wahrnehmung im Orkfriedhof korrigiert.
 * Fix #79: Wolf lehrt nun nur dann Geschicklichkeit, wenn der Spieler teil des Neuen Lagers ist.
+* Fix #112: Der Spieler verliert nun tatsächlich 10 Erz, wenn er Schutzgeld an Jackal zahlt.
