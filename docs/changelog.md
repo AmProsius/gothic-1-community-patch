@@ -1,6 +1,8 @@
 # Changelog
 
 ## EN
+### v1.0.0 (2021-03-15)
+#### General
 * Fix #1: NPCs no longer wake up immediately after going to bed but remain sleeping.
 * Fix #2: NPCs open closed doors properly and walk through them.
 * Fix #3: NPCs now always pick up their weapons after a lost fight.
@@ -9,6 +11,10 @@
 * Fix #10: Followers adjust their walking speed according to the player. However, the player must be in sight of the follower if the player starts running after walking.
 * Fix #11: The player can no longer bypass NPCs that are guarding a passage by drawing the weapon.
 * Fix #12: The player no longer receives double XP when killing an NPC with a ranged weapon after already beaten the NPC in melee combat.
+* Fix #43: The dialog choices about learning skills now contain proper whitespace.
+* Fix #59: Vendors don't re-equip their weapon when the player sells them a more powerful one. However, due to important game mechanics, they will still equip a weapon if they didn't have a weapon of that type (meelee, ranged) equipped before.
+* Fix #78: Human NPCs now correctly recognize orcs as enemies. This fixes Baal Lukor's behavior in the orc graveyard.
+#### Story
 * Fix #15: The player doesn't lose Strength as part of the quest "Horatio the Peasant" if he had more than 100 Strength.
 * Fix #16: Thorus can't be bribed if the player has already obtained the permit to pass the guards. Also the option to bribe Thorus disappears after the player has bribed him.
 * Fix #17: Jackal doesn't ask for protection money anymore if the player has already joined a camp.
@@ -30,12 +36,9 @@
 * Fix #39: Fingers no longer offers to teach level two of pickpocketing and lock picking before level one has been learned.
 * Fix #40: Aleph doesn't offer to sell the key anymore when the player already obtained it.
 * Fix #42: Two guards in the Old Camp no longer have two END dialog options.
-* Fix #43: The dialog choices about learning skills now contain proper whitespace.
 * Fix #49: The description of the dungeon key is corrected to "Opens the dungeons of the old camp.".
 * Fix #50: The pillar in the Monastery Ruins now falls in the right directions and has collision.
-* Fix #59: Vendors don't re-equip their weapon when the player sells them a more powerful one. However, due to important game mechanics, they will still equip a weapon if they didn't have a weapon of that type (meelee, ranged) equipped before.
 * Fix #60: Jesse's quest is now available.
-* Fix #78: Human NPCs now correctly recognize orcs as enemies. This fixes Baal Lukor's behavior in the orc graveyard.
 * Fix #79: Wolf now only trains dexterity if the player is part of the New Camp.
 * Fix #102: The player now correctly loses 10 ore if he chooses to pay protection money for Jesse.
 * Fix #109: The player now correctly loses 10 ore if he chooses to pay protection money to Bloodwyn later.
@@ -43,6 +46,9 @@
 * Fix #112: The player now correctly loses 10 ore if he chooses to pay protection money to Jackal later.
 
 ## DE
+
+### v1.0.0 (2021-03-15)
+#### General
 * Fix #1: NSCs wachen nicht mehr sofort auf, nachdem sie ins Bett gegangen sind, sondern bleiben liegen.
 * Fix #2: NSCs öffnen nun korrekt geschlossene Türen und gehen hindurch.
 * Fix #3: NSCs heben nun immer ihre Waffen nach einem verlorenen Kampf auf.
@@ -51,6 +57,9 @@
 * Fix #10: Begleiter passen ihre Laufgeschwindigkeit dem Spieler an. Der Spieler muss allerdings in Sichtweite des Begleiters sein, wenn er anfängt zu rennen, nachdem er vorher gegangen ist.
 * Fix #11: Der Spieler kann nicht mehr mit gezogener Waffe an Wachen vorbei gelangen.
 * Fix #12: Der Spieler erhält nicht mehr ein zweites Mal Erfahrungspunkte durch Erlegen eines NPC im Fernkampf, wenn dieser zuvor schon im Nahkampf besiegt wurde.
+* Fix #59: Händler rüsten nicht mehr ihre Waffe um, wenn der Spieler ihnen eine stärkere verkauft. Aufgrund einer wichtigen Spielmechanik wird allerdings eine Waffe ausgerüstet, sofern der Händler vorher noch keine Waffe diese Art (Nahkampf, Fernkampf) ausgerüstet hatte.
+* Fix #78: Menschliche NPCs erkennen Orks nun als Gegner an. Damit ist Baal Lukors Wahrnehmung im Orkfriedhof korrigiert.
+#### Story
 * Fix #15: Der Spieler verliert keine Stärke mehr im Zuge der Quest "Horatio der Bauer", wenn er vorher mehr als 100 Stärke hatte.
 * Fix #16: Thorus kann nicht mehr bestochen werden, wenn der Spieler bereits Zugang zur Burg hat. Außerdem verschwindet der Bestechen-Dialog, wenn der Spieler ihn bereits bestochen hat.
 * Fix #17: Jackal verlangt kein Schutzgeld mehr vom Spieler, sobald dieser sich einem Lager angeschlossen hat.
@@ -74,9 +83,7 @@
 * Fix #42: Zwei Gardisten des Alten Lagers haben nun nicht mehr zwei ENDE Dialogoptionen.
 * Fix #49: Die Beschreibung des Kerkerschlüssels ist korrigiert zu "öffnet den Kerker des Alten Lagers.".
 * Fix #50: Die Säule in der Klosterruine fällt jetzt in die richtige Richtung und hat Kollision.
-* Fix #59: Händler rüsten nicht mehr ihre Waffe um, wenn der Spieler ihnen eine stärkere verkauft. Aufgrund einer wichtigen Spielmechanik wird allerdings eine Waffe ausgerüstet, sofern der Händler vorher noch keine Waffe diese Art (Nahkampf, Fernkampf) ausgerüstet hatte.
 * Fix #60: Jesses Quest ist nun verfügbar.
-* Fix #78: Menschliche NPCs erkennen Orks nun als Gegner an. Damit ist Baal Lukors Wahrnehmung im Orkfriedhof korrigiert.
 * Fix #79: Wolf lehrt nun nur dann Geschicklichkeit, wenn der Spieler teil des Neuen Lagers ist.
 * Fix #102: Der Spieler verliert nun tatsächlich 10 Erz, wenn er Schutzgeld für Jesse zahlt.
 * Fix #109: Der Spieler verliert nun tatsächlich 10 Erz, wenn er später doch Schutzgeld an Bloodwyn zahlt.
