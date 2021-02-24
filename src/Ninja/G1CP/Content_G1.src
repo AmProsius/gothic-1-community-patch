@@ -61,6 +61,8 @@ Content\Fixes\Session\fix059_FixEquipBestWeapons.d
 Content\Fixes\Session\fix060_JesseQuest.d
 Content\Fixes\Session\fix078_HumanAttackOrc.d
 Content\Fixes\Session\fix079_WolfDexDialog.d
+Content\Fixes\Session\fix102_JesseProtectionMoneyPay.d
+Content\Fixes\Session\fix109_BloodwynProtectionMoneyPayLater.d
 Content\Fixes\Session\fix112_JackalProtectionMoneyPayLater.d
 
 // Game save fixes
@@ -103,6 +105,8 @@ Content\Tests\test059.d
 Content\Tests\test060.d
 Content\Tests\test078.d
 Content\Tests\test079.d
+Content\Tests\test102.d
+Content\Tests\test109.d
 Content\Tests\test112.d
 
 // Initialization
