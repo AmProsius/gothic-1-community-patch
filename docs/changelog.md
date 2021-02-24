@@ -39,6 +39,7 @@
 * Fix #79: Wolf now only trains dexterity if the player is part of the New Camp.
 * Fix #102: The player now correctly loses 10 ore if he chooses to pay protection money for Jesse.
 * Fix #109: The player now correctly loses 10 ore if he chooses to pay protection money to Bloodwyn later.
+* Fix #111: The player now correctly loses 10 ore if he chooses to pay protection money to Jackal.
 * Fix #112: The player now correctly loses 10 ore if he chooses to pay protection money to Jackal later.
 
 ## DE
@@ -79,4 +80,5 @@
 * Fix #79: Wolf lehrt nun nur dann Geschicklichkeit, wenn der Spieler teil des Neuen Lagers ist.
 * Fix #102: Der Spieler verliert nun tatsächlich 10 Erz, wenn er Schutzgeld für Jesse zahlt.
 * Fix #109: Der Spieler verliert nun tatsächlich 10 Erz, wenn er später doch Schutzgeld an Bloodwyn zahlt.
+* Fix #111: Der Spieler verliert nun tatsächlich 10 Erz, wenn er Schutzgeld an Jackal zahlt.
 * Fix #112: Der Spieler verliert nun tatsächlich 10 Erz, wenn er später doch Schutzgeld an Jackal zahlt.
