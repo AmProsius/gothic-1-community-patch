@@ -49,8 +49,8 @@ func void Ninja_G1CP_102_JesseProtectionMoneyPay_Hook() {
             var int funcId; funcId = MEM_FindParserSymbol("B_GiveInvItems");
             if (funcId != -1) {
                 // B_GiveInvItems(hero, self, ItMiNugget, 10)
-                PassArgumentN(hero);
-                PassArgumentN(self);
+                MEM_PushInstParam(hero);
+                MEM_PushInstParam(self);
                 MEM_PushIntParam(oreId);
                 MEM_PushIntParam(10); // This is a guess!
                 MEM_CallById(funcId);
