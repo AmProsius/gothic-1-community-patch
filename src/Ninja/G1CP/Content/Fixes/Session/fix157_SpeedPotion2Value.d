@@ -7,34 +7,24 @@ func int Ninja_G1CP_157_SpeedPotion2Value() {
     // Get necessary symbol indices
     var int symbId; symbId = MEM_FindParserSymbol("ItFo_Potion_Haste_02");
     var int itemValueSymbId; itemValueSymbId = MEM_FindParserSymbol("C_ITEM.value");
-    var int valueSymbId; valueSymbId = MEM_FindParserSymbol("Value_Haste2");
-    if (symbId == -1) || (itemValueSymbId == -1) || (valueSymbId == -1) {
+    var int value1SymbId; value1SymbId = MEM_FindParserSymbol("Value_Haste1");
+    var int value1SymbPtr; value1SymbPtr = MEM_GetSymbol("Value_Haste1");
+    var int value2SymbPtr; value2SymbPtr = MEM_GetSymbol("Value_Haste2");
+    if (symbId == -1) || (itemValueSymbId == -1) || (!value2SymbPtr) { // Only those three are strictly required
         return FALSE;
     };
 
     // Get content of potion values
+    var int Value_Haste2; Value_Haste2 = MEM_ReadInt(value2SymbPtr + zCParSymbol_content_offset);
     var int Value_Haste1;
-    var int Value_Haste2;
-    var int symbPtr;
-
-    // The value of the level 1 potion must exist to compare
-    symbPtr = MEM_GetSymbol("Value_Haste1");
-    if (symbPtr) {
+    if (value1SymbPtr) {
         // Find value from constant
-        Value_Haste1 = MEM_ReadInt(symbPtr + zCParSymbol_content_offset);
+        Value_Haste1 = MEM_ReadInt(value1SymbPtr + zCParSymbol_content_offset);
     } else if (Itm_GetPtr(MEM_FindParserSymbol("ItFo_Potion_Haste_01"))) {
         // If not found, determine from level one speed potion
         Value_Haste1 = item.value;
     } else {
         // If neither is found, we cannot compare and be sure that the potion values are not intended
-        return FALSE;
-    };
-
-    // The constant of value must exist to set it
-    symbPtr = MEM_GetSymbolByIndex(valueSymbId);
-    if (symbPtr) {
-        Value_Haste2 = MEM_ReadInt(symbPtr + zCParSymbol_content_offset);
-    } else {
         return FALSE;
     };
 
@@ -50,7 +40,7 @@ func int Ninja_G1CP_157_SpeedPotion2Value() {
         // Check context: "value = Value_Haste1" (literal) or "value = symbol equal to Value_Haste1"
         if (MEM_ReadByte(pos-5) == zPAR_TOK_PUSHVAR) {
             var int varId; varId = MEM_ReadInt(pos-4);
-            if (varId != valueSymbId) {
+            if (varId != value1SymbId) {
                 if (varId <= 0) || (varId >= currSymbolTableLength) {
                     continue;
                 };
