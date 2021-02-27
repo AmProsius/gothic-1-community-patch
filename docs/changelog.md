@@ -44,6 +44,7 @@
 * Fix #109: The player now correctly loses 10 ore if he chooses to pay protection money to Bloodwyn later.
 * Fix #111: The player now correctly loses 10 ore if he chooses to pay protection money to Jackal.
 * Fix #112: The player now correctly loses 10 ore if he chooses to pay protection money to Jackal later.
+* Fix #126: Sharky's dialog option for Fisk's quest "New Fence for Fisk" no longer opens the trading menu.
 
 ## DE
 
@@ -89,3 +90,4 @@
 * Fix #109: Der Spieler verliert nun tatsächlich 10 Erz, wenn er später doch Schutzgeld an Bloodwyn zahlt.
 * Fix #111: Der Spieler verliert nun tatsächlich 10 Erz, wenn er Schutzgeld an Jackal zahlt.
 * Fix #112: Der Spieler verliert nun tatsächlich 10 Erz, wenn er später doch Schutzgeld an Jackal zahlt.
+* Fix #126: Sharkys Dialog zu Fisks Quest "Neuer Hehler für Fisk" öffnet nicht mehr das Handelsmenü.
