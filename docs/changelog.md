@@ -36,6 +36,7 @@
 * Fix #39: Fingers no longer offers to teach level two of pickpocketing and lock picking before level one has been learned.
 * Fix #40: Aleph doesn't offer to sell the key anymore when the player already obtained it.
 * Fix #42: Two guards in the Old Camp no longer have two END dialog options.
+* Fix #44: Bugmeat is now listed as food in the inventory.
 * Fix #49: The description of the dungeon key is corrected to "Opens the dungeons of the old camp.".
 * Fix #50: The pillar in the Monastery Ruins now falls in the right directions and has collision.
 * Fix #60: Jesse's quest is now available.
@@ -81,6 +82,7 @@
 * Fix #39: Fingers bringt dem Spieler nicht mehr Taschendiebstahl und Schlösserknacken auf Stufe zwei bei, wenn Stufe eins jeweils noch nicht gelernt wurde.
 * Fix #40: Aleph bietet den Schlüssel nun nicht noch einmal an, wenn der Spieler ihn schon erhalten hat.
 * Fix #42: Zwei Gardisten des Alten Lagers haben nun nicht mehr zwei ENDE Dialogoptionen.
+* Fix #44: Wanzenfleisch ist nun unter "Essen" im Inventar zu finden.
 * Fix #49: Die Beschreibung des Kerkerschlüssels ist korrigiert zu "öffnet den Kerker des Alten Lagers.".
 * Fix #50: Die Säule in der Klosterruine fällt jetzt in die richtige Richtung und hat Kollision.
 * Fix #60: Jesses Quest ist nun verfügbar.
