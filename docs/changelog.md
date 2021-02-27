@@ -90,4 +90,4 @@
 * Fix #109: Der Spieler verliert nun tatsächlich 10 Erz, wenn er später doch Schutzgeld an Bloodwyn zahlt.
 * Fix #111: Der Spieler verliert nun tatsächlich 10 Erz, wenn er Schutzgeld an Jackal zahlt.
 * Fix #112: Der Spieler verliert nun tatsächlich 10 Erz, wenn er später doch Schutzgeld an Jackal zahlt.
-* Fix #125: Die Beschreibung des Schertes "Schlachter" ist korrigiert zu "Zweihandwaffe".
+* Fix #125: Die Beschreibung des Schertes "Schlachter" ist korrigiert zu "Einhandwaffe".
