@@ -68,6 +68,7 @@ Content\Fixes\Session\fix112_JackalProtectionMoneyPayLater.d
 
 // Game save fixes
 Content\Fixes\Gamesave\fix050_Pillar.d
+Content\Fixes\Gamesave\fix163_CastleGate.d
 
 // Tests
 Content\Tests\test001.d
@@ -110,6 +111,7 @@ Content\Tests\test102.d
 Content\Tests\test109.d
 Content\Tests\test111.d
 Content\Tests\test112.d
+Content\Tests\test163.d
 
 // Initialization
 Content\initOnce.d
