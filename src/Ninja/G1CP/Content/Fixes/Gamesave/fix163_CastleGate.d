@@ -2,48 +2,44 @@
  * #163 Castle gate of the Old Camp cannot close
  */
 
-/* Old position of the winch */
-const int Ninja_G1CP_163_CastleGate_WinchPosOld[3] = {
-    -985984063, 1144577608, 1154041161
+/* Position of the gate */
+const int Ninja_G1CP_163_CastleGate_GatePos[3] = {
+    -986222562, 1108197423, 1153254665
 };
-/* New position of the winch */
-const int Ninja_G1CP_163_CastleGate_WinchPosNew[3] = {
-    -985455819, 1144577608, 1156341419
-    // As float: -3122.20044, 739.473145, 1890.95837
+/* Position of the winch */
+const int Ninja_G1CP_163_CastleGate_WinchPos[3] = {
+    -985984063, 1144577608, 1154041161
 };
 
 /*
  * This function applies the changes of #163
  */
 func int Ninja_G1CP_163_CastleGate() {
-    // Move the winch as it blocks the gate
-    var int vobPtr; vobPtr = MEM_SearchVobByName("EVT_OC_INNERMAINGATE_SWITCH");
-    if (Hlp_Is_oCMobInter(vobPtr)) {
-        var zCVob v; v = _^(vobPtr);
+    // Identify the gate
+    var int movPtr; movPtr = MEM_SearchVobByName("EVT_OC_INNERMAINGATE");
+    if (Hlp_Is_zCMover(movPtr)) {
+        var zCMover mov; mov = _^(movPtr);
+        if (mov._zCVob_trafoObjToWorld[ 3] == Ninja_G1CP_163_CastleGate_GatePos[0])
+        && (mov._zCVob_trafoObjToWorld[ 7] == Ninja_G1CP_163_CastleGate_GatePos[1])
+        && (mov._zCVob_trafoObjToWorld[11] == Ninja_G1CP_163_CastleGate_GatePos[2])
+        && (!(mov.bitfield & zCMover_bitfield_autoLinkEnabled)) {
 
-        // Verify position
-        if (v.trafoObjToWorld[ 3] == Ninja_G1CP_163_CastleGate_WinchPosOld[0])
-        && (v.trafoObjToWorld[ 7] == Ninja_G1CP_163_CastleGate_WinchPosOld[1])
-        && (v.trafoObjToWorld[11] == Ninja_G1CP_163_CastleGate_WinchPosOld[2]) {
+            // Now identify the winch
+            var int vobPtr; vobPtr = MEM_SearchVobByName("EVT_OC_INNERMAINGATE_SWITCH");
+            if (Hlp_Is_oCMobInter(vobPtr)) {
+                var oCMobInter mob; mob = _^(vobPtr);
+                if (mob._zCVob_trafoObjToWorld[ 3] == Ninja_G1CP_163_CastleGate_WinchPos[0])
+                && (mob._zCVob_trafoObjToWorld[ 7] == Ninja_G1CP_163_CastleGate_WinchPos[1])
+                && (mob._zCVob_trafoObjToWorld[11] == Ninja_G1CP_163_CastleGate_WinchPos[2])
+                && (mob._zCVob_bitfield[0] & zCVob_bitfield0_collDetectionDynamic)
+                && (mob._zCVob_bitfield[0] & zCVob_bitfield0_staticVob)
+                && (Hlp_StrCmp(mob.triggerTarget, "EVT_OC_INNERMAINGATE")) {
 
-            // Update position
-            var int bits; bits = v.bitfield[0];
-            v.bitfield[0] = v.bitfield[0] & ~(zCVob_bitfield0_collDetectionStatic|zCVob_bitfield0_collDetectionDynamic);
-            const int zCVob__SetPositionWorld = 6219344; //0x5EE650
-            const int call = 0;
-            if (CALL_Begin(call)) {
-                const int ptr = 0;
-                ptr = _@(Ninja_G1CP_163_CastleGate_WinchPosNew);
-                CALL_PtrParam(_@(ptr));
-                CALL__thiscall(_@(vobPtr), zCVob__SetPositionWorld);
-                call = CALL_End();
+                    // Everything as expected: Remove collision from the winch by abusing the autolinking property
+                    mov.bitfield = mov.bitfield | zCMover_bitfield_autoLinkEnabled;
+                    return TRUE;
+                };
             };
-            v.bitfield[0] = bits;
-
-            // // Alternatively remove dynamic collision
-            // v.bitfield[0] = v.bitfield[0] & ~zCVob_bitfield0_collDetectionDynamic
-
-            return TRUE;
         };
     };
 
@@ -54,36 +50,15 @@ func int Ninja_G1CP_163_CastleGate() {
  * This function reverts the changes of #163
  */
 func int Ninja_G1CP_163_CastleGateRevert() {
-    var int vobPtr; vobPtr = MEM_SearchVobByName("EVT_OC_INNERMAINGATE_SWITCH");
-    if (Hlp_Is_oCMobInter(vobPtr)) {
-        var zCVob v; v = _^(vobPtr);
-
-        // Verify position
-        if (Ninja_G1CP_IsFixApplied(163)) // Safety check in case the mod did the same thing
-        && (v.trafoObjToWorld[ 3] == Ninja_G1CP_163_CastleGate_WinchPosNew[0])
-        && (v.trafoObjToWorld[ 7] == Ninja_G1CP_163_CastleGate_WinchPosNew[1])
-        && (v.trafoObjToWorld[11] == Ninja_G1CP_163_CastleGate_WinchPosNew[2]) {
-
-            // Update position
-            var int bits; bits = v.bitfield[0];
-            v.bitfield[0] = v.bitfield[0] & ~(zCVob_bitfield0_collDetectionStatic|zCVob_bitfield0_collDetectionDynamic);
-            const int zCVob__SetPositionWorld = 6219344; //0x5EE650
-            const int call = 0;
-            if (CALL_Begin(call)) {
-                const int ptr = 0;
-                ptr = _@(Ninja_G1CP_163_CastleGate_WinchPosOld);
-                CALL_PtrParam(_@(ptr));
-                CALL__thiscall(_@(vobPtr), zCVob__SetPositionWorld);
-                call = CALL_End();
+    if (Ninja_G1CP_IsFixApplied(163)) {
+        var int movPtr; movPtr = MEM_SearchVobByName("EVT_OC_INNERMAINGATE");
+        if (Hlp_Is_zCMover(movPtr)) {
+            var zCMover mov; mov = _^(movPtr);
+            if (mov.bitfield & zCMover_bitfield_autoLinkEnabled) {
+                mov.bitfield = mov.bitfield & ~zCMover_bitfield_autoLinkEnabled;
+                return TRUE;
             };
-            v.bitfield[0] = bits;
-
-            // // Alternatively revert dynamic collision
-            // v.bitfield[0] = v.bitfield[0] | zCVob_bitfield0_collDetectionDynamic
-
-            return TRUE;
         };
     };
-
     return FALSE;
 };
