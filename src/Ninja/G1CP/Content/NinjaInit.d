@@ -47,6 +47,7 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
         Ninja_G1CP_109_BloodwynProtectionMoneyPayLater();               // #109
         Ninja_G1CP_111_JackalProtectionMoneyPay();                      // #111
         Ninja_G1CP_112_JackalProtectionMoneyPayLater();                 // #112
+        Ninja_G1CP_163_CastleGate();                                    // #163
         Ninja_G1CP_InitEnd();
     };
 };

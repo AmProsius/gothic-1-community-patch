@@ -65,10 +65,10 @@ Content\Fixes\Session\fix102_JesseProtectionMoneyPay.d
 Content\Fixes\Session\fix109_BloodwynProtectionMoneyPayLater.d
 Content\Fixes\Session\fix111_JackalProtectionMoneyPay.d
 Content\Fixes\Session\fix112_JackalProtectionMoneyPayLater.d
+Content\Fixes\Session\fix163_CastleGate.d
 
 // Game save fixes
 Content\Fixes\Gamesave\fix050_Pillar.d
-Content\Fixes\Gamesave\fix163_CastleGate.d
 
 // Tests
 Content\Tests\test001.d

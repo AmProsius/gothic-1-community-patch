@@ -25,7 +25,6 @@ func int Ninja_G1CP_HookGameSaveFixes() {
 func void Ninja_G1CP_GamesaveFixes_Apply() {
     Ninja_G1CP_InitStart();
     Ninja_G1CP_050_Pillar();
-    Ninja_G1CP_163_CastleGate();
     Ninja_G1CP_InitEnd();
 };
 
@@ -35,6 +34,5 @@ func void Ninja_G1CP_GamesaveFixes_Apply() {
 func void Ninja_G1CP_GamesaveFixes_Revert() {
     Ninja_G1CP_InitStart();
     Ninja_G1CP_050_PillarRevert();
-    Ninja_G1CP_163_CastleGateRevert();
     Ninja_G1CP_InitEnd();
 };
