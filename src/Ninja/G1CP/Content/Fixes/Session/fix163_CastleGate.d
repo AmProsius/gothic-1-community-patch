@@ -15,7 +15,7 @@ func int Ninja_G1CP_163_CastleGate() {
         const int ds_lstrcmpiA = 8192708; //0x7D02C4
         const int addr = 0;
         const string name = "EVT_OC_INNERMAINGATE";
-        ASM_Open(37+1);
+        ASM_Open(32+1);
         ASM_3(1066893);                       // lea    eax, [edi+0x10]
         ASM_3(555147);                        // mov    edi, [eax+0x8]
         ASM_2(65413);                         // test   edi, edi
