@@ -44,7 +44,7 @@
 * Fix #109: The player now correctly loses 10 ore if he chooses to pay protection money to Bloodwyn later.
 * Fix #111: The player now correctly loses 10 ore if he chooses to pay protection money to Jackal.
 * Fix #112: The player now correctly loses 10 ore if he chooses to pay protection money to Jackal later.
-* Fix #124: The gate guard now correctly closes the castle gate of the Old Camp in chapter 4.
+* Fix #124: The guard of the castle gate in the Old Camp now has the correct daily routine to watch over and operate the winch of the gate.
 
 ## DE
 
@@ -90,4 +90,4 @@
 * Fix #109: Der Spieler verliert nun tatsächlich 10 Erz, wenn er später doch Schutzgeld an Bloodwyn zahlt.
 * Fix #111: Der Spieler verliert nun tatsächlich 10 Erz, wenn er Schutzgeld an Jackal zahlt.
 * Fix #112: Der Spieler verliert nun tatsächlich 10 Erz, wenn er später doch Schutzgeld an Jackal zahlt.
-* Fix #124: Die Torwache schließt nun tatsächlich das Burgtor des Alten Lagers in Kapitel 4.
+* Fix #124: Die Wache des Burgtors vom Alten Lager hat nun den korrekten Tagesablauf, um die Winde des Burgtors zu bewachen und zu bedienen.
