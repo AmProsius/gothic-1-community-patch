@@ -44,6 +44,7 @@
 * Fix #109: The player now correctly loses 10 ore if he chooses to pay protection money to Bloodwyn later.
 * Fix #111: The player now correctly loses 10 ore if he chooses to pay protection money to Jackal.
 * Fix #112: The player now correctly loses 10 ore if he chooses to pay protection money to Jackal later.
+* Fix #136: NPCs now use ladders properly when following the player.
 
 ## DE
 
@@ -89,3 +90,4 @@
 * Fix #109: Der Spieler verliert nun tatsächlich 10 Erz, wenn er später doch Schutzgeld an Bloodwyn zahlt.
 * Fix #111: Der Spieler verliert nun tatsächlich 10 Erz, wenn er Schutzgeld an Jackal zahlt.
 * Fix #112: Der Spieler verliert nun tatsächlich 10 Erz, wenn er später doch Schutzgeld an Jackal zahlt.
+* Fix #136: NSCs benutzen Leitern nun korrekt, wenn sie dem Spieler folgen.
