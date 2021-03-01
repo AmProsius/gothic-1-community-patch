@@ -8,20 +8,14 @@
  *  - The door is not already unlocked (because in that case the fix is not necessary)
  *  - The door's lock is not pickable (possibly added by a mod in part of a new quest)
  *
- * When reverting, the door will also be locked, as there is no possible way it could have been opened (if the fix was
- * applied, i.e. the above conditions were all met). To accommodate saving and loading WITH the patch, the locked state
- * of the door is stored in a variable. Whether the variable survives saving and loading cannot be guaranteed (it will
- * be lost when removing Ninja). So this variable is just for convenience. One important note follows: If the door does
- * become "re-locked" after saving and loading, the key instance should always be re-acquirable in the game (see #47).
+ * When reverting, the door will NOT be locked again. The reasoning behind this is, that G1CP is only supplying a way of
+ * unlocking the door. It's the player that may unlock it. G1CP will only revert its own actions, not the consequences.
  */
 
 /* Position of the door */
 const int Ninja_G1CP_046_SmithDoor_PosOld[3] = {
      1164227412, 1132825156, 1148357543
 };
-
-/* Locked state for saving and loading */
-var int Ninja_G1CP_046_SmithDoorUnlocked;
 
 /*
  * Identify the door in the world
@@ -117,12 +111,6 @@ func int Ninja_G1CP_046_SmithDoor() {
 
     // Replace the key instance
     mob._oCMobLockable_keyInstance = "ITKE_OB_SMITH_01";
-
-    // Unlock the door if the fix was applied previously and the door was unlocked
-    if (Ninja_G1CP_046_SmithDoorUnlocked) {
-        mob._oCMobLockable_bitfield = mob._oCMobLockable_bitfield & ~oCMobLockable_bitfield_locked;
-    };
-
     return TRUE;
 };
 
@@ -149,13 +137,5 @@ func int Ninja_G1CP_046_SmithDoorRevert() {
 
     // Replace the key instance with the original (incorrect) name
     mob._oCMobLockable_keyInstance = "ITKEY_OB_SMITH_01";
-
-    // Remember if the door was already unlocked (not guaranteed to survive saving and loading)
-    Ninja_G1CP_046_SmithDoorUnlocked = (mob._oCMobLockable_bitfield & oCMobLockable_bitfield_locked);
-
-    // Additionally, lock the door, as there would have been no way of opening it with a non-existing key and no
-    // lock picking string
-    mob._oCMobLockable_bitfield = mob._oCMobLockable_bitfield | oCMobLockable_bitfield_locked;
-
     return TRUE;
 };
