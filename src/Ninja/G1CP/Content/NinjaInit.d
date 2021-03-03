@@ -38,6 +38,7 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
         Ninja_G1CP_040_AlephKeyDialog();                                // #40
         Ninja_G1CP_042_GuardExitDialog();                               // #42
         Ninja_G1CP_043_EN_SkillMissingWhitespace();                     // #43
+        Ninja_G1CP_044_BugmeatCategory();                               // #44
         Ninja_G1CP_049_DungeonKeyText();                                // #49
         Ninja_G1CP_059_FixEquipBestWeapons();                           // #59
         Ninja_G1CP_060_JesseQuest();                                    // #60
@@ -47,6 +48,11 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
         Ninja_G1CP_109_BloodwynProtectionMoneyPayLater();               // #109
         Ninja_G1CP_111_JackalProtectionMoneyPay();                      // #111
         Ninja_G1CP_112_JackalProtectionMoneyPayLater();                 // #112
+        Ninja_G1CP_122_CavalornDailyRoutine();                          // #122
+        Ninja_G1CP_125_ButcherText();                                   // #125
+        Ninja_G1CP_126_SharkyTrade();                                   // #126
+        Ninja_G1CP_136_FollowLadder();                                  // #136
+        Ninja_G1CP_157_SpeedPotion2Value();                             // #157
         Ninja_G1CP_158_SpeedPotion3Value();                             // #158
         Ninja_G1CP_InitEnd();
     };
