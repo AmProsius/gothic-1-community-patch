@@ -46,6 +46,7 @@
 * Fix #111: The player now correctly loses 10 ore if he chooses to pay protection money to Jackal.
 * Fix #112: The player now correctly loses 10 ore if he chooses to pay protection money to Jackal later.
 * Fix #122: Cavalron now correctly sleeps in his hut at night and stands outside at daytime.
+* Fix #124: The guard of the castle gate in the Old Camp now has the correct daily routine to watch over and operate the winch of the gate.
 * Fix #125: The description of the sword "Butcher" now correctly lists it as one-handed weapon.
 * Fix #126: Sharky's dialog option for Fisk's quest "New Fence for Fisk" no longer opens the trading menu.
 * Fix #136: NPCs now use ladders properly when following the player.
@@ -98,6 +99,7 @@
 * Fix #111: Der Spieler verliert nun tatsächlich 10 Erz, wenn er Schutzgeld an Jackal zahlt.
 * Fix #112: Der Spieler verliert nun tatsächlich 10 Erz, wenn er später doch Schutzgeld an Jackal zahlt.
 * Fix #122: Cavalron schläft nun nachts tatsächlich in seiner Hütte und steht tagsüber draußen.
+* Fix #124: Die Wache des Burgtors vom Alten Lager hat nun den korrekten Tagesablauf, um die Winde des Burgtors zu bewachen und zu bedienen.
 * Fix #125: Die Beschreibung des Schertes "Schlachter" ist korrigiert zu "Einhandwaffe".
 * Fix #126: Sharkys Dialog zu Fisks Quest "Neuer Hehler für Fisk" öffnet nicht mehr das Handelsmenü.
 * Fix #136: NSCs benutzen Leitern nun korrekt, wenn sie dem Spieler folgen.
