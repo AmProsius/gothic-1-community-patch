@@ -12,8 +12,13 @@
 * Fix #11: The player can no longer bypass NPCs that are guarding a passage by drawing the weapon.
 * Fix #12: The player no longer receives double XP when killing an NPC with a ranged weapon after already beaten the NPC in melee combat.
 * Fix #43: The dialog choices about learning skills now contain proper whitespace.
+* Fix #44: Bugmeat is now listed as food in the inventory.
 * Fix #59: Vendors don't re-equip their weapon when the player sells them a more powerful one. However, due to important game mechanics, they will still equip a weapon if they didn't have a weapon of that type (meelee, ranged) equipped before.
 * Fix #78: Human NPCs now correctly recognize orcs as enemies. This fixes Baal Lukor's behavior in the orc graveyard.
+* Fix #125: The description of the sword *Butcher* now correctly labels it as a one-handed weapon.
+* Fix #136: Followers now use ladders properly.
+* Fix #157: The *Potion of Velocity* now has the correct ore value (from 100 to 150).
+* Fix #158: The *Potion of Haste* now has the correct ore value (from 100 to 200).
 #### Story
 * Fix #15: The player doesn't lose Strength as part of the quest "Horatio the Peasant" if he had more than 100 Strength.
 * Fix #16: Thorus can't be bribed if the player has already obtained the permit to pass the guards. Also the option to bribe Thorus disappears after the player has bribed him.
@@ -35,8 +40,7 @@
 * Fix #38: Snaf now offers the dialog about Nek even when the quest "Snaf's Recipe" is completed.
 * Fix #39: Fingers no longer offers to teach level two of pickpocketing and lock picking before level one has been learned.
 * Fix #40: Aleph doesn't offer to sell the key anymore when the player already obtained it.
-* Fix #42: Two guards in the Old Camp no longer have two END dialog options.
-* Fix #44: Bugmeat is now listed as food in the inventory.
+* Fix #42: The Guards who guard the ore barons' house in the Old Camp no longer have two END dialog options.
 * Fix #49: The description of the dungeon key is corrected to "Opens the dungeons of the old camp.".
 * Fix #50: The pillar in the Monastery Ruins now falls in the right directions and has collision.
 * Fix #60: Jesse's quest is now available.
@@ -45,14 +49,10 @@
 * Fix #109: The player now correctly loses 10 ore if he chooses to pay protection money to Bloodwyn later.
 * Fix #111: The player now correctly loses 10 ore if he chooses to pay protection money to Jackal.
 * Fix #112: The player now correctly loses 10 ore if he chooses to pay protection money to Jackal later.
-* Fix #122: Cavalron now correctly sleeps in his hut at night and stands outside at daytime.
+* Fix #122: Cavalorn now correctly sleeps in his hut at night and stands outside at daytime.
 * Fix #124: The guard of the castle gate in the Old Camp now has the correct daily routine to watch over and operate the winch of the gate.
-* Fix #125: The description of the sword "Butcher" now correctly lists it as one-handed weapon.
 * Fix #126: Sharky's dialog option for Fisk's quest "New Fence for Fisk" no longer opens the trading menu.
-* Fix #136: NPCs now use ladders properly when following the player.
-* Fix #157: The Potion of Velocity now has the correct ore value.
-* Fix #158: The Potion of Haste now has the correct ore value.
-* Fix #163: The castle gate of the Old Camp is no longer blocked and can properly close.
+* Fix #163: The castle gate of the Old Camp is no longer blocked and can properly be closed.
 
 ## DE
 
@@ -66,8 +66,13 @@
 * Fix #10: Begleiter passen ihre Laufgeschwindigkeit dem Spieler an. Der Spieler muss allerdings in Sichtweite des Begleiters sein, wenn er anfängt zu rennen, nachdem er vorher gegangen ist.
 * Fix #11: Der Spieler kann nicht mehr mit gezogener Waffe an Wachen vorbei gelangen.
 * Fix #12: Der Spieler erhält nicht mehr ein zweites Mal Erfahrungspunkte durch Erlegen eines NPC im Fernkampf, wenn dieser zuvor schon im Nahkampf besiegt wurde.
+* Fix #44: Wanzenfleisch ist nun unter "Essen" im Inventar zu finden.
 * Fix #59: Händler rüsten nicht mehr ihre Waffe um, wenn der Spieler ihnen eine stärkere verkauft. Aufgrund einer wichtigen Spielmechanik wird allerdings eine Waffe ausgerüstet, sofern der Händler vorher noch keine Waffe diese Art (Nahkampf, Fernkampf) ausgerüstet hatte.
 * Fix #78: Menschliche NPCs erkennen Orks nun als Gegner an. Damit ist Baal Lukors Wahrnehmung im Orkfriedhof korrigiert.
+* Fix #125: Die Beschreibung des Schwertes *Schlachter* ist korrigiert zu "Einhandwaffe".
+* Fix #136: Begleiter benutzen Leitern nun korrekt.
+* Fix #157: Der Kaufwert des *Tranks der Schnelligkeit* ist korrigiert (von 100 auf 150).
+* Fix #158: Der Kaufwert des *Tranks der Eile* ist korrigiert (von 100 auf 200).
 #### Story
 * Fix #15: Der Spieler verliert keine Stärke mehr im Zuge der Quest "Horatio der Bauer", wenn er vorher mehr als 100 Stärke hatte.
 * Fix #16: Thorus kann nicht mehr bestochen werden, wenn der Spieler bereits Zugang zur Burg hat. Außerdem verschwindet der Bestechen-Dialog, wenn der Spieler ihn bereits bestochen hat.
@@ -90,7 +95,6 @@
 * Fix #39: Fingers bringt dem Spieler nicht mehr Taschendiebstahl und Schlösserknacken auf Stufe zwei bei, wenn Stufe eins jeweils noch nicht gelernt wurde.
 * Fix #40: Aleph bietet den Schlüssel nun nicht noch einmal an, wenn der Spieler ihn schon erhalten hat.
 * Fix #42: Zwei Gardisten des Alten Lagers haben nun nicht mehr zwei ENDE Dialogoptionen.
-* Fix #44: Wanzenfleisch ist nun unter "Essen" im Inventar zu finden.
 * Fix #49: Die Beschreibung des Kerkerschlüssels ist korrigiert zu "öffnet den Kerker des Alten Lagers.".
 * Fix #50: Die Säule in der Klosterruine fällt jetzt in die richtige Richtung und hat Kollision.
 * Fix #60: Jesses Quest ist nun verfügbar.
@@ -99,11 +103,7 @@
 * Fix #109: Der Spieler verliert nun tatsächlich 10 Erz, wenn er später doch Schutzgeld an Bloodwyn zahlt.
 * Fix #111: Der Spieler verliert nun tatsächlich 10 Erz, wenn er Schutzgeld an Jackal zahlt.
 * Fix #112: Der Spieler verliert nun tatsächlich 10 Erz, wenn er später doch Schutzgeld an Jackal zahlt.
-* Fix #122: Cavalron schläft nun nachts tatsächlich in seiner Hütte und steht tagsüber draußen.
+* Fix #122: Cavalorn schläft nun nachts tatsächlich in seiner Hütte und steht tagsüber draußen.
 * Fix #124: Die Wache des Burgtors vom Alten Lager hat nun den korrekten Tagesablauf, um die Winde des Burgtors zu bewachen und zu bedienen.
-* Fix #125: Die Beschreibung des Schertes "Schlachter" ist korrigiert zu "Einhandwaffe".
 * Fix #126: Sharkys Dialog zu Fisks Quest "Neuer Hehler für Fisk" öffnet nicht mehr das Handelsmenü.
-* Fix #136: NSCs benutzen Leitern nun korrekt, wenn sie dem Spieler folgen.
-* Fix #157: Der Kaufwert des Tranks der Schnelligkeit ist korrigiert.
-* Fix #158: Der Kaufwert des Tranks der Eile ist korrigiert.
 * Fix #163: Das Burgtor des Alten Lagers ist nicht mehr blockiert und lässt sich korrekt schließen.
