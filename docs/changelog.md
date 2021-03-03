@@ -49,6 +49,7 @@
 * Fix #125: The description of the sword "Butcher" now correctly lists it as one-handed weapon.
 * Fix #126: Sharky's dialog option for Fisk's quest "New Fence for Fisk" no longer opens the trading menu.
 * Fix #136: NPCs now use ladders properly when following the player.
+* Fix #157: The Potion of Velocity now has the correct ore value.
 
 ## DE
 
@@ -99,3 +100,4 @@
 * Fix #125: Die Beschreibung des Schertes "Schlachter" ist korrigiert zu "Einhandwaffe".
 * Fix #126: Sharkys Dialog zu Fisks Quest "Neuer Hehler für Fisk" öffnet nicht mehr das Handelsmenü.
 * Fix #136: NSCs benutzen Leitern nun korrekt, wenn sie dem Spieler folgen.
+* Fix #157: Der Kaufwert des Tranks der Schnelligkeit ist korrigiert.
