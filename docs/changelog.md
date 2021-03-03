@@ -17,8 +17,8 @@
 * Fix #78: Human NPCs now correctly recognize orcs as enemies. This fixes Baal Lukor's behavior in the orc graveyard.
 * Fix #125: The description of the sword *Butcher* now correctly labels it as a one-handed weapon.
 * Fix #136: Followers now use ladders properly.
-* Fix #157: The *Potion of Velocity* now has the correct ore value (from 100 to 150).
-* Fix #158: The *Potion of Haste* now has the correct ore value (from 100 to 200).
+* Fix #157: The *Potion of Velocity* now has the correct ore value.
+* Fix #158: The *Potion of Haste* now has the correct ore value.
 #### Story
 * Fix #15: The player doesn't lose Strength as part of the quest "Horatio the Peasant" if he had more than 100 Strength.
 * Fix #16: Thorus can't be bribed if the player has already obtained the permit to pass the guards. Also the option to bribe Thorus disappears after the player has bribed him.
@@ -71,8 +71,8 @@
 * Fix #78: Menschliche NPCs erkennen Orks nun als Gegner an. Damit ist Baal Lukors Wahrnehmung im Orkfriedhof korrigiert.
 * Fix #125: Die Beschreibung des Schwertes *Schlachter* ist korrigiert zu "Einhandwaffe".
 * Fix #136: Begleiter benutzen Leitern nun korrekt.
-* Fix #157: Der Kaufwert des *Tranks der Schnelligkeit* ist korrigiert (von 100 auf 150).
-* Fix #158: Der Kaufwert des *Tranks der Eile* ist korrigiert (von 100 auf 200).
+* Fix #157: Der Kaufwert des *Tranks der Schnelligkeit* ist korrigiert.
+* Fix #158: Der Kaufwert des *Tranks der Eile* ist korrigiert.
 #### Story
 * Fix #15: Der Spieler verliert keine Stärke mehr im Zuge der Quest "Horatio der Bauer", wenn er vorher mehr als 100 Stärke hatte.
 * Fix #16: Thorus kann nicht mehr bestochen werden, wenn der Spieler bereits Zugang zur Burg hat. Außerdem verschwindet der Bestechen-Dialog, wenn der Spieler ihn bereits bestochen hat.
