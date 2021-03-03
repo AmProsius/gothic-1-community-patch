@@ -53,6 +53,7 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
         Ninja_G1CP_126_SharkyTrade();                                   // #126
         Ninja_G1CP_136_FollowLadder();                                  // #136
         Ninja_G1CP_157_SpeedPotion2Value();                             // #157
+        Ninja_G1CP_158_SpeedPotion3Value();                             // #158
         Ninja_G1CP_InitEnd();
     };
 };
