@@ -50,6 +50,7 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
         Ninja_G1CP_112_JackalProtectionMoneyPayLater();                 // #112
         Ninja_G1CP_122_CavalornDailyRoutine();                          // #122
         Ninja_G1CP_125_ButcherText();                                   // #125
+        Ninja_G1CP_126_SharkyTrade();                                   // #126
         Ninja_G1CP_136_FollowLadder();                                  // #136
         Ninja_G1CP_InitEnd();
     };

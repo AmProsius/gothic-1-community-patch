@@ -68,6 +68,7 @@ Content\Fixes\Session\fix111_JackalProtectionMoneyPay.d
 Content\Fixes\Session\fix112_JackalProtectionMoneyPayLater.d
 Content\Fixes\Session\fix122_CavalornDailyRoutine.d
 Content\Fixes\Session\fix125_ButcherText.d
+Content\Fixes\Session\fix126_SharkyTrade.d
 Content\Fixes\Session\fix136_FollowLadder.d
 
 // Game save fixes
@@ -117,6 +118,7 @@ Content\Tests\test111.d
 Content\Tests\test112.d
 Content\Tests\test122.d
 Content\Tests\test125.d
+Content\Tests\test126.d
 Content\Tests\test136.d
 
 // Initialization
