@@ -52,6 +52,7 @@
 * Fix #136: NPCs now use ladders properly when following the player.
 * Fix #157: The Potion of Velocity now has the correct ore value.
 * Fix #158: The Potion of Haste now has the correct ore value.
+* Fix #163: The castle gate of the Old Camp is no longer blocked and can properly close.
 
 ## DE
 
@@ -105,3 +106,4 @@
 * Fix #136: NSCs benutzen Leitern nun korrekt, wenn sie dem Spieler folgen.
 * Fix #157: Der Kaufwert des Tranks der Schnelligkeit ist korrigiert.
 * Fix #158: Der Kaufwert des Tranks der Eile ist korrigiert.
+* Fix #163: Das Burgtor des Alten Lagers ist nicht mehr blockiert und lässt sich korrekt schließen.
