@@ -36,6 +36,7 @@
 * Fix #29: Buster no longer teaches Acrobatics if the player already gained the skill.
 * Fix #30: Silas now trades with the player more than once.
 * Fix #31: Wolf can't be offered Minecrawler's Armor Plates any longer if the player already gave him the requested amount.
+* Fix #33: The quest "Shrike's Hut" can be closed no matter in which order the player gets to know about the quest and defeats Shrike.
 * Fix #36: Fisk's quest "New Fence for Fisk" is now available regardless of how the quest "Thorus' Quest" is (successfully) completed.
 * Fix #38: Snaf now offers the dialog about Nek even when the quest "Snaf's Recipe" is completed.
 * Fix #39: Fingers no longer offers to teach level two of pickpocketing and lock picking before level one has been learned.
@@ -90,6 +91,7 @@
 * Fix #29: Buster bringt dem Spieler nicht mehr Akrobatik bei, wenn dieser das Talent bereits gelernt hat.
 * Fix #30: Silas handelt mit dem Spieler nun mehr als nur einmal.
 * Fix #31: Wolf können keine Minecrawlerpanzerplatten mehr angeboten werden, wenn der Spieler ihm schon die erforderliche Anzahl gebracht hat.
+* Fix #33: Die Quest "Shrike's Hütte" kann nun abgeschlossen werden, unabhängig davon, ob der Spieler zuerst von der Quest erfährt oder Shrike besiegt.
 * Fix #36: Fisks Quest "Neuer Hehler für Fisk" is nun immer erhältlich, egal, wie Thorus' Quest "Auftrag von Thorus" (erfolgreich) beendet wurde.  
 * Fix #38: Snaf spricht nun auch über Nek, wenn die Quest "Snafs Rezept" abgeschlossen wurde. 
 * Fix #39: Fingers bringt dem Spieler nicht mehr Taschendiebstahl und Schlösserknacken auf Stufe zwei bei, wenn Stufe eins jeweils noch nicht gelernt wurde.
