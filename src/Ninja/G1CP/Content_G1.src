@@ -20,7 +20,7 @@ Content\Report\reportFuncToSpy.d
 
 Content\Misc\findInFunc.d
 Content\Misc\funcByteCodeToSpy.d
-Content\Misc\aivar.d
+Content\Misc\variable.d
 Content\Misc\info.d
 Content\Misc\topic.d
 Content\Misc\Npc_CanSeeVob.d
