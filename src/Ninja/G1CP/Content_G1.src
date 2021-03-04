@@ -23,6 +23,7 @@ Content\Misc\funcByteCodeToSpy.d
 Content\Misc\variable.d
 Content\Misc\info.d
 Content\Misc\topic.d
+Content\Misc\waypoint.d
 Content\Misc\Npc_CanSeeVob.d
 
 // Session fixes
