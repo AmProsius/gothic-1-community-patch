@@ -25,6 +25,11 @@ Please note that this is just the first release of the G1CP. Work on the patch c
 * **Issues**: Provision of bug fixes from the Definitive Edition mod
 * **mud-freak**: Rewriting of the provided bug fixes in modular form, management of the project repository
 
+## FAQ 
+* **How do you achieve such high compatibility too other mods and patches?** The G1CP contains a number of security layers that check, if the bug is still present and if the fix can be applied successfully. Only then the fix will be applied. This way, if a mod already fixed the bug, the G1CP will not intervene.
+* **Do I have to start a new game when I install/update the G1CP?** No, you will never have to start a new game. The G1CP can be installed, updated and removed at any time. It doesn't leave a trace on savegames, so it's 100% compatible with existing savegames and the game can be played further after uninstalling the patch.
+* **I encountered a bug. How can I notify you to get it fixed?** The best way is to have a look at the Github repository and see, if there is already an opened issue for the bug. If not, you are welcome to open an issue yourself. However, we won't fix bugs that were introduced by other mods or patches, only bugs of the vanilla game and the G1CP.
+
 ---
 
 ## Building

@@ -3,11 +3,13 @@
  * Comparison happens starting from each token. Any search needs to start with a token byte (e.g. zPAR_TOK_PUSHVAR)
  */
 func int Ninja_G1CP_FindInFunc(var int funcId, var int needle, var int byteCount) {
-    if (!needle) {
+    // Make sure all exist
+    if (funcId < 0) || (funcId >= currSymbolTableLength)
+    || (!needle) {
         return 0;
     };
 
-    // Tokenize function to get the token onsets
+    // Tokenize function to get the token onsets and the end of the function
     var int positions; positions = MEM_ArrayCreate();
     var int dump; dump = MEM_ArrayCreate();
     MEMINT_TokenizeFunction(funcId, dump, dump, positions);

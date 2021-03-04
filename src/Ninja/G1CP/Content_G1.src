@@ -20,9 +20,11 @@ Content\Report\reportFuncToSpy.d
 
 Content\Misc\findInFunc.d
 Content\Misc\funcByteCodeToSpy.d
-Content\Misc\aivar.d
+Content\Misc\variable.d
 Content\Misc\info.d
 Content\Misc\topic.d
+Content\Misc\waypoint.d
+Content\Misc\world.d
 Content\Misc\Npc_CanSeeVob.d
 
 // Session fixes
@@ -56,6 +58,7 @@ Content\Fixes\Session\fix039_FingersTeachDialog.d
 Content\Fixes\Session\fix040_AlephKeyDialog.d
 Content\Fixes\Session\fix042_GuardExitDialog.d
 Content\Fixes\Session\fix043_EN_SkillMissingWhitespace.d
+Content\Fixes\Session\fix044_BugmeatCategory.d
 Content\Fixes\Session\fix049_DungeonKeyText.d
 Content\Fixes\Session\fix059_FixEquipBestWeapons.d
 Content\Fixes\Session\fix060_JesseQuest.d
@@ -65,10 +68,18 @@ Content\Fixes\Session\fix102_JesseProtectionMoneyPay.d
 Content\Fixes\Session\fix109_BloodwynProtectionMoneyPayLater.d
 Content\Fixes\Session\fix111_JackalProtectionMoneyPay.d
 Content\Fixes\Session\fix112_JackalProtectionMoneyPayLater.d
+Content\Fixes\Session\fix122_CavalornDailyRoutine.d
+Content\Fixes\Session\fix125_ButcherText.d
+Content\Fixes\Session\fix126_SharkyTrade.d
+Content\Fixes\Session\fix136_FollowLadder.d
+Content\Fixes\Session\fix157_SpeedPotion2Value.d
+Content\Fixes\Session\fix158_SpeedPotion3Value.d
+Content\Fixes\Session\fix163_CastleGate.d
 
 // Game save fixes
 Content\Fixes\Gamesave\fix046_SmithDoor.d
 Content\Fixes\Gamesave\fix050_Pillar.d
+Content\Fixes\Gamesave\fix124_GateGuardID.d
 
 // Tests
 Content\Tests\test001.d
@@ -101,6 +112,7 @@ Content\Tests\test039.d
 Content\Tests\test040.d
 Content\Tests\test042.d
 Content\Tests\test043.d
+Content\Tests\test044.d
 Content\Tests\test046.d
 Content\Tests\test049.d
 Content\Tests\test050.d
@@ -112,6 +124,14 @@ Content\Tests\test102.d
 Content\Tests\test109.d
 Content\Tests\test111.d
 Content\Tests\test112.d
+Content\Tests\test122.d
+Content\Tests\test124.d
+Content\Tests\test125.d
+Content\Tests\test126.d
+Content\Tests\test136.d
+Content\Tests\test157.d
+Content\Tests\test158.d
+Content\Tests\test163.d
 
 // Initialization
 Content\initOnce.d
