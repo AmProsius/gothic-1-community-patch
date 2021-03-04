@@ -56,7 +56,7 @@ func int Ninja_G1CP_InitWrapper(var int pos, var int endParam, var int revert) {
                 // Check return type
                 var int status; status = zERR_TYPE_INFO;
                 if (symb.offset) {
-                    var int success; success = MEM_PopIntResult();
+                    var int success; success = !!MEM_PopIntResult();
                     var int prevStatus; prevStatus = _HT_Get(Ninja_G1CP_FixTable, id);
 
                     // Status text (bitfield to avoid lengthy if-blocks)
