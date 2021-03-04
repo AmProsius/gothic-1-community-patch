@@ -1,11 +1,11 @@
 /*
  * #33 Shrike's Hut quest
  */
-func int Ninja_G1CP_033_GornShrikeDialog() {
-    if (MEM_FindParserSymbol("DIA_Gorn_HutFree_Condition") != -1)
-    && ((MEM_FindParserSymbol("DIA_Gorn_Hut")              != -1) // Either the dialog or the quest must exist
-    ||  (MEM_FindParserSymbol("Gorn_ShrikesHut")           != -1)) {
-        HookDaedalusFuncS("DIA_Gorn_HutFree_Condition", "Ninja_G1CP_033_GornShrikeDialog_Hook");
+func int Ninja_G1CP_033_ShrikeQuestDialog() {
+    if (MEM_FindParserSymbol("DIA_Shrike_GetLost_Condition") != -1)
+    && ((MEM_FindParserSymbol("DIA_Gorn_Hut")                != -1) // Either the dialog or the quest must exist
+    ||  (MEM_FindParserSymbol("Gorn_ShrikesHut")             != -1)) {
+        HookDaedalusFuncS("DIA_Shrike_GetLost_Condition", "Ninja_G1CP_033_ShrikeQuestDialog_Hook");
         return TRUE;
     } else {
         return FALSE;
@@ -15,7 +15,7 @@ func int Ninja_G1CP_033_GornShrikeDialog() {
 /*
  * This function intercepts the dialog condition to introduce more conditions
  */
-func int Ninja_G1CP_033_GornShrikeDialog_Hook() {
+func int Ninja_G1CP_033_ShrikeQuestDialog_Hook() {
     Ninja_G1CP_ReportFuncToSpy();
 
     // Define possibly missing symbols locally
