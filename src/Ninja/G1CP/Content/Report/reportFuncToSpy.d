@@ -24,7 +24,8 @@ func void Ninja_G1CP_ReportFuncToSpy() {
     var int ret; ret = MEM_ReadInt(MEM_GetFrameBoundary() + 3*MEMINT_DoStackFrameSize - MEMINT_DoStackPopPosOffset);
 
     // Check whether the function that was called, called by another function or by the engine
-    var int doNotIndent; doNotIndent = (ret <= 0) || (ret >= MEM_Parser.stack_stacksize);
+    //var int doNotIndent; doNotIndent = (ret <= 0) || (ret >= MEM_Parser.stack_stacksize);
+    var int doNotIndent; doNotIndent = TRUE; // Disabled for now. Wrapping the end of the function is unstable
 
     // Retrieve symbol IDs and offsets only once
     const int indent_offset         = -1;
