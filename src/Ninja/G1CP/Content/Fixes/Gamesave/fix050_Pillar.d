@@ -3,9 +3,13 @@
  */
 
 /* Old bounding box of the pillar (Integerfloats for precision) */
-const int Ninja_G1CP_050_Pillar_BBoxOld[6] = {
+const int Ninja_G1CP_050_Pillar_BBoxUp[6] = {
      1185788240, 1158508150, 1189383823,
      1185874939, 1161671733, 1189471981
+};
+const int Ninja_G1CP_050_Pillar_BBoxDown[6] = {
+     1185788240, 1158263848, 1189370762,
+     1186082677, 1161671733, 1189701003
 };
 /* Old position of the pillar */
 const int Ninja_G1CP_050_Pillar_PosOld[16] = {
@@ -23,19 +27,14 @@ const float Ninja_G1CP_050_Pillar_PosNew[16] = {
 };
 
 /*
- * This function applies the changes of #50
+ * Identify the pillar in the world
  */
-func int Ninja_G1CP_050_Pillar() {
-    // Before anything else, check if the memory was modified
-    const int oCMobInter__StopInteraction_End = 6816979; //0x6804D3
-    if (!Ninja_G1CP_IsMemAvail(oCMobInter__StopInteraction_End, "8B 8C 24 8C 00 00 00")) {
-        return FALSE;
-    };
-
+func int Ninja_G1CP_050_PillarFind() {
     // Find all vobs of matching name
     var int arrPtr; arrPtr = MEM_SearchAllVobsByName("MOBSISEULE");
 
     // Narrow down the search
+    var int foundPtr; foundPtr = 0;
     repeat(i, MEM_ArraySize(arrPtr)); var int i;
         var int vobPtr; vobPtr = MEM_ArrayRead(arrPtr, i);
 
@@ -59,44 +58,69 @@ func int Ninja_G1CP_050_Pillar() {
             continue;
         };
 
+        // Positively identified
+        foundPtr = vobPtr;
+        break;
+    end;
+
+    MEM_ArrayFree(arrPtr);
+    return foundPtr;
+};
+
+/*
+ * Set new position of the pillar
+ */
+func void Ninja_G1CP_050_PillarMove(var int vobPtr, var int trfPtr) {
+    const int zCVob__SetTrafoObjToWorld = 6219616; //0x5EE760
+    var zCVob v; v = _^(vobPtr);
+    var int bits; bits = v.bitfield[0];
+    v.bitfield[0] = v.bitfield[0] & ~(zCVob_bitfield0_collDetectionStatic | zCVob_bitfield0_collDetectionDynamic);
+    const int call = 0;
+    if (CALL_Begin(call)) {
+        CALL_PtrParam(_@(trfPtr));
+        CALL__thiscall(_@(vobPtr), zCVob__SetTrafoObjToWorld);
+        call = CALL_End();
+    };
+    v.bitfield[0] = bits;
+};
+
+/*
+ * This function applies the changes of #50
+ */
+func int Ninja_G1CP_050_Pillar() {
+    // Before anything else, check if the memory was modified
+    const int oCMobInter__StopInteraction_End = 6816979; //0x6804D3
+    if (!Ninja_G1CP_IsMemAvail(oCMobInter__StopInteraction_End, "8B 8C 24 8C 00 00 00")) {
+        return FALSE;
+    };
+
+    // Find the pillar in the world
+    var int vobPtr; vobPtr = Ninja_G1CP_050_PillarFind();
+    if (vobPtr) {
+
         // Confirm exact position
         if (!MEM_CompareWords(vobPtr+60, _@(Ninja_G1CP_050_Pillar_PosOld), 16)) {
-            continue;
+            return FALSE;
         };
 
         // Confirm exact bounding box, in case the visual was replaced
-        if (!MEM_CompareWords(vobPtr+124, _@(Ninja_G1CP_050_Pillar_BBoxOld), 6)) {
-            continue;
+        if (!MEM_CompareWords(vobPtr+124, _@(Ninja_G1CP_050_Pillar_BBoxUp), 6))     // Upright
+        && (!MEM_CompareWords(vobPtr+124, _@(Ninja_G1CP_050_Pillar_BBoxDown), 6)) { // Fallen
+            return FALSE;
         };
-
-        // Update position and rename the mob to revert to changes later
-        MEM_RenameVob(vobPtr, "NINJA_G1CP_050_PILLAR");
 
         // Add state function
         var oCMobInter mob; mob = _^(vobPtr);
-        if (!Hlp_StrCmp(mob.onStateFuncName, "")) {
+        if (!Hlp_StrCmp(mob.onStateFuncName, "")) && (MEM_FindParserSymbol(mob.onStateFuncName) != -1) {
             HookDaedalusFuncS(mob.onStateFuncName, "Ninja_G1CP_050_Pillar_StateFunc_S1");
         } else {
             mob.onStateFuncName = "NINJA_G1CP_050_PILLAR_STATEFUNC"; // _S1 added automatically
         };
 
         // Update position
-        const int zCVob__SetTrafoObjToWorld = 6219616; //0x5EE760
-        var zCVob v; v = _^(vobPtr);
-        var int bits; bits = v.bitfield[0];
-        v.bitfield[0] = v.bitfield[0] & ~(zCVob_bitfield0_collDetectionStatic | zCVob_bitfield0_collDetectionDynamic);
-        var int trfPtr; trfPtr = _@f(Ninja_G1CP_050_Pillar_PosNew);
-        const int call = 0;
-        if (CALL_Begin(call)) {
-            CALL_PtrParam(_@(trfPtr));
-            CALL__thiscall(_@(vobPtr), zCVob__SetTrafoObjToWorld);
-            call = CALL_End();
-        };
-        v.bitfield[0] = bits;
-
-        // There can only be one pillar of these exact properties at the identical position (otherwise tough luck)
+        Ninja_G1CP_050_PillarMove(vobPtr, _@f(Ninja_G1CP_050_Pillar_PosNew));
         return TRUE;
-    end;
+    };
 
     // Pillar not found
     return FALSE;
@@ -106,30 +130,22 @@ func int Ninja_G1CP_050_Pillar() {
  * This function reverts the changes of #50
  */
 func int Ninja_G1CP_050_PillarRevert() {
-    var int vobPtr; vobPtr = MEM_SearchVobByName("NINJA_G1CP_050_PILLAR");
-    if (vobPtr) {
-        // Revert name
-        MEM_RenameVob(vobPtr, "MOBSISEULE");
+    // Save some time by checking if even applied
+    if (!Ninja_G1CP_IsFixApplied(50)) {
+        return FALSE;
+    };
 
+    // Identify the pillar
+    var int vobPtr; vobPtr = Ninja_G1CP_050_PillarFind();
+    if (vobPtr) {
         // Revert state func
         var oCMobInter mob; mob = _^(vobPtr);
         if (Hlp_StrCmp(mob.onStateFuncName, "NINJA_G1CP_050_PILLAR_STATEFUNC")) {
             mob.onStateFuncName = "";
         };
 
-        // Revert position
-        const int zCVob__SetTrafoObjToWorld = 6219616; //0x5EE760
-        var zCVob v; v = _^(vobPtr);
-        var int bits; bits = v.bitfield[0];
-        v.bitfield[0] = v.bitfield[0] & ~(zCVob_bitfield0_collDetectionStatic | zCVob_bitfield0_collDetectionDynamic);
-        var int trfPtr; trfPtr = _@(Ninja_G1CP_050_Pillar_PosOld);
-        const int call = 0;
-        if (CALL_Begin(call)) {
-            CALL_PtrParam(_@(trfPtr));
-            CALL__thiscall(_@(vobPtr), zCVob__SetTrafoObjToWorld);
-            call = CALL_End();
-        };
-        v.bitfield[0] = bits;
+        // Revert position only if it is as expected
+        Ninja_G1CP_050_PillarMove(vobPtr, _@(Ninja_G1CP_050_Pillar_PosOld));
     };
 
     // Remove the hook function again if it had been applied before
@@ -156,8 +172,7 @@ func void Ninja_G1CP_050_Pillar_FixBbox() {
     Ninja_G1CP_ReportFuncToSpy();
 
     var int vobPtr; vobPtr = ESI;
-    if (!Hlp_StrCmp(MEM_ReadString(vobPtr+16), "NINJA_G1CP_050_PILLAR"))
-    || (!Hlp_Is_oCMobInter(vobPtr)) {
+    if (vobPtr != Ninja_G1CP_050_PillarFind()) {
         // Not the mob in question
         return;
     };
@@ -197,12 +212,5 @@ func void Ninja_G1CP_050_Pillar_FixBbox() {
     end;
 
     // Update the bounding box of the vob (done by the model's bounding box)
-    const int zCVob__SetTrafoObjToWorld = 6219616; //0x5EE760
-    var int trfPtr; trfPtr = _@(vob.trafoObjToWorld);
-    const int call = 0;
-    if (CALL_Begin(call)) {
-        CALL_PtrParam(_@(trfPtr));
-        CALL__thiscall(_@(vobPtr), zCVob__SetTrafoObjToWorld);
-        call = CALL_End();
-    };
+    Ninja_G1CP_050_PillarMove(vobPtr, _@(vob.trafoObjToWorld));
 };

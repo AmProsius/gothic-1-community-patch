@@ -1,43 +1,36 @@
 /*
  * #50 Column in monastery ruin falls in wrong direction
  *
- * The hero is teleported in front of the pillar
+ * The hero is teleported in front of the pillar and its bounding box is visualized. (To remove it, run test again.)
  *
- * Expected behavior: The pillar fall in the correct direction and has collision to be able to walk over the cliff
+ * Expected behavior: The pillar falls in the correct direction and has collision to be able to walk over the cliff.
  */
 func void Ninja_G1CP_Test_050() {
-    // Create the engine call
-    const string target = "";
-    const int oCNpc__BeamTo = 6896400; //0x693B10
-    const int BeamTo = 0;
-    const int strPtr = 0;
-    var int herPtr;
-    if (!BeamTo) {
-        strPtr = _@s(target);
-        CALL_Open();
-        CALL_PtrParam(_@(strPtr));
-        CALL__thiscall(_@(herPtr), oCNpc__BeamTo);
-        BeamTo = CALL_Close();
-    };
-
-    // Run the actual test
     if (Ninja_G1CP_TestsuiteAllowManual) {
-        herPtr = _@(hero);
-        target = "NINJA_G1CP_050_PILLAR";
-
-        if (MEM_SearchVobByName(target)) {
-            // Fix worked
-            ASM_Run(BeamTo);
-        } else {
-            // Fix failed or was already applied
-            target = "MOBSISEULE";
-            if (MEM_SearchVobByName(target)) {
-                ASM_Run(BeamTo);
-            } else {
-                var string msg; msg = ConcatStrings(ConcatStrings("Vob named '", target), "' not found");
-                Ninja_G1CP_TestsuiteErrorDetail(msg);
+        // Check if pillar is found
+        var int vobPtr; vobPtr = MEM_SearchVobByName("MOBSISEULE");
+        if (vobPtr) {
+            // Visualize or remove bounding box
+            var zCVob vob; vob = _^(vobPtr);
+            if (vob.bitfield[0] & zCVob_bitfield0_drawBBox3D) {
+                vob.bitfield[0] = vob.bitfield[0] & ~zCVob_bitfield0_drawBBox3D;
+                return;
             };
-            Print("Fix for #50 was not applied. The fix has either failed or the issue has already been addressed.");
+            vob.bitfield[0] = vob.bitfield[0] | zCVob_bitfield0_drawBBox3D;
+
+            // Teleport PC to the pillar (AI_Teleport not applicable because there is no waypoint nearby)
+            var int herPtr; herPtr = _@(hero);
+            const int oCNpc__BeamTo = 6896400; //0x693B10
+            const int strPtr = 0;
+            const int call = 0;
+            if (CALL_Begin(call)) {
+                strPtr = _@s("MOBSISEULE");
+                CALL_PtrParam(_@(strPtr));
+                CALL__thiscall(_@(herPtr), oCNpc__BeamTo);
+                call = CALL_End();
+            };
+        } else {
+            Ninja_G1CP_TestsuiteErrorDetail("VOB 'MOBSISEULE' not found");
         };
     };
 };
