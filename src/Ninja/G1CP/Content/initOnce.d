@@ -11,7 +11,7 @@ func void Ninja_G1CP_InitOnce() {
     Ninja_G1CP_Lang = Ninja_G1CP_GuessLocalization();
 
     // Get some annoying prints out of the way
-    MEM_Free(create(zCArray@));
+    free(create(zCArray@), zCArray@);
 
     // Find start and end of the symbols that are introduced by G1CP
     Ninja_G1CP_SymbStart = Ninja_Symbols_Start_G1CP;

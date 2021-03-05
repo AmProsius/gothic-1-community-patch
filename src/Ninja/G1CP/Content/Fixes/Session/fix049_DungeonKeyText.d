@@ -12,7 +12,7 @@ func int Ninja_G1CP_049_DungeonKeyText() {
     };
 
     // Find "text = xxx" in the instance function
-    const int bytes[3] = {zPAR_TOK_PUSHVAR<<24, 0, zPAR_TOK_ASSIGNSTR};
+    const int bytes[3] = {zPAR_TOK_PUSHVAR<<24, -1, zPAR_TOK_ASSIGNSTR};
     bytes[1] = itemTextSymbId;
     var int matches; matches = Ninja_G1CP_FindInFunc(symbId, _@(bytes)+3, 6);
 

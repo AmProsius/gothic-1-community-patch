@@ -13,7 +13,7 @@ func int Ninja_G1CP_122_CavalornDailyRoutine() {
     };
 
     // Find function calls in "Rtn_start_336"
-    const int bytes[2] = {zPAR_TOK_CALL<<24, 0};
+    const int bytes[2] = {zPAR_TOK_CALL<<24, -1};
 
     // Find all calls to TA_Sleep"
     bytes[1] = MEM_ReadInt(sleepSymbPtr + zCParSymbol_content_offset);

@@ -63,7 +63,9 @@ func int Ninja_G1CP_050_PillarFind() {
         break;
     end;
 
+    // Free the array
     MEM_ArrayFree(arrPtr);
+
     return foundPtr;
 };
 

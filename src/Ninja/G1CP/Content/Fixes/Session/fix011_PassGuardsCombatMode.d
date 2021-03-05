@@ -72,6 +72,9 @@ func int Ninja_G1CP_011_PassGuardsCombatMode() {
         };
     end;
 
+    // Free the array
+    MEM_ArrayFree(matches);
+
     return applied;
 };
 

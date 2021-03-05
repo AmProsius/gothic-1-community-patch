@@ -12,7 +12,7 @@ func int Ninja_G1CP_126_SharkyTrade() {
     };
 
     // Find "trade = xxx" in the instance function
-    const int bytes[3] = {zPAR_TOK_PUSHVAR<<24, 0, zPAR_OP_IS};
+    const int bytes[3] = {zPAR_TOK_PUSHVAR<<24, -1, zPAR_OP_IS};
     bytes[1] = infoPermSymbId;
     var int matches; matches = Ninja_G1CP_FindInFunc(symbId, _@(bytes)+3, 6);
 

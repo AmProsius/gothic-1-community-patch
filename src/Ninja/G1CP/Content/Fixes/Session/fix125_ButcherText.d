@@ -23,7 +23,7 @@ func int Ninja_G1CP_125_ButcherText() {
     };
 
     // Find "text[4] = xxx" in the instance function
-    const int bytes[3] = {zPAR_TOK_PUSH_ARRAYVAR<<24, 0, 4 + (zPAR_TOK_ASSIGNSTR<<8)};
+    const int bytes[3] = {zPAR_TOK_PUSH_ARRAYVAR<<24, -1, 4 + (zPAR_TOK_ASSIGNSTR<<8)};
     bytes[1] = itemTextSymbId;
     var int matches; matches = Ninja_G1CP_FindInFunc(symbId, _@(bytes)+3, 7);
 
