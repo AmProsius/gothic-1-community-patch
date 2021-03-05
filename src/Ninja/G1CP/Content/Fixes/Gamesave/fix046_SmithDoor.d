@@ -97,8 +97,8 @@ func int Ninja_G1CP_046_SmithDoor() {
         return FALSE;
     };
 
-    // Check if story variable exists
-    if (varId == -1) {
+    // Check if story variable exists (and symbol is valid too)
+    if (varId == -1) || (varPtr == zCParSymbol_content_offset) {
         return FALSE;
     };
 
@@ -132,7 +132,7 @@ func int Ninja_G1CP_046_SmithDoor() {
     var zCWaypoint wp; wp = _^(wpPtr);
 
     // Check if new key item already exists somewhere
-    if (Ninja_G1CP_IsItemInstantiated("Ninja_G1CP_046_SmithDoor_Item")) {
+    if (Ninja_G1CP_IsItemInstantiated("N_G1CP_046_SmithDoor_Item")) {
         return FALSE;
     };
 
@@ -165,7 +165,7 @@ func int Ninja_G1CP_046_SmithDoor() {
     // All checks are true! Insert the key now
 
     // Insert item
-    Wld_InsertItem(Ninja_G1CP_046_SmithDoor_Item, "OCC_CELLAR_BACK_LEFT_CELL");
+    Wld_InsertItem(N_G1CP_046_SmithDoor_Item, "OCC_CELLAR_BACK_LEFT_CELL");
 
     // Double check that it worked (probably not necessary)
     var zCTree latestNode; latestNode = _^(MEM_World.globalVobTree_firstChild);
@@ -174,13 +174,13 @@ func int Ninja_G1CP_046_SmithDoor() {
         return FALSE;
     };
     var oCItem itm; itm = _^(itmPtr);
-    if (itm.instanz != Ninja_G1CP_046_SmithDoor_Item) {
+    if (itm.instanz != N_G1CP_046_SmithDoor_Item) {
         return FALSE;
     };
 
     // Correct item inserted, but check if copying of the original item instance worked
     if (!itm._zCVob_visual) {
-        Wld_RemoveItem(Ninja_G1CP_046_SmithDoor_Item);
+        Wld_RemoveItem(N_G1CP_046_SmithDoor_Item);
         return FALSE;
     };
 
@@ -195,7 +195,7 @@ func int Ninja_G1CP_046_SmithDoor() {
     };
 
     // FINALLY: Replace the key instance
-    mob._oCMobLockable_keyInstance = "NINJA_G1CP_046_SMITHDOOR_ITEM";
+    mob._oCMobLockable_keyInstance = "N_G1CP_046_SMITHDOOR_ITEM";
     return TRUE;
 };
 
@@ -203,11 +203,6 @@ func int Ninja_G1CP_046_SmithDoor() {
  * This function reverts the changes of #46
  */
 func int Ninja_G1CP_046_SmithDoorRevert() {
-    // Check if the fix is applied
-    if (!Ninja_G1CP_IsFixApplied(46)) {
-        return FALSE;
-    };
-
     // Find the door in the world
     var int vobPtr; vobPtr = Ninja_G1CP_046_SmithDoorFind();
     if (!vobPtr) {
@@ -216,7 +211,7 @@ func int Ninja_G1CP_046_SmithDoorRevert() {
     var oCMobDoor mob; mob = _^(vobPtr);
 
     // Check if the door references the expected key instance
-    if (!Hlp_StrCmp(mob._oCMobLockable_keyInstance, "Ninja_G1CP_046_SmithDoor_Item")) {
+    if (!Hlp_StrCmp(mob._oCMobLockable_keyInstance, "N_G1CP_046_SmithDoor_Item")) {
         return FALSE;
     };
 
@@ -238,8 +233,9 @@ func void Ninja_G1CP_046_SmithDoor_HookStory() {
 
 /*
  * Unique copy of the item "ItKe_OB_Smith_01"
+ * There is no "Ninja" prefix in its name here to not confuse players in case they need the "insert code"
  */
-instance Ninja_G1CP_046_SmithDoor_Item(C_Item) {
+instance N_G1CP_046_SmithDoor_Item(C_Item) {
     // This is very delicate now!
 
     // Backup the current instance

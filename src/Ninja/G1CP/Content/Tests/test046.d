@@ -15,7 +15,7 @@ func void Ninja_G1CP_Test_046() {
         const int GIL_GRD = 2;
 
         // Two passes
-        if (!Npc_HasItems(hero, Ninja_G1CP_046_SmithDoor_Item)) {
+        if (!Npc_HasItems(hero, N_G1CP_046_SmithDoor_Item)) {
             // First function call (PC doesn't have the key yet): Teleport to the key
 
             // Find the story function
