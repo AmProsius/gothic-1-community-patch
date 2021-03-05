@@ -1,14 +1,14 @@
 ---
 name: Typo
 about: Create a typo report to improve the G1CP.
-title: 'Spelling - Name (LANG)'
+title: 'Spelling - Name (LANGUAGE_CODE)'
 labels: 'validation: required'
 assignees: ''
 
 ---
 
 **Describe the bug**
-A clear and concise description of what the bug is.
+In the LANGUAGE localization of the game there' a typo in ...
 
 **Changelog**
-The expected behavior.
+Changed the ... (of ...) from "..." to "...".
