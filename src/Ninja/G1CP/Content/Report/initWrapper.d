@@ -45,10 +45,16 @@ func int Ninja_G1CP_InitWrapper(var int pos, var int endParam, var int revert) {
                 // Function name
                 SB(STR_FromChar(namePtr + 4*(id>0)));
 
+                // Measure the time
+                var int time; time = MEM_GetSystemTime();
+
                 // Call the function
                 Ninja_G1CP_zSpyIndent(symb.name, 3);
                 MEM_CallByOffset(param);
                 Ninja_G1CP_zSpyIndent(symb.name, -3);
+
+                // Update the time
+                time = MEM_GetSystemTime() - time;
 
                 // Make sure to re-active the string builder
                 SB_Use(s);
@@ -84,7 +90,14 @@ func int Ninja_G1CP_InitWrapper(var int pos, var int endParam, var int revert) {
 
                     // Set message color
                     status = ((!status) || (status == 6)) + 2; // zERR_TYPE_WARN or zERR_TYPE_FAULT
+                } else {
+                    SB(Ninja_G1CP_LFill("", " ", (42+16)-SB_Length()));
                 };
+
+                // Append duration
+                SB("  ");
+                SB(Ninja_G1CP_LFill(IntToString(time), " ", 5));
+                SB(" ms");
 
                 // Print to zSpy
                 MEM_SendToSpy(status, SB_ToString());
@@ -132,6 +145,9 @@ func int Ninja_G1CP_InitStart() {
         gamerevert    = MEM_GetFuncID(Ninja_G1CP_GamesaveFixes_Revert);
         initEndOffset = MEM_GetFuncOffset(Ninja_G1CP_InitEnd);
     };
+
+    // Measure the time
+    var int time; time = MEM_GetSystemTime();
 
     // Hello? Who dis? jk, I gots your caller-ID!
     var int posStart; posStart = MEM_GetCallerStackPos();
@@ -188,11 +204,18 @@ func int Ninja_G1CP_InitStart() {
     };
 
     // Jump beyond all the function calls to Ninja_G1CP_InitEnd
+    MEM_PushIntParam(time);
     MEM_PushStringParam(action);
     MEM_SetCallerStackPos(pos-currParserStackAddress);
 };
 func void Ninja_G1CP_InitEnd() {
+    var string prefix; prefix = MEM_PopStringResult();
+    var int time; time = MEM_PopIntResult();
+
     // Mark the end
-    MEM_Info(ConcatStrings(MEM_PopStringResult(), " complete"));
+    var string msg; msg = ConcatStrings(prefix, " complete");
+    msg = ConcatStrings(msg, Ninja_G1CP_LFill(IntToString(MEM_GetSystemTime() - time), " ", 63 - STR_Len(msg) + 4));
+    msg = ConcatStrings(msg, " ms");
+    MEM_Info(msg);
     MEM_Info("");
 };
