@@ -18,12 +18,17 @@ func int Ninja_G1CP_124_GateGuardID_GetInst() {
  */
 func int Ninja_G1CP_124_GateGuardID_CodePosPtr() {
     const int codePosPtr = 0;
-    if (codePosPtr == 0) {
+    const int once = FALSE;
+    if (!once) {
+        once = TRUE;
         const int bytes[3] = {zPar_TOK_PUSHVAR<<24, -1, zPAR_OP_IS};
         bytes[1] = MEM_FindParserSymbol("C_Npc.id");
         var int matches; matches = Ninja_G1CP_FindInFunc(Ninja_G1CP_124_GateGuardID_GetInst(), _@(bytes)+3, 6);
-        if (MEM_ArraySize(matches)) {
-            codePosPtr = MEM_ArrayLast(matches) - 4;
+        if (matches) {
+            if (MEM_ArraySize(matches)) {
+                codePosPtr = MEM_ArrayLast(matches) - 4;
+            };
+            MEM_ArrayFree(matches);
         };
     };
     return codePosPtr;
@@ -38,8 +43,11 @@ const int Ninja_G1CP_124_GateGuardID_Status = 0;
  * This function applies the changes of #124
  */
 func int Ninja_G1CP_124_GateGuardID() {
-    // Now the actual fix: Two parts, change an existing NPC and change the instance function
-    Ninja_G1CP_124_GateGuardID_Status = 0;
+    // Two parts, change an existing NPC and change the instance function
+    if (!Ninja_G1CP_IsFixApplied(124)) {
+        // Only reset if the fix was reverted
+        Ninja_G1CP_124_GateGuardID_Status = 0;
+    };
 
     // Part 1: Check for existing NPC
     var int guardId; guardId = Ninja_G1CP_124_GateGuardID_GetInst();
