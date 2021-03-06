@@ -24,7 +24,7 @@ Content\Misc\info.d
 Content\Misc\topic.d
 Content\Misc\waypoint.d
 Content\Misc\world.d
-Content\Misc\Npc_CanSeeVob.d
+Content\Misc\npc.d
 
 // Session fixes
 Content\Fixes\Session\fix001_FixNpcSleep.d
@@ -140,4 +140,4 @@ Content\Tests\test163.d
 Content\initOnce.d
 Content\Report\initWrapper.d
 Content\Fixes\gamesave.d
-Content\NinjaInit.d
+Content\patchInit.d
