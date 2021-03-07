@@ -99,8 +99,7 @@ func int Ninja_G1CP_InitWrapper(var int pos, var int endParam, var int revert) {
                 };
 
                 // Append duration
-                SB("  ");
-                SB(Ninja_G1CP_LFill(IntToString(time), " ", 5));
+                SB(Ninja_G1CP_LFill(IntToString(time), " ", 6));
                 SB(" ms");
 
                 // Print to zSpy
@@ -222,7 +221,7 @@ func void Ninja_G1CP_InitEnd() {
 
     // Mark the end
     var string msg; msg = ConcatStrings(prefix, " complete");
-    msg = ConcatStrings(msg, Ninja_G1CP_LFill(IntToString(MEM_GetSystemTime() - time), " ", 63 - STR_Len(msg) + 4));
+    msg = ConcatStrings(msg, Ninja_G1CP_LFill(IntToString(MEM_GetSystemTime() - time), " ", 62 - STR_Len(msg) + 4));
     msg = ConcatStrings(msg, " ms");
     MEM_Info(msg);
     MEM_Info("");

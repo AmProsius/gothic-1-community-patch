@@ -23,10 +23,10 @@ func int Ninja_G1CP_HookGameSaveFixes() {
  * Apply all game save sensitive fixes
  */
 func void Ninja_G1CP_GamesaveFixes_Apply() {
-    Ninja_G1CP_InitStart();
-    Ninja_G1CP_046_SmithDoor();
-    Ninja_G1CP_050_Pillar();
-    Ninja_G1CP_124_GateGuardID();
+    Ninja_G1CP_InitStart();                               // Maximum fix function name length: 51 characters
+    Ninja_G1CP_046_SmithDoor();                           // #46
+    Ninja_G1CP_050_Pillar();                              // #50
+    Ninja_G1CP_124_GateGuardID();                         // #124
     Ninja_G1CP_InitEnd();
 };
 
@@ -34,9 +34,9 @@ func void Ninja_G1CP_GamesaveFixes_Apply() {
  * Revert all game save sensitive fixes
  */
 func void Ninja_G1CP_GamesaveFixes_Revert() {
-    Ninja_G1CP_InitStart();
-    Ninja_G1CP_046_SmithDoorRevert();
-    Ninja_G1CP_050_PillarRevert();
-    Ninja_G1CP_124_GateGuardIDRevert();
+    Ninja_G1CP_InitStart();                               // Maximum fix function name length: 51 characters
+    Ninja_G1CP_046_SmithDoorRevert();                     // #46
+    Ninja_G1CP_050_PillarRevert();                        // #50
+    Ninja_G1CP_124_GateGuardIDRevert();                   // #124
     Ninja_G1CP_InitEnd();
 };
