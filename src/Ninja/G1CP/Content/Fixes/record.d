@@ -70,27 +70,32 @@ func string Ninja_G1CP_AppliedAll(var string _) {
     if (SB_New()) {
         SB("Active:     ");
         if (MEM_ArraySize(Ninja_G1CP_AppliedAll_Active)) {
-            SB(MEM_ArrayToString(Ninja_G1CP_AppliedAll_Active));
+            repeat(i, MEM_ArraySize(Ninja_G1CP_AppliedAll_Active)); var int i;
+                SBi(MEM_ArrayRead(Ninja_G1CP_AppliedAll_Active, i));
+                SB(" ");
+            end;
         } else {
             SB("None");
         };
-        SBc(10);
-        SBc(13);
         SBc(10);
         SBc(13);
         SB("Inactive:   ");
         if (MEM_ArraySize(Ninja_G1CP_AppliedAll_NonAct)) {
-            SB(MEM_ArrayToString(Ninja_G1CP_AppliedAll_NonAct));
+            repeat(i, MEM_ArraySize(Ninja_G1CP_AppliedAll_NonAct)); var int i;
+                SBi(MEM_ArrayRead(Ninja_G1CP_AppliedAll_NonAct, i));
+                SB(" ");
+            end;
         } else {
             SB("None");
         };
         SBc(10);
         SBc(13);
-        SBc(10);
-        SBc(13);
         SB("Disabled:   ");
         if (MEM_ArraySize(Ninja_G1CP_AppliedAll_Disbld)) {
-            SB(MEM_ArrayToString(Ninja_G1CP_AppliedAll_Disbld));
+            repeat(i, MEM_ArraySize(Ninja_G1CP_AppliedAll_Disbld)); var int i;
+                SBi(MEM_ArrayRead(Ninja_G1CP_AppliedAll_Disbld, i));
+                SB(" ");
+            end;
         } else {
             SB("None");
         };

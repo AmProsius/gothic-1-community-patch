@@ -241,9 +241,9 @@ func string Ninja_G1CP_TestsuiteList(var string _) {
 
             // Check if manual or automatic
             if (symb.offset == (zPAR_TYPE_INT >> 12)) {
-                automatic = ConcatStrings(ConcatStrings(automatic, msg), ",");
+                automatic = ConcatStrings(ConcatStrings(automatic, msg), " ");
             } else {
-                manual = ConcatStrings(ConcatStrings(manual, msg), ",");
+                manual = ConcatStrings(ConcatStrings(manual, msg), " ");
             };
         };
     end;
@@ -259,8 +259,6 @@ func string Ninja_G1CP_TestsuiteList(var string _) {
         if (Hlp_StrCmp(automatic, "Automatic:")) {
             SB(" None");
         };
-        SBc(10);
-        SBc(13);
         SBc(10);
         SBc(13);
         SB(manual);
