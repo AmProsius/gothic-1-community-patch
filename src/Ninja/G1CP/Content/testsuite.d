@@ -25,10 +25,15 @@ const int Ninja_G1CP_TestsuiteAllowManual = 0;
 /*
  * Initialization function
  */
-func void Ninja_G1CP_Testsuite() {
+func int Ninja_G1CP_Testsuite() {
     CC_Register(Ninja_G1CP_TestsuiteList, "test list", "List all tests of G1CP");
     CC_Register(Ninja_G1CP_TestsuiteAll, "test all", "Run complete test suite for G1CP");
     CC_Register(Ninja_G1CP_TestsuiteCmd, "test ", "Run test from test suite for G1CP");
+
+    // Confirm registration
+    return ((CC_Active(Ninja_G1CP_TestsuiteList))
+         && (CC_Active(Ninja_G1CP_TestsuiteAll))
+         && (CC_Active(Ninja_G1CP_TestsuiteCmd)));
 };
 
 /*
@@ -125,7 +130,7 @@ func string Ninja_G1CP_TestsuiteAll(var string _) {
 
             // Check if currently applied or not
             var int id; id = STR_ToInt(STR_SubStr(symb.name, 16, 3));
-            if (Ninja_G1CP_IsFixApplied(id) > 0) {
+            if (Ninja_G1CP_IsFixApplied(id)) {
                 msg = ConcatStrings(msg, " .");
             } else {
                 msg = ConcatStrings(msg, "* ");
@@ -230,7 +235,7 @@ func string Ninja_G1CP_TestsuiteList(var string _) {
             msg = IntToString(id); // Trim leading zeros
 
             // Check if fix is not applied
-            if (Ninja_G1CP_IsFixApplied(id) <= 0) {
+            if (!Ninja_G1CP_IsFixApplied(id)) {
                 msg = ConcatStrings(ConcatStrings("(", msg), ")");
             };
 

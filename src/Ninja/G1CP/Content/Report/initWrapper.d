@@ -22,8 +22,12 @@ func int Ninja_G1CP_InitWrapper(var int pos, var int endParam, var int revert) {
         // Some initial checks on the function and its name
         if (funcId > 0) && (funcId < currSymbolTableLength) {
             var zCPar_Symbol symb; symb = _^(MEM_GetSymbolByIndex(funcId));
-            if (STR_StartsWith(symb.name, "NINJA_G1CP_")) {
-                var int id;     // Issue number
+            if (STR_StartsWith(symb.name, "NINJA_G1CP_"))
+            && (symb.offset == (zPAR_TYPE_INT>>12)) {
+                var int prevStatus;
+                var int success;
+                var int time;
+                var int id; // Issue number
                 var int namePtr; namePtr = STR_ToChar(symb.name)+11;
 
                 // Check if it is a fix initialization function (leading digits)
@@ -44,54 +48,54 @@ func int Ninja_G1CP_InitWrapper(var int pos, var int endParam, var int revert) {
 
                 // Function name
                 SB(STR_FromChar(namePtr + 4*(id>0)));
+                SB(Ninja_G1CP_LFill("", " ", 42-SB_Length()));
 
-                // Measure the time
-                var int time; time = MEM_GetSystemTime();
-
-                // Call the function
-                Ninja_G1CP_zSpyIndent(symb.name, 3);
-                MEM_CallByOffset(param);
-                Ninja_G1CP_zSpyIndent(symb.name, -3);
-
-                // Update the time
-                time = MEM_GetSystemTime() - time;
-
-                // Make sure to re-active the string builder
-                SB_Use(s);
-
-                // Check return type
-                var int status; status = zERR_TYPE_INFO;
-                if (symb.offset) {
-                    var int success; success = !!MEM_PopIntResult();
-                    var int prevStatus; prevStatus = _HT_Get(Ninja_G1CP_FixTable, id);
-
-                    // Status text (bitfield to avoid lengthy if-blocks)
-                    const string STATTEXT[8] = { // revert previous return -> new state
-                        "     NOT APPLIED", // 0:     0       0       0          0
-                        "         APPLIED", // 1:     0       0       1          1
-                        " ALREADY APPLIED", // 2:     0       1       0          1
-                        " ALREADY APPLIED", // 3:     0       1       1          1
-                        "   NOT NECESSARY", // 4:     1       0       0          0
-                        "   NOT NECESSARY", // 5:     1       0       1          0
-                        "FAILED TO REVERT", // 6:     1       1       0          1
-                        "        REVERTED"  // 7:     1       1       1          0
-                    };
-
-                    // Add indicator to message
-                    status = (revert << 2) | (prevStatus << 1) | success;
-                    SB(Ninja_G1CP_LFill("", " ", 42-SB_Length()));
-                    SB(MEM_ReadStatStringArr(STATTEXT, status));
-
-                    // Update fix table
-                    if (id) {
-                        var int newState; newState = (status && status < 4) || (status == 6);
-                        _HT_InsertOrChange(Ninja_G1CP_FixTable, newState, id);
-                    };
-
-                    // Set message color
-                    status = ((!status) || (status == 6)) + 2; // zERR_TYPE_WARN or zERR_TYPE_FAULT
+                // Only execute non-disabled fixes
+                var int disabled; disabled = (Ninja_G1CP_FixStatus(id) == Ninja_G1CP_FIX_DISABLED);
+                if (disabled) {
+                    prevStatus = FALSE;
+                    success = FALSE;
+                    time = 0;
                 } else {
-                    SB(Ninja_G1CP_LFill("", " ", (42+16)-SB_Length()));
+                    // Measure the time
+                    time = MEM_GetSystemTime();
+
+                    // Call the function
+                    Ninja_G1CP_zSpyIndent(symb.name, 3);
+                    MEM_CallByOffset(param);
+                    Ninja_G1CP_zSpyIndent(symb.name, -3);
+
+                    // Update the time
+                    time = MEM_GetSystemTime() - time;
+
+                    // Return value
+                    success = !!MEM_PopIntResult();
+                    prevStatus = Ninja_G1CP_IsFixApplied(id);
+
+                    // Make sure to re-active the string builder
+                    SB_Use(s);
+                };
+
+                // Status text (bitfield to avoid lengthy if-blocks)
+                const string STATTEXT[8] = { // revert previous return -> new state
+                    "     NOT APPLIED", // 0:     0       0       0          0
+                    "         APPLIED", // 1:     0       0       1          1
+                    " ALREADY APPLIED", // 2:     0       1       0          1
+                    " ALREADY APPLIED", // 3:     0       1       1          1
+                    "   NOT NECESSARY", // 4:     1       0       0          0
+                    "   NOT NECESSARY", // 5:     1       0       1          0
+                    "FAILED TO REVERT", // 6:     1       1       0          1
+                    "        REVERTED"  // 7:     1       1       1          0
+                };
+
+                // Add indicator to message
+                var int status; status = (revert << 2) | (prevStatus << 1) | success;
+                SB(MEM_ReadStatStringArr(STATTEXT, status));
+
+                // Update fix table
+                if (id) && (!disabled) {
+                    var int newState; newState = ((0 < status) && (status < 4)) || (status == 6);
+                    _HT_InsertOrChange(Ninja_G1CP_FixTable, newState, id);
                 };
 
                 // Append duration
@@ -100,7 +104,7 @@ func int Ninja_G1CP_InitWrapper(var int pos, var int endParam, var int revert) {
                 SB(" ms");
 
                 // Print to zSpy
-                MEM_SendToSpy(status, SB_ToString());
+                MEM_SendToSpy(((!status) || (status == 6)) + 2, SB_ToString()); // zERR_TYPE_WARN or zERR_TYPE_FAULT
 
                 // Clear the string
                 SB_Clear();
@@ -163,8 +167,12 @@ func int Ninja_G1CP_InitStart() {
         MEMINT_OFTokPar(zPAR_TOK_PUSHINT, FALSE);
 
         // Confirm the instructions that will happen after this function returns
-        if (MEM_ReadByte(pos) != zPAR_TOK_JUMPF) {
-            var string c; c = MEM_ReadStatStringArr(PARSER_TOKEN_NAMES, MEM_ReadByte(pos));
+        var int tok; tok = MEM_ReadByte(pos);
+        if (tok != zPAR_TOK_JUMPF) {
+            if (tok < 0) || (tok >= 246) {
+                tok = zPAR_TOK_PUSH_ARRAYVAR-1; // "[INVALID_TOKEN]"
+            };
+            var string c; c = MEM_ReadStatStringArr(PARSER_TOKEN_NAMES, tok);
             MEM_SendToSpy(zERR_TYPE_FATAL, ConcatStrings("Assertion failed: Ninja_G1CP_Menu is malformatted: ", c));
             return FALSE;
         };
