@@ -4,15 +4,11 @@ LeGo
 // Constants
 Content\constants.d
 
-// Loop-up table
-Content\Fixes\record.d
-
 // Misc files
 Content\version.d
 Content\misc.d
 Content\localization.d
 Content\menuVersionNumber.d
-Content\testsuite.d
 
 Content\Report\indent.d
 Content\Report\reportFuncToSpy.d
@@ -25,6 +21,10 @@ Content\Misc\topic.d
 Content\Misc\waypoint.d
 Content\Misc\world.d
 Content\Misc\npc.d
+
+// Fixes and tests
+Content\Fixes\record.d
+Content\testsuite.d
 
 // Session fixes
 Content\Fixes\Session\fix001_FixNpcSleep.d

@@ -6,7 +6,7 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
     if (Ninja_G1CP_InitStart()) {                             // Maximum fix function name length: 51 characters
         Ninja_G1CP_MenuVersionNumber();
         Ninja_G1CP_TestSuite();
-        Ninja_G1CP_AppliedInit();
+        Ninja_G1CP_FixStatusInit();
         Ninja_G1CP_HookGameSaveFixes();
         Ninja_G1CP_001_FixNpcSleep();                         // #1
         Ninja_G1CP_002_FixDoor();                             // #2
