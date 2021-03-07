@@ -1,4 +1,18 @@
 /*
+ * Copy of C_BodyStateContains to ensure it exists as expected
+ */
+func int Ninja_G1CP_BodyStateContains(var C_Npc slf, var int bodystate) {
+    // Define possibly missing symbols locally
+    const int BS_MAX                = 31;
+    const int BS_FLAG_INTERRUPTABLE = 32768;
+    const int BS_FLAG_FREEHANDS     = 65536;
+
+    const int mod = BS_MAX | BS_FLAG_INTERRUPTABLE | BS_FLAG_FREEHANDS;
+    return ((Npc_GetBodyState(slf) & mod) == (bodystate & mod));
+};
+
+
+/*
  * More versatile version of Npc_CanSee
  */
 func int Ninja_G1CP_Npc_CanSeeVob(var int npcPtr, var int vobPtr, var int withAngles) {

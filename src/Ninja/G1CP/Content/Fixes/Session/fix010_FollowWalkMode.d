@@ -6,7 +6,7 @@ func int Ninja_G1CP_010_FollowWalkMode() {
 
     if (MEM_FindParserSymbol("ZS_FollowPC_Loop")    != -1)
     && (MEM_FindParserSymbol("B_FollowPC_AssessSC") != -1)
-    && (Ninja_G1CP_IsMemAvail(AI_SetWalkMode_popped, "8B F8 83 C4 14")) {
+    && (Ninja_G1CP_CheckBytes(AI_SetWalkMode_popped, "8B F8 83 C4 14")) {
         HookDaedalusFuncS("ZS_FollowPC_Loop", "Ninja_G1CP_010_FollowWalkMode_Hook");
         HookDaedalusFuncS("B_FollowPC_AssessSC", "Ninja_G1CP_010_FollowWalkMode_AssessSCHook");
 

@@ -5,7 +5,7 @@ func int Ninja_G1CP_015_HoratioStrength() {
     const int PrintScreen_popped = 6630384; //0x652BF0
 
     if (MEM_FindParserSymbol("DIA_Horatio_HelpSTR_LEARN_NOW") != -1)
-    && (Ninja_G1CP_IsMemAvail(PrintScreen_popped, "8B 35 BC A6 8D 00")) {
+    && (Ninja_G1CP_CheckBytes(PrintScreen_popped, "8B 35 BC A6 8D 00")) {
         HookDaedalusFuncS("DIA_Horatio_HelpSTR_LEARN_NOW", "Ninja_G1CP_015_HoratioStrength_Hook");
         return TRUE;
     } else {
@@ -33,7 +33,7 @@ func void Ninja_G1CP_015_HoratioStrength_Hook() {
     Ninja_G1CP_015_HoratioStrength_StrBak = hero.attribute[ATR_STRENGTH];
 
     // Place hook to fix on-screen information
-    if (Ninja_G1CP_IsMemAvail(PrintScreen_popped, "8B 35 BC A6 8D 00")) {
+    if (Ninja_G1CP_CheckBytes(PrintScreen_popped, "8B 35 BC A6 8D 00")) {
         HookEngineF(PrintScreen_popped, 6, Ninja_G1CP_015_HoratioStrength_PrintFix);
     };
 

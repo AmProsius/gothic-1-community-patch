@@ -5,7 +5,7 @@
 /*
  * Compare bytes in memory (TRUE/FALSE) or check if hooked (-1)
  */
-func int Ninja_G1CP_IsMemAvail(var int addr, var string hex) {
+func int Ninja_G1CP_CheckBytes(var int addr, var string hex) {
     if (IsHooked(addr)) {
         return -1;
     };
@@ -36,15 +36,6 @@ func string Ninja_G1CP_LFill(var string str, var string fill, var int total) {
         str = ConcatStrings(fill, str);
     end;
     return str;
-};
-
-
-/*
- * Copy of C_BodyStateContains to ensure it exists as expected
- */
-func int Ninja_G1CP_BodyStateContains(var C_Npc slf, var int bodystate) {
-    const int mod = 31 | 32768 | 65536; // BS_MAX | BS_FLAG_INTERRUPTABLE | BS_FLAG_FREEHANDS
-    return ((Npc_GetBodyState(slf) & mod) == (bodystate & mod));
 };
 
 

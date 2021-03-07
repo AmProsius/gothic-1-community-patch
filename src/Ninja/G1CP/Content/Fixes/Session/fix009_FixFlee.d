@@ -5,7 +5,7 @@ func int Ninja_G1CP_009_FixFlee() {
     const int AI_Wait_popped = 6644536; //0x656338
 
     if (MEM_FindParserSymbol("ZS_Flee_Loop") != -1)
-    && (Ninja_G1CP_IsMemAvail(AI_Wait_popped, "8B F8 83 C4") == 1) {
+    && (Ninja_G1CP_CheckBytes(AI_Wait_popped, "8B F8 83 C4") == 1) {
         HookDaedalusFuncS("ZS_Flee_Loop", "Ninja_G1CP_009_FixFlee_Hook");
 
         MemoryProtectionOverride(AI_Wait_popped, 4);

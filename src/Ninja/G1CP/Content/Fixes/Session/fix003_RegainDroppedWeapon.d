@@ -14,9 +14,9 @@ func int Ninja_G1CP_003_RegainDroppedWeapon() {
     const int AI_EquipBestRangedWeapon_p = 6655079; //0x658C67
 
     if (MEM_FindParserSymbol("B_RegainDroppedWeapon") != -1)
-    && (Ninja_G1CP_IsMemAvail(AI_TakeItem_p,              "8B F8 83 C4") == 1) // 1 == cannot be hooked
-    && (Ninja_G1CP_IsMemAvail(AI_EquipBestMeleeWeapon_p,  "8B F8 83 C4") == 1)
-    && (Ninja_G1CP_IsMemAvail(AI_EquipBestRangedWeapon_p, "8B F8 83 C4") == 1) {
+    && (Ninja_G1CP_CheckBytes(AI_TakeItem_p,              "8B F8 83 C4") == 1) // 1 == cannot be hooked
+    && (Ninja_G1CP_CheckBytes(AI_EquipBestMeleeWeapon_p,  "8B F8 83 C4") == 1)
+    && (Ninja_G1CP_CheckBytes(AI_EquipBestRangedWeapon_p, "8B F8 83 C4") == 1) {
         HookDaedalusFuncS("B_RegainDroppedWeapon", "Ninja_G1CP_003_RegainDroppedWeapon_Hook");
 
         MemoryProtectionOverride(AI_TakeItem_p, 4);

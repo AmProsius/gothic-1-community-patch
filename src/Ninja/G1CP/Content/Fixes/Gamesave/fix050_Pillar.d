@@ -92,7 +92,7 @@ func void Ninja_G1CP_050_PillarMove(var int vobPtr, var int trfPtr) {
 func int Ninja_G1CP_050_Pillar() {
     // Before anything else, check if the memory was modified
     const int oCMobInter__StopInteraction_End = 6816979; //0x6804D3
-    if (!Ninja_G1CP_IsMemAvail(oCMobInter__StopInteraction_End, "8B 8C 24 8C 00 00 00")) {
+    if (!Ninja_G1CP_CheckBytes(oCMobInter__StopInteraction_End, "8B 8C 24 8C 00 00 00")) {
         return FALSE;
     };
 
@@ -166,7 +166,7 @@ func void Ninja_G1CP_050_Pillar_StateFunc_S1() {
 
     // Can't update the bounding box yet. Wait for complete stop
     const int oCMobInter__StopInteraction_End = 6816979; //0x6804D3
-    if (Ninja_G1CP_IsMemAvail(oCMobInter__StopInteraction_End, "8B 8C 24 8C 00 00 00")) {
+    if (Ninja_G1CP_CheckBytes(oCMobInter__StopInteraction_End, "8B 8C 24 8C 00 00 00")) {
         HookEngineF(oCMobInter__StopInteraction_End, 7, Ninja_G1CP_050_Pillar_FixBbox);
     };
 };

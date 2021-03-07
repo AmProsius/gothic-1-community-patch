@@ -4,7 +4,7 @@
 func int Ninja_G1CP_MenuVersionNumber() {
     const int zCMenu__ScreenInit_version = 5047863; //0x4D0637
 
-    if (Ninja_G1CP_IsMemAvail(zCMenu__ScreenInit_version, "6A 01 8D 4C 24 20")) {
+    if (Ninja_G1CP_CheckBytes(zCMenu__ScreenInit_version, "6A 01 8D 4C 24 20")) {
         HookEngineF(zCMenu__ScreenInit_version, 6, Ninja_G1CP_MenuVersionNumber_Hook);
         return TRUE;
     } else {

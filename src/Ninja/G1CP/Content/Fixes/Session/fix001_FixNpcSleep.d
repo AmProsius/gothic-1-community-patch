@@ -5,7 +5,7 @@ func int Ninja_G1CP_001_FixNpcSleep() {
     const int AI_StartState_popped = 6627839; //0x6521FF
 
     if (MEM_FindParserSymbol("ZS_SleepBed_Loop") != -1)
-    && (Ninja_G1CP_IsMemAvail(AI_StartState_popped, "8B E8 83 C4 14")) {
+    && (Ninja_G1CP_CheckBytes(AI_StartState_popped, "8B E8 83 C4 14")) {
         HookDaedalusFuncS("ZS_SleepBed_Loop", "Ninja_G1CP_001_FixNpcSleep_Hook");
 
         // Create empty hook (if there is a problem, rather fail now than later during the game)
