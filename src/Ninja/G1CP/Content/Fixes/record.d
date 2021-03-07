@@ -216,7 +216,7 @@ func string Ninja_G1CP_FixNameAll(var string _) {
     var int s; s = SB_New();
 
     MEM_Info("");
-    MEM_Info("All G1CP fixes with short names");
+    MEM_Info("All G1CP fixes listed with their short names");
     Ninja_G1CP_zSpyIndent("G1CP-FixNameAll", 1);
 
     repeat(i, MEM_ArraySize(Ninja_G1CP_FixNameAll_Sorted)); var int i;
@@ -264,4 +264,128 @@ func void Ninja_G1CP_FixNameAll_Sub(var int key, var int val) {
 func string Ninja_G1CP_FixNameCmd(var string command) {
     var int id; id = STR_ToInt(command);
     return Ninja_G1CP_GetFixShortName(id);
+};
+
+
+/*
+ * Read Gothic.ini and ModName.ini and retrieve list of disabled fixes. Only numerical characters are considered. Any
+ * non-numerical character denotes a delimiter, e.g. "11,#23 4,55abc7" renders the list [11, 23, 4, 55, 7].
+ *
+ * File reading order:
+ *
+ * 1. If found, the entry is read from the mod overrides. Only if there is no override, it is read from the Gothic.ini.
+ *    If neither is found, the entry is created in the Gothic.ini with the default values.
+ *
+ * 2. Afterwards the ModName.ini is consulted again for additional(!) fixes to disable on top of the previous list.
+ *
+ * In mathematical terms the final list is the union of the list from Gothic.ini (or override) and from the ModName.ini.
+ *
+ * This procedure allows to disable fixes globally for all mods (Gothic.ini: G1CP.disabled) and to additionally disable
+ * fixes on a mod-by-mod basis (ModName.ini: G1CP.disabled). In order to remove fixes from the global list for a
+ * specific mod, the override allows to fully replace the list of disabled fixes (ModName.ini OVERRIDES.G1CP.disabled).
+ *
+ * Example:
+ * With contents of the files as shown below, the final list will look like this: [5, 6, 7, 8, 9].
+ *
+ * Gothic.ini
+ *
+ *  [G1CP]
+ *  disabled = 1, 2, 3, 4
+ *
+ *
+ * ModNmae.ini
+ *
+ *  [OVERRIDES]
+ *  G1CP.disabled = 5, 6
+ *
+ *  [G1CP]
+ *  disabled = 7, 8, 9
+ *
+ */
+func int Ninja_G1CP_ReadDisabledFixesIni() {
+    // First load the basis of disabled fixes
+    var string base;
+    if (MEM_ModOptExists("OVERRIDES", "G1CP.disabled")) {
+        // Priority 1: Overrides from the mod
+        base = MEM_GetModOpt("OVERRIDES", "G1CP.disabled");
+    } else if (MEM_GothOptExists("G1CP", "disabled")) {
+        // Priority 2: Global setting
+        base = MEM_GetGothOpt("G1CP", "disabled");
+    } else {
+        base = "55";
+        MEM_SetGothOpt("G1CP", "disabled", base);
+    };
+
+    // Then add any that may be mod specific on top
+    var string add;
+    if (MEM_ModOptExists("G1CP", "disabled")) {
+        add = MEM_GetModOpt("G1CP", "disabled");
+    } else {
+        add = "";
+    };
+
+    // Create lookup table
+    if (!Ninja_G1CP_FixTable) {
+        Ninja_G1CP_FixTable = _HT_Create();
+    };
+
+    // Collect the disabled fixes temporarily
+    var int arr; arr = MEM_ArrayCreate();
+
+    // Add a final delimiter
+    base = ConcatStrings(base, " ");
+    add = ConcatStrings(add, " ");
+
+    // Check "base" first, then check "add"
+    var zString zStr; zStr = _^(_@s(base));
+    repeat(i, 2); var int i;
+        var int buffer; buffer = 0;
+        var int bufferLen; bufferLen = 0;
+
+        // Iterate character-by-character
+        repeat(j, zStr.len); var int j;
+            var int chr; chr = MEM_ReadByte(zStr.ptr+j) - 48;
+            if (chr < 0) || (9 < chr) {
+                // Split at any non-numerical character
+                if (bufferLen > 0) {
+                    // Check if valid fix ID
+                    if (!Hlp_StrCmp(Ninja_G1CP_GetFixShortName(buffer), "")) {
+                        MEM_ArrayInsert(arr, buffer);
+                        _HT_InsertOrChange(Ninja_G1CP_FixTable, Ninja_G1CP_FIX_DISABLED, buffer);
+                    };
+                    bufferLen = 0;
+                    buffer = 0;
+                };
+            } else {
+                buffer *= 10;
+                buffer += chr;
+                bufferLen += 1;
+            };
+        end;
+
+        // Repeat for mod additions
+        zStr = _^(_@s(add));
+    end;
+
+    // Report disabled fixes (unique and ordered)
+    if (MEM_ArraySize(arr)) {
+        MEM_ArraySort(arr);
+        MEM_ArrayUnique(arr);
+
+        var int so; so = SB_Get();
+        if (SB_New()) {
+            SB("Disabled fixes");
+            repeat(i, MEM_ArraySize(arr));
+                SB(" #");
+                SBi(MEM_ArrayRead(arr, i));
+            end;
+            MEM_Info(SB_ToString());
+            SB_Destroy();
+        };
+        SB_Use(so);
+    };
+    MEM_ArrayFree(arr);
+
+    // Needs return value
+    return TRUE;
 };
