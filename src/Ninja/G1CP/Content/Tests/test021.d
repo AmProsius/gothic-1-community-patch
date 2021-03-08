@@ -10,6 +10,7 @@ func int Ninja_G1CP_Test_021() {
     const int GIL_NONE    = 0;
     const int LOG_MISSION = 0;
     const int LOG_RUNNING = 1;
+    const int LOG_SUCCESS = 2;
 
     // Check status of the test
     var int passed; passed = TRUE;

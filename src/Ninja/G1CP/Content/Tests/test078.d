@@ -128,6 +128,9 @@ func int  ZS_Ninja_G1CP_Test_078_NpcRountine_Loop() {
     return 0;
 };
 func void ZS_Ninja_G1CP_Test_078_NpcRountine_End() {
+    // Define possibly missing symbols locally
+    const int ATR_STRENGTH = 4;
+
     // Delete the NPCs once done
     MEM_WriteInt(_@(self.bodymass)+8, 0); // Clear start_aistate
     AI_Function_I(hero, Wld_RemoveNpc, Ninja_G1CP_Test_078_Npc);

@@ -47,8 +47,8 @@ func string Ninja_G1CP_GetFixShortName(var int id) {
     prefix = ConcatStrings(prefix, "_");
 
     // Get symbol indices of the called functions within the initialization functions
-    const int funcCalls = -1;
-    if (funcCalls == -1) {
+    const int funcCalls = 0;
+    if (!funcCalls) {
         funcCalls = MEM_ArrayCreate();
         var int dump; dump = MEM_ArrayCreate();
         MEMINT_TokenizeFunction(MEM_GetFuncID(Ninja_G1CP_Menu), dump, funcCalls, dump);
