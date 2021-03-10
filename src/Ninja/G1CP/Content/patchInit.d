@@ -71,6 +71,7 @@ func void Ninja_G1CP_Init() {
     LeGo_MergeFlags(LeGo_ConsoleCommands | LeGo_AI_Function);
 
     // Re-initialize game save fixes
-    Ninja_G1CP_GamesaveFixes_Apply();
-
+    if (IsHookF(oCSavegameManager__SetAndWriteSavegame, Ninja_G1CP_GamesaveFixes_Apply)) {
+        Ninja_G1CP_GamesaveFixes_Apply();
+    };
 };
