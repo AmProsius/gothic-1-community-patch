@@ -354,9 +354,9 @@ func int G1CP_ReadDisabledFixesIni() {
         add = "";
     };
 
-    // Create lookup table
+    // Abort if lookup table was not initialized
     if (!G1CP_FixTable) {
-        G1CP_FixTable = _HT_Create();
+        return FALSE;
     };
 
     // Collect the disabled fixes temporarily
@@ -379,9 +379,9 @@ func int G1CP_ReadDisabledFixesIni() {
                 // Split at any non-numerical character
                 if (bufferLen > 0) {
                     // Check if valid fix ID
-                    if (!Hlp_StrCmp(G1CP_GetFixShortName(buffer), "")) {
+                    if (_HT_Has(G1CP_FixTable, buffer)) {
                         MEM_ArrayInsert(arr, buffer);
-                        _HT_InsertOrChange(G1CP_FixTable, G1CP_FIX_DISABLED, buffer);
+                        _HT_Change(G1CP_FixTable, G1CP_FIX_DISABLED, buffer);
                     };
                     bufferLen = 0;
                     buffer = 0;
