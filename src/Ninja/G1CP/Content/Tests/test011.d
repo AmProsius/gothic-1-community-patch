@@ -5,8 +5,8 @@
  *
  * Expected behavior: Guards will now no longer react to drawing a weapon if the player has no access to enter.
  */
-func void Ninja_G1CP_Test_011() {
-    if (Ninja_G1CP_TestsuiteAllowManual) {
+func void G1CP_Test_011() {
+    if (G1CP_TestsuiteAllowManual) {
         // Supply a weapon
         if (!Npc_HasEquippedWeapon(hero))
         && (!Npc_HasReadiedWeapon(hero)) {

@@ -6,8 +6,8 @@
  *
  * Expected behavior: Cavalorn will be sleeping in his bed at night time and stand by the camp fire during day time.
  */
-func void Ninja_G1CP_Test_122() {
-    if (Ninja_G1CP_TestsuiteAllowManual) {
+func void G1CP_Test_122() {
+    if (G1CP_TestsuiteAllowManual) {
         // Set the time
         const int night = 0;
         night = !night;

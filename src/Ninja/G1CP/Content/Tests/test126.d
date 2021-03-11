@@ -5,8 +5,8 @@
  *
  * Expected behavior: Sharky will not open the trade menu when talking about Fisk's quest.
  */
-func void Ninja_G1CP_Test_126() {
-    if (!Ninja_G1CP_TestsuiteAllowManual) {
+func void G1CP_Test_126() {
+    if (!G1CP_TestsuiteAllowManual) {
         return;
     };
 
@@ -19,14 +19,14 @@ func void Ninja_G1CP_Test_126() {
     // Check if the dialog exists
     var int funcId; funcId = MEM_FindParserSymbol("Org_843_Sharky_Fisk");
     if (funcId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("Info 'Org_843_Sharky_Fisk' not found");
+        G1CP_TestsuiteErrorDetail("Info 'Org_843_Sharky_Fisk' not found");
         passed = FALSE;
     };
 
     // Check if variable exists
     var int questPtr; questPtr = MEM_GetSymbol("Fisk_GetNewHehler");
     if (!questPtr) {
-        Ninja_G1CP_TestsuiteErrorDetail("Variable 'Fisk_GetNewHehler' not found");
+        G1CP_TestsuiteErrorDetail("Variable 'Fisk_GetNewHehler' not found");
         passed = FALSE;
     };
     questPtr += zCParSymbol_content_offset;
@@ -34,14 +34,14 @@ func void Ninja_G1CP_Test_126() {
     // Find Sharky
     var int symbId; symbId = MEM_FindParserSymbol("Org_843_Sharky");
     if (symbId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("NPC 'Org_843_Sharky' not found");
+        G1CP_TestsuiteErrorDetail("NPC 'Org_843_Sharky' not found");
         return;
     };
 
     // Check if Sharky exists in the world
     var C_Npc sharky; sharky = Hlp_GetNpc(symbId);
     if (!Hlp_IsValidNpc(sharky)) {
-        Ninja_G1CP_TestsuiteErrorDetail("NPC 'Org_843_Sharky' not valid");
+        G1CP_TestsuiteErrorDetail("NPC 'Org_843_Sharky' not valid");
         passed = FALSE;
     };
 
@@ -52,7 +52,7 @@ func void Ninja_G1CP_Test_126() {
 
     // Enable the dialog by setting the quest marker to running
     MEM_WriteInt(questPtr, LOG_RUNNING);
-    Ninja_G1CP_SetInfoTold("Org_843_Sharky_Fisk", FALSE);
+    G1CP_SetInfoTold("Org_843_Sharky_Fisk", FALSE);
 
     // Teleport the hero to Sharky
     AI_Teleport(hero, sharky.wp);

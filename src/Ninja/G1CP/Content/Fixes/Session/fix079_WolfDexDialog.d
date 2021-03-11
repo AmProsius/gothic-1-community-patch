@@ -1,7 +1,7 @@
 /*
  * #79 Wolf teaches guards dexterity instead of bandits/mercs
  */
-func int Ninja_G1CP_079_WolfDexDialog() {
+func int G1CP_079_WolfDexDialog() {
     var int applied; applied = FALSE;
 
     // Find all necessary symbols

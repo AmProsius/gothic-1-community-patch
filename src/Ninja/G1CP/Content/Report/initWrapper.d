@@ -6,14 +6,14 @@
  * This function wraps consecutive function calls to intercept their return value. It is used to create a record of all
  * fixes that were applied/not applied without overloading the init functions with if-conditions on every function call.
  */
-func int Ninja_G1CP_InitWrapper(var int pos, var int endParam, var int revert) {
+func int G1CP_InitWrapper(var int pos, var int endParam, var int revert) {
     // Hijack the caller function: We wrap around any function calls the caller function makes and then jump back
     var int tok; tok = MEM_ReadByte(pos); pos += 1;
     var int param; param = MEM_ReadInt(pos); pos += 4;
     var int so; so = SB_Get();
     var int s; s = SB_New();
 
-    Ninja_G1CP_zSpyIndent("G1CP-init", 1);
+    G1CP_zSpyIndent("G1CP-init", 1);
 
     while((tok == zPAR_TOK_CALL) && (param != endParam));
         // Get function that's called next
@@ -22,25 +22,25 @@ func int Ninja_G1CP_InitWrapper(var int pos, var int endParam, var int revert) {
         // Some initial checks on the function and its name
         if (funcId > 0) && (funcId < currSymbolTableLength) {
             var zCPar_Symbol symb; symb = _^(MEM_GetSymbolByIndex(funcId));
-            if (STR_StartsWith(symb.name, "NINJA_G1CP_"))
+            if (STR_StartsWith(symb.name, "G1CP_"))
             && (symb.offset == (zPAR_TYPE_INT>>12)) {
                 var int prevStatus;
                 var int success;
                 var int time;
                 var int id; // Issue number
-                var int namePtr; namePtr = STR_ToChar(symb.name)+11;
+                var int namePtr; namePtr = STR_ToChar(symb.name)+5;
 
                 // Check if it is a fix initialization function (leading digits)
                 var int chr; chr = MEM_ReadByte(namePtr);
                 if (47 < chr) && (chr < 58) {
-                    id = STR_ToInt(STR_SubStr(symb.name, 11, 3));
+                    id = STR_ToInt(STR_SubStr(symb.name, 5, 3));
                 } else {
                     id = 0;
                 };
 
                 // Issue number
                 if (id) {
-                    SB(Ninja_G1CP_LFill(ConcatStrings("#", IntToString(id)), " ", 4));
+                    SB(G1CP_LFill(ConcatStrings("#", IntToString(id)), " ", 4));
                     SB(" ");
                 } else {
                     SB("     ");
@@ -48,10 +48,10 @@ func int Ninja_G1CP_InitWrapper(var int pos, var int endParam, var int revert) {
 
                 // Function name
                 SB(STR_FromChar(namePtr + 4*(id>0)));
-                SB(Ninja_G1CP_LFill("", " ", 42-SB_Length()));
+                SB(G1CP_LFill("", " ", 42-SB_Length()));
 
                 // Only execute non-disabled fixes
-                var int disabled; disabled = (Ninja_G1CP_FixStatus(id) == Ninja_G1CP_FIX_DISABLED);
+                var int disabled; disabled = (G1CP_FixStatus(id) == G1CP_FIX_DISABLED);
                 if (disabled) {
                     prevStatus = FALSE;
                     success = FALSE;
@@ -61,16 +61,16 @@ func int Ninja_G1CP_InitWrapper(var int pos, var int endParam, var int revert) {
                     time = MEM_GetSystemTime();
 
                     // Call the function
-                    Ninja_G1CP_zSpyIndent(symb.name, 3);
+                    G1CP_zSpyIndent(symb.name, 3);
                     MEM_CallByOffset(param);
-                    Ninja_G1CP_zSpyIndent(symb.name, -3);
+                    G1CP_zSpyIndent(symb.name, -3);
 
                     // Update the time
                     time = MEM_GetSystemTime() - time;
 
                     // Return value
                     success = !!MEM_PopIntResult();
-                    prevStatus = Ninja_G1CP_IsFixApplied(id);
+                    prevStatus = G1CP_IsFixApplied(id);
 
                     // Make sure to re-active the string builder
                     SB_Use(s);
@@ -95,11 +95,11 @@ func int Ninja_G1CP_InitWrapper(var int pos, var int endParam, var int revert) {
                 // Update fix table
                 if (id) && (!disabled) {
                     var int newState; newState = ((0 < status) && (status < 4)) || (status == 6);
-                    _HT_InsertOrChange(Ninja_G1CP_FixTable, newState, id);
+                    _HT_InsertOrChange(G1CP_FixTable, newState, id);
                 };
 
                 // Append duration
-                SB(Ninja_G1CP_LFill(IntToString(time), " ", 6));
+                SB(G1CP_LFill(IntToString(time), " ", 6));
                 SB(" ms");
 
                 // Print to zSpy
@@ -123,7 +123,7 @@ func int Ninja_G1CP_InitWrapper(var int pos, var int endParam, var int revert) {
     SB_Destroy();
     SB_Use(so);
 
-    Ninja_G1CP_zSpyIndent("G1CP-init", -1);
+    G1CP_zSpyIndent("G1CP-init", -1);
 
     // Return the position after the last executed function
     return pos-5;
@@ -133,7 +133,7 @@ func int Ninja_G1CP_InitWrapper(var int pos, var int endParam, var int revert) {
 /*
  * Record the initialization process and record any failures
  */
-func int Ninja_G1CP_InitStart() {
+func int G1CP_InitStart() {
     // Here is where Ikarus is initialized the very first time
     MEM_InitAll();
 
@@ -144,9 +144,9 @@ func int Ninja_G1CP_InitStart() {
     const int initEndOffset = 0;
     if (!sessioninit) {
         sessioninit   = MEM_GetFuncID(Ninja_G1CP_Menu);
-        gameinit      = MEM_GetFuncID(Ninja_G1CP_GamesaveFixes_Apply);
-        gamerevert    = MEM_GetFuncID(Ninja_G1CP_GamesaveFixes_Revert);
-        initEndOffset = MEM_GetFuncOffset(Ninja_G1CP_InitEnd);
+        gameinit      = MEM_GetFuncID(G1CP_GamesaveFixes_Apply);
+        gamerevert    = MEM_GetFuncID(G1CP_GamesaveFixes_Revert);
+        initEndOffset = MEM_GetFuncOffset(G1CP_InitEnd);
     };
 
     // Measure the time
@@ -178,7 +178,7 @@ func int Ninja_G1CP_InitStart() {
         pos += 5;
 
         // Run first time initialization
-        Ninja_G1CP_InitOnce();
+        G1CP_InitOnce();
 
     } else if (callerId == gameinit) {
         action = "Initializing ";
@@ -187,41 +187,41 @@ func int Ninja_G1CP_InitStart() {
         action = "Reverting ";
         revert = TRUE;
     } else {
-        MEM_SendToSpy(zERR_TYPE_FATAL, "Ninja_G1CP_GameSaveInit_Start was called in wrong context");
+        MEM_SendToSpy(zERR_TYPE_FATAL, "G1CP_GameSaveInit_Start was called in wrong context");
         return FALSE;
     };
 
     // Setup hash table
-    if (!Ninja_G1CP_FixTable) {
-        Ninja_G1CP_FixTable = _HT_Create();
+    if (!G1CP_FixTable) {
+        G1CP_FixTable = _HT_Create();
     };
 
     // Mark the start
-    action = ConcatStrings(action, Ninja_G1CP_GetVersionString(TRUE, FALSE, FALSE));
+    action = ConcatStrings(action, G1CP_GetVersionString(TRUE, FALSE, FALSE));
     MEM_Info("");
     MEM_Info(action);
 
     // Wrap all function calls
-    pos = Ninja_G1CP_InitWrapper(pos, initEndOffset, revert);
+    pos = G1CP_InitWrapper(pos, initEndOffset, revert);
 
     // Integrity check
     if (MEM_ReadInt(pos+1) != initEndOffset) {
-        MEM_SendToSpy(zERR_TYPE_FATAL, "Assertion failed: Ninja_G1CP_GameSaveInit_End expected");
+        MEM_SendToSpy(zERR_TYPE_FATAL, "Assertion failed: G1CP_GameSaveInit_End expected");
         return FALSE;
     };
 
-    // Jump beyond all the function calls to Ninja_G1CP_InitEnd
+    // Jump beyond all the function calls to G1CP_InitEnd
     MEM_PushIntParam(time);
     MEM_PushStringParam(action);
     MEM_SetCallerStackPos(pos-currParserStackAddress);
 };
-func void Ninja_G1CP_InitEnd() {
+func void G1CP_InitEnd() {
     var string prefix; prefix = MEM_PopStringResult();
     var int time; time = MEM_PopIntResult();
 
     // Mark the end
     var string msg; msg = ConcatStrings(prefix, " complete");
-    msg = ConcatStrings(msg, Ninja_G1CP_LFill(IntToString(MEM_GetSystemTime() - time), " ", 62 - STR_Len(msg) + 4));
+    msg = ConcatStrings(msg, G1CP_LFill(IntToString(MEM_GetSystemTime() - time), " ", 62 - STR_Len(msg) + 4));
     msg = ConcatStrings(msg, " ms");
     MEM_Info(msg);
     MEM_Info("");

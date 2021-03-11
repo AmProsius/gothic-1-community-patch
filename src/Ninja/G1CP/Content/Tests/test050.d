@@ -5,8 +5,8 @@
  *
  * Expected behavior: The pillar falls in the correct direction and has collision to be able to walk over the cliff.
  */
-func void Ninja_G1CP_Test_050() {
-    if (Ninja_G1CP_TestsuiteAllowManual) {
+func void G1CP_Test_050() {
+    if (G1CP_TestsuiteAllowManual) {
         // Check if pillar is found
         var int vobPtr; vobPtr = MEM_SearchVobByName("MOBSISEULE");
         if (vobPtr) {
@@ -30,7 +30,7 @@ func void Ninja_G1CP_Test_050() {
                 call = CALL_End();
             };
         } else {
-            Ninja_G1CP_TestsuiteErrorDetail("VOB 'MOBSISEULE' not found");
+            G1CP_TestsuiteErrorDetail("VOB 'MOBSISEULE' not found");
         };
     };
 };

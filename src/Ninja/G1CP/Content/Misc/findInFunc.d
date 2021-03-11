@@ -2,7 +2,7 @@
  * Find matching byte code in a function (multiple times)
  * Comparison happens starting from each token. Any search needs to start with a token byte (e.g. zPAR_TOK_PUSHVAR)
  */
-func int Ninja_G1CP_FindInFunc(var int funcId, var int needle, var int byteCount) {
+func int G1CP_FindInFunc(var int funcId, var int needle, var int byteCount) {
     // Make sure all exist
     if (funcId < 0) || (funcId >= currSymbolTableLength)
     || (!needle) {
@@ -40,7 +40,7 @@ func int Ninja_G1CP_FindInFunc(var int funcId, var int needle, var int byteCount
  * Replace any function calls within a function with a call to another
  * The function returns the number of replacements
  */
-func int Ninja_G1CP_ReplaceCallInFunc(var int funcId, var int needleCallId, var int replaceCallId) {
+func int G1CP_ReplaceCallInFunc(var int funcId, var int needleCallId, var int replaceCallId) {
     // Make sure all exist
     if (funcId < 0)        || (funcId >= currSymbolTableLength)
     || (needleCallId < 0)  || (needleCallId >= currSymbolTableLength)
@@ -71,7 +71,7 @@ func int Ninja_G1CP_ReplaceCallInFunc(var int funcId, var int needleCallId, var 
     };
 
     // Find function calls
-    var int matches; matches = Ninja_G1CP_FindInFunc(funcId, _@(word)+3, 5);
+    var int matches; matches = G1CP_FindInFunc(funcId, _@(word)+3, 5);
 
     // Safety first
     if (!matches) {

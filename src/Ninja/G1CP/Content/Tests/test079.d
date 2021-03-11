@@ -5,7 +5,7 @@
  *
  * Expected behavior: The condition function will return FALSE for the first and TRUE for the second pass.
  */
-func int Ninja_G1CP_Test_079() {
+func int G1CP_Test_079() {
     var int symbPtr;
     var int GIL_GRD;
     var int GIL_ORG;
@@ -16,14 +16,14 @@ func int Ninja_G1CP_Test_079() {
     // Check if the dialog exists
     var int funcId; funcId = MEM_FindParserSymbol("ORG_855_Wolf_Teach_Condition");
     if (funcId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("Dialog condition 'ORG_855_Wolf_Teach_Condition' not found");
+        G1CP_TestsuiteErrorDetail("Dialog condition 'ORG_855_Wolf_Teach_Condition' not found");
         passed = FALSE;
     };
 
     // Check if guild exists
     symbPtr = MEM_GetSymbol("GIL_GRD");
     if (!symbPtr) {
-        Ninja_G1CP_TestsuiteErrorDetail("Symbol 'GIL_GRD' not found");
+        G1CP_TestsuiteErrorDetail("Symbol 'GIL_GRD' not found");
         passed = FALSE;
     } else {
         GIL_GRD = MEM_ReadInt(symbPtr + zCParSymbol_content_offset);
@@ -32,7 +32,7 @@ func int Ninja_G1CP_Test_079() {
     // Check if guild exists
     symbPtr = MEM_GetSymbol("GIL_ORG");
     if (!symbPtr) {
-        Ninja_G1CP_TestsuiteErrorDetail("Symbol 'GIL_ORG' not found");
+        G1CP_TestsuiteErrorDetail("Symbol 'GIL_ORG' not found");
         passed = FALSE;
     } else {
         GIL_ORG = MEM_ReadInt(symbPtr + zCParSymbol_content_offset);
@@ -65,7 +65,7 @@ func int Ninja_G1CP_Test_079() {
     MEM_CallByID(funcId);
     ret1 = MEM_PopIntResult();
     if (ret1) {
-        Ninja_G1CP_TestsuiteErrorDetail("Dialog condition returned true for GIL_GRD");
+        G1CP_TestsuiteErrorDetail("Dialog condition returned true for GIL_GRD");
     };
 
     // Second pass
@@ -76,7 +76,7 @@ func int Ninja_G1CP_Test_079() {
     MEM_CallByID(funcId);
     ret2 = MEM_PopIntResult();
     if (!ret2) {
-        Ninja_G1CP_TestsuiteErrorDetail("Dialog condition returned false for GIL_ORG");
+        G1CP_TestsuiteErrorDetail("Dialog condition returned false for GIL_ORG");
     };
 
     // Restore values

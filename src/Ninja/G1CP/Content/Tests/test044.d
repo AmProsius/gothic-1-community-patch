@@ -5,14 +5,14 @@
  *
  * Expected behavior: The item will have the correct mainflag
  */
-func int Ninja_G1CP_Test_044() {
+func int G1CP_Test_044() {
     // Define possibly missing symbols locally
     const int ITEM_KAT_FOOD = 1 << 5;
 
     // Check if item exists
     var int symbId; symbId = MEM_FindParserSymbol("ItAt_Meatbug_01");
     if (symbId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("Item 'ItAt_Meatbug_01' not found");
+        G1CP_TestsuiteErrorDetail("Item 'ItAt_Meatbug_01' not found");
         return FALSE;
     };
 
@@ -24,11 +24,11 @@ func int Ninja_G1CP_Test_044() {
             var string msg; msg = "Category incorrect: mainflag = '";
             msg = ConcatStrings(msg, IntToString(item.mainflag));
             msg = ConcatStrings(msg, "'");
-            Ninja_G1CP_TestsuiteErrorDetail(msg);
+            G1CP_TestsuiteErrorDetail(msg);
             return FALSE;
         };
     } else {
-        Ninja_G1CP_TestsuiteErrorDetail("Item 'ItAt_Meatbug_01' could not be created");
+        G1CP_TestsuiteErrorDetail("Item 'ItAt_Meatbug_01' could not be created");
         return FALSE;
     };
 };

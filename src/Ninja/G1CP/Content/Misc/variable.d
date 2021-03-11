@@ -1,7 +1,7 @@
 /*
  * Check if integer symbol exists and return its value
  */
-func int Ninja_G1CP_GetIntVar(var string name, var int ele, var int dflt) {
+func int G1CP_GetIntVar(var string name, var int ele, var int dflt) {
     // Check if variable exists
     var int symbPtr; symbPtr = MEM_GetSymbol(name);
     if (!symbPtr) {
@@ -30,7 +30,7 @@ func int Ninja_G1CP_GetIntVar(var string name, var int ele, var int dflt) {
 /*
  * Check if string symbol exists and return its value
  */
-func string Ninja_G1CP_GetStringVar(var string name, var int ele, var string dflt) {
+func string G1CP_GetStringVar(var string name, var int ele, var string dflt) {
     // Check if variable exists
     var int symbPtr; symbPtr = MEM_GetSymbol(name);
     if (!symbPtr) {
@@ -66,14 +66,14 @@ func string Ninja_G1CP_GetStringVar(var string name, var int ele, var string dfl
 /*
  * Safe way to obtain the content of an AI-variable
  */
-func int Ninja_G1CP_GetAIVar(var C_Npc slf, var string AIVarName, var int dflt) {
+func int G1CP_GetAIVar(var C_Npc slf, var string AIVarName, var int dflt) {
     // Check if NPC exists
     if (!Hlp_IsValidNpc(slf)) {
         return dflt;
     };
 
     // Check if AI variable exists
-    var int idx; idx = Ninja_G1CP_GetIntVar(AIVarName, 0, -1);
+    var int idx; idx = G1CP_GetIntVar(AIVarName, 0, -1);
     if (idx == -1) {
         return dflt;
     };
@@ -81,22 +81,22 @@ func int Ninja_G1CP_GetAIVar(var C_Npc slf, var string AIVarName, var int dflt) 
     // Read AI-variable
     return MEM_ReadStatArr(slf.aivar, idx);
 };
-func int Ninja_G1CP_IdGetAIVar(var int npcInstance, var string AIVarName, var int dflt) {
+func int G1CP_IdGetAIVar(var int npcInstance, var string AIVarName, var int dflt) {
     var C_Npc slf; slf = Hlp_GetNpc(npcInstance);
-    return Ninja_G1CP_GetAIVar(slf, AIVarName, dflt);
+    return G1CP_GetAIVar(slf, AIVarName, dflt);
 };
 
 /*
  * Safe way to set the content of an AI-variable
  */
-func void Ninja_G1CP_SetAIVar(var C_Npc slf, var string AIVarName, var int value) {
+func void G1CP_SetAIVar(var C_Npc slf, var string AIVarName, var int value) {
     // Check if NPC exists
     if (!Hlp_IsValidNpc(slf)) {
         return;
     };
 
     // Check if AI variable exists
-    var int idx; idx = Ninja_G1CP_GetIntVar(AIVarName, 0, -1);
+    var int idx; idx = G1CP_GetIntVar(AIVarName, 0, -1);
     if (idx == -1) {
         return;
     };
@@ -104,7 +104,7 @@ func void Ninja_G1CP_SetAIVar(var C_Npc slf, var string AIVarName, var int value
     // Write AI-variable
     MEM_WriteStatArr(slf.aivar, idx, value);
 };
-func void Ninja_G1CP_IdSetAIVar(var int npcInstance, var string AIVarName, var int value) {
+func void G1CP_IdSetAIVar(var int npcInstance, var string AIVarName, var int value) {
     var C_Npc slf; slf = Hlp_GetNpc(npcInstance);
-    Ninja_G1CP_SetAIVar(slf, AIVarName, value);
+    G1CP_SetAIVar(slf, AIVarName, value);
 };

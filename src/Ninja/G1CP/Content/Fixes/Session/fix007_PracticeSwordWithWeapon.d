@@ -1,9 +1,9 @@
 /*
  * #7 NPCs practice sword training without a weapon
  */
-func int Ninja_G1CP_007_PracticeSwordWithWeapon() {
+func int G1CP_007_PracticeSwordWithWeapon() {
     if (MEM_FindParserSymbol("ZS_PracticeSword_Loop") != -1) {
-        HookDaedalusFuncS("ZS_PracticeSword_Loop", "Ninja_G1CP_007_PracticeSwordWithWeapon_Hook");
+        HookDaedalusFuncS("ZS_PracticeSword_Loop", "G1CP_007_PracticeSwordWithWeapon_Hook");
         return TRUE;
     } else {
         return FALSE;
@@ -13,8 +13,8 @@ func int Ninja_G1CP_007_PracticeSwordWithWeapon() {
 /*
  * This function intercepts the state loop to draw a weapon if non is readied
  */
-func void Ninja_G1CP_007_PracticeSwordWithWeapon_Hook() {
-    Ninja_G1CP_ReportFuncToSpy();
+func void G1CP_007_PracticeSwordWithWeapon_Hook() {
+    G1CP_ReportFuncToSpy();
 
     // Define possibly missing symbols locally
     const int INV_WEAPON  = 1;
@@ -42,7 +42,7 @@ func void Ninja_G1CP_007_PracticeSwordWithWeapon_Hook() {
                 Npc_GetInvItemBySlot(self, INV_WEAPON, slot);
                 if (Hlp_IsValidItem(item)) {
                     if (item.mainflag == ITEM_KAT_NF) {
-                        EquipWeapon(self, Hlp_GetInstanceID(item));  // Equip this exact weapon in particular
+                        EquipWeapon(self, Hlp_GetInstanceID(item)); // Equip this exact weapon in particular
                         AI_RemoveWeapon(self); // In case of fist mode
                         AI_DrawWeapon(self);
                         success = 1;

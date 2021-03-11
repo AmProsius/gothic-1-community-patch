@@ -5,18 +5,18 @@
  *
  * Expected behavior: The item will have the correct value
  */
-func int Ninja_G1CP_Test_157() {
+func int G1CP_Test_157() {
     // Check if item exists
     var int symbId; symbId = MEM_FindParserSymbol("ItFo_Potion_Haste_02");
     if (symbId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("Item 'ItFo_Potion_Haste_02' not found");
+        G1CP_TestsuiteErrorDetail("Item 'ItFo_Potion_Haste_02' not found");
         return FALSE;
     };
 
     // Check if variable exists
     var int symbPtr; symbPtr = MEM_GetSymbol("Value_Haste2");
     if (!symbPtr) {
-        Ninja_G1CP_TestsuiteErrorDetail("Variable 'Value_Haste2' not found");
+        G1CP_TestsuiteErrorDetail("Variable 'Value_Haste2' not found");
         return FALSE;
     };
     var int Value_Haste2; Value_Haste2 = MEM_ReadInt(symbPtr + zCParSymbol_content_offset);
@@ -29,11 +29,11 @@ func int Ninja_G1CP_Test_157() {
             var string msg; msg = "Category incorrect: value = '";
             msg = ConcatStrings(msg, IntToString(item.value));
             msg = ConcatStrings(msg, "'");
-            Ninja_G1CP_TestsuiteErrorDetail(msg);
+            G1CP_TestsuiteErrorDetail(msg);
             return FALSE;
         };
     } else {
-        Ninja_G1CP_TestsuiteErrorDetail("Item 'ItFo_Potion_Haste_02' could not be created");
+        G1CP_TestsuiteErrorDetail("Item 'ItFo_Potion_Haste_02' could not be created");
         return FALSE;
     };
 };

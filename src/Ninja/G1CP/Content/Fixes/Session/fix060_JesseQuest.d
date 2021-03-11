@@ -1,7 +1,7 @@
 /*
  * #60 Jesse's quest not available
  */
-func int Ninja_G1CP_060_JesseQuest() {
+func int G1CP_060_JesseQuest() {
     var int applied; applied = FALSE;
 
     // Find all necessary symbols

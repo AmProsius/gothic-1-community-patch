@@ -1,7 +1,7 @@
 /*
  * Get info in a safe way (instance might not be initialized!)
  */
-func int Ninja_G1CP_GetInfo(var string infoName) {
+func int G1CP_GetInfo(var string infoName) {
     MEM_InitGlobalInst();
 
     var int symbId; symbId = MEM_FindParserSymbol(infoName);
@@ -24,8 +24,8 @@ func int Ninja_G1CP_GetInfo(var string infoName) {
 /*
  * Function to set the told status of infos
  */
-func void Ninja_G1CP_SetInfoTold(var string infoName, var int isTold) {
-    var int ptr; ptr = Ninja_G1CP_GetInfo(infoName);
+func void G1CP_SetInfoTold(var string infoName, var int isTold) {
+    var int ptr; ptr = G1CP_GetInfo(infoName);
     if (ptr) {
         var oCInfo info; info = _^(ptr);
         info.told = !!isTold;

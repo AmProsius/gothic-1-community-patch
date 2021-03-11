@@ -1,10 +1,10 @@
 /*
  * #38 Snaf's Nek dialog disappears
  */
-func int Ninja_G1CP_038_SnafDialogNek() {
+func int G1CP_038_SnafDialogNek() {
     if (MEM_FindParserSymbol("DIA_Snaf_WhereNek_Condition") != -1)
     && (MEM_FindParserSymbol("Snaf_Zutaten") != -1) {
-        HookDaedalusFuncS("DIA_Snaf_WhereNek_Condition", "Ninja_G1CP_038_SnafDialogNek_Hook");
+        HookDaedalusFuncS("DIA_Snaf_WhereNek_Condition", "G1CP_038_SnafDialogNek_Hook");
         return TRUE;
     } else {
         return FALSE;
@@ -14,8 +14,8 @@ func int Ninja_G1CP_038_SnafDialogNek() {
 /*
  * This function intercepts the dialog condition to introduce more conditions
  */
-func int Ninja_G1CP_038_SnafDialogNek_Hook() {
-    Ninja_G1CP_ReportFuncToSpy();
+func int G1CP_038_SnafDialogNek_Hook() {
+    G1CP_ReportFuncToSpy();
 
     // Define possibly missing symbols locally
     const int LOG_RUNNING = 1;

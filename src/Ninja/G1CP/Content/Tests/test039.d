@@ -5,8 +5,8 @@
  *
  * Expected behavior: The hero is merely teleported to Fletcher, the available dialog choices should match the skills.
  */
-func void Ninja_G1CP_Test_039() {
-    if (!Ninja_G1CP_TestsuiteAllowManual) {
+func void G1CP_Test_039() {
+    if (!G1CP_TestsuiteAllowManual) {
         return;
     };
 
@@ -16,28 +16,28 @@ func void Ninja_G1CP_Test_039() {
     // Check if dialog exists
     var int funcId; funcId = MEM_FindParserSymbol("DIA_Fingers_Lehrer_Info");
     if (funcId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("Dialog function 'DIA_Fingers_Lehrer_Info' not found");
+        G1CP_TestsuiteErrorDetail("Dialog function 'DIA_Fingers_Lehrer_Info' not found");
         passed = FALSE;
     };
 
     // Find Fingers
     var int symbId; symbId = MEM_FindParserSymbol("STT_331_Fingers");
     if (symbId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("NPC 'STT_331_Fingers' not found");
+        G1CP_TestsuiteErrorDetail("NPC 'STT_331_Fingers' not found");
         passed = FALSE;
     };
 
     // Check if Fingers exists in the world
     var C_Npc fingers; fingers = Hlp_GetNpc(symbId);
     if (!Hlp_IsValidNpc(fingers)) {
-        Ninja_G1CP_TestsuiteErrorDetail("NPC 'STT_331_Fingers' not valid");
+        G1CP_TestsuiteErrorDetail("NPC 'STT_331_Fingers' not valid");
         passed = FALSE;
     };
 
     // Check if variable exists
     var int canTeachPtr; canTeachPtr = MEM_GetSymbol("Fingers_CanTeach");
     if (!canTeachPtr) {
-        Ninja_G1CP_TestsuiteErrorDetail("Variable 'Fingers_CanTeach' not found");
+        G1CP_TestsuiteErrorDetail("Variable 'Fingers_CanTeach' not found");
         passed = FALSE;
     };
     canTeachPtr += zCParSymbol_content_offset;

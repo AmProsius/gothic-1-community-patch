@@ -5,17 +5,17 @@
  *
  * Expected behavior: The key will have the correct description (checked for English and German localization only)
  */
-func int Ninja_G1CP_Test_049() {
+func int G1CP_Test_049() {
     // Check language first
-    if (Ninja_G1CP_Lang != 0) && (Ninja_G1CP_Lang != 1) {
-        Ninja_G1CP_TestsuiteErrorDetail("Test applicable for English and German localization only");
+    if (G1CP_Lang != 0) && (G1CP_Lang != 1) {
+        G1CP_TestsuiteErrorDetail("Test applicable for English and German localization only");
         return TRUE; // True?
     };
 
     // Check if item exists
     var int symbId; symbId = MEM_FindParserSymbol("DungeonKey");
     if (symbId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("Item 'DungeonKey' not found");
+        G1CP_TestsuiteErrorDetail("Item 'DungeonKey' not found");
         return FALSE;
     };
 
@@ -33,11 +33,11 @@ func int Ninja_G1CP_Test_049() {
             msg = ConcatStrings(msg, "' and text[1] = '");
             msg = ConcatStrings(msg, item_text_1);
             msg = ConcatStrings(msg, "'");
-            Ninja_G1CP_TestsuiteErrorDetail(msg);
+            G1CP_TestsuiteErrorDetail(msg);
             return FALSE;
         };
     } else {
-        Ninja_G1CP_TestsuiteErrorDetail("Item 'DungeonKey' could not be created");
+        G1CP_TestsuiteErrorDetail("Item 'DungeonKey' could not be created");
         return FALSE;
     };
 };

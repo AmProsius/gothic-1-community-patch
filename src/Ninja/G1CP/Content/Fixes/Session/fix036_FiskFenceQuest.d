@@ -1,12 +1,12 @@
 /*
  * #36 Fisk's quest isn't triggered
  */
-func int Ninja_G1CP_036_FiskFenceQuest() {
+func int G1CP_036_FiskFenceQuest() {
     if (MEM_FindParserSymbol("Stt_311_Fisk_MordragKO_Condition") != -1)
     && (MEM_FindParserSymbol("Org_826_Mordrag") != -1)
     && (MEM_FindParserSymbol("MordragKO_HauAb") != -1)
     && (MEM_FindParserSymbol("MordragKO_StayAtNC") != -1) {
-        HookDaedalusFuncS("Stt_311_Fisk_MordragKO_Condition", "Ninja_G1CP_036_FiskFenceQuest_Hook");
+        HookDaedalusFuncS("Stt_311_Fisk_MordragKO_Condition", "G1CP_036_FiskFenceQuest_Hook");
         return TRUE;
     } else {
         return FALSE;
@@ -16,8 +16,8 @@ func int Ninja_G1CP_036_FiskFenceQuest() {
 /*
  * This function intercepts the dialog condition to introduce more conditions
  */
-func int Ninja_G1CP_036_FiskFenceQuest_Hook() {
-    Ninja_G1CP_ReportFuncToSpy();
+func int G1CP_036_FiskFenceQuest_Hook() {
+    G1CP_ReportFuncToSpy();
 
     // Fixing this dialog is a bit more challenging than the other ones, because the new condition should yield the
     // truth value of the condition to be true (not false like the other fixes usually) depending on other - possibly

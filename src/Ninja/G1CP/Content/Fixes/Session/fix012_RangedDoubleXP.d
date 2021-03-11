@@ -1,13 +1,13 @@
 /*
  * #12 Double exp when killing an NPC with a ranged weapon
  */
-func int Ninja_G1CP_012_RangedDoubleXP() {
+func int G1CP_012_RangedDoubleXP() {
     var int applied; applied = FALSE;
 
     // Find all necessary symbols
     var int funcId; funcId = MEM_FindParserSymbol("B_DeathXP");
     var int cond1Id; cond1Id = MEM_FindParserSymbol("ZS_Unconscious");
-    var int cond2Id; cond2Id = MEM_GetSymbol("Ninja_G1CP_012_RangedDoubleXP_Condition");
+    var int cond2Id; cond2Id = MEM_GetSymbol("G1CP_012_RangedDoubleXP_Condition");
     var int cond3Id; cond3Id = MEM_FindParserSymbol("AIV_WASDEFEATEDBYSC");
     var int funcExt; funcExt = MEM_FindParserSymbol("Npc_WasInState");
 
@@ -33,7 +33,7 @@ func int Ninja_G1CP_012_RangedDoubleXP() {
                 && (MEM_ArrayRead(tokens, i+1) == zPAR_TOK_CALLEXTERN) && (MEM_ArrayRead(params, i+1) == funcExt)
                 && (MEM_ArrayRead(tokens, i+2) != zPAR_OP_UN_NOT) {
 
-                    // Overwrite "Npc_WasInState" with "Ninja_G1CP_012_RangedDoubleXP_Condition"
+                    // Overwrite "Npc_WasInState" with "G1CP_012_RangedDoubleXP_Condition"
                     MEMINT_OverrideFunc_Ptr = MEM_ArrayRead(positions, i+1);
                     MEMINT_OFTokPar(zPAR_TOK_CALL, MEM_ReadInt(cond2Id + zCParSymbol_content_offset));
 
@@ -56,8 +56,8 @@ func int Ninja_G1CP_012_RangedDoubleXP() {
 /*
  * Intercepting function
  */
-func int Ninja_G1CP_012_RangedDoubleXP_Condition(var C_Npc slf, var int state) {
-    Ninja_G1CP_ReportFuncToSpy();
+func int G1CP_012_RangedDoubleXP_Condition(var C_Npc slf, var int state) {
+    G1CP_ReportFuncToSpy();
 
     // Original condition: Npc_WasInState(self, ZS_Unconscious)
     var int cond1;
@@ -68,7 +68,7 @@ func int Ninja_G1CP_012_RangedDoubleXP_Condition(var C_Npc slf, var int state) {
 
     // Additional condition: self.aivar[AIV_WASDEFEATEDBYSC]
     var int cond2;
-    cond2 = Ninja_G1CP_GetAIVar(slf, "AIV_WASDEFEATEDBYSC", 0);
+    cond2 = G1CP_GetAIVar(slf, "AIV_WASDEFEATEDBYSC", 0);
 
     // Either one of the conditions
     return (cond1) || (cond2);

@@ -5,7 +5,7 @@
  *
  * Expected behavior: The NPC still has the scythe equipped.
  */
-instance Ninja_G1CP_Test_059_Npc(C_Npc) {
+instance G1CP_Test_059_Npc(C_Npc) {
     name         = "Test 59";
     attribute[0] = 2;
     attribute[1] = 2;
@@ -14,13 +14,13 @@ instance Ninja_G1CP_Test_059_Npc(C_Npc) {
     CreateInvItem(self, MEM_FindParserSymbol("Thorus_Schwert"));
     EquipItem(self, MEM_FindParserSymbol("ItMw_1H_Scythe_01"));
 };
-func int Ninja_G1CP_Test_059() {
+func int G1CP_Test_059() {
     // Insert test NPC
     var string wp; wp = Npc_GetNearestWP(hero);
-    Wld_InsertNpc(Ninja_G1CP_Test_059_Npc, wp);
-    var zCVob test; test = Hlp_GetNpc(Ninja_G1CP_Test_059_Npc);
+    Wld_InsertNpc(G1CP_Test_059_Npc, wp);
+    var zCVob test; test = Hlp_GetNpc(G1CP_Test_059_Npc);
     if (!Hlp_IsValidNpc(test)) {
-        Ninja_G1CP_TestsuiteErrorDetail("Failed to insert NPC");
+        G1CP_TestsuiteErrorDetail("Failed to insert NPC");
         return FALSE;
     };
 
@@ -34,7 +34,7 @@ func int Ninja_G1CP_Test_059() {
     var int weapId; weapId = Hlp_GetInstanceId(weap);
 
     // Remove NPC
-    Wld_RemoveNpc(Ninja_G1CP_Test_059_Npc);
+    Wld_RemoveNpc(G1CP_Test_059_Npc);
 
     // Check if weapon matches
     if (weapId != MEM_FindParserSymbol("ItMw_1H_Scythe_01")) {
@@ -44,7 +44,7 @@ func int Ninja_G1CP_Test_059() {
         } else {
             weapName = "None";
         };
-        Ninja_G1CP_TestsuiteErrorDetail(ConcatStrings("Incorrect weapon equipped: ", weapName));
+        G1CP_TestsuiteErrorDetail(ConcatStrings("Incorrect weapon equipped: ", weapName));
         return FALSE;
     };
 

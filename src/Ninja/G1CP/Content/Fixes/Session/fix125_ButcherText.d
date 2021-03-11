@@ -1,7 +1,7 @@
 /*
  * #125 The Butcher is described as two-handed sword
  */
-func int Ninja_G1CP_125_ButcherText() {
+func int G1CP_125_ButcherText() {
     var int applied; applied = FALSE;
 
     // Get necessary symbol indices
@@ -19,13 +19,13 @@ func int Ninja_G1CP_125_ButcherText() {
     if (symbPtr) {
         NAME_TwoHanded = MEM_ReadString(MEM_ReadInt(symbPtr + zCParSymbol_content_offset));
     } else {
-        NAME_TwoHanded = "Ninja_G1CP_invalid_string"; // Make sure that string will not match!
+        NAME_TwoHanded = "G1CP_invalid_string"; // Make sure that string will not match!
     };
 
     // Find "text[4] = xxx" in the instance function
     const int bytes[3] = {zPAR_TOK_PUSH_ARRAYVAR<<24, -1, 4 + (zPAR_TOK_ASSIGNSTR<<8)};
     bytes[1] = itemTextSymbId;
-    var int matches; matches = Ninja_G1CP_FindInFunc(symbId, _@(bytes)+3, 7);
+    var int matches; matches = G1CP_FindInFunc(symbId, _@(bytes)+3, 7);
 
     // Iterate over all matches
     repeat(i, MEM_ArraySize(matches)); var int i;

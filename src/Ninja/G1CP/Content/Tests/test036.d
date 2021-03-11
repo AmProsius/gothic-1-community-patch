@@ -5,7 +5,7 @@
  *
  * Expected behavior: The condition function will return TRUE.
  */
-func int Ninja_G1CP_Test_036() {
+func int G1CP_Test_036() {
     // Define possibly missing symbols locally
     const int GIL_NONE          = 0;
     const int ATR_HITPOINTS     = 0;
@@ -17,28 +17,28 @@ func int Ninja_G1CP_Test_036() {
     // Check if the dialog exists
     var int funcId; funcId = MEM_FindParserSymbol("Stt_311_Fisk_MordragKO_Condition");
     if (funcId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("Dialog condition 'Stt_311_Fisk_MordragKO_Condition' not found");
+        G1CP_TestsuiteErrorDetail("Dialog condition 'Stt_311_Fisk_MordragKO_Condition' not found");
         passed = FALSE;
     };
 
     // Find Mordrag
     var int symbId; symbId = MEM_FindParserSymbol("Org_826_Mordrag");
     if (symbId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("NPC 'Org_826_Mordrag' not found");
+        G1CP_TestsuiteErrorDetail("NPC 'Org_826_Mordrag' not found");
         passed = FALSE;
     };
 
     // Check if Mordrag exists in the world
     var C_Npc mordrag; mordrag = Hlp_GetNpc(symbId);
     if (!Hlp_IsValidNpc(mordrag)) {
-        Ninja_G1CP_TestsuiteErrorDetail("NPC 'Org_826_Mordrag' not valid");
+        G1CP_TestsuiteErrorDetail("NPC 'Org_826_Mordrag' not valid");
         passed = FALSE;
     };
 
     // Check if variable exists
     var int hauAbPtr; hauAbPtr = MEM_GetSymbol("MordragKO_HauAb");
     if (!hauAbPtr) {
-        Ninja_G1CP_TestsuiteErrorDetail("Variable 'MordragKO_HauAb' not found");
+        G1CP_TestsuiteErrorDetail("Variable 'MordragKO_HauAb' not found");
         passed = FALSE;
     };
     hauAbPtr += zCParSymbol_content_offset;
@@ -46,7 +46,7 @@ func int Ninja_G1CP_Test_036() {
     // Check if variable exists
     var int stayAtNcPtr; stayAtNcPtr = MEM_GetSymbol("MordragKO_StayAtNC");
     if (!stayAtNcPtr) {
-        Ninja_G1CP_TestsuiteErrorDetail("Symbol 'MordragKO_StayAtNC' not found");
+        G1CP_TestsuiteErrorDetail("Symbol 'MordragKO_StayAtNC' not found");
         passed = FALSE;
     };
     stayAtNcPtr += zCParSymbol_content_offset;
@@ -81,7 +81,7 @@ func int Ninja_G1CP_Test_036() {
     MEM_CallByID(funcId);
     ret += MEM_PopIntResult();
     if (!ret) {
-        Ninja_G1CP_TestsuiteErrorDetail("Condition 'Mordrag is dead' failed");
+        G1CP_TestsuiteErrorDetail("Condition 'Mordrag is dead' failed");
     };
 
     // Second pass: MordragKO_StayAtNC is true but Mordrag is alive
@@ -92,7 +92,7 @@ func int Ninja_G1CP_Test_036() {
     MEM_CallByID(funcId);
     ret += MEM_PopIntResult();
     if (!ret) {
-        Ninja_G1CP_TestsuiteErrorDetail("Condition 'stay at NC' failed");
+        G1CP_TestsuiteErrorDetail("Condition 'stay at NC' failed");
     };
 
     // Restore values

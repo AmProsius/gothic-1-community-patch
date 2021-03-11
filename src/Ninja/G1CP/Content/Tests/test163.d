@@ -6,8 +6,8 @@
  *
  * Expected behavior: The gate properly opens and closes when using the winch.
  */
-func void Ninja_G1CP_Test_163() {
-    if (Ninja_G1CP_TestsuiteAllowManual) {
+func void G1CP_Test_163() {
+    if (G1CP_TestsuiteAllowManual) {
         // Define possibly missing symbols locally
         const int GIL_GRD = 2;
 

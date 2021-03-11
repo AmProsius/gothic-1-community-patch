@@ -5,8 +5,8 @@
   *
   * Expected behavior: Gorn no longer attacks the player or comments on a death during the raid of the Free Mine.
   */
-func void Ninja_G1CP_Test_032() {
-     if (Ninja_G1CP_TestsuiteAllowManual) {
+func void G1CP_Test_032() {
+     if (G1CP_TestsuiteAllowManual) {
         // Define possibly missing symbols locally
         const int NPC_FLAG_IMMORTAL = 1 << 1;
         const int ATR_STRENGTH      = 4;
@@ -14,7 +14,7 @@ func void Ninja_G1CP_Test_032() {
         // Toggle the attitude changes
         var int symbPtr; symbPtr = MEM_GetSymbol("Kapitel");
         if (!symbPtr) {
-            Ninja_G1CP_TestsuiteErrorDetail("Variable 'Kapitel' not found");
+            G1CP_TestsuiteErrorDetail("Variable 'Kapitel' not found");
             return;
         };
 

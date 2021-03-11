@@ -1,11 +1,11 @@
 /*
  * #102 The player doesn't lose ore when paying for Jesse
  */
-func int Ninja_G1CP_102_JesseProtectionMoneyPay() {
+func int G1CP_102_JesseProtectionMoneyPay() {
     if (MEM_FindParserSymbol("Info_Bloodwyn_PayForJesse_Info") != -1)
     && (MEM_FindParserSymbol("Jesse_PayForMe")                 != -1)
     && (MEM_FindParserSymbol("ItMiNugget")                     != -1) {
-        HookDaedalusFuncS("Info_Bloodwyn_PayForJesse_Info", "Ninja_G1CP_102_JesseProtectionMoneyPay_Hook");
+        HookDaedalusFuncS("Info_Bloodwyn_PayForJesse_Info", "G1CP_102_JesseProtectionMoneyPay_Hook");
         return TRUE;
     } else {
         return FALSE;
@@ -15,8 +15,8 @@ func int Ninja_G1CP_102_JesseProtectionMoneyPay() {
 /*
  * This function intercepts the dialog to introduce more actions
  */
-func void Ninja_G1CP_102_JesseProtectionMoneyPay_Hook() {
-    Ninja_G1CP_ReportFuncToSpy();
+func void G1CP_102_JesseProtectionMoneyPay_Hook() {
+    G1CP_ReportFuncToSpy();
 
     // Define possibly missing symbols locally
     const int LOG_SUCCESS = 2;

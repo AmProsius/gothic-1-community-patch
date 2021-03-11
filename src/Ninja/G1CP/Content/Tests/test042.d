@@ -5,8 +5,8 @@
  *
  * Expected behavior: Both guards at the door to the ore barons house should only have one END dialog.
  */
-func void Ninja_G1CP_Test_042() {
-    if (Ninja_G1CP_TestsuiteAllowManual) {
+func void G1CP_Test_042() {
+    if (G1CP_TestsuiteAllowManual) {
         AI_Teleport(hero, "OCC_BARONS_LEFT_GUARD_CHANGE");
     };
 };

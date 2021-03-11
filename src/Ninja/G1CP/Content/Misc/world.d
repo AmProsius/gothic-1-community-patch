@@ -1,7 +1,7 @@
 /*
  * Check if an item exists anywhere
  */
-func int Ninja_G1CP_IsItemInstantiated(var string name) {
+func int G1CP_IsItemInstantiated(var string name) {
     // MEM_SearchVobByName need upper case
     name = STR_Upper(name);
 

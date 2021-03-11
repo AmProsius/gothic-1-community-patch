@@ -1,7 +1,7 @@
 /*
  * Find a waypoint by its name
  */
-func int Ninja_G1CP_GetWaypoint(var string name) {
+func int G1CP_GetWaypoint(var string name) {
     const int zCWayNet__GetWaypoint = 7366448; //0x706730
 
     var int waynetPtr; waynetPtr = _@(MEM_Waynet);
@@ -23,8 +23,8 @@ func int Ninja_G1CP_GetWaypoint(var string name) {
 /*
  * Create a new waypoint with name and position if it does not already exist
  */
-func int Ninja_G1CP_CreateWaypoint(var string name, var int posPtr) {
-    var int wp; wp = Ninja_G1CP_GetWaypoint(name);
+func int G1CP_CreateWaypoint(var string name, var int posPtr) {
+    var int wp; wp = G1CP_GetWaypoint(name);
     if (wp) {
         return +wp;
     };
@@ -73,14 +73,14 @@ func int Ninja_G1CP_CreateWaypoint(var string name, var int posPtr) {
  * Insert waypoint in between two existing ones, creating two ways connecting them
  * i.e.: wp1----new----wp3
  */
-func void Ninja_G1CP_InsertWaypoint(var string name, var int posPtr, var string wp1, var string wp3) {
-    var int w1; w1 = Ninja_G1CP_GetWaypoint(wp1);
-    var int w3; w3 = Ninja_G1CP_GetWaypoint(wp3);
+func void G1CP_InsertWaypoint(var string name, var int posPtr, var string wp1, var string wp3) {
+    var int w1; w1 = G1CP_GetWaypoint(wp1);
+    var int w3; w3 = G1CP_GetWaypoint(wp3);
     if ((!w1) || (!w3)) {
         return;
     };
 
-    var int w2; w2 = Ninja_G1CP_CreateWaypoint(name, posPtr);
+    var int w2; w2 = G1CP_CreateWaypoint(name, posPtr);
 
     var int waynetPtr; waynetPtr = _@(MEM_Waynet);
 
@@ -98,13 +98,13 @@ func void Ninja_G1CP_InsertWaypoint(var string name, var int posPtr, var string 
 /*
  * Get distance to a waypoint
  */
-func int Ninja_G1CP_GetDistToWP(var int vobPtr, var string wp) {
+func int G1CP_GetDistToWP(var int vobPtr, var string wp) {
     if (!vobPtr) {
         return -1;
     };
 
     // Find waypoint
-    var int wpPtr; wpPtr = Ninja_G1CP_GetWaypoint(wp);
+    var int wpPtr; wpPtr = G1CP_GetWaypoint(wp);
     if (!wpPtr) {
         return -1;
     };
@@ -130,7 +130,7 @@ func int Ninja_G1CP_GetDistToWP(var int vobPtr, var string wp) {
 /*
  * Get nearest waypoint
  */
-func string Ninja_G1CP_GetNearestWP(var int vobPtr) {
+func string G1CP_GetNearestWP(var int vobPtr) {
     if (!vobPtr) {
         return "";
     };

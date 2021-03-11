@@ -5,7 +5,7 @@
  *
  * Expected behavior: The hero never loses strength
  */
-func int Ninja_G1CP_Test_015() {
+func int G1CP_Test_015() {
     // Define possibly missing symbols locally
     const int ATR_STRENGTH = 4;
 
@@ -15,7 +15,7 @@ func int Ninja_G1CP_Test_015() {
     // Check if the dialog function exists
     var int funcId; funcId = MEM_FindParserSymbol("DIA_Horatio_HelpSTR_LEARN_NOW");
     if (funcId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("Dialog function 'DIA_Horatio_HelpSTR_LEARN_NOW' not found");
+        G1CP_TestsuiteErrorDetail("Dialog function 'DIA_Horatio_HelpSTR_LEARN_NOW' not found");
         return FALSE;
     };
 
@@ -34,7 +34,7 @@ func int Ninja_G1CP_Test_015() {
     hero.attribute[ATR_STRENGTH] = 10;
     MEM_CallByID(funcId);
     if (hero.attribute[ATR_STRENGTH] <= 10) {
-        Ninja_G1CP_TestsuiteErrorDetail("Strength was not increased when below 100");
+        G1CP_TestsuiteErrorDetail("Strength was not increased when below 100");
         hero.attribute[ATR_STRENGTH] = strengthBak;
         passed = FALSE;
     };
@@ -43,7 +43,7 @@ func int Ninja_G1CP_Test_015() {
     hero.attribute[ATR_STRENGTH] = 1000;
     MEM_CallByID(funcId);
     if (hero.attribute[ATR_STRENGTH] != 1000) {
-        Ninja_G1CP_TestsuiteErrorDetail("Strength was reset to 100");
+        G1CP_TestsuiteErrorDetail("Strength was reset to 100");
         hero.attribute[ATR_STRENGTH] = strengthBak;
         passed = FALSE;
     };

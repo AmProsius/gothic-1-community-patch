@@ -1,7 +1,7 @@
 /*
  * #49 Dungeon Key description faulty
  */
-func int Ninja_G1CP_049_DungeonKeyText() {
+func int G1CP_049_DungeonKeyText() {
     var int applied; applied = FALSE;
 
     // Get necessary symbol indices
@@ -14,7 +14,7 @@ func int Ninja_G1CP_049_DungeonKeyText() {
     // Find "text = xxx" in the instance function
     const int bytes[3] = {zPAR_TOK_PUSHVAR<<24, -1, zPAR_TOK_ASSIGNSTR};
     bytes[1] = itemTextSymbId;
-    var int matches; matches = Ninja_G1CP_FindInFunc(symbId, _@(bytes)+3, 6);
+    var int matches; matches = G1CP_FindInFunc(symbId, _@(bytes)+3, 6);
 
     // We are looking for all overwritten text (at least 2 occurrences)
     if (MEM_ArraySize(matches) >= 2) {

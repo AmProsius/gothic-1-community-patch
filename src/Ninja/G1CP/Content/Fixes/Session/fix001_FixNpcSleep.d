@@ -1,17 +1,17 @@
 /*
  * #1 NPCs wake up immediately
  */
-func int Ninja_G1CP_001_FixNpcSleep() {
+func int G1CP_001_FixNpcSleep() {
     const int AI_StartState_popped = 6627839; //0x6521FF
 
     if (MEM_FindParserSymbol("ZS_SleepBed_Loop") != -1)
-    && (Ninja_G1CP_CheckBytes(AI_StartState_popped, "8B E8 83 C4 14")) {
-        HookDaedalusFuncS("ZS_SleepBed_Loop", "Ninja_G1CP_001_FixNpcSleep_Hook");
+    && (G1CP_CheckBytes(AI_StartState_popped, "8B E8 83 C4 14")) {
+        HookDaedalusFuncS("ZS_SleepBed_Loop", "G1CP_001_FixNpcSleep_Hook");
 
         // Create empty hook (if there is a problem, rather fail now than later during the game)
         if (!IsHooked(AI_StartState_popped)) {
-            HookEngineF(AI_StartState_popped, 5, Ninja_G1CP_001_FixNpcSleep_StateHook);
-            RemoveHookF(AI_StartState_popped, 0, Ninja_G1CP_001_FixNpcSleep_StateHook);
+            HookEngineF(AI_StartState_popped, 5, G1CP_001_FixNpcSleep_StateHook);
+            RemoveHookF(AI_StartState_popped, 0, G1CP_001_FixNpcSleep_StateHook);
         };
         return TRUE;
     } else {
@@ -22,8 +22,8 @@ func int Ninja_G1CP_001_FixNpcSleep() {
 /*
  * This function intercepts the NPC state to introduce more conditions
  */
-func int Ninja_G1CP_001_FixNpcSleep_Hook() {
-    Ninja_G1CP_ReportFuncToSpy();
+func int G1CP_001_FixNpcSleep_Hook() {
+    G1CP_ReportFuncToSpy();
 
     const int AI_StartState_popped = 6627839; //0x6521FF
     // Changing the condition to start the ZS_SitAround is not easily possible with completely overwriting the function
@@ -31,14 +31,14 @@ func int Ninja_G1CP_001_FixNpcSleep_Hook() {
     // Instead we will intercept AI_StartState and return if ZS_SitAround is to be started but our conditions fail
 
     // Temporarily hook AI_StartState
-    HookEngineF(AI_StartState_popped, 5, Ninja_G1CP_001_FixNpcSleep_StateHook);
+    HookEngineF(AI_StartState_popped, 5, G1CP_001_FixNpcSleep_StateHook);
 
     // Call original function
     ContinueCall();
     var int ret; ret = MEM_PopIntResult();
 
     // Remove hook again (only remove function but leave changes in engine for performance)
-    RemoveHookF(AI_StartState_popped, 0, Ninja_G1CP_001_FixNpcSleep_StateHook);
+    RemoveHookF(AI_StartState_popped, 0, G1CP_001_FixNpcSleep_StateHook);
 
     // Return original return value
     return ret;
@@ -48,8 +48,8 @@ func int Ninja_G1CP_001_FixNpcSleep_Hook() {
  * This function hooks AI_StartState (temporarily, see above) and aborts if certain conditions are met
  * EAX is the address of the NPC. If not valid, AI_StartState is aborted
  */
-func void Ninja_G1CP_001_FixNpcSleep_StateHook() {
-    Ninja_G1CP_ReportFuncToSpy();
+func void G1CP_001_FixNpcSleep_StateHook() {
+    G1CP_ReportFuncToSpy();
 
     // Create potentially missing symbols locally
     const int BS_FLAG_INTERRUPTABLE    = 32768;
@@ -74,7 +74,7 @@ func void Ninja_G1CP_001_FixNpcSleep_StateHook() {
 
     // If our conditions are not met, abort AI_StartState
     var C_Npc slf; slf = _^(EAX);
-    if (Ninja_G1CP_BodyStateContains(slf, BS_MOBINTERACT_INTERRUPT)) {
+    if (G1CP_BodyStateContains(slf, BS_MOBINTERACT_INTERRUPT)) {
         EAX = 0; // Terminate AI_StartState
     };
 };

@@ -8,7 +8,7 @@
  *    that checks for "LOG_NOTE" and does the same check as above
  * 4. Optionally (if exists) replace the function call "B_LogEntry" to avoid a screen print (does not affect success)
  */
-func int Ninja_G1CP_027_DraxTeachingDialog() {
+func int G1CP_027_DraxTeachingDialog() {
     var int applied1; applied1 = FALSE;
     var int applied2; applied2 = FALSE;
 
@@ -23,14 +23,14 @@ func int Ninja_G1CP_027_DraxTeachingDialog() {
     // Find "drax_Lehrer_frei = xxx" in the dialog function
     const int bytes[3] = {zPAR_TOK_PUSHVAR<<24, -1, zPAR_OP_IS};
     bytes[1] = varSymbId;
-    var int matches; matches = Ninja_G1CP_FindInFunc(funcId, _@(bytes)+3, 6);
+    var int matches; matches = G1CP_FindInFunc(funcId, _@(bytes)+3, 6);
 
     // Replace the "xxx" in "drax_Lehrer_frei = xxx"
     repeat(i, MEM_ArraySize(matches)); var int i;
         var int pos; pos = MEM_ArrayRead(matches, i);
         if (MEM_ReadByte(pos-5) == zPAR_TOK_PUSHINT) || (MEM_ReadByte(pos-5) == zPAR_TOK_PUSHVAR) {
             MEM_WriteByte(pos-5, zPAR_TOK_CALL);
-            MEM_WriteInt(pos-4, MEM_GetFuncOffset(Ninja_G1CP_027_SetVar));
+            MEM_WriteInt(pos-4, MEM_GetFuncOffset(G1CP_027_SetVar));
             applied1 = TRUE;
         };
     end;
@@ -41,16 +41,16 @@ func int Ninja_G1CP_027_DraxTeachingDialog() {
     // Replace function call "Log_CreateTopic" only if the above bytes were replaced successfully
     if (applied1) {
         var int createOldId; createOldId = MEM_GetFuncId(Log_CreateTopic);
-        var int createNewId; createNewId = MEM_GetFuncId(Ninja_G1CP_027_CreateTopic);
-        applied2 = Ninja_G1CP_ReplaceCallInFunc(funcId, createOldId, createNewId);
+        var int createNewId; createNewId = MEM_GetFuncId(G1CP_027_CreateTopic);
+        applied2 = G1CP_ReplaceCallInFunc(funcId, createOldId, createNewId);
     };
 
     // Optionally replace function call "B_LogEntry" (if exists) for removing the screen print
     if (applied2) {
         var int logEntryOld; logEntryOld = MEM_FindParserSymbol("B_LogEntry");
-        var int logEntryNew; logEntryNew = MEM_GetFuncId(Ninja_G1CP_027_TopicEntry);
+        var int logEntryNew; logEntryNew = MEM_GetFuncId(G1CP_027_TopicEntry);
         if (logEntryOld != -1) {
-            i = Ninja_G1CP_ReplaceCallInFunc(funcId, logEntryOld, logEntryNew);
+            i = G1CP_ReplaceCallInFunc(funcId, logEntryOld, logEntryNew);
         };
     };
 
@@ -62,8 +62,8 @@ func int Ninja_G1CP_027_DraxTeachingDialog() {
  * Intercept the assignment of "drax_Lehrer_frei"
  * The fix will only work if "drax_bierbekommen" is assigned BEFORE "drax_Lehrer_frei" (true in the original).
  */
-func int Ninja_G1CP_027_SetVar() {
-    Ninja_G1CP_ReportFuncToSpy();
+func int G1CP_027_SetVar() {
+    G1CP_ReportFuncToSpy();
 
     // Check if the truth value of the variable "drax_bierbekommen" (all symbols exist, confirmed by the function above)
     if (MEM_ReadInt(MEM_GetSymbol("drax_bierbekommen") + zCParSymbol_content_offset)) {
@@ -77,8 +77,8 @@ func int Ninja_G1CP_027_SetVar() {
  * Wrapper function for "Log_CreateTopic"
  * The fix will only work if "drax_bierbekommen" and "drax_Lehrer_frei" are assigned BEFORE (true in the original).
  */
-func void Ninja_G1CP_027_CreateTopic(var string topic, var int section) {
-    Ninja_G1CP_ReportFuncToSpy();
+func void G1CP_027_CreateTopic(var string topic, var int section) {
+    G1CP_ReportFuncToSpy();
 
     // Define possibly missing symbols locally
     const int LOG_NOTE = 1;
@@ -99,14 +99,14 @@ func void Ninja_G1CP_027_CreateTopic(var string topic, var int section) {
  * Wrapper function for "B_LogEntry"
  * The entry will only be added if the topic already exists (and is a note)
  */
-func void Ninja_G1CP_027_TopicEntry(var string topic, var string entry) {
-    Ninja_G1CP_ReportFuncToSpy();
+func void G1CP_027_TopicEntry(var string topic, var string entry) {
+    G1CP_ReportFuncToSpy();
 
     // Define possibly missing symbols locally
     const int LOG_NOTE = 1;
 
     // Check if both topic exists (and is a note)
-    if (Ninja_G1CP_GetTopicSection(topic) != LOG_NOTE) {
+    if (G1CP_GetTopicSection(topic) != LOG_NOTE) {
         return;
     };
 

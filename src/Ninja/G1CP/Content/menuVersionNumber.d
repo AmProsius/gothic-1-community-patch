@@ -1,17 +1,17 @@
 /*
  * Add G1CP version number in the main menu
  */
-func int Ninja_G1CP_MenuVersionNumber() {
+func int G1CP_MenuVersionNumber() {
     const int zCMenu__ScreenInit_version = 5047863; //0x4D0637
 
-    if (Ninja_G1CP_CheckBytes(zCMenu__ScreenInit_version, "6A 01 8D 4C 24 20")) {
-        HookEngineF(zCMenu__ScreenInit_version, 6, Ninja_G1CP_MenuVersionNumber_Hook);
+    if (G1CP_CheckBytes(zCMenu__ScreenInit_version, "6A 01 8D 4C 24 20")) {
+        HookEngineF(zCMenu__ScreenInit_version, 6, G1CP_MenuVersionNumber_Hook);
         return TRUE;
     } else {
         return FALSE;
     };
 };
-func void Ninja_G1CP_MenuVersionNumber_Hook() {
+func void G1CP_MenuVersionNumber_Hook() {
     // Obtain position
     const int versionPosX_addr = 5047846; //0x4D0626
     const int versionPosY_addr = 5047841; //0x4D0621
@@ -25,7 +25,7 @@ func void Ninja_G1CP_MenuVersionNumber_Hook() {
     x = PS_VMax - (x + xDiff);
 
     // Build version string
-    var string version; version = Ninja_G1CP_GetVersionString(TRUE, FALSE, FALSE);
+    var string version; version = G1CP_GetVersionString(TRUE, FALSE, FALSE);
     var int textPtr; textPtr = _@s(version);
 
     // Place it on the menu

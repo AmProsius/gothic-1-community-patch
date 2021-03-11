@@ -5,8 +5,8 @@
  *
  * Expected behavior: Silas can trade multiple times.
  */
-func void Ninja_G1CP_Test_030() {
-    if (!Ninja_G1CP_TestsuiteAllowManual) {
+func void G1CP_Test_030() {
+    if (!G1CP_TestsuiteAllowManual) {
         return;
     };
 
@@ -16,21 +16,21 @@ func void Ninja_G1CP_Test_030() {
     // Check if the dialog exists
     var int funcId; funcId = MEM_FindParserSymbol("DIA_Silas_Trade");
     if (funcId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("Info 'DIA_Silas_Trade' not found");
+        G1CP_TestsuiteErrorDetail("Info 'DIA_Silas_Trade' not found");
         passed = FALSE;
     };
 
     // Find Silas
     var int symbId; symbId = MEM_FindParserSymbol("Org_841_Silas");
     if (symbId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("NPC 'Org_841_Silas' not found");
+        G1CP_TestsuiteErrorDetail("NPC 'Org_841_Silas' not found");
         return;
     };
 
     // Check if Silas exists in the world
     var C_Npc silas; silas = Hlp_GetNpc(symbId);
     if (!Hlp_IsValidNpc(silas)) {
-        Ninja_G1CP_TestsuiteErrorDetail("NPC 'Org_841_Silas' not valid");
+        G1CP_TestsuiteErrorDetail("NPC 'Org_841_Silas' not valid");
         passed = FALSE;
     };
 

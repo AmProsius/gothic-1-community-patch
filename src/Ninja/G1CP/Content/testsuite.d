@@ -2,48 +2,48 @@
  * Test suite
  *
  * Tests are called from the console with 'test ID' or 'test all'.
- * The corresponding functions 'Ninja_G1CP_Test_000' (three digits) are called if found.
+ * The corresponding functions 'G1CP_Test_000' (three digits) are called if found.
  *
  * The test functions should either return TRUE (if passed) or FALSE (if failed). They may also have no
  * return type, then they will be marked as to be manually confirmed.
  *
  * Errors and other messages should not be reported to the zSpy directly but using this function instead
- *    Ninja_G1CP_TestsuiteErrorDetail(string message)
+ *    G1CP_TestsuiteErrorDetail(string message)
  *
  * Tests that require manual confirmation from the user typically have to teleport the hero or similar. This would
  * interfere when all tests are run at once (i.e. 'test all'). Therefore, before any such actions are taken, the test
- * function should check whether 'Ninja_G1CP_TestsuiteAllowManual' is TRUE. This is the case when the test is run
+ * function should check whether 'G1CP_TestsuiteAllowManual' is TRUE. This is the case when the test is run
  * specifically with 'test ID'.
  */
 
 /* Collect error details */
-const string Ninja_G1CP_TestsuiteMsg = "";
+const string G1CP_TestsuiteMsg = "";
 
 /* Allow or disallow manual tests */
-const int Ninja_G1CP_TestsuiteAllowManual = 0;
+const int G1CP_TestsuiteAllowManual = 0;
 
 /*
  * Initialization function
  */
-func int Ninja_G1CP_Testsuite() {
-    CC_Register(Ninja_G1CP_TestsuiteList, "test list", "List all tests of G1CP");
-    CC_Register(Ninja_G1CP_TestsuiteAll, "test all", "Run complete test suite for G1CP");
-    CC_Register(Ninja_G1CP_TestsuiteCmd, "test ", "Run test from test suite for G1CP");
+func int G1CP_Testsuite() {
+    CC_Register(G1CP_TestsuiteList, "test list", "List all tests of G1CP");
+    CC_Register(G1CP_TestsuiteAll, "test all", "Run complete test suite for G1CP");
+    CC_Register(G1CP_TestsuiteCmd, "test ", "Run test from test suite for G1CP");
 
     // Confirm registration
-    return ((CC_Active(Ninja_G1CP_TestsuiteList))
-         && (CC_Active(Ninja_G1CP_TestsuiteAll))
-         && (CC_Active(Ninja_G1CP_TestsuiteCmd)));
+    return ((CC_Active(G1CP_TestsuiteList))
+         && (CC_Active(G1CP_TestsuiteAll))
+         && (CC_Active(G1CP_TestsuiteCmd)));
 };
 
 /*
  * Run test by id
  */
-func int Ninja_G1CP_TestsuiteRun(var int id) {
-    var string idName; idName = Ninja_G1CP_LFill(IntToString(id), "0", 3);
+func int G1CP_TestsuiteRun(var int id) {
+    var string idName; idName = G1CP_LFill(IntToString(id), "0", 3);
 
     // Find test function
-    var string funcName; funcName = ConcatStrings("Ninja_G1CP_Test_", idName);
+    var string funcName; funcName = ConcatStrings("G1CP_Test_", idName);
     var int symbPtr; symbPtr = MEM_GetSymbol(funcName);
     if (!symbPtr) {
         return -1;
@@ -60,9 +60,9 @@ func int Ninja_G1CP_TestsuiteRun(var int id) {
 /*
  * Add error message (to be printed in the end)
  */
-func void Ninja_G1CP_TestsuiteErrorDetail(var string msg) {
-    if (!Hlp_StrCmp(Ninja_G1CP_TestsuiteMsg, "")) {
-        Ninja_G1CP_TestsuiteMsg = ConcatStrings(Ninja_G1CP_TestsuiteMsg, "|");
+func void G1CP_TestsuiteErrorDetail(var string msg) {
+    if (!Hlp_StrCmp(G1CP_TestsuiteMsg, "")) {
+        G1CP_TestsuiteMsg = ConcatStrings(G1CP_TestsuiteMsg, "|");
     };
 
     // Obtain test number
@@ -72,7 +72,7 @@ func void Ninja_G1CP_TestsuiteErrorDetail(var string msg) {
         id = -1;
     } else {
         var string callerName; callerName = MEM_ReadString(MEM_GetSymbolByIndex(callerID));
-        var int prefixLen; prefixLen = STR_Len("Ninja_G1CP_Test_000");
+        var int prefixLen; prefixLen = STR_Len("G1CP_Test_000");
         if (STR_Len(callerName) < prefixLen) {
             id = -1;
         } else {
@@ -80,24 +80,24 @@ func void Ninja_G1CP_TestsuiteErrorDetail(var string msg) {
         };
     };
 
-    Ninja_G1CP_TestsuiteMsg = ConcatStrings(Ninja_G1CP_TestsuiteMsg, "  Test ");
-    Ninja_G1CP_TestsuiteMsg = ConcatStrings(Ninja_G1CP_TestsuiteMsg, Ninja_G1CP_LFill(IntToString(id), " ", 3));
-    Ninja_G1CP_TestsuiteMsg = ConcatStrings(Ninja_G1CP_TestsuiteMsg, ": ");
-    Ninja_G1CP_TestsuiteMsg = ConcatStrings(Ninja_G1CP_TestsuiteMsg, msg);
+    G1CP_TestsuiteMsg = ConcatStrings(G1CP_TestsuiteMsg, "  Test ");
+    G1CP_TestsuiteMsg = ConcatStrings(G1CP_TestsuiteMsg, G1CP_LFill(IntToString(id), " ", 3));
+    G1CP_TestsuiteMsg = ConcatStrings(G1CP_TestsuiteMsg, ": ");
+    G1CP_TestsuiteMsg = ConcatStrings(G1CP_TestsuiteMsg, msg);
 };
 
 /*
  * Print error messages
  */
-func void Ninja_G1CP_TestsuitePrintErrors() {
-    if (Hlp_StrCmp(Ninja_G1CP_TestsuiteMsg, "")) {
+func void G1CP_TestsuitePrintErrors() {
+    if (Hlp_StrCmp(G1CP_TestsuiteMsg, "")) {
         return;
     };
-    var int count; count = STR_SplitCount(Ninja_G1CP_TestsuiteMsg, "|");
+    var int count; count = STR_SplitCount(G1CP_TestsuiteMsg, "|");
     MEM_Info("");
     MEM_SendToSpy(zERR_TYPE_FAULT, ConcatStrings(IntToString(count), " errors occurred."));
     repeat(i, count); var int i;
-        MEM_SendToSpy(zERR_TYPE_FAULT, STR_Split(Ninja_G1CP_TestsuiteMsg, "|", i));
+        MEM_SendToSpy(zERR_TYPE_FAULT, STR_Split(G1CP_TestsuiteMsg, "|", i));
     end;
     MEM_Info("");
 };
@@ -105,7 +105,7 @@ func void Ninja_G1CP_TestsuitePrintErrors() {
 /*
  * Command handler
  */
-func string Ninja_G1CP_TestsuiteAll(var string _) {
+func string G1CP_TestsuiteAll(var string _) {
     var int passed; passed = 0;
     var int failed; failed = 0;
     var int manual; manual = 0;
@@ -113,24 +113,24 @@ func string Ninja_G1CP_TestsuiteAll(var string _) {
     var string infos; infos = "";
 
     // Do not trigger manual tests
-    Ninja_G1CP_TestsuiteAllowManual = FALSE;
+    G1CP_TestsuiteAllowManual = FALSE;
 
     // Remember the data stack position
     var int stkPosBefore; stkPosBefore = MEM_Parser.datastack_sptr;
 
     // Iterate over and call all tests
-    repeat(i, Ninja_G1CP_SymbEnd); var int i; if (!i) { i = Ninja_G1CP_SymbStart; }; // From SymbStart to SymbEnd
+    repeat(i, G1CP_SymbEnd); var int i; if (!i) { i = G1CP_SymbStart; }; // From SymbStart to SymbEnd
 
         var zCPar_Symbol symb; symb = _^(MEM_GetSymbolByIndex(i));
-        if (STR_StartsWith(symb.name, "NINJA_G1CP_TEST_"))
-        && (STR_Len(symb.name) == 19)
+        if (STR_StartsWith(symb.name, "G1CP_TEST_"))
+        && (STR_Len(symb.name) == 13)
         && ((symb.bitfield & zCPar_Symbol_bitfield_type) == zPAR_TYPE_FUNC) {
             // Test name
-            msg = STR_SubStr(symb.name, 11, 8);
+            msg = STR_SubStr(symb.name, 5, 8);
 
             // Check if currently applied or not
-            var int id; id = STR_ToInt(STR_SubStr(symb.name, 16, 3));
-            if (Ninja_G1CP_IsFixApplied(id)) {
+            var int id; id = STR_ToInt(STR_SubStr(symb.name, 10, 3));
+            if (G1CP_IsFixApplied(id)) {
                 msg = ConcatStrings(msg, " .");
             } else {
                 msg = ConcatStrings(msg, "* ");
@@ -175,8 +175,8 @@ func string Ninja_G1CP_TestsuiteAll(var string _) {
     MEM_Info("");
 
     // Print error details
-    Ninja_G1CP_TestsuitePrintErrors();
-    Ninja_G1CP_TestsuiteMsg = "";
+    G1CP_TestsuitePrintErrors();
+    G1CP_TestsuiteMsg = "";
 
     msg = IntToString(passed);
     msg = ConcatStrings(msg, " passed, ");
@@ -188,17 +188,17 @@ func string Ninja_G1CP_TestsuiteAll(var string _) {
 
 };
 
-func string Ninja_G1CP_TestsuiteCmd(var string command) {
+func string G1CP_TestsuiteCmd(var string command) {
     var int retInt;
     var string retStr;
 
     // Allow to trigger manual tests
-    Ninja_G1CP_TestsuiteAllowManual = TRUE;
+    G1CP_TestsuiteAllowManual = TRUE;
 
     // Reset error details
-    Ninja_G1CP_TestsuiteMsg = "";
+    G1CP_TestsuiteMsg = "";
 
-    retInt = Ninja_G1CP_TestsuiteRun(STR_ToInt(command));
+    retInt = G1CP_TestsuiteRun(STR_ToInt(command));
     if (retInt == -1) {
         retStr = "";
     } else if (retInt == 2) {
@@ -210,32 +210,32 @@ func string Ninja_G1CP_TestsuiteCmd(var string command) {
     };
 
     // Print error details
-    Ninja_G1CP_TestsuitePrintErrors();
-    Ninja_G1CP_TestsuiteMsg = "";
+    G1CP_TestsuitePrintErrors();
+    G1CP_TestsuiteMsg = "";
 
     return retStr;
 };
 
-func string Ninja_G1CP_TestsuiteList(var string _) {
+func string G1CP_TestsuiteList(var string _) {
     var string automatic; automatic = "Automatic: ";
     var string manual;    manual    = "Manual:    ";
 
     // Iterate over and call all tests
-    repeat(i, Ninja_G1CP_SymbEnd); var int i; if (!i) { i = Ninja_G1CP_SymbStart; }; // From SymbStart to SymbEnd
+    repeat(i, G1CP_SymbEnd); var int i; if (!i) { i = G1CP_SymbStart; }; // From SymbStart to SymbEnd
 
         // Compare symbol name
         var zCPar_Symbol symb; symb = _^(MEM_GetSymbolByIndex(i));
-        if (STR_StartsWith(symb.name, "NINJA_G1CP_TEST_"))
-        && (STR_Len(symb.name) == 19)
+        if (STR_StartsWith(symb.name, "G1CP_TEST_"))
+        && (STR_Len(symb.name) == 13)
         && ((symb.bitfield & zCPar_Symbol_bitfield_type) == zPAR_TYPE_FUNC) {
             var string msg;
 
             // Get test ID
-            var int id; id = STR_ToInt(STR_SubStr(symb.name, 16, 3));
+            var int id; id = STR_ToInt(STR_SubStr(symb.name, 10, 3));
             msg = IntToString(id); // Trim leading zeros
 
             // Check if fix is not applied
-            if (!Ninja_G1CP_IsFixApplied(id)) {
+            if (!G1CP_IsFixApplied(id)) {
                 msg = ConcatStrings(ConcatStrings("(", msg), ")");
             };
 

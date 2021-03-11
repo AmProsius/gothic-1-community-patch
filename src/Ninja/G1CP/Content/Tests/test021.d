@@ -5,7 +5,7 @@
  *
  * Expected behavior: The log entry is not moved to the "running" section.
  */
-func int Ninja_G1CP_Test_021() {
+func int G1CP_Test_021() {
     // Define possibly missing symbols locally
     const int GIL_NONE    = 0;
     const int LOG_MISSION = 0;
@@ -18,7 +18,7 @@ func int Ninja_G1CP_Test_021() {
     // Check if dialog exists
     var int funcId; funcId = MEM_FindParserSymbol("DIA_Fletcher_WoNek_Info");
     if (funcId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("Dialog function 'DIA_Fletcher_WoNek_Info' not found");
+        G1CP_TestsuiteErrorDetail("Dialog function 'DIA_Fletcher_WoNek_Info' not found");
         passed = FALSE;
     };
 
@@ -28,7 +28,7 @@ func int Ninja_G1CP_Test_021() {
     if (topicNamePtr) {
         CH1_LostNek = MEM_ReadString(MEM_ReadInt(topicNamePtr + zCParSymbol_content_offset));
     } else {
-        Ninja_G1CP_TestsuiteErrorDetail("Variable 'CH1_LostNek' not found");
+        G1CP_TestsuiteErrorDetail("Variable 'CH1_LostNek' not found");
         passed = FALSE;
     };
 
@@ -38,7 +38,7 @@ func int Ninja_G1CP_Test_021() {
     };
 
     // Back up the values
-    var int topicStatusBak; topicStatusBak = Ninja_G1CP_GetTopicStatus(CH1_LostNek);
+    var int topicStatusBak; topicStatusBak = G1CP_GetTopicStatus(CH1_LostNek);
     var int guildTrueBak; guildTrueBak = Npc_GetTrueGuild(hero);
 
     // Set the variables
@@ -66,19 +66,19 @@ func int Ninja_G1CP_Test_021() {
     AI_StandUpQuick(hero);
 
     // Check the variables now
-    var int topicStatusAfter; topicStatusAfter = Ninja_G1CP_GetTopicStatus(CH1_LostNek);
+    var int topicStatusAfter; topicStatusAfter = G1CP_GetTopicStatus(CH1_LostNek);
 
     // Restore the variables
     Npc_SetTrueGuild(hero, guildTrueBak);
     if (topicStatusBak == -1) {
-        Ninja_G1CP_RemoveTopic(CH1_LostNek);
+        G1CP_RemoveTopic(CH1_LostNek);
     } else {
         Log_SetTopicStatus(CH1_LostNek, topicStatusBak);
     };
 
     // Confirm the fix
     if (topicStatusAfter == LOG_RUNNING) {
-        Ninja_G1CP_TestsuiteErrorDetail("Mission 'CH1_LostNek' was wrongfully set to running");
+        G1CP_TestsuiteErrorDetail("Mission 'CH1_LostNek' was wrongfully set to running");
         passed = FALSE;
     };
 

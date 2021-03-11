@@ -1,14 +1,14 @@
 /*
  * #32 Gorn attacks the player in the Free Mine
  */
-func int Ninja_G1CP_032_GornAttackFreeMine() {
+func int G1CP_032_GornAttackFreeMine() {
     var int applied; applied = FALSE;
 
     // Get necessary symbol indices
     var int memFncId; memFncId = MEM_FindParserSymbol("B_AssessAndMemorize");
     var int assFncId; assFncId = MEM_FindParserSymbol("B_AssessFightSound");
     var int state1Id; state1Id = MEM_FindParserSymbol("ZS_ProclaimAndPunish");
-    var int state2Id; state2Id = MEM_GetFuncID(Ninja_G1CP_032_GornAttackFreeMine_AttackRelay);
+    var int state2Id; state2Id = MEM_GetFuncID(G1CP_032_GornAttackFreeMine_AttackRelay);
     var int sstateId; sstateId = MEM_GetFuncID(AI_StartState);
     if (memFncId == -1) || (assFncId == -1) || (state1Id == -1) || (MEM_FindParserSymbol("ZS_Attack") == -1) {
         return FALSE;
@@ -17,7 +17,7 @@ func int Ninja_G1CP_032_GornAttackFreeMine() {
     // Find "ZS_ProclaimAndPunish" in "B_AssessFightSound"
     const int bytes[2] = {zPAR_TOK_PUSHINT<<24, -1};
     bytes[1] = state1Id;
-    var int matches; matches = Ninja_G1CP_FindInFunc(assFncId, _@(bytes)+3, 5);
+    var int matches; matches = G1CP_FindInFunc(assFncId, _@(bytes)+3, 5);
 
     // Iterate over all occurrences of "ZS_ProclaimAndPunish"
     repeat(i, MEM_ArraySize(matches)); var int i;
@@ -27,7 +27,7 @@ func int Ninja_G1CP_032_GornAttackFreeMine() {
         if (MEM_ReadByte(pos+15) == zPAR_TOK_CALLEXTERN)
         && (MEM_ReadInt(pos+16)  == sstateId) {
 
-            // Overwrite "ZS_ProclaimAndPunish" with "Ninja_G1CP_032_GornAttackFreeMine_AttackRelay"
+            // Overwrite "ZS_ProclaimAndPunish" with "G1CP_032_GornAttackFreeMine_AttackRelay"
             MEMINT_OverrideFunc_Ptr = pos;
             MEMINT_OFTokPar(zPAR_TOK_PUSHINT, state2Id);
 
@@ -40,7 +40,7 @@ func int Ninja_G1CP_032_GornAttackFreeMine() {
 
     // Intercept Gorn witnessing terrible things
     if (applied) {
-        HookDaedalusFuncI(memFncId, MEM_GetFuncID(Ninja_G1CP_032_GornAttackFreeMine_NoTrauma));
+        HookDaedalusFuncI(memFncId, MEM_GetFuncID(G1CP_032_GornAttackFreeMine_NoTrauma));
     };
 
     return applied;
@@ -49,8 +49,8 @@ func int Ninja_G1CP_032_GornAttackFreeMine() {
 /*
  * Intercept starting the state "ZS_ProclaimAndPunish" from "B_AssessFightSound"
  */
-func void Ninja_G1CP_032_GornAttackFreeMine_AttackRelay() {
-    Ninja_G1CP_ReportFuncToSpy();
+func void G1CP_032_GornAttackFreeMine_AttackRelay() {
+    G1CP_ReportFuncToSpy();
 
     // Punish PC, attack NPC
     if (Npc_IsPlayer(other)) {
@@ -74,9 +74,9 @@ func void Ninja_G1CP_032_GornAttackFreeMine_AttackRelay() {
 /*
  * Intercept the creation of memories for Gorn in the Free Mine
  */
-func void Ninja_G1CP_032_GornAttackFreeMine_NoTrauma(var int newsid, var int source, var C_Npc witness,
+func void G1CP_032_GornAttackFreeMine_NoTrauma(var int newsid, var int source, var C_Npc witness,
                                                      var C_Npc offender, var C_Npc vict) {
-    Ninja_G1CP_ReportFuncToSpy();
+    G1CP_ReportFuncToSpy();
 
     // Define possibly missing symbols locally
     const int GIL_GRD = 2;
@@ -87,9 +87,9 @@ func void Ninja_G1CP_032_GornAttackFreeMine_NoTrauma(var int newsid, var int sou
     const int fighterFMid = -1;
     const int updated = FALSE;
     if (!updated) {
-        GIL_GRD = Ninja_G1CP_GetIntVar("GIL_GRD", 0, GIL_GRD);
-        GIL_STT = Ninja_G1CP_GetIntVar("GIL_STT", 0, GIL_STT);
-        GIL_VLK = Ninja_G1CP_GetIntVar("GIL_VLK", 0, GIL_VLK);
+        GIL_GRD = G1CP_GetIntVar("GIL_GRD", 0, GIL_GRD);
+        GIL_STT = G1CP_GetIntVar("GIL_STT", 0, GIL_STT);
+        GIL_VLK = G1CP_GetIntVar("GIL_VLK", 0, GIL_VLK);
         fighterFMid = MEM_FindParserSymbol("PC_FighterFM");
         updated = TRUE;
     };

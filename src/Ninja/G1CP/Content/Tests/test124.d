@@ -6,8 +6,8 @@
  *
  * Expected behavior: The castle gate should be closed (or closing?).
  */
-func void Ninja_G1CP_Test_124() {
-    if (Ninja_G1CP_TestsuiteAllowManual) {
+func void G1CP_Test_124() {
+    if (G1CP_TestsuiteAllowManual) {
         // Define possibly missing symbols locally
         const int GIL_GRD = 2;
 
@@ -15,13 +15,13 @@ func void Ninja_G1CP_Test_124() {
 
         var int func1Id; func1Id = MEM_FindParserSymbol("B_Kapitelwechsel");
         if (func1Id == -1) {
-            Ninja_G1CP_TestsuiteErrorDetail("Function 'B_Kapitelwechsel' not found");
+            G1CP_TestsuiteErrorDetail("Function 'B_Kapitelwechsel' not found");
             passed = FALSE;
         };
 
         var int func2Id; func2Id = MEM_FindParserSymbol("B_Story_FMTaken");
         if (func2Id == -1) {
-            Ninja_G1CP_TestsuiteErrorDetail("Function 'B_Story_FMTaken' not found");
+            G1CP_TestsuiteErrorDetail("Function 'B_Story_FMTaken' not found");
             passed = FALSE;
         };
 

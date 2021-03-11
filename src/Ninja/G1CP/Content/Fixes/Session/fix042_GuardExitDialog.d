@@ -5,7 +5,7 @@
 /*
  * Check the content of a given function against: { return 1; }
  */
-func int Ninja_G1CP_042_ConfirmByteCode(var int funcId) {
+func int G1CP_042_ConfirmByteCode(var int funcId) {
     if (funcId <= 0) || (funcId >= currSymbolTableLength) {
         return FALSE;
     };
@@ -42,7 +42,7 @@ func int Ninja_G1CP_042_ConfirmByteCode(var int funcId) {
  * present) is replaced to check if there is another exit dialog (this is only done very roughly based on exit dialogs
  * we know).
  */
-func int Ninja_G1CP_042_GuardExitDialog() {
+func int G1CP_042_GuardExitDialog() {
     var int applied1; applied1 = FALSE;
     var int applied2; applied2 = FALSE;
 
@@ -50,13 +50,13 @@ func int Ninja_G1CP_042_GuardExitDialog() {
     var int func1Id; func1Id = MEM_FindParserSymbol("DIA_Grd_218_Exit_Condition");
     var int func2Id; func2Id = MEM_FindParserSymbol("DIA_Grd_245_Exit_Condition");
 
-    if (Ninja_G1CP_042_ConfirmByteCode(func1Id)) {
-        HookDaedalusFuncI(func1Id, MEM_GetFuncId(Ninja_G1CP_042_Grd_218_Cond));
+    if (G1CP_042_ConfirmByteCode(func1Id)) {
+        HookDaedalusFuncI(func1Id, MEM_GetFuncId(G1CP_042_Grd_218_Cond));
         applied1 = TRUE;
     };
 
-    if (Ninja_G1CP_042_ConfirmByteCode(func2Id)) {
-        HookDaedalusFuncI(func2Id, MEM_GetFuncId(Ninja_G1CP_042_Grd_245_Cond));
+    if (G1CP_042_ConfirmByteCode(func2Id)) {
+        HookDaedalusFuncI(func2Id, MEM_GetFuncId(G1CP_042_Grd_245_Cond));
         applied2 = TRUE;
     };
 
@@ -66,12 +66,12 @@ func int Ninja_G1CP_042_GuardExitDialog() {
 /*
  * The replacement functions with additional conditions
  */
-func int Ninja_G1CP_042_NewCondition(var C_Npc slf) {
+func int G1CP_042_NewCondition(var C_Npc slf) {
     // Check all possible ambient guard EXIT dialogs (voices might have changed)
     var int infoPtr[3];
-    infoPtr[0] = Ninja_G1CP_GetInfo("Info_Grd_6_EXIT");
-    infoPtr[1] = Ninja_G1CP_GetInfo("Info_Grd_7_EXIT");
-    infoPtr[2] = Ninja_G1CP_GetInfo("Info_Grd_13_EXIT");
+    infoPtr[0] = G1CP_GetInfo("Info_Grd_6_EXIT");
+    infoPtr[1] = G1CP_GetInfo("Info_Grd_7_EXIT");
+    infoPtr[2] = G1CP_GetInfo("Info_Grd_13_EXIT");
 
     // Check if they are assigned to this NPC
     repeat(i, 3); var int i;
@@ -87,11 +87,11 @@ func int Ninja_G1CP_042_NewCondition(var C_Npc slf) {
     // Does not have any exit dialog already: Keep this one
     return TRUE;
 };
-func int Ninja_G1CP_042_Grd_218_Cond() {
-    Ninja_G1CP_ReportFuncToSpy();
-    return Ninja_G1CP_042_NewCondition(self);
+func int G1CP_042_Grd_218_Cond() {
+    G1CP_ReportFuncToSpy();
+    return G1CP_042_NewCondition(self);
 };
-func int Ninja_G1CP_042_Grd_245_Cond() {
-    Ninja_G1CP_ReportFuncToSpy();
-    return Ninja_G1CP_042_NewCondition(self);
+func int G1CP_042_Grd_245_Cond() {
+    G1CP_ReportFuncToSpy();
+    return G1CP_042_NewCondition(self);
 };

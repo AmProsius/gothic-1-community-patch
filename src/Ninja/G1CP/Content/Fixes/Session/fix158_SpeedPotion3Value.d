@@ -1,7 +1,7 @@
 /*
  * #158 Potion of Haste has wrong ore value
  */
-func int Ninja_G1CP_158_SpeedPotion3Value() {
+func int G1CP_158_SpeedPotion3Value() {
     var int applied; applied = FALSE;
 
     // Get necessary symbol indices
@@ -31,7 +31,7 @@ func int Ninja_G1CP_158_SpeedPotion3Value() {
     // Find "value = xxx" in the instance function
     const int bytes[3] = {zPAR_TOK_PUSHVAR<<24, -1, zPAR_OP_IS};
     bytes[1] = itemValueSymbId;
-    var int matches; matches = Ninja_G1CP_FindInFunc(symbId, _@(bytes)+3, 6);
+    var int matches; matches = G1CP_FindInFunc(symbId, _@(bytes)+3, 6);
 
     // Iterate over all matches
     repeat(i, MEM_ArraySize(matches)); var int i;

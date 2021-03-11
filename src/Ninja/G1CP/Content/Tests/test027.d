@@ -5,34 +5,34 @@
  *
  * Expected behavior: The variable "drax_Lehrer_frei" is set/not set and log entry is created/not created accordingly.
  */
-func int Ninja_G1CP_Test_027() {
+func int G1CP_Test_027() {
     // Check status of the test
     var int passed; passed = TRUE;
 
     // Check if dialog exists
     var int funcId; funcId = MEM_FindParserSymbol("Org_819_Drax_Scavenger_Info");
     if (funcId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("Dialog function 'Org_819_Drax_Scavenger_Info' not found");
+        G1CP_TestsuiteErrorDetail("Dialog function 'Org_819_Drax_Scavenger_Info' not found");
         passed = FALSE;
     };
 
     // Check if the beer item exists
     var int beerId; beerId = MEM_FindParserSymbol("ItFoBeer");
     if (beerId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("Item 'ItFoBeer' not found");
+        G1CP_TestsuiteErrorDetail("Item 'ItFoBeer' not found");
         passed = FALSE;
     };
 
     // Get variables
     var int beerGivenPtr; beerGivenPtr = MEM_GetSymbol("drax_bierbekommen");
     if (!beerGivenPtr) {
-        Ninja_G1CP_TestsuiteErrorDetail("Variable 'drax_bierbekommen' not found");
+        G1CP_TestsuiteErrorDetail("Variable 'drax_bierbekommen' not found");
         passed = FALSE;
     };
     beerGivenPtr += zCParSymbol_content_offset;
     var int teachingPtr; teachingPtr = MEM_GetSymbol("drax_Lehrer_frei");
     if (!teachingPtr) {
-        Ninja_G1CP_TestsuiteErrorDetail("Variable 'drax_Lehrer_frei' not found");
+        G1CP_TestsuiteErrorDetail("Variable 'drax_Lehrer_frei' not found");
         passed = FALSE;
     };
     teachingPtr += zCParSymbol_content_offset;
@@ -43,7 +43,7 @@ func int Ninja_G1CP_Test_027() {
     if (topicNamePtr) {
         GE_TeacherOW = MEM_ReadString(MEM_ReadInt(topicNamePtr + zCParSymbol_content_offset));
     } else {
-        Ninja_G1CP_TestsuiteErrorDetail("Variable 'GE_TeacherOW' not found");
+        G1CP_TestsuiteErrorDetail("Variable 'GE_TeacherOW' not found");
         passed = FALSE;
     };
 
@@ -53,8 +53,8 @@ func int Ninja_G1CP_Test_027() {
     };
 
     // Rename the log topic if it already exists
-    const string tempTopicName = "Ninja G1CP Test 27"; // Has to be a unique name with absolute certainty
-    Ninja_G1CP_RenameTopic(GE_TeacherOW, tempTopicName);
+    const string tempTopicName = "G1CP Test 27"; // Has to be a unique name with absolute certainty
+    G1CP_RenameTopic(GE_TeacherOW, tempTopicName);
 
     // Backup values
     var int beersBefore; beersBefore = Npc_HasItems(hero, beerId);
@@ -90,18 +90,18 @@ func int Ninja_G1CP_Test_027() {
     AI_StandUpQuick(hero);
 
     // Check the variable and log topic
-    topicCreated = Ninja_G1CP_GetTopic(GE_TeacherOW) != 0;
+    topicCreated = G1CP_GetTopic(GE_TeacherOW) != 0;
     teachingUnlocked = MEM_ReadInt(teachingPtr);
     if (topicCreated) {
-        Ninja_G1CP_TestsuiteErrorDetail("Log note 'GE_TeacherOW' was wrongfully created");
+        G1CP_TestsuiteErrorDetail("Log note 'GE_TeacherOW' was wrongfully created");
     };
     if (teachingUnlocked) {
-        Ninja_G1CP_TestsuiteErrorDetail("Variable 'drax_Lehrer_frei' was wrongfully set to true");
+        G1CP_TestsuiteErrorDetail("Variable 'drax_Lehrer_frei' was wrongfully set to true");
     };
     pass1passed = (!topicCreated) && (!teachingUnlocked);
 
     // Remove possibly created log topic
-    Ninja_G1CP_RemoveTopic(GE_TeacherOW);
+    G1CP_RemoveTopic(GE_TeacherOW);
 
     // Second pass: Has beer, variable should be set to true and log entry should be created
 
@@ -118,18 +118,18 @@ func int Ninja_G1CP_Test_027() {
     AI_StandUpQuick(hero);
 
     // Check the variable and log topic
-    topicCreated = Ninja_G1CP_GetTopic(GE_TeacherOW) != 0;
+    topicCreated = G1CP_GetTopic(GE_TeacherOW) != 0;
     teachingUnlocked = MEM_ReadInt(teachingPtr);
     if (!topicCreated) {
-        Ninja_G1CP_TestsuiteErrorDetail("Log note 'GE_TeacherOW' was not created");
+        G1CP_TestsuiteErrorDetail("Log note 'GE_TeacherOW' was not created");
     };
     if (!teachingUnlocked) {
-        Ninja_G1CP_TestsuiteErrorDetail("Variable 'drax_Lehrer_frei' was not set to true");
+        G1CP_TestsuiteErrorDetail("Variable 'drax_Lehrer_frei' was not set to true");
     };
     pass2passed = (topicCreated) && (teachingUnlocked);
 
     // Remove possibly created log topic and remove any beers
-    Ninja_G1CP_RemoveTopic(GE_TeacherOW);
+    G1CP_RemoveTopic(GE_TeacherOW);
     Npc_RemoveInvItems(hero, beerId, Npc_HasItems(hero, beerId));
 
     // Clean up
@@ -141,7 +141,7 @@ func int Ninja_G1CP_Test_027() {
     // Revert values
     MEM_WriteInt(teachingPtr, teachingBak);
     MEM_WriteInt(beerGivenPtr, beerGivenBak);
-    Ninja_G1CP_RenameTopic(tempTopicName, GE_TeacherOW);
+    G1CP_RenameTopic(tempTopicName, GE_TeacherOW);
     if (beersBefore > 0) {
         CreateInvItems(hero, beerId, beersBefore);
     };

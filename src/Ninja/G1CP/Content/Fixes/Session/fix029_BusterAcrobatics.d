@@ -1,10 +1,10 @@
 /*
  * #29 Buster trains Acrobatics multiple times
  */
-func int Ninja_G1CP_029_BusterAcrobatics() {
+func int G1CP_029_BusterAcrobatics() {
     if (MEM_FindParserSymbol("DIA_ORG_833_Buster3_Condition") != -1)
     && (MEM_FindParserSymbol("NPC_TALENT_ACROBAT") != -1) {
-        HookDaedalusFuncS("DIA_ORG_833_Buster3_Condition", "Ninja_G1CP_029_BusterAcrobatics_Hook");
+        HookDaedalusFuncS("DIA_ORG_833_Buster3_Condition", "G1CP_029_BusterAcrobatics_Hook");
         return TRUE;
     } else {
         return FALSE;
@@ -14,8 +14,8 @@ func int Ninja_G1CP_029_BusterAcrobatics() {
 /*
  * This function intercepts the dialog condition to introduce more conditions
  */
-func int Ninja_G1CP_029_BusterAcrobatics_Hook() {
-    Ninja_G1CP_ReportFuncToSpy();
+func int G1CP_029_BusterAcrobatics_Hook() {
+    G1CP_ReportFuncToSpy();
 
     // Add the new condition (other conditions remain untouched)
     var int symbPtr; symbPtr = MEM_GetSymbol("NPC_TALENT_ACROBAT");

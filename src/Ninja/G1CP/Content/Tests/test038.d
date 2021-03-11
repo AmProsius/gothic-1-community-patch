@@ -5,7 +5,7 @@
  *
  * Expected behavior: The condition function will return TRUE.
  */
-func int Ninja_G1CP_Test_038() {
+func int G1CP_Test_038() {
     // Check status of the test
     var int passed; passed = TRUE;
 
@@ -15,14 +15,14 @@ func int Ninja_G1CP_Test_038() {
     // Check if the dialog exists
     var int funcId; funcId = MEM_FindParserSymbol("DIA_Snaf_WhereNek_Condition");
     if (funcId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("Dialog condition 'DIA_Snaf_WhereNek_Condition' not found");
+        G1CP_TestsuiteErrorDetail("Dialog condition 'DIA_Snaf_WhereNek_Condition' not found");
         passed = FALSE;
     };
 
     // Check if variable exists
     var int questPtr; questPtr = MEM_GetSymbol("Snaf_Zutaten");
     if (!questPtr) {
-        Ninja_G1CP_TestsuiteErrorDetail("Variable 'Snaf_Zutaten' not found");
+        G1CP_TestsuiteErrorDetail("Variable 'Snaf_Zutaten' not found");
         passed = FALSE;
     };
     questPtr += zCParSymbol_content_offset;
@@ -55,7 +55,7 @@ func int Ninja_G1CP_Test_038() {
     if (ret) {
         return TRUE;
     } else {
-        Ninja_G1CP_TestsuiteErrorDetail("Dialog condition failed");
+        G1CP_TestsuiteErrorDetail("Dialog condition failed");
         return FALSE;
     };
 };

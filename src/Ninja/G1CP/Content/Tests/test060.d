@@ -5,11 +5,11 @@
  *
  * Expected behavior: The condition function will return TRUE.
  */
-func int Ninja_G1CP_Test_060() {
+func int G1CP_Test_060() {
     // Check if the dialog exists
     var int funcId; funcId = MEM_FindParserSymbol("DIA_Jesse_Mission_Condition");
     if (funcId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("Dialog condition 'DIA_Jesse_Mission_Condition' not found");
+        G1CP_TestsuiteErrorDetail("Dialog condition 'DIA_Jesse_Mission_Condition' not found");
         return FALSE;
     };
 
@@ -20,8 +20,8 @@ func int Ninja_G1CP_Test_060() {
     var C_Npc othBak; othBak = MEM_CpyInst(other);                                               // Other
 
     // Set new values
-    Ninja_G1CP_SetInfoTold("DIA_Jesse_Warn", TRUE);                                              // Told status
-    Ninja_G1CP_SetInfoTold("DIA_Jesse_Mission", FALSE);                                          // Told status
+    G1CP_SetInfoTold("DIA_Jesse_Warn", TRUE);                                                    // Told status
+    G1CP_SetInfoTold("DIA_Jesse_Mission", FALSE);                                                // Told status
     self  = MEM_CpyInst(hero);                                                                   // Self
     other = MEM_CpyInst(hero);                                                                   // Other
 
@@ -32,14 +32,14 @@ func int Ninja_G1CP_Test_060() {
     // Restore values
     self  = MEM_CpyInst(slfBak);                                                                 // Self
     other = MEM_CpyInst(othBak);                                                                 // Other
-    Ninja_G1CP_SetInfoTold("DIA_Jesse_Warn", told1Bak);                                          // Told status
-    Ninja_G1CP_SetInfoTold("DIA_Jesse_Mission", told2Bak);                                       // Told status
+    G1CP_SetInfoTold("DIA_Jesse_Warn", told1Bak);                                                // Told status
+    G1CP_SetInfoTold("DIA_Jesse_Mission", told2Bak);                                             // Told status
 
     // Check return value
     if (ret) {
         return TRUE;
     } else {
-        Ninja_G1CP_TestsuiteErrorDetail("Dialog condition failed");
+        G1CP_TestsuiteErrorDetail("Dialog condition failed");
         return FALSE;
     };
 };

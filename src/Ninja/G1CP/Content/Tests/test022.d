@@ -6,8 +6,8 @@
  *
  * Expected behavior: Y'Berion should attack the player
  */
-func void Ninja_G1CP_Test_022() {
-    if (Ninja_G1CP_TestsuiteAllowManual) {
+func void G1CP_Test_022() {
+    if (G1CP_TestsuiteAllowManual) {
         AI_Teleport(hero, "PSI_TEMPLE_ROOMS_05");
     };
 };

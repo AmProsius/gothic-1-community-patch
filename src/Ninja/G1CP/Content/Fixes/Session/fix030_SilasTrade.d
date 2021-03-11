@@ -1,7 +1,7 @@
 /*
  * #30 Silas trades only one time
  */
-func int Ninja_G1CP_030_SilasTrade() {
+func int G1CP_030_SilasTrade() {
     var int applied; applied = FALSE;
 
     // Get necessary symbol indices
@@ -14,7 +14,7 @@ func int Ninja_G1CP_030_SilasTrade() {
     // Find "permanent = xxx" in the instance function
     const int bytes[3] = {zPAR_TOK_PUSHVAR<<24, -1, zPAR_OP_IS};
     bytes[1] = infoPermSymbId;
-    var int matches; matches = Ninja_G1CP_FindInFunc(symbId, _@(bytes)+3, 6);
+    var int matches; matches = G1CP_FindInFunc(symbId, _@(bytes)+3, 6);
 
     // Iterate over all matches
     repeat(i, MEM_ArraySize(matches)); var int i;

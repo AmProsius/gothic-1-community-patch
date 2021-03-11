@@ -5,7 +5,7 @@
  * in that case.
  * The outputs are only shown if debugging is enabled for the channel defined below.
  */
-func void Ninja_G1CP_ReportFuncToSpy() {
+func void G1CP_ReportFuncToSpy() {
     const int channel = 31; // Debug channel
 
     // Get information of the calling function
@@ -36,12 +36,12 @@ func void Ninja_G1CP_ReportFuncToSpy() {
     const int set_caller_2fr_offset = -1;
     const string str = "Calling ";
     if (indent_offset == -1) {
-        indent_offset = MEM_GetFuncOffset(Ninja_G1CP_zSpyIndent);
+        indent_offset = MEM_GetFuncOffset(G1CP_zSpyIndent);
         concatstrings_id = MEM_GetFuncID(ConcatStrings);
         mem_readstring_offset = MEM_GetFuncOffset(MEM_ReadString);
         printdebug_ch_id = MEM_GetFuncID(PrintDebugCh);
-        set_caller_2fr_offset = MEM_GetFuncOffset(Ninja_G1CP_ReportFuncToSpy_SetCaller2FStackPos);
-        str_id = MEM_FindParserSymbol("Ninja_G1CP_ReportFuncToSpy.str");
+        set_caller_2fr_offset = MEM_GetFuncOffset(G1CP_ReportFuncToSpy_SetCaller2FStackPos);
+        str_id = MEM_FindParserSymbol("G1CP_ReportFuncToSpy.str");
     };
 
     var int ptr1;
@@ -89,6 +89,6 @@ func void Ninja_G1CP_ReportFuncToSpy() {
 /*
  * Copy of MEM_SetCallerStackPos but for two more frames up
  */
-func void Ninja_G1CP_ReportFuncToSpy_SetCaller2FStackPos(var int popPos) {
+func void G1CP_ReportFuncToSpy_SetCaller2FStackPos(var int popPos) {
     MEM_WriteInt(MEM_GetFrameBoundary() + 4*MEMINT_DoStackFrameSize - MEMINT_DoStackPopPosOffset, popPos);
 };

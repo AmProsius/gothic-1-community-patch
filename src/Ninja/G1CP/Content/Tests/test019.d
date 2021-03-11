@@ -5,7 +5,7 @@
  *
  * Expected behavior: The condition function will return FALSE.
  */
-func int Ninja_G1CP_Test_019() {
+func int G1CP_Test_019() {
     var int funcId;
     var int symbPtr;
     var int kapitelBak;
@@ -18,14 +18,14 @@ func int Ninja_G1CP_Test_019() {
     // Check if dialog exists
     funcId = MEM_FindParserSymbol("DIA_Scorpio_REFUSETRAIN_Condition");
     if (funcId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("Dialog condition 'DIA_Scorpio_REFUSETRAIN_Condition' not found");
+        G1CP_TestsuiteErrorDetail("Dialog condition 'DIA_Scorpio_REFUSETRAIN_Condition' not found");
         passed = FALSE;
     };
 
     // Check if variable exists
     symbPtr = MEM_GetSymbol("Kapitel");
     if (!symbPtr) {
-        Ninja_G1CP_TestsuiteErrorDetail("Variable 'Kapitel' not found");
+        G1CP_TestsuiteErrorDetail("Variable 'Kapitel' not found");
         passed = FALSE;
     };
 
@@ -48,7 +48,7 @@ func int Ninja_G1CP_Test_019() {
 
     // Backup told status of required dialog
     backupTold = Npc_KnowsInfo(hero, MEM_FindParserSymbol("DIA_Scorpio_Hello"));
-    Ninja_G1CP_SetInfoTold("DIA_Scorpio_Hello", TRUE);
+    G1CP_SetInfoTold("DIA_Scorpio_Hello", TRUE);
 
     // Backup self and other
     var C_Npc slfBak; slfBak = MEM_CpyInst(self);
@@ -67,7 +67,7 @@ func int Ninja_G1CP_Test_019() {
     other = MEM_CpyInst(othBak);
 
     // Restore told status of required dialog
-    Ninja_G1CP_SetInfoTold("DIA_Scorpio_Hello", backupTold);
+    G1CP_SetInfoTold("DIA_Scorpio_Hello", backupTold);
 
     // Restore guild
     Npc_SetTrueGuild(hero, guildBak);
@@ -77,7 +77,7 @@ func int Ninja_G1CP_Test_019() {
 
     // Check return value
     if (ret) {
-        Ninja_G1CP_TestsuiteErrorDetail("Dialog condition failed");
+        G1CP_TestsuiteErrorDetail("Dialog condition failed");
         return FALSE;
     } else {
         return TRUE;

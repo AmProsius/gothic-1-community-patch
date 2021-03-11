@@ -6,7 +6,7 @@
  *
  * Expected behavior: The player will not give ore on the first pass but on the second one.
  */
-func int Ninja_G1CP_Test_102() {
+func int G1CP_Test_102() {
     // Create possibly missing symbols locally
     const int LOG_RUNNING = 1;
 
@@ -16,14 +16,14 @@ func int Ninja_G1CP_Test_102() {
     // Check if the dialog function exists
     var int funcId; funcId = MEM_FindParserSymbol("Info_Bloodwyn_PayForJesse_Info");
     if (funcId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("Dialog function 'Info_Bloodwyn_PayForJesse_Info' not found");
+        G1CP_TestsuiteErrorDetail("Dialog function 'Info_Bloodwyn_PayForJesse_Info' not found");
         passed = FALSE;
     };
 
     // Check if the variable exists
     var int topicPtr; topicPtr = MEM_GetSymbol("Jesse_PayForMe");
     if (!topicPtr) {
-        Ninja_G1CP_TestsuiteErrorDetail("Item 'Jesse_PayForMe' not found");
+        G1CP_TestsuiteErrorDetail("Item 'Jesse_PayForMe' not found");
         passed = FALSE;
     };
     topicPtr += zCParSymbol_content_offset;
@@ -31,7 +31,7 @@ func int Ninja_G1CP_Test_102() {
     // Check if the ore item exists
     var int oreId; oreId = MEM_FindParserSymbol("ItMiNugget");
     if (oreId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("Item 'ItMiNugget' not found");
+        G1CP_TestsuiteErrorDetail("Item 'ItMiNugget' not found");
         passed = FALSE;
     };
 
@@ -75,11 +75,11 @@ func int Ninja_G1CP_Test_102() {
     if (amountPass1 > 8) {
         msg = ConcatStrings("The hero wrongfully payed ", IntToString(8 - amountPass1));
         msg = ConcatStrings(msg, " ore");
-        Ninja_G1CP_TestsuiteErrorDetail(msg);
+        G1CP_TestsuiteErrorDetail(msg);
     } else if (amountPass1 < 8) {
         msg = ConcatStrings("The hero wrongfully received ", IntToString(amountPass1 - 8));
         msg = ConcatStrings(msg, " ore");
-        Ninja_G1CP_TestsuiteErrorDetail(msg);
+        G1CP_TestsuiteErrorDetail(msg);
     };
 
     // Reset
@@ -97,19 +97,19 @@ func int Ninja_G1CP_Test_102() {
     // Check the amount
     amountPass2 = Npc_HasItems(hero, oreId);
     if (amountPass2 == 20) {
-        Ninja_G1CP_TestsuiteErrorDetail("The hero wrongfully kept all ore");
+        G1CP_TestsuiteErrorDetail("The hero wrongfully kept all ore");
     } else if (amountPass2 < 10) {
         msg = ConcatStrings("The hero wrongfully payed ", IntToString(10 - amountPass2));
         msg = ConcatStrings(msg, " ore too much");
-        Ninja_G1CP_TestsuiteErrorDetail(msg);
+        G1CP_TestsuiteErrorDetail(msg);
     } else if (amountPass2 > 20) {
         msg = ConcatStrings("The hero wrongfully received ", IntToString(amountPass2 - 20));
         msg = ConcatStrings(msg, " ore");
-        Ninja_G1CP_TestsuiteErrorDetail(msg);
+        G1CP_TestsuiteErrorDetail(msg);
     } else if (amountPass2 > 10) {
         msg = ConcatStrings("The hero wrongfully payed ", IntToString(amountPass2 - 10));
         msg = ConcatStrings(msg, " ore too little");
-        Ninja_G1CP_TestsuiteErrorDetail(msg);
+        G1CP_TestsuiteErrorDetail(msg);
     };
 
     // Remove all ore

@@ -5,11 +5,11 @@
  *
  * Expected behavior: The condition function will return FALSE.
  */
-func int Ninja_G1CP_Test_018() {
+func int G1CP_Test_018() {
     // Check if dialog exists
     var int funcId; funcId = MEM_FindParserSymbol("Info_Bloodwyn_Hello_Condition");
     if (funcId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("Dialog condition 'Info_Bloodwyn_Hello_Condition' not found");
+        G1CP_TestsuiteErrorDetail("Dialog condition 'Info_Bloodwyn_Hello_Condition' not found");
         return FALSE;
     };
 
@@ -40,7 +40,7 @@ func int Ninja_G1CP_Test_018() {
 
     // Check return value
     if (ret) {
-        Ninja_G1CP_TestsuiteErrorDetail("Dialog condition failed");
+        G1CP_TestsuiteErrorDetail("Dialog condition failed");
         return FALSE;
     } else {
         return TRUE;

@@ -6,10 +6,10 @@
  * To not impact performance (as the collision function is called every frame for moving movers) the instructions are
  * injected with machine code.
  */
-func int Ninja_G1CP_163_CastleGate() {
+func int G1CP_163_CastleGate() {
     const int zCMover__CanThisCollideWith_true = 6177730; //0x5E43C2
 
-    if (Ninja_G1CP_CheckBytes(zCMover__CanThisCollideWith_true, "5F B8 01 00 00 00 5E C2 04 00") == 1) { // Not hooked
+    if (G1CP_CheckBytes(zCMover__CanThisCollideWith_true, "5F B8 01 00 00 00 5E C2 04 00") == 1) { // Not hooked
 
         // Write new instructions to always return false if the mover is the castle gate
         const int ds_lstrcmpiA = 8192708; //0x7D02C4

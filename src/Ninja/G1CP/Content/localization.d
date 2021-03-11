@@ -2,7 +2,7 @@
  * Guess localization (0 = EN, 1 = DE, 2 = PL, 3 = RU)
  * Source: https://github.com/szapp/Ninja/wiki/Inject-Changes#localization
  */
-func int Ninja_G1CP_GuessLocalization() {
+func int G1CP_GuessLocalization() {
     var int pan; pan = MEM_GetSymbol("MOBNAME_PAN");
     if (pan) {
         var zCPar_Symbol panSymb; panSymb = _^(pan);

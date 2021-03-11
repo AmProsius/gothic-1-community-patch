@@ -1,7 +1,7 @@
 /*
  * #11 Player can pass guards in combat mode
  */
-func int Ninja_G1CP_011_PassGuardsCombatMode() {
+func int G1CP_011_PassGuardsCombatMode() {
     var int applied; applied = FALSE;
 
     // Check if all necessary symbols exist
@@ -13,7 +13,7 @@ func int Ninja_G1CP_011_PassGuardsCombatMode() {
 
     // Get function offsets
     var int checkInfoOffset; checkInfoOffset = MEM_ReadInt(checkInfoSymbPtr + zCParSymbol_content_offset);
-    var int interceptOffset; interceptOffset = MEM_GetFuncOffset(Ninja_G1CP_011_CheckInfo);
+    var int interceptOffset; interceptOffset = MEM_GetFuncOffset(G1CP_011_CheckInfo);
 
     /* Expected byte code within the function
         ...
@@ -27,7 +27,7 @@ func int Ninja_G1CP_011_PassGuardsCombatMode() {
     // Search for "B_CheckForImportantInfo(xxxx, xxxx)" in "B_AssessFighter"
     const int bytes[2] = {zPar_TOK_CALL<<24, -1};
     bytes[1] = checkInfoOffset;
-    var int matches; matches = Ninja_G1CP_FindInFunc(funcId, _@(bytes)+3, 5);
+    var int matches; matches = G1CP_FindInFunc(funcId, _@(bytes)+3, 5);
 
     // Iterate over all occurrences of "B_CheckForImportantInfo(xxxx, xxxx)"
     repeat(i, MEM_ArraySize(matches)); var int i;
@@ -38,7 +38,7 @@ func int Ninja_G1CP_011_PassGuardsCombatMode() {
             // Now we can almost guarantee that the return value is not popped
 
             /* Write byte code to wrap the function call in an if-block and return if true
-                if (Ninja_G1CP_011_CheckInfo(xxxx, xxxx)) { // B_CheckForImportantInfo has issues (see below)
+                if (G1CP_011_CheckInfo(xxxx, xxxx)) { // B_CheckForImportantInfo has issues (see below)
                     return; // Abort the function "B_AssessFighter"
                 } else {
                     jump to after the original function call // Continue in the function "B_AssessFighter"
@@ -63,7 +63,7 @@ func int Ninja_G1CP_011_PassGuardsCombatMode() {
                 zPAR_TOK_JUMP            new byte code
 
             new byte code:
-                zPAR_TOK_CALL            Ninja_G1CP_011_CheckInfo
+                zPAR_TOK_CALL            G1CP_011_CheckInfo
                 zPAR_TOK_JUMPF           back to where we came from
                 zPAR_TOK_RET
             */
@@ -81,8 +81,8 @@ func int Ninja_G1CP_011_PassGuardsCombatMode() {
 /*
  * Intercept the call to "B_CheckForImportantInfo" and inject new conditions for guards
  */
-func int Ninja_G1CP_011_CheckInfo(var C_Npc slf, var C_Npc oth) {
-    Ninja_G1CP_ReportFuncToSpy();
+func int G1CP_011_CheckInfo(var C_Npc slf, var C_Npc oth) {
+    G1CP_ReportFuncToSpy();
 
     // Define possibly missing symbols locally
     const int PERC_ASSESSTALK  = 19;
@@ -109,7 +109,7 @@ func int Ninja_G1CP_011_CheckInfo(var C_Npc slf, var C_Npc oth) {
     MEM_PushInstParam(slf);
     MEM_FindParserSymbol("ZS_GuardPassage"); // Cannot push integer
     MEM_Call(Npc_IsInState);
-    var int cond2; cond2 = (MEM_PopIntResult()) && (Ninja_G1CP_GetAIVar(hero, "AIV_GUARDPASSAGE_STATUS", 0) > 0);
+    var int cond2; cond2 = (MEM_PopIntResult()) && (G1CP_GetAIVar(hero, "AIV_GUARDPASSAGE_STATUS", 0) > 0);
 
     // Abort "B_AssessFighter" if either condition is met
     return (cond1) || (cond2);

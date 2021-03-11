@@ -8,16 +8,16 @@
  *
  * This fix requires LeGo AI-Functions.
  */
-func int Ninja_G1CP_003_RegainDroppedWeapon() {
+func int G1CP_003_RegainDroppedWeapon() {
     const int AI_TakeItem_p              = 6660155; //0x65A03B
     const int AI_EquipBestMeleeWeapon_p  = 6654871; //0x658B97
     const int AI_EquipBestRangedWeapon_p = 6655079; //0x658C67
 
     if (MEM_FindParserSymbol("B_RegainDroppedWeapon") != -1)
-    && (Ninja_G1CP_CheckBytes(AI_TakeItem_p,              "8B F8 83 C4") == 1) // 1 == cannot be hooked
-    && (Ninja_G1CP_CheckBytes(AI_EquipBestMeleeWeapon_p,  "8B F8 83 C4") == 1)
-    && (Ninja_G1CP_CheckBytes(AI_EquipBestRangedWeapon_p, "8B F8 83 C4") == 1) {
-        HookDaedalusFuncS("B_RegainDroppedWeapon", "Ninja_G1CP_003_RegainDroppedWeapon_Hook");
+    && (G1CP_CheckBytes(AI_TakeItem_p,              "8B F8 83 C4") == 1) // 1 == cannot be hooked
+    && (G1CP_CheckBytes(AI_EquipBestMeleeWeapon_p,  "8B F8 83 C4") == 1)
+    && (G1CP_CheckBytes(AI_EquipBestRangedWeapon_p, "8B F8 83 C4") == 1) {
+        HookDaedalusFuncS("B_RegainDroppedWeapon", "G1CP_003_RegainDroppedWeapon_Hook");
 
         MemoryProtectionOverride(AI_TakeItem_p, 4);
         MemoryProtectionOverride(AI_EquipBestMeleeWeapon_p, 4);
@@ -32,7 +32,7 @@ func int Ninja_G1CP_003_RegainDroppedWeapon() {
 /*
  * This function essentially replaces (not technically!) the function 'B_RegainDroppedWeapon'
  */
-func void Ninja_G1CP_003_RegainDroppedWeapon_Logic(var C_Npc slf) {
+func void G1CP_003_RegainDroppedWeapon_Logic(var C_Npc slf) {
     Npc_PerceiveAll(slf);
 
     // Define possibly missing symbols locally
@@ -42,8 +42,8 @@ func void Ninja_G1CP_003_RegainDroppedWeapon_Logic(var C_Npc slf) {
 
     // Melee weapon
     if (Wld_DetectItem(slf, ITEM_KAT_NF)) {
-        if (Npc_GetDistToItem(slf, item) < 5000)         // Prevent walking off too far
-        && (Ninja_G1CP_Npc_CanSeeItemFreeLOS(slf, item)) // Does not have to face it, only line of sight
+        if (Npc_GetDistToItem(slf, item) < 5000)   // Prevent walking off too far
+        && (G1CP_Npc_CanSeeItemFreeLOS(slf, item)) // Does not have to face it, only line of sight
         && (!Npc_HasEquippedMeleeWeapon(slf)) {
             AI_TakeItem(slf, item);
             AI_Function_NI(slf, EquipWeapon, slf, Hlp_GetInstanceID(item)); // Equip this exact weapon in particular
@@ -53,7 +53,7 @@ func void Ninja_G1CP_003_RegainDroppedWeapon_Logic(var C_Npc slf) {
     // Ranged weapon
     if (Wld_DetectItem(slf, ITEM_KAT_FF)) {
         if (Npc_GetDistToItem(slf, item) < 5000)
-        && (Ninja_G1CP_Npc_CanSeeItemFreeLOS(slf, item))
+        && (G1CP_Npc_CanSeeItemFreeLOS(slf, item))
         && (!Npc_HasEquippedRangedWeapon(slf)) {
             AI_TakeItem(slf, item);
             AI_Function_NI(slf, EquipWeapon, slf, Hlp_GetInstanceID(item));
@@ -63,7 +63,7 @@ func void Ninja_G1CP_003_RegainDroppedWeapon_Logic(var C_Npc slf) {
     // Ammunition (just a bonus)
     if (Wld_DetectItem(slf, ITEM_KAT_MUN)) {
         if (Npc_GetDistToItem(slf, item) < 5000)
-        && (Ninja_G1CP_Npc_CanSeeItemFreeLOS(slf, item)) {
+        && (G1CP_Npc_CanSeeItemFreeLOS(slf, item)) {
             AI_TakeItem(slf, item);
         };
     };
@@ -72,8 +72,8 @@ func void Ninja_G1CP_003_RegainDroppedWeapon_Logic(var C_Npc slf) {
 /*
  * This function disables part of the external function calls of the original function
  */
-func void Ninja_G1CP_003_RegainDroppedWeapon_Hook(var C_Npc slf) {
-    Ninja_G1CP_ReportFuncToSpy();
+func void G1CP_003_RegainDroppedWeapon_Hook(var C_Npc slf) {
+    G1CP_ReportFuncToSpy();
 
     const int AI_TakeItem_p              = 6660155; //0x65A03B
     const int AI_EquipBestMeleeWeapon_p  = 6654871; //0x658B97
@@ -99,7 +99,7 @@ func void Ninja_G1CP_003_RegainDroppedWeapon_Hook(var C_Npc slf) {
     if (MEM_ReadInt(AI_EquipBestRangedWeapon_p) == newb) { MEM_WriteInt(AI_EquipBestRangedWeapon_p, orig); };
 
     // And now, we do it our way
-    Ninja_G1CP_003_RegainDroppedWeapon_Logic(slf);
+    G1CP_003_RegainDroppedWeapon_Logic(slf);
 
     // Finally re-instate the global symbol
     MEM_AssignInstSuppressNullWarning = TRUE;

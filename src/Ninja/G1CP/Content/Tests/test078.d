@@ -7,46 +7,46 @@
  */
 
 /* Strength of the player */
-const int Ninja_G1CP_Test_078_HeroStrengthBak = 0;
+const int G1CP_Test_078_HeroStrengthBak = 0;
 
 /*
  * Test function
  */
-func void Ninja_G1CP_Test_078() {
-    if (!Ninja_G1CP_TestsuiteAllowManual) {
+func void G1CP_Test_078() {
+    if (!G1CP_TestsuiteAllowManual) {
         return;
     };
 
     // Check for orc warrior and orc slave
     var int warriorId; warriorId = MEM_FindParserSymbol("OrcWarrior1");
     if (warriorId == -1)  {
-        Ninja_G1CP_TestsuiteErrorDetail("NPC 'OrcWarrior1' not found");
+        G1CP_TestsuiteErrorDetail("NPC 'OrcWarrior1' not found");
         return;
     };
     var int slaveId; slaveId = MEM_FindParserSymbol("OrcSlave");
     if (slaveId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("NPC 'OrcSlave' not found");
+        G1CP_TestsuiteErrorDetail("NPC 'OrcSlave' not found");
         return;
     };
 
     // Check for Ulumulu
     var int ulumuluId; ulumuluId = MEM_FindParserSymbol("UluMulu");
     if (ulumuluId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("Item 'UluMulu' not found");
+        G1CP_TestsuiteErrorDetail("Item 'UluMulu' not found");
     };
 
     // Require perceptions
     var int percId; percId = MEM_FindParserSymbol("B_AssessEnemy");
     if (percId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("Function 'B_AssessEnemy' not found");
+        G1CP_TestsuiteErrorDetail("Function 'B_AssessEnemy' not found");
     };
 
     // Insert test NPC
     var string wp; wp = Npc_GetNearestWP(hero);
-    Wld_InsertNpc(Ninja_G1CP_Test_078_Npc, wp);
-    var C_Npc test; test = Hlp_GetNpc(Ninja_G1CP_Test_078_Npc);
+    Wld_InsertNpc(G1CP_Test_078_Npc, wp);
+    var C_Npc test; test = Hlp_GetNpc(G1CP_Test_078_Npc);
     if (!Hlp_IsValidNpc(test)) {
-        Ninja_G1CP_TestsuiteErrorDetail("Failed to insert NPC");
+        G1CP_TestsuiteErrorDetail("Failed to insert NPC");
         return;
     };
 
@@ -55,19 +55,19 @@ func void Ninja_G1CP_Test_078() {
     Wld_InsertNpc(warriorId, wp);
     test = Hlp_GetNpc(warriorId);
     if (!Hlp_IsValidNpc(test)) {
-        Ninja_G1CP_TestsuiteErrorDetail("NPC 'OrcWarrior1' failed to insert");
+        G1CP_TestsuiteErrorDetail("NPC 'OrcWarrior1' failed to insert");
         return;
     };
     Wld_InsertNpc(slaveId, wp);
     test = Hlp_GetNpc(slaveId);
     if (!Hlp_IsValidNpc(test)) {
-        Ninja_G1CP_TestsuiteErrorDetail("NPC 'OrcSlave' failed to insert");
+        G1CP_TestsuiteErrorDetail("NPC 'OrcSlave' failed to insert");
         return;
     };
 
     // Give Ulumulu to player (enough strength too)
     const int ATR_STRENGTH = 4;
-    Ninja_G1CP_Test_078_HeroStrengthBak = hero.attribute[ATR_STRENGTH];
+    G1CP_Test_078_HeroStrengthBak = hero.attribute[ATR_STRENGTH];
     if (hero.attribute[ATR_STRENGTH] < 100) {
         hero.attribute[ATR_STRENGTH] = 100;
     };
@@ -79,13 +79,13 @@ func void Ninja_G1CP_Test_078() {
 /*
  * The actual test will run through the NPC's AI state (see below)
  */
-instance Ninja_G1CP_Test_078_Npc(C_Npc) {
+instance G1CP_Test_078_Npc(C_Npc) {
     name          = "Test 78";
     level         = 2000; // No coward
     attribute[0]  = 2000;
     attribute[1]  = 2000;
     attribute[4]  = 1000; // Enough strength to carry any weapon
-    start_aistate = ZS_Ninja_G1CP_Test_078_NpcRountine;
+    start_aistate = ZS_G1CP_Test_078_NpcRountine;
     fight_tactic  = 4; // FAI_HUMAN_MASTER
     senses        = 7;
     senses_range  = 4000;
@@ -98,7 +98,7 @@ instance Ninja_G1CP_Test_078_Npc(C_Npc) {
 /*
  * AI state is stared once the NPC is properly inserted
  */
-func void ZS_Ninja_G1CP_Test_078_NpcRountine() {
+func void ZS_G1CP_Test_078_NpcRountine() {
     // Define possibly missing symbols locally
     const int PERC_ASSESSENEMY = 2;
 
@@ -110,7 +110,7 @@ func void ZS_Ninja_G1CP_Test_078_NpcRountine() {
 
     Npc_SetPercTime(self, 0.5);
 };
-func int  ZS_Ninja_G1CP_Test_078_NpcRountine_Loop() {
+func int  ZS_G1CP_Test_078_NpcRountine_Loop() {
     var int detected;
     if (Npc_GetStateTime(self) < 3) || (!detected) {
         detected = FALSE;
@@ -127,15 +127,15 @@ func int  ZS_Ninja_G1CP_Test_078_NpcRountine_Loop() {
     };
     return 0;
 };
-func void ZS_Ninja_G1CP_Test_078_NpcRountine_End() {
+func void ZS_G1CP_Test_078_NpcRountine_End() {
     // Define possibly missing symbols locally
     const int ATR_STRENGTH = 4;
 
     // Delete the NPCs once done
     MEM_WriteInt(_@(self.bodymass)+8, 0); // Clear start_aistate
-    AI_Function_I(hero, Wld_RemoveNpc, Ninja_G1CP_Test_078_Npc);
+    AI_Function_I(hero, Wld_RemoveNpc, G1CP_Test_078_Npc);
     Wld_RemoveNpc(MEM_FindParserSymbol("OrcWarrior1"));
     Wld_RemoveNpc(MEM_FindParserSymbol("OrcSlave"));
     Npc_RemoveInvItem(hero, MEM_FindParserSymbol("UluMulu"));
-    hero.attribute[ATR_STRENGTH] = Ninja_G1CP_Test_078_HeroStrengthBak;
+    hero.attribute[ATR_STRENGTH] = G1CP_Test_078_HeroStrengthBak;
 };

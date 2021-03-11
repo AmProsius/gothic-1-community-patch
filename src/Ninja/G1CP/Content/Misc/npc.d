@@ -1,7 +1,7 @@
 /*
  * Copy of C_BodyStateContains to ensure it exists as expected
  */
-func int Ninja_G1CP_BodyStateContains(var C_Npc slf, var int bodystate) {
+func int G1CP_BodyStateContains(var C_Npc slf, var int bodystate) {
     // Define possibly missing symbols locally
     const int BS_MAX                = 31;
     const int BS_FLAG_INTERRUPTABLE = 32768;
@@ -15,7 +15,7 @@ func int Ninja_G1CP_BodyStateContains(var C_Npc slf, var int bodystate) {
 /*
  * More versatile version of Npc_CanSee
  */
-func int Ninja_G1CP_Npc_CanSeeVob(var int npcPtr, var int vobPtr, var int withAngles) {
+func int G1CP_Npc_CanSeeVob(var int npcPtr, var int vobPtr, var int withAngles) {
     if (!vobPtr) || (!Hlp_Is_oCNpc(npcPtr)) {
         return FALSE;
     };
@@ -38,9 +38,9 @@ func int Ninja_G1CP_Npc_CanSeeVob(var int npcPtr, var int vobPtr, var int withAn
 /*
  * Equivalent function of Npc_CanSeeNpcFreeLOS for Items
  */
-func int Ninja_G1CP_Npc_CanSeeItemFreeLOS(var C_Npc slf, var C_Item itm) {
+func int G1CP_Npc_CanSeeItemFreeLOS(var C_Npc slf, var C_Item itm) {
     if (Hlp_IsValidNpc(slf)) && (Hlp_IsValidItem(itm)) {
-        return Ninja_G1CP_Npc_CanSeeVob(_@(slf), _@(itm), TRUE);
+        return G1CP_Npc_CanSeeVob(_@(slf), _@(itm), TRUE);
     } else {
         return FALSE;
     };

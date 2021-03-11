@@ -1,7 +1,7 @@
 /*
  * #39 Fingers teaches advanced skills too soon
  */
-func int Ninja_G1CP_039_FingersTeachDialog() {
+func int G1CP_039_FingersTeachDialog() {
     // Check if all necessary symbols exist
     var int funcId;  funcId  = MEM_FindParserSymbol("DIA_Fingers_Lehrer_Info");
     var int cond1Id; cond1Id = MEM_FindParserSymbol("DIA_Fingers_Lehrer_Pickpocket2");
@@ -17,17 +17,17 @@ func int Ninja_G1CP_039_FingersTeachDialog() {
 
     // Get the symbol indices of the functions
     var int addChoiceId; addChoiceId = MEM_GetFuncId(Info_AddChoice);
-    var int interceptId; interceptId = MEM_GetFuncId(Ninja_G1CP_039_AllowAddChoice);
+    var int interceptId; interceptId = MEM_GetFuncId(G1CP_039_AllowAddChoice);
 
     // Replace all function calls to "Info_AddChoice"
-    return Ninja_G1CP_ReplaceCallInFunc(funcId, addChoiceId, interceptId) > 0;
+    return G1CP_ReplaceCallInFunc(funcId, addChoiceId, interceptId) > 0;
 };
 
 /*
  * Intercept any calls to "Info_AddChoice" in "DIA_Fingers_Lehrer_Info"
  */
-func void Ninja_G1CP_039_AllowAddChoice(var int dia, var string choice, var int fncId) {
-    Ninja_G1CP_ReportFuncToSpy();
+func void G1CP_039_AllowAddChoice(var int dia, var string choice, var int fncId) {
+    G1CP_ReportFuncToSpy();
 
     // Get the necessary symbols (existence verified by function above)
     const int diaId = -1;

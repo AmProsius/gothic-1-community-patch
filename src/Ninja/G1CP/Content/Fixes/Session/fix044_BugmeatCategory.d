@@ -1,7 +1,7 @@
 /*
  * #44 Bugmeat in the wrong inventory category
  */
-func int Ninja_G1CP_044_BugmeatCategory() {
+func int G1CP_044_BugmeatCategory() {
     var int applied; applied = FALSE;
 
     // Get necessary symbol indices
@@ -29,7 +29,7 @@ func int Ninja_G1CP_044_BugmeatCategory() {
     // Find "mainflag = xxx" in the instance function
     const int bytes[3] = {zPAR_TOK_PUSHVAR<<24, -1, zPAR_OP_IS};
     bytes[1] = itemMainflagSymbId;
-    var int matches; matches = Ninja_G1CP_FindInFunc(symbId, _@(bytes)+3, 6);
+    var int matches; matches = G1CP_FindInFunc(symbId, _@(bytes)+3, 6);
 
     // Iterate over all matches
     repeat(i, MEM_ArraySize(matches)); var int i;

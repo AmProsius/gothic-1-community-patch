@@ -1,7 +1,7 @@
 /*
  * Print function byte code to spy
  */
-func void Ninja_G1CP_FuncByteCodeToSpy(var int funcId) {
+func void G1CP_FuncByteCodeToSpy(var int funcId) {
     if (funcId < 0) || (funcId >= currSymbolTableLength) {
         MEM_Warn("Invalid symbol ID");
         return;
@@ -22,7 +22,7 @@ func void Ninja_G1CP_FuncByteCodeToSpy(var int funcId) {
         var int pos; pos = MEM_ArrayRead(positions, i);
 
         var string msg;
-        msg = ConcatStrings(Ninja_G1CP_LFill(IntToString(pos - funcStart), " ", 4), ":   ");
+        msg = ConcatStrings(G1CP_LFill(IntToString(pos - funcStart), " ", 4), ":   ");
         msg = ConcatStrings(msg, MEM_ReadStatStringArr(PARSER_TOKEN_NAMES, tok));
         msg = ConcatStrings(msg, "   ");
         if (tok == zPAR_TOK_PUSHVAR)    || (tok == zPAR_TOK_PUSHINST)

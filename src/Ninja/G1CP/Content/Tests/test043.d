@@ -5,17 +5,17 @@
  *
  * Expected behavior: The whitespace will be correctly added to the string.
  */
-func int Ninja_G1CP_Test_043() {
+func int G1CP_Test_043() {
     // Check language first
-    if (Ninja_G1CP_Lang != 0) {
-        Ninja_G1CP_TestsuiteErrorDetail("Test only applicable for the English localization");
+    if (G1CP_Lang != 0) {
+        G1CP_TestsuiteErrorDetail("Test only applicable for the English localization");
         return TRUE; // True?
     };
 
     // Check if function exists
     var int funcId; funcId = MEM_FindParserSymbol("B_BuildLearnString");
     if (funcId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("Function 'B_BuildLearnString' not found");
+        G1CP_TestsuiteErrorDetail("Function 'B_BuildLearnString' not found");
         return FALSE;
     };
 
@@ -30,7 +30,7 @@ func int Ninja_G1CP_Test_043() {
     if (Hlp_StrCmp(output, "Test 43 (10 ore, 20 skill points)")) {
         return TRUE;
     } else {
-        Ninja_G1CP_TestsuiteErrorDetail(ConcatStrings("Output incorrect: ", output));
+        G1CP_TestsuiteErrorDetail(ConcatStrings("Output incorrect: ", output));
         return FALSE;
     };
 };

@@ -5,11 +5,11 @@
  *
  * Expected behavior: The condition functions will return FALSE.
  */
-func int Ninja_G1CP_Test_031_RunDialog(var int itmInst, var int num, var string dialogName) {
+func int G1CP_Test_031_RunDialog(var int itmInst, var int num, var string dialogName) {
     // Check if dialog exists
     var int funcId; funcId = MEM_FindParserSymbol(dialogName);
     if (funcId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail(ConcatStrings(ConcatStrings("Dialog condition '", dialogName), "' not found"));
+        G1CP_TestsuiteErrorDetail(ConcatStrings(ConcatStrings("Dialog condition '", dialogName), "' not found"));
         return FALSE;
     };
 
@@ -19,7 +19,7 @@ func int Ninja_G1CP_Test_031_RunDialog(var int itmInst, var int num, var string 
     var C_Npc othBak; othBak = MEM_CpyInst(other);                                                    // Other
 
     // Set new values
-    Ninja_G1CP_SetInfoTold("Info_Wolf_MCPLATESENOUGH", TRUE);                                         // Told status
+    G1CP_SetInfoTold("Info_Wolf_MCPLATESENOUGH", TRUE);                                               // Told status
     CreateInvItems(hero, itmInst, num);                                                               // Create items
     self  = MEM_CpyInst(hero);                                                                        // Self
     other = MEM_CpyInst(hero);                                                                        // Other
@@ -32,31 +32,31 @@ func int Ninja_G1CP_Test_031_RunDialog(var int itmInst, var int num, var string 
     self  = MEM_CpyInst(slfBak);                                                                      // Self
     other = MEM_CpyInst(othBak);                                                                      // Other
     Npc_RemoveInvItems(hero, itmInst, Npc_HasItems(hero, itmInst));                                   // Remove items
-    Ninja_G1CP_SetInfoTold("Info_Wolf_MCPLATESENOUGH", toldBak);                                      // Told status
+    G1CP_SetInfoTold("Info_Wolf_MCPLATESENOUGH", toldBak);                                            // Told status
 
     // Check return value
     if (ret) {
-        Ninja_G1CP_TestsuiteErrorDetail(ConcatStrings(ConcatStrings("Dialog condition '", dialogName), "' failed"));
+        G1CP_TestsuiteErrorDetail(ConcatStrings(ConcatStrings("Dialog condition '", dialogName), "' failed"));
         return FALSE;
     };
 
     return TRUE;
 };
-func int Ninja_G1CP_Test_031() {
+func int G1CP_Test_031() {
     // Check status of the test
     var int passed; passed = TRUE;
 
     // Find item
     var int itmInst; itmInst = MEM_FindParserSymbol("ItAt_Crawler_02");
     if (itmInst == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("Item 'ItAt_Crawler_02' not found");
+        G1CP_TestsuiteErrorDetail("Item 'ItAt_Crawler_02' not found");
         passed = FALSE;
     };
 
     // Check if variable exists
     var int knowsPlatesPtr; knowsPlatesPtr = MEM_GetSymbol("Knows_GetMCPlates");
     if (!knowsPlatesPtr) {
-        Ninja_G1CP_TestsuiteErrorDetail("Variable 'Knows_GetMCPlates' not found");
+        G1CP_TestsuiteErrorDetail("Variable 'Knows_GetMCPlates' not found");
         passed = FALSE;
     };
     knowsPlatesPtr += zCParSymbol_content_offset;
@@ -78,8 +78,8 @@ func int Ninja_G1CP_Test_031() {
 
     // Run dialogs
     var int ret; ret = 0;
-    ret += Ninja_G1CP_Test_031_RunDialog(itmInst, 1,  "Info_Wolf_MCPLATESFEW_Condition");
-    ret += Ninja_G1CP_Test_031_RunDialog(itmInst, 15, "Info_Wolf_MCPLATESENOUGH_Condition");
+    ret += G1CP_Test_031_RunDialog(itmInst, 1,  "Info_Wolf_MCPLATESFEW_Condition");
+    ret += G1CP_Test_031_RunDialog(itmInst, 15, "Info_Wolf_MCPLATESENOUGH_Condition");
 
     // Restore values
     MEM_WriteInt(knowsPlatesPtr, knowsPlatesBak);
