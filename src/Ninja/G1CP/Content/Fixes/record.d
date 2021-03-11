@@ -66,7 +66,7 @@ func string G1CP_GetFixShortName(var int id) {
 
             // Confirm that the function is called from one of the initialization functions
             if (MEM_ArrayIndexOf(funcCalls, symb.content) != -1) {
-                return STR_SubStr(symb.name, 15, STR_Len(symb.name)-15);
+                return STR_SubStr(symb.name, 9, STR_Len(symb.name)-9);
             };
         };
     end;
@@ -264,6 +264,36 @@ func void G1CP_FixNameAll_Sub(var int key, var int val) {
 func string G1CP_FixNameCmd(var string command) {
     var int id; id = STR_ToInt(command);
     return G1CP_GetFixShortName(id);
+};
+
+
+/*
+ * Initialize the lookup table: Find all possible fixes and enter them as non-active
+ */
+func int G1CP_InitLookupTable() {
+    // Set up the lookup table
+    if (!G1CP_FixTable) {
+        G1CP_FixTable = _HT_Create();
+    };
+
+    // Iterate over all patch symbols, pick out any fixes, and add them to the lookup table
+    repeat(i, G1CP_SymbEnd); var int i; if (!i) { i = G1CP_SymbStart; }; // From SymbStart to SymbEnd
+        var zCPar_Symbol symb; symb = _^(MEM_GetSymbolByIndex(i));
+        if (STR_StartsWith(symb.name, "G1CP_"))
+        && (STR_Len(symb.name) >= 8)
+        && ((symb.bitfield & zCPar_Symbol_bitfield_type) == zPAR_TYPE_FUNC) {
+            var int chr; chr = STR_GetCharAt(symb.name, 5) - 48;
+            if (0 <= chr) && (chr <= 9) {
+                var int id; id = STR_ToInt(STR_SubStr(symb.name, 5, 3));
+                if (!_HT_Has(G1CP_FixTable, id)) {
+                    _HT_Insert(G1CP_FixTable, G1CP_FIX_NOT_APPLIED, id);
+                };
+            };
+        };
+    end;
+
+    // Return success
+    return (_HT_GetNumber(G1CP_FixTable) > 0);
 };
 
 

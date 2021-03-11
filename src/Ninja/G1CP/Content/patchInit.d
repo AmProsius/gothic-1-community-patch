@@ -5,6 +5,7 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
     // Initialize one-time-per-session fixes
     if (G1CP_InitStart()) {                             // Maximum fix function name length: 45 characters
         G1CP_MenuVersionNumber();
+        G1CP_InitLookupTable();
         G1CP_ReadDisabledFixesIni();
         G1CP_TestSuite();
         G1CP_FixStatusInit();

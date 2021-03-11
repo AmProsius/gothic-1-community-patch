@@ -23,6 +23,7 @@ func int G1CP_InitWrapper(var int pos, var int endParam, var int revert) {
         if (funcId > 0) && (funcId < currSymbolTableLength) {
             var zCPar_Symbol symb; symb = _^(MEM_GetSymbolByIndex(funcId));
             if (STR_StartsWith(symb.name, "G1CP_"))
+            && (STR_Len(symb.name) >= 8)
             && (symb.offset == (zPAR_TYPE_INT>>12)) {
                 var int prevStatus;
                 var int success;
