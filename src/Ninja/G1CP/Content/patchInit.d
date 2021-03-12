@@ -59,7 +59,6 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
         G1CP_157_SpeedPotion2Value();                   // #157
         G1CP_158_SpeedPotion3Value();                   // #158
         G1CP_163_CastleGate();                          // #163
-        G1CP_InitEnd();
     };
 };
 

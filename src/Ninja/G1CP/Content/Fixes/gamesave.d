@@ -23,20 +23,20 @@ func int G1CP_HookGameSaveFixes() {
  * Apply all game save sensitive fixes
  */
 func void G1CP_GamesaveFixes_Apply() {
-    G1CP_InitStart();                               // Maximum fix function name length: 45 characters
-    G1CP_046_SmithDoor();                           // #46
-    G1CP_050_Pillar();                              // #50
-    G1CP_124_GateGuardID();                         // #124
-    G1CP_InitEnd();
+    if (G1CP_InitStart()) {                             // Maximum fix function name length: 45 characters
+        G1CP_046_SmithDoor();                           // #46
+        G1CP_050_Pillar();                              // #50
+        G1CP_124_GateGuardID();                         // #124
+    };
 };
 
 /*
  * Revert all game save sensitive fixes
  */
 func void G1CP_GamesaveFixes_Revert() {
-    G1CP_InitStart();                               // Maximum fix function name length: 45 characters
-    G1CP_046_SmithDoorRevert();                     // #46
-    G1CP_050_PillarRevert();                        // #50
-    G1CP_124_GateGuardIDRevert();                   // #124
-    G1CP_InitEnd();
+    if (G1CP_InitStart()) {                             // Maximum fix function name length: 45 characters
+        G1CP_046_SmithDoorRevert();                     // #46
+        G1CP_050_PillarRevert();                        // #50
+        G1CP_124_GateGuardIDRevert();                   // #124
+    };
 };

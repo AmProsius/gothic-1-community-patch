@@ -1,7 +1,7 @@
 /*
  * Function for one-time initial actions before anything else
  */
-func void G1CP_InitOnce() {
+func void G1CP_InitPre() {
     // Version check
     if (NINJA_VERSION < 2308) {
         MEM_SendToSpy(zERR_TYPE_FATAL, "G1CP requires at least Ninja 2.3.08 or higher");

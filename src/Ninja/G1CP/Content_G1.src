@@ -137,7 +137,7 @@ Content\Tests\test158.d
 Content\Tests\test163.d
 
 // Initialization
-Content\initOnce.d
+Content\initPre.d
 Content\Report\initWrapper.d
 Content\Fixes\gamesave.d
 Content\patchInit.d
