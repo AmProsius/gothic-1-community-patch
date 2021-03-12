@@ -78,7 +78,7 @@ $(TARGET) : $(VMAUTO) $(SCRIPTVERSION) $(SOURCES)
 # Auto-fill the VDFS VM script with the metadata
 $(VMAUTO) : $(META) $(VM)
 	@ECHO [BEGINVDF]>                                                             "$(call FixPath,$@)"
-	@ECHO Comment=$(LONGNAME)  $(VBASE).$(VMAJOR).$(VMINOR)>>                     "$(call FixPath,$@)"
+	@ECHO Comment=$(LONGNAME)  $(VBASE).$(VMAJOR).$(VMINOR)%%%%N$(WEBSITE)>>      "$(call FixPath,$@)"
 	@ECHO BaseDir=.^\>>                                                           "$(call FixPath,$@)"
 	@ECHO VDFName=.^\..^\$(call FixPath,$(TARGET))>>                              "$(call FixPath,$@)"
 	@ECHO/>>                                                                      "$(call FixPath,$@)"

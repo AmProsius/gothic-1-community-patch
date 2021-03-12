@@ -43,7 +43,7 @@ CRCCheck force
 !define MOD_NAME "$%LONGNAME%"  ; Mod-Titel
 !define MOD_COMP "$%AUTHOR%"    ; Mod-Herausgeber
 !define MOD_LINK "$%WEBSITE%"   ; Herausgeber-Link
-!define MOD_HELP "$%SUPPORT%"   ; Support-Link
+!define MOD_COPY "$%AUTHOR%"    ; Copyright
 
 !define SRC_BASEDIR "..\build"
 !define OUTDIR "..\build"
@@ -119,11 +119,13 @@ ReserveFile "setup.ini"
 
 ; Setup.exe Versionsinformationen (Sprache = MUI_LANGUAGE)
 VIProductVersion "${VER_MAJOR}.${VER_MINOR}.${VER_PATCH}.${VER_FLAGS}"
-VIAddVersionKey "CompanyName"      "${MOD_COMP}"
-VIAddVersionKey "FileVersion"      "${VER_TEXT}"
-VIAddVersionKey "LegalCopyright"   "${MOD_COPY}"
-VIAddVersionKey "FileDescription"  "${MOD_NAME}"
-VIAddVersionKey "OriginalFilename" "${MOD_FILE}-${VER_FILE}.exe"
+VIAddVersionKey /LANG=1200 "ProductName"      "${MOD_NAME}"
+VIAddVersionKey /LANG=1200 "ProductVersion"   "${VER_TEXT}"
+VIAddVersionKey /LANG=1200 "CompanyName"      "${MOD_COMP}"
+VIAddVersionKey /LANG=1200 "FileVersion"      "${VER_TEXT}"
+VIAddVersionKey /LANG=1200 "LegalCopyright"   "${MOD_COPY}  <${MOD_LINK}>"
+VIAddVersionKey /LANG=1200 "FileDescription"  "${MOD_NAME}"
+VIAddVersionKey /LANG=1200 "OriginalFilename" "${MOD_FILE}-${VER_FILE}.exe"
 
 
 LangString NameInstFull ${LANG_ENGLISH} "Complete"
@@ -171,7 +173,6 @@ Section -pre
   WriteRegExpandStr HKLM $R0 "UninstallString" "$INSTDIR\${MOD_FILE}-uninst.exe"
   WriteRegStr       HKLM $R0 "Publisher"       "${MOD_COMP}"
   WriteRegStr       HKLM $R0 "URLInfoAbout"    "${MOD_LINK}"
-  WriteRegStr       HKLM $R0 "HelpLink"        "${MOD_HELP}"
 
   Pop $R0
 SectionEnd
