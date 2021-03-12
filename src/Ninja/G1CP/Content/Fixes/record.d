@@ -4,7 +4,7 @@
 
 
 /* Hashtable containing which fix worked and which failed */
-const int G1CP_FixTable = 0;
+const int G1CP_LookupTable = 0;
 
 
 /*
@@ -15,10 +15,10 @@ const int G1CP_FixTable = 0;
  *   G1CP_FIX_NOT_APPLIED
  *   G1CP_FIX_APPLIED
  */
-func int G1CP_FixStatus(var int id) {
-    if (G1CP_FixTable) {
-        if (_HT_Has(G1CP_FixTable, id)) {
-            return _HT_Get(G1CP_FixTable, id);
+func int G1CP_GetFixStatus(var int id) {
+    if (G1CP_LookupTable) {
+        if (_HT_Has(G1CP_LookupTable, id)) {
+            return _HT_Get(G1CP_LookupTable, id);
         };
     };
     return G1CP_FIX_NOT_FOUND;
@@ -100,10 +100,10 @@ const int G1CP_FixAppliedAll_Active = 0;
 const int G1CP_FixAppliedAll_NonAct = 0;
 const int G1CP_FixAppliedAll_Disbld = 0;
 func string G1CP_FixAppliedAll(var string _) {
-    if (!G1CP_FixTable) {
+    if (!G1CP_LookupTable) {
         return "Error: Fix table not found";
     };
-    if (!MEM_ArraySize(G1CP_FixTable)) {
+    if (!MEM_ArraySize(G1CP_LookupTable)) {
         return "Error: No fixes found";
     };
 
@@ -117,7 +117,7 @@ func string G1CP_FixAppliedAll(var string _) {
         MEM_ArrayClear(G1CP_FixAppliedAll_NonAct);
         MEM_ArrayClear(G1CP_FixAppliedAll_Disbld);
     };
-    _HT_ForEach(G1CP_FixTable, G1CP_FixAppliedAll_Sub);
+    _HT_ForEach(G1CP_LookupTable, G1CP_FixAppliedAll_Sub);
     MEM_ArraySort(G1CP_FixAppliedAll_Active);
     MEM_ArraySort(G1CP_FixAppliedAll_NonAct);
     MEM_ArraySort(G1CP_FixAppliedAll_Disbld);
@@ -196,10 +196,10 @@ func string G1CP_FixAppliedCmd(var string command) {
  */
 const int G1CP_FixNameAll_Sorted = 0;
 func string G1CP_FixNameAll(var string _) {
-    if (!G1CP_FixTable) {
+    if (!G1CP_LookupTable) {
         return "Error: Fix table not found";
     };
-    if (!MEM_ArraySize(G1CP_FixTable)) {
+    if (!MEM_ArraySize(G1CP_LookupTable)) {
         return "Error: No fixes found";
     };
 
@@ -209,7 +209,7 @@ func string G1CP_FixNameAll(var string _) {
     } else {
         MEM_ArrayClear(G1CP_FixNameAll_Sorted);
     };
-    _HT_ForEach(G1CP_FixTable, G1CP_FixNameAll_Sub);
+    _HT_ForEach(G1CP_LookupTable, G1CP_FixNameAll_Sub);
     MEM_ArraySort(G1CP_FixNameAll_Sorted);
 
     var int so; so = SB_Get();
@@ -272,8 +272,8 @@ func string G1CP_FixNameCmd(var string command) {
  */
 func int G1CP_InitLookupTable() {
     // Set up the lookup table
-    if (!G1CP_FixTable) {
-        G1CP_FixTable = _HT_Create();
+    if (!G1CP_LookupTable) {
+        G1CP_LookupTable = _HT_Create();
     };
 
     // Iterate over all patch symbols, pick out any fixes, and add them to the lookup table
@@ -285,15 +285,15 @@ func int G1CP_InitLookupTable() {
             var int chr; chr = STR_GetCharAt(symb.name, 5) - 48;
             if (0 <= chr) && (chr <= 9) {
                 var int id; id = STR_ToInt(STR_SubStr(symb.name, 5, 3));
-                if (!_HT_Has(G1CP_FixTable, id)) {
-                    _HT_Insert(G1CP_FixTable, G1CP_FIX_NOT_APPLIED, id);
+                if (!_HT_Has(G1CP_LookupTable, id)) {
+                    _HT_Insert(G1CP_LookupTable, G1CP_FIX_NOT_APPLIED, id);
                 };
             };
         };
     end;
 
     // Return success
-    return (_HT_GetNumber(G1CP_FixTable) > 0);
+    return (_HT_GetNumber(G1CP_LookupTable) > 0);
 };
 
 
@@ -355,7 +355,7 @@ func int G1CP_ReadDisabledFixesIni() {
     };
 
     // Abort if lookup table was not initialized
-    if (!G1CP_FixTable) {
+    if (!G1CP_LookupTable) {
         return FALSE;
     };
 
@@ -379,9 +379,9 @@ func int G1CP_ReadDisabledFixesIni() {
                 // Split at any non-numerical character
                 if (bufferLen > 0) {
                     // Check if valid fix ID
-                    if (_HT_Has(G1CP_FixTable, buffer)) {
+                    if (_HT_Has(G1CP_LookupTable, buffer)) {
                         MEM_ArrayInsert(arr, buffer);
-                        _HT_Change(G1CP_FixTable, G1CP_FIX_DISABLED, buffer);
+                        _HT_Change(G1CP_LookupTable, G1CP_FIX_DISABLED, buffer);
                     };
                     bufferLen = 0;
                     buffer = 0;
