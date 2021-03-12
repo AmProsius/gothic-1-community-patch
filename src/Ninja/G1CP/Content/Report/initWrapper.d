@@ -230,7 +230,7 @@ func void G1CP_InitBuildLine(var int revert, var int id, var int namePtr, var in
     var int success;
 
     // Only execute non-disabled fixes
-    var int curState; curState = G1CP_FixStatus(id);
+    var int curState; curState = G1CP_GetFixStatus(id);
     var int disabled; disabled = (curState == G1CP_FIX_DISABLED);
     if (disabled) {
         prevStatus = FALSE;

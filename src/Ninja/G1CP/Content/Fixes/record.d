@@ -29,7 +29,7 @@ func int G1CP_FixStatus(var int id) {
  * Check if fix is currently applied
  */
 func int G1CP_IsFixApplied(var int id) {
-    return (G1CP_FixStatus(id) == G1CP_FIX_APPLIED);
+    return (G1CP_GetFixStatus(id) == G1CP_FIX_APPLIED);
 };
 
 
@@ -177,7 +177,7 @@ func void G1CP_FixAppliedAll_Sub(var int key, var int val) {
  */
 func string G1CP_FixAppliedCmd(var string command) {
     var int id; id = STR_ToInt(command);
-    var int state; state = G1CP_FixStatus(id);
+    var int state; state = G1CP_GetFixStatus(id);
     var string msg; msg = ConcatStrings("Fix #", IntToString(id));
     if (state == G1CP_FIX_DISABLED) {
         return ConcatStrings(msg, " is disabled");
@@ -227,7 +227,7 @@ func string G1CP_FixNameAll(var string _) {
         SB(G1CP_LFill("", " ", 42-SB_Length()));
 
         var int type;
-        var int status; status = G1CP_FixStatus(id);
+        var int status; status = G1CP_GetFixStatus(id);
         if (status == G1CP_FIX_APPLIED) {
             SB("         APPLIED");
             type = zERR_TYPE_WARN;
