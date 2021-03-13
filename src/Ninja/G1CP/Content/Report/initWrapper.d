@@ -97,6 +97,13 @@ func int G1CP_InitStart() {
     var int so; so = SB_Get();
     var int s; s = SB_New();
 
+    // Allocate the estimated length of the byte code
+    const int bytesBefore  = 11 + 41 + 15;
+    const int bytesAfter   = 15 + 15 + 6;
+    const int bytesPerCall = 25;
+    var int numCalls; numCalls = (posEnd-pos)/5;
+    SB_InitBuffer(bytesBefore + bytesPerCall*numCalls + bytesAfter + /*buffer*/15);
+
     // Measure the time
     SBc(zPAR_TOK_CALL);        SBw(MEM_GetSystemTime_offset);
     SBc(zPAR_TOK_PUSHVAR);     SBw(time_id);
