@@ -5,7 +5,7 @@
  * weapon of respective type is not already equipped. This will prevent trading NPCs to block the best weapon.
  * Source: https://forum.worldofplayers.de/forum/threads/?p=25954713
  */
-func int G1CP_059_FixEquipBestWeapons() {
+func int G1CP_059_NpcEquipBestWeapons() {
     const int oCNpc__Enable_equipBestWeapons = 6955616; //0x6A2260
     const string orig1 = "6A 02 8B CE E8 B7 7F 00 00 6A 04 8B CE E8 AE 7F 00 00"; // Original
     const string orig2 = "6A 02 8B CE E8 B7 7F 00 00 6A 04 8B CE E8 7E 64 F0 FF"; // 3rd party fix
@@ -16,7 +16,7 @@ func int G1CP_059_FixEquipBestWeapons() {
         const int nop20Bytes[5] = {-1869574000, -1869574000, -1869574000, -1869574000, -1869574000}; //0x90 * 20
         MemoryProtectionOverride(oCNpc__Enable_equipBestWeapons, 18);
         MEM_CopyBytes(_@(nop20Bytes), oCNpc__Enable_equipBestWeapons, 18);
-        HookEngineF(oCNpc__Enable_equipBestWeapons, 5, G1CP_059_FixEquipBestWeapons_Hook);
+        HookEngineF(oCNpc__Enable_equipBestWeapons, 5, G1CP_059_NpcEquipBestWeapons_Hook);
 
         return TRUE;
     } else {
@@ -35,7 +35,7 @@ func void G1CP_NpcEquipBestWeaponByType(var C_Npc npc, var int type) {
     };
 };
 
-func void G1CP_059_FixEquipBestWeapons_Hook() {
+func void G1CP_059_NpcEquipBestWeapons_Hook() {
     G1CP_ReportFuncToSpy();
 
     // Define possibly missing symbols locally

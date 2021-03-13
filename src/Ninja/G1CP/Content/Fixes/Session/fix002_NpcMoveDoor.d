@@ -1,9 +1,9 @@
 /*
  * #2 NPCs don't use doors properly
  */
-func int G1CP_002_FixDoor() {
+func int G1CP_002_NpcMoveDoor() {
     if (MEM_FindParserSymbol("B_MoveMob") != -1) {
-        HookDaedalusFuncS("B_MoveMob", "G1CP_002_FixDoor_Hook");
+        HookDaedalusFuncS("B_MoveMob", "G1CP_002_NpcMoveDoor_Hook");
         return TRUE;
     } else {
         return FALSE;
@@ -13,7 +13,7 @@ func int G1CP_002_FixDoor() {
 /*
  * This function intercepts the NPC state to introduce more conditions
  */
-func void G1CP_002_FixDoor_Hook() {
+func void G1CP_002_NpcMoveDoor_Hook() {
     G1CP_ReportFuncToSpy();
 
     // Call original function

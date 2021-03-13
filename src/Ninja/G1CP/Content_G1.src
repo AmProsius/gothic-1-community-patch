@@ -27,11 +27,11 @@ Content\Fixes\record.d
 Content\testsuite.d
 
 // Session fixes
-Content\Fixes\Session\fix001_FixNpcSleep.d
-Content\Fixes\Session\fix002_FixDoor.d
+Content\Fixes\Session\fix001_NpcStateSleep.d
+Content\Fixes\Session\fix002_NpcMoveDoor.d
 Content\Fixes\Session\fix003_RegainDroppedWeapon.d
 Content\Fixes\Session\fix007_PracticeSwordWithWeapon.d
-Content\Fixes\Session\fix009_FixFlee.d
+Content\Fixes\Session\fix009_NpcStateFlee.d
 Content\Fixes\Session\fix010_FollowWalkMode.d
 Content\Fixes\Session\fix011_PassGuardsCombatMode.d
 Content\Fixes\Session\fix012_RangedDoubleXP.d
@@ -61,7 +61,7 @@ Content\Fixes\Session\fix042_GuardExitDialog.d
 Content\Fixes\Session\fix043_EN_SkillMissingWhitespace.d
 Content\Fixes\Session\fix044_BugmeatCategory.d
 Content\Fixes\Session\fix049_DungeonKeyText.d
-Content\Fixes\Session\fix059_FixEquipBestWeapons.d
+Content\Fixes\Session\fix059_NpcEquipBestWeapons.d
 Content\Fixes\Session\fix060_JesseQuest.d
 Content\Fixes\Session\fix078_HumanAttackOrc.d
 Content\Fixes\Session\fix079_WolfDexDialog.d

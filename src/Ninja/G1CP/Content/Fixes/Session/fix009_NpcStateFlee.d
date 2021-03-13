@@ -1,12 +1,12 @@
 /*
  * #9 NPCs freeze when fleeing
  */
-func int G1CP_009_FixFlee() {
+func int G1CP_009_NpcStateFlee() {
     const int AI_Wait_popped = 6644536; //0x656338
 
     if (MEM_FindParserSymbol("ZS_Flee_Loop") != -1)
     && (G1CP_CheckBytes(AI_Wait_popped, "8B F8 83 C4") == 1) {
-        HookDaedalusFuncS("ZS_Flee_Loop", "G1CP_009_FixFlee_Hook");
+        HookDaedalusFuncS("ZS_Flee_Loop", "G1CP_009_NpcStateFlee_Hook");
 
         MemoryProtectionOverride(AI_Wait_popped, 4);
 
@@ -19,7 +19,7 @@ func int G1CP_009_FixFlee() {
 /*
  * This function intercepts the NPC state to introduce more conditions
  */
-func int G1CP_009_FixFlee_Hook() {
+func int G1CP_009_NpcStateFlee_Hook() {
     G1CP_ReportFuncToSpy();
 
     const int AI_Wait_popped = 6644536; //0x656338

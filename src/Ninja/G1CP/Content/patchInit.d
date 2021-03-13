@@ -10,11 +10,11 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
         G1CP_TestSuite();
         G1CP_FixStatusInit();
         G1CP_HookGameSaveFixes();
-        G1CP_001_FixNpcSleep();                         // #1
-        G1CP_002_FixDoor();                             // #2
+        G1CP_001_NpcStateSleep();                       // #1
+        G1CP_002_NpcMoveDoor();                         // #2
         G1CP_003_RegainDroppedWeapon();                 // #3
         G1CP_007_PracticeSwordWithWeapon();             // #7
-        G1CP_009_FixFlee();                             // #9
+        G1CP_009_NpcStateFlee();                        // #9
         G1CP_010_FollowWalkMode();                      // #10
         G1CP_011_PassGuardsCombatMode();                // #11
         G1CP_012_RangedDoubleXP();                      // #12
@@ -44,7 +44,7 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
         G1CP_043_EN_SkillMissingWhitespace();           // #43
         G1CP_044_BugmeatCategory();                     // #44
         G1CP_049_DungeonKeyText();                      // #49
-        G1CP_059_FixEquipBestWeapons();                 // #59
+        G1CP_059_NpcEquipBestWeapons();                 // #59
         G1CP_060_JesseQuest();                          // #60
         G1CP_078_HumanAttackOrc();                      // #78
         G1CP_079_WolfDexDialog();                       // #79

@@ -1,17 +1,17 @@
 /*
  * #1 NPCs wake up immediately
  */
-func int G1CP_001_FixNpcSleep() {
+func int G1CP_001_NpcStateSleep() {
     const int AI_StartState_popped = 6627839; //0x6521FF
 
     if (MEM_FindParserSymbol("ZS_SleepBed_Loop") != -1)
     && (G1CP_CheckBytes(AI_StartState_popped, "8B E8 83 C4 14")) {
-        HookDaedalusFuncS("ZS_SleepBed_Loop", "G1CP_001_FixNpcSleep_Hook");
+        HookDaedalusFuncS("ZS_SleepBed_Loop", "G1CP_001_NpcStateSleep_Hook");
 
         // Create empty hook (if there is a problem, rather fail now than later during the game)
         if (!IsHooked(AI_StartState_popped)) {
-            HookEngineF(AI_StartState_popped, 5, G1CP_001_FixNpcSleep_StateHook);
-            RemoveHookF(AI_StartState_popped, 0, G1CP_001_FixNpcSleep_StateHook);
+            HookEngineF(AI_StartState_popped, 5, G1CP_001_NpcStateSleep_StateHook);
+            RemoveHookF(AI_StartState_popped, 0, G1CP_001_NpcStateSleep_StateHook);
         };
         return TRUE;
     } else {
@@ -22,7 +22,7 @@ func int G1CP_001_FixNpcSleep() {
 /*
  * This function intercepts the NPC state to introduce more conditions
  */
-func int G1CP_001_FixNpcSleep_Hook() {
+func int G1CP_001_NpcStateSleep_Hook() {
     G1CP_ReportFuncToSpy();
 
     const int AI_StartState_popped = 6627839; //0x6521FF
@@ -31,14 +31,14 @@ func int G1CP_001_FixNpcSleep_Hook() {
     // Instead we will intercept AI_StartState and return if ZS_SitAround is to be started but our conditions fail
 
     // Temporarily hook AI_StartState
-    HookEngineF(AI_StartState_popped, 5, G1CP_001_FixNpcSleep_StateHook);
+    HookEngineF(AI_StartState_popped, 5, G1CP_001_NpcStateSleep_StateHook);
 
     // Call original function
     ContinueCall();
     var int ret; ret = MEM_PopIntResult();
 
     // Remove hook again (only remove function but leave changes in engine for performance)
-    RemoveHookF(AI_StartState_popped, 0, G1CP_001_FixNpcSleep_StateHook);
+    RemoveHookF(AI_StartState_popped, 0, G1CP_001_NpcStateSleep_StateHook);
 
     // Return original return value
     return ret;
@@ -48,7 +48,7 @@ func int G1CP_001_FixNpcSleep_Hook() {
  * This function hooks AI_StartState (temporarily, see above) and aborts if certain conditions are met
  * EAX is the address of the NPC. If not valid, AI_StartState is aborted
  */
-func void G1CP_001_FixNpcSleep_StateHook() {
+func void G1CP_001_NpcStateSleep_StateHook() {
     G1CP_ReportFuncToSpy();
 
     // Create potentially missing symbols locally
