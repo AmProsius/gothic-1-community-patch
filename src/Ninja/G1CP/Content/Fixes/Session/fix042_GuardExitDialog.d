@@ -39,8 +39,7 @@ func int G1CP_042_ConfirmByteCode(var int funcId) {
  * Usually, to fix the duplicate exit dialog, the exit dialogs of the individual NPCs are deleted. However, the issue
  * might have been fixed by an underlying mod the other way around, by removing the ambient exit dialog (somehow). To
  * keep both variants in mind, this fix here works both ways. The condition function of the individual exit dialogs (if
- * present) is replaced to check if there is another exit dialog (this is only done very roughly based on exit dialogs
- * we know).
+ * present) is replaced to check if there is another exit dialog.
  */
 func int G1CP_042_GuardExitDialog() {
     var int applied1; applied1 = FALSE;
@@ -67,25 +66,22 @@ func int G1CP_042_GuardExitDialog() {
  * The replacement functions with additional conditions
  */
 func int G1CP_042_NewCondition(var C_Npc slf) {
-    // Check all possible ambient guard EXIT dialogs (voices might have changed)
-    var int infoPtr[3];
-    infoPtr[0] = G1CP_GetInfo("Info_Grd_6_EXIT");
-    infoPtr[1] = G1CP_GetInfo("Info_Grd_7_EXIT");
-    infoPtr[2] = G1CP_GetInfo("Info_Grd_13_EXIT");
+    // Define possibly missing symbols locally
+    const string DIALOG_ENDE = "END";
+    DIALOG_ENDE = G1CP_GetStringVar("DIALOG_ENDE", 0, DIALOG_ENDE);
 
-    // Check if they are assigned to this NPC
-    repeat(i, 3); var int i;
-        var int ptr; ptr = MEM_ReadStatArr(infoPtr, i);
-        if (ptr) {
-            var oCInfo info; info = _^(ptr);
-            if (info.npc == Hlp_GetInstanceId(slf)) {
-                return FALSE;
-            };
-        };
-    end;
+    // Avoid recursion, because G1C_HasInfoWithDesc may call this very condition function
+    const int recursion = FALSE;
+    if (recursion) {
+        return FALSE;
+    };
 
-    // Does not have any exit dialog already: Keep this one
-    return TRUE;
+    recursion = TRUE;
+    var int hasEnd; hasEnd = G1C_HasInfoWithDesc(slf, DIALOG_ENDE);
+    recursion = FALSE;
+
+    // Keep this one, if there is no other exit dialog
+    return !hasEnd;
 };
 func int G1CP_042_Grd_218_Cond() {
     G1CP_ReportFuncToSpy();

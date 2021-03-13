@@ -31,3 +31,39 @@ func void G1CP_SetInfoTold(var string infoName, var int isTold) {
         info.told = !!isTold;
     };
 };
+
+
+/*
+ * Check if an NPC has an info with a specific description
+ */
+func int G1C_HasInfoWithDesc(var C_Npc slf, var string infoDesc) {
+    MEM_InitGlobalInst();
+
+    var int infoMan; infoMan = MEM_Game.infoman;
+    var int npcPtr; npcPtr = _@(slf);
+    var int herPtr; herPtr = _@(hero);
+    var int count; count = 0;
+    var int ret;
+
+    const int oCInfoManager__GetInfo = 6704720; //0x664E50
+    const int call = 0;
+    if (CALL_Begin(call)) {
+        CALL_IntParam(_@(count));
+        CALL_IntParam(_@(npcPtr));
+        CALL_IntParam(_@(herPtr));
+        CALL_PutRetValTo(_@(ret));
+        CALL__thiscall(_@(infoMan), oCInfoManager__GetInfo);
+        call = CALL_End();
+    };
+
+    while(ret);
+        var oCInfo info; info = _^(ret);
+        if (Hlp_StrCmp(info.description, infoDesc)) {
+            return TRUE;
+        };
+        count += 1;
+        ASM_Run(call);
+    end;
+
+    return FALSE;
+};
