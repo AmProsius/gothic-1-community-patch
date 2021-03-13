@@ -1,23 +1,27 @@
 # Gothic 1 Community Patch
 
-Gothic is a video game that has been loved by players for 20 years. It has aged very well and continues to amaze players from all over the world. That is, among other things, because of the game's great modding capabilities. With the release of the ModKit, the developers laid the foundation of the game's big success.
-But even after 20 years there are still bugs in the game. Until now, these bug could only be fixed by modifications (mods), because of the structure of the game. You had to choose between different mods that fix bugs, but most of the mods also alter the main game (introducing new features, cut content, etc). You either had to live with that or play the game without any mod, but with bugs. That is why I would like to introduce the Gothic 1 Community Patch (G1CP) today!
+Gothic is a video game that is still loved by players after 20 years. Despite its success, there remain some bugs in the game. These are addressed by a variety of modifications (mods) that, unfortunately, also introduce other changes and are mutually exclusive. For the first time, the Gothic 1 Community Patch (G1CP) overcomes these shortcomings.
+
+- The G1CP solely fixes story and script bugs in the game and does not introduce any other changes.
+- The G1CP is completely language independent.
+- The G1CP is a modular patch that can be used alongside other mods and patches.
+- The G1CP may be added or removed from the game at any time without repercussions on the saved game.
 
 ## What is the Gothic 1 Community Patch?
-The Gothic 1 Community Patch is, as the name suggests, an extensive patch for Gothic 1 made by the community. The G1CP can be used with either the main game or with any modification that modifies or extends the main game. Additionally the patch can be activated or deactivated at any time as it does not alter savegames.
+The Gothic 1 Community Patch is - as the name suggests - an extensive patch for Gothic 1 made by the community. As it addresses bugs in the story and general script bugs, it is suitable for the main game, as well as any mod that modifies or extends the main game. Additionally, the patch can be activated or deactivated at any time as it does not alter savegames.
 
-This patch only fixes bugs of the main game, it does not introduce new features or cut content. If that is of interest, one of the many existing content mods (for example the [Definitive Edition](https://forum.worldofplayers.de/forum/threads/1570176-RELEASE-Gothic-Definitive-Edition-1-4)) can be played. Note that the G1CP can still be installed with any of those mods.
+Unlike other mods, this patch only fixes bugs of the main game. For new features or cut content we kindly refer to the many great existing content mods. Note that the G1CP runs well with any of those mods, as it strives to offer a very high level of compatibility.
 
-It is also the intention of the patch that mods, which modify or expand the main game, can focus more on creating new content, because the bugs are already taken care of. The G1CP provides a solid base for those mods.
+Due to its great compatibility but concise reach of changes, the G1CP offers a solid base for playing Gothic 1 in general. The intention is to allow mods to focus on creating new content, while the bugs are already taken care of.
 
-Please note that this is just the first release of the G1CP. Work on the patch continues as there are still some remaining bugs to be fixed. If you still encounter bugs or know of any that aren't fixed already (see [changelog](docs/changelog.md)), consider contributing to the patch by opening an [issue](https://github.com/AmProsius/gothic-1-community-patch/issues) on Github.
+Please note that this is the first release of the G1CP. Work on the patch continues as there still remain bugs to be fixed. If you encounter bugs or know of any that aren't addressed already (see [changelog](docs/changelog.md)), consider contributing to the patch by opening an [issue](../../issues?q=sort:updated-desc) on Github.
 
 ## Requirements 
-* [Ninja](https://github.com/szapp/Ninja/releases)
+* [Ninja](https://github.com/szapp/Ninja/releases) >= 2.3.08
 
 ## Recommendations 
-* [Union](https://www.worldofgothic.de/dl/download_651.htm): Union (formerly Systempack) is a must have and fixes several engine bugs while the G1CP focuses on fixing script bugs. Bugs that are already fixed by Union are not in the scope of the G1CP.
-* [Spine](https://clockwork-origins.com/de/spine/): Spine makes it easy to manage tools, patches and mods. It is also possible to install the G1CP with only one click. Another useful feature is the auto updater that automatically updates your installations like Ninja or the G1CP and keeps you up to date.
+* [Union](https://www.worldofgothic.de/dl/download_651.htm): Union (formerly Systempack) is highly recommended as it fixes several engine bugs while the G1CP focuses on fixing script bugs. Bugs that are already fixed by Union are not in the scope of the G1CP.
+* [Spine](https://clockwork-origins.com/de/spine/): Spine makes it easy to manage tools, patches and mods. It enables to install the G1CP with just one click. Another useful feature is the auto-updater that always keeps your version of the G1CP up to date.
 
 ## Contributors
 * **AmProsius**: Project management, quality assurance  
@@ -26,9 +30,18 @@ Please note that this is just the first release of the G1CP. Work on the patch c
 * **mud-freak**: Rewriting of the provided bug fixes in modular form, management of the project repository
 
 ## FAQ 
-* **How do you achieve such high compatibility too other mods and patches?** The G1CP contains a number of security layers that check, if the bug is still present and if the fix can be applied successfully. Only then the fix will be applied. This way, if a mod already fixed the bug, the G1CP will not intervene.
-* **Do I have to start a new game when I install/update the G1CP?** No, you will never have to start a new game. The G1CP can be installed, updated and removed at any time. It doesn't leave a trace on savegames, so it's 100% compatible with existing savegames and the game can be played further after uninstalling the patch.
-* **I encountered a bug. How can I notify you to get it fixed?** The best way is to have a look at the Github repository and see, if there is already an opened issue for the bug. If not, you are welcome to open an issue yourself. However, we won't fix bugs that were introduced by other mods or patches, only bugs of the vanilla game and the G1CP.
+* **What kind of bugs are addressed exactly?** The G1CP fixes any bugs in the scripts. These range from problems in the script AI of NPCs, over item descriptions and broken dialogs, all the way to story bugs of the main game.
+* **Do I have to start a new game when I install/update the G1CP?** No, you will never have to start a new game. The G1CP can be installed, updated and removed at any time. Any fix is provided no matter how far you are progressed in the story. The patch is conceptualized to be compatible with any existing savegames.
+* **Can I continue the game without the patch after installing it once?** The G1CP leaves no noticeable trace in savegames. The game can be continued without issues after uninstalling the patch. Likewise, the patch can be re-added at any time should you change your mind.
+* **How do you ensure the compatibility with other mods and patches?** The G1CP prioritizes compatibility over bug fixing. A number of safety layers ensure that a fix is only applied if it was not addressed already. This way, if a mod already fixed the bug, the G1CP will not intervene.
+* **When starting the game I receive an error that says "Access Violation". What now?** Please double check that you have installed the Gothic version [1.08k_mod](https://www.worldofgothic.de/dl/download_6.htm) and have disabled the 
+"Data Execution Prevention" (DEP) for the Gothic executables in your system settings of Microsoft Windows. For instruction on that we kindly refer to the [Spine FAQ](https://clockwork-origins.com/spine/#faq-question-1576926774006).
+* **How do I know the G1CP is active?** On successful installation the version number of the G1CP is displayed at the bottom left of the main menu in the game. If it is not shown, please try [troubleshooting your installation](https://github.com/szapp/Ninja/wiki/Troubleshooting-(EN)#wiki-wrapper) of the patch.
+* **How do I know a certain fix is actually applied in my game?** As mentioned, the G1CP only applies individual fixes if their corresponding bug is detected in the game. (They might have been addressed already by a mod.) Therefore, it may happen that a fix is not applied. To obtain a list of applied and not applied fixes, consult the G1CP [console commands](docs/console.md).
+* **Can I disable individual bug fixes?** We try to make sure that all our changes are actually fixing *objective* bugs in the game. If you encounter a bug fix that is undesired or breaks the functionality of the game/mod, please let us now. We are committed to provide hot-fixes for the G1CP ASAP. Until we manage, there is a way to disable individual fixes. Please contact us and we will explain how that can be done.
+* **How can I report a bug?** The best way is to have a look at the Github repository and see, if there is already an opened issue for the bug. If not, you are welcome to open an issue yourself. Keep in mind that we won't fix bugs that were introduced by other mods or patches, but only bugs of the vanilla game and the G1CP. We also do not add any new or restore cut content.
+* **How can I contribute?** Providing detailed descriptions and possibly even ideas or script changes on how to fix the issue are a great help. You can do so by opening an [issue](../../issues?q=sort:updated-desc) on Github. Although pull requests are an option too they might be difficult to draft as all changes of the G1CP require scripting in a modular way. Read on for more details on how to [contribute](docs/contributing.md).
+* **Can I use portions of the G1CP in my mod?** We don't see the need to do so, as the patch should be universally applicable to any installation. Furthermore, due to their modular implementation the scripts are not suitable for mods. If you insist, it is very important to change all names of functions and variable, i.e. remove or replace their `G1CP_...` prefix. This is inevitable to avoid conflicts with the patch! Additionally, we appreciate the mentioning the original author (G1CP team) clearly of any copied or modified material.
 
 ---
 
