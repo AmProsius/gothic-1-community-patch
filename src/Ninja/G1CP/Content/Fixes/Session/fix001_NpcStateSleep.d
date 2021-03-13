@@ -2,18 +2,14 @@
  * #1 NPCs wake up immediately
  */
 func int G1CP_001_NpcStateSleep() {
-    const int AI_StartState_popped = 6627839; //0x6521FF
+    var int funcId;   funcId   = MEM_FindParserSymbol("ZS_SleepBed_Loop");
+    var int needleId; needleId = MEM_FindParserSymbol("AI_StartState");
+    var int stateId;  stateId = MEM_FindParserSymbol("ZS_SitAround");
+    var int replacId; replacId = MEM_GetFuncId(G1CP_001_NpcStateSleep_StartState);
 
-    if (MEM_FindParserSymbol("ZS_SleepBed_Loop") != -1)
-    && (G1CP_CheckBytes(AI_StartState_popped, "8B E8 83 C4 14")) {
-        HookDaedalusFuncS("ZS_SleepBed_Loop", "G1CP_001_NpcStateSleep_Hook");
-
-        // Create empty hook (if there is a problem, rather fail now than later during the game)
-        if (!IsHooked(AI_StartState_popped)) {
-            HookEngineF(AI_StartState_popped, 5, G1CP_001_NpcStateSleep_StateHook);
-            RemoveHookF(AI_StartState_popped, 0, G1CP_001_NpcStateSleep_StateHook);
-        };
-        return TRUE;
+    if (funcId != -1) && (needleId != -1) && (stateId != -1) {
+        var int count; count = G1CP_ReplaceCallInFunc(funcId, needleId, replacId);
+        return (count > 0);
     } else {
         return FALSE;
     };
@@ -22,33 +18,7 @@ func int G1CP_001_NpcStateSleep() {
 /*
  * This function intercepts the NPC state to introduce more conditions
  */
-func int G1CP_001_NpcStateSleep_Hook() {
-    G1CP_ReportFuncToSpy();
-
-    const int AI_StartState_popped = 6627839; //0x6521FF
-    // Changing the condition to start the ZS_SitAround is not easily possible with completely overwriting the function
-    // Overwriting the function should be avoided, because that would remove any additional changes from someone else
-    // Instead we will intercept AI_StartState and return if ZS_SitAround is to be started but our conditions fail
-
-    // Temporarily hook AI_StartState
-    HookEngineF(AI_StartState_popped, 5, G1CP_001_NpcStateSleep_StateHook);
-
-    // Call original function
-    ContinueCall();
-    var int ret; ret = MEM_PopIntResult();
-
-    // Remove hook again (only remove function but leave changes in engine for performance)
-    RemoveHookF(AI_StartState_popped, 0, G1CP_001_NpcStateSleep_StateHook);
-
-    // Return original return value
-    return ret;
-};
-
-/*
- * This function hooks AI_StartState (temporarily, see above) and aborts if certain conditions are met
- * EAX is the address of the NPC. If not valid, AI_StartState is aborted
- */
-func void G1CP_001_NpcStateSleep_StateHook() {
+func void G1CP_001_NpcStateSleep_StartState(var C_Npc slf, var int funcId, var int stateBehaviour, var string wpName) {
     G1CP_ReportFuncToSpy();
 
     // Create potentially missing symbols locally
@@ -56,25 +26,18 @@ func void G1CP_001_NpcStateSleep_StateHook() {
     const int BS_MOBINTERACT_INTERRUPT = 16 | BS_FLAG_INTERRUPTABLE;
 
     // Check for valid ZS-function
-    var int funcId; funcId = MEM_ReadInt(ESP+40);
-    if (funcId < 0) || (funcId > currSymbolTableLength) {
-        return;
+    if (funcId == MEM_FindParserSymbol("ZS_SitAround")) {
+        // If our conditions are not met, abort AI_StartState
+        if (G1CP_BodyStateContains(slf, BS_MOBINTERACT_INTERRUPT)) {
+            return;
+        };
     };
 
-    // Check if it is ZS_SitAround that is about to be started
-    var zCPar_symbol symb; symb = _^(MEM_GetSymbolByIndex(funcId));
-    if (!Hlp_StrCmp(symb.name, "ZS_SitAround")) {
-        return;
-    };
-
-    // Make sure the NPC is valid
-    if (!Hlp_Is_oCNpc(EAX)) {
-        return;
-    };
-
-    // If our conditions are not met, abort AI_StartState
-    var C_Npc slf; slf = _^(EAX);
-    if (G1CP_BodyStateContains(slf, BS_MOBINTERACT_INTERRUPT)) {
-        EAX = 0; // Terminate AI_StartState
-    };
+    // Otherwise proceed
+    // AI_StartState(slf, funcId, stateBehaviour, wpName);
+    MEM_PushInstParam(slf);
+    MEM_PushIntParam(funcId); // Cannot re-push function correctly
+    MEM_PushIntParam(stateBehaviour);
+    MEM_PushStringParam(wpName);
+    MEM_Call(AI_StartState);
 };
