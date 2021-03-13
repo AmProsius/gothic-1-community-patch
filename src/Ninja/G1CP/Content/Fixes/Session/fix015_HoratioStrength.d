@@ -2,12 +2,14 @@
  * #15 Horatio may lower STRENGTH
  */
 func int G1CP_015_HoratioStrength() {
-    const int PrintScreen_popped = 6630384; //0x652BF0
+    var int funcId;   funcId   = MEM_FindParserSymbol("DIA_Horatio_HelpSTR_LEARN_NOW");
+    var int needleId; needleId = MEM_GetFuncID(PrintScreen);
+    var int replacId; replacId = MEM_GetFuncID(G1CP_015_HoratioStrength_PrintScreen);
 
-    if (MEM_FindParserSymbol("DIA_Horatio_HelpSTR_LEARN_NOW") != -1)
-    && (G1CP_CheckBytes(PrintScreen_popped, "8B 35 BC A6 8D 00")) {
+    if (funcId != -1) {
         HookDaedalusFuncS("DIA_Horatio_HelpSTR_LEARN_NOW", "G1CP_015_HoratioStrength_Hook");
-        return TRUE;
+        var int count; count = G1CP_ReplaceCallInFunc(funcId, needleId, replacId);
+        return (count > 0);
     } else {
         return FALSE;
     };
@@ -24,24 +26,14 @@ const int G1CP_015_HoratioStrength_StrBak = 0;
 func void G1CP_015_HoratioStrength_Hook() {
     G1CP_ReportFuncToSpy();
 
-    const int PrintScreen_popped = 6630384; //0x652BF0
-
     // Define possibly missing symbols locally
     const int ATR_STRENGTH = 4;
 
     // Backup the strength before the dialog
     G1CP_015_HoratioStrength_StrBak = hero.attribute[ATR_STRENGTH];
 
-    // Place hook to fix on-screen information
-    if (G1CP_CheckBytes(PrintScreen_popped, "8B 35 BC A6 8D 00")) {
-        HookEngineF(PrintScreen_popped, 6, G1CP_015_HoratioStrength_PrintFix);
-    };
-
     // Call the original DIA_Horatio_HelpSTR_LEARN_NOW
     ContinueCall();
-
-    // Remove print fix hook again
-    RemoveHookF(PrintScreen_popped, 6, G1CP_015_HoratioStrength_PrintFix);
 
     // If lower, reset strength to before
     if (hero.attribute[ATR_STRENGTH] < G1CP_015_HoratioStrength_StrBak) {
@@ -50,23 +42,22 @@ func void G1CP_015_HoratioStrength_Hook() {
 };
 
 /*
- * This function hooks PrintScreen (temporarily, see above) and replaces the on-screen text if necessary
+ * This function intercepts the calls to PrintScreen and replaces the on-screen text if necessary
  */
-func void G1CP_015_HoratioStrength_PrintFix() {
+func void G1CP_015_HoratioStrength_PrintScreen(var string msg, var int x, var int y, var string font, var int timeSec) {
     G1CP_ReportFuncToSpy();
 
-    // Get text parameter
-    var zString zstr; zstr = _^(ESP+60);
+    // Get end of text
+    var zString zstr; zstr = _^(_@s(msg));
     var int pos; pos = zstr.len-3;
     var string textEnd; textEnd = STR_FromChar(zstr.ptr+pos);
 
-    // Compare if it ends on "100"
+    // Compare if the text ends on "100"
     if (Hlp_StrCmp(textEnd, "100")) {
-        var string text; text = MEM_ReadString(ESP+60);
-        text = STR_SubStr(text, 0, pos);
-        text = ConcatStrings(text, IntToString(G1CP_015_HoratioStrength_StrBak));
-
-        // Assign with new string
-        MEM_WriteString(ESP+60, text);
+        msg = STR_SubStr(msg, 0, pos);
+        msg = ConcatStrings(msg, IntToString(G1CP_015_HoratioStrength_StrBak));
     };
+
+    // Proceed
+    PrintScreen(msg, x, y, font, timeSec);
 };
