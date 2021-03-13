@@ -18,14 +18,8 @@ func int G1CP_019_ScorpioFightDialog_Hook() {
     G1CP_ReportFuncToSpy();
 
     // Add the new condition (other conditions remain untouched)
-    var int symbPtr; symbPtr = MEM_GetSymbol("Kapitel"); // Might not exist
-    if (symbPtr) {
-        var zCPar_Symbol symb; symb = _^(symbPtr);
-        if (symb.bitfield & zPAR_TYPE_INT) { // Another safety layer
-            if (symb.content > 3) {
-                return FALSE;
-            };
-        };
+    if (G1CP_GetIntVar("Kapitel", 0, 0) > 3) {
+        return FALSE;
     };
 
     // Continue with the original function
