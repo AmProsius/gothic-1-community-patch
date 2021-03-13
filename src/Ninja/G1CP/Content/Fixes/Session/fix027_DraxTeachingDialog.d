@@ -29,8 +29,8 @@ func int G1CP_027_DraxTeachingDialog() {
     repeat(i, MEM_ArraySize(matches)); var int i;
         var int pos; pos = MEM_ArrayRead(matches, i);
         if (MEM_ReadByte(pos-5) == zPAR_TOK_PUSHINT) || (MEM_ReadByte(pos-5) == zPAR_TOK_PUSHVAR) {
-            MEM_WriteByte(pos-5, zPAR_TOK_CALL);
-            MEM_WriteInt(pos-4, MEM_GetFuncOffset(G1CP_027_SetVar));
+            MEMINT_OverrideFunc_Ptr = pos-5;
+            MEMINT_OFTokPar(zPAR_TOK_CALL, MEM_GetFuncOffset(G1CP_027_SetVar));
             applied1 = TRUE;
         };
     end;
@@ -65,11 +65,11 @@ func int G1CP_027_DraxTeachingDialog() {
 func int G1CP_027_SetVar() {
     G1CP_ReportFuncToSpy();
 
-    // Check if the truth value of the variable "drax_bierbekommen" (all symbols exist, confirmed by the function above)
-    if (MEM_ReadInt(MEM_GetSymbol("drax_bierbekommen") + zCParSymbol_content_offset)) {
+    // Check if the truth value of the variable "drax_bierbekommen"
+    if (G1CP_GetIntVar("drax_bierbekommen", 0, FALSE)) {
         return TRUE; // Teaching unlocked
     } else {
-        return MEM_ReadInt(MEM_GetSymbol("drax_Lehrer_frei") + zCParSymbol_content_offset); // Variable as before
+        return G1CP_GetIntVar("drax_Lehrer_frei", 0, FALSE); // Variable as before
     };
 };
 
@@ -85,8 +85,8 @@ func void G1CP_027_CreateTopic(var string topic, var int section) {
 
     // Check if both "drax_bierbekommen" and "drax_Lehrer_frei" are true
     if (section == LOG_NOTE) {
-        if (!MEM_ReadInt(MEM_GetSymbol("drax_bierbekommen") + zCParSymbol_content_offset))
-        || (!MEM_ReadInt(MEM_GetSymbol("drax_Lehrer_frei") + zCParSymbol_content_offset)) {
+        if (!G1CP_GetIntVar("drax_bierbekommen", 0, FALSE))
+        || (!G1CP_GetIntVar("drax_Lehrer_frei", 0, FALSE)) {
             return;
         };
     };
