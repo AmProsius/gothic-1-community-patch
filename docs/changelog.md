@@ -3,14 +3,14 @@
 ## EN
 ### v1.0.0 (2021-03-15)
 #### General
-* Fix #1: NPCs no longer wake up immediately after going to bed but remain sleeping.
-* Fix #2: NPCs open closed doors properly and walk through them.
-* Fix #3: NPCs now always pick up their weapons after a lost fight.
-* Fix #7: NPCs no longer practice weapon training without a weapon.
+* Fix #1: NPCs no longer wake up immediately after going to bed, but remain sleeping.
+* Fix #2: NPCs now open closed doors properly and walk through them.
+* Fix #3: NPCs now always pick up their weapons and lost ammunition after a lost fight.
+* Fix #7: NPCs no longer practice weapon training without a weapon. If the player picked up their weapon after defeating them, they now stand around.
 * Fix #9: NPCs no longer freeze while fleeing.
 * Fix #10: Followers adjust their walking speed according to the player. However, the player must be in sight of the follower if the player starts running after walking.
-* Fix #11: The player can no longer bypass NPCs that are guarding a passage by drawing the weapon.
-* Fix #12: The player no longer receives double XP when killing an NPC with a ranged weapon after already beaten the NPC in melee combat.
+* Fix #11: The player can no longer bypass NPCs that are guarding a passage by entering combat mode.
+* Fix #12: The player no longer receives Experience again when killing an NPC with a ranged weapon if the player already beat the NPC in melee combat.
 * Fix #43: The dialog choices about learning skills now contain proper whitespace.
 * Fix #44: Bugmeat is now listed as food in the inventory.
 * Fix #59: Vendors don't re-equip their weapon when the player sells them a more powerful one. However, due to important game mechanics, they will still equip a weapon if they didn't have a weapon of that type (meelee, ranged) equipped before.
@@ -63,12 +63,12 @@
 #### General
 * Fix #1: NSCs wachen nicht mehr sofort auf, nachdem sie ins Bett gegangen sind, sondern bleiben liegen.
 * Fix #2: NSCs öffnen nun korrekt geschlossene Türen und gehen hindurch.
-* Fix #3: NSCs heben nun immer ihre Waffen nach einem verlorenen Kampf auf.
-* Fix #7: NSCs trainieren nicht mehr ohne eine Waffe in der Hand.
+* Fix #3: NSCs heben nun immer ihre Waffen und verlorene Munition nach einem verlorenen Kampf auf.
+* Fix #7: NSCs trainieren nicht mehr ohne eine Waffe in der Hand. Hat der Spieler ihre Waffe aufgehoben, nachdem er sie besiegt hat, stehen sie jetzt herum.
 * Fix #9: NSCs frieren nicht mehr beim Fliehen ein.
 * Fix #10: Begleiter passen ihre Laufgeschwindigkeit dem Spieler an. Der Spieler muss allerdings in Sichtweite des Begleiters sein, wenn er anfängt zu rennen, nachdem er vorher gegangen ist.
-* Fix #11: Der Spieler kann nicht mehr mit gezogener Waffe an Wachen vorbei gelangen.
-* Fix #12: Der Spieler erhält nicht mehr ein zweites Mal Erfahrungspunkte durch Erlegen eines NPC im Fernkampf, wenn dieser zuvor schon im Nahkampf besiegt wurde.
+* Fix #11: Der Spieler kann nicht mehr an Wachen vorbeigelangen, indem er in den Kampfmodus wechselt.
+* Fix #12: Der Spieler erhält nicht mehr ein zweites Mal Erfahrung durch das Töten eines NPCs mit einer Fernkampfwaffe, wenn dieser zuvor schon im Nahkampf besiegt wurde.
 * Fix #44: Wanzenfleisch ist nun unter "Essen" im Inventar zu finden.
 * Fix #59: Händler rüsten nicht mehr ihre Waffe um, wenn der Spieler ihnen eine stärkere verkauft. Aufgrund einer wichtigen Spielmechanik wird allerdings eine Waffe ausgerüstet, sofern der Händler vorher noch keine Waffe diese Art (Nahkampf, Fernkampf) ausgerüstet hatte.
 * Fix #78: Menschliche NPCs erkennen Orks nun als Gegner an. Damit ist Baal Lukors Wahrnehmung im Orkfriedhof korrigiert.
