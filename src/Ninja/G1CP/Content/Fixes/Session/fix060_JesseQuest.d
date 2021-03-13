@@ -9,7 +9,6 @@ func int G1CP_060_JesseQuest() {
     var int cond1Id; cond1Id = MEM_FindParserSymbol("DIA_Jesse_Mission");
     var int cond2Id; cond2Id = MEM_FindParserSymbol("DIA_Jesse_Warn");
     var int funcExt; funcExt = MEM_FindParserSymbol("Npc_KnowsInfo");
-    var int trueId; trueId = MEM_FindParserSymbol("TRUE");
 
     // Check if all needed functions exist
     if (funcId != -1) && (cond1Id != -1) && (cond2Id != -1) {
@@ -28,13 +27,32 @@ func int G1CP_060_JesseQuest() {
             if (MEM_ArrayRead(params, i) == cond1Id)
             && (i+4 < len) { // Prevent error below
 
-                // Verify the context: if (Npc_KnowsInfo(xxxx, "DIA_Jesse_Mission")) { return TRUE; ...
+                // Verify the context: if (Npc_KnowsInfo(xxxx, "DIA_Jesse_Mission")) { return ...
                 if (MEM_ArrayRead(tokens, i)   == zPAR_TOK_PUSHINT)
                 && (MEM_ArrayRead(tokens, i+1) == zPAR_TOK_CALLEXTERN) && (MEM_ArrayRead(params, i+1) == funcExt)
                 && (MEM_ArrayRead(tokens, i+2) == zPAR_TOK_JUMPF)
-                && (((MEM_ArrayRead(tokens, i+3) == zPAR_TOK_PUSHVAR) && (MEM_ArrayRead(params, i+3) == trueId))
-                ||  ((MEM_ArrayRead(tokens, i+3) == zPAR_TOK_PUSHINT) && (MEM_ArrayRead(params, i+3) == TRUE)))
                 && (MEM_ArrayRead(tokens, i+4) == zPAR_TOK_RET) {
+
+                    // Check if return 1 (literal) or return variable with content 1
+                    if (MEM_ArrayRead(tokens, i+3) == zPAR_TOK_PUSHVAR) {
+                        var int varId; varId = MEM_ArrayRead(params, i+3);
+                        if (varId <= 0) || (varId >= currSymbolTableLength) {
+                            continue;
+                        };
+                        var int varSymbPtr; varSymbPtr = MEM_GetSymbolByIndex(varId);
+                        if (!varSymbPtr) {
+                            continue;
+                        };
+                        if (MEM_ReadInt(varSymbPtr + zCParSymbol_content_offset) != 1) {
+                            continue;
+                        };
+                    } else if (MEM_ArrayRead(tokens, i+3) == zPAR_TOK_PUSHINT) {
+                        if (MEM_ArrayRead(params, i+3) != 1) {
+                            continue;
+                        };
+                    } else {
+                        continue;
+                    };
 
                     // Overwrite "DIA_Jesse_Mission" with "DIA_Jesse_Warn"
                     var int pos; pos = MEM_ArrayRead(positions, i)+1; // Tok+1 = Param

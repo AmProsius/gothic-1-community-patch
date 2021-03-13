@@ -9,7 +9,6 @@ func int G1CP_079_WolfDexDialog() {
     var int cond1Id; cond1Id = MEM_FindParserSymbol("GIL_GRD");
     var int cond2Id; cond2Id = MEM_GetSymbol("C_NpcBelongsToNewCamp");
     var int funcExt; funcExt = MEM_FindParserSymbol("Npc_GetTrueGuild");
-    var int trueId; trueId = MEM_FindParserSymbol("TRUE");
 
     // Check if all needed functions exist
     if (funcId != -1) && (cond1Id != -1) && (cond2Id) {
@@ -39,15 +38,34 @@ func int G1CP_079_WolfDexDialog() {
             ||  ((par == GIL_GRD) && (tok  == zPAR_TOK_PUSHINT))) // GIL_GRD (literal integer)
             && (i+6 < len) { // Prevent error below
 
-                // Verify the context: if (Npc_GetTrueGuild(xxxx) == GIL_GRD) { return TRUE; ...
+                // Verify the context: if (Npc_GetTrueGuild(xxxx) == GIL_GRD) { return ...
                 if (MEM_ArrayRead(tokens, i+1) == zPAR_TOK_PUSHINST)
                 && (MEM_ArrayRead(tokens, i+2) == zPAR_TOK_CALLEXTERN)
                 && (MEM_ArrayRead(params, i+2) == funcExt)
                 && (MEM_ArrayRead(tokens, i+3) == zPAR_OP_EQUAL)
                 && (MEM_ArrayRead(tokens, i+4) == zPAR_TOK_JUMPF)
-                && (((MEM_ArrayRead(tokens, i+5) == zPAR_TOK_PUSHVAR) && (MEM_ArrayRead(params, i+5) == trueId))
-                ||  ((MEM_ArrayRead(tokens, i+5) == zPAR_TOK_PUSHINT) && (MEM_ArrayRead(params, i+5) == TRUE)))
                 && (MEM_ArrayRead(tokens, i+6) == zPAR_TOK_RET) {
+
+                    // Check if return 1 (literal) or return variable with content 1
+                    if (MEM_ArrayRead(tokens, i+5) == zPAR_TOK_PUSHVAR) {
+                        var int varId; varId = MEM_ArrayRead(params, i+5);
+                        if (varId <= 0) || (varId >= currSymbolTableLength) {
+                            continue;
+                        };
+                        var int varSymbPtr; varSymbPtr = MEM_GetSymbolByIndex(varId);
+                        if (!varSymbPtr) {
+                            continue;
+                        };
+                        if (MEM_ReadInt(varSymbPtr + zCParSymbol_content_offset) != 1) {
+                            continue;
+                        };
+                    } else if (MEM_ArrayRead(tokens, i+5) == zPAR_TOK_PUSHINT) {
+                        if (MEM_ArrayRead(params, i+5) != 1) {
+                            continue;
+                        };
+                    } else {
+                        continue;
+                    };
 
                     /* Overwrite the entire condition: (C_NpcBelongsToNewCamp(xxxx) == TRUE)
 
