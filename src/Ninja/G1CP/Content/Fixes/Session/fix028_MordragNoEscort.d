@@ -18,11 +18,8 @@ func int G1CP_028_MordragNoEscort_Hook() {
     G1CP_ReportFuncToSpy();
 
     // Add the new condition (other conditions remain untouched)
-    var int symbPtr; symbPtr = MEM_GetSymbol("MordragKO_HauAb");
-    if (symbPtr) {
-        if (MEM_ReadInt(symbPtr + zCParSymbol_content_offset) == TRUE) {
-            return FALSE;
-        };
+    if (G1CP_GetIntVar("MordragKO_HauAb", 0, FALSE) == TRUE) {
+        return FALSE;
     };
 
     // Continue with the original function

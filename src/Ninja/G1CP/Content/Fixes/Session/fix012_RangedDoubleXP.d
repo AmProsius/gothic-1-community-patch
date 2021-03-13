@@ -8,6 +8,7 @@ func int G1CP_012_RangedDoubleXP() {
     var int funcId;  funcId = MEM_FindParserSymbol("B_DeathXP");
     var int cond1Id; cond1Id = MEM_FindParserSymbol("ZS_Unconscious");
     var int cond3Id; cond3Id = MEM_FindParserSymbol("AIV_WASDEFEATEDBYSC");
+    var int replOff; replOff = MEM_GetFuncOffset(G1CP_012_RangedDoubleXP_Condition);
     if (funcId == -1) || (cond1Id == -1) || (cond3Id == -1) {
         return FALSE;
     };
@@ -17,10 +18,6 @@ func int G1CP_012_RangedDoubleXP() {
     bytes[1] = cond1Id;
     MEM_WriteInt(_@(bytes)+9, MEM_GetFuncID(Npc_WasInState));
     var int matches; matches = G1CP_FindInFunc(funcId, _@(bytes)+3, 10);
-
-    // Get offset of the replace function
-    var int replOff; replOff = MEM_GetSymbol("G1CP_012_RangedDoubleXP_Condition");
-    replOff = MEM_ReadInt(replOff + zCParSymbol_content_offset);
 
     // Iterate over the matches
     repeat(i, MEM_ArraySize(matches)); var int i;

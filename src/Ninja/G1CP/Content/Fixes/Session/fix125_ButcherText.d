@@ -14,13 +14,7 @@ func int G1CP_125_ButcherText() {
     };
 
     // Read string content
-    var string NAME_TwoHanded;
-    var int symbPtr; symbPtr = MEM_GetSymbolByIndex(twoHandedSymbId);
-    if (symbPtr) {
-        NAME_TwoHanded = MEM_ReadString(MEM_ReadInt(symbPtr + zCParSymbol_content_offset));
-    } else {
-        NAME_TwoHanded = "G1CP_invalid_string"; // Make sure that string will not match!
-    };
+    var string NAME_TwoHanded; NAME_TwoHanded = G1CP_GetStringVar("NAME_TwoHanded", 0, "G1CP_invalid_string");
 
     // Find "text[4] = xxx" in the instance function
     const int bytes[3] = {zPAR_TOK_PUSH_ARRAYVAR<<24, -1, 4 + (zPAR_TOK_ASSIGNSTR<<8)};

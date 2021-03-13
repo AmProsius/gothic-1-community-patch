@@ -16,15 +16,8 @@ func int G1CP_044_BugmeatCategory() {
     const int ITEM_KAT_FOOD = 1 << 5;
 
     // Update ITEM_KAT_FOOD and ITEM_KAT_NONE if found (highly unlikely that they differ but let's be safe)
-    var int symbPtr;
-    symbPtr = MEM_GetSymbol("ITEM_KAT_NONE");
-    if (symbPtr) {
-        ITEM_KAT_NONE = MEM_ReadInt(symbPtr + zCParSymbol_content_offset);
-    };
-    symbPtr = MEM_GetSymbol("ITEM_KAT_FOOD");
-    if (symbPtr) {
-        ITEM_KAT_FOOD = MEM_ReadInt(symbPtr + zCParSymbol_content_offset);
-    };
+    ITEM_KAT_NONE = G1CP_GetIntVar("ITEM_KAT_NONE", 0, ITEM_KAT_NONE);
+    ITEM_KAT_FOOD = G1CP_GetIntVar("ITEM_KAT_FOOD", 0, ITEM_KAT_FOOD);
 
     // Find "mainflag = xxx" in the instance function
     const int bytes[3] = {zPAR_TOK_PUSHVAR<<24, -1, zPAR_OP_IS};
