@@ -8,7 +8,7 @@ Gothic is a video game that is still loved by players after 20 years. Despite it
 - The G1CP may be added or removed from the game at any time without repercussions on the saved game.
 
 ## What is the Gothic 1 Community Patch?
-The Gothic 1 Community Patch is - as the name suggests - an extensive patch for Gothic 1 made by the community. As it addresses bugs in the story and general script bugs, it is suitable for the main game, as well as any mod that modifies or extends the main game. Additionally, the patch can be activated or deactivated at any time as it does not alter savegames.
+The Gothic 1 Community Patch is - as the name suggests - an extensive patch for Gothic 1 made by the community. As it addresses bugs in the story and general script bugs, it is suitable for the main game, as well as any mod that modifies or extends the main game. The patch works for any localization of the game and is not language dependent. Additionally, the patch can be activated or deactivated at any time as it does not alter savegames.
 
 Unlike other mods, this patch only fixes bugs of the main game. For new features or cut content we kindly refer to the many great existing content mods. Note that the G1CP runs well with any of those mods, as it strives to offer a very high level of compatibility.
 
