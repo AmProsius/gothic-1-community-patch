@@ -2,21 +2,15 @@
  * #10 Companions don't adjust their walking speed
  */
 func int G1CP_010_FollowWalkMode() {
-    const int AI_SetWalkMode_popped = 6648584; //0x657308
+    var int funcId;   funcId   = MEM_FindParserSymbol("ZS_FollowPC_Loop");
+    var int needleId; needleId = MEM_FindParserSymbol("AI_SetWalkMode");
+    var int replacId; replacId = MEM_GetFuncId(G1CP_010_FollowWalkMode_SetWalkMode);
 
-    if (MEM_FindParserSymbol("ZS_FollowPC_Loop")    != -1)
-    && (MEM_FindParserSymbol("B_FollowPC_AssessSC") != -1)
-    && (G1CP_CheckBytes(AI_SetWalkMode_popped, "8B F8 83 C4 14")) {
+    if (funcId != -1) && (needleId != -1) && (MEM_FindParserSymbol("B_FollowPC_AssessSC") != -1) {
         HookDaedalusFuncS("ZS_FollowPC_Loop", "G1CP_010_FollowWalkMode_Hook");
         HookDaedalusFuncS("B_FollowPC_AssessSC", "G1CP_010_FollowWalkMode_AssessSCHook");
-
-        // Create empty hook (if there is a problem, rather fail now than later during the game)
-        if (!IsHooked(AI_SetWalkMode_popped)) {
-            HookEngineF(AI_SetWalkMode_popped, 5, G1CP_010_FollowWalkMode_SetModeHook);
-            RemoveHookF(AI_SetWalkMode_popped, 0, G1CP_010_FollowWalkMode_SetModeHook);
-        };
-
-        return TRUE;
+        var int count; count = G1CP_ReplaceCallInFunc(funcId, needleId, replacId);
+        return (count > 0);
     } else {
         return FALSE;
     };
@@ -28,8 +22,6 @@ func int G1CP_010_FollowWalkMode() {
 func int G1CP_010_FollowWalkMode_Hook() {
     G1CP_ReportFuncToSpy();
 
-    const int AI_SetWalkMode_popped = 6648584; //0x657308
-
     // Define possibly missing symbols locally
     const int BS_FLAG_INTERRUPTABLE = 32768;
     const int BS_WALK               = 1 | BS_FLAG_INTERRUPTABLE;
@@ -40,21 +32,11 @@ func int G1CP_010_FollowWalkMode_Hook() {
         AI_SetWalkmode(self, NPC_WALK);
     };
 
-    // Place hook to intercept setting the walk mode
-    HookEngineF(AI_SetWalkMode_popped, 5, G1CP_010_FollowWalkMode_SetModeHook);
-
     // Call the original function (There might be other important changes that we do not want to overwrite!)
     ContinueCall();
-    var int ret; ret = MEM_PopIntResult();
-
-    // Remove hook again (only remove function but leave changes in engine for performance)
-    RemoveHookF(AI_SetWalkMode_popped, 0, G1CP_010_FollowWalkMode_SetModeHook);
-
-    // Return original return value
-    return ret;
 };
 
-func void G1CP_010_FollowWalkMode_SetModeHook() {
+func void G1CP_010_FollowWalkMode_SetWalkMode(var C_Npc slf, var int mode) {
     G1CP_ReportFuncToSpy();
 
     // Define possibly missing symbols locally
@@ -63,20 +45,13 @@ func void G1CP_010_FollowWalkMode_SetModeHook() {
     const int NPC_RUN               = 0;
     const int NPC_WALK              = 1;
 
-    // Check if NPC is valid
-    if (!Hlp_Is_oCNpc(EAX)) {
-        return;
-    };
-    var C_Npc slf; slf = _^(EAX);
-
-    // Get walk mode
-    var int modePtr; modePtr = ESP+28;
-    var int mode; mode = MEM_ReadInt(modePtr);
-
     // Adjust walking mode before calling the original function (gives opportunity for other changes there)
     if (mode == NPC_RUN) && (G1CP_BodyStateContains(hero, BS_WALK)) {
-        MEM_WriteInt(modePtr, NPC_WALK);
+        mode = NPC_WALK;
     };
+
+    // Proceed
+    AI_SetWalkMode(slf, mode);
 };
 
 
