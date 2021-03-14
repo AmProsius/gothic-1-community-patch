@@ -68,10 +68,10 @@
 * Fix #9: NSCs frieren nicht mehr beim Fliehen ein.
 * Fix #10: Begleiter passen ihre Laufgeschwindigkeit dem Spielercharakter an. Dazu muss der Spielercharakter allerdings im Sichtfeld des Begleiters sein.
 * Fix #11: Der Spieler kann nicht mehr an Wachen vorbeigelangen, indem er in den Kampfmodus wechselt.
-* Fix #12: Der Spielercharakter erhält nicht mehr ein zweites Mal Erfahrung durch das Töten eines NPCs mit einer Fernkampfwaffe, wenn dieser zuvor schon im Nahkampf besiegt wurde.
+* Fix #12: Der Spielercharakter erhält nicht mehr ein zweites Mal Erfahrung durch das Töten eines NSCs mit einer Fernkampfwaffe, wenn dieser zuvor schon im Nahkampf besiegt wurde.
 * Fix #44: Wanzenfleisch ist nun unter "Essen" im Inventar zu finden.
 * Fix #59: Händler rüsten nicht mehr ihre Waffe um, wenn der Spieler ihnen eine stärkere verkauft. Aufgrund einer wichtigen Spielmechanik wird allerdings eine Waffe ausgerüstet, sofern der Händler vorher noch keine Waffe diese Art (Nahkampf, Fernkampf) ausgerüstet hatte.
-* Fix #78: Menschliche NPCs erkennen Orks nun als Gegner an. Damit ist Baal Lukors Wahrnehmung im Orkfriedhof korrigiert.
+* Fix #78: Menschliche NSCs erkennen Orks nun als Gegner an. Damit ist Baal Lukors Wahrnehmung im Orkfriedhof korrigiert.
 * Fix #125: Die Beschreibung des Schwertes *Schlachter* ist korrigiert zu "Einhandwaffe".
 * Fix #136: Begleiter benutzen Leitern nun korrekt.
 * Fix #157: Der Kaufwert des *Tranks der Schnelligkeit* ist korrigiert.
