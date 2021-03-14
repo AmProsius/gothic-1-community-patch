@@ -1,6 +1,11 @@
 # Changelog
 
 ## EN
+
+### TBA (TBA)
+#### General
+* Fix #192: Mages (NPCs fighting only with spells) no longer auto-equip weapons (e.g. after trading). This requires fix #59 to be active.
+
 ### v1.0.0 (2021-03-15)
 #### General
 * Fix #1: NPCs no longer wake up immediately after going to bed, but remain sleeping.
@@ -58,6 +63,10 @@
 * Fix #163: The castle gate of the Old Camp is no longer blocked and can properly be closed.
 
 ## DE
+
+### TBA (TBA)
+#### General
+* Fix #192: Magier (NSCs die nur mit Magie kämpfen) rüsten nicht länger automatisch Nah- und Fernkampfwaffen aus (z.B. nach dem Handlen). Dieser Fix setzt den Fix #59 voraus.
 
 ### v1.0.0 (2021-03-15)
 #### General
