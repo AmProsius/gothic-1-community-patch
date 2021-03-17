@@ -47,7 +47,7 @@ func int G1CP_FindInFunc(var int funcId, var int needle, var int byteCount) {
  * Replace any function calls within a function with a call to another
  * The function returns the number of replacements
  */
-func int G1CP_ReplaceCallInFunc(var int funcId, var int needleCallId, var int replaceCallId) {
+func int G1CP_ReplaceCall(var int funcId, var int needleCallId, var int replaceCallId) {
     // Make sure all exist
     if (funcId < 0)        || (funcId >= currSymbolTableLength)
     || (needleCallId < 0)  || (needleCallId >= currSymbolTableLength)

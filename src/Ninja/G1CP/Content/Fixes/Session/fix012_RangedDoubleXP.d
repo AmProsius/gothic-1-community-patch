@@ -13,7 +13,7 @@ func int G1CP_012_RangedDoubleXP() {
         return FALSE;
     };
 
-    // Byte code to search for (not using G1CP_ReplaceCallInFunc here because of extra checks below)
+    // Byte code to search for (not using G1CP_ReplaceCall here because of extra checks below)
     const int bytes[4] = {zPAR_TOK_PUSHINT<<24, -1, zPAR_TOK_CALLEXTERN, -1};
     bytes[1] = cond1Id;
     MEM_WriteInt(_@(bytes)+9, MEM_GetFuncID(Npc_WasInState));

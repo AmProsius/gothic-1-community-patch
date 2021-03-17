@@ -20,7 +20,7 @@ func int G1CP_039_FingersTeachDialog() {
     var int interceptId; interceptId = MEM_GetFuncId(G1CP_039_AllowAddChoice);
 
     // Replace all function calls to "Info_AddChoice"
-    return G1CP_ReplaceCallInFunc(funcId, addChoiceId, interceptId) > 0;
+    return (G1CP_ReplaceCall(funcId, addChoiceId, interceptId) > 0);
 };
 
 /*

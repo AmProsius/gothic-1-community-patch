@@ -8,7 +8,7 @@ func int G1CP_001_NpcStateSleep() {
     var int replacId; replacId = MEM_GetFuncId(G1CP_001_NpcStateSleep_StartState);
 
     if (funcId != -1) && (needleId != -1) && (stateId != -1) {
-        var int count; count = G1CP_ReplaceCallInFunc(funcId, needleId, replacId);
+        var int count; count = G1CP_ReplaceCall(funcId, needleId, replacId);
         return (count > 0);
     } else {
         return FALSE;
