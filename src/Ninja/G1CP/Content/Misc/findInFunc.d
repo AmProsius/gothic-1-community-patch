@@ -16,7 +16,7 @@ func int G1CP_FindInFunc(var int funcId, var int needle, var int byteCount) {
     var zCPar_Symbol symb; symb = _^(MEM_GetSymbolByIndex(funcId));
     var int type; type = (symb.bitfield & zCPar_Symbol_bitfield_type);
     if (type != zPAR_TYPE_FUNC) && (type != zPAR_TYPE_PROTOTYPE) && (type != zPAR_TYPE_INSTANCE) {
-       return all;
+        return all;
     };
 
     // Tokenize function to get the token onsets and the end of the function
@@ -127,11 +127,81 @@ func int G1CP_ReplaceCall(var int funcId, var int needleCallId, var int replaceC
 };
 
 /*
+ * Replace any integer assignments within a function with another integer
+ * The function returns the number of replacements
+ */
+func int G1CP_ReplaceAssignInt(var int funcId, var string assignedSymb, var int ele, var int needle, var int replace) {
+    // Make sure all exist
+    var int destSymbId; destSymbId = MEM_FindParserSymbol(assignedSymb);
+    if (funcId < 0) || (funcId >= currSymbolTableLength)
+    || (destSymbId == -1) {
+        return 0;
+    };
+
+    // Check for integer assignments
+    var int matches;
+    const int bytes[3] = {-1, -1, -1};
+    if (ele <= 0) {
+        bytes[0] = zPAR_TOK_PUSHVAR<<24;
+        bytes[1] = destSymbId;
+        bytes[2] = zPAR_OP_IS;
+        matches = G1CP_FindInFunc(funcId, _@(bytes)+3, 6);
+    } else {
+        bytes[0] = zPAR_TOK_PUSH_ARRAYVAR<<24;
+        bytes[1] = destSymbId;
+        bytes[2] = ele + (zPAR_OP_IS<<8);
+        matches = G1CP_FindInFunc(funcId, _@(bytes)+3, 7);
+    };
+
+    // Iterate over all matches
+    var int count; count = 0;
+    repeat(i, MEM_ArraySize(matches)); var int i;
+        var int pos; pos = MEM_ArrayRead(matches, i);
+
+        // Check the pushed integer (variable) content against "needle"
+        if (MEM_ReadByte(pos-5) == zPAR_TOK_PUSHVAR) {
+            var int varId; varId = MEM_ReadInt(pos-4);
+            if (G1CP_GetIntVarByIndex(varId, 0, -needle) != needle) {
+                continue;
+            };
+        } else if (MEM_ReadByte(pos-5) == zPAR_TOK_PUSHINT) {
+            var int par; par = MEM_ReadInt(pos-4);
+            if (par != needle) {
+                continue;
+            };
+        };
+
+        // Overwrite the integer assignment with the replacement integer
+        MEMINT_OverrideFunc_Ptr = pos-5;
+        MEMINT_OFTokPar(zPAR_TOK_PUSHINT, replace);
+        count += 1;
+    end;
+
+    // Free the array
+    MEM_Free(matches);
+
+    return count;
+};
+
+/*
+ * Replace any integer assignments within a function with another integer (by its symbol ID)
+ * The function returns the number of replacements
+ */
+func int G1CP_ReplaceAssignIntID(var int funcId, var string assignedSymb, var int ele, var int needle,
+                                 var int replaceId) {
+    if (replaceId < -1) || (replaceId >= currSymbolTableLength) {
+        return 0;
+    };
+    var int replace; replace = G1CP_GetIntVarByIndex(replaceId, 0, 0);
+    return G1CP_ReplaceAssignInt(funcId, assignedSymb, ele, needle, replace);
+};
+
+/*
  * Replace any string assignments within a function with another string (by its symbol ID)
  * The function returns the number of replacements
  */
 func int G1CP_ReplaceAssignStrID(var int funcId, var string assignedSymb, var int ele, var string needle,
-                                       var int replaceId) {
+                                 var int replaceId) {
     // Make sure all exist
     if (funcId < 0)    || (funcId >= currSymbolTableLength)
     || (replaceId < 0) || (replaceId >= currSymbolTableLength) {
@@ -208,7 +278,7 @@ func int G1CP_ReplaceAssignStrID(var int funcId, var string assignedSymb, var in
  * The function returns the number of replacements
  */
 func int G1CP_ReplaceAssignStr(var int funcId, var string assignedSymb, var int ele, var string needle,
-                                     var string replace) {
+                               var string replace) {
     // Obtain the symbol index of the replacement string
     var int calledFrom; calledFrom = MEM_GetCallerStackPos()-5+currParserStackAddress;
     if (MEM_ReadByte(calledFrom)   != zPAR_TOK_CALL)
