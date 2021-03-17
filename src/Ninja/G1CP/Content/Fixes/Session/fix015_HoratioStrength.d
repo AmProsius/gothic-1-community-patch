@@ -44,7 +44,7 @@ func void G1CP_015_HoratioStrength_Hook() {
 /*
  * This function intercepts the calls to PrintScreen and replaces the on-screen text if necessary
  */
-func void G1CP_015_HoratioStrength_PrintScreen(var string msg, var int x, var int y, var string font, var int timeSec) {
+func int G1CP_015_HoratioStrength_PrintScreen(var string msg, var int x, var int y, var string font, var int timeSec) {
     G1CP_ReportFuncToSpy();
 
     // Get end of text

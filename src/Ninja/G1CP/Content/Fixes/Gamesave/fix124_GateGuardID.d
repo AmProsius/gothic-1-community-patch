@@ -24,12 +24,10 @@ func int G1CP_124_GateGuardID_CodePosPtr() {
         const int bytes[3] = {zPar_TOK_PUSHVAR<<24, -1, zPAR_OP_IS};
         bytes[1] = MEM_FindParserSymbol("C_Npc.id");
         var int matches; matches = G1CP_FindInFunc(G1CP_124_GateGuardID_GetInst(), _@(bytes)+3, 6);
-        if (matches) {
-            if (MEM_ArraySize(matches)) {
-                codePosPtr = MEM_ArrayLast(matches) - 4;
-            };
-            MEM_ArrayFree(matches);
+        if (MEM_ArraySize(matches)) {
+            codePosPtr = MEM_ArrayLast(matches) - 4;
         };
+        MEM_ArrayFree(matches);
     };
     return codePosPtr;
 };
