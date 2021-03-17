@@ -14,7 +14,8 @@ func int G1CP_125_ButcherText() {
     };
 
     // Read string content
-    var string NAME_TwoHanded; NAME_TwoHanded = G1CP_GetStringVar("NAME_TwoHanded", 0, "G1CP_invalid_string");
+    const string NAME_TwoHanded = ""; // Must be a constant
+    NAME_TwoHanded = G1CP_GetStringVarByIndex(twoHandedSymbId, 0, "G1CP_invalid_string");
 
     // Find "text[4] = xxx" in the instance function
     const int bytes[3] = {zPAR_TOK_PUSH_ARRAYVAR<<24, -1, 4 + (zPAR_TOK_ASSIGNSTR<<8)};
@@ -25,34 +26,18 @@ func int G1CP_125_ButcherText() {
     repeat(i, MEM_ArraySize(matches)); var int i;
         var int pos; pos = MEM_ArrayRead(matches, i);
 
-        // Check context: "text[4] = NAME_TwoHanded" or "text[4] = symbol equal to NAME_TwoHanded"
+        // Check context: "text[4] = NAME_TwoHanded"
         if (MEM_ReadByte(pos-5) == zPAR_TOK_PUSHVAR) {
             var int varId; varId = MEM_ReadInt(pos-4);
-            if (varId != twoHandedSymbId) {
-                if (varId <= 0) || (varId >= currSymbolTableLength) {
-                    continue;
-                };
-                var int varSymbPtr; varSymbPtr = MEM_GetSymbolByIndex(varId);
-                if (!varSymbPtr) {
-                    continue;
-                };
-                var zCPar_Symbol symb; symb = _^(varSymbPtr);
-                if ((symb.bitfield & zCPar_Symbol_bitfield_type) != zPAR_TYPE_STRING) {
-                    continue;
-                };
-                if (!Hlp_StrCmp(MEM_ReadString(symb.content), NAME_TwoHanded)) {
-                    continue;
-                };
+            if (Hlp_StrCmp(G1CP_GetStringVarByIndex(varId, 0, ""), NAME_TwoHanded)) {
+
+                // Overwrite "text[4] = NAME_TwoHanded" with "text[4] = NAME_OneHanded"
+                MEMINT_OverrideFunc_Ptr = pos-5;
+                MEMINT_OFTokPar(zPAR_TOK_PUSHVAR, oneHandedSymbId);
+
+                applied += 1;
             };
-        } else {
-            continue;
         };
-
-        // Overwrite "text[4] = NAME_TwoHanded" with "text[4] = NAME_OneHanded"
-        MEMINT_OverrideFunc_Ptr = pos-5;
-        MEMINT_OFTokPar(zPAR_TOK_PUSHVAR, oneHandedSymbId);
-
-        applied += 1;
     end;
 
     // Free the array

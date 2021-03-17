@@ -1,9 +1,8 @@
 /*
  * Check if integer symbol exists and return its value
  */
-func int G1CP_GetIntVar(var string name, var int ele, var int dflt) {
-    // Check if variable exists
-    var int symbPtr; symbPtr = MEM_GetSymbol(name);
+func int G1CP_GetIntVarBySymbol(var int symbPtr, var int ele, var int dflt) {
+    // Check if symbol exists
     if (!symbPtr) {
         return dflt;
     };
@@ -26,13 +25,21 @@ func int G1CP_GetIntVar(var string name, var int ele, var int dflt) {
         return symb.content;
     };
 };
+func int G1CP_GetIntVarByIndex(var int symbId, var int ele, var int dflt) {
+    if (symbId < 0) || (symbId >= currSymbolTableLength) {
+        return dflt;
+    };
+    return G1CP_GetIntVarBySymbol(MEM_GetSymbolByIndex(symbId), ele, dflt);
+};
+func int G1CP_GetIntVar(var string name, var int ele, var int dflt) {
+    return G1CP_GetIntVarBySymbol(MEM_GetSymbol(name), ele, dflt);
+};
 
 /*
  * Check if string symbol exists and return its value
  */
-func string G1CP_GetStringVar(var string name, var int ele, var string dflt) {
-    // Check if variable exists
-    var int symbPtr; symbPtr = MEM_GetSymbol(name);
+func string G1CP_GetStringVarBySymbol(var int symbPtr, var int ele, var string dflt) {
+    // Check if symbol
     if (!symbPtr) {
         return dflt;
     };
@@ -61,6 +68,15 @@ func string G1CP_GetStringVar(var string name, var int ele, var string dflt) {
 
     // Return variable
     return MEM_ReadString(addr);
+};
+func string G1CP_GetStringVarByIndex(var int symbId, var int ele, var string dflt) {
+    if (symbId < 0) || (symbId >= currSymbolTableLength) {
+        return dflt;
+    };
+    return G1CP_GetStringVarBySymbol(MEM_GetSymbolByIndex(symbId), ele, dflt);
+};
+func string G1CP_GetStringVar(var string name, var int ele, var string dflt) {
+    return G1CP_GetStringVarBySymbol(MEM_GetSymbol(name), ele, dflt);
 };
 
 /*
