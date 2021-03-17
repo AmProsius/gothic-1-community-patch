@@ -13,9 +13,9 @@ Content\menuVersionNumber.d
 Content\Report\indent.d
 Content\Report\reportFuncToSpy.d
 
+Content\Misc\variable.d
 Content\Misc\findInFunc.d
 Content\Misc\funcByteCodeToSpy.d
-Content\Misc\variable.d
 Content\Misc\info.d
 Content\Misc\topic.d
 Content\Misc\waypoint.d
