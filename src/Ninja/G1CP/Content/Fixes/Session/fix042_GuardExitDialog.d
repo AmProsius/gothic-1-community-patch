@@ -20,12 +20,7 @@ func int G1CP_042_ConfirmByteCode(var int funcId) {
         } else if (MEM_ReadByte(pos) == zPAR_TOK_PUSHVAR) {
             // If it's a variable, check it's contents instead
             var int varId; varId = MEM_ReadInt(pos+1);
-            if (varId > 0) && (varId < currSymbolTableLength) {
-                var int varSymbPtr; varSymbPtr = MEM_GetSymbolByIndex(varId);
-                if (varSymbPtr) {
-                    return (MEM_ReadInt(varSymbPtr + zCParSymbol_content_offset) != 0);
-                };
-            };
+            return (G1CP_GetIntVarByIndex(varId, 0, 0) != 0);
         };
     };
 

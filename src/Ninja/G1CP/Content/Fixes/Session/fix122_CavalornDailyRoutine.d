@@ -36,18 +36,9 @@ func int G1CP_122_CavalornDailyRoutine() {
         pos = MEM_ArrayRead(sleepMatches, i);
         if (MEM_ReadByte(pos-5) == zPAR_TOK_PUSHVAR) {
             varId = MEM_ReadInt(pos-4);
-            if (varId > 0) && (varId < currSymbolTableLength) {
-                varSymbPtr = MEM_GetSymbolByIndex(varId);
-                if (varSymbPtr) {
-                    symb = _^(varSymbPtr);
-                    if ((symb.bitfield & zCPar_Symbol_bitfield_type) == zPAR_TYPE_STRING) {
-                        str = MEM_ReadString(symb.content);
-                        if (Hlp_StrCmp(str, "OW_CAVALORN_01")) {
-                            i += 1;
-                            continue;
-                        };
-                    };
-                };
+            if (Hlp_StrCmp(G1CP_GetStringVarByIndex(varId, 0, ""), "OW_CAVALORN_01")) {
+                i += 1;
+                continue;
             };
         };
 
@@ -60,18 +51,9 @@ func int G1CP_122_CavalornDailyRoutine() {
         pos = MEM_ArrayRead(standMatches, i);
         if (MEM_ReadByte(pos-5) == zPAR_TOK_PUSHVAR) {
             varId = MEM_ReadInt(pos-4);
-            if (varId > 0) && (varId < currSymbolTableLength) {
-                varSymbPtr = MEM_GetSymbolByIndex(varId);
-                if (varSymbPtr) {
-                    symb = _^(varSymbPtr);
-                    if ((symb.bitfield & zCPar_Symbol_bitfield_type) == zPAR_TYPE_STRING) {
-                        str = MEM_ReadString(symb.content);
-                        if (Hlp_StrCmp(str, "OW_SAWHUT_SLEEP_01")) {
-                            i += 1;
-                            continue;
-                        };
-                    };
-                };
+            if (Hlp_StrCmp(G1CP_GetStringVarByIndex(varId, 0, ""), "OW_SAWHUT_SLEEP_01")) {
+                i += 1;
+                continue;
             };
         };
 
