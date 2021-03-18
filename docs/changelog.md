@@ -105,6 +105,7 @@
 * Fix #50: Die Säule in der Klosterruine fällt jetzt in die richtige Richtung und hat Kollision.
 * Fix #60: Jesses Quest ist nun verfügbar.
 * Fix #79: Wolf lehrt nun nur dann Geschicklichkeit, wenn der Spieler teil des Neuen Lagers ist.
+* Fix #94: Die Dialogoption mit Horatio "Ich hab' nochmal über die Sache nachgedacht..." ist nun korrigiert zu "Ich hab' noch einmal über die Sache nachgedacht...".
 * Fix #102: Der Spieler verliert nun tatsächlich 10 Erz, wenn er Schutzgeld für Jesse zahlt.
 * Fix #109: Der Spieler verliert nun tatsächlich 10 Erz, wenn er später doch Schutzgeld an Bloodwyn zahlt.
 * Fix #111: Der Spieler verliert nun tatsächlich 10 Erz, wenn er Schutzgeld an Jackal zahlt.
