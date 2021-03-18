@@ -29,6 +29,16 @@ Please note that this is the first release of the G1CP. Work on the patch contin
 * **Issues**: Provision of bug fixes from the Definitive Edition mod
 * **mud-freak**: Rewriting of the provided bug fixes in modular form, management of the project repository
 
+## Sources of Inspiration
+
+* *Gothic Unofficial Patch* by Ironkeep Studio
+* *Gothic UnPatch* by catalinux
+* *Perfect Gothic* by AndiNo
+* *Liste der Ungereimtheiten in G1* by Oparilames
+* *Gothic Bugliste* by Sowilo
+* *Bugs from Gothic 1 You'd Want To See Fixed* by Korianous
+* *Definitive Edition* by Issues
+
 ## FAQ 
 * **What kind of bugs are addressed exactly?** The G1CP fixes any bugs in the scripts. These range from problems in the script AI of NPCs, over item descriptions and broken dialogs, all the way to story bugs of the main game.
 * **Do I have to start a new game when I install/update the G1CP?** No, you will never have to start a new game. The G1CP can be installed, updated and removed at any time. Any fix is provided no matter how far you are progressed in the story. The patch is conceptualized to be compatible with any existing savegames.
