@@ -1,6 +1,10 @@
 # Changelog
 
 ## EN
+
+### v1.1.0 (TBA)
+* Fix #174: Changed the name "Gomez' Bowl" to "Gomez' Key".
+
 ### v1.0.0 (2021-03-15)
 #### General
 * Fix #1: NPCs no longer wake up immediately after going to bed, but remain sleeping.
