@@ -12,7 +12,7 @@ func void G1CP_Test_094() {
     };
 
     // Check language first
-    if (G1CP_Lang != 1) {
+    if (G1CP_Lang != G1CP_Lang_DE) {
         G1CP_TestsuiteErrorDetail("Test only applicable for the German localization");
         return; // True?
     };
@@ -21,14 +21,14 @@ func void G1CP_Test_094() {
     var int passed; passed = TRUE;
 
     // Check if the dialog exists
-    var int funcId; funcId = MEM_FindParserSymbol("DIA_Horatio_PleaseTeachSTR");
+    var int funcId; funcId = MEM_GetSymbolIndex("DIA_Horatio_PleaseTeachSTR");
     if (funcId == -1) {
         G1CP_TestsuiteErrorDetail("Info 'DIA_Horatio_PleaseTeachSTR' not found");
         passed = FALSE;
     };
 
     // Set dialog to told
-    if (MEM_FindParserSymbol("DIA_Horatio_PleaseTeachSTR") == -1) {
+    if (MEM_GetSymbolIndex("DIA_Horatio_PleaseTeachSTR") == -1) {
         G1CP_TestsuiteErrorDetail("Info 'DIA_Horatio_PleaseTeachSTR' not found");
         passed = FALSE;
     };
@@ -41,7 +41,7 @@ func void G1CP_Test_094() {
     varSymbPtr += zCParSymbol_content_offset;
 
     // Find Horatio
-    var int symbId; symbId = MEM_FindParserSymbol("Bau_901_Horatio");
+    var int symbId; symbId = MEM_GetSymbolIndex("Bau_901_Horatio");
     if (symbId == -1) {
         G1CP_TestsuiteErrorDetail("NPC 'Bau_901_Horatio' not found");
         return;

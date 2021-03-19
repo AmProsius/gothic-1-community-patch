@@ -7,13 +7,13 @@
  */
 func int G1CP_Test_174() {
     // Check language first
-    if (G1CP_Lang != 0) {
+    if (G1CP_Lang != G1CP_Lang_EN) {
         G1CP_TestsuiteErrorDetail("Test applicable for English localization only");
         return TRUE; // True?
     };
 
     // Check if item exists
-    var int symbId; symbId = MEM_FindParserSymbol("ItKe_Gomez_01");
+    var int symbId; symbId = MEM_GetSymbolIndex("ItKe_Gomez_01");
     if (symbId == -1) {
         G1CP_TestsuiteErrorDetail("Item 'ItKe_Gomez_01' not found");
         return FALSE;
