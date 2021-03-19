@@ -58,11 +58,10 @@ func int G1CP_Test_026() {
     var C_Npc othBak; othBak = MEM_CpyInst(other);                                   // Other
 
     // Set new values
-    var int r;
     Npc_SetTempAttitude(guard, ATT_NEUTRAL);                                         // Attitude
     hero.guild = GIL_GRD;                                                            // Player guild
     guard.wp = Npc_GetNearestWP(guard);                                              // Waypoint
-    r = G1CP_SetAIVar(hero, "AIV_GUARDPASSAGE_STATUS", AIV_GPS_FIRSTWARN);           // AI variable
+    G1CP_SetAIVar(hero, "AIV_GUARDPASSAGE_STATUS", AIV_GPS_FIRSTWARN);               // AI variable
     self  = MEM_CpyInst(guard);                                                      // Self
     other = MEM_CpyInst(hero);                                                       // Other
 
@@ -73,7 +72,7 @@ func int G1CP_Test_026() {
     // Restore values
     self  = MEM_CpyInst(slfBak);                                                     // Self
     other = MEM_CpyInst(othBak);                                                     // Other
-    r = G1CP_SetAIVar(hero, "AIV_GUARDPASSAGE_STATUS", aiVarBak);                    // AI variable
+    G1CP_SetAIVar(hero, "AIV_GUARDPASSAGE_STATUS", aiVarBak);                        // AI variable
     guard.wp = wpBak;                                                                // Waypoint
     hero.guild = guildBak;                                                           // Player guild
     Npc_SetTempAttitude(guard, attitBak);                                            // Attitude

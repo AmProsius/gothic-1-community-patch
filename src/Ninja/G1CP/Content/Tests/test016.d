@@ -10,7 +10,6 @@ func int G1CP_Test_016_RunDialog(var string dialogName, var string needsInfo) {
     var int funcId;
     var int backupValue;
     var int backupTold;
-    var int r;
 
     // Check status of the test
     var int passed; passed = TRUE;
@@ -35,7 +34,7 @@ func int G1CP_Test_016_RunDialog(var string dialogName, var string needsInfo) {
     };
 
     // Set the variable to TRUE
-    r = G1CP_IdSetAIVar(MEM_GetSymbolIndex("Grd_212_Torwache"), "AIV_PASSGATE", TRUE);
+    G1CP_IdSetAIVar(MEM_GetSymbolIndex("Grd_212_Torwache"), "AIV_PASSGATE", TRUE);
 
     // Backup told status of required dialog
     backupTold = Npc_KnowsInfo(hero, MEM_GetSymbolIndex(needsInfo));
@@ -61,7 +60,7 @@ func int G1CP_Test_016_RunDialog(var string dialogName, var string needsInfo) {
     G1CP_SetInfoTold(needsInfo, backupTold);
 
     // Restore value
-    r = G1CP_IdSetAIVar(MEM_GetSymbolIndex("Grd_212_Torwache"), "AIV_PASSGATE", backupValue);
+    G1CP_IdSetAIVar(MEM_GetSymbolIndex("Grd_212_Torwache"), "AIV_PASSGATE", backupValue);
 
     // Check return value
     if (ret) {

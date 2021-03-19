@@ -52,21 +52,18 @@ func int G1CP_GetIntVar(var string name, var int ele, var int dflt) {
 /*
  * Check if integer symbol exists and set its value
  */
-func int G1CP_SetIntVarBySymbol(var int symbPtr, var int ele, var int value) {
+func void G1CP_SetIntVarBySymbol(var int symbPtr, var int ele, var int value) {
     var int ptr; ptr = G1CP_GetIntVarPtrBySymbol(symbPtr, ele);
     if (ptr) {
         MEM_WriteInt(ptr, value);
-        return TRUE;
-    } else {
-        return FALSE;
     };
 };
-func int G1CP_SetIntVarByIndex(var int symbId, var int ele, var int value) {
+func void G1CP_SetIntVarByIndex(var int symbId, var int ele, var int value) {
     if (symbId < 0) || (symbId >= currSymbolTableLength) {
-        return FALSE;
+        return;
     };
-    return G1CP_SetIntVarBySymbol(MEM_GetSymbolByIndex(symbId), ele, value);
+    G1CP_SetIntVarBySymbol(MEM_GetSymbolByIndex(symbId), ele, value);
 };
-func int G1CP_SetIntVar(var string name, var int ele, var int value) {
-    return G1CP_SetIntVarBySymbol(MEM_GetSymbol(name), ele, value);
+func void G1CP_SetIntVar(var string name, var int ele, var int value) {
+    G1CP_SetIntVarBySymbol(MEM_GetSymbol(name), ele, value);
 };

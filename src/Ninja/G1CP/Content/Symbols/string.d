@@ -59,21 +59,18 @@ func string G1CP_GetStringVar(var string name, var int ele, var string dflt) {
 /*
  * Check if string symbol exists and return its value
  */
-func int G1CP_SetStringVarBySymbol(var int symbPtr, var int ele, var string value) {
+func void G1CP_SetStringVarBySymbol(var int symbPtr, var int ele, var string value) {
     var int ptr; ptr = G1CP_GetStringVarPtrBySymbol(symbPtr, ele);
     if (ptr) {
         MEM_WriteString(ptr, value);
-        return TRUE;
-    } else {
-        return FALSE;
     };
 };
-func int G1CP_SetStringVarByIndex(var int symbId, var int ele, var string value) {
+func void G1CP_SetStringVarByIndex(var int symbId, var int ele, var string value) {
     if (symbId < 0) || (symbId >= currSymbolTableLength) {
-        return FALSE;
+        return;
     };
-    return G1CP_SetStringVarBySymbol(MEM_GetSymbolByIndex(symbId), ele, value);
+    G1CP_SetStringVarBySymbol(MEM_GetSymbolByIndex(symbId), ele, value);
 };
-func int G1CP_SetStringVar(var string name, var int ele, var string value) {
-    return G1CP_SetStringVarBySymbol(MEM_GetSymbol(name), ele, value);
+func void G1CP_SetStringVar(var string name, var int ele, var string value) {
+    G1CP_SetStringVarBySymbol(MEM_GetSymbol(name), ele, value);
 };
