@@ -81,6 +81,7 @@ Content\Fixes\Session\fix157_SpeedPotion2Value.d
 Content\Fixes\Session\fix158_SpeedPotion3Value.d
 Content\Fixes\Session\fix163_CastleGate.d
 Content\Fixes\Session\fix174_EN_GomezKeyName.d
+Content\Fixes\Session\fix175_EN_RiceLordKeyName.d
 Content\Fixes\Session\fix192_MagicUserAutoEquip.d
 
 // Game save fixes
@@ -143,6 +144,7 @@ Content\Tests\test157.d
 Content\Tests\test158.d
 Content\Tests\test163.d
 Content\Tests\test174.d
+Content\Tests\test175.d
 Content\Tests\test192.d
 
 // Initialization
