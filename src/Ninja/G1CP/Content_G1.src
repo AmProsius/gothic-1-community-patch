@@ -13,7 +13,10 @@ Content\menuVersionNumber.d
 Content\Report\indent.d
 Content\Report\reportFuncToSpy.d
 
-Content\Misc\variable.d
+Content\Symbols\int.d
+Content\Symbols\string.d
+Content\Symbols\aivar.d
+
 Content\Misc\findInFunc.d
 Content\Misc\funcByteCodeToSpy.d
 Content\Misc\info.d
@@ -65,6 +68,7 @@ Content\Fixes\Session\fix059_NpcEquipBestWeapons.d
 Content\Fixes\Session\fix060_JesseQuest.d
 Content\Fixes\Session\fix078_HumanAttackOrc.d
 Content\Fixes\Session\fix079_WolfDexDialog.d
+Content\Fixes\Session\fix094_DE_HoratioInfoDescThoughtStr.d
 Content\Fixes\Session\fix102_JesseProtectionMoneyPay.d
 Content\Fixes\Session\fix109_BloodwynProtectionMoneyPayLater.d
 Content\Fixes\Session\fix111_JackalProtectionMoneyPay.d
@@ -124,6 +128,7 @@ Content\Tests\test059.d
 Content\Tests\test060.d
 Content\Tests\test078.d
 Content\Tests\test079.d
+Content\Tests\test094.d
 Content\Tests\test102.d
 Content\Tests\test109.d
 Content\Tests\test111.d

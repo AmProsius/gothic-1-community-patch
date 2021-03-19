@@ -5,10 +5,10 @@ func int G1CP_079_WolfDexDialog() {
     var int applied; applied = FALSE;
 
     // Find all necessary symbols
-    var int funcId; funcId = MEM_FindParserSymbol("ORG_855_Wolf_Teach_Condition");
-    var int cond1Id; cond1Id = MEM_FindParserSymbol("GIL_GRD");
+    var int funcId; funcId = MEM_GetSymbolIndex("ORG_855_Wolf_Teach_Condition");
+    var int cond1Id; cond1Id = MEM_GetSymbolIndex("GIL_GRD");
     var int cond2Id; cond2Id = MEM_GetSymbol("C_NpcBelongsToNewCamp");
-    var int funcExt; funcExt = MEM_FindParserSymbol("Npc_GetTrueGuild");
+    var int funcExt; funcExt = MEM_GetSymbolIndex("Npc_GetTrueGuild");
 
     // Check if all needed functions exist
     if (funcId != -1) && (cond1Id != -1) && (cond2Id) {

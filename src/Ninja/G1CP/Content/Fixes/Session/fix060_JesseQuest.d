@@ -5,10 +5,10 @@ func int G1CP_060_JesseQuest() {
     var int applied; applied = FALSE;
 
     // Find all necessary symbols
-    var int funcId; funcId = MEM_FindParserSymbol("DIA_Jesse_Mission_Condition");
-    var int cond1Id; cond1Id = MEM_FindParserSymbol("DIA_Jesse_Mission");
-    var int cond2Id; cond2Id = MEM_FindParserSymbol("DIA_Jesse_Warn");
-    var int funcExt; funcExt = MEM_FindParserSymbol("Npc_KnowsInfo");
+    var int funcId; funcId = MEM_GetSymbolIndex("DIA_Jesse_Mission_Condition");
+    var int cond1Id; cond1Id = MEM_GetSymbolIndex("DIA_Jesse_Mission");
+    var int cond2Id; cond2Id = MEM_GetSymbolIndex("DIA_Jesse_Warn");
+    var int funcExt; funcExt = MEM_GetSymbolIndex("Npc_KnowsInfo");
 
     // Check if all needed functions exist
     if (funcId != -1) && (cond1Id != -1) && (cond2Id != -1) {

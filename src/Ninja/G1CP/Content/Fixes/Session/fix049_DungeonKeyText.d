@@ -5,8 +5,8 @@ func int G1CP_049_DungeonKeyText() {
     var int applied; applied = FALSE;
 
     // Get necessary symbol indices
-    var int symbId; symbId = MEM_FindParserSymbol("DungeonKey");
-    var int itemTextSymbId; itemTextSymbId = MEM_FindParserSymbol("C_ITEM.TEXT");
+    var int symbId; symbId = MEM_GetSymbolIndex("DungeonKey");
+    var int itemTextSymbId; itemTextSymbId = MEM_GetSymbolIndex("C_ITEM.TEXT");
     if (symbId == -1) || (itemTextSymbId == -1) {
         return FALSE;
     };

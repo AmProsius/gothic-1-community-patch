@@ -7,7 +7,7 @@
  */
 func int G1CP_Test_017() {
     // Check if dialog exists
-    var int funcId; funcId = MEM_FindParserSymbol("Info_Jackal_Hello_Condition");
+    var int funcId; funcId = MEM_GetSymbolIndex("Info_Jackal_Hello_Condition");
     if (funcId == -1) {
         G1CP_TestsuiteErrorDetail("Dialog condition 'Info_Jackal_Hello_Condition' not found");
         return FALSE;

@@ -4,7 +4,7 @@
 func int G1CP_GetInfo(var string infoName) {
     MEM_InitGlobalInst();
 
-    var int symbId; symbId = MEM_FindParserSymbol(infoName);
+    var int symbId; symbId = MEM_GetSymbolIndex(infoName);
     var int infoMan; infoMan = MEM_Game.infoman;
 
     const int oCInfoManager__GetInformation = 6703616; //0x664A00

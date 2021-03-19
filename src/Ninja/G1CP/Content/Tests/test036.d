@@ -15,14 +15,14 @@ func int G1CP_Test_036() {
     var int passed; passed = TRUE;
 
     // Check if the dialog exists
-    var int funcId; funcId = MEM_FindParserSymbol("Stt_311_Fisk_MordragKO_Condition");
+    var int funcId; funcId = MEM_GetSymbolIndex("Stt_311_Fisk_MordragKO_Condition");
     if (funcId == -1) {
         G1CP_TestsuiteErrorDetail("Dialog condition 'Stt_311_Fisk_MordragKO_Condition' not found");
         passed = FALSE;
     };
 
     // Find Mordrag
-    var int symbId; symbId = MEM_FindParserSymbol("Org_826_Mordrag");
+    var int symbId; symbId = MEM_GetSymbolIndex("Org_826_Mordrag");
     if (symbId == -1) {
         G1CP_TestsuiteErrorDetail("NPC 'Org_826_Mordrag' not found");
         passed = FALSE;

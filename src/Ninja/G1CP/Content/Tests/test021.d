@@ -16,7 +16,7 @@ func int G1CP_Test_021() {
     var int passed; passed = TRUE;
 
     // Check if dialog exists
-    var int funcId; funcId = MEM_FindParserSymbol("DIA_Fletcher_WoNek_Info");
+    var int funcId; funcId = MEM_GetSymbolIndex("DIA_Fletcher_WoNek_Info");
     if (funcId == -1) {
         G1CP_TestsuiteErrorDetail("Dialog function 'DIA_Fletcher_WoNek_Info' not found");
         passed = FALSE;

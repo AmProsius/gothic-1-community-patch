@@ -11,11 +11,11 @@ func void G1CP_Test_012() {
     };
 
     // Check symbols first
-    if (MEM_FindParserSymbol("B_DeathXP") == -1) {
+    if (MEM_GetSymbolIndex("B_DeathXP") == -1) {
         G1CP_TestsuiteErrorDetail("Function 'B_DeathXP' not found");
         return;
     };
-    if (MEM_FindParserSymbol("AIV_WASDEFEATEDBYSC") == -1) {
+    if (MEM_GetSymbolIndex("AIV_WASDEFEATEDBYSC") == -1) {
         G1CP_TestsuiteErrorDetail("Variable 'AIV_WASDEFEATEDBYSC' not found");
         return;
     };
@@ -31,11 +31,11 @@ func void G1CP_Test_012() {
 
     // Give bow and arrow to player
     var int symbId;
-    symbId = MEM_FindParserSymbol("ItRw_Bow_Small_01");
+    symbId = MEM_GetSymbolIndex("ItRw_Bow_Small_01");
     if (symbId != -1) {
         CreateInvItem(hero, symbId);
     };
-    symbId = MEM_FindParserSymbol("ItAmArrow");
+    symbId = MEM_GetSymbolIndex("ItAmArrow");
     if (symbId != -1) {
         CreateInvItems(hero, symbId, 20);
     };

@@ -2,10 +2,10 @@
  * #36 Fisk's quest isn't triggered
  */
 func int G1CP_036_FiskFenceQuest() {
-    if (MEM_FindParserSymbol("Stt_311_Fisk_MordragKO_Condition") != -1)
-    && (MEM_FindParserSymbol("Org_826_Mordrag") != -1)
-    && (MEM_FindParserSymbol("MordragKO_HauAb") != -1)
-    && (MEM_FindParserSymbol("MordragKO_StayAtNC") != -1) {
+    if (MEM_GetSymbolIndex("Stt_311_Fisk_MordragKO_Condition") != -1)
+    && (MEM_GetSymbolIndex("Org_826_Mordrag") != -1)
+    && (MEM_GetSymbolIndex("MordragKO_HauAb") != -1)
+    && (MEM_GetSymbolIndex("MordragKO_StayAtNC") != -1) {
         HookDaedalusFuncS("Stt_311_Fisk_MordragKO_Condition", "G1CP_036_FiskFenceQuest_Hook");
         return TRUE;
     } else {
@@ -42,7 +42,7 @@ func int G1CP_036_FiskFenceQuest_Hook() {
         };
 
         // Check for Mordrag
-        var C_Npc mordrag; mordrag = Hlp_GetNpc(MEM_FindParserSymbol("Org_826_Mordrag"));
+        var C_Npc mordrag; mordrag = Hlp_GetNpc(MEM_GetSymbolIndex("Org_826_Mordrag"));
         var int mordragDead; mordragDead = Npc_IsDead(mordrag);
 
         // The condition should now look like this:

@@ -2,9 +2,9 @@
  * #112 The player doesn't lose ore when paying protection money to Jackal later
  */
 func int G1CP_112_JackalProtectionMoneyPayLater() {
-    if (MEM_FindParserSymbol("Info_Jackal_Schutz_Info") != -1)
-    && (MEM_FindParserSymbol("Jackal_ProtectionPaid")   != -1)
-    && (MEM_FindParserSymbol("ItMiNugget")              != -1) {
+    if (MEM_GetSymbolIndex("Info_Jackal_Schutz_Info") != -1)
+    && (MEM_GetSymbolIndex("Jackal_ProtectionPaid")   != -1)
+    && (MEM_GetSymbolIndex("ItMiNugget")              != -1) {
         HookDaedalusFuncS("Info_Jackal_Schutz_Info", "G1CP_112_JackalProtectionMoneyPayLater_Hook");
         return TRUE;
     } else {
@@ -23,7 +23,7 @@ func void G1CP_112_JackalProtectionMoneyPayLater_Hook() {
     var int paidStatusBefore;
 
     // Remember how much ore the player has before the dialog
-    var int oreId; oreId = MEM_FindParserSymbol("ItMiNugget");
+    var int oreId; oreId = MEM_GetSymbolIndex("ItMiNugget");
     if (oreId != -1) {
         amountOreBefore = Npc_HasItems(hero, oreId);
     };
@@ -43,7 +43,7 @@ func void G1CP_112_JackalProtectionMoneyPayLater_Hook() {
         var int paidStatusAfter; paidStatusAfter = MEM_ReadInt(paidPtr);
         if (paidStatusAfter) && (paidStatusAfter != paidStatusBefore)
         && (Npc_HasItems(hero, oreId) == amountOreBefore) {
-            var int funcId; funcId = MEM_FindParserSymbol("B_GiveInvItems");
+            var int funcId; funcId = MEM_GetSymbolIndex("B_GiveInvItems");
             if (funcId != -1) {
                 // B_GiveInvItems(hero, self, ItMiNugget, 10)
                 MEM_PushInstParam(hero);

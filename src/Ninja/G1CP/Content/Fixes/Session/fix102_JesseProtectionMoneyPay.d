@@ -2,9 +2,9 @@
  * #102 The player doesn't lose ore when paying for Jesse
  */
 func int G1CP_102_JesseProtectionMoneyPay() {
-    if (MEM_FindParserSymbol("Info_Bloodwyn_PayForJesse_Info") != -1)
-    && (MEM_FindParserSymbol("Jesse_PayForMe")                 != -1)
-    && (MEM_FindParserSymbol("ItMiNugget")                     != -1) {
+    if (MEM_GetSymbolIndex("Info_Bloodwyn_PayForJesse_Info") != -1)
+    && (MEM_GetSymbolIndex("Jesse_PayForMe")                 != -1)
+    && (MEM_GetSymbolIndex("ItMiNugget")                     != -1) {
         HookDaedalusFuncS("Info_Bloodwyn_PayForJesse_Info", "G1CP_102_JesseProtectionMoneyPay_Hook");
         return TRUE;
     } else {
@@ -26,7 +26,7 @@ func void G1CP_102_JesseProtectionMoneyPay_Hook() {
     var int topicStatusBefore;
 
     // Remember how much ore the player has before the dialog
-    var int oreId; oreId = MEM_FindParserSymbol("ItMiNugget");
+    var int oreId; oreId = MEM_GetSymbolIndex("ItMiNugget");
     if (oreId != -1) {
         amountOreBefore = Npc_HasItems(hero, oreId);
     };
@@ -46,7 +46,7 @@ func void G1CP_102_JesseProtectionMoneyPay_Hook() {
         var int topicStatusAfter; topicStatusAfter = MEM_ReadInt(topicPtr);
         if (topicStatusAfter == LOG_SUCCESS) && (topicStatusAfter != topicStatusBefore)
         && (Npc_HasItems(hero, oreId) == amountOreBefore) {
-            var int funcId; funcId = MEM_FindParserSymbol("B_GiveInvItems");
+            var int funcId; funcId = MEM_GetSymbolIndex("B_GiveInvItems");
             if (funcId != -1) {
                 // B_GiveInvItems(hero, self, ItMiNugget, 10)
                 MEM_PushInstParam(hero);

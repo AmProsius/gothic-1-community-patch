@@ -7,7 +7,7 @@
  */
 func int G1CP_Test_018() {
     // Check if dialog exists
-    var int funcId; funcId = MEM_FindParserSymbol("Info_Bloodwyn_Hello_Condition");
+    var int funcId; funcId = MEM_GetSymbolIndex("Info_Bloodwyn_Hello_Condition");
     if (funcId == -1) {
         G1CP_TestsuiteErrorDetail("Dialog condition 'Info_Bloodwyn_Hello_Condition' not found");
         return FALSE;

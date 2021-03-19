@@ -5,9 +5,9 @@ func int G1CP_012_RangedDoubleXP() {
     var int applied; applied = FALSE;
 
     // Get necessary symbol indices
-    var int funcId;  funcId = MEM_FindParserSymbol("B_DeathXP");
-    var int cond1Id; cond1Id = MEM_FindParserSymbol("ZS_Unconscious");
-    var int cond3Id; cond3Id = MEM_FindParserSymbol("AIV_WASDEFEATEDBYSC");
+    var int funcId;  funcId = MEM_GetSymbolIndex("B_DeathXP");
+    var int cond1Id; cond1Id = MEM_GetSymbolIndex("ZS_Unconscious");
+    var int cond3Id; cond3Id = MEM_GetSymbolIndex("AIV_WASDEFEATEDBYSC");
     var int replOff; replOff = MEM_GetFuncOffset(G1CP_012_RangedDoubleXP_Condition);
     if (funcId == -1) || (cond1Id == -1) || (cond3Id == -1) {
         return FALSE;

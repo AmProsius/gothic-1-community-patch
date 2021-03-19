@@ -28,7 +28,7 @@ func void G1CP_Test_032() {
         hero.attribute[ATR_STRENGTH] = 1000;
 
         // But needs a weapon to finish them off
-        EquipWeapon(hero, MEM_FindParserSymbol("ItMw_1H_Sword_Old_01"));
+        EquipWeapon(hero, MEM_GetSymbolIndex("ItMw_1H_Sword_Old_01"));
 
         // Teleport the player to the entrance of the Free Mine
         if (!Hlp_StrCmp(MEM_World.worldFilename, "FREEMINE.ZEN")) {

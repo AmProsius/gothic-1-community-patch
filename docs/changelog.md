@@ -3,6 +3,8 @@
 ## EN
 
 ### v1.1.0 (TBA)
+#### General
+#### Story
 * Fix #174: Changed the name "Gomez' Bowl" to "Gomez' Key".
 
 ### v1.0.0 (2021-03-15)
@@ -62,6 +64,11 @@
 * Fix #163: The castle gate of the Old Camp is no longer blocked and can properly be closed.
 
 ## DE
+
+### v1.1.0 (TBA)
+#### General
+#### Story
+* Fix #94: Die Dialogoption mit Horatio "Ich hab' nochmal über die Sache nachgedacht..." ist nun korrigiert zu "Ich hab' noch einmal über die Sache nachgedacht...".
 
 ### v1.0.0 (2021-03-15)
 #### General

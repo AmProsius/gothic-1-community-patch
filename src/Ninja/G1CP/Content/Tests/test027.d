@@ -10,14 +10,14 @@ func int G1CP_Test_027() {
     var int passed; passed = TRUE;
 
     // Check if dialog exists
-    var int funcId; funcId = MEM_FindParserSymbol("Org_819_Drax_Scavenger_Info");
+    var int funcId; funcId = MEM_GetSymbolIndex("Org_819_Drax_Scavenger_Info");
     if (funcId == -1) {
         G1CP_TestsuiteErrorDetail("Dialog function 'Org_819_Drax_Scavenger_Info' not found");
         passed = FALSE;
     };
 
     // Check if the beer item exists
-    var int beerId; beerId = MEM_FindParserSymbol("ItFoBeer");
+    var int beerId; beerId = MEM_GetSymbolIndex("ItFoBeer");
     if (beerId == -1) {
         G1CP_TestsuiteErrorDetail("Item 'ItFoBeer' not found");
         passed = FALSE;
