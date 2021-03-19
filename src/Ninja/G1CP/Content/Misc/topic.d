@@ -72,6 +72,25 @@ func int G1CP_TopicHasEntry(var string topic, var string entry) {
 };
 
 /*
+ * Set the section of a log topic (LOG_MISSION or LOG_NOTE)
+ */
+func void G1CP_SetTopicSection(var string topic, var int section) {
+    // Define possibly missing symbols locally
+    const int LOG_MISSION = 0;
+    const int LOG_NOTE    = 1;
+
+    if (section != LOG_MISSION) && (section != LOG_NOTE) {
+        return;
+    };
+
+    var int lt; lt = G1CP_GetTopic(topic);
+    if (lt) {
+        var oCLogTopic logTopic; logTopic = _^(lt);
+        logTopic.m_enuSection = section;
+    };
+};
+
+/*
  * Rename the topic (does not perform any safety checks, i.e. if there is already a topic of the same name)
  * Use with caution!
  */
