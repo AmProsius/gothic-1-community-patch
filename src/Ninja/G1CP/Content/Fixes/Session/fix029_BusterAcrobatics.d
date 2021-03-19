@@ -2,8 +2,8 @@
  * #29 Buster trains Acrobatics multiple times
  */
 func int G1CP_029_BusterAcrobatics() {
-    if (MEM_FindParserSymbol("DIA_ORG_833_Buster3_Condition") != -1)
-    && (MEM_FindParserSymbol("NPC_TALENT_ACROBAT") != -1) {
+    if (MEM_GetSymbolIndex("DIA_ORG_833_Buster3_Condition") != -1)
+    && (MEM_GetSymbolIndex("NPC_TALENT_ACROBAT") != -1) {
         HookDaedalusFuncS("DIA_ORG_833_Buster3_Condition", "G1CP_029_BusterAcrobatics_Hook");
         return TRUE;
     } else {

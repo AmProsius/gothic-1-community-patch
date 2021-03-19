@@ -10,14 +10,14 @@ func int G1CP_Test_033() {
     var int passed; passed = TRUE;
 
     // Check if the dialog exists
-    var int funcId; funcId = MEM_FindParserSymbol("DIA_Shrike_GetLost_Condition");
+    var int funcId; funcId = MEM_GetSymbolIndex("DIA_Shrike_GetLost_Condition");
     if (funcId == -1) {
         G1CP_TestsuiteErrorDetail("Dialog condition 'DIA_Shrike_GetLost_Condition' not found");
         passed = FALSE;
     };
 
     // Find Shrike
-    var int symbId; symbId = MEM_FindParserSymbol("ORG_842_Shrike");
+    var int symbId; symbId = MEM_GetSymbolIndex("ORG_842_Shrike");
     if (symbId == -1) {
         G1CP_TestsuiteErrorDetail("NPC 'ORG_842_Shrike' not found");
         passed = FALSE;
@@ -31,7 +31,7 @@ func int G1CP_Test_033() {
     };
 
     // Check if the dialog exist
-    if (MEM_FindParserSymbol("DIA_Gorn_Hut") == -1) {
+    if (MEM_GetSymbolIndex("DIA_Gorn_Hut") == -1) {
         G1CP_TestsuiteErrorDetail("Dialog 'DIA_Gorn_Hut' not found");
         passed = FALSE;
     };
@@ -51,7 +51,7 @@ func int G1CP_Test_033() {
 
     // Backup values
     var int questBak; questBak = MEM_ReadInt(questPtr);
-    var int told1Bak; told1Bak = Npc_KnowsInfo(hero, MEM_FindParserSymbol("DIA_Gorn_Hut"));
+    var int told1Bak; told1Bak = Npc_KnowsInfo(hero, MEM_GetSymbolIndex("DIA_Gorn_Hut"));
     var int aivarBak; aivarBak = G1CP_GetAIVar(shrike, "AIV_WASDEFEATEDBYSC", FALSE);
     var C_Npc slfBak; slfBak = MEM_CpyInst(self);
     var C_Npc othBak; othBak = MEM_CpyInst(other);

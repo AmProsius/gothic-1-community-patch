@@ -13,7 +13,7 @@ func int G1CP_Test_038() {
     const int LOG_SUCCESS = 2;
 
     // Check if the dialog exists
-    var int funcId; funcId = MEM_FindParserSymbol("DIA_Snaf_WhereNek_Condition");
+    var int funcId; funcId = MEM_GetSymbolIndex("DIA_Snaf_WhereNek_Condition");
     if (funcId == -1) {
         G1CP_TestsuiteErrorDetail("Dialog condition 'DIA_Snaf_WhereNek_Condition' not found");
         passed = FALSE;

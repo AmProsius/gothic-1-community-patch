@@ -11,7 +11,7 @@ func int G1CP_Test_020() {
     var int passed; passed = TRUE;
 
     // Find Kirgo first
-    var int symbId; symbId = MEM_FindParserSymbol("Grd_251_Kirgo");
+    var int symbId; symbId = MEM_GetSymbolIndex("Grd_251_Kirgo");
     if (symbId == -1) {
         G1CP_TestsuiteErrorDetail("NPC 'Grd_251_Kirgo' not found");
         passed = FALSE;
@@ -25,14 +25,14 @@ func int G1CP_Test_020() {
     };
 
     // Check if the dialog function exists
-    var int funcId; funcId = MEM_FindParserSymbol("Info_Kirgo_Charge_Beer");
+    var int funcId; funcId = MEM_GetSymbolIndex("Info_Kirgo_Charge_Beer");
     if (funcId == -1) {
         G1CP_TestsuiteErrorDetail("Dialog function 'Info_Kirgo_Charge_Beer' not found");
         passed = FALSE;
     };
 
     // Check if the beer item exists
-    var int beerId; beerId = MEM_FindParserSymbol("ItFoBeer");
+    var int beerId; beerId = MEM_GetSymbolIndex("ItFoBeer");
     if (beerId == -1) {
         G1CP_TestsuiteErrorDetail("Item 'ItFoBeer' not found");
         passed = FALSE;

@@ -13,7 +13,7 @@ func int G1CP_Test_043() {
     };
 
     // Check if function exists
-    var int funcId; funcId = MEM_FindParserSymbol("B_BuildLearnString");
+    var int funcId; funcId = MEM_GetSymbolIndex("B_BuildLearnString");
     if (funcId == -1) {
         G1CP_TestsuiteErrorDetail("Function 'B_BuildLearnString' not found");
         return FALSE;

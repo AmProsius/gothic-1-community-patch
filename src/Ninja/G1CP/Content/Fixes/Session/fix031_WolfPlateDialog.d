@@ -2,9 +2,9 @@
  * #31 Wolf's minecrawler plate dialog doesn't disappear
  */
 func int G1CP_031_WolfPlateDialog() {
-    if (MEM_FindParserSymbol("Info_Wolf_MCPLATESFEW_Condition")    != -1)
-    && (MEM_FindParserSymbol("Info_Wolf_MCPLATESENOUGH_Condition") != -1)
-    && (MEM_FindParserSymbol("Info_Wolf_MCPLATESENOUGH")           != -1) {
+    if (MEM_GetSymbolIndex("Info_Wolf_MCPLATESFEW_Condition")    != -1)
+    && (MEM_GetSymbolIndex("Info_Wolf_MCPLATESENOUGH_Condition") != -1)
+    && (MEM_GetSymbolIndex("Info_Wolf_MCPLATESENOUGH")           != -1) {
         HookDaedalusFuncS("Info_Wolf_MCPLATESFEW_Condition", "G1CP_031_WolfPlateDialog_Hook1");
         HookDaedalusFuncS("Info_Wolf_MCPLATESENOUGH_Condition", "G1CP_031_WolfPlateDialog_Hook2");
         return TRUE;
@@ -20,7 +20,7 @@ func int G1CP_031_WolfPlateDialog_Hook1() {
     G1CP_ReportFuncToSpy();
 
     // Add the new condition (other conditions remain untouched)
-    if (Npc_KnowsInfo(hero, MEM_FindParserSymbol("Info_Wolf_MCPLATESENOUGH"))) {
+    if (Npc_KnowsInfo(hero, MEM_GetSymbolIndex("Info_Wolf_MCPLATESENOUGH"))) {
         return FALSE;
     };
 
@@ -35,7 +35,7 @@ func int G1CP_031_WolfPlateDialog_Hook2() {
     G1CP_ReportFuncToSpy();
 
     // Add the new condition (other conditions remain untouched)
-    if (Npc_KnowsInfo(hero, MEM_FindParserSymbol("Info_Wolf_MCPLATESENOUGH"))) {
+    if (Npc_KnowsInfo(hero, MEM_GetSymbolIndex("Info_Wolf_MCPLATESENOUGH"))) {
         return FALSE;
     };
 

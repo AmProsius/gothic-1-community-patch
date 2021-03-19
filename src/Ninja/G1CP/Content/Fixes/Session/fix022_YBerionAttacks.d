@@ -2,8 +2,8 @@
  * #22 Y'Berion doesn't attack the player
  */
 func int G1CP_022_YBerionAttacks() {
-    if (MEM_FindParserSymbol("DIA_YBerion_Wache_Info") != -1)
-    && (MEM_FindParserSymbol("ZS_ATTACK")              != -1) {
+    if (MEM_GetSymbolIndex("DIA_YBerion_Wache_Info") != -1)
+    && (MEM_GetSymbolIndex("ZS_ATTACK")              != -1) {
         HookDaedalusFuncS("DIA_YBerion_Wache_Info", "G1CP_022_YBerionAttacks_Hook");
         return TRUE;
     } else {
@@ -24,7 +24,7 @@ func void G1CP_022_YBerionAttacks_Hook() {
     Npc_SetTarget(self, other);
 
     // Check if ZS_Attack exists
-    var int symbId; symbId = MEM_FindParserSymbol("ZS_ATTACK");
+    var int symbId; symbId = MEM_GetSymbolIndex("ZS_ATTACK");
     if (symbId != -1) {
         // AI_StartState(self, ZS_ATTACK, 1, ""); // Does not work, expects func parameter
         MEM_PushInstParam(self);

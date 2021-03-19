@@ -10,7 +10,7 @@ func int G1CP_Test_028() {
     var int passed; passed = TRUE;
 
     // Check if the dialog exists
-    var int funcId; funcId = MEM_FindParserSymbol("Org_826_Mordrag_GotoNewcamp_Condition");
+    var int funcId; funcId = MEM_GetSymbolIndex("Org_826_Mordrag_GotoNewcamp_Condition");
     if (funcId == -1) {
         G1CP_TestsuiteErrorDetail("Dialog condition 'Org_826_Mordrag_GotoNewcamp_Condition' not found");
         passed = FALSE;
@@ -30,26 +30,26 @@ func int G1CP_Test_028() {
     };
 
     // Backup values
-    var int hauAbBak; hauAbBak = MEM_ReadInt(hauAbPtr);                                                  // Variable
-    var int toldBak; toldBak = Npc_KnowsInfo(hero, MEM_FindParserSymbol("Org_826_Mordrag_JoinNewcamp")); // Told status
-    var C_Npc slfBak; slfBak = MEM_CpyInst(self);                                                        // Self
-    var C_Npc othBak; othBak = MEM_CpyInst(other);                                                       // Other
+    var int hauAbBak; hauAbBak = MEM_ReadInt(hauAbPtr);                                                // Variable
+    var int toldBak; toldBak = Npc_KnowsInfo(hero, MEM_GetSymbolIndex("Org_826_Mordrag_JoinNewcamp")); // Told status
+    var C_Npc slfBak; slfBak = MEM_CpyInst(self);                                                      // Self
+    var C_Npc othBak; othBak = MEM_CpyInst(other);                                                     // Other
 
     // Set new values
-    MEM_WriteInt(hauAbPtr, TRUE);                                                                        // Variable
-    G1CP_SetInfoTold("Org_826_Mordrag_JoinNewcamp", TRUE);                                               // Told status
-    self  = MEM_CpyInst(hero);                                                                           // Self
-    other = MEM_CpyInst(hero);                                                                           // Other
+    MEM_WriteInt(hauAbPtr, TRUE);                                                                      // Variable
+    G1CP_SetInfoTold("Org_826_Mordrag_JoinNewcamp", TRUE);                                             // Told status
+    self  = MEM_CpyInst(hero);                                                                         // Self
+    other = MEM_CpyInst(hero);                                                                         // Other
 
     // Call dialog condition function
     MEM_CallByID(funcId);
     var int ret; ret = MEM_PopIntResult();
 
     // Restore values
-    self  = MEM_CpyInst(slfBak);                                                                         // Self
-    other = MEM_CpyInst(othBak);                                                                         // Other
-    MEM_WriteInt(hauAbPtr, hauAbBak);                                                                    // Variable
-    G1CP_SetInfoTold("Org_826_Mordrag_JoinNewcamp", toldBak);                                            // Told status
+    self  = MEM_CpyInst(slfBak);                                                                       // Self
+    other = MEM_CpyInst(othBak);                                                                       // Other
+    MEM_WriteInt(hauAbPtr, hauAbBak);                                                                  // Variable
+    G1CP_SetInfoTold("Org_826_Mordrag_JoinNewcamp", toldBak);                                          // Told status
 
     // Check return value
     if (ret) {

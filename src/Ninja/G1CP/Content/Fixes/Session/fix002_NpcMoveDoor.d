@@ -2,7 +2,7 @@
  * #2 NPCs don't use doors properly
  */
 func int G1CP_002_NpcMoveDoor() {
-    if (MEM_FindParserSymbol("B_MoveMob") != -1) {
+    if (MEM_GetSymbolIndex("B_MoveMob") != -1) {
         HookDaedalusFuncS("B_MoveMob", "G1CP_002_NpcMoveDoor_Hook");
         return TRUE;
     } else {

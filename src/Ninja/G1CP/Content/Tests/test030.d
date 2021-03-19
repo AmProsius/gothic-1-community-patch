@@ -14,14 +14,14 @@ func void G1CP_Test_030() {
     var int passed; passed = TRUE;
 
     // Check if the dialog exists
-    var int funcId; funcId = MEM_FindParserSymbol("DIA_Silas_Trade");
+    var int funcId; funcId = MEM_GetSymbolIndex("DIA_Silas_Trade");
     if (funcId == -1) {
         G1CP_TestsuiteErrorDetail("Info 'DIA_Silas_Trade' not found");
         passed = FALSE;
     };
 
     // Find Silas
-    var int symbId; symbId = MEM_FindParserSymbol("Org_841_Silas");
+    var int symbId; symbId = MEM_GetSymbolIndex("Org_841_Silas");
     if (symbId == -1) {
         G1CP_TestsuiteErrorDetail("NPC 'Org_841_Silas' not found");
         return;

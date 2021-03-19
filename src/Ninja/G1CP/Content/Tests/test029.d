@@ -10,7 +10,7 @@ func int G1CP_Test_029() {
     var int passed; passed = TRUE;
 
     // Check if the dialog exists
-    var int funcId; funcId = MEM_FindParserSymbol("DIA_ORG_833_Buster3_Condition");
+    var int funcId; funcId = MEM_GetSymbolIndex("DIA_ORG_833_Buster3_Condition");
     if (funcId == -1) {
         G1CP_TestsuiteErrorDetail("Dialog condition 'DIA_ORG_833_Buster3_Condition' not found");
         passed = FALSE;
@@ -30,26 +30,26 @@ func int G1CP_Test_029() {
     };
 
     // Backup values
-    var int talentBak; talentBak = Npc_GetTalentSkill(hero, NPC_TALENT_ACROBAT);                // Talent
-    var int toldBak; toldBak = Npc_KnowsInfo(hero, MEM_FindParserSymbol("DIA_ORG_833_Buster")); // Told status
-    var C_Npc slfBak; slfBak = MEM_CpyInst(self);                                               // Self
-    var C_Npc othBak; othBak = MEM_CpyInst(other);                                              // Other
+    var int talentBak; talentBak = Npc_GetTalentSkill(hero, NPC_TALENT_ACROBAT);              // Talent
+    var int toldBak; toldBak = Npc_KnowsInfo(hero, MEM_GetSymbolIndex("DIA_ORG_833_Buster")); // Told status
+    var C_Npc slfBak; slfBak = MEM_CpyInst(self);                                             // Self
+    var C_Npc othBak; othBak = MEM_CpyInst(other);                                            // Other
 
     // Set new values
-    Npc_SetTalentSkill(hero, NPC_TALENT_ACROBAT, TRUE);                                         // Talent
-    G1CP_SetInfoTold("DIA_ORG_833_Buster", TRUE);                                               // Told status
-    self  = MEM_CpyInst(hero);                                                                  // Self
-    other = MEM_CpyInst(hero);                                                                  // Other
+    Npc_SetTalentSkill(hero, NPC_TALENT_ACROBAT, TRUE);                                       // Talent
+    G1CP_SetInfoTold("DIA_ORG_833_Buster", TRUE);                                             // Told status
+    self  = MEM_CpyInst(hero);                                                                // Self
+    other = MEM_CpyInst(hero);                                                                // Other
 
     // Call dialog condition function
     MEM_CallByID(funcId);
     var int ret; ret = MEM_PopIntResult();
 
     // Restore values
-    self  = MEM_CpyInst(slfBak);                                                                // Self
-    other = MEM_CpyInst(othBak);                                                                // Other
-    Npc_SetTalentSkill(hero, NPC_TALENT_ACROBAT, talentBak);                                    // Talent
-    G1CP_SetInfoTold("DIA_ORG_833_Buster", toldBak);                                            // Told status
+    self  = MEM_CpyInst(slfBak);                                                              // Self
+    other = MEM_CpyInst(othBak);                                                              // Other
+    Npc_SetTalentSkill(hero, NPC_TALENT_ACROBAT, talentBak);                                  // Talent
+    G1CP_SetInfoTold("DIA_ORG_833_Buster", toldBak);                                          // Told status
 
     // Check return value
     if (ret) {

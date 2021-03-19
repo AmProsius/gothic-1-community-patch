@@ -10,14 +10,14 @@ func int G1CP_Test_025() {
     var int passed; passed = TRUE;
 
     // Find the dialog condition function
-    var int funcId; funcId = MEM_FindParserSymbol("KDW_600_Saturas_HEAVYARMOR_Condition");
+    var int funcId; funcId = MEM_GetSymbolIndex("KDW_600_Saturas_HEAVYARMOR_Condition");
     if (funcId == -1) {
         G1CP_TestsuiteErrorDetail("Dialog condition 'KDW_600_Saturas_HEAVYARMOR_Condition' not found");
         passed = FALSE;
     };
 
     // Find the symbol
-    var int robeId; robeId = MEM_FindParserSymbol("KDW_ARMOR_H");
+    var int robeId; robeId = MEM_GetSymbolIndex("KDW_ARMOR_H");
     if (robeId == -1) {
         G1CP_TestsuiteErrorDetail("Item 'KDW_ARMOR_H' not found");
         passed = FALSE;

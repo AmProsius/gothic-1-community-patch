@@ -10,10 +10,10 @@ func void G1CP_Test_009() {
         return;
     };
 
-    var int symbId; symbId = MEM_FindParserSymbol("ZS_Flee");
-    if (MEM_FindParserSymbol("ZS_Flee") == -1)
-    || (MEM_FindParserSymbol("ZS_Flee_Loop") == -1)
-    || (MEM_FindParserSymbol("ZS_Flee_End") == -1) {
+    var int symbId; symbId = MEM_GetSymbolIndex("ZS_Flee");
+    if (MEM_GetSymbolIndex("ZS_Flee") == -1)
+    || (MEM_GetSymbolIndex("ZS_Flee_Loop") == -1)
+    || (MEM_GetSymbolIndex("ZS_Flee_End") == -1) {
         G1CP_TestsuiteErrorDetail("AI state 'ZS_Flee' (or sub-functions) not found");
         return;
     };

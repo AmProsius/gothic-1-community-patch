@@ -7,32 +7,32 @@
  */
 func int G1CP_Test_031_RunDialog(var int itmInst, var int num, var string dialogName) {
     // Check if dialog exists
-    var int funcId; funcId = MEM_FindParserSymbol(dialogName);
+    var int funcId; funcId = MEM_GetSymbolIndex(dialogName);
     if (funcId == -1) {
         G1CP_TestsuiteErrorDetail(ConcatStrings(ConcatStrings("Dialog condition '", dialogName), "' not found"));
         return FALSE;
     };
 
     // Backup values
-    var int toldBak; toldBak = Npc_KnowsInfo(hero, MEM_FindParserSymbol("Info_Wolf_MCPLATESENOUGH")); // Told status
-    var C_Npc slfBak; slfBak = MEM_CpyInst(self);                                                     // Self
-    var C_Npc othBak; othBak = MEM_CpyInst(other);                                                    // Other
+    var int toldBak; toldBak = Npc_KnowsInfo(hero, MEM_GetSymbolIndex("Info_Wolf_MCPLATESENOUGH")); // Told status
+    var C_Npc slfBak; slfBak = MEM_CpyInst(self);                                                   // Self
+    var C_Npc othBak; othBak = MEM_CpyInst(other);                                                  // Other
 
     // Set new values
-    G1CP_SetInfoTold("Info_Wolf_MCPLATESENOUGH", TRUE);                                               // Told status
-    CreateInvItems(hero, itmInst, num);                                                               // Create items
-    self  = MEM_CpyInst(hero);                                                                        // Self
-    other = MEM_CpyInst(hero);                                                                        // Other
+    G1CP_SetInfoTold("Info_Wolf_MCPLATESENOUGH", TRUE);                                             // Told status
+    CreateInvItems(hero, itmInst, num);                                                             // Create items
+    self  = MEM_CpyInst(hero);                                                                      // Self
+    other = MEM_CpyInst(hero);                                                                      // Other
 
     // Call dialog condition function
     MEM_CallByID(funcId);
     var int ret; ret = MEM_PopIntResult();
 
     // Restore values
-    self  = MEM_CpyInst(slfBak);                                                                      // Self
-    other = MEM_CpyInst(othBak);                                                                      // Other
-    Npc_RemoveInvItems(hero, itmInst, Npc_HasItems(hero, itmInst));                                   // Remove items
-    G1CP_SetInfoTold("Info_Wolf_MCPLATESENOUGH", toldBak);                                            // Told status
+    self  = MEM_CpyInst(slfBak);                                                                    // Self
+    other = MEM_CpyInst(othBak);                                                                    // Other
+    Npc_RemoveInvItems(hero, itmInst, Npc_HasItems(hero, itmInst));                                 // Remove items
+    G1CP_SetInfoTold("Info_Wolf_MCPLATESENOUGH", toldBak);                                          // Told status
 
     // Check return value
     if (ret) {
@@ -47,7 +47,7 @@ func int G1CP_Test_031() {
     var int passed; passed = TRUE;
 
     // Find item
-    var int itmInst; itmInst = MEM_FindParserSymbol("ItAt_Crawler_02");
+    var int itmInst; itmInst = MEM_GetSymbolIndex("ItAt_Crawler_02");
     if (itmInst == -1) {
         G1CP_TestsuiteErrorDetail("Item 'ItAt_Crawler_02' not found");
         passed = FALSE;

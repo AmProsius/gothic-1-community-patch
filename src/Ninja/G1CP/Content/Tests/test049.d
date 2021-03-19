@@ -13,7 +13,7 @@ func int G1CP_Test_049() {
     };
 
     // Check if item exists
-    var int symbId; symbId = MEM_FindParserSymbol("DungeonKey");
+    var int symbId; symbId = MEM_GetSymbolIndex("DungeonKey");
     if (symbId == -1) {
         G1CP_TestsuiteErrorDetail("Item 'DungeonKey' not found");
         return FALSE;

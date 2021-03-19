@@ -18,7 +18,7 @@ func int G1CP_158_SpeedPotion3Value() {
     if (value1SymbPtr) {
         // Find value from constant
         Value_Haste1 = MEM_ReadInt(value1SymbPtr + zCParSymbol_content_offset);
-    } else if (Itm_GetPtr(MEM_FindParserSymbol("ItFo_Potion_Haste_01"))) {
+    } else if (Itm_GetPtr(MEM_GetSymbolIndex("ItFo_Potion_Haste_01"))) {
         // If not found, determine from level one speed potion
         Value_Haste1 = item.value;
     } else {
@@ -27,6 +27,6 @@ func int G1CP_158_SpeedPotion3Value() {
     };
 
     // Replace any assignments to value
-    var int symbId; symbId = MEM_FindParserSymbol("ItFo_Potion_Haste_03");
+    var int symbId; symbId = MEM_GetSymbolIndex("ItFo_Potion_Haste_03");
     return (G1CP_ReplaceAssignInt(symbId, "C_ITEM.value", 0, Value_Haste1, Value_Haste3) > 0);
 };

@@ -10,7 +10,7 @@ func int G1CP_Test_044() {
     const int ITEM_KAT_FOOD = 1 << 5;
 
     // Check if item exists
-    var int symbId; symbId = MEM_FindParserSymbol("ItAt_Meatbug_01");
+    var int symbId; symbId = MEM_GetSymbolIndex("ItAt_Meatbug_01");
     if (symbId == -1) {
         G1CP_TestsuiteErrorDetail("Item 'ItAt_Meatbug_01' not found");
         return FALSE;

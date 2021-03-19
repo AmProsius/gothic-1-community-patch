@@ -13,7 +13,7 @@ func int G1CP_Test_125() {
     };
 
     // Check if item exists
-    var int symbId; symbId = MEM_FindParserSymbol("ItMw_1H_Sword_Bastard_02");
+    var int symbId; symbId = MEM_GetSymbolIndex("ItMw_1H_Sword_Bastard_02");
     if (symbId == -1) {
         G1CP_TestsuiteErrorDetail("Item 'ItMw_1H_Sword_Bastard_02' not found");
         return FALSE;

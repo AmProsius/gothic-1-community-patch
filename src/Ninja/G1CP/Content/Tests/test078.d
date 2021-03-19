@@ -18,25 +18,25 @@ func void G1CP_Test_078() {
     };
 
     // Check for orc warrior and orc slave
-    var int warriorId; warriorId = MEM_FindParserSymbol("OrcWarrior1");
+    var int warriorId; warriorId = MEM_GetSymbolIndex("OrcWarrior1");
     if (warriorId == -1)  {
         G1CP_TestsuiteErrorDetail("NPC 'OrcWarrior1' not found");
         return;
     };
-    var int slaveId; slaveId = MEM_FindParserSymbol("OrcSlave");
+    var int slaveId; slaveId = MEM_GetSymbolIndex("OrcSlave");
     if (slaveId == -1) {
         G1CP_TestsuiteErrorDetail("NPC 'OrcSlave' not found");
         return;
     };
 
     // Check for Ulumulu
-    var int ulumuluId; ulumuluId = MEM_FindParserSymbol("UluMulu");
+    var int ulumuluId; ulumuluId = MEM_GetSymbolIndex("UluMulu");
     if (ulumuluId == -1) {
         G1CP_TestsuiteErrorDetail("Item 'UluMulu' not found");
     };
 
     // Require perceptions
-    var int percId; percId = MEM_FindParserSymbol("B_AssessEnemy");
+    var int percId; percId = MEM_GetSymbolIndex("B_AssessEnemy");
     if (percId == -1) {
         G1CP_TestsuiteErrorDetail("Function 'B_AssessEnemy' not found");
     };
@@ -91,7 +91,7 @@ instance G1CP_Test_078_Npc(C_Npc) {
     senses_range  = 4000;
     Mdl_SetVisual(self, "HUMANS.MDS");
     Mdl_SetVisualBody(self, "HUM_BODY_NAKED0", 1, 1, "Hum_Head_Fighter", 1, 1, -1);
-    EquipItem(self, MEM_FindParserSymbol("Scars_Schwert"));
+    EquipItem(self, MEM_GetSymbolIndex("Scars_Schwert"));
 };
 
 
@@ -105,7 +105,7 @@ func void ZS_G1CP_Test_078_NpcRountine() {
     // Npc_PercEnable(self, PERC_ASSESSENEMY, B_AssessEnemy);
     MEM_PushInstParam(self);
     PERC_ASSESSENEMY;
-    MEM_FindParserSymbol("B_AssessEnemy");
+    MEM_GetSymbolIndex("B_AssessEnemy");
     MEM_Call(Npc_PercEnable);
 
     Npc_SetPercTime(self, 0.5);
@@ -115,7 +115,7 @@ func int  ZS_G1CP_Test_078_NpcRountine_Loop() {
     if (Npc_GetStateTime(self) < 3) || (!detected) {
         detected = FALSE;
         Npc_PerceiveAll(self);
-        if (Wld_DetectNpc(self, MEM_FindParserSymbol("OrcWarrior1"), NOFUNC, -1)) {
+        if (Wld_DetectNpc(self, MEM_GetSymbolIndex("OrcWarrior1"), NOFUNC, -1)) {
             if (Npc_CanSeeNpc(self, other)) {
                 detected = TRUE;
             } else {
@@ -134,8 +134,8 @@ func void ZS_G1CP_Test_078_NpcRountine_End() {
     // Delete the NPCs once done
     MEM_WriteInt(_@(self.bodymass)+8, 0); // Clear start_aistate
     AI_Function_I(hero, Wld_RemoveNpc, G1CP_Test_078_Npc);
-    Wld_RemoveNpc(MEM_FindParserSymbol("OrcWarrior1"));
-    Wld_RemoveNpc(MEM_FindParserSymbol("OrcSlave"));
-    Npc_RemoveInvItem(hero, MEM_FindParserSymbol("UluMulu"));
+    Wld_RemoveNpc(MEM_GetSymbolIndex("OrcWarrior1"));
+    Wld_RemoveNpc(MEM_GetSymbolIndex("OrcSlave"));
+    Npc_RemoveInvItem(hero, MEM_GetSymbolIndex("UluMulu"));
     hero.attribute[ATR_STRENGTH] = G1CP_Test_078_HeroStrengthBak;
 };

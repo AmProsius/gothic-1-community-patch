@@ -19,7 +19,7 @@ func void G1CP_Test_046() {
             // First function call (PC doesn't have the key yet): Teleport to the key
 
             // Find the story function
-            var int funcId; funcId = MEM_FindParserSymbol("B_Story_ExploreSunkenTower");
+            var int funcId; funcId = MEM_GetSymbolIndex("B_Story_ExploreSunkenTower");
             if (funcId == -1) {
                 G1CP_TestsuiteErrorDetail("Function 'B_Story_ExploreSunkenTower' not found");
             };

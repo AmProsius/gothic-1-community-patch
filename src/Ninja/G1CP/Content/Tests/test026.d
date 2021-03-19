@@ -14,14 +14,14 @@ func int G1CP_Test_026() {
     var int passed; passed = TRUE;
 
     // Check if the dialog exists
-    var int funcId; funcId = MEM_FindParserSymbol("Info_Org_804_FirstWarn_Condition");
+    var int funcId; funcId = MEM_GetSymbolIndex("Info_Org_804_FirstWarn_Condition");
     if (funcId == -1) {
         G1CP_TestsuiteErrorDetail("Dialog condition 'Info_Org_804_FirstWarn_Condition' not found");
         passed = FALSE;
     };
 
     // Find the guard NPC
-    var int guardId; guardId = MEM_FindParserSymbol("Org_804_Organisator");
+    var int guardId; guardId = MEM_GetSymbolIndex("Org_804_Organisator");
     if (guardId == -1) {
         G1CP_TestsuiteErrorDetail("NPC 'Org_804_Organisator' not found");
         passed = FALSE;

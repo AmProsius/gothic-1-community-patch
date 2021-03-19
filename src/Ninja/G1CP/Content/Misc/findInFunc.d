@@ -132,7 +132,7 @@ func int G1CP_ReplaceCall(var int funcId, var int needleCallId, var int replaceC
  */
 func int G1CP_ReplaceAssignInt(var int funcId, var string assignedSymb, var int ele, var int needle, var int replace) {
     // Make sure all exist
-    var int destSymbId; destSymbId = MEM_FindParserSymbol(assignedSymb);
+    var int destSymbId; destSymbId = MEM_GetSymbolIndex(assignedSymb);
     if (funcId < 0) || (funcId >= currSymbolTableLength)
     || (destSymbId == -1) {
         return 0;
@@ -230,7 +230,7 @@ func int G1CP_ReplaceAssignStrID(var int funcId, var string assignedSymb, var in
         offset = 1;
     } else {
         // Check for string assignments
-        var int destSymbId; destSymbId = MEM_FindParserSymbol(assignedSymb);
+        var int destSymbId; destSymbId = MEM_GetSymbolIndex(assignedSymb);
         if (destSymbId == -1) {
             return 0;
         };
