@@ -67,6 +67,7 @@
 ### v1.1.0 (TBA)
 #### General
 #### Story
+* Fix #94: Die Dialogoption mit Horatio "Ich hab' nochmal über die Sache nachgedacht..." ist nun korrigiert zu "Ich hab' noch einmal über die Sache nachgedacht...".
 
 ### v1.0.0 (2021-03-15)
 #### General
