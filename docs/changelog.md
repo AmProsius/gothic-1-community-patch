@@ -1,6 +1,11 @@
 # Changelog
 
 ## EN
+
+### v1.1.0 (TBA)
+#### General
+#### Story
+
 ### v1.0.0 (2021-03-15)
 #### General
 * Fix #1: NPCs no longer wake up immediately after going to bed, but remain sleeping.
@@ -58,6 +63,10 @@
 * Fix #163: The castle gate of the Old Camp is no longer blocked and can properly be closed.
 
 ## DE
+
+### v1.1.0 (TBA)
+#### General
+#### Story
 
 ### v1.0.0 (2021-03-15)
 #### General
