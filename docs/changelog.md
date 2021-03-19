@@ -4,6 +4,7 @@
 
 ### v1.1.0 (TBA)
 #### General
+* Fix #192: Mages (NPCs fighting only with spells) no longer auto-equip weapons (e.g. after trading). This requires fix #59 to be active.
 #### Story
 * Fix #174: Changed the name "Gomez' Bowl" to "Gomez' Key".
 
@@ -67,6 +68,7 @@
 
 ### v1.1.0 (TBA)
 #### General
+* Fix #192: Magier (NSCs, die nur mit Magie kämpfen) rüsten nicht länger automatisch Nah- und Fernkampfwaffen aus (z.B. nach dem Handeln). Dieser Fix setzt den Fix #59 voraus.
 #### Story
 * Fix #94: Die Dialogoption mit Horatio "Ich hab' nochmal über die Sache nachgedacht..." ist nun korrigiert zu "Ich hab' noch einmal über die Sache nachgedacht...".
 

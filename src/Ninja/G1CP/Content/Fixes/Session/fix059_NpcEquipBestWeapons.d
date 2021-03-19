@@ -44,6 +44,13 @@ func void G1CP_059_NpcEquipBestWeapons_Hook() {
 
     var C_Npc npc; npc = _^(ESI);
 
+    // This check is part of #192
+    MEM_PushInstParam(npc);
+    MEM_Call(G1CP_192_MagicUserAutoEquip_IsMagicUser);
+    if (MEM_PopIntResult()) {
+        return;
+    };
+
     if (!Npc_HasEquippedMeleeWeapon(npc))
     && (!Npc_HasReadiedMeleeWeapon(npc)) {
         G1CP_NpcEquipBestWeaponByType(npc, ITEM_KAT_NF);
