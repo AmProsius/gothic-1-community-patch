@@ -19,7 +19,7 @@ func int G1CP_GetIntVarBySymbol(var int symbPtr, var int ele, var int dflt) {
     };
 
     // Check if array
-    if (ele > 0) {
+    if ((symb.bitfield & zCPar_Symbol_bitfield_ele) > 1) {
         return MEM_ReadInt(symb.content + 4 * ele);
     } else {
         return symb.content;
