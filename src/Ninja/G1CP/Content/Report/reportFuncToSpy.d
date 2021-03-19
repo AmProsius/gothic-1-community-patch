@@ -41,7 +41,7 @@ func void G1CP_ReportFuncToSpy() {
         mem_readstring_offset = MEM_GetFuncOffset(MEM_ReadString);
         printdebug_ch_id = MEM_GetFuncID(PrintDebugCh);
         set_caller_2fr_offset = MEM_GetFuncOffset(G1CP_ReportFuncToSpy_SetCaller2FStackPos);
-        str_id = MEM_FindParserSymbol("G1CP_ReportFuncToSpy.str");
+        str_id = MEM_GetSymbolIndex("G1CP_ReportFuncToSpy.str");
     };
 
     var int ptr1;

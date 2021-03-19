@@ -14,14 +14,14 @@ func void G1CP_Test_039() {
     var int passed; passed = TRUE;
 
     // Check if dialog exists
-    var int funcId; funcId = MEM_FindParserSymbol("DIA_Fingers_Lehrer_Info");
+    var int funcId; funcId = MEM_GetSymbolIndex("DIA_Fingers_Lehrer_Info");
     if (funcId == -1) {
         G1CP_TestsuiteErrorDetail("Dialog function 'DIA_Fingers_Lehrer_Info' not found");
         passed = FALSE;
     };
 
     // Find Fingers
-    var int symbId; symbId = MEM_FindParserSymbol("STT_331_Fingers");
+    var int symbId; symbId = MEM_GetSymbolIndex("STT_331_Fingers");
     if (symbId == -1) {
         G1CP_TestsuiteErrorDetail("NPC 'STT_331_Fingers' not found");
         passed = FALSE;

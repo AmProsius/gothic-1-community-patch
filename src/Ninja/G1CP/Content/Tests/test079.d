@@ -14,7 +14,7 @@ func int G1CP_Test_079() {
     var int passed; passed = TRUE;
 
     // Check if the dialog exists
-    var int funcId; funcId = MEM_FindParserSymbol("ORG_855_Wolf_Teach_Condition");
+    var int funcId; funcId = MEM_GetSymbolIndex("ORG_855_Wolf_Teach_Condition");
     if (funcId == -1) {
         G1CP_TestsuiteErrorDetail("Dialog condition 'ORG_855_Wolf_Teach_Condition' not found");
         passed = FALSE;

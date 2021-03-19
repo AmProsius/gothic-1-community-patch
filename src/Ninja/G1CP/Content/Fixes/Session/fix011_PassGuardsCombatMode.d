@@ -5,7 +5,7 @@ func int G1CP_011_PassGuardsCombatMode() {
     var int applied; applied = FALSE;
 
     // Check if all necessary symbols exist
-    var int funcId; funcId = MEM_FindParserSymbol("B_AssessFighter");
+    var int funcId; funcId = MEM_GetSymbolIndex("B_AssessFighter");
     var int checkInfoSymbPtr; checkInfoSymbPtr = MEM_GetSymbol("B_CheckForImportantInfo");
     if (funcId == -1) || (!checkInfoSymbPtr) {
         return FALSE;
@@ -107,7 +107,7 @@ func int G1CP_011_CheckInfo(var C_Npc slf, var C_Npc oth) {
     // Additional condition: Is the NPC a guard and is the player trespassing?
     // Npc_IsInState(slf, ZS_GuardPassage)
     MEM_PushInstParam(slf);
-    MEM_FindParserSymbol("ZS_GuardPassage"); // Cannot push integer
+    MEM_GetSymbolIndex("ZS_GuardPassage"); // Cannot push integer
     MEM_Call(Npc_IsInState);
     var int cond2; cond2 = (MEM_PopIntResult()) && (G1CP_GetAIVar(hero, "AIV_GUARDPASSAGE_STATUS", 0) > 0);
 

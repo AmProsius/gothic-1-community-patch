@@ -5,7 +5,7 @@ func int G1CP_122_CavalornDailyRoutine() {
     var int applied; applied = FALSE;
 
     // Get necessary symbol indices
-    var int funcId; funcId = MEM_FindParserSymbol("Rtn_start_336");
+    var int funcId; funcId = MEM_GetSymbolIndex("Rtn_start_336");
     var int sleepSymbPtr; sleepSymbPtr = MEM_GetSymbol("TA_Sleep");
     var int standSymbPtr; standSymbPtr = MEM_GetSymbol("TA_StandAround");
     if (funcId == -1) || (!sleepSymbPtr) || (!standSymbPtr) {
@@ -66,8 +66,8 @@ func int G1CP_122_CavalornDailyRoutine() {
         // Get symbol indices of the strings
         const string wpSleep = "OW_SAWHUT_SLEEP_01";
         const string wpStand = "OW_CAVALORN_01";
-        var int wpSleepSymbId; wpSleepSymbId = MEM_FindParserSymbol("G1CP_122_CavalornDailyRoutine.wpSleep");
-        var int wpStandSymbId; wpStandSymbId = MEM_FindParserSymbol("G1CP_122_CavalornDailyRoutine.wpStand");
+        var int wpSleepSymbId; wpSleepSymbId = MEM_GetSymbolIndex("G1CP_122_CavalornDailyRoutine.wpSleep");
+        var int wpStandSymbId; wpStandSymbId = MEM_GetSymbolIndex("G1CP_122_CavalornDailyRoutine.wpStand");
 
         // Switch the waypoints in all remaining occurrences
         repeat(i, MEM_ArraySize(sleepMatches));

@@ -13,7 +13,10 @@ Content\menuVersionNumber.d
 Content\Report\indent.d
 Content\Report\reportFuncToSpy.d
 
-Content\Misc\variable.d
+Content\Symbols\int.d
+Content\Symbols\string.d
+Content\Symbols\aivar.d
+
 Content\Misc\findInFunc.d
 Content\Misc\funcByteCodeToSpy.d
 Content\Misc\info.d

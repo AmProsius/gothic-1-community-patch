@@ -20,7 +20,7 @@ func void G1CP_Test_010() {
     };
 
     // Check for ZS_FollowPC
-    var int symbId; symbId = MEM_FindParserSymbol("ZS_FollowPC");
+    var int symbId; symbId = MEM_GetSymbolIndex("ZS_FollowPC");
     if (!symbId) {
         G1CP_TestsuiteErrorDetail("AI state 'ZS_FollowPC' not found");
         return;
@@ -55,7 +55,7 @@ instance G1CP_Test_010_Dialog(C_Info) {
     permanent   = 1;
 };
 func int G1CP_Test_010_Dialog_Condition() {
-    var int symbId; symbId = MEM_FindParserSymbol("ZS_Talk");
+    var int symbId; symbId = MEM_GetSymbolIndex("ZS_Talk");
     if (!symbId) {
         return FALSE;
     };

@@ -13,13 +13,13 @@ func void G1CP_Test_124() {
 
         var int passed; passed = TRUE;
 
-        var int func1Id; func1Id = MEM_FindParserSymbol("B_Kapitelwechsel");
+        var int func1Id; func1Id = MEM_GetSymbolIndex("B_Kapitelwechsel");
         if (func1Id == -1) {
             G1CP_TestsuiteErrorDetail("Function 'B_Kapitelwechsel' not found");
             passed = FALSE;
         };
 
-        var int func2Id; func2Id = MEM_FindParserSymbol("B_Story_FMTaken");
+        var int func2Id; func2Id = MEM_GetSymbolIndex("B_Story_FMTaken");
         if (func2Id == -1) {
             G1CP_TestsuiteErrorDetail("Function 'B_Story_FMTaken' not found");
             passed = FALSE;

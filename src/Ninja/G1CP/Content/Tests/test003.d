@@ -21,9 +21,9 @@ func void G1CP_Test_003() {
 
     // Insert items
     wp = Npc_GetNearestWP(hero);
-    Wld_InsertItem(MEM_FindParserSymbol("Whistlers_Schwert"), wp);
-    Wld_InsertItem(MEM_FindParserSymbol("Wolfs_Bogen"), wp);
-    Wld_InsertItem(MEM_FindParserSymbol("ItAmArrow"), wp);
+    Wld_InsertItem(MEM_GetSymbolIndex("Whistlers_Schwert"), wp);
+    Wld_InsertItem(MEM_GetSymbolIndex("Wolfs_Bogen"), wp);
+    Wld_InsertItem(MEM_GetSymbolIndex("ItAmArrow"), wp);
 };
 
 
@@ -42,11 +42,11 @@ instance G1CP_Test_003_Npc(C_Npc) {
     senses_range  = 2000;
     Mdl_SetVisual(self, "HUMANS.MDS");
     Mdl_SetVisualBody(self, "HUM_BODY_NAKED0", 1, 1, "Hum_Head_Fighter", 1, 1, -1);
-    EquipItem(self, MEM_FindParserSymbol("ItRw_Bow_Small_01"));  // Should not be replaced
-    CreateInvItem(self, MEM_FindParserSymbol("Diegos_Bogen"));   // by this one (stronger)
-    // EquipItem(self, MEM_FindParserSymbol("ItMw_1H_Club_01"));    // Same for melee weapon
-    // CreateInvItem(self, MEM_FindParserSymbol("Scars_Schwert"));  // ...
-    CreateInvItems(self, MEM_FindParserSymbol("ItAmArrow"), 20); // Need arrows for AI_EquipBestRangedWeapon
+    EquipItem(self, MEM_GetSymbolIndex("ItRw_Bow_Small_01"));  // Should not be replaced
+    CreateInvItem(self, MEM_GetSymbolIndex("Diegos_Bogen"));   // by this one (stronger)
+    // EquipItem(self, MEM_GetSymbolIndex("ItMw_1H_Club_01"));    // Same for melee weapon
+    // CreateInvItem(self, MEM_GetSymbolIndex("Scars_Schwert"));  // ...
+    CreateInvItems(self, MEM_GetSymbolIndex("ItAmArrow"), 20); // Need arrows for AI_EquipBestRangedWeapon
 };
 
 
@@ -57,7 +57,7 @@ func void ZS_G1CP_Test_003_NpcRountine() {};
 func int  ZS_G1CP_Test_003_NpcRountine_Loop() {
     // First pass: Trigger the script
     if (Npc_GetStateTime(self) <= 1) {
-        var int symbId; symbId = MEM_FindParserSymbol("B_RegainDroppedWeapon");
+        var int symbId; symbId = MEM_GetSymbolIndex("B_RegainDroppedWeapon");
         if (symbId != -1) {
             MEM_PushInstParam(self);
             MEM_CallById(symbId);
@@ -77,7 +77,7 @@ func int  ZS_G1CP_Test_003_NpcRountine_Loop() {
         MEM_SendToSpy(zERR_TYPE_FAULT, "  Test   3: NPC did not pickup/equip the melee weapon");
         failed = TRUE;
     };
-    if (Npc_GetRangedWeapon(self) != MEM_FindParserSymbol("ItRw_Bow_Small_01")) {
+    if (Npc_GetRangedWeapon(self) != MEM_GetSymbolIndex("ItRw_Bow_Small_01")) {
         // Send to zSpy directly here because it is after the test has finished
         MEM_SendToSpy(zERR_TYPE_FAULT, "  Test   3: NPC illegitimately equipped the best bow");
         failed = TRUE;

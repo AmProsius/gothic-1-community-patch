@@ -41,8 +41,8 @@ func int G1CP_042_GuardExitDialog() {
     var int applied2; applied2 = FALSE;
 
     // Find all necessary symbols
-    var int func1Id; func1Id = MEM_FindParserSymbol("DIA_Grd_218_Exit_Condition");
-    var int func2Id; func2Id = MEM_FindParserSymbol("DIA_Grd_245_Exit_Condition");
+    var int func1Id; func1Id = MEM_GetSymbolIndex("DIA_Grd_218_Exit_Condition");
+    var int func2Id; func2Id = MEM_GetSymbolIndex("DIA_Grd_245_Exit_Condition");
 
     if (G1CP_042_ConfirmByteCode(func1Id)) {
         HookDaedalusFuncI(func1Id, MEM_GetFuncId(G1CP_042_Grd_218_Cond));

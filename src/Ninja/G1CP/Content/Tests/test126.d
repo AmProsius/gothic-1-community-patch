@@ -17,7 +17,7 @@ func void G1CP_Test_126() {
     var int passed; passed = TRUE;
 
     // Check if the dialog exists
-    var int funcId; funcId = MEM_FindParserSymbol("Org_843_Sharky_Fisk");
+    var int funcId; funcId = MEM_GetSymbolIndex("Org_843_Sharky_Fisk");
     if (funcId == -1) {
         G1CP_TestsuiteErrorDetail("Info 'Org_843_Sharky_Fisk' not found");
         passed = FALSE;
@@ -32,7 +32,7 @@ func void G1CP_Test_126() {
     questPtr += zCParSymbol_content_offset;
 
     // Find Sharky
-    var int symbId; symbId = MEM_FindParserSymbol("Org_843_Sharky");
+    var int symbId; symbId = MEM_GetSymbolIndex("Org_843_Sharky");
     if (symbId == -1) {
         G1CP_TestsuiteErrorDetail("NPC 'Org_843_Sharky' not found");
         return;

@@ -5,12 +5,12 @@ func int G1CP_032_GornAttackFreeMine() {
     var int applied; applied = FALSE;
 
     // Get necessary symbol indices
-    var int memFncId; memFncId = MEM_FindParserSymbol("B_AssessAndMemorize");
-    var int assFncId; assFncId = MEM_FindParserSymbol("B_AssessFightSound");
-    var int state1Id; state1Id = MEM_FindParserSymbol("ZS_ProclaimAndPunish");
+    var int memFncId; memFncId = MEM_GetSymbolIndex("B_AssessAndMemorize");
+    var int assFncId; assFncId = MEM_GetSymbolIndex("B_AssessFightSound");
+    var int state1Id; state1Id = MEM_GetSymbolIndex("ZS_ProclaimAndPunish");
     var int state2Id; state2Id = MEM_GetFuncID(G1CP_032_GornAttackFreeMine_AttackRelay);
     var int sstateId; sstateId = MEM_GetFuncID(AI_StartState);
-    if (memFncId == -1) || (assFncId == -1) || (state1Id == -1) || (MEM_FindParserSymbol("ZS_Attack") == -1) {
+    if (memFncId == -1) || (assFncId == -1) || (state1Id == -1) || (MEM_GetSymbolIndex("ZS_Attack") == -1) {
         return FALSE;
     };
 
@@ -56,7 +56,7 @@ func void G1CP_032_GornAttackFreeMine_AttackRelay() {
     if (Npc_IsPlayer(other)) {
         // AI_StartState(self, ZS_ProclaimAndPunish, 0, ""); // Does not work, expects func parameter
         MEM_PushInstParam(self);
-        MEM_PushIntParam(MEM_FindParserSymbol("ZS_ProclaimAndPunish")); // Func parameter as integer
+        MEM_PushIntParam(MEM_GetSymbolIndex("ZS_ProclaimAndPunish")); // Func parameter as integer
         MEM_PushIntParam(0);
         MEM_PushStringParam("");
         MEM_Call(AI_StartState);
@@ -64,7 +64,7 @@ func void G1CP_032_GornAttackFreeMine_AttackRelay() {
         Npc_SetTarget(self, other);
         // AI_StartState(self, ZS_Attack, 0, ""); // Does not work, expects func parameter
         MEM_PushInstParam(self);
-        MEM_PushIntParam(MEM_FindParserSymbol("ZS_Attack")); // Func parameter as integer
+        MEM_PushIntParam(MEM_GetSymbolIndex("ZS_Attack")); // Func parameter as integer
         MEM_PushIntParam(0);
         MEM_PushStringParam("");
         MEM_Call(AI_StartState);
@@ -90,7 +90,7 @@ func void G1CP_032_GornAttackFreeMine_NoTrauma(var int newsid, var int source, v
         GIL_GRD = G1CP_GetIntVar("GIL_GRD", 0, GIL_GRD);
         GIL_STT = G1CP_GetIntVar("GIL_STT", 0, GIL_STT);
         GIL_VLK = G1CP_GetIntVar("GIL_VLK", 0, GIL_VLK);
-        fighterFMid = MEM_FindParserSymbol("PC_FighterFM");
+        fighterFMid = MEM_GetSymbolIndex("PC_FighterFM");
         updated = TRUE;
     };
 

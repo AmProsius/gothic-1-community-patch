@@ -15,7 +15,7 @@ func int G1CP_Test_024() {
     var int passed; passed = TRUE;
 
     // Find Cor Kalom first
-    var int symbId; symbId = MEM_FindParserSymbol("GUR_1201_CorKalom");
+    var int symbId; symbId = MEM_GetSymbolIndex("GUR_1201_CorKalom");
     if (symbId == -1) {
         G1CP_TestsuiteErrorDetail("NPC 'GUR_1201_CorKalom' not found");
         passed = FALSE;
@@ -29,14 +29,14 @@ func int G1CP_Test_024() {
     };
 
     // Check if dialog exists
-    var int funcId; funcId = MEM_FindParserSymbol("Info_Kalom_KrautboteBACK_Info");
+    var int funcId; funcId = MEM_GetSymbolIndex("Info_Kalom_KrautboteBACK_Info");
     if (funcId == -1) {
         G1CP_TestsuiteErrorDetail("Dialog function 'Info_Kalom_KrautboteBACK_Info' not found");
         passed = FALSE;
     };
 
     // Check if the ore nugget item exists
-    var int nuggetId; nuggetId = MEM_FindParserSymbol("ItMiNugget");
+    var int nuggetId; nuggetId = MEM_GetSymbolIndex("ItMiNugget");
     if (nuggetId == -1) {
         G1CP_TestsuiteErrorDetail("Item 'ItMiNugget' not found");
         passed = FALSE;

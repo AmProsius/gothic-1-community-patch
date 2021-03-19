@@ -15,9 +15,9 @@ func void G1CP_InitPre() {
 
     // Find start and end of the symbols that are introduced by G1CP
     G1CP_SymbStart = Ninja_Symbols_Start_G1CP;
-    G1CP_SymbEnd = MEM_FindParserSymbol("Ninja_Symbols_End_G1CP");
+    G1CP_SymbEnd = MEM_GetSymbolIndex("Ninja_Symbols_End_G1CP");
     // LeGo might be squeezed in
-    var int LeGoEnd; LeGoEnd = MEM_FindParserSymbol("LEGO_MERGEFLAGS");
+    var int LeGoEnd; LeGoEnd = MEM_GetSymbolIndex("LEGO_MERGEFLAGS");
     if (LeGoEnd > Ninja_Symbols_Start_G1CP) {
         G1CP_SymbStart = LeGoEnd;
     };

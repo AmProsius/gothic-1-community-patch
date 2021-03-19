@@ -13,7 +13,7 @@ func int G1CP_Test_015() {
     var int passed; passed = TRUE;
 
     // Check if the dialog function exists
-    var int funcId; funcId = MEM_FindParserSymbol("DIA_Horatio_HelpSTR_LEARN_NOW");
+    var int funcId; funcId = MEM_GetSymbolIndex("DIA_Horatio_HelpSTR_LEARN_NOW");
     if (funcId == -1) {
         G1CP_TestsuiteErrorDetail("Dialog function 'DIA_Horatio_HelpSTR_LEARN_NOW' not found");
         return FALSE;

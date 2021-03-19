@@ -1,6 +1,11 @@
 # Changelog
 
 ## EN
+
+### v1.1.0 (TBA)
+#### General
+#### Story
+
 ### v1.0.0 (2021-03-15)
 #### General
 * Fix #1: NPCs no longer wake up immediately after going to bed, but remain sleeping.
@@ -59,7 +64,7 @@
 
 ## DE
 
-### TBA (TBA)
+### v1.1.0 (TBA)
 #### General
 #### Story
 * Fix #94: Die Dialogoption mit Horatio "Ich hab' nochmal über die Sache nachgedacht..." ist nun korrigiert zu "Ich hab' noch einmal über die Sache nachgedacht...".
