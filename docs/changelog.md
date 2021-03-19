@@ -71,6 +71,7 @@
 * Fix #192: Magier (NSCs, die nur mit Magie kämpfen) rüsten nicht länger automatisch Nah- und Fernkampfwaffen aus (z.B. nach dem Handeln). Dieser Fix setzt den Fix #59 voraus.
 #### Story
 * Fix #94: Die Dialogoption mit Horatio "Ich hab' nochmal über die Sache nachgedacht..." ist nun korrigiert zu "Ich hab' noch einmal über die Sache nachgedacht...".
+* Fix #121: Der Name der Quest "Shrike's Hütte" ist nun korrigiert zu "Shrikes Hütte".
 
 ### v1.0.0 (2021-03-15)
 #### General

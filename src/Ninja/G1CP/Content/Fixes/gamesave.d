@@ -26,6 +26,7 @@ func void G1CP_GamesaveFixes_Apply() {
     if (G1CP_InitStart()) {                             // Maximum fix function name length: 45 characters
         G1CP_046_SmithDoor();                           // #46
         G1CP_050_Pillar();                              // #50
+        G1CP_121_DE_LogTopicShrikeHut();                // #121
         G1CP_124_GateGuardID();                         // #124
     };
 };
@@ -37,6 +38,7 @@ func void G1CP_GamesaveFixes_Revert() {
     if (G1CP_InitStart()) {                             // Maximum fix function name length: 45 characters
         G1CP_046_SmithDoorRevert();                     // #46
         G1CP_050_PillarRevert();                        // #50
+        G1CP_121_DE_LogTopicShrikeHutRevert();          // #121
         G1CP_124_GateGuardIDRevert();                   // #124
     };
 };
