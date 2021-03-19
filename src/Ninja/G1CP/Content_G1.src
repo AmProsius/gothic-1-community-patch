@@ -80,6 +80,7 @@ Content\Fixes\Session\fix136_FollowLadder.d
 Content\Fixes\Session\fix157_SpeedPotion2Value.d
 Content\Fixes\Session\fix158_SpeedPotion3Value.d
 Content\Fixes\Session\fix163_CastleGate.d
+Content\Fixes\Session\fix174_EN_GomezKeyName.d
 
 // Game save fixes
 Content\Fixes\Gamesave\fix046_SmithDoor.d
@@ -140,6 +141,7 @@ Content\Tests\test136.d
 Content\Tests\test157.d
 Content\Tests\test158.d
 Content\Tests\test163.d
+Content\Tests\test174.d
 
 // Initialization
 Content\initPre.d
