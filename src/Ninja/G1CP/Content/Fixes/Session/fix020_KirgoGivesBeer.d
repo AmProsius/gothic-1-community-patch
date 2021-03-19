@@ -2,9 +2,9 @@
  * #20 Kirgo doesn't give a beer to the player
  */
 func int G1CP_020_KirgoGivesBeer() {
-    if (MEM_FindParserSymbol("Info_Kirgo_Charge_Beer") != -1)
-    && (MEM_FindParserSymbol("B_GiveInvItems")         != -1)
-    && (MEM_FindParserSymbol("ItFoBeer")               != -1) {
+    if (MEM_GetSymbolIndex("Info_Kirgo_Charge_Beer") != -1)
+    && (MEM_GetSymbolIndex("B_GiveInvItems")         != -1)
+    && (MEM_GetSymbolIndex("ItFoBeer")               != -1) {
         HookDaedalusFuncS("Info_Kirgo_Charge_Beer", "G1CP_020_KirgoGivesBeer_Hook1");
         HookDaedalusFuncS("B_GiveInvItems", "G1CP_020_KirgoGivesBeer_Hook2");
         return TRUE;
@@ -28,7 +28,7 @@ func void G1CP_020_KirgoGivesBeer_Hook1() {
     G1CP_020_KirgoGivesBeer_Active = TRUE;
 
     // Just create a beer for Kirgo regardless if he will be given one and remember how many beers the hero has
-    var int symbId; symbId = MEM_FindParserSymbol("ItFoBeer");
+    var int symbId; symbId = MEM_GetSymbolIndex("ItFoBeer");
     if (symbId != -1) {
         CreateInvItem(self, symbId);
         numBeers = Npc_HasItems(hero, symbId);

@@ -2,8 +2,8 @@
  * #28 Mordrag doesn't refuse to escort the player
  */
 func int G1CP_028_MordragNoEscort() {
-    if (MEM_FindParserSymbol("Org_826_Mordrag_GotoNewcamp_Condition") != -1)
-    && (MEM_FindParserSymbol("MordragKO_HauAb") != -1) {
+    if (MEM_GetSymbolIndex("Org_826_Mordrag_GotoNewcamp_Condition") != -1)
+    && (MEM_GetSymbolIndex("MordragKO_HauAb") != -1) {
         HookDaedalusFuncS("Org_826_Mordrag_GotoNewcamp_Condition", "G1CP_028_MordragNoEscort_Hook");
         return TRUE;
     } else {

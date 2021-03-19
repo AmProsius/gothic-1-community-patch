@@ -2,8 +2,8 @@
  * #26 Lares's guard doesn't attack the player
  */
 func int G1CP_026_LaresGuardAttacks() {
-    if (MEM_FindParserSymbol("Info_Org_804_FirstWarn_Condition")  != -1)
-    && (MEM_FindParserSymbol("AIV_GUARDPASSAGE_STATUS")           != -1) {
+    if (MEM_GetSymbolIndex("Info_Org_804_FirstWarn_Condition")  != -1)
+    && (MEM_GetSymbolIndex("AIV_GUARDPASSAGE_STATUS")           != -1) {
         HookDaedalusFuncS("Info_Org_804_FirstWarn_Condition", "G1CP_026_LaresGuardAttacks_Hook");
         return TRUE;
     } else {

@@ -5,10 +5,10 @@ func int G1CP_079_WolfDexDialog() {
     var int applied; applied = FALSE;
 
     // Find all necessary symbols
-    var int funcId; funcId = MEM_FindParserSymbol("ORG_855_Wolf_Teach_Condition");
-    var int cond1Id; cond1Id = MEM_FindParserSymbol("GIL_GRD");
+    var int funcId; funcId = MEM_GetSymbolIndex("ORG_855_Wolf_Teach_Condition");
+    var int cond1Id; cond1Id = MEM_GetSymbolIndex("GIL_GRD");
     var int cond2Id; cond2Id = MEM_GetSymbol("C_NpcBelongsToNewCamp");
-    var int funcExt; funcExt = MEM_FindParserSymbol("Npc_GetTrueGuild");
+    var int funcExt; funcExt = MEM_GetSymbolIndex("Npc_GetTrueGuild");
 
     // Check if all needed functions exist
     if (funcId != -1) && (cond1Id != -1) && (cond2Id) {
@@ -49,14 +49,7 @@ func int G1CP_079_WolfDexDialog() {
                     // Check if return 1 (literal) or return variable with content 1
                     if (MEM_ArrayRead(tokens, i+5) == zPAR_TOK_PUSHVAR) {
                         var int varId; varId = MEM_ArrayRead(params, i+5);
-                        if (varId <= 0) || (varId >= currSymbolTableLength) {
-                            continue;
-                        };
-                        var int varSymbPtr; varSymbPtr = MEM_GetSymbolByIndex(varId);
-                        if (!varSymbPtr) {
-                            continue;
-                        };
-                        if (MEM_ReadInt(varSymbPtr + zCParSymbol_content_offset) != 1) {
+                        if (G1CP_GetIntVarByIndex(varId, 0, -1) != 1) {
                             continue;
                         };
                     } else if (MEM_ArrayRead(tokens, i+5) == zPAR_TOK_PUSHINT) {

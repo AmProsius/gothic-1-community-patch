@@ -2,14 +2,14 @@
  * #10 Companions don't adjust their walking speed
  */
 func int G1CP_010_FollowWalkMode() {
-    var int funcId;   funcId   = MEM_FindParserSymbol("ZS_FollowPC_Loop");
-    var int needleId; needleId = MEM_FindParserSymbol("AI_SetWalkMode");
+    var int funcId;   funcId   = MEM_GetSymbolIndex("ZS_FollowPC_Loop");
+    var int needleId; needleId = MEM_GetSymbolIndex("AI_SetWalkMode");
     var int replacId; replacId = MEM_GetFuncId(G1CP_010_FollowWalkMode_SetWalkMode);
 
-    if (funcId != -1) && (needleId != -1) && (MEM_FindParserSymbol("B_FollowPC_AssessSC") != -1) {
+    if (funcId != -1) && (needleId != -1) && (MEM_GetSymbolIndex("B_FollowPC_AssessSC") != -1) {
         HookDaedalusFuncS("ZS_FollowPC_Loop", "G1CP_010_FollowWalkMode_Hook");
         HookDaedalusFuncS("B_FollowPC_AssessSC", "G1CP_010_FollowWalkMode_AssessSCHook");
-        var int count; count = G1CP_ReplaceCallInFunc(funcId, needleId, replacId);
+        var int count; count = G1CP_ReplaceCall(funcId, needleId, replacId);
         return (count > 0);
     } else {
         return FALSE;

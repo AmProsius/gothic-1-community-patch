@@ -48,6 +48,7 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
         G1CP_060_JesseQuest();                          // #60
         G1CP_078_HumanAttackOrc();                      // #78
         G1CP_079_WolfDexDialog();                       // #79
+        G1CP_094_DE_HoratioInfoDescThoughtStr();        // #94
         G1CP_102_JesseProtectionMoneyPay();             // #102
         G1CP_109_BloodwynProtectionMoneyPayLater();     // #109
         G1CP_111_JackalProtectionMoneyPay();            // #111
@@ -59,6 +60,7 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
         G1CP_157_SpeedPotion2Value();                   // #157
         G1CP_158_SpeedPotion3Value();                   // #158
         G1CP_163_CastleGate();                          // #163
+        G1CP_174_EN_GomezKeyName();                     // #174
         G1CP_192_MagicUserAutoEquip();                  // #192
     };
 };

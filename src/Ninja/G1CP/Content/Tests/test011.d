@@ -10,7 +10,7 @@ func void G1CP_Test_011() {
         // Supply a weapon
         if (!Npc_HasEquippedWeapon(hero))
         && (!Npc_HasReadiedWeapon(hero)) {
-            var int weap; weap = MEM_FindParserSymbol("ItMw_1H_Sword_Old_01");
+            var int weap; weap = MEM_GetSymbolIndex("ItMw_1H_Sword_Old_01");
             if (weap != -1) {
                 CreateInvItem(hero, weap);
                 EquipWeapon(hero, weap);

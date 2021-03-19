@@ -2,7 +2,7 @@
  * #17 Jackal doesn't recognize the player's camp membership
  */
 func int G1CP_017_JackalProtectionMoney() {
-    if (MEM_FindParserSymbol("Info_Jackal_Hello_Condition") != -1) {
+    if (MEM_GetSymbolIndex("Info_Jackal_Hello_Condition") != -1) {
         HookDaedalusFuncS("Info_Jackal_Hello_Condition", "G1CP_017_JackalProtectionMoney_Hook");
         return TRUE;
     } else {

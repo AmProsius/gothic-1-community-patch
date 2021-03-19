@@ -8,12 +8,12 @@ func int G1CP_GuessLocalization() {
         var zCPar_Symbol panSymb; panSymb = _^(pan);
         var string panName; panName = MEM_ReadString(panSymb.content);
         if (Hlp_StrCmp(panName, "Pfanne")) { // DE (Windows 1252)
-            return 1;
+            return G1CP_Lang_DE;
         } else if (Hlp_StrCmp(panName, "Patelnia")) { // PL (Windows 1250)
-            return 2;
+            return G1CP_Lang_PL;
         } else if (Hlp_StrCmp(panName, "Сковорода")) { // RU (Windows 1251)
-            return 3;
+            return G1CP_Lang_RU;
         };
     };
-    return 0; // Otherwise EN
+    return G1CP_Lang_EN; // Otherwise EN
 };

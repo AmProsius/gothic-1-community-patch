@@ -2,8 +2,8 @@
  * #38 Snaf's Nek dialog disappears
  */
 func int G1CP_038_SnafDialogNek() {
-    if (MEM_FindParserSymbol("DIA_Snaf_WhereNek_Condition") != -1)
-    && (MEM_FindParserSymbol("Snaf_Zutaten") != -1) {
+    if (MEM_GetSymbolIndex("DIA_Snaf_WhereNek_Condition") != -1)
+    && (MEM_GetSymbolIndex("Snaf_Zutaten") != -1) {
         HookDaedalusFuncS("DIA_Snaf_WhereNek_Condition", "G1CP_038_SnafDialogNek_Hook");
         return TRUE;
     } else {

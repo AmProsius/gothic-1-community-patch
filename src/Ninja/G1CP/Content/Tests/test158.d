@@ -7,7 +7,7 @@
  */
 func int G1CP_Test_158() {
     // Check if item exists
-    var int symbId; symbId = MEM_FindParserSymbol("ItFo_Potion_Haste_03");
+    var int symbId; symbId = MEM_GetSymbolIndex("ItFo_Potion_Haste_03");
     if (symbId == -1) {
         G1CP_TestsuiteErrorDetail("Item 'ItFo_Potion_Haste_03' not found");
         return FALSE;

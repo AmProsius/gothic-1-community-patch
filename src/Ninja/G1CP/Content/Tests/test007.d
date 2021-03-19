@@ -15,7 +15,7 @@ func void G1CP_Test_007() {
     };
 
     // Check if AI state exists
-    var int symbId; symbId = MEM_FindParserSymbol("ZS_PracticeSword");
+    var int symbId; symbId = MEM_GetSymbolIndex("ZS_PracticeSword");
     if (symbId == -1) {
         G1CP_TestsuiteErrorDetail("AI state 'ZS_PracticeSword' not found");
         return;
@@ -51,7 +51,7 @@ instance G1CP_Test_007_Npc(C_Npc) {
     start_aistate = ZS_G1CP_Test_007_NpcRountine;
     Mdl_SetVisual(self, "HUMANS.MDS");
     Mdl_SetVisualBody(self, "HUM_BODY_NAKED0", 1, 1, "Hum_Head_Fighter", 1, 1, -1);
-    EquipItem(self, MEM_FindParserSymbol("ItRw_Bow_Small_01"));  // Should not be used to practice
+    EquipItem(self, MEM_GetSymbolIndex("ItRw_Bow_Small_01"));  // Should not be used to practice
 };
 
 /*
@@ -65,12 +65,12 @@ func int  ZS_G1CP_Test_007_NpcRountine_Loop() {
 
         // One of the two NPCs has a weapon
         if (G1CP_Test_007_Pass == 1) {
-            CreateInvItem(self, MEM_FindParserSymbol("Scars_Schwert"));
+            CreateInvItem(self, MEM_GetSymbolIndex("Scars_Schwert"));
         };
         G1CP_Test_007_Pass += 1;
 
         // Trigger the AI state
-        var int symbId; symbId = MEM_FindParserSymbol("ZS_PracticeSword");
+        var int symbId; symbId = MEM_GetSymbolIndex("ZS_PracticeSword");
         if (symbId != -1) {
             // AI_StartState(self, symbId, 0, ""); // Does not work, expects func parameter
             MEM_PushInstParam(self);

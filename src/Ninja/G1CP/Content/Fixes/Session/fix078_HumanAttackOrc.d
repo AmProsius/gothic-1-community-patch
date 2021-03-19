@@ -2,13 +2,13 @@
  * #78 Humans don't recognise orcs as monsters
  */
 func int G1CP_078_HumanAttackOrc() {
-    var int funcId;   funcId   = MEM_FindParserSymbol("C_NpcIsDangerousMonster");
-    var int needleId; needleId = MEM_FindParserSymbol("C_NpcIsMonster");
-    var int isOrcId;  isOrcId  = MEM_FindParserSymbol("C_NpcIsOrc");
+    var int funcId;   funcId   = MEM_GetSymbolIndex("C_NpcIsDangerousMonster");
+    var int needleId; needleId = MEM_GetSymbolIndex("C_NpcIsMonster");
+    var int isOrcId;  isOrcId  = MEM_GetSymbolIndex("C_NpcIsOrc");
     var int replacId; replacId = MEM_GetFuncId(G1CP_078_IsMonsterOrOrc);
 
     if (funcId != -1) && (needleId != -1) && (isOrcId != -1) {
-        var int count; count = G1CP_ReplaceCallInFunc(funcId, needleId, replacId);
+        var int count; count = G1CP_ReplaceCall(funcId, needleId, replacId);
         return (count > 0);
     } else {
         return FALSE;

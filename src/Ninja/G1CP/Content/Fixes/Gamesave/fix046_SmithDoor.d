@@ -85,10 +85,10 @@ func int G1CP_046_SmithDoor() {
     const int varId    = -2;
     const int varPtr   =  0;
     if (keyIdOld == -2) {
-        keyIdOld = MEM_FindParserSymbol("ITKEY_OB_SMITH_01");
-        keyIdNew = MEM_FindParserSymbol("ITKE_OB_SMITH_01");
-        funcId = MEM_FindParserSymbol("B_Story_ExploreSunkenTower");
-        varId = MEM_FindParserSymbol("ExploreSunkenTower");
+        keyIdOld = MEM_GetSymbolIndex("ITKEY_OB_SMITH_01");
+        keyIdNew = MEM_GetSymbolIndex("ITKE_OB_SMITH_01");
+        funcId = MEM_GetSymbolIndex("B_Story_ExploreSunkenTower");
+        varId = MEM_GetSymbolIndex("ExploreSunkenTower");
         varPtr = MEM_GetSymbol("ExploreSunkenTower") + zCParSymbol_content_offset;
     };
 

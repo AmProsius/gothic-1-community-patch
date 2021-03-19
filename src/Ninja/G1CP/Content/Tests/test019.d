@@ -16,7 +16,7 @@ func int G1CP_Test_019() {
     var int passed; passed = TRUE;
 
     // Check if dialog exists
-    funcId = MEM_FindParserSymbol("DIA_Scorpio_REFUSETRAIN_Condition");
+    funcId = MEM_GetSymbolIndex("DIA_Scorpio_REFUSETRAIN_Condition");
     if (funcId == -1) {
         G1CP_TestsuiteErrorDetail("Dialog condition 'DIA_Scorpio_REFUSETRAIN_Condition' not found");
         passed = FALSE;
@@ -47,7 +47,7 @@ func int G1CP_Test_019() {
     Npc_SetTrueGuild(hero, 0); // Not GRD
 
     // Backup told status of required dialog
-    backupTold = Npc_KnowsInfo(hero, MEM_FindParserSymbol("DIA_Scorpio_Hello"));
+    backupTold = Npc_KnowsInfo(hero, MEM_GetSymbolIndex("DIA_Scorpio_Hello"));
     G1CP_SetInfoTold("DIA_Scorpio_Hello", TRUE);
 
     // Backup self and other

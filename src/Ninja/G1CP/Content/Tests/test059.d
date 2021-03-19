@@ -11,8 +11,8 @@ instance G1CP_Test_059_Npc(C_Npc) {
     attribute[1] = 2;
     attribute[4] = 1000; // Enough strength to carry any weapon
     Mdl_SetVisual(self, "HUMANS.MDS");
-    CreateInvItem(self, MEM_FindParserSymbol("Thorus_Schwert"));
-    EquipItem(self, MEM_FindParserSymbol("ItMw_1H_Scythe_01"));
+    CreateInvItem(self, MEM_GetSymbolIndex("Thorus_Schwert"));
+    EquipItem(self, MEM_GetSymbolIndex("ItMw_1H_Scythe_01"));
 };
 func int G1CP_Test_059() {
     // Insert test NPC
@@ -37,7 +37,7 @@ func int G1CP_Test_059() {
     Wld_RemoveNpc(G1CP_Test_059_Npc);
 
     // Check if weapon matches
-    if (weapId != MEM_FindParserSymbol("ItMw_1H_Scythe_01")) {
+    if (weapId != MEM_GetSymbolIndex("ItMw_1H_Scythe_01")) {
         var string weapName;
         if (Hlp_IsValidItem(weap)) {
             weapName = weap.name;

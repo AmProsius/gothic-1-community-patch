@@ -5,7 +5,7 @@ func int G1CP_021_FletcherClosedQuest() {
     var int applied1; var int applied2;
 
     // Check if necessary symbols exist
-    var int funcId; funcId = MEM_FindParserSymbol("DIA_Fletcher_WoNek_Info");
+    var int funcId; funcId = MEM_GetSymbolIndex("DIA_Fletcher_WoNek_Info");
     if (funcId == -1) {
         return FALSE;
     };
@@ -17,14 +17,14 @@ func int G1CP_021_FletcherClosedQuest() {
     var int statusNewId; statusNewId = MEM_GetFuncId(G1CP_021_SetTopicStatus);
 
     // Replace any function calls to Log_CreateTopic and Log_SetTopicStatus
-    applied1 = G1CP_ReplaceCallInFunc(funcId, createOrgId, createNewId);
-    applied2 = G1CP_ReplaceCallInFunc(funcId, statusOrgId, statusNewId);
+    applied1 = G1CP_ReplaceCall(funcId, createOrgId, createNewId);
+    applied2 = G1CP_ReplaceCall(funcId, statusOrgId, statusNewId);
 
     // Revert any changes if not BOTH were replaced
     if (!applied1) || (!applied2) {
         var int r;
-        r = G1CP_ReplaceCallInFunc(funcId, createNewId, createOrgId);
-        r = G1CP_ReplaceCallInFunc(funcId, statusNewId, statusOrgId);
+        r = G1CP_ReplaceCall(funcId, createNewId, createOrgId);
+        r = G1CP_ReplaceCall(funcId, statusNewId, statusOrgId);
         return FALSE;
     };
 

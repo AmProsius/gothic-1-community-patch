@@ -5,10 +5,10 @@ func int G1CP_060_JesseQuest() {
     var int applied; applied = FALSE;
 
     // Find all necessary symbols
-    var int funcId; funcId = MEM_FindParserSymbol("DIA_Jesse_Mission_Condition");
-    var int cond1Id; cond1Id = MEM_FindParserSymbol("DIA_Jesse_Mission");
-    var int cond2Id; cond2Id = MEM_FindParserSymbol("DIA_Jesse_Warn");
-    var int funcExt; funcExt = MEM_FindParserSymbol("Npc_KnowsInfo");
+    var int funcId; funcId = MEM_GetSymbolIndex("DIA_Jesse_Mission_Condition");
+    var int cond1Id; cond1Id = MEM_GetSymbolIndex("DIA_Jesse_Mission");
+    var int cond2Id; cond2Id = MEM_GetSymbolIndex("DIA_Jesse_Warn");
+    var int funcExt; funcExt = MEM_GetSymbolIndex("Npc_KnowsInfo");
 
     // Check if all needed functions exist
     if (funcId != -1) && (cond1Id != -1) && (cond2Id != -1) {
@@ -36,14 +36,7 @@ func int G1CP_060_JesseQuest() {
                     // Check if return 1 (literal) or return variable with content 1
                     if (MEM_ArrayRead(tokens, i+3) == zPAR_TOK_PUSHVAR) {
                         var int varId; varId = MEM_ArrayRead(params, i+3);
-                        if (varId <= 0) || (varId >= currSymbolTableLength) {
-                            continue;
-                        };
-                        var int varSymbPtr; varSymbPtr = MEM_GetSymbolByIndex(varId);
-                        if (!varSymbPtr) {
-                            continue;
-                        };
-                        if (MEM_ReadInt(varSymbPtr + zCParSymbol_content_offset) != 1) {
+                        if (G1CP_GetIntVarByIndex(varId, 0, -1) != 1) {
                             continue;
                         };
                     } else if (MEM_ArrayRead(tokens, i+3) == zPAR_TOK_PUSHINT) {

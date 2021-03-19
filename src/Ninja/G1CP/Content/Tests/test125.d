@@ -7,13 +7,13 @@
  */
 func int G1CP_Test_125() {
     // Check language first
-    if (G1CP_Lang != 0) && (G1CP_Lang != 1) {
+    if (G1CP_Lang != G1CP_Lang_EN) && (G1CP_Lang != G1CP_Lang_DE) {
         G1CP_TestsuiteErrorDetail("Test applicable for English and German localization only");
         return TRUE; // True?
     };
 
     // Check if item exists
-    var int symbId; symbId = MEM_FindParserSymbol("ItMw_1H_Sword_Bastard_02");
+    var int symbId; symbId = MEM_GetSymbolIndex("ItMw_1H_Sword_Bastard_02");
     if (symbId == -1) {
         G1CP_TestsuiteErrorDetail("Item 'ItMw_1H_Sword_Bastard_02' not found");
         return FALSE;

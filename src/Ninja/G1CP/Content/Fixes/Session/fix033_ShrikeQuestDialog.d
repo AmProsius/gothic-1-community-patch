@@ -2,9 +2,9 @@
  * #33 Shrike's Hut quest
  */
 func int G1CP_033_ShrikeQuestDialog() {
-    if (MEM_FindParserSymbol("DIA_Shrike_GetLost_Condition") != -1)
-    && ((MEM_FindParserSymbol("DIA_Gorn_Hut")                != -1) // Either the dialog or the quest must exist
-    ||  (MEM_FindParserSymbol("Gorn_ShrikesHut")             != -1)) {
+    if (MEM_GetSymbolIndex("DIA_Shrike_GetLost_Condition") != -1)
+    && ((MEM_GetSymbolIndex("DIA_Gorn_Hut")                != -1) // Either the dialog or the quest must exist
+    ||  (MEM_GetSymbolIndex("Gorn_ShrikesHut")             != -1)) {
         HookDaedalusFuncS("DIA_Shrike_GetLost_Condition", "G1CP_033_ShrikeQuestDialog_Hook");
         return TRUE;
     } else {
@@ -26,7 +26,7 @@ func int G1CP_033_ShrikeQuestDialog_Hook() {
     var int cond2;
 
     // Check if dialog was told (check if symbol exists first!)
-    var int symbId; symbId = MEM_FindParserSymbol("DIA_Gorn_Hut");
+    var int symbId; symbId = MEM_GetSymbolIndex("DIA_Gorn_Hut");
     if (symbId != -1) {
         cond1 = Npc_KnowsInfo(hero, symbId);
     } else {

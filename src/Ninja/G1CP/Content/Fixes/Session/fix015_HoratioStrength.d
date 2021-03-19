@@ -2,13 +2,13 @@
  * #15 Horatio may lower STRENGTH
  */
 func int G1CP_015_HoratioStrength() {
-    var int funcId;   funcId   = MEM_FindParserSymbol("DIA_Horatio_HelpSTR_LEARN_NOW");
+    var int funcId;   funcId   = MEM_GetSymbolIndex("DIA_Horatio_HelpSTR_LEARN_NOW");
     var int needleId; needleId = MEM_GetFuncID(PrintScreen);
     var int replacId; replacId = MEM_GetFuncID(G1CP_015_HoratioStrength_PrintScreen);
 
     if (funcId != -1) {
         HookDaedalusFuncS("DIA_Horatio_HelpSTR_LEARN_NOW", "G1CP_015_HoratioStrength_Hook");
-        var int count; count = G1CP_ReplaceCallInFunc(funcId, needleId, replacId);
+        var int count; count = G1CP_ReplaceCall(funcId, needleId, replacId);
         return (count > 0);
     } else {
         return FALSE;
@@ -44,7 +44,7 @@ func void G1CP_015_HoratioStrength_Hook() {
 /*
  * This function intercepts the calls to PrintScreen and replaces the on-screen text if necessary
  */
-func void G1CP_015_HoratioStrength_PrintScreen(var string msg, var int x, var int y, var string font, var int timeSec) {
+func int G1CP_015_HoratioStrength_PrintScreen(var string msg, var int x, var int y, var string font, var int timeSec) {
     G1CP_ReportFuncToSpy();
 
     // Get end of text

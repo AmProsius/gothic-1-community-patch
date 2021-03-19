@@ -20,12 +20,7 @@ func int G1CP_042_ConfirmByteCode(var int funcId) {
         } else if (MEM_ReadByte(pos) == zPAR_TOK_PUSHVAR) {
             // If it's a variable, check it's contents instead
             var int varId; varId = MEM_ReadInt(pos+1);
-            if (varId > 0) && (varId < currSymbolTableLength) {
-                var int varSymbPtr; varSymbPtr = MEM_GetSymbolByIndex(varId);
-                if (varSymbPtr) {
-                    return (MEM_ReadInt(varSymbPtr + zCParSymbol_content_offset) != 0);
-                };
-            };
+            return (G1CP_GetIntVarByIndex(varId, 0, 0) != 0);
         };
     };
 
@@ -46,8 +41,8 @@ func int G1CP_042_GuardExitDialog() {
     var int applied2; applied2 = FALSE;
 
     // Find all necessary symbols
-    var int func1Id; func1Id = MEM_FindParserSymbol("DIA_Grd_218_Exit_Condition");
-    var int func2Id; func2Id = MEM_FindParserSymbol("DIA_Grd_245_Exit_Condition");
+    var int func1Id; func1Id = MEM_GetSymbolIndex("DIA_Grd_218_Exit_Condition");
+    var int func2Id; func2Id = MEM_GetSymbolIndex("DIA_Grd_245_Exit_Condition");
 
     if (G1CP_042_ConfirmByteCode(func1Id)) {
         HookDaedalusFuncI(func1Id, MEM_GetFuncId(G1CP_042_Grd_218_Cond));

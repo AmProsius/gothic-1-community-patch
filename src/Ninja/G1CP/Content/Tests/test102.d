@@ -14,7 +14,7 @@ func int G1CP_Test_102() {
     var int passed; passed = TRUE;
 
     // Check if the dialog function exists
-    var int funcId; funcId = MEM_FindParserSymbol("Info_Bloodwyn_PayForJesse_Info");
+    var int funcId; funcId = MEM_GetSymbolIndex("Info_Bloodwyn_PayForJesse_Info");
     if (funcId == -1) {
         G1CP_TestsuiteErrorDetail("Dialog function 'Info_Bloodwyn_PayForJesse_Info' not found");
         passed = FALSE;
@@ -29,7 +29,7 @@ func int G1CP_Test_102() {
     topicPtr += zCParSymbol_content_offset;
 
     // Check if the ore item exists
-    var int oreId; oreId = MEM_FindParserSymbol("ItMiNugget");
+    var int oreId; oreId = MEM_GetSymbolIndex("ItMiNugget");
     if (oreId == -1) {
         G1CP_TestsuiteErrorDetail("Item 'ItMiNugget' not found");
         passed = FALSE;

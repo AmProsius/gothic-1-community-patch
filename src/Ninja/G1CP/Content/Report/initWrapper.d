@@ -46,14 +46,14 @@ func int G1CP_InitStart() {
         gameinit_id = MEM_GetFuncID(G1CP_GamesaveFixes_Apply);
         gamerevert_id = MEM_GetFuncID(G1CP_GamesaveFixes_Revert);
         ConcatStrings_id = MEM_GetFuncID(ConcatStrings);
-        time_id = MEM_FindParserSymbol("G1CP_InitStart.time");
-        indentStr_id = MEM_FindParserSymbol("G1CP_InitStart.indentStr");
-        actionStr_id = MEM_FindParserSymbol("G1CP_InitStart.actionStr");
-        emptyStr_id = MEM_FindParserSymbol("G1CP_InitStart.emptyStr");
-        initStr_id = MEM_FindParserSymbol("G1CP_InitStart.initStr");
-        revertStr_id = MEM_FindParserSymbol("G1CP_InitStart.revertStr");
+        time_id = MEM_GetSymbolIndex("G1CP_InitStart.time");
+        indentStr_id = MEM_GetSymbolIndex("G1CP_InitStart.indentStr");
+        actionStr_id = MEM_GetSymbolIndex("G1CP_InitStart.actionStr");
+        emptyStr_id = MEM_GetSymbolIndex("G1CP_InitStart.emptyStr");
+        initStr_id = MEM_GetSymbolIndex("G1CP_InitStart.initStr");
+        revertStr_id = MEM_GetSymbolIndex("G1CP_InitStart.revertStr");
         versionStr = G1CP_GetVersionString(TRUE, FALSE, FALSE);
-        versionStr_id = MEM_FindParserSymbol("G1CP_InitStart.versionStr");
+        versionStr_id = MEM_GetSymbolIndex("G1CP_InitStart.versionStr");
     };
 
     // Hello? Who dis? jk, I gots your caller-ID!

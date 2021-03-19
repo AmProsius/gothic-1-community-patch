@@ -13,9 +13,9 @@ func int G1CP_027_DraxTeachingDialog() {
     var int applied2; applied2 = FALSE;
 
     // Get necessary symbol indices
-    var int funcId; funcId = MEM_FindParserSymbol("Org_819_Drax_Scavenger_Info");
-    var int condId; condId = MEM_FindParserSymbol("drax_bierbekommen");
-    var int varSymbId; varSymbId = MEM_FindParserSymbol("drax_Lehrer_frei");
+    var int funcId; funcId = MEM_GetSymbolIndex("Org_819_Drax_Scavenger_Info");
+    var int condId; condId = MEM_GetSymbolIndex("drax_bierbekommen");
+    var int varSymbId; varSymbId = MEM_GetSymbolIndex("drax_Lehrer_frei");
     if (funcId == -1) || (varSymbId == -1) || (condId == -1) {
         return FALSE;
     };
@@ -42,15 +42,15 @@ func int G1CP_027_DraxTeachingDialog() {
     if (applied1) {
         var int createOldId; createOldId = MEM_GetFuncId(Log_CreateTopic);
         var int createNewId; createNewId = MEM_GetFuncId(G1CP_027_CreateTopic);
-        applied2 = G1CP_ReplaceCallInFunc(funcId, createOldId, createNewId);
+        applied2 = G1CP_ReplaceCall(funcId, createOldId, createNewId);
     };
 
     // Optionally replace function call "B_LogEntry" (if exists) for removing the screen print
     if (applied2) {
-        var int logEntryOld; logEntryOld = MEM_FindParserSymbol("B_LogEntry");
+        var int logEntryOld; logEntryOld = MEM_GetSymbolIndex("B_LogEntry");
         var int logEntryNew; logEntryNew = MEM_GetFuncId(G1CP_027_TopicEntry);
         if (logEntryOld != -1) {
-            i = G1CP_ReplaceCallInFunc(funcId, logEntryOld, logEntryNew);
+            i = G1CP_ReplaceCall(funcId, logEntryOld, logEntryNew);
         };
     };
 
