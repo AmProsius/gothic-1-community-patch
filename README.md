@@ -25,9 +25,13 @@ Please note that this is the first release of the G1CP. Work on the patch contin
 
 ## Contributors
 * **AmProsius**: Project management, quality assurance  
-* **catalinux**: Provision of bug fixes from the UnPatch mod 
-* **Issues**: Provision of bug fixes from the Definitive Edition mod
-* **mud-freak**: Rewriting of the provided bug fixes in modular form, management of the project repository
+* **catalinstoian**: Provision of bug fixes from the UnPatch mod 
+* **i5sue5**: Provision of bug fixes from the Definitive Edition mod
+* **szapp**: Rewriting of the provided bug fixes in modular form, management of the project repository
+
+## Supporters
+* pawbuj1981
+* Blubbler
 
 ## Sources of Inspiration
 
