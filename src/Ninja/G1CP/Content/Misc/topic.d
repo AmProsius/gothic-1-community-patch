@@ -47,7 +47,7 @@ func int G1CP_GetTopicStatus(var string topic) {
 };
 
 /*
- * Function to check whether a the log topic has a certain entry
+ * Check whether a log topic has a certain entry
  */
 func int G1CP_TopicHasEntry(var string topic, var string entry) {
     var int lt; lt = G1CP_GetTopic(topic);
@@ -60,15 +60,40 @@ func int G1CP_TopicHasEntry(var string topic, var string entry) {
         while(list);
             l = _^(list);
             list = l.next;
-            if (Hlp_StrCmp(MEM_ReadString(l.data), entry)) {
-                return TRUE;
+            if (l.data) {
+                if (Hlp_StrCmp(MEM_ReadString(l.data), entry)) {
+                    return TRUE;
+                };
             };
         end;
-
     };
 
     // Not found
     return FALSE;
+};
+
+/*
+ * Replace the entry of a log topic
+ */
+func void G1CP_TopicReplaceEntry(var string topic, var string needle, var string replace) {
+    var int lt; lt = G1CP_GetTopic(topic);
+    if (lt) {
+        var oCLogTopic logTopic; logTopic = _^(lt);
+
+        // Iterate over all entries of that topic
+        var int list; list = _@(logTopic.m_lstEntries_data);
+        var zCList l;
+        while(list);
+            l = _^(list);
+            list = l.next;
+            if (l.data) {
+                if (Hlp_StrCmp(MEM_ReadString(l.data), needle)) {
+                    MEM_WriteString(l.data, replace);
+                    return;
+                };
+            };
+        end;
+    };
 };
 
 /*
