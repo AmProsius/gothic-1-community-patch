@@ -61,6 +61,7 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
         G1CP_158_SpeedPotion3Value();                   // #158
         G1CP_163_CastleGate();                          // #163
         G1CP_174_EN_GomezKeyName();                     // #174
+        G1CP_175_EN_RiceLordKeyName();                  // #175
         G1CP_192_MagicUserAutoEquip();                  // #192
     };
 };
