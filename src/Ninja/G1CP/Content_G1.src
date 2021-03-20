@@ -87,6 +87,7 @@ Content\Fixes\Session\fix192_MagicUserAutoEquip.d
 // Game save fixes
 Content\Fixes\Gamesave\fix046_SmithDoor.d
 Content\Fixes\Gamesave\fix050_Pillar.d
+Content\Fixes\Gamesave\fix093_DE_HoratioLogEntry.d
 Content\Fixes\Gamesave\fix124_GateGuardID.d
 
 // Tests
@@ -130,6 +131,7 @@ Content\Tests\test059.d
 Content\Tests\test060.d
 Content\Tests\test078.d
 Content\Tests\test079.d
+Content\Tests\test093.d
 Content\Tests\test094.d
 Content\Tests\test102.d
 Content\Tests\test109.d
