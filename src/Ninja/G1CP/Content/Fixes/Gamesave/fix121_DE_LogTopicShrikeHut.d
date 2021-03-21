@@ -15,7 +15,7 @@ func int G1CP_121_DE_LogTopicShrikeHut() {
 };
 
 /*
- * This function reverts the changes of #50
+ * This function reverts the changes of #121
  */
 func int G1CP_121_DE_LogTopicShrikeHutRevert() {
     // Only revert if it was applied by the G1CP
