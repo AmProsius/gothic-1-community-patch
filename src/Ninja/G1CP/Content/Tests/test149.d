@@ -22,7 +22,7 @@ func int G1CP_Test_149() {
     // Create the armor locally
     if (Itm_GetPtr(symbId)) {
         if (Hlp_StrCmp(item.name, "Improved Ore Armor")) // EN
-        || (Hlp_StrCmp(item.name, "Verbesserte ErzrÃ¼stung")) { // DE
+        || (Hlp_StrCmp(item.name, "Verbesserte Erzrüstung")) { // DE
             return TRUE;
         } else {
             var string msg; msg = "Text incorrect: name = '";
