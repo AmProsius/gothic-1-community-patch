@@ -8,7 +8,7 @@
 * Fix #174: The key "Gomez' Bowl" is now correctly labelled as "Gomez' Key".
 * Fix #175: The key "Rice Lord's Bowl" is now correctly labelled as "Rice Lord's Key".
 
-## v1.0.0 (2021-03-15)
+## [v1.0.0](https://github.com/AmProsius/gothic-1-community-patch/releases/tag/v1.0.0) (2021-03-15)
 ### General
 * Fix #1: NPCs no longer wake up immediately after going to bed, but remain sleeping.
 * Fix #2: NPCs now open closed doors properly and walk through them.

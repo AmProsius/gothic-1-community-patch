@@ -9,7 +9,7 @@
 * Fix #93: Im Tagebucheintrag zu der Quest "Horatio der Bauer" is nun die Phrase "[...] stärker zuzuschalgen." korrigiert zu "[...] stärker zuzuschlagen."
 * Fix #94: Die Dialogoption mit Horatio "Ich hab' nochmal über die Sache nachgedacht..." ist nun korrigiert zu "Ich hab' noch einmal über die Sache nachgedacht...".
 
-## v1.0.0 (2021-03-15)
+## [v1.0.0](https://github.com/AmProsius/gothic-1-community-patch/releases/tag/v1.0.0) (2021-03-15)
 ### General
 * Fix #1: NSCs wachen nicht mehr sofort auf, nachdem sie ins Bett gegangen sind, sondern bleiben liegen.
 * Fix #2: NSCs öffnen nun korrekt geschlossene Türen und gehen hindurch.
