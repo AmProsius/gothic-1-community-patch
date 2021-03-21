@@ -5,8 +5,8 @@
 * Fix #192: Mages (NPCs fighting only with spells) no longer auto-equip weapons (e.g. after trading). This requires fix #59 to be active.
 
 ### Story
-* Fix #174: Changed the name "Gomez' Bowl" to "Gomez' Key".
-* Fix #175: Changed the name "Rice Lord's Bowl" to "Rice Lord's Key".
+* Fix #174: The key "Gomez' Bowl" is now correctly labelled as "Gomez' Key".
+* Fix #175: The key "Rice Lord's Bowl" is now correctly labelled as "Rice Lord's Key".
 
 ## v1.0.0 (2021-03-15)
 ### General
