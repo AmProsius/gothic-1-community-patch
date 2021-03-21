@@ -77,15 +77,19 @@ Content\Fixes\Session\fix122_CavalornDailyRoutine.d
 Content\Fixes\Session\fix125_ButcherText.d
 Content\Fixes\Session\fix126_SharkyTrade.d
 Content\Fixes\Session\fix136_FollowLadder.d
+Content\Fixes\Session\fix144_DE_GomezArmorName.d
+Content\Fixes\Session\fix149_DE_EN_ImprovedOreArmorName.d
 Content\Fixes\Session\fix157_SpeedPotion2Value.d
 Content\Fixes\Session\fix158_SpeedPotion3Value.d
 Content\Fixes\Session\fix163_CastleGate.d
 Content\Fixes\Session\fix174_EN_GomezKeyName.d
+Content\Fixes\Session\fix175_EN_RiceLordKeyName.d
 Content\Fixes\Session\fix192_MagicUserAutoEquip.d
 
 // Game save fixes
 Content\Fixes\Gamesave\fix046_SmithDoor.d
 Content\Fixes\Gamesave\fix050_Pillar.d
+Content\Fixes\Gamesave\fix093_DE_HoratioLogEntry.d
 Content\Fixes\Gamesave\fix121_DE_LogTopicShrikeHut.d
 Content\Fixes\Gamesave\fix124_GateGuardID.d
 
@@ -130,6 +134,7 @@ Content\Tests\test059.d
 Content\Tests\test060.d
 Content\Tests\test078.d
 Content\Tests\test079.d
+Content\Tests\test093.d
 Content\Tests\test094.d
 Content\Tests\test102.d
 Content\Tests\test109.d
@@ -141,10 +146,13 @@ Content\Tests\test124.d
 Content\Tests\test125.d
 Content\Tests\test126.d
 Content\Tests\test136.d
+Content\Tests\test144.d
+Content\Tests\test149.d
 Content\Tests\test157.d
 Content\Tests\test158.d
 Content\Tests\test163.d
 Content\Tests\test174.d
+Content\Tests\test175.d
 Content\Tests\test192.d
 
 // Initialization

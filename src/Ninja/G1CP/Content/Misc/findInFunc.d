@@ -216,18 +216,13 @@ func int G1CP_ReplaceAssignStrID(var int funcId, var string assignedSymb, var in
         return 0;
     };
 
-    // The needle cannot be an empty string
-    if (Hlp_StrCmp(needle, "")) {
-        return 0;
-    };
-
     // Check for assignment or only pushed string
     var int matches;
     var int offset;
     if (Hlp_StrCmp(assignedSymb, "")) {
         // Only check for pushed strings
         matches = G1CP_FindInFunc(funcId, _@(zPAR_TOK_PUSHVAR), 1);
-        offset = 1;
+        offset = 0;
     } else {
         // Check for string assignments
         var int destSymbId; destSymbId = MEM_GetSymbolIndex(assignedSymb);
@@ -257,7 +252,7 @@ func int G1CP_ReplaceAssignStrID(var int funcId, var string assignedSymb, var in
         // Check the pushed string content against "needle"
         if (MEM_ReadByte(pos-offset) == zPAR_TOK_PUSHVAR) {
             var int varId; varId = MEM_ReadInt(pos-offset+1);
-            if (Hlp_StrCmp(G1CP_GetStringVarByIndex(varId, 0, ""), needle)) {
+            if (Hlp_StrCmp(G1CP_GetStringVarByIndex(varId, 0, "G1CP invalid string"), needle)) {
 
                 // Overwrite the string assignment with the replacement string
                 MEMINT_OverrideFunc_Ptr = pos-offset;

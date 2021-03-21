@@ -14,7 +14,7 @@ Unlike other mods, this patch only fixes bugs of the main game. For new features
 
 Due to its great compatibility but concise reach of changes, the G1CP offers a solid base for playing Gothic 1 in general. The intention is to allow mods to focus on creating new content, while the bugs are already taken care of.
 
-Please note that this is the first release of the G1CP. Work on the patch continues as there still remain bugs to be fixed. If you encounter bugs or know of any that aren't addressed already (see [changelog](docs/changelog.md)), consider contributing to the patch by opening an [issue](../../issues?q=sort:updated-desc) on Github.
+Please note that this is the first release of the G1CP. Work on the patch continues as there still remain bugs to be fixed. If you encounter bugs or know of any that aren't addressed already (see [changelog](CHANGELOG.md)), consider contributing to the patch by opening an [issue](../../issues?q=sort:updated-desc) on Github.
 
 ## Requirements 
 * [Ninja](https://github.com/szapp/Ninja/releases) >= 2.3.08
@@ -25,9 +25,13 @@ Please note that this is the first release of the G1CP. Work on the patch contin
 
 ## Contributors
 * **AmProsius**: Project management, quality assurance  
-* **catalinux**: Provision of bug fixes from the UnPatch mod 
-* **Issues**: Provision of bug fixes from the Definitive Edition mod
-* **mud-freak**: Rewriting of the provided bug fixes in modular form, management of the project repository
+* **catalinstoian**: Provision of bug fixes from the UnPatch mod 
+* **i5sue5**: Provision of bug fixes from the Definitive Edition mod
+* **szapp**: Rewriting of the provided bug fixes in modular form, management of the project repository
+
+## Supporters
+* pawbuj1981
+* Blubbler
 
 ## Sources of Inspiration
 
