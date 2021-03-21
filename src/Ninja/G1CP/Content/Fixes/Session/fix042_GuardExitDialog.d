@@ -72,7 +72,7 @@ func int G1CP_042_NewCondition(var C_Npc slf) {
     };
 
     recursion = TRUE;
-    var int hasEnd; hasEnd = G1C_HasInfoWithDesc(slf, DIALOG_ENDE);
+    var int hasEnd; hasEnd = G1CP_HasInfoWithDesc(slf, DIALOG_ENDE);
     recursion = FALSE;
 
     // Keep this one, if there is no other exit dialog

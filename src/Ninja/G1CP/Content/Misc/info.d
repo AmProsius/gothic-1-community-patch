@@ -36,7 +36,7 @@ func void G1CP_SetInfoTold(var string infoName, var int isTold) {
 /*
  * Check if an NPC has an info with a specific description
  */
-func int G1C_HasInfoWithDesc(var C_Npc slf, var string infoDesc) {
+func int G1CP_HasInfoWithDesc(var C_Npc slf, var string infoDesc) {
     MEM_InitGlobalInst();
 
     var int infoMan; infoMan = MEM_Game.infoman;
