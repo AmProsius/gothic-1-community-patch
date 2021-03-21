@@ -3,7 +3,7 @@
  *
  * The text of the item "ORE_ARMOR_H" is inspected programmatically.
  *
- * Expected behavior: The armor will have the correct description (checked for English and German localization only).
+ * Expected behavior: The armor will have the correct name (checked for English and German localization only).
  */
 func int G1CP_Test_149() {
     // Check language first
