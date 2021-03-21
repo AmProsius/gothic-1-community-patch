@@ -2,6 +2,7 @@
 
 ## v1.1.0 (TBA)
 ### General
+* Fix #149: The armor "Improved ore Armor" is now correctly labelled as "Improved Ore Armor".
 * Fix #192: Mages (NPCs fighting only with spells) no longer auto-equip weapons (e.g. after trading). This requires fix #59 to be active.
 
 ### Story
