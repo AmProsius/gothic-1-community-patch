@@ -42,8 +42,8 @@ func int G1CP_Test_015() {
     // Second pass: strength > 100
     hero.attribute[ATR_STRENGTH] = 1000;
     MEM_CallByID(funcId);
-    if (hero.attribute[ATR_STRENGTH] != 1000) {
-        G1CP_TestsuiteErrorDetail("Strength was reset to 100");
+    if (hero.attribute[ATR_STRENGTH] < 1000) {
+        G1CP_TestsuiteErrorDetail("Strength was decreased when above 100");
         hero.attribute[ATR_STRENGTH] = strengthBak;
         passed = FALSE;
     };
