@@ -48,6 +48,7 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
         G1CP_060_JesseQuest();                          // #60
         G1CP_078_HumanAttackOrc();                      // #78
         G1CP_079_WolfDexDialog();                       // #79
+        G1CP_091_DE_HoratioAddChoiceAvenge();           // #91
         G1CP_094_DE_HoratioInfoDescThoughtStr();        // #94
         G1CP_102_JesseProtectionMoneyPay();             // #102
         G1CP_109_BloodwynProtectionMoneyPayLater();     // #109
