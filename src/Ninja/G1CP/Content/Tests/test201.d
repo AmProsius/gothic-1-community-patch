@@ -5,7 +5,7 @@
  *
  * Expected behavior: The armor will have the correct description (checked for German localization only).
  */
-func int G1CP_Test_200() {
+func int G1CP_Test_201() {
     // Check language first
     if (G1CP_Lang != G1CP_Lang_DE) {
         G1CP_TestsuiteErrorDetail("Test applicable for German localization only");
