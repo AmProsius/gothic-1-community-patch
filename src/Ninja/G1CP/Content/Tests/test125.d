@@ -1,9 +1,9 @@
 /*
  * #125 The Butcher is described as two-handed sword
  *
- * The text of the item "ItMw_1H_Sword_Bastard_02" is inspected programmatically
+ * The text of the item "ItMw_1H_Sword_Bastard_02" is inspected programmatically.
  *
- * Expected behavior: The sword will have the correct description (checked for English and German localization only)
+ * Expected behavior: The sword will have the correct description (checked for English and German localization only).
  */
 func int G1CP_Test_125() {
     // Check language first

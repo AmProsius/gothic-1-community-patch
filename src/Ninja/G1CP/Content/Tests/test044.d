@@ -1,9 +1,9 @@
 /*
  * #44 Bugmeat in the wrong inventory category
  *
- * The mainflag (item category) of the item "ItAt_Meatbug_01" is inspected programmatically
+ * The mainflag (item category) of the item "ItAt_Meatbug_01" is inspected programmatically.
  *
- * Expected behavior: The item will have the correct mainflag
+ * Expected behavior: The item will have the correct mainflag.
  */
 func int G1CP_Test_044() {
     // Define possibly missing symbols locally

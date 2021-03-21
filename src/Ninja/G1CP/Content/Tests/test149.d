@@ -1,7 +1,7 @@
 /*
  * #149 Spelling - Improved Ore Armor (DE/EN)
  *
- * The text of the item "ORE_ARMOR_H" is inspected programmatically.
+ * The name of the item "ORE_ARMOR_H" is inspected programmatically.
  *
  * Expected behavior: The armor will have the correct name (checked for English and German localization only).
  */
