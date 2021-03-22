@@ -1,9 +1,9 @@
 /*
- * #200 Description of Improved Ore Armor too long (DE)
+ * #200 Text of Improved Ore Armor too long (DE)
  *
  * The text of the item "ORE_ARMOR_H" is inspected programmatically.
  *
- * Expected behavior: The armor will have the correct description (checked for German localization only).
+ * Expected behavior: The armor will have the correct text (checked for German localization only).
  */
 func int G1CP_Test_200() {
     // Check language first

@@ -85,7 +85,7 @@ Content\Fixes\Session\fix163_CastleGate.d
 Content\Fixes\Session\fix174_EN_GomezKeyName.d
 Content\Fixes\Session\fix175_EN_RiceLordKeyName.d
 Content\Fixes\Session\fix192_MagicUserAutoEquip.d
-Content\Fixes\Session\fix200_DE_ImprovedOreArmorDescription.d
+Content\Fixes\Session\fix200_DE_ImprovedOreArmorText.d
 
 // Game save fixes
 Content\Fixes\Gamesave\fix046_SmithDoor.d

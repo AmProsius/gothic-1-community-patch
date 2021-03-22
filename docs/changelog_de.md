@@ -5,7 +5,7 @@
 * Fix #144: Die Rüstung "Gomez'Rüstung" heißt nun korrekt "Gomez' Rüstung".
 * Fix #149: Die Rüstung "verbesserte Erzrüstung" heißt nun korrekt "Verbesserte Erzrüstung".
 * Fix #192: Magier (NSCs, die nur mit Magie kämpfen) rüsten nicht länger automatisch Nah- und Fernkampfwaffen aus (z.B. nach dem Handeln). Dieser Fix setzt den Fix #59 voraus.
-* Fix #200: Die Beschreibung der *Verbesserten Erzrüstung* passt jetzt in die Textbox.
+* Fix #200: Die Beschreibung der "Verbesserten Erzrüstung" passt jetzt in die Textbox des Inventars.
 
 ### Story
 * Fix #93: Im Tagebucheintrag zu der Quest "Horatio der Bauer" is nun die Phrase "[...] stärker zuzuschalgen." korrigiert zu "[...] stärker zuzuschlagen."
