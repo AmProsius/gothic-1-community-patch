@@ -25,10 +25,10 @@
 * Fix #44: Wanzenfleisch ist nun unter "Essen" im Inventar zu finden.
 * Fix #59: Händler rüsten nicht mehr ihre Waffe um, wenn der Spieler ihnen eine stärkere verkauft. Aufgrund einer wichtigen Spielmechanik wird allerdings eine Waffe ausgerüstet, sofern der Händler vorher noch keine Waffe diese Art (Nahkampf, Fernkampf) ausgerüstet hatte.
 * Fix #78: Menschliche NSCs erkennen Orks nun als Gegner an. Damit ist Baal Lukors Wahrnehmung im Orkfriedhof korrigiert.
-* Fix #125: Die Beschreibung des Schwertes *Schlachter* ist korrigiert zu "Einhandwaffe".
+* Fix #125: Die Beschreibung des Schwertes "Schlachter" ist nun korrekt "Einhandwaffe".
 * Fix #136: Begleiter benutzen Leitern nun korrekt.
-* Fix #157: Der Kaufwert des *Tranks der Schnelligkeit* ist korrigiert.
-* Fix #158: Der Kaufwert des *Tranks der Eile* ist korrigiert.
+* Fix #157: Der Kaufwert des "Tranks der Schnelligkeit" ist korrigiert.
+* Fix #158: Der Kaufwert des "Tranks der Eile" ist korrigiert.
 
 ### Story
 * Fix #15: Der Spielercharakter verliert keine Stärke mehr im Zuge der Quest "Horatio der Bauer", wenn er vorher mehr als 100 Stärke hatte.

@@ -23,10 +23,10 @@
 * Fix #44: Bugmeat is now listed as food in the inventory.
 * Fix #59: Vendors now don't re-equip their best weapon when the player sells them a more powerful one. However, due to important game mechanics, they will still equip a weapon if they didn't have a weapon of that type (melee, ranged) equipped before.
 * Fix #78: Human NPCs now correctly recognize orcs as enemies. This fixes Baal Lukor's behavior in the orc graveyard.
-* Fix #125: The description of the sword *Butcher* now correctly labels it as a one-handed weapon.
+* Fix #125: The description of the sword "Butcher" now correctly labels it as a one-handed weapon.
 * Fix #136: Followers now use ladders properly.
-* Fix #157: The *Potion of Velocity* now has the correct ore value.
-* Fix #158: The *Potion of Haste* now has the correct ore value.
+* Fix #157: The "Potion of Velocity" now has the correct ore value.
+* Fix #158: The "Potion of Haste" now has the correct ore value.
 
 ### Story
 * Fix #15: The player character doesn't lose Strength as part of the quest "Horatio the Peasant" if he had more than 100 Strength.
