@@ -1,9 +1,9 @@
 /*
- * #201 Description of Ancient Ore Armor too long (DE)
+ * #201 Text of Ancient Ore Armor too long (DE)
  *
  * The text of the item "ORE_ARMOR_M" is inspected programmatically.
  *
- * Expected behavior: The armor will have the correct description (checked for German localization only).
+ * Expected behavior: The armor will have the correct text (checked for German localization only).
  */
 func int G1CP_Test_201() {
     // Check language first
