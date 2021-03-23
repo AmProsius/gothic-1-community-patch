@@ -59,6 +59,7 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
         G1CP_126_SharkyTrade();                         // #126
         G1CP_136_FollowLadder();                        // #136
         G1CP_144_DE_GomezArmorName();                   // #144
+        G1CP_146_DE_NovicesLoinclothName();             // #146
         G1CP_147_DE_CrawlerPlateArmorName();            // #147
         G1CP_149_DE_EN_ImprovedOreArmorName();          // #149
         G1CP_157_SpeedPotion2Value();                   // #157
