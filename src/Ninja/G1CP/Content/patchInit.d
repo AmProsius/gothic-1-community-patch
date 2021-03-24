@@ -48,6 +48,7 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
         G1CP_060_JesseQuest();                          // #60
         G1CP_078_HumanAttackOrc();                      // #78
         G1CP_079_WolfDexDialog();                       // #79
+        G1CP_091_DE_HoratioAddChoiceAvenge();           // #91
         G1CP_094_DE_HoratioInfoDescThoughtStr();        // #94
         G1CP_102_JesseProtectionMoneyPay();             // #102
         G1CP_109_BloodwynProtectionMoneyPayLater();     // #109
@@ -58,6 +59,7 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
         G1CP_126_SharkyTrade();                         // #126
         G1CP_136_FollowLadder();                        // #136
         G1CP_144_DE_GomezArmorName();                   // #144
+        G1CP_147_DE_CrawlerPlateArmorName();            // #147
         G1CP_149_DE_EN_ImprovedOreArmorName();          // #149
         G1CP_157_SpeedPotion2Value();                   // #157
         G1CP_158_SpeedPotion3Value();                   // #158

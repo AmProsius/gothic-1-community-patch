@@ -27,6 +27,7 @@ func void G1CP_GamesaveFixes_Apply() {
         G1CP_046_SmithDoor();                           // #46
         G1CP_050_Pillar();                              // #50
         G1CP_093_DE_HoratioLogEntry();                  // #93
+        G1CP_121_DE_LogTopicShrikeHut();                // #121
         G1CP_124_GateGuardID();                         // #124
     };
 };
@@ -39,6 +40,7 @@ func void G1CP_GamesaveFixes_Revert() {
         G1CP_046_SmithDoorRevert();                     // #46
         G1CP_050_PillarRevert();                        // #50
         G1CP_093_DE_HoratioLogEntryRevert();            // #93
+        G1CP_121_DE_LogTopicShrikeHutRevert();          // #121
         G1CP_124_GateGuardIDRevert();                   // #124
     };
 };

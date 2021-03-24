@@ -1,9 +1,9 @@
 /*
  * #174 Spelling - Gomez' Key (EN)
  *
- * The name of the item "ItKe_Gomez_01" is inspected programmatically
+ * The name of the item "ItKe_Gomez_01" is inspected programmatically.
  *
- * Expected behavior: The key will have the correct name (checked for English localization only)
+ * Expected behavior: The key will have the correct name (checked for English localization only).
  */
 func int G1CP_Test_174() {
     // Check language first
