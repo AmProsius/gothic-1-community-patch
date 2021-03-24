@@ -1,9 +1,9 @@
 /*
  * #157 Potion of Velocity has wrong ore value
  *
- * The value of the item "ItFo_Potion_Haste_02" is inspected programmatically
+ * The value of the item "ItFo_Potion_Haste_02" is inspected programmatically.
  *
- * Expected behavior: The item will have the correct value
+ * Expected behavior: The item will have the correct value.
  */
 func int G1CP_Test_157() {
     // Check if item exists
