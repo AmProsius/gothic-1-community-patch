@@ -1,9 +1,9 @@
 /*
  * #49 Dungeon Key description faulty
  *
- * The text of the item "DungeonKey" is inspected programmatically
+ * The text of the item "DungeonKey" is inspected programmatically.
  *
- * Expected behavior: The key will have the correct description (checked for English and German localization only)
+ * Expected behavior: The key will have the correct description (checked for English and German localization only).
  */
 func int G1CP_Test_049() {
     // Check language first
