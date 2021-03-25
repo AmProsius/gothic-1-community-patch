@@ -3,10 +3,14 @@
 ## v1.1.0 (TBA)
 ### General
 * Fix [#144](https://g1cp.org/issues/144): Die Rüstung "Gomez'Rüstung" heißt nun korrekt "Gomez' Rüstung".
+* Fix [#145](https://g1cp.org/issues/145): Die Rüstung "leichte Söldnerrüstung" heißt nun korrekt "Leichte Söldnerrüstung".
 * Fix [#146](https://g1cp.org/issues/146): Die Rüstung "Novizen Rock" heißt nun korrekt "Novizenrock".
 * Fix [#147](https://g1cp.org/issues/147): Die Rüstung "Crawler-Plattenrüstung" heißt nun korrekt "Crawlerplatten-Rüstung".
+* Fix [#148](https://g1cp.org/issues/148): Die Rüstung "antike Erzrüstung" heißt nun korrekt "Antike Erzrüstung".
 * Fix [#149](https://g1cp.org/issues/149): Die Rüstung "verbesserte Erzrüstung" heißt nun korrekt "Verbesserte Erzrüstung".
 * Fix [#192](https://g1cp.org/issues/192): Magier (NSCs, die nur mit Magie kämpfen) rüsten nicht länger automatisch Nah- und Fernkampfwaffen aus (z.B. nach dem Handeln). Dieser Fix setzt den Fix #59 voraus.
+* Fix [#200](https://g1cp.org/issues/200): Die Beschreibung der "Verbesserten Erzrüstung" passt jetzt in die Textbox des Inventars.
+* Fix [#201](https://g1cp.org/issues/201): Die Beschreibung der "Antiken Erzrüstung" passt jetzt in die Textbox des Inventars und enthält keinen Rechtschreibfehler mehr.
 
 ### Story
 * Fix [#93](https://g1cp.org/issues/93): Im Tagebucheintrag zu der Quest "Horatio der Bauer" is nun die Phrase "[...] stärker zuzuschalgen." korrigiert zu "[...] stärker zuzuschlagen."

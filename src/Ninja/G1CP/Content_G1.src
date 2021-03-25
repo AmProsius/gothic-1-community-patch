@@ -79,8 +79,10 @@ Content\Fixes\Session\fix125_ButcherText.d
 Content\Fixes\Session\fix126_SharkyTrade.d
 Content\Fixes\Session\fix136_FollowLadder.d
 Content\Fixes\Session\fix144_DE_GomezArmorName.d
+Content\Fixes\Session\fix145_DE_LightMercenarysArmorName.d
 Content\Fixes\Session\fix146_DE_NovicesLoinclothName.d
 Content\Fixes\Session\fix147_DE_CrawlerPlateArmorName.d
+Content\Fixes\Session\fix148_DE_AncientOreArmorName.d
 Content\Fixes\Session\fix149_DE_EN_ImprovedOreArmorName.d
 Content\Fixes\Session\fix157_SpeedPotion2Value.d
 Content\Fixes\Session\fix158_SpeedPotion3Value.d
@@ -88,6 +90,8 @@ Content\Fixes\Session\fix163_CastleGate.d
 Content\Fixes\Session\fix174_EN_GomezKeyName.d
 Content\Fixes\Session\fix175_EN_RiceLordKeyName.d
 Content\Fixes\Session\fix192_MagicUserAutoEquip.d
+Content\Fixes\Session\fix200_DE_ImprovedOreArmorText.d
+Content\Fixes\Session\fix201_DE_AncientOreArmorText.d
 
 // Game save fixes
 Content\Fixes\Gamesave\fix046_SmithDoor.d
@@ -151,8 +155,10 @@ Content\Tests\test125.d
 Content\Tests\test126.d
 Content\Tests\test136.d
 Content\Tests\test144.d
+Content\Tests\test145.d
 Content\Tests\test146.d
 Content\Tests\test147.d
+Content\Tests\test148.d
 Content\Tests\test149.d
 Content\Tests\test157.d
 Content\Tests\test158.d
@@ -160,6 +166,8 @@ Content\Tests\test163.d
 Content\Tests\test174.d
 Content\Tests\test175.d
 Content\Tests\test192.d
+Content\Tests\test200.d
+Content\Tests\test201.d
 
 // Initialization
 Content\initPre.d
