@@ -8,6 +8,7 @@
 * Fix [#149](https://g1cp.org/issues/149): Die Rüstung "verbesserte Erzrüstung" heißt nun korrekt "Verbesserte Erzrüstung".
 * Fix [#192](https://g1cp.org/issues/192): Magier (NSCs, die nur mit Magie kämpfen) rüsten nicht länger automatisch Nah- und Fernkampfwaffen aus (z.B. nach dem Handeln). Dieser Fix setzt den Fix #59 voraus.
 * Fix [#200](https://g1cp.org/issues/200): Die Beschreibung der "Verbesserten Erzrüstung" passt jetzt in die Textbox des Inventars.
+* Fix [#201](https://g1cp.org/issues/201): Die Beschreibung der "Antiken Erzrüstung" passt jetzt in die Textbox des Inventars und enthält keinen Rechtschreibfehler mehr.
 
 ### Story
 * Fix [#93](https://g1cp.org/issues/93): Im Tagebucheintrag zu der Quest "Horatio der Bauer" is nun die Phrase "[...] stärker zuzuschalgen." korrigiert zu "[...] stärker zuzuschlagen."
