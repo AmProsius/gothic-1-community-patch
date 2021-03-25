@@ -4,6 +4,7 @@
 ### General
 * Fix [#144](https://g1cp.org/issues/144): Die Rüstung "Gomez'Rüstung" heißt nun korrekt "Gomez' Rüstung".
 * Fix [#147](https://g1cp.org/issues/147): Die Rüstung "Crawler-Plattenrüstung" heißt nun korrekt "Crawlerplatten-Rüstung".
+* Fix [#148](https://g1cp.org/issues/148): Die Rüstung "antike Erzrüstung" heißt nun korrekt "Antike Erzrüstung".
 * Fix [#149](https://g1cp.org/issues/149): Die Rüstung "verbesserte Erzrüstung" heißt nun korrekt "Verbesserte Erzrüstung".
 * Fix [#192](https://g1cp.org/issues/192): Magier (NSCs, die nur mit Magie kämpfen) rüsten nicht länger automatisch Nah- und Fernkampfwaffen aus (z.B. nach dem Handeln). Dieser Fix setzt den Fix #59 voraus.
 
