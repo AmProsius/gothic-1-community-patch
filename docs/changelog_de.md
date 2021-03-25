@@ -4,6 +4,7 @@
 ### General
 * Fix [#144](https://g1cp.org/issues/144): Die Rüstung "Gomez'Rüstung" heißt nun korrekt "Gomez' Rüstung".
 * Fix [#145](https://g1cp.org/issues/145): Die Rüstung "leichte Söldnerrüstung" heißt nun korrekt "Leichte Söldnerrüstung".
+* Fix [#146](https://g1cp.org/issues/146): Die Rüstung "Novizen Rock" heißt nun korrekt "Novizenrock".
 * Fix [#147](https://g1cp.org/issues/147): Die Rüstung "Crawler-Plattenrüstung" heißt nun korrekt "Crawlerplatten-Rüstung".
 * Fix [#148](https://g1cp.org/issues/148): Die Rüstung "antike Erzrüstung" heißt nun korrekt "Antike Erzrüstung".
 * Fix [#149](https://g1cp.org/issues/149): Die Rüstung "verbesserte Erzrüstung" heißt nun korrekt "Verbesserte Erzrüstung".
