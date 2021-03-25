@@ -1,7 +1,7 @@
 /*
  * #93 Spelling - Horatio: "zuzuschlagen" (DE)
  */
-func int G1CP_093_DE_HoratioLogEntry() {
+func int G1CP_093_DE_LogEntryHoratio() {
     // I'm sorry for not breaking the line at 120 characters
     const string curString = "Horatio, ein Bauer auf den Reisfeldern des Neuen Lagers will mir beibringen, stärker zuzuschalgen. Doch irgendwie habe ich noch nicht die richtige Antwort auf seine Frage WOZU gefunden.";
     const string newString = "Horatio, ein Bauer auf den Reisfeldern des Neuen Lagers will mir beibringen, stärker zuzuschlagen. Doch irgendwie habe ich noch nicht die richtige Antwort auf seine Frage WOZU gefunden.";
@@ -34,7 +34,7 @@ func int G1CP_093_DE_HoratioLogEntry() {
 /*
  * This function reverts the changes of #93
  */
-func int G1CP_093_DE_HoratioLogEntryRevert() {
+func int G1CP_093_DE_LogEntryHoratioRevert() {
     // I'm sorry for not breaking the line at 120 characters
     const string oldString = "Horatio, ein Bauer auf den Reisfeldern des Neuen Lagers will mir beibringen, stärker zuzuschalgen. Doch irgendwie habe ich noch nicht die richtige Antwort auf seine Frage WOZU gefunden.";
     const string curString = "Horatio, ein Bauer auf den Reisfeldern des Neuen Lagers will mir beibringen, stärker zuzuschlagen. Doch irgendwie habe ich noch nicht die richtige Antwort auf seine Frage WOZU gefunden.";

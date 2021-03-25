@@ -55,7 +55,7 @@ func int G1CP_Test_093() {
     Log_AddEntry(topic, wrong);
 
     // Trigger the fix (careful now, don't overwrite the fix status!)
-    var int r; r = G1CP_093_DE_HoratioLogEntry();
+    var int r; r = G1CP_093_DE_LogEntryHoratio();
 
     // Check if it was updated
     if (G1CP_TopicHasEntry(topic, wrong)) {
