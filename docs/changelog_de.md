@@ -8,7 +8,6 @@
 * Fix [#147](https://g1cp.org/issues/147): Die Rüstung "Crawler-Plattenrüstung" heißt nun korrekt "Crawlerplatten-Rüstung".
 * Fix [#148](https://g1cp.org/issues/148): Die Rüstung "antike Erzrüstung" heißt nun korrekt "Antike Erzrüstung".
 * Fix [#149](https://g1cp.org/issues/149): Die Rüstung "verbesserte Erzrüstung" heißt nun korrekt "Verbesserte Erzrüstung".
-* Fix [#172](https://g1cp.org/issues/172): Die Schriftrolle "Kalom's Rezept" heißt nun korrekt "Kaloms Rezept".
 * Fix [#192](https://g1cp.org/issues/192): Magier (NSCs, die nur mit Magie kämpfen) rüsten nicht länger automatisch Nah- und Fernkampfwaffen aus (z.B. nach dem Handeln). Dieser Fix setzt den Fix #59 voraus.
 * Fix [#200](https://g1cp.org/issues/200): Die Beschreibung der "Verbesserten Erzrüstung" passt jetzt in die Textbox des Inventars.
 * Fix [#201](https://g1cp.org/issues/201): Die Beschreibung der "Antiken Erzrüstung" passt jetzt in die Textbox des Inventars und enthält keinen Rechtschreibfehler mehr.
@@ -18,6 +17,7 @@
 * Fix [#91](https://g1cp.org/issues/91): Die Dialogauswahl mit Horatio: "Ja. Ich will es mit Ricelord und seinen Schlägern aufnehmen können!" is nun korrigiert zu "Ja. Ich will es mit dem Reislord und seinen Schlägern aufnehmen können!"
 * Fix [#94](https://g1cp.org/issues/94): Die Dialogoption mit Horatio "Ich hab' nochmal über die Sache nachgedacht..." ist nun korrigiert zu "Ich hab' noch einmal über die Sache nachgedacht...".
 * Fix [#121](https://g1cp.org/issues/121): Der Name der Quest "Shrike's Hütte" ist nun korrigiert zu "Shrikes Hütte".
+* Fix [#172](https://g1cp.org/issues/172): Das Schriftstück "Kalom's Rezept" heißt nun korrekt "Kaloms Rezept".
 
 ## [v1.0.0](https://github.com/AmProsius/gothic-1-community-patch/releases/tag/v1.0.0) (2021-03-15)
 ### General
