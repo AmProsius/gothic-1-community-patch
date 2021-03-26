@@ -54,7 +54,7 @@ func int G1CP_Test_027() {
 
     // Rename the log topic if it already exists
     const string tempTopicName = "G1CP Test 27"; // Has to be a unique name with absolute certainty
-    G1CP_RenameTopic(GE_TeacherOW, tempTopicName);
+    G1CP_LogRenameTopic(GE_TeacherOW, tempTopicName);
 
     // Backup values
     var int beersBefore; beersBefore = Npc_HasItems(hero, beerId);
@@ -90,7 +90,7 @@ func int G1CP_Test_027() {
     AI_StandUpQuick(hero);
 
     // Check the variable and log topic
-    topicCreated = G1CP_GetTopic(GE_TeacherOW) != 0;
+    topicCreated = G1CP_LogGetTopic(GE_TeacherOW) != 0;
     teachingUnlocked = MEM_ReadInt(teachingPtr);
     if (topicCreated) {
         G1CP_TestsuiteErrorDetail("Log note 'GE_TeacherOW' was wrongfully created");
@@ -101,7 +101,7 @@ func int G1CP_Test_027() {
     pass1passed = (!topicCreated) && (!teachingUnlocked);
 
     // Remove possibly created log topic
-    G1CP_RemoveTopic(GE_TeacherOW);
+    G1CP_LogRemoveTopic(GE_TeacherOW);
 
     // Second pass: Has beer, variable should be set to true and log entry should be created
 
@@ -118,7 +118,7 @@ func int G1CP_Test_027() {
     AI_StandUpQuick(hero);
 
     // Check the variable and log topic
-    topicCreated = G1CP_GetTopic(GE_TeacherOW) != 0;
+    topicCreated = G1CP_LogGetTopic(GE_TeacherOW) != 0;
     teachingUnlocked = MEM_ReadInt(teachingPtr);
     if (!topicCreated) {
         G1CP_TestsuiteErrorDetail("Log note 'GE_TeacherOW' was not created");
@@ -129,7 +129,7 @@ func int G1CP_Test_027() {
     pass2passed = (topicCreated) && (teachingUnlocked);
 
     // Remove possibly created log topic and remove any beers
-    G1CP_RemoveTopic(GE_TeacherOW);
+    G1CP_LogRemoveTopic(GE_TeacherOW);
     Npc_RemoveInvItems(hero, beerId, Npc_HasItems(hero, beerId));
 
     // Clean up
@@ -141,7 +141,7 @@ func int G1CP_Test_027() {
     // Revert values
     MEM_WriteInt(teachingPtr, teachingBak);
     MEM_WriteInt(beerGivenPtr, beerGivenBak);
-    G1CP_RenameTopic(tempTopicName, GE_TeacherOW);
+    G1CP_LogRenameTopic(tempTopicName, GE_TeacherOW);
     if (beersBefore > 0) {
         CreateInvItems(hero, beerId, beersBefore);
     };

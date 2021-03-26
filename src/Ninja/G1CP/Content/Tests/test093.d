@@ -19,7 +19,7 @@ func int G1CP_Test_093() {
 
     // Check language first
     if (G1CP_Lang != G1CP_Lang_DE) {
-        G1CP_TestsuiteErrorDetail("Test only applicable for the German localization");
+        G1CP_TestsuiteErrorDetail("Test applicable for German localization only");
         return TRUE; // True?
     };
 
@@ -45,7 +45,7 @@ func int G1CP_Test_093() {
     var string topic; topic = G1CP_GetStringVar("CH1_HoratiosTeachings", 0, "G1CP invalid string");
 
     // Backup the status of the log topic if it exists already
-    G1CP_RenameTopic(topic, "G1CP test 93 temporary");
+    G1CP_LogRenameTopic(topic, "G1CP test 93 temporary");
 
     // First pass: Create the log topic with the faulty entry and see if the fix will update it
 
@@ -58,15 +58,15 @@ func int G1CP_Test_093() {
     var int r; r = G1CP_093_DE_LogEntryHoratio();
 
     // Check if it was updated
-    if (G1CP_TopicHasEntry(topic, wrong)) {
+    if (G1CP_LogHasEntry(topic, wrong)) {
         G1CP_TestsuiteErrorDetail("Log topic entry (incorrect) remained unchanged");
         passed = FALSE;
     };
-    if (!G1CP_TopicHasEntry(topic, right)) {
+    if (!G1CP_LogHasEntry(topic, right)) {
         G1CP_TestsuiteErrorDetail("Log topic entry (correct) does not exist");
         passed = FALSE;
     };
-    G1CP_RemoveTopic(topic);
+    G1CP_LogRemoveTopic(topic);
 
     // Second pass: Call the dialog function and observe if it creates the corrected entry
 
@@ -89,18 +89,18 @@ func int G1CP_Test_093() {
     AI_StandUpQuick(hero);
 
     // Check if it was updated
-    if (G1CP_TopicHasEntry(topic, wrong)) {
+    if (G1CP_LogHasEntry(topic, wrong)) {
         G1CP_TestsuiteErrorDetail("Log topic entry was created with incorrect wording");
         passed = FALSE;
     };
-    if (!G1CP_TopicHasEntry(topic, right)) {
+    if (!G1CP_LogHasEntry(topic, right)) {
         G1CP_TestsuiteErrorDetail("Log topic entry was not added by the dialog function");
         passed = FALSE;
     };
-    G1CP_RemoveTopic(topic);
+    G1CP_LogRemoveTopic(topic);
 
     // Restore the topic to how it was before
-    G1CP_RenameTopic("G1CP test 93 temporary", topic);
+    G1CP_LogRenameTopic("G1CP test 93 temporary", topic);
 
     // Return success
     return passed;

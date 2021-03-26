@@ -290,7 +290,7 @@ func void G1CP_InitBuildLine(var int revert, var int id, var int namePtr, var in
     // Update fix table
     if (id) && (!disabled) {
         var int newState; newState = ((0 < status) && (status < 4)) || (status == 6);
-        _HT_InsertOrChange(G1CP_LookupTable, newState, id);
+        G1CP_SetFixStatus(id, newState);
     };
 
     // Append duration
