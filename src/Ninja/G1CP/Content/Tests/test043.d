@@ -8,7 +8,7 @@
 func int G1CP_Test_043() {
     // Check language first
     if (G1CP_Lang != G1CP_Lang_EN) {
-        G1CP_TestsuiteErrorDetail("Test only applicable for the English localization");
+        G1CP_TestsuiteErrorDetail("Test applicable for English localization only");
         return TRUE; // True?
     };
 
