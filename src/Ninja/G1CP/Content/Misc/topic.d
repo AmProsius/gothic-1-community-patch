@@ -47,56 +47,6 @@ func int G1CP_LogGetTopicStatus(var string topic) {
 };
 
 /*
- * Check whether a log topic has a certain entry
- */
-func int G1CP_LogHasEntry(var string topic, var string entry) {
-    var int lt; lt = G1CP_LogGetTopic(topic);
-    if (lt) {
-        var oCLogTopic logTopic; logTopic = _^(lt);
-
-        // Iterate over all entries of that topic
-        var int list; list = _@(logTopic.m_lstEntries_data);
-        var zCList l;
-        while(list);
-            l = _^(list);
-            list = l.next;
-            if (l.data) {
-                if (Hlp_StrCmp(MEM_ReadString(l.data), entry)) {
-                    return TRUE;
-                };
-            };
-        end;
-    };
-
-    // Not found
-    return FALSE;
-};
-
-/*
- * Replace the entry of a log topic
- */
-func void G1CP_LogReplaceEntry(var string topic, var string needle, var string replace) {
-    var int lt; lt = G1CP_LogGetTopic(topic);
-    if (lt) {
-        var oCLogTopic logTopic; logTopic = _^(lt);
-
-        // Iterate over all entries of that topic
-        var int list; list = _@(logTopic.m_lstEntries_data);
-        var zCList l;
-        while(list);
-            l = _^(list);
-            list = l.next;
-            if (l.data) {
-                if (Hlp_StrCmp(MEM_ReadString(l.data), needle)) {
-                    MEM_WriteString(l.data, replace);
-                    return;
-                };
-            };
-        end;
-    };
-};
-
-/*
  * Set the section of a log topic (LOG_MISSION or LOG_NOTE)
  */
 func void G1CP_LogSetTopicSection(var string topic, var int section) {
@@ -171,4 +121,54 @@ func void G1CP_LogRemoveTopic(var string topic) {
         prev = list;
         list = l.next;
     end;
+};
+
+/*
+ * Check whether a log topic has a certain entry
+ */
+func int G1CP_LogHasEntry(var string topic, var string entry) {
+    var int lt; lt = G1CP_LogGetTopic(topic);
+    if (lt) {
+        var oCLogTopic logTopic; logTopic = _^(lt);
+
+        // Iterate over all entries of that topic
+        var int list; list = _@(logTopic.m_lstEntries_data);
+        var zCList l;
+        while(list);
+            l = _^(list);
+            list = l.next;
+            if (l.data) {
+                if (Hlp_StrCmp(MEM_ReadString(l.data), entry)) {
+                    return TRUE;
+                };
+            };
+        end;
+    };
+
+    // Not found
+    return FALSE;
+};
+
+/*
+ * Replace the entry of a log topic
+ */
+func void G1CP_LogReplaceEntry(var string topic, var string needle, var string replace) {
+    var int lt; lt = G1CP_LogGetTopic(topic);
+    if (lt) {
+        var oCLogTopic logTopic; logTopic = _^(lt);
+
+        // Iterate over all entries of that topic
+        var int list; list = _@(logTopic.m_lstEntries_data);
+        var zCList l;
+        while(list);
+            l = _^(list);
+            list = l.next;
+            if (l.data) {
+                if (Hlp_StrCmp(MEM_ReadString(l.data), needle)) {
+                    MEM_WriteString(l.data, replace);
+                    return;
+                };
+            };
+        end;
+    };
 };
