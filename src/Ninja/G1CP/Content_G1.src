@@ -94,6 +94,7 @@ Content\Fixes\Session\fix200_DE_ImprovedOreArmorText.d
 Content\Fixes\Session\fix201_DE_AncientOreArmorText.d
 
 // Game save fixes
+Content\Fixes\Gamesave\fix037_LogEntryGravoMerchant.d
 Content\Fixes\Gamesave\fix046_SmithDoor.d
 Content\Fixes\Gamesave\fix050_Pillar.d
 Content\Fixes\Gamesave\fix093_DE_LogEntryHoratio.d
@@ -128,6 +129,7 @@ Content\Tests\test031.d
 Content\Tests\test032.d
 Content\Tests\test033.d
 Content\Tests\test036.d
+Content\Tests\test037.d
 Content\Tests\test038.d
 Content\Tests\test039.d
 Content\Tests\test040.d
