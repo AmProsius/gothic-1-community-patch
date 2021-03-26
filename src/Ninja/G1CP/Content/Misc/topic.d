@@ -172,3 +172,87 @@ func void G1CP_LogReplaceEntry(var string topic, var string needle, var string r
         end;
     };
 };
+
+/*
+ * Remove the entry of a log topic
+ */
+func void G1CP_LogRemoveEntry(var string topic, var string entry) {
+    var int lt; lt = G1CP_LogGetTopic(topic);
+    if (lt) {
+        var oCLogTopic logTopic; logTopic = _^(lt);
+
+        // Iterate over all entries of that topic
+        var int list; list = _@(logTopic.m_lstEntries_data);
+        var int prev; prev = 0;
+        var zCList l;
+        while(list);
+            l = _^(list);
+            if (l.data) {
+                if (Hlp_StrCmp(MEM_ReadString(l.data), entry)) {
+
+                    // Remove this element from the list
+                    var int data; data = l.data;
+                    var int next; next = l.next;
+                    l.next = 0; // Important before calling the destructor below. Otherwise the entire list is deleted
+                    if (prev) {
+                        l = _^(prev);
+                        l.next = next;
+                    };
+
+                    // Destroy the entry from the topic's entry list
+                    const int oCLogEntry___oCLogEntry        = 7532544; //0x72F000
+                    const int zCList_oCLogEntry___destructor = 7532784; //0x72F0F0
+                    const int call = 0;
+                    const int one = -1; // Set all bits, because char
+                    if (CALL_Begin(call)) {
+                        CALL__thiscall(_@(data), oCLogEntry___oCLogEntry);
+                        CALL_PtrParam(_@(one));
+                        CALL__thiscall(_@(list), zCList_oCLogEntry___destructor);
+                        call = CALL_End();
+                    };
+                    return;
+                };
+            };
+
+            prev = list;
+            list = l.next;
+        end;
+    };
+};
+
+/*
+ * Move entry to the front of the log topic
+ */
+func void G1CP_LogMoveEntryToTop(var string topic, var string entry) {
+    var int lt; lt = G1CP_LogGetTopic(topic);
+    if (lt) {
+        var oCLogTopic logTopic; logTopic = _^(lt);
+
+        // Iterate over all entries of that topic
+        var int list; list = _@(logTopic.m_lstEntries_data);
+        var int prev; prev = 0;
+        var zCList l;
+        while(list);
+            l = _^(list);
+            if (l.data) {
+                if (Hlp_StrCmp(MEM_ReadString(l.data), entry)) {
+                    if (prev) {
+
+                        // Place element at the beginning of the list
+                        var int next; next = l.next;
+                        l.next = logTopic.m_lstEntries_next;
+                        logTopic.m_lstEntries_next = list;
+
+                        // Fill the hole
+                        l = _^(prev);
+                        l.next = next;
+                    };
+                    return;
+                };
+            };
+
+            prev = list;
+            list = l.next;
+        end;
+    };
+};
