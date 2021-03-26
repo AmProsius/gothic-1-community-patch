@@ -236,7 +236,7 @@ func void G1CP_LogMoveEntryToTop(var string topic, var string entry) {
             l = _^(list);
             if (l.data) {
                 if (Hlp_StrCmp(MEM_ReadString(l.data), entry)) {
-                    if (prev) {
+                    if (prev) && (list != logTopic.m_lstEntries_next) {
 
                         // Place element at the beginning of the list
                         var int next; next = l.next;
