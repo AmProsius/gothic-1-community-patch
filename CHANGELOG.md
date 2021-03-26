@@ -25,8 +25,8 @@
 * Fix [#78](https://g1cp.org/issues/78): Human NPCs now correctly recognize orcs as enemies. This fixes Baal Lukor's behavior in the orc graveyard.
 * Fix [#125](https://g1cp.org/issues/125): The description of the sword "Butcher" now correctly labels it as a one-handed weapon.
 * Fix [#136](https://g1cp.org/issues/136): Followers now use ladders properly.
-* Fix [#157](https://g1cp.org/issues/157): The "Potion of Velocity" now has the correct ore value.
-* Fix [#158](https://g1cp.org/issues/158): The "Potion of Haste" now has the correct ore value.
+* Fix [#157](https://g1cp.org/issues/157): The ore value of the potion "Potion of Velocity" is now correct.
+* Fix [#158](https://g1cp.org/issues/158): The ore value of the potion "Potion of Haste" is now correct.
 
 ### Story
 * Fix [#15](https://g1cp.org/issues/15): The player character doesn't lose Strength as part of the quest "Horatio the Peasant" if he had more than 100 Strength.

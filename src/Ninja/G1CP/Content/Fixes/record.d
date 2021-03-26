@@ -26,6 +26,21 @@ func int G1CP_GetFixStatus(var int id) {
 
 
 /*
+ * Set status of a fix
+ * This function sets one of four states
+ *   G1CP_FIX_NOT_FOUND
+ *   G1CP_FIX_DISABLED
+ *   G1CP_FIX_NOT_APPLIED
+ *   G1CP_FIX_APPLIED
+ */
+func void G1CP_SetFixStatus(var int id, var int newStatus) {
+    if (G1CP_LookupTable) {
+        _HT_InsertOrChange(G1CP_LookupTable, newStatus, id);
+    };
+};
+
+
+/*
  * Check if fix is currently applied
  */
 func int G1CP_IsFixApplied(var int id) {
@@ -285,8 +300,8 @@ func int G1CP_InitLookupTable() {
             var int chr; chr = STR_GetCharAt(symb.name, 5) - 48;
             if (0 <= chr) && (chr <= 9) {
                 var int id; id = STR_ToInt(STR_SubStr(symb.name, 5, 3));
-                if (!_HT_Has(G1CP_LookupTable, id)) {
-                    _HT_Insert(G1CP_LookupTable, G1CP_FIX_NOT_APPLIED, id);
+                if (G1CP_GetFixStatus(id) == G1CP_FIX_NOT_FOUND) {
+                    G1CP_SetFixStatus(id, G1CP_FIX_NOT_APPLIED);
                 };
             };
         };
@@ -379,9 +394,9 @@ func int G1CP_ReadDisabledFixesIni() {
                 // Split at any non-numerical character
                 if (bufferLen > 0) {
                     // Check if valid fix ID
-                    if (_HT_Has(G1CP_LookupTable, buffer)) {
+                    if (G1CP_GetFixStatus(buffer) != G1CP_FIX_NOT_FOUND) {
                         MEM_ArrayInsert(arr, buffer);
-                        _HT_Change(G1CP_LookupTable, G1CP_FIX_DISABLED, buffer);
+                        G1CP_SetFixStatus(buffer, G1CP_FIX_DISABLED);
                     };
                     bufferLen = 0;
                     buffer = 0;

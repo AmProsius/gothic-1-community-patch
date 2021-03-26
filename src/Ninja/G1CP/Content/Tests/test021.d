@@ -38,7 +38,7 @@ func int G1CP_Test_021() {
     };
 
     // Back up the values
-    var int topicStatusBak; topicStatusBak = G1CP_GetTopicStatus(CH1_LostNek);
+    var int topicStatusBak; topicStatusBak = G1CP_LogGetTopicStatus(CH1_LostNek);
     var int guildTrueBak; guildTrueBak = Npc_GetTrueGuild(hero);
 
     // Set the variables
@@ -66,12 +66,12 @@ func int G1CP_Test_021() {
     AI_StandUpQuick(hero);
 
     // Check the variables now
-    var int topicStatusAfter; topicStatusAfter = G1CP_GetTopicStatus(CH1_LostNek);
+    var int topicStatusAfter; topicStatusAfter = G1CP_LogGetTopicStatus(CH1_LostNek);
 
     // Restore the variables
     Npc_SetTrueGuild(hero, guildTrueBak);
     if (topicStatusBak == -1) {
-        G1CP_RemoveTopic(CH1_LostNek);
+        G1CP_LogRemoveTopic(CH1_LostNek);
     } else {
         Log_SetTopicStatus(CH1_LostNek, topicStatusBak);
     };

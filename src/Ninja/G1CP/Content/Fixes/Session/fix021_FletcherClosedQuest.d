@@ -41,7 +41,7 @@ func int G1CP_021_AllowTopicCall(var string topic) {
     const int LOG_SUCCESS = 2;
 
     // Allow to open topic if ...
-    return (G1CP_GetTopicStatus(topic) != LOG_SUCCESS) && (Npc_GetTrueGuild(hero) == GIL_NONE);
+    return (G1CP_LogGetTopicStatus(topic) != LOG_SUCCESS) && (Npc_GetTrueGuild(hero) == GIL_NONE);
 };
 
 /*

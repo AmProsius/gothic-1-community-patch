@@ -7,7 +7,7 @@ func int G1CP_121_DE_LogTopicShrikeHut() {
 
     if (Hlp_StrCmp(curName, "Shrike's Hütte")) {
         G1CP_SetStringVar("CH1_ShrikesHut", 0, newName);
-        G1CP_RenameTopic(curName, newName);
+        G1CP_LogRenameTopic(curName, newName);
         return TRUE;
     } else {
         return FALSE;
@@ -28,7 +28,7 @@ func int G1CP_121_DE_LogTopicShrikeHutRevert() {
 
     if (Hlp_StrCmp(curName, "Shrikes Hütte")) {
         G1CP_SetStringVar("CH1_ShrikesHut", 0, oldName); // Necessary for re-applying
-        G1CP_RenameTopic(curName, oldName);
+        G1CP_LogRenameTopic(curName, oldName);
         return TRUE;
     } else {
         return FALSE;
