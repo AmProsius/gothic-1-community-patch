@@ -25,7 +25,7 @@ func int G1CP_093_DE_LogEntryHoratio() {
     };
 
     // Replace the log entry
-    G1CP_TopicReplaceEntry(topicName, curString, newString);
+    G1CP_LogReplaceEntry(topicName, curString, newString);
 
     // Return success
     return TRUE;
@@ -53,7 +53,7 @@ func int G1CP_093_DE_LogEntryHoratioRevert() {
     };
 
     // Revert the log entry
-    G1CP_TopicReplaceEntry(topicName, curString, oldString);
+    G1CP_LogReplaceEntry(topicName, curString, oldString);
 
     // Return success
     return TRUE;

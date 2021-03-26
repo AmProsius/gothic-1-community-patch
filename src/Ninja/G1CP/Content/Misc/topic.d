@@ -1,7 +1,7 @@
 /*
  * Find a topic by its name
  */
-func int G1CP_GetTopic(var string topic) {
+func int G1CP_LogGetTopic(var string topic) {
     // Iterate over all topics (irrespective of their section)
     var int list; list = oCLogManager_Ptr;
     var zCList l;
@@ -23,8 +23,8 @@ func int G1CP_GetTopic(var string topic) {
 /*
  * Get the section of a log topic (LOG_MISSION or LOG_NOTE)
  */
-func int G1CP_GetTopicSection(var string topic) {
-    var int lt; lt = G1CP_GetTopic(topic);
+func int G1CP_LogGetTopicSection(var string topic) {
+    var int lt; lt = G1CP_LogGetTopic(topic);
     if (lt) {
         var oCLogTopic logTopic; logTopic = _^(lt);
         return logTopic.m_enuSection;
@@ -36,8 +36,8 @@ func int G1CP_GetTopicSection(var string topic) {
 /*
  * Get the status of a log topic
  */
-func int G1CP_GetTopicStatus(var string topic) {
-    var int lt; lt = G1CP_GetTopic(topic);
+func int G1CP_LogGetTopicStatus(var string topic) {
+    var int lt; lt = G1CP_LogGetTopic(topic);
     if (lt) {
         var oCLogTopic logTopic; logTopic = _^(lt);
         return logTopic.m_enuStatus;
@@ -49,8 +49,8 @@ func int G1CP_GetTopicStatus(var string topic) {
 /*
  * Check whether a log topic has a certain entry
  */
-func int G1CP_TopicHasEntry(var string topic, var string entry) {
-    var int lt; lt = G1CP_GetTopic(topic);
+func int G1CP_LogHasEntry(var string topic, var string entry) {
+    var int lt; lt = G1CP_LogGetTopic(topic);
     if (lt) {
         var oCLogTopic logTopic; logTopic = _^(lt);
 
@@ -75,8 +75,8 @@ func int G1CP_TopicHasEntry(var string topic, var string entry) {
 /*
  * Replace the entry of a log topic
  */
-func void G1CP_TopicReplaceEntry(var string topic, var string needle, var string replace) {
-    var int lt; lt = G1CP_GetTopic(topic);
+func void G1CP_LogReplaceEntry(var string topic, var string needle, var string replace) {
+    var int lt; lt = G1CP_LogGetTopic(topic);
     if (lt) {
         var oCLogTopic logTopic; logTopic = _^(lt);
 
@@ -99,7 +99,7 @@ func void G1CP_TopicReplaceEntry(var string topic, var string needle, var string
 /*
  * Set the section of a log topic (LOG_MISSION or LOG_NOTE)
  */
-func void G1CP_SetTopicSection(var string topic, var int section) {
+func void G1CP_LogSetTopicSection(var string topic, var int section) {
     // Define possibly missing symbols locally
     const int LOG_MISSION = 0;
     const int LOG_NOTE    = 1;
@@ -108,7 +108,7 @@ func void G1CP_SetTopicSection(var string topic, var int section) {
         return;
     };
 
-    var int lt; lt = G1CP_GetTopic(topic);
+    var int lt; lt = G1CP_LogGetTopic(topic);
     if (lt) {
         var oCLogTopic logTopic; logTopic = _^(lt);
         logTopic.m_enuSection = section;
@@ -119,8 +119,8 @@ func void G1CP_SetTopicSection(var string topic, var int section) {
  * Rename the topic (does not perform any safety checks, i.e. if there is already a topic of the same name)
  * Use with caution!
  */
-func void G1CP_RenameTopic(var string topic, var string newName) {
-    var int lt; lt = G1CP_GetTopic(topic);
+func void G1CP_LogRenameTopic(var string topic, var string newName) {
+    var int lt; lt = G1CP_LogGetTopic(topic);
     if (lt) {
         var oCLogTopic logTopic; logTopic = _^(lt);
         logTopic.m_strDescription = newName;
@@ -130,7 +130,7 @@ func void G1CP_RenameTopic(var string topic, var string newName) {
 /*
  * Remove a topic from the log completely
  */
-func void G1CP_RemoveTopic(var string topic) {
+func void G1CP_LogRemoveTopic(var string topic) {
     // Iterate over all topics (irrespective of their section)
     var int list; list = oCLogManager_Ptr;
     var int prev; prev = 0;

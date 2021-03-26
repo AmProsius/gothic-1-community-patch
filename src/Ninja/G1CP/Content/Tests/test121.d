@@ -40,7 +40,7 @@ func int G1CP_Test_121() {
     // the fix and finally confirm that the name was correctly updated
 
     // Remember for later if the log topic already exists
-    var int topicBakPtr; topicBakPtr = G1CP_GetTopic(topic);
+    var int topicBakPtr; topicBakPtr = G1CP_LogGetTopic(topic);
 
     // Revert the fix (careful now, don't overwrite the fix status!)
     var int r; r = G1CP_121_DE_LogTopicShrikeHutRevert();
@@ -48,7 +48,7 @@ func int G1CP_Test_121() {
 
     // Create the topic with original name temporarily (if it does not exist already)
     Log_CreateTopic(topic, LOG_MISSION);
-    var int topicTempPtr; topicTempPtr = G1CP_GetTopic(topic);
+    var int topicTempPtr; topicTempPtr = G1CP_LogGetTopic(topic);
 
     // Apply the fix again (careful now, don't overwrite the fix status!)
     r = G1CP_121_DE_LogTopicShrikeHut();
@@ -68,7 +68,7 @@ func int G1CP_Test_121() {
 
     // Remove the temporary log topic
     if (topicTempPtr != topicBakPtr) {
-        G1CP_RemoveTopic(topicTemp.m_strDescription);
+        G1CP_LogRemoveTopic(topicTemp.m_strDescription);
     };
 
     // Return success

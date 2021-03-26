@@ -106,7 +106,7 @@ func void G1CP_027_TopicEntry(var string topic, var string entry) {
     const int LOG_NOTE = 1;
 
     // Check if both topic exists (and is a note)
-    if (G1CP_GetTopicSection(topic) != LOG_NOTE) {
+    if (G1CP_LogGetTopicSection(topic) != LOG_NOTE) {
         return;
     };
 
