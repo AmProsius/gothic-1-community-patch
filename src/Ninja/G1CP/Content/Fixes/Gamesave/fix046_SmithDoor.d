@@ -17,66 +17,6 @@
  * only remain in the game as long as its instance exists in the scripts. In other words, as soon as G1CP was to be
  * uninstalled, the key would automatically vanish from the game on loading.
  */
-
-/* Position of the door */
-const int G1CP_046_SmithDoor_Pos[3] = {
-     1164227412, 1132825156, 1148357543
-};
-
-/*
- * Identify the door in the world
- */
-func int G1CP_046_SmithDoorFind() {
-    // Create VOB array once, clear it on consecutive calls
-    const int arrPtr = 0;
-    if (!arrPtr) {
-        arrPtr = MEM_ArrayCreate();
-    } else {
-        MEM_ArrayClear(arrPtr);
-    };
-
-    // Find all cCMobDoor objects
-    // Source: https://forum.worldofplayers.de/forum/threads/?p=25717007
-    const int zCWorld__SearchVobListByBaseClass = 6250016; //0x5F5E20
-    const int oCMobDoor__classDef               = 9284672; //0x8DAC40
-
-    var int vobTreePtr; vobTreePtr = _@(MEM_Vobtree);
-    var int worldPtr;   worldPtr   = _@(MEM_World);
-
-    const int call = 0;
-    if (CALL_Begin(call)) {
-        CALL_PtrParam(_@(vobTreePtr));
-        CALL_PtrParam(_@(arrPtr));
-        CALL_PtrParam(_@(oCMobDoor__classDef));
-        CALL__thiscall(_@(worldPtr), zCWorld__SearchVobListByBaseClass);
-        call = CALL_End();
-    };
-
-    // Narrow down the search
-    repeat(i, MEM_ArraySize(arrPtr)); var int i;
-        var int vobPtr; vobPtr = MEM_ArrayRead(arrPtr, i);
-        var oCMobDoor mob; mob = _^(vobPtr);
-
-        // Confirm exact position (separate if-conditions for performance)
-        if (mob._zCVob_trafoObjToWorld[ 3] == G1CP_046_SmithDoor_Pos[0]) {
-        if (mob._zCVob_trafoObjToWorld[ 7] == G1CP_046_SmithDoor_Pos[1]) {
-        if (mob._zCVob_trafoObjToWorld[11] == G1CP_046_SmithDoor_Pos[2]) {
-
-            // Make sure no lock picking string was added
-            if (Hlp_StrCmp(mob._oCMobLockable_pickLockStr, "")) {
-                return vobPtr;
-            };
-
-        }; }; };
-    end;
-
-    // Not found
-    return 0;
-};
-
-/*
- * This function applies the changes of #46
- */
 func int G1CP_046_SmithDoor() {
     // First find the symbol indices once
     const int keyIdOld = -2; // -1 is reserved for invalid symbols
@@ -103,11 +43,16 @@ func int G1CP_046_SmithDoor() {
     };
 
     // Find the door in the world
-    var int vobPtr; vobPtr = G1CP_046_SmithDoorFind();
-    if (!vobPtr) {
+    var int vobPtr; vobPtr = G1CP_FindVobByPosF(3659.20801, 267.0802, 970.182068);
+    if (!Hlp_Is_oCMobDoor(vobPtr)) {
         return FALSE;
     };
     var oCMobDoor mob; mob = _^(vobPtr);
+
+    // Make sure no lock picking string was added
+    if (!Hlp_StrCmp(mob._oCMobLockable_pickLockStr, "")) {
+        return FALSE;
+    };
 
     // Check if the door is still locked (an unlocked door does not need this fix)
     if (!(mob._oCMobLockable_bitfield | oCMobLockable_bitfield_locked)) {
@@ -200,15 +145,20 @@ func int G1CP_046_SmithDoor() {
 };
 
 /*
- * This function reverts the changes of #46
+ * This function reverts the changes
  */
 func int G1CP_046_SmithDoorRevert() {
     // Find the door in the world
-    var int vobPtr; vobPtr = G1CP_046_SmithDoorFind();
-    if (!vobPtr) {
+    var int vobPtr; vobPtr = G1CP_FindVobByPosF(3659.20801, 267.0802, 970.182068);
+    if (!Hlp_Is_oCMobDoor(vobPtr)) {
         return FALSE;
     };
     var oCMobDoor mob; mob = _^(vobPtr);
+
+    // Make sure no lock picking string was added
+    if (!Hlp_StrCmp(mob._oCMobLockable_pickLockStr, "")) {
+        return FALSE;
+    };
 
     // Check if the door references the expected key instance
     if (!Hlp_StrCmp(mob._oCMobLockable_keyInstance, "G1CP_046_SmithDoor_Item")) {
