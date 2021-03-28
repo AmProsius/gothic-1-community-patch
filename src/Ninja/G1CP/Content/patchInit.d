@@ -58,6 +58,7 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
         G1CP_125_ButcherText();                         // #125
         G1CP_126_SharkyTrade();                         // #126
         G1CP_136_FollowLadder();                        // #136
+        G1CP_142_TemplarVIPDialog();                    // #142
         G1CP_144_DE_GomezArmorName();                   // #144
         G1CP_145_DE_LightMercenarysArmorName();         // #145
         G1CP_146_DE_NovicesLoinclothName();             // #146
