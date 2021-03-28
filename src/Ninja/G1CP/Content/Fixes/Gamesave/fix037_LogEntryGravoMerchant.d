@@ -7,18 +7,26 @@
  */
 func int G1CP_037_LogEntryGravoMerchant_Toggle(var int apply) {
     // Define possibly missing symbols locally
-    const int LOG_NOTE = 1;
+    const int LOG_MISSION = 0;
+    const int LOG_NOTE    = 1;
+
+    // Parameters of this fix
+    const int    topicSection  = LOG_NOTE;
+    const string topicSymbName = "GE_TraderOC";
+    const string infoSymbName  = "DIA_Gravo_HelpHow";
+    const string funcSymbName  = "DIA_Gravo_HelpHow_Info";
+    const string hookSymbName  = "G1CP_037_LogEntryGravoMerchant_Intercept";
 
     // Retrieve the topic and entry strings once and modify the info function
     const int    infoId  = -2; // -1 is reserved for invalid symbols
-    const int    topicId = -2;
-    const int    entryId = -2;
+    const int    topicId = -1;
+    const int    entryId = -1;
     const string topic   = "G1CP invalid topic name";
     const string entry   = "G1CP invalid topic entry";
     if (infoId == -2) {
-        infoId = MEM_GetSymbolIndex("DIA_Gravo_HelpHow");
-        topicId = MEM_GetSymbolIndex("GE_TraderOC");
-        var int funcId; funcId = MEM_GetSymbolIndex("DIA_Gravo_HelpHow_Info");
+        infoId = MEM_GetSymbolIndex(infoSymbName);
+        topicId = MEM_GetSymbolIndex(topicSymbName);
+        var int funcId; funcId = MEM_GetSymbolIndex(funcSymbName);
         var int b_logentry_id; b_logentry_id = MEM_GetSymbolIndex("B_LogEntry");
 
         // Do this only once (this is never reverted, i.e. session fix)
@@ -26,19 +34,19 @@ func int G1CP_037_LogEntryGravoMerchant_Toggle(var int apply) {
             return FALSE;
         };
 
-        // Find all calls to 'B_LogEntry' within 'DIA_Gravo_HelpHow_Info'
+        // Find all calls to 'B_LogEntry' within the dialog function
         const int bytes[2] = {zPAR_TOK_CALL<<24, -1};
         var zCPar_Symbol needleSymb; needleSymb = _^(MEM_GetSymbolByIndex(b_logentry_id));
         bytes[1] = needleSymb.content;
         var int matches; matches = G1CP_FindInFunc(funcId, _@(bytes)+3, 5);
 
         /* We are looking for:
-            zPAR_TOK_PUSHVAR GE_TraderOC
+            zPAR_TOK_PUSHVAR topic
             zPAR_TOK_PUSHVAR xxxx
             zPAR_TOK_CALL    B_LogEntry
         */
 
-        // Narrow down the search to calls with 'GE_TraderOC' as first argument to find the pushed entry
+        // Narrow down the search to calls with the correct topic as first argument to find the pushed entry
         repeat(i, MEM_ArraySize(matches)); var int i;
             var int pos; pos = MEM_ArrayRead(matches, i);
             if (MEM_ReadByte(pos-10) == zPAR_TOK_PUSHVAR) && (MEM_ReadInt(pos-9) == topicId)
@@ -50,7 +58,7 @@ func int G1CP_037_LogEntryGravoMerchant_Toggle(var int apply) {
         MEM_ArrayFree(matches);
 
         // Check if we have found a valid entry
-        if (entryId <= 0) {
+        if (entryId <= 0) || (entryId >= currSymbolTableLength) {
             return FALSE;
         };
 
@@ -59,7 +67,7 @@ func int G1CP_037_LogEntryGravoMerchant_Toggle(var int apply) {
         entry = G1CP_GetStringVarByIndex(entryId, 0, entry);
 
         // Now that all is established, let's replace the call to 'B_LogEntry' to squeeze in the creation of the topic
-        i = G1CP_ReplaceCall(funcId, b_logentry_id, MEM_GetFuncID(G1CP_037_LogEntryGravoMerchant_Intercept));
+        i = G1CP_ReplaceCall(funcId, b_logentry_id, MEM_GetSymbolIndex(hookSymbName));
         if (i <= 0) {
             return FALSE;
         };
@@ -76,7 +84,7 @@ func int G1CP_037_LogEntryGravoMerchant_Toggle(var int apply) {
         // Add the log entry silently if it should be there
         if (Npc_KnowsInfo(hero, infoId))
         && (!G1CP_LogHasEntry(topic, entry)) {
-            Log_CreateTopic(topic, LOG_NOTE);
+            Log_CreateTopic(topic, topicSection);
             Log_AddEntry(topic, entry);
             G1CP_LogMoveEntryToTop(topic, entry); // Move entry to the top otherwise it is always the newest entry
             return TRUE;
@@ -95,18 +103,23 @@ func int G1CP_037_LogEntryGravoMerchant_Toggle(var int apply) {
 };
 
 /*
- * Intercept the call of 'B_LogEntry' within 'DIA_Gravo_HelpHow_Info'
+ * Intercept the call of 'B_LogEntry' within the dialog function
  */
 func void G1CP_037_LogEntryGravoMerchant_Intercept(var string topic, var string entry) {
     G1CP_ReportFuncToSpy();
 
     // Define possibly missing symbols locally
-    const int LOG_NOTE = 1;
+    const int LOG_MISSION = 0;
+    const int LOG_NOTE    = 1;
+
+    // Parameters of this fix
+    const string topicSymbName = "GE_TraderOC";
+    const int    topicSection  = LOG_NOTE;
 
     // Check if this is the correct topic
-    if (Hlp_StrCmp(topic, G1CP_GetStringVar("GE_TraderOC", 0, "G1CP invalid topic string")))
+    if (Hlp_StrCmp(topic, G1CP_GetStringVar(topicSymbName, 0, "G1CP invalid topic string")))
     && (!G1CP_LogGetTopic(topic)) {
-        Log_CreateTopic(topic, LOG_NOTE);
+        Log_CreateTopic(topic, topicSection);
         G1CP_SetFixStatus(37, G1CP_FIX_APPLIED); // If it did not exist before, our fix will have to be reverted
     };
 

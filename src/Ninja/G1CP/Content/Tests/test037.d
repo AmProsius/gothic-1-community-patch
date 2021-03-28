@@ -8,10 +8,10 @@
 func int G1CP_Test_037() {
     var int passed; passed = TRUE;
 
-    // Symbol names
+    // Parameters of this fix
+    const string topicSymbName = "GE_TraderOC";
     const string infoSymbName  = "DIA_Gravo_HelpHow";
     const string funcSymbName  = "DIA_Gravo_HelpHow_Info";
-    const string topicSymbName = "GE_TraderOC";
     const string tempTopicName = "G1CP Test 37";
 
     // Check if dialog exists
