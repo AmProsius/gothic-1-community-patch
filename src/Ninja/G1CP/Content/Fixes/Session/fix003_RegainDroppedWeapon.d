@@ -42,7 +42,7 @@ func void G1CP_003_RegainDroppedWeapon_Logic(var C_Npc slf) {
 
     // Melee weapon
     if (Wld_DetectItem(slf, ITEM_KAT_NF)) {
-        if (Npc_GetDistToItem(slf, item) < 5000)   // Prevent walking off too far
+        if (Npc_GetDistToItem(slf, item) < 300)    // Prevent walking off too far
         && (G1CP_Npc_CanSeeItemFreeLOS(slf, item)) // Does not have to face it, only line of sight
         && (!Npc_HasEquippedMeleeWeapon(slf)) {
             AI_TakeItem(slf, item);
@@ -52,7 +52,7 @@ func void G1CP_003_RegainDroppedWeapon_Logic(var C_Npc slf) {
 
     // Ranged weapon
     if (Wld_DetectItem(slf, ITEM_KAT_FF)) {
-        if (Npc_GetDistToItem(slf, item) < 5000)
+        if (Npc_GetDistToItem(slf, item) < 300)
         && (G1CP_Npc_CanSeeItemFreeLOS(slf, item))
         && (!Npc_HasEquippedRangedWeapon(slf)) {
             AI_TakeItem(slf, item);
@@ -62,7 +62,7 @@ func void G1CP_003_RegainDroppedWeapon_Logic(var C_Npc slf) {
 
     // Ammunition (just a bonus)
     if (Wld_DetectItem(slf, ITEM_KAT_MUN)) {
-        if (Npc_GetDistToItem(slf, item) < 5000)
+        if (Npc_GetDistToItem(slf, item) < 300)
         && (G1CP_Npc_CanSeeItemFreeLOS(slf, item)) {
             AI_TakeItem(slf, item);
         };
