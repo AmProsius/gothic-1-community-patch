@@ -78,6 +78,7 @@ Content\Fixes\Session\fix122_CavalornDailyRoutine.d
 Content\Fixes\Session\fix125_ButcherText.d
 Content\Fixes\Session\fix126_SharkyTrade.d
 Content\Fixes\Session\fix136_FollowLadder.d
+Content\Fixes\Session\fix142_TemplarVIPDialog.d
 Content\Fixes\Session\fix144_DE_GomezArmorName.d
 Content\Fixes\Session\fix145_DE_LightMercenarysArmorName.d
 Content\Fixes\Session\fix146_DE_NovicesLoinclothName.d
@@ -160,6 +161,7 @@ Content\Tests\test124.d
 Content\Tests\test125.d
 Content\Tests\test126.d
 Content\Tests\test136.d
+Content\Tests\test142.d
 Content\Tests\test144.d
 Content\Tests\test145.d
 Content\Tests\test146.d
