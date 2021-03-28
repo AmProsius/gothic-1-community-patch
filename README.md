@@ -32,6 +32,7 @@ Please note that this is the first release of the G1CP. Work on the patch contin
 ## Supporters
 * pawbuj1981
 * Blubbler
+* N1kX94
 
 ## Sources of Inspiration
 
