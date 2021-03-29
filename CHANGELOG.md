@@ -7,6 +7,7 @@
 * Fix [#192](https://g1cp.org/issues/192): Mages (NPCs fighting only with spells) no longer auto-equip weapons (e.g. after trading). This requires fix #59 to be active.
 
 ### Story
+* Fix [#23](https://g1cp.org/issues/23): The armor "Novice's Armor" is now available in chapter 2 to make it accessible before receiving the first templar armor.
 * Fix [#37](https://g1cp.org/issues/37): Gravo is now correctly listed as merchant in the Old Camp in the journal.
 * Fix [#174](https://g1cp.org/issues/174): The key "Gomez' Bowl" is now correctly labelled as "Gomez' Key".
 * Fix [#175](https://g1cp.org/issues/175): The key "Rice Lord's Bowl" is now correctly labelled as "Rice Lord's Key".
