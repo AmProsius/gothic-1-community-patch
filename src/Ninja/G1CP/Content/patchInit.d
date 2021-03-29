@@ -13,6 +13,7 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
         G1CP_001_NpcStateSleep();                       // #1
         G1CP_002_NpcMoveDoor();                         // #2
         G1CP_003_RegainDroppedWeapon();                 // #3
+        G1CP_004_NpcMoveNpcDefeated();                  // #4
         G1CP_007_PracticeSwordWithWeapon();             // #7
         G1CP_009_NpcStateFlee();                        // #9
         G1CP_010_FollowWalkMode();                      // #10
