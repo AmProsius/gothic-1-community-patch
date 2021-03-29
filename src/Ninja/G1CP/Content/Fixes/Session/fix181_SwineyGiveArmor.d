@@ -13,7 +13,7 @@ func int G1CP_181_SwineyGiveArmor() {
 };
 
 /*
- * This function intercepts the dialog condition to introduce more conditions
+ * This function intercepts the dialog to add actions afterwards
  */
 func int G1CP_181_SwineyGiveArmor_Hook1() {
     G1CP_ReportFuncToSpy();
