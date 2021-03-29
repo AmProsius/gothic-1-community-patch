@@ -252,7 +252,7 @@ func int G1CP_ReplaceAssignStrID(var int funcId, var string assignedSymb, var in
         // Check the pushed string content against "needle"
         if (MEM_ReadByte(pos-offset) == zPAR_TOK_PUSHVAR) {
             var int varId; varId = MEM_ReadInt(pos-offset+1);
-            if (Hlp_StrCmp(G1CP_GetStringVarByIndex(varId, 0, "G1CP invalid string"), needle)) {
+            if (STR_Compare(G1CP_GetStringVarByIndex(varId, 0, "G1CP invalid string"), needle) == STR_EQUAL) {
 
                 // Overwrite the string assignment with the replacement string
                 MEMINT_OverrideFunc_Ptr = pos-offset;
