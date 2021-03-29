@@ -2,6 +2,7 @@
 
 ## v1.1.0 (TBA)
 ### General
+* Fix [#50](https://g1cp.org/issues/50): Die unerreichbare Truhe in der Gruft unter dem Stonehenge ist nun korrekt positioniert und zugänglich.
 * Fix [#52](https://g1cp.org/issues/52): Der Schleifstein im Neuen Lager setzt zur Benutzung nun korrekt eine Schwertklinge voraus.
 * Fix [#144](https://g1cp.org/issues/144): Die Rüstung "Gomez'Rüstung" heißt nun korrekt "Gomez' Rüstung".
 * Fix [#145](https://g1cp.org/issues/145): Die Rüstung "leichte Söldnerrüstung" heißt nun korrekt "Leichte Söldnerrüstung".
