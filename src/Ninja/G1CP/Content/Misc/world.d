@@ -97,3 +97,69 @@ func int G1CP_FindVobByPosF(var float x, var float y, var float z) {
     castToIntf(z);
     MEM_Call(G1CP_FindVobByPos); // Leave return value on stack
 };
+
+/*
+ * Move VOB to position coordinates
+ */
+func void G1CP_MoveVobToPosPtr(var int vobPtr, var int posPtr) {
+    if (!vobPtr) || (!posPtr) {
+        return;
+    };
+
+    // Backup and lift collision
+    var zCVob v; v = _^(vobPtr);
+    var int bits; bits = v.bitfield[0];
+    v.bitfield[0] = v.bitfield[0] & ~(zCVob_bitfield0_collDetectionStatic | zCVob_bitfield0_collDetectionDynamic);
+
+    // Move the VOB
+    const int zCVob__SetPositionWorld = 6219344; //0x5EE650
+    const int call = 0;
+    if (CALL_Begin(call)) {
+        CALL_PtrParam(_@(posPtr));
+        CALL__thiscall(_@(vobPtr), zCVob__SetPositionWorld);
+        call = CALL_End();
+    };
+
+    // Restore collision
+    v.bitfield[0] = bits;
+};
+func int G1CP_MoveVobToPos(var int vobPtr, var int x, var int y, var int z) { // Integer-floats!
+    var int pos[3];
+    pos[0] = x;
+    pos[1] = y;
+    pos[2] = z;
+    G1CP_MoveVobToPosPtr(vobPtr, _@(pos)); // Leave return value on stack
+};
+func int G1CP_MoveVobToPosF(var int vobPtr, var float x, var float y, var float z) {
+    MEM_PushIntParam(vobPtr);
+    castToIntf(x); // Just to repush
+    castToIntf(y);
+    castToIntf(z);
+    MEM_Call(G1CP_MoveVobToPos); // Leave return value on stack
+};
+
+/*
+ * Move/translate/rotate VOB by transformation matrix
+ */
+func void G1CP_TransformVob(var int vobPtr, var int trafoPtr) {
+    if (!vobPtr) || (!trafoPtr) {
+        return;
+    };
+
+    // Backup and lift collision
+    var zCVob v; v = _^(vobPtr);
+    var int bits; bits = v.bitfield[0];
+    v.bitfield[0] = v.bitfield[0] & ~(zCVob_bitfield0_collDetectionStatic | zCVob_bitfield0_collDetectionDynamic);
+
+    // Move the VOB
+    const int zCVob__SetTrafoObjToWorld = 6219616; //0x5EE760
+    const int call = 0;
+    if (CALL_Begin(call)) {
+        CALL_PtrParam(_@(trafoPtr));
+        CALL__thiscall(_@(vobPtr), zCVob__SetTrafoObjToWorld);
+        call = CALL_End();
+    };
+
+    // Restore collision
+    v.bitfield[0] = bits;
+};

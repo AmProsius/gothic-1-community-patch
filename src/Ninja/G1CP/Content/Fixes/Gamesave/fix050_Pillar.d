@@ -70,23 +70,6 @@ func int G1CP_050_PillarFind() {
 };
 
 /*
- * Set new position of the pillar
- */
-func void G1CP_050_PillarMove(var int vobPtr, var int trfPtr) {
-    const int zCVob__SetTrafoObjToWorld = 6219616; //0x5EE760
-    var zCVob v; v = _^(vobPtr);
-    var int bits; bits = v.bitfield[0];
-    v.bitfield[0] = v.bitfield[0] & ~(zCVob_bitfield0_collDetectionStatic | zCVob_bitfield0_collDetectionDynamic);
-    const int call = 0;
-    if (CALL_Begin(call)) {
-        CALL_PtrParam(_@(trfPtr));
-        CALL__thiscall(_@(vobPtr), zCVob__SetTrafoObjToWorld);
-        call = CALL_End();
-    };
-    v.bitfield[0] = bits;
-};
-
-/*
  * This function applies the changes of #50
  */
 func int G1CP_050_Pillar() {
@@ -120,7 +103,7 @@ func int G1CP_050_Pillar() {
         };
 
         // Update position
-        G1CP_050_PillarMove(vobPtr, _@f(G1CP_050_Pillar_PosNew));
+        G1CP_TransformVob(vobPtr, _@f(G1CP_050_Pillar_PosNew));
         return TRUE;
     };
 
@@ -147,7 +130,7 @@ func int G1CP_050_PillarRevert() {
         };
 
         // Revert position only if it is as expected
-        G1CP_050_PillarMove(vobPtr, _@(G1CP_050_Pillar_PosOld));
+        G1CP_TransformVob(vobPtr, _@(G1CP_050_Pillar_PosOld));
     };
 
     // Remove the hook function again if it had been applied before
@@ -214,5 +197,5 @@ func void G1CP_050_Pillar_FixBbox() {
     end;
 
     // Update the bounding box of the vob (done by the model's bounding box)
-    G1CP_050_PillarMove(vobPtr, _@(vob.trafoObjToWorld));
+    G1CP_TransformVob(vobPtr, _@(vob.trafoObjToWorld));
 };
