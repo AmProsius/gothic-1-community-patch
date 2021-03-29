@@ -104,6 +104,7 @@ Content\Fixes\Gamesave\fix052_UseWithItemNCGrindstone.d
 Content\Fixes\Gamesave\fix093_DE_LogEntryHoratio.d
 Content\Fixes\Gamesave\fix121_DE_LogTopicShrikeHut.d
 Content\Fixes\Gamesave\fix124_GateGuardID.d
+Content\Fixes\Gamesave\fix193_GateSwitchesStuck.d
 
 // Tests
 Content\Tests\test001.d
@@ -176,6 +177,7 @@ Content\Tests\test173.d
 Content\Tests\test174.d
 Content\Tests\test175.d
 Content\Tests\test192.d
+Content\Tests\test193.d
 Content\Tests\test200.d
 Content\Tests\test201.d
 
