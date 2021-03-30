@@ -11,7 +11,7 @@ func int G1CP_004_NpcMoveNpcDefeated() {
     };
 
     // Recreate the very specific list of if-conditions to find the position just before the if-block
-    const int bytes[3] = {0, 0, 0}; // 11 bytes used
+    var int bytes[3]; // 11 bytes used
     MEMINT_OverrideFunc_Ptr = _@(bytes);
     MEMINT_OFTokPar(zPAR_TOK_CALLEXTERN, MEM_GetFuncID(Npc_GetAttitude));
     MEMINT_OFTok(zPAR_OP_EQUAL);
