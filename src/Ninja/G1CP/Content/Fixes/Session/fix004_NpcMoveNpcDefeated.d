@@ -6,9 +6,7 @@ func int G1CP_004_NpcMoveNpcDefeated() {
 
     // Get necessary symbol indices
     var int funcId; funcId = MEM_GetSymbolIndex("B_MoveNpc");
-    var int npcAIVarId; npcAIVarId = MEM_GetSymbolIndex("C_Npc.aivar");
-    var int aivId; aivId = MEM_GetSymbolIndex("AIV_WasDefeatedBySC");
-    if (funcId == -1) || (npcAIVarId == -1) || (aivId == -1) {
+    if (funcId == -1) || (MEM_GetSymbolIndex("AIV_WasDefeatedBySC") == -1) {
         return FALSE;
     };
 
@@ -26,23 +24,9 @@ func int G1CP_004_NpcMoveNpcDefeated() {
 
     // There should only be one occurrence, otherwise no chance to identify the correct position in the function
     if (MEM_ArraySize(matches) == 1) {
+        // Add another condition to the if-statement
         var int pos; pos = MEM_ArrayRead(matches, 0)+10; // Just before zPAR_TOK_JUMPF
-        var int targetFalse; targetFalse = MEM_ReadInt(pos+1);           // Offset after the if-block (FALSE)
-        var int targetTrue; targetTrue = pos+5 - currParserStackAddress; // Offset inside the if-block (TRUE)
-
-        // Create new byte code to check "(!self.aivar[AIV_WasDefeatedBySC])"
-        const int detour = 0; detour = MEM_Alloc(23);
-        MEMINT_OverrideFunc_Ptr = detour;
-        MEMINT_OFTokPar(zPAR_TOK_SETINSTANCE, self);
-        MEMINT_OFTokPar(zPAR_TOK_PUSH_ARRAYVAR, npcAIVarId); MEMINT_OFTok(G1CP_GetIntVarByIndex(aivId, 0, 19));
-        MEMINT_OFTok(zPAR_OP_UN_NOT);
-        MEMINT_OFTok(zPAR_OP_LOG_AND);
-        MEMINT_OFTokPar(zPAR_TOK_JUMPF, targetFalse);
-        MEMINT_OFTokPar(zPAR_TOK_JUMP, targetTrue);
-
-        // Overwrite the jump to detour to our additional condition
-        MEMINT_OverrideFunc_Ptr = pos;
-        MEMINT_OFTokPar(zPAR_TOK_JUMP, detour - currParserStackAddress);
+        G1CP_AddIfCondition(pos, zPAR_OP_LOG_AND, G1CP_004_NpcMoveNpcDefeated_Condition);
 
         // Success
         applied = TRUE;
@@ -53,4 +37,14 @@ func int G1CP_004_NpcMoveNpcDefeated() {
 
     // Return success
     return applied;
+};
+
+/*
+ * Additional condition
+ */
+func int G1CP_004_NpcMoveNpcDefeated_Condition() {
+    G1CP_ReportFuncToSpy();
+
+    // (!self.aivar[AIV_WasDefeatedBySC])
+    return (!G1CP_GetAIVar(self, "AIV_WasDefeatedBySC", 0)); // Symbol exists as established by the function above
 };
