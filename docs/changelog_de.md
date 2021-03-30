@@ -15,6 +15,7 @@
 * Fix [#201](https://g1cp.org/issues/201): Die Beschreibung der Rüstung "Antike Erzrüstung" passt nun in die Textbox des Inventars und enthält keinen Rechtschreibfehler mehr.
 
 ### Story
+* Fix [#36](https://g1cp.org/issues/36) (aktualisiert): Fisks Quest "Neuer Hehler für Fisk" is nun verfügbar, wenn der Spieler Mordrag entweder KO geschlagen oder getötet hat.
 * Fix [#37](https://g1cp.org/issues/37): Gravo ist nun korrekt als Händler im Alten Lager im Tagebuch aufgelistet.
 * Fix [#93](https://g1cp.org/issues/93): Im Tagebucheintrag zu der Quest "Horatio der Bauer" lautet die Phrase "[...] stärker zuzuschalgen." nun korrekt "[...] stärker zuzuschlagen."
 * Fix [#91](https://g1cp.org/issues/91): Die Dialogauswahl mit Horatio: "Ja. Ich will es mit Ricelord und seinen Schlägern aufnehmen können!" lautet nun korrekt "Ja. Ich will es mit dem Reislord und seinen Schlägern aufnehmen können!"
@@ -60,7 +61,7 @@
 * Fix [#31](https://g1cp.org/issues/31): Wolf können keine Minecrawlerpanzerplatten mehr angeboten werden, wenn der Spieler ihm schon die erforderliche Anzahl gebracht hat.
 * Fix [#32](https://g1cp.org/issues/32): Gorn greift den Spieler nicht mehr beim Überfall auf die Freie Mine an.
 * Fix [#33](https://g1cp.org/issues/33): Die Quest "Shrike's Hütte" kann nun abgeschlossen werden, unabhängig davon, ob der Spieler zuerst von der Quest erfährt oder Shrike besiegt.
-* Fix [#36](https://g1cp.org/issues/36): Fisks Quest "Neuer Hehler für Fisk" is nun immer erhältlich, egal, wie Thorus' Quest "Auftrag von Thorus" (erfolgreich) beendet wurde.  
+* Fix [#36](https://g1cp.org/issues/36): Fisks Quest "Neuer Hehler für Fisk" is nun immer erhältlich, egal, wie Thorus' Quest "Auftrag von Thorus" (erfolgreich) beendet wurde. (überarbeitet in v1.1.0)
 * Fix [#38](https://g1cp.org/issues/38): Snaf spricht nun auch über Nek, wenn die Quest "Snafs Rezept" abgeschlossen wurde. 
 * Fix [#39](https://g1cp.org/issues/39): Fingers lehrt nicht mehr Taschendiebstahl und Schlösserknacken auf Stufe zwei, wenn Stufe eins jeweils noch nicht gelernt wurde.
 * Fix [#40](https://g1cp.org/issues/40): Aleph bietet den Schlüssel nun nicht noch einmal an, wenn der Spieler ihn schon erhalten hat.
