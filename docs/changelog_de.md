@@ -2,6 +2,7 @@
 
 ## v1.1.0 (TBA)
 ### General
+* Fix [#14](https://g1cp.org/issues/14): Der Spieler kann Kämpfe nicht mehr durch Betreten und Verlassen eines Raumes abbrechen. Falls das unerlaubte Betreten des Raumes der Angriffsgrund war, bleibt das Verhalten unverändert.
 * Fix [#52](https://g1cp.org/issues/52): Der Schleifstein im Neuen Lager setzt zur Benutzung nun korrekt eine Schwertklinge voraus.
 * Fix [#144](https://g1cp.org/issues/144): Die Rüstung "Gomez'Rüstung" heißt nun korrekt "Gomez' Rüstung".
 * Fix [#145](https://g1cp.org/issues/145): Die Rüstung "leichte Söldnerrüstung" heißt nun korrekt "Leichte Söldnerrüstung".

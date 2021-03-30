@@ -2,6 +2,7 @@
 
 ## v1.1.0 (TBA)
 ### General
+* Fix [#14](https://g1cp.org/issues/14): The player can no longer cancel fights by entering and leaving a room. The behavior is unchanged, if trespassing into the room was the reason for the fight.
 * Fix [#52](https://g1cp.org/issues/52): The grindstone in the New Camp now correctly requires a sword blade to use.
 * Fix [#149](https://g1cp.org/issues/149): The armor "Improved ore Armor" is now correctly labelled as "Improved Ore Armor".
 * Fix [#192](https://g1cp.org/issues/192): Mages (NPCs fighting only with spells) no longer auto-equip weapons (e.g. after trading). This requires fix #59 to be active.
