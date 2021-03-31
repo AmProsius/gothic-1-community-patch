@@ -19,16 +19,7 @@ func void G1CP_Test_050() {
             vob.bitfield[0] = vob.bitfield[0] | zCVob_bitfield0_drawBBox3D;
 
             // Teleport PC to the pillar (AI_Teleport not applicable because there is no waypoint nearby)
-            var int herPtr; herPtr = _@(hero);
-            const int oCNpc__BeamTo = 6896400; //0x693B10
-            const int strPtr = 0;
-            const int call = 0;
-            if (CALL_Begin(call)) {
-                strPtr = _@s("MOBSISEULE");
-                CALL_PtrParam(_@(strPtr));
-                CALL__thiscall(_@(herPtr), oCNpc__BeamTo);
-                call = CALL_End();
-            };
+            G1CP_NpcBeamTo(hero, "MOBSISEULE");
         } else {
             G1CP_TestsuiteErrorDetail("VOB 'MOBSISEULE' not found");
         };

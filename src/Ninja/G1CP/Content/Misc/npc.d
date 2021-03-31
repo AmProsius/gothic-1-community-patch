@@ -45,3 +45,23 @@ func int G1CP_Npc_CanSeeItemFreeLOS(var C_Npc slf, var C_Item itm) {
         return FALSE;
     };
 };
+
+
+/*
+ * Instant teleport (for the testsuite functions)
+ * Advantages:
+ * - Destination may be anything from a waypoint to a VOB name/NPC instance name
+ * - The teleport is instant
+ */
+func void G1CP_NpcBeamTo(var C_Npc slf, var string destination) {
+    var int slfPtr; slfPtr = _@(slf);
+    const int oCNpc__BeamTo = 6896400; //0x693B10
+    const int strPtr = 0;
+    const int call = 0;
+    if (CALL_Begin(call)) {
+        strPtr = _@s(destination);
+        CALL_PtrParam(_@(strPtr));
+        CALL__thiscall(_@(slfPtr), oCNpc__BeamTo);
+        call = CALL_End();
+    };
+};
