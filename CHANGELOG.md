@@ -2,14 +2,20 @@
 
 ## v1.1.0 (TBA)
 ### General
+* Fix [#4](https://g1cp.org/issues/4): NPCs no longer confront the player when he is standing in their way if he has defeated them before.
+* Fix [#50](https://g1cp.org/issues/50): The inaccessible chest of the crypt below the stonehenge is now correctly positioned and accessible.
 * Fix [#52](https://g1cp.org/issues/52): The grindstone in the New Camp now correctly requires a sword blade to use.
 * Fix [#149](https://g1cp.org/issues/149): The armor "Improved ore Armor" is now correctly labelled as "Improved Ore Armor".
 * Fix [#192](https://g1cp.org/issues/192): Mages (NPCs fighting only with spells) no longer auto-equip weapons (e.g. after trading). This requires fix #59 to be active.
 
 ### Story
+* Fix [#23](https://g1cp.org/issues/23): The armor "Novice's Armor" is now available in chapter 2 to make it accessible before receiving the first templar armor.
+* Fix [#36](https://g1cp.org/issues/36) (updated): Fisk's quest "New Fence for Fisk" is now available when the player either knocked out or killed Mordrag.
 * Fix [#37](https://g1cp.org/issues/37): Gravo is now correctly listed as merchant in the Old Camp in the journal.
 * Fix [#174](https://g1cp.org/issues/174): The key "Gomez' Bowl" is now correctly labelled as "Gomez' Key".
 * Fix [#175](https://g1cp.org/issues/175): The key "Rice Lord's Bowl" is now correctly labelled as "Rice Lord's Key".
+* Fix [#181](https://g1cp.org/issues/181): Swiney no longer takes off his own Digger's Dress when he gives one to the player.
+* Fix [#182](https://g1cp.org/issues/182): The gate guard can now only be bribed once when bringing Dusty to the Swamp Camp.
 * Fix [#214](https://g1cp.org/issues/214): Graham now correctly sits at the campfire in the evening.
 
 ## [v1.0.0](https://github.com/AmProsius/gothic-1-community-patch/releases/tag/v1.0.0) (2021-03-15)
@@ -50,7 +56,7 @@
 * Fix [#31](https://g1cp.org/issues/31): Wolf can't be offered Minecrawler's Armor Plates any longer if the player already gave him the requested amount.
 * Fix [#32](https://g1cp.org/issues/32): Gorn no longer attacks the player on the raid of the Free Mine.
 * Fix [#33](https://g1cp.org/issues/33): The quest "Shrike's Hut" can be closed no matter in which order the player gets to know about the quest and defeats Shrike.
-* Fix [#36](https://g1cp.org/issues/36): Fisk's quest "New Fence for Fisk" is now available regardless of how the quest "Thorus' Quest" is (successfully) completed.
+* Fix [#36](https://g1cp.org/issues/36): Fisk's quest "New Fence for Fisk" is now available regardless of how the quest "Thorus' Quest" is (successfully) completed. (revisited in v1.1.0)
 * Fix [#38](https://g1cp.org/issues/38): Snaf now offers the dialog about Nek even when the quest "Snaf's Recipe" is completed.
 * Fix [#39](https://g1cp.org/issues/39): Fingers no longer offers to teach level two of pickpocketing and lock picking before level one has been learned.
 * Fix [#40](https://g1cp.org/issues/40): Aleph doesn't offer to sell the key anymore when the player already obtained it.
