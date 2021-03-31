@@ -99,6 +99,7 @@ Content\Fixes\Session\fix182_GuardDialogDusty.d
 Content\Fixes\Session\fix192_MagicUserAutoEquip.d
 Content\Fixes\Session\fix200_DE_ImprovedOreArmorText.d
 Content\Fixes\Session\fix201_DE_AncientOreArmorText.d
+Content\Fixes\Session\fix214_GrahamDailyRoutine.d
 
 // Game save fixes
 Content\Fixes\Gamesave\fix037_LogEntryGravoMerchant.d
@@ -188,6 +189,7 @@ Content\Tests\test182.d
 Content\Tests\test192.d
 Content\Tests\test200.d
 Content\Tests\test201.d
+Content\Tests\test214.d
 
 // Initialization
 Content\initPre.d
