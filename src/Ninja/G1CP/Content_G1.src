@@ -102,6 +102,7 @@ Content\Fixes\Session\fix201_DE_AncientOreArmorText.d
 Content\Fixes\Gamesave\fix037_LogEntryGravoMerchant.d
 Content\Fixes\Gamesave\fix046_SmithDoor.d
 Content\Fixes\Gamesave\fix050_Pillar.d
+Content\Fixes\Gamesave\fix051_StonehengeCryptChest.d
 Content\Fixes\Gamesave\fix052_UseWithItemNCGrindstone.d
 Content\Fixes\Gamesave\fix093_DE_LogEntryHoratio.d
 Content\Fixes\Gamesave\fix121_DE_LogTopicShrikeHut.d
@@ -147,6 +148,7 @@ Content\Tests\test044.d
 Content\Tests\test046.d
 Content\Tests\test049.d
 Content\Tests\test050.d
+Content\Tests\test051.d
 Content\Tests\test052.d
 Content\Tests\test059.d
 Content\Tests\test060.d
