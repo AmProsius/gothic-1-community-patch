@@ -14,6 +14,7 @@
 * Fix [#37](https://g1cp.org/issues/37): Gravo is now correctly listed as merchant in the Old Camp in the journal.
 * Fix [#174](https://g1cp.org/issues/174): The key "Gomez' Bowl" is now correctly labelled as "Gomez' Key".
 * Fix [#175](https://g1cp.org/issues/175): The key "Rice Lord's Bowl" is now correctly labelled as "Rice Lord's Key".
+* Fix [#181](https://g1cp.org/issues/181): Swiney no longer takes off his own Digger's Dress when he gives one to the player.
 
 ## [v1.0.0](https://github.com/AmProsius/gothic-1-community-patch/releases/tag/v1.0.0) (2021-03-15)
 ### General
