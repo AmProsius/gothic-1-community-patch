@@ -2,67 +2,59 @@
  * #36 Fisk's quest isn't triggered
  */
 func int G1CP_036_FiskFenceQuest() {
-    if (MEM_GetSymbolIndex("Stt_311_Fisk_MordragKO_Condition") != -1)
-    && (MEM_GetSymbolIndex("Org_826_Mordrag") != -1)
-    && (MEM_GetSymbolIndex("MordragKO_HauAb") != -1)
-    && (MEM_GetSymbolIndex("MordragKO_StayAtNC") != -1) {
-        HookDaedalusFuncS("Stt_311_Fisk_MordragKO_Condition", "G1CP_036_FiskFenceQuest_Hook");
-        return TRUE;
-    } else {
+    var int applied; applied = FALSE;
+
+    // Get all necessary symbols
+    var int funcId; funcId = MEM_GetSymbolIndex("Stt_311_Fisk_MordragKO_Condition");
+    var int varId; varId = MEM_GetSymbolIndex("MordragKO_HauAb");
+    if (funcId == -1) || (varID == -1) || (MEM_GetSymbolIndex("Org_826_Mordrag") == -1) {
         return FALSE;
     };
+
+    // Find where "MordragKO_HauAb" is pushed in the function
+    const int bytes[2] = {zPAR_TOK_PUSHVAR<<24, -1};
+    bytes[1] = varId;
+    var int matches; matches = G1CP_FindInFunc(funcId, _@(bytes)+3, 5);
+
+    // There should only be one occurrence, otherwise the function was somehow modified (and possibly fixed)
+    if (MEM_ArraySize(matches) == 1) {
+        var int pos; pos = MEM_ArrayRead(matches, 0);
+
+        // Replace the variable check by a call
+        MEMINT_OverrideFunc_Ptr = pos;
+        MEMINT_OFTokPar(zPAR_TOK_CALL, MEM_GetFuncOffset(G1CP_036_FiskFenceQuest_Intercept));
+
+        /* The part of the function should change to this
+
+        if (MordragKO_HauAb == TRUE)  ->   if (G1CP_036_FiskFenceQuest_Intercept() == TRUE)
+
+        or this
+
+        if (MordragKO_HauAb)          ->   if (G1CP_036_FiskFenceQuest_Intercept())
+        */
+
+        applied = TRUE;
+    };
+
+    // Free the array
+    MEM_ArrayFree(matches);
+
+    // Return success
+    return applied;
 };
 
 /*
- * This function intercepts the dialog condition to introduce more conditions
+ * This function intercepts the conditions to add another one
  */
-func int G1CP_036_FiskFenceQuest_Hook() {
+func int G1CP_036_FiskFenceQuest_Intercept() {
     G1CP_ReportFuncToSpy();
 
-    // Fixing this dialog is a bit more challenging than the other ones, because the new condition should yield the
-    // truth value of the condition to be true (not false like the other fixes usually) depending on other - possibly
-    // unknown - conditions within the function.
-    // So, one of the variables that is going to be checked will be temporarily set to true to make this happen.
+    // Retrieve variable content (exists given the function above)
+    var int hauAb; hauAb = G1CP_GetIntVar("MordragKO_HauAb", 0, 0);
 
-    // Check if the variable exists
-    var int hauAbBak;
-    var int hauAbPtr; hauAbPtr = MEM_GetSymbol("MordragKO_HauAb");
-    if (hauAbPtr) {
-        hauAbPtr += zCParSymbol_content_offset;
-        hauAbBak = MEM_ReadInt(hauAbPtr);
-    };
+    // Check for Mordrag
+    var C_Npc mordrag; mordrag = Hlp_GetNpc(MEM_GetSymbolIndex("Org_826_Mordrag"));
 
-    // If the variable exists but is false, overwrite it with our new truth value to implement an OR condition
-    if (hauAbPtr) && (!hauAbBak) {
-
-        // Check for variable
-        var int stayAtNC; stayAtNC = MEM_GetSymbol("MordragKO_StayAtNC");
-        if (stayAtNC) {
-            stayAtNC = MEM_ReadInt(stayAtNC + zCParSymbol_content_offset);
-        };
-
-        // Check for Mordrag
-        var C_Npc mordrag; mordrag = Hlp_GetNpc(MEM_GetSymbolIndex("Org_826_Mordrag"));
-        var int mordragDead; mordragDead = Npc_IsDead(mordrag);
-
-        // The condition should now look like this:
-        // if (otherConditions) && ((hauAb) || (mordragDead) || (stayAtNC)) {
-        //     return TRUE;
-        // };
-
-        // Add as OR (since hauAbBak is False we could just omit it)
-        MEM_WriteInt(hauAbPtr, (hauAbBak) || (mordragDead) || (stayAtNC));
-    };
-
-    // Call the function as usual, with the possibly modified variable
-    ContinueCall();
-    var int ret; ret = MEM_PopIntResult();
-
-    // Restore the variable we abused
-    if (hauAbPtr) {
-        MEM_WriteInt(hauAbPtr, hauAbBak);
-    };
-
-    // Pass on the return value
-    return ret;
+    // Squeeze in the new check
+    return (hauAb) || (Npc_IsDead(mordrag));
 };

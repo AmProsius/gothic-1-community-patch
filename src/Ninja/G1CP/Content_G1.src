@@ -33,6 +33,7 @@ Content\testsuite.d
 Content\Fixes\Session\fix001_NpcStateSleep.d
 Content\Fixes\Session\fix002_NpcMoveDoor.d
 Content\Fixes\Session\fix003_RegainDroppedWeapon.d
+Content\Fixes\Session\fix004_NpcMoveNpcDefeated.d
 Content\Fixes\Session\fix007_PracticeSwordWithWeapon.d
 Content\Fixes\Session\fix009_NpcStateFlee.d
 Content\Fixes\Session\fix010_FollowWalkMode.d
@@ -46,6 +47,7 @@ Content\Fixes\Session\fix019_ScorpioFightDialog.d
 Content\Fixes\Session\fix020_KirgoGivesBeer.d
 Content\Fixes\Session\fix021_FletcherClosedQuest.d
 Content\Fixes\Session\fix022_YBerionAttacks.d
+Content\Fixes\Session\fix023_BaalNamibSellArmor.d
 Content\Fixes\Session\fix024_CorKalomWrongQuest.d
 Content\Fixes\Session\fix025_SaturasSellsRobe.d
 Content\Fixes\Session\fix026_LaresGuardAttacks.d
@@ -110,6 +112,7 @@ Content\Fixes\Gamesave\fix124_GateGuardID.d
 Content\Tests\test001.d
 Content\Tests\test002.d
 Content\Tests\test003.d
+Content\Tests\test004.d
 Content\Tests\test007.d
 Content\Tests\test009.d
 Content\Tests\test010.d
@@ -123,6 +126,7 @@ Content\Tests\test019.d
 Content\Tests\test020.d
 Content\Tests\test021.d
 Content\Tests\test022.d
+Content\Tests\test023.d
 Content\Tests\test024.d
 Content\Tests\test025.d
 Content\Tests\test026.d
