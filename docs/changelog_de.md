@@ -16,6 +16,7 @@
 * Fix [#201](https://g1cp.org/issues/201): Die Beschreibung der Rüstung "Antike Erzrüstung" passt nun in die Textbox des Inventars und enthält keinen Rechtschreibfehler mehr.
 
 ### Story
+* Fix [#23](https://g1cp.org/issues/23): Die Rüstung "Novizenrüstung" ist nun im zweiten Kapitel erhältlich, damit sie vor der ersten Templerrüstung erlangt werden kann.
 * Fix [#36](https://g1cp.org/issues/36) (aktualisiert): Fisks Quest "Neuer Hehler für Fisk" is nun verfügbar, wenn der Spieler Mordrag entweder KO geschlagen oder getötet hat.
 * Fix [#37](https://g1cp.org/issues/37): Gravo ist nun korrekt als Händler im Alten Lager im Tagebuch aufgelistet.
 * Fix [#93](https://g1cp.org/issues/93): Im Tagebucheintrag zu der Quest "Horatio der Bauer" lautet die Phrase "[...] stärker zuzuschalgen." nun korrekt "[...] stärker zuzuschlagen."

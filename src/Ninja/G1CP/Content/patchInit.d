@@ -27,6 +27,7 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
         G1CP_020_KirgoGivesBeer();                      // #20
         G1CP_021_FletcherClosedQuest();                 // #21
         G1CP_022_YBerionAttacks();                      // #22
+        G1CP_023_BaalNamibSellArmor();                  // #23
         G1CP_024_CorKalomWrongQuest();                  // #24
         G1CP_025_SaturasSellsRobe();                    // #25
         G1CP_026_LaresGuardAttacks();                   // #26
