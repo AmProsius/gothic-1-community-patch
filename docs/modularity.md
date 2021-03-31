@@ -24,7 +24,7 @@ Here we search the compiled byte code of the original function and modify the fu
     - We will only change exactly what we intend.
 
 - **Disadvantages**:
-    - If the mod changed the original function sufficiently enough, we will not find the expected bytes and the fix will not be applied. This should okay, however. If a mod changed a function to such an extend, we can assume that the mod may have already addressed the issue. If not, better safe than sorry: We prioritize stability/compatibility (not destroying a mod) over applying the fixes.
+    - If the mod changed the original function sufficiently enough, we will not find the expected bytes and the fix will not be applied. This should be okay, however. If a mod changed a function to such an extend, we can assume that the mod may have already addressed the issue. If not, better safe than sorry: We prioritize stability/compatibility (not destroying a mod) over applying the fixes.
 
 ## What is the Difference Between a Session Fix and a Game Save/Revertible Fix?
 
