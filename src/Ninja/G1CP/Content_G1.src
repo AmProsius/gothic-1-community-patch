@@ -38,6 +38,7 @@ Content\Fixes\Session\fix009_NpcStateFlee.d
 Content\Fixes\Session\fix010_FollowWalkMode.d
 Content\Fixes\Session\fix011_PassGuardsCombatMode.d
 Content\Fixes\Session\fix012_RangedDoubleXP.d
+Content\Fixes\Session\fix013_NpcIgnoreDeadMonster.d
 Content\Fixes\Session\fix015_HoratioStrength.d
 Content\Fixes\Session\fix016_ThorusBribeDialog.d
 Content\Fixes\Session\fix017_JackalProtectionMoney.d
@@ -114,6 +115,7 @@ Content\Tests\test009.d
 Content\Tests\test010.d
 Content\Tests\test011.d
 Content\Tests\test012.d
+Content\Tests\test013.d
 Content\Tests\test015.d
 Content\Tests\test016.d
 Content\Tests\test017.d
