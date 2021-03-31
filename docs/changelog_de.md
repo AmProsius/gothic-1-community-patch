@@ -22,6 +22,7 @@
 * Fix [#121](https://g1cp.org/issues/121): Die Quest "Shrike's Hütte" heißt nun korrekt "Shrikes Hütte".
 * Fix [#142](https://g1cp.org/issues/142): Die Dialogzeile "Wer sind eure Gurus?" im Ambient-Dialog der Templer "Wer hat hier das Sagen?" ist nun korrekt dem Spieler Charakter zugewiesen.
 * Fix [#172](https://g1cp.org/issues/172): Das Schriftstück "Kalom's Rezept" heißt nun korrekt "Kaloms Rezept".
+* Fix [#214](https://g1cp.org/issues/214): Graham sitzt nun abends korrekt am Lagerfeuer.
 
 ## [v1.0.0](https://github.com/AmProsius/gothic-1-community-patch/releases/tag/v1.0.0) (2021-03-15)
 ### General
