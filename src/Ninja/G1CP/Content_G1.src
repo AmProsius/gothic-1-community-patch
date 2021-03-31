@@ -13,6 +13,7 @@ Content\menuVersionNumber.d
 Content\Report\indent.d
 Content\Report\reportFuncToSpy.d
 
+Content\Symbols\parser.d
 Content\Symbols\int.d
 Content\Symbols\string.d
 Content\Symbols\aivar.d
@@ -108,6 +109,7 @@ Content\Fixes\Gamesave\fix050_Pillar.d
 Content\Fixes\Gamesave\fix051_StonehengeCryptChest.d
 Content\Fixes\Gamesave\fix052_UseWithItemNCGrindstone.d
 Content\Fixes\Gamesave\fix093_DE_LogEntryHoratio.d
+Content\Fixes\Gamesave\fix110_MobInteractCamera.d
 Content\Fixes\Gamesave\fix121_DE_LogTopicShrikeHut.d
 Content\Fixes\Gamesave\fix124_GateGuardID.d
 
@@ -162,6 +164,7 @@ Content\Tests\test093.d
 Content\Tests\test094.d
 Content\Tests\test102.d
 Content\Tests\test109.d
+Content\Tests\test110.d
 Content\Tests\test111.d
 Content\Tests\test112.d
 Content\Tests\test121.d

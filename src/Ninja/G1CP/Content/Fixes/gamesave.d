@@ -30,6 +30,7 @@ func void G1CP_GamesaveFixes_Apply() {
         G1CP_051_StonehengeCryptChest();                // #51
         G1CP_052_UseWithItemNCGrindstone();             // #52
         G1CP_093_DE_LogEntryHoratio();                  // #93
+        G1CP_110_MobInteractCamera();                   // #110
         G1CP_121_DE_LogTopicShrikeHut();                // #121
         G1CP_124_GateGuardID();                         // #124
     };
@@ -46,6 +47,7 @@ func void G1CP_GamesaveFixes_Revert() {
         G1CP_051_StonehengeCryptChestRevert();          // #51
         G1CP_052_UseWithItemNCGrindstoneRevert();       // #52
         G1CP_093_DE_LogEntryHoratioRevert();            // #93
+        G1CP_110_MobInteractCameraRevert();             // #110
         G1CP_121_DE_LogTopicShrikeHutRevert();          // #121
         G1CP_124_GateGuardIDRevert();                   // #124
     };
