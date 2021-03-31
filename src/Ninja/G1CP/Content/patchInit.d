@@ -13,6 +13,7 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
         G1CP_001_NpcStateSleep();                       // #1
         G1CP_002_NpcMoveDoor();                         // #2
         G1CP_003_RegainDroppedWeapon();                 // #3
+        G1CP_004_NpcMoveNpcDefeated();                  // #4
         G1CP_007_PracticeSwordWithWeapon();             // #7
         G1CP_009_NpcStateFlee();                        // #9
         G1CP_010_FollowWalkMode();                      // #10
@@ -26,6 +27,7 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
         G1CP_020_KirgoGivesBeer();                      // #20
         G1CP_021_FletcherClosedQuest();                 // #21
         G1CP_022_YBerionAttacks();                      // #22
+        G1CP_023_BaalNamibSellArmor();                  // #23
         G1CP_024_CorKalomWrongQuest();                  // #24
         G1CP_025_SaturasSellsRobe();                    // #25
         G1CP_026_LaresGuardAttacks();                   // #26
@@ -72,6 +74,7 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
         G1CP_173_DE_GomezKeyText();                     // #173
         G1CP_174_EN_GomezKeyName();                     // #174
         G1CP_175_EN_RiceLordKeyName();                  // #175
+        G1CP_181_SwineyGiveArmor();                     // #181
         G1CP_182_GuardDialogDusty();                    // #182
         G1CP_192_MagicUserAutoEquip();                  // #192
         G1CP_200_DE_ImprovedOreArmorText();             // #200
