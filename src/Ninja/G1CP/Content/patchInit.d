@@ -76,6 +76,7 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
         G1CP_175_EN_RiceLordKeyName();                  // #175
         G1CP_181_SwineyGiveArmor();                     // #181
         G1CP_182_GuardDialogDusty();                    // #182
+        G1CP_183_CorristoSellsRobe();                   // #183
         G1CP_192_MagicUserAutoEquip();                  // #192
         G1CP_200_DE_ImprovedOreArmorText();             // #200
         G1CP_201_DE_AncientOreArmorText();              // #201

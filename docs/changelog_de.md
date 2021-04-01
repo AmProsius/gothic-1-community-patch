@@ -28,6 +28,7 @@
 * Fix [#172](https://g1cp.org/issues/172): Das Schriftstück "Kalom's Rezept" heißt nun korrekt "Kaloms Rezept".
 * Fix [#181](https://g1cp.org/issues/181): Swiney zieht nicht mehr seine eigenen Schürferklamotten aus, wenn er dem Spieler welche gibt.
 * Fix [#182](https://g1cp.org/issues/182): Die Torwache kann nun nur noch einmal bestochen werden, wenn Dusty zum Sumpflager gebracht wird.
+* Fix [#183](https://g1cp.org/issues/183): Corristo bietet nun keine Große Feuerrobe mehr an, wenn der Spieler bereits eine erworben hat.
 * Fix [#214](https://g1cp.org/issues/214): Graham sitzt nun korrekt abends am Lagerfeuer.
 
 ## [v1.0.0](https://github.com/AmProsius/gothic-1-community-patch/releases/tag/v1.0.0) (2021-03-15)
