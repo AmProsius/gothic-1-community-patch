@@ -1,5 +1,5 @@
 /*
- * #174 Spelling - Gomez' Armor (DE)
+ * #144 Spelling - Gomez' Armor (DE)
  *
  * The name of the item "EBR_ARMOR_H" is inspected programmatically.
  *

@@ -21,20 +21,6 @@ func int G1CP_Test_036() {
         passed = FALSE;
     };
 
-    // Find Mordrag
-    var int symbId; symbId = MEM_GetSymbolIndex("Org_826_Mordrag");
-    if (symbId == -1) {
-        G1CP_TestsuiteErrorDetail("NPC 'Org_826_Mordrag' not found");
-        passed = FALSE;
-    };
-
-    // Check if Mordrag exists in the world
-    var C_Npc mordrag; mordrag = Hlp_GetNpc(symbId);
-    if (!Hlp_IsValidNpc(mordrag)) {
-        G1CP_TestsuiteErrorDetail("NPC 'Org_826_Mordrag' not valid");
-        passed = FALSE;
-    };
-
     // Check if variable exists
     var int hauAbPtr; hauAbPtr = MEM_GetSymbol("MordragKO_HauAb");
     if (!hauAbPtr) {
@@ -50,6 +36,20 @@ func int G1CP_Test_036() {
         passed = FALSE;
     };
     stayAtNcPtr += zCParSymbol_content_offset;
+
+    // Find Mordrag
+    var int symbId; symbId = MEM_GetSymbolIndex("Org_826_Mordrag");
+    if (symbId == -1) {
+        G1CP_TestsuiteErrorDetail("NPC 'Org_826_Mordrag' not found");
+        return FALSE; // Fail immediately, because the following (last) check will fail now anyway
+    };
+
+    // Check if Mordrag exists in the world
+    var C_Npc mordrag; mordrag = Hlp_GetNpc(symbId);
+    if (!Hlp_IsValidNpc(mordrag)) {
+        G1CP_TestsuiteErrorDetail("NPC 'Org_826_Mordrag' not valid");
+        passed = FALSE;
+    };
 
     // At the latest now, we need to stop if there are fails already
     if (!passed) {
@@ -71,7 +71,7 @@ func int G1CP_Test_036() {
     other = MEM_CpyInst(hero);                                   // Other
 
     // Now do two passes for each OR-condition
-    var int ret; ret = 0;
+    var int pass1; var int pass2;
 
     // First pass: Mordrag is dead but MordragKO_StayAtNC if false
     mordrag.attribute[ATR_HITPOINTS] = 0;
@@ -79,8 +79,8 @@ func int G1CP_Test_036() {
 
     // Call dialog condition function
     MEM_CallByID(funcId);
-    ret += MEM_PopIntResult();
-    if (!ret) {
+    pass1 = MEM_PopIntResult();
+    if (!pass1) {
         G1CP_TestsuiteErrorDetail("Condition 'Mordrag is dead' failed");
     };
 
@@ -90,9 +90,9 @@ func int G1CP_Test_036() {
 
     // Call dialog condition function
     MEM_CallByID(funcId);
-    ret += MEM_PopIntResult();
-    if (!ret) {
-        G1CP_TestsuiteErrorDetail("Condition 'stay at NC' failed");
+    pass2 = MEM_PopIntResult();
+    if (pass2) {
+        G1CP_TestsuiteErrorDetail("Condition 'stay at NC' did not fail");
     };
 
     // Restore values
@@ -104,5 +104,5 @@ func int G1CP_Test_036() {
     MEM_WriteInt(hauAbPtr, hauAbBak);                            // Variable
 
     // Check return value
-    return (ret == 2);
+    return (pass1) && (!pass2);
 };
