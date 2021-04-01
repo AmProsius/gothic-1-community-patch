@@ -22,6 +22,7 @@
 * Fix [#37](https://g1cp.org/issues/37): Gravo ist nun korrekt als Händler im Alten Lager im Tagebuch aufgelistet.
 * Fix [#93](https://g1cp.org/issues/93): Im Tagebucheintrag zu der Quest "Horatio der Bauer" lautet die Phrase "[...] stärker zuzuschalgen." nun korrekt "[...] stärker zuzuschlagen."
 * Fix [#91](https://g1cp.org/issues/91): Die Dialogauswahl mit Horatio: "Ja. Ich will es mit Ricelord und seinen Schlägern aufnehmen können!" lautet nun korrekt "Ja. Ich will es mit dem Reislord und seinen Schlägern aufnehmen können!"
+* Fix [#92](https://g1cp.org/issues/92): Die Dialogauswahl mit Horatio: "Damit ich Reislord und seine Schläger fertigmachen kann!" lautet nun korrekt "Damit ich den Reislord und seine Schläger fertigmachen kann!"
 * Fix [#94](https://g1cp.org/issues/94): Die Dialogoption mit Horatio "Ich hab' nochmal über die Sache nachgedacht..." lautet nun korrekt "Ich hab' noch einmal über die Sache nachgedacht...".
 * Fix [#121](https://g1cp.org/issues/121): Die Quest "Shrike's Hütte" heißt nun korrekt "Shrikes Hütte".
 * Fix [#142](https://g1cp.org/issues/142): Die Dialogzeile "Wer sind eure Gurus?" im Ambient-Dialog der Templer "Wer hat hier das Sagen?" ist nun korrekt dem Spieler Charakter zugewiesen.
