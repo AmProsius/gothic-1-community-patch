@@ -5,6 +5,7 @@
 * Fix [#4](https://g1cp.org/issues/4): Zuvor besiegte NSCs fahren den Spieler nun nicht mehr an, wenn er ihnen im Weg steht.
 * Fix [#50](https://g1cp.org/issues/50): Die unerreichbare Truhe in der Gruft unter dem Stonehenge ist nun korrekt positioniert und zugänglich.
 * Fix [#52](https://g1cp.org/issues/52): Der Schleifstein im Neuen Lager setzt zur Benutzung nun korrekt eine Schwertklinge voraus.
+* Fix [#132](https://g1cp.org/issues/132): Das Buch "Die Gruft" heißt nun korrekt "Die Gruft" statt "Kampfkunst".
 * Fix [#144](https://g1cp.org/issues/144): Die Rüstung "Gomez'Rüstung" heißt nun korrekt "Gomez' Rüstung".
 * Fix [#145](https://g1cp.org/issues/145): Die Rüstung "leichte Söldnerrüstung" heißt nun korrekt "Leichte Söldnerrüstung".
 * Fix [#146](https://g1cp.org/issues/146): Die Rüstung "Novizen Rock" heißt nun korrekt "Novizenrock".
