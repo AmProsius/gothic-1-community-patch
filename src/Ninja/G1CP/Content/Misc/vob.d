@@ -69,9 +69,9 @@ func int G1CP_VobIsVisibleOnScreen(var int vobPtr) {
     };
 
     // Check if something is blocking the view
-    var int vis; vis = G1CP_VobFreeLineOfSight(MEM_Camera.connectedVob, vobPtr);
+    var int vis; vis = G1CP_VobFreeLineOfSight(vobPtr, MEM_Camera.connectedVob);
 
-    const int DEBUG = TRUE;
+    const int DEBUG = FALSE;
     if (vis) && (DEBUG) {
         const int zTBBox2D__Draw = 5450688; //0x532BC0
         const int call2 = 0;
