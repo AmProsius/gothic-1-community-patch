@@ -17,6 +17,7 @@
 * Fix [#181](https://g1cp.org/issues/181): Swiney no longer takes off his own Digger's Dress when he gives one to the player.
 * Fix [#182](https://g1cp.org/issues/182): The gate guard can now only be bribed once when bringing Dusty to the Swamp Camp.
 * Fix [#214](https://g1cp.org/issues/214): Graham now correctly sits at the campfire in the evening.
+* Fix [#217](https://g1cp.org/issues/217): A mercenary now correctly guards the palisade at the Free Mine in the afternoon.
 
 ## [v1.0.0](https://github.com/AmProsius/gothic-1-community-patch/releases/tag/v1.0.0) (2021-03-15)
 ### General
