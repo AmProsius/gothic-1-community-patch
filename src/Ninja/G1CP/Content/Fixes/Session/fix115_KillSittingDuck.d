@@ -26,14 +26,28 @@ func int G1CP_115_KillSittingDuck() {
         var int funcStart; funcStart = MEM_ReadInt(MEM_GetSymbolByIndex(funcId) + zCParSymbol_content_offset);
         funcStart += currParserStackAddress;
 
-        // That check is not really satisfying yet, there is a lot that can happen in 15 bytes unaccounted for
-        if (pos - funcStart <= 15) {
+        // Check remaining part of the function byte code: Either nothing or debug function call
+        var int valid; valid = FALSE;
+        if (pos == funcStart) {
+            valid = TRUE;
+        } else if (pos - funcStart == 15) && (MEM_ReadByte(pos-5) == zPAR_TOK_CALL) {
+            var int funcOffset; funcOffset = MEM_ReadInt(pos-4);
+            if (funcOffset >= 0) && (funcOffset < MEM_Parser.stack_stacksize) {
+                valid = (MEM_GetFuncIDByOffset(funcOffset) == MEM_GetSymbolIndex("PrintDebugNpc"));
+            };
+        };
+
+        // Now we can be sure, that we are not overwriting anything
+        if (valid) {
             // Replace the function call to "AI_Wait" with our own
             MEMINT_OverrideFunc_Ptr = pos+10;
             MEMINT_OFTokPar(zPAR_TOK_CALL, MEM_GetFuncOffset(G1CP_115_KillSittingDuck_Intercept));
             applied = TRUE;
         };
     };
+
+    // Free the array
+    MEM_ArrayFree(matches);
 
     // Return success
     return applied;
@@ -88,5 +102,6 @@ func int G1CP_115_KillSittingDuck_Intercept(var C_Npc self, var float ms) {
     };
 
     // Continue otherwise
+    AI_Wait(self, 0.1);
     return LOOP_CONTINUE;
 };
