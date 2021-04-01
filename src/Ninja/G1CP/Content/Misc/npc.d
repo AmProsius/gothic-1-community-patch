@@ -48,6 +48,18 @@ func int G1CP_Npc_CanSeeItemFreeLOS(var C_Npc slf, var C_Item itm) {
 
 
 /*
+ * Check if an NPC is visible on the screen
+ */
+func int G1CP_NpcIsVisibleOnScreen(var C_Npc slf) {
+    if (Hlp_IsValidNpc(slf)) {
+        return G1CP_VobIsVisibleOnScreen(_@(slf));
+    } else {
+        return FALSE;
+    };
+};
+
+
+/*
  * Instant teleport (for the testsuite functions)
  * Advantages:
  * - Destination may be anything from a waypoint to a VOB name/NPC instance name
