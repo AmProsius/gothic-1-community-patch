@@ -26,7 +26,7 @@ func int G1CP_014_PortalCancelFight() {
         if (MEM_ReadByte(target + currParserStackAddress) == zPAR_TOK_RET) { // Function returns: Assumption correct!
 
             // Add another condition to the if-statement
-            G1CP_AddIfCondition(pos, zPAR_OP_LOG_AND, G1CP_014_IntruderExploit_Condition);
+            G1CP_AddIfCondition(pos, zPAR_OP_LOG_AND, G1CP_014_PortalCancelFight_Condition);
 
             // Success
             applied = TRUE;
@@ -43,7 +43,7 @@ func int G1CP_014_PortalCancelFight() {
 /*
  * Additional condition
  */
-func int G1CP_014_IntruderExploit_Condition() {
+func int G1CP_014_PortalCancelFight_Condition() {
     G1CP_ReportFuncToSpy();
 
     // Npc_WasInState(self, ZS_ClearRoom)
