@@ -15,7 +15,7 @@ func int G1CP_BodyStateContains(var C_Npc slf, var int bodystate) {
 /*
  * More versatile version of Npc_CanSee
  */
-func int G1CP_Npc_CanSeeVob(var int npcPtr, var int vobPtr, var int withAngles) {
+func int G1CP_NpcCanSeeVob(var int npcPtr, var int vobPtr, var int withAngles) {
     if (!vobPtr) || (!Hlp_Is_oCNpc(npcPtr)) {
         return FALSE;
     };
@@ -38,9 +38,9 @@ func int G1CP_Npc_CanSeeVob(var int npcPtr, var int vobPtr, var int withAngles) 
 /*
  * Equivalent function of Npc_CanSeeNpcFreeLOS for Items
  */
-func int G1CP_Npc_CanSeeItemFreeLOS(var C_Npc slf, var C_Item itm) {
+func int G1CP_NpcCanSeeItemFreeLOS(var C_Npc slf, var C_Item itm) {
     if (Hlp_IsValidNpc(slf)) && (Hlp_IsValidItem(itm)) {
-        return G1CP_Npc_CanSeeVob(_@(slf), _@(itm), TRUE);
+        return G1CP_NpcCanSeeVob(_@(slf), _@(itm), TRUE);
     } else {
         return FALSE;
     };
