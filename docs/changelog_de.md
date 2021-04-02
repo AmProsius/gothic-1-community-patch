@@ -24,10 +24,11 @@
 * Fix [#93](https://g1cp.org/issues/93): Im Tagebucheintrag zu der Quest "Horatio der Bauer" lautet die Phrase "[...] stärker zuzuschalgen." nun korrekt "[...] stärker zuzuschlagen."
 * Fix [#94](https://g1cp.org/issues/94): Die Dialogoption mit Horatio "Ich hab' nochmal über die Sache nachgedacht..." lautet nun korrekt "Ich hab' noch einmal über die Sache nachgedacht...".
 * Fix [#121](https://g1cp.org/issues/121): Die Quest "Shrike's Hütte" heißt nun korrekt "Shrikes Hütte".
-* Fix [#142](https://g1cp.org/issues/142): Die Dialogzeile "Wer sind eure Gurus?" im Ambient-Dialog der Templer "Wer hat hier das Sagen?" ist nun korrekt dem Spieler Charakter zugewiesen.
+* Fix [#142](https://g1cp.org/issues/142): Die Dialogzeile "Wer sind eure Gurus?" im Ambient-Dialog der Templer "Wer hat hier das Sagen?" ist nun korrekt dem Spielercharakter zugewiesen.
 * Fix [#172](https://g1cp.org/issues/172): Das Schriftstück "Kalom's Rezept" heißt nun korrekt "Kaloms Rezept".
 * Fix [#181](https://g1cp.org/issues/181): Swiney zieht nicht mehr seine eigenen Schürferklamotten aus, wenn er dem Spieler welche gibt.
 * Fix [#182](https://g1cp.org/issues/182): Die Torwache kann nun nur noch einmal bestochen werden, wenn Dusty zum Sumpflager gebracht wird.
+* Fix [#197](https://g1cp.org/issues/197): Die Dialogzeile "Also halt dich nur da auf, wo es dir gestattet ist." im Ambient-Dialog der Templer "Was kannst du mir über dieses Lager erzählen?" ist nun korrekt dem Spielercharakter zugewiesen.
 * Fix [#214](https://g1cp.org/issues/214): Graham sitzt nun korrekt abends am Lagerfeuer.
 
 ## [v1.0.0](https://github.com/AmProsius/gothic-1-community-patch/releases/tag/v1.0.0) (2021-03-15)
