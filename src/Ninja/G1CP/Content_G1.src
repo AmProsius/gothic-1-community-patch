@@ -72,6 +72,7 @@ Content\Fixes\Session\fix060_JesseQuest.d
 Content\Fixes\Session\fix078_HumanAttackOrc.d
 Content\Fixes\Session\fix079_WolfDexDialog.d
 Content\Fixes\Session\fix091_DE_HoratioAddChoiceAvenge.d
+Content\Fixes\Session\fix092_DE_HoratioAddChoiceWipeOut.d
 Content\Fixes\Session\fix094_DE_HoratioInfoDescThoughtStr.d
 Content\Fixes\Session\fix102_JesseProtectionMoneyPay.d
 Content\Fixes\Session\fix109_BloodwynProtectionMoneyPayLater.d
@@ -159,6 +160,7 @@ Content\Tests\test060.d
 Content\Tests\test078.d
 Content\Tests\test079.d
 Content\Tests\test091.d
+Content\Tests\test092.d
 Content\Tests\test093.d
 Content\Tests\test094.d
 Content\Tests\test102.d
