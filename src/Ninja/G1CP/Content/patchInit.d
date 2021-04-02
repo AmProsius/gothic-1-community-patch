@@ -84,6 +84,7 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
         G1CP_201_DE_AncientOreArmorText();              // #201
         G1CP_214_GrahamDailyRoutine();                  // #214
         G1CP_215_GuyDailyRoutine();                     // #215
+        G1CP_216_DiggerDailyRoutine();                  // #216
     };
 };
 

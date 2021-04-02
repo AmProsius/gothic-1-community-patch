@@ -20,6 +20,7 @@
 * Fix [#183](https://g1cp.org/issues/183): Corristo no longer offers to sell a High Robe of Fire if the player already obtained one.
 * Fix [#214](https://g1cp.org/issues/214): Graham now correctly sits at the campfire in the evening.
 * Fix [#215](https://g1cp.org/issues/215): Guy now correctly sits at the arena in the evening.
+* Fix [#216](https://g1cp.org/issues/216): A digger now correctly repairs his hut during daytime.
 
 ## [v1.0.0](https://github.com/AmProsius/gothic-1-community-patch/releases/tag/v1.0.0) (2021-03-15)
 ### General
