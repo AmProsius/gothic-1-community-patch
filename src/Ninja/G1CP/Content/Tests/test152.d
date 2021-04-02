@@ -24,7 +24,7 @@ func int G1CP_Test_152() {
         if (Hlp_StrCmp(item.description, "Ring of Fire Protection")) {
             return TRUE;
         } else {
-            var string msg; msg = "description incorrect: description = '";
+            var string msg; msg = "Description incorrect: description = '";
             msg = ConcatStrings(msg, item.description);
             msg = ConcatStrings(msg, "'");
             G1CP_TestsuiteErrorDetail(msg);
