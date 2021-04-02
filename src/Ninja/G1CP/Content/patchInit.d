@@ -51,6 +51,7 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
         G1CP_078_HumanAttackOrc();                      // #78
         G1CP_079_WolfDexDialog();                       // #79
         G1CP_091_DE_HoratioAddChoiceAvenge();           // #91
+        G1CP_092_DE_HoratioAddChoiceWipeOut();          // #92
         G1CP_094_DE_HoratioInfoDescThoughtStr();        // #94
         G1CP_102_JesseProtectionMoneyPay();             // #102
         G1CP_109_BloodwynProtectionMoneyPayLater();     // #109
@@ -68,6 +69,7 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
         G1CP_147_DE_CrawlerPlateArmorName();            // #147
         G1CP_148_DE_AncientOreArmorName();              // #148
         G1CP_149_DE_EN_ImprovedOreArmorName();          // #149
+        G1CP_152_EN_ProtectionOfFireDescription();      // #152
         G1CP_157_SpeedPotion2Value();                   // #157
         G1CP_158_SpeedPotion3Value();                   // #158
         G1CP_163_CastleGate();                          // #163
@@ -77,10 +79,13 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
         G1CP_175_EN_RiceLordKeyName();                  // #175
         G1CP_181_SwineyGiveArmor();                     // #181
         G1CP_182_GuardDialogDusty();                    // #182
+        G1CP_183_CorristoSellsRobe();                   // #183
         G1CP_192_MagicUserAutoEquip();                  // #192
         G1CP_200_DE_ImprovedOreArmorText();             // #200
         G1CP_201_DE_AncientOreArmorText();              // #201
         G1CP_214_GrahamDailyRoutine();                  // #214
+        G1CP_215_GuyDailyRoutine();                     // #215
+        G1CP_216_DiggerDailyRoutine();                  // #216
     };
 };
 

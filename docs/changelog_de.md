@@ -21,15 +21,19 @@
 * Fix [#23](https://g1cp.org/issues/23): Die Rüstung "Novizenrüstung" ist nun im zweiten Kapitel erhältlich, damit sie vor der ersten Templerrüstung erlangt werden kann.
 * Fix [#36](https://g1cp.org/issues/36) (aktualisiert): Fisks Quest "Neuer Hehler für Fisk" is nun verfügbar, wenn der Spieler Mordrag entweder KO geschlagen oder getötet hat.
 * Fix [#37](https://g1cp.org/issues/37): Gravo ist nun korrekt als Händler im Alten Lager im Tagebuch aufgelistet.
-* Fix [#93](https://g1cp.org/issues/93): Im Tagebucheintrag zu der Quest "Horatio der Bauer" lautet die Phrase "[...] stärker zuzuschalgen." nun korrekt "[...] stärker zuzuschlagen."
 * Fix [#91](https://g1cp.org/issues/91): Die Dialogauswahl mit Horatio: "Ja. Ich will es mit Ricelord und seinen Schlägern aufnehmen können!" lautet nun korrekt "Ja. Ich will es mit dem Reislord und seinen Schlägern aufnehmen können!"
+* Fix [#92](https://g1cp.org/issues/92): Die Dialogauswahl mit Horatio: "Damit ich Reislord und seine Schläger fertigmachen kann!" lautet nun korrekt "Damit ich den Reislord und seine Schläger fertigmachen kann!"
+* Fix [#93](https://g1cp.org/issues/93): Im Tagebucheintrag zu der Quest "Horatio der Bauer" lautet die Phrase "[...] stärker zuzuschalgen." nun korrekt "[...] stärker zuzuschlagen."
 * Fix [#94](https://g1cp.org/issues/94): Die Dialogoption mit Horatio "Ich hab' nochmal über die Sache nachgedacht..." lautet nun korrekt "Ich hab' noch einmal über die Sache nachgedacht...".
 * Fix [#121](https://g1cp.org/issues/121): Die Quest "Shrike's Hütte" heißt nun korrekt "Shrikes Hütte".
 * Fix [#142](https://g1cp.org/issues/142): Die Dialogzeile "Wer sind eure Gurus?" im Ambient-Dialog der Templer "Wer hat hier das Sagen?" ist nun korrekt dem Spieler Charakter zugewiesen.
 * Fix [#172](https://g1cp.org/issues/172): Das Schriftstück "Kalom's Rezept" heißt nun korrekt "Kaloms Rezept".
 * Fix [#181](https://g1cp.org/issues/181): Swiney zieht nicht mehr seine eigenen Schürferklamotten aus, wenn er dem Spieler welche gibt.
 * Fix [#182](https://g1cp.org/issues/182): Die Torwache kann nun nur noch einmal bestochen werden, wenn Dusty zum Sumpflager gebracht wird.
+* Fix [#183](https://g1cp.org/issues/183): Corristo bietet nun keine Große Feuerrobe mehr an, wenn der Spieler bereits eine erworben hat.
 * Fix [#214](https://g1cp.org/issues/214): Graham sitzt nun korrekt abends am Lagerfeuer.
+* Fix [#215](https://g1cp.org/issues/215): Guy sitzt nun korrekt abends bei der Arena.
+* Fix [#216](https://g1cp.org/issues/216): Ein Buddler repariert jetzt korrekt tagsüber seine Hütte.
 
 ## [v1.0.0](https://github.com/AmProsius/gothic-1-community-patch/releases/tag/v1.0.0) (2021-03-15)
 ### General
