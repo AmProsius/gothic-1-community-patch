@@ -6,6 +6,7 @@
 * Fix [#50](https://g1cp.org/issues/50): The inaccessible chest of the crypt below the stonehenge is now correctly positioned and accessible.
 * Fix [#52](https://g1cp.org/issues/52): The grindstone in the New Camp now correctly requires a sword blade to use.
 * Fix [#149](https://g1cp.org/issues/149): The armor "Improved ore Armor" is now correctly labelled as "Improved Ore Armor".
+* Fix [#152](https://g1cp.org/issues/152): The description of the ring "Protection of Fire" is corrected to "Ring of Fire Protection".
 * Fix [#192](https://g1cp.org/issues/192): Mages (NPCs fighting only with spells) no longer auto-equip weapons (e.g. after trading). This requires fix #59 to be active.
 
 ### Story
@@ -16,7 +17,10 @@
 * Fix [#175](https://g1cp.org/issues/175): The key "Rice Lord's Bowl" is now correctly labelled as "Rice Lord's Key".
 * Fix [#181](https://g1cp.org/issues/181): Swiney no longer takes off his own Digger's Dress when he gives one to the player.
 * Fix [#182](https://g1cp.org/issues/182): The gate guard can now only be bribed once when bringing Dusty to the Swamp Camp.
+* Fix [#183](https://g1cp.org/issues/183): Corristo no longer offers to sell a High Robe of Fire if the player already obtained one.
 * Fix [#214](https://g1cp.org/issues/214): Graham now correctly sits at the campfire in the evening.
+* Fix [#215](https://g1cp.org/issues/215): Guy now correctly sits at the arena in the evening.
+* Fix [#216](https://g1cp.org/issues/216): A digger now correctly repairs his hut during daytime.
 * Fix [#217](https://g1cp.org/issues/217): A mercenary now correctly guards the palisade at the Free Mine in the afternoon.
 
 ## [v1.0.0](https://github.com/AmProsius/gothic-1-community-patch/releases/tag/v1.0.0) (2021-03-15)
