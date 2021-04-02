@@ -83,6 +83,7 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
         G1CP_200_DE_ImprovedOreArmorText();             // #200
         G1CP_201_DE_AncientOreArmorText();              // #201
         G1CP_214_GrahamDailyRoutine();                  // #214
+        G1CP_215_GuyDailyRoutine();                     // #215
     };
 };
 
