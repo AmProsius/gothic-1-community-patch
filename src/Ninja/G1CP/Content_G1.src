@@ -89,6 +89,7 @@ Content\Fixes\Session\fix146_DE_NovicesLoinclothName.d
 Content\Fixes\Session\fix147_DE_CrawlerPlateArmorName.d
 Content\Fixes\Session\fix148_DE_AncientOreArmorName.d
 Content\Fixes\Session\fix149_DE_EN_ImprovedOreArmorName.d
+Content\Fixes\Session\fix152_EN_ProtectionOfFireDescription.d
 Content\Fixes\Session\fix157_SpeedPotion2Value.d
 Content\Fixes\Session\fix158_SpeedPotion3Value.d
 Content\Fixes\Session\fix163_CastleGate.d
@@ -180,6 +181,7 @@ Content\Tests\test146.d
 Content\Tests\test147.d
 Content\Tests\test148.d
 Content\Tests\test149.d
+Content\Tests\test152.d
 Content\Tests\test157.d
 Content\Tests\test158.d
 Content\Tests\test163.d

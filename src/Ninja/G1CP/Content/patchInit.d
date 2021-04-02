@@ -68,6 +68,7 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
         G1CP_147_DE_CrawlerPlateArmorName();            // #147
         G1CP_148_DE_AncientOreArmorName();              // #148
         G1CP_149_DE_EN_ImprovedOreArmorName();          // #149
+        G1CP_152_EN_ProtectionOfFireDescription();      // #152
         G1CP_157_SpeedPotion2Value();                   // #157
         G1CP_158_SpeedPotion3Value();                   // #158
         G1CP_163_CastleGate();                          // #163
