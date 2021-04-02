@@ -3,5 +3,7 @@
  */
 func int G1CP_152_EN_ProtectionOfFireDescription() {
     var int symbId; symbId = MEM_GetSymbolIndex("Schutzring_Feuer2");
-    return (G1CP_ReplaceAssignStr(symbId, "C_ITEM.DESCRIPTION", 0, "Protection of Fire", "Ring of Fire Protection") > 0);
+    const string needle = "Protection of Fire";
+    const string replace = "Ring of Fire Protection";
+    return (G1CP_ReplaceAssignStr(symbId, "C_ITEM.DESCRIPTION", 0, needle, replace) > 0);
 };
