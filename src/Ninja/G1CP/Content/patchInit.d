@@ -19,6 +19,7 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
         G1CP_010_FollowWalkMode();                      // #10
         G1CP_011_PassGuardsCombatMode();                // #11
         G1CP_012_RangedDoubleXP();                      // #12
+        G1CP_014_PortalCancelFight();                   // #14
         G1CP_015_HoratioStrength();                     // #15
         G1CP_016_ThorusBribeDialog();                   // #16
         G1CP_017_JackalProtectionMoney();               // #17

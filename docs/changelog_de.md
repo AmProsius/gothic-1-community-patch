@@ -3,6 +3,7 @@
 ## v1.1.0 (TBA)
 ### General
 * Fix [#4](https://g1cp.org/issues/4): Zuvor besiegte NSCs fahren den Spieler nun nicht mehr an, wenn er ihnen im Weg steht.
+* Fix [#14](https://g1cp.org/issues/14): Der Spieler kann Kämpfe nicht mehr durch Betreten und Verlassen eines Raumes abbrechen. Falls das unerlaubte Betreten des Raumes der Angriffsgrund war, bleibt das Verhalten unverändert.
 * Fix [#50](https://g1cp.org/issues/50): Die unerreichbare Truhe in der Gruft unter dem Stonehenge ist nun korrekt positioniert und zugänglich.
 * Fix [#52](https://g1cp.org/issues/52): Der Schleifstein im Neuen Lager setzt zur Benutzung nun korrekt eine Schwertklinge voraus.
 * Fix [#144](https://g1cp.org/issues/144): Die Rüstung "Gomez'Rüstung" heißt nun korrekt "Gomez' Rüstung".

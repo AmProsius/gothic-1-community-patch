@@ -3,6 +3,7 @@
 ## v1.1.0 (TBA)
 ### General
 * Fix [#4](https://g1cp.org/issues/4): NPCs no longer confront the player when he is standing in their way if he has defeated them before.
+* Fix [#14](https://g1cp.org/issues/14): The player can no longer cancel fights by entering and leaving a room. The behavior is unchanged, if trespassing into the room was the reason for the fight.
 * Fix [#50](https://g1cp.org/issues/50): The inaccessible chest of the crypt below the stonehenge is now correctly positioned and accessible.
 * Fix [#52](https://g1cp.org/issues/52): The grindstone in the New Camp now correctly requires a sword blade to use.
 * Fix [#149](https://g1cp.org/issues/149): The armor "Improved ore Armor" is now correctly labelled as "Improved Ore Armor".
