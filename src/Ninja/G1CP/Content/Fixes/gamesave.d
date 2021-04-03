@@ -32,6 +32,7 @@ func void G1CP_GamesaveFixes_Apply() {
         G1CP_093_DE_LogEntryHoratio();                  // #93
         G1CP_121_DE_LogTopicShrikeHut();                // #121
         G1CP_124_GateGuardID();                         // #124
+        G1CP_193_GateSwitchesStuck();                   // #193
     };
 };
 
@@ -48,5 +49,6 @@ func void G1CP_GamesaveFixes_Revert() {
         G1CP_093_DE_LogEntryHoratioRevert();            // #93
         G1CP_121_DE_LogTopicShrikeHutRevert();          // #121
         G1CP_124_GateGuardIDRevert();                   // #124
+        G1CP_193_GateSwitchesStuckRevert();             // #193
     };
 };

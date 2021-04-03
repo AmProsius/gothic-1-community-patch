@@ -9,6 +9,7 @@
 * Fix [#149](https://g1cp.org/issues/149): The armor "Improved ore Armor" is now correctly labelled as "Improved Ore Armor".
 * Fix [#152](https://g1cp.org/issues/152): The description of the ring "Protection of Fire" is corrected to "Ring of Fire Protection".
 * Fix [#192](https://g1cp.org/issues/192): Mages (NPCs fighting only with spells) no longer auto-equip weapons (e.g. after trading). This requires fix #59 to be active.
+* Fix [#193](https://g1cp.org/issues/193): Objects activated by switches/levers/winches are no longer stuck after loading a game.
 
 ### Story
 * Fix [#23](https://g1cp.org/issues/23): The armor "Novice's Armor" is now available in chapter 2 to make it accessible before receiving the first templar armor.
