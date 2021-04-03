@@ -56,6 +56,7 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
         G1CP_094_DE_HoratioInfoDescThoughtStr();        // #94
         G1CP_102_JesseProtectionMoneyPay();             // #102
         G1CP_109_BloodwynProtectionMoneyPayLater();     // #109
+        G1CP_110_MobInteractCamera();                   // #110
         G1CP_111_JackalProtectionMoneyPay();            // #111
         G1CP_112_JackalProtectionMoneyPayLater();       // #112
         G1CP_115_KillSittingDuck();                     // #115
