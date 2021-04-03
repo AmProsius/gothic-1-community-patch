@@ -79,6 +79,7 @@ Content\Fixes\Session\fix102_JesseProtectionMoneyPay.d
 Content\Fixes\Session\fix109_BloodwynProtectionMoneyPayLater.d
 Content\Fixes\Session\fix111_JackalProtectionMoneyPay.d
 Content\Fixes\Session\fix112_JackalProtectionMoneyPayLater.d
+Content\Fixes\Session\fix115_KillSittingDuck.d
 Content\Fixes\Session\fix122_CavalornDailyRoutine.d
 Content\Fixes\Session\fix125_ButcherText.d
 Content\Fixes\Session\fix126_SharkyTrade.d
@@ -173,6 +174,7 @@ Content\Tests\test102.d
 Content\Tests\test109.d
 Content\Tests\test111.d
 Content\Tests\test112.d
+Content\Tests\test115.d
 Content\Tests\test121.d
 Content\Tests\test122.d
 Content\Tests\test124.d
