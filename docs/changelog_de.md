@@ -14,7 +14,7 @@
 * Fix [#148](https://g1cp.org/issues/148): Die Rüstung "antike Erzrüstung" heißt nun korrekt "Antike Erzrüstung".
 * Fix [#149](https://g1cp.org/issues/149): Die Rüstung "verbesserte Erzrüstung" heißt nun korrekt "Verbesserte Erzrüstung".
 * Fix [#173](https://g1cp.org/issues/173): Im Text von "Gomez' Schlüssel" ist nun die Phrase "Öffnet Gomez Truhen" korrigiert zu "Öffnet Gomez' Truhen".
-* Fix [#192](https://g1cp.org/issues/192): Magier (NSCs, die nur mit Magie kämpfen) rüsten nicht länger automatisch Nah- und Fernkampfwaffen aus (z.B. nach dem Handeln). Dieser Fix setzt den Fix #59 voraus.
+* Fix [#192](https://g1cp.org/issues/192): Magier (NSCs, die nur mit Magie kämpfen) rüsten nicht länger automatisch Nah- und Fernkampfwaffen aus (z.B. nach dem Handeln). Dieser Fix setzt den Fix [#59](https://g1cp.org/issues/59) voraus.
 * Fix [#193](https://g1cp.org/issues/193): Objekte, die durch Hebel/Schalter/Winden aktiviert wurden, stecken nach dem Spielladen nicht mehr fest.
 * Fix [#200](https://g1cp.org/issues/200): Die Beschreibung der Rüstung "Verbesserte Erzrüstung" passt nun in die Textbox des Inventars.
 * Fix [#201](https://g1cp.org/issues/201): Die Beschreibung der Rüstung "Antike Erzrüstung" passt nun in die Textbox des Inventars und enthält keinen Rechtschreibfehler mehr.
@@ -27,7 +27,7 @@
 * Fix [#92](https://g1cp.org/issues/92): Die Dialogauswahl mit Horatio: "Damit ich Reislord und seine Schläger fertigmachen kann!" lautet nun korrekt "Damit ich den Reislord und seine Schläger fertigmachen kann!"
 * Fix [#93](https://g1cp.org/issues/93): Im Tagebucheintrag zu der Quest "Horatio der Bauer" lautet die Phrase "[...] stärker zuzuschalgen." nun korrekt "[...] stärker zuzuschlagen."
 * Fix [#94](https://g1cp.org/issues/94): Die Dialogoption mit Horatio "Ich hab' nochmal über die Sache nachgedacht..." lautet nun korrekt "Ich hab' noch einmal über die Sache nachgedacht...".
-* Fix [#115](https://g1cp.org/issues/115): Die Templar im Orkfriedhof sterben nun verlässlicher.
+* Fix [#115](https://g1cp.org/issues/115): Die Templer im Orkfriedhof sterben nun verlässlicher.
 * Fix [#121](https://g1cp.org/issues/121): Die Quest "Shrike's Hütte" heißt nun korrekt "Shrikes Hütte".
 * Fix [#142](https://g1cp.org/issues/142): Die Dialogzeile "Wer sind eure Gurus?" im Ambient-Dialog der Templer "Wer hat hier das Sagen?" ist nun korrekt dem Spieler Charakter zugewiesen.
 * Fix [#172](https://g1cp.org/issues/172): Das Schriftstück "Kalom's Rezept" heißt nun korrekt "Kaloms Rezept".
@@ -38,7 +38,7 @@
 * Fix [#215](https://g1cp.org/issues/215): Guy sitzt nun korrekt abends bei der Arena.
 * Fix [#216](https://g1cp.org/issues/216): Einer der Buddler im Alten Lager repariert jetzt korrekt tagsüber seine Hütte.
 
-## [v1.0.0](https://github.com/AmProsius/gothic-1-community-patch/releases/tag/v1.0.0) (2021-03-15)
+## [v1.0.0](https://g1cp.org/releases/tag/v1.0.0) (2021-03-15)
 ### General
 * Fix [#1](https://g1cp.org/issues/1): NSCs wachen nicht mehr sofort auf, nachdem sie ins Bett gegangen sind, sondern bleiben liegen.
 * Fix [#2](https://g1cp.org/issues/2): NSCs öffnen nun korrekt geschlossene Türen und gehen hindurch.
