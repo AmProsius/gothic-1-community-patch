@@ -30,11 +30,12 @@
 * Fix [#115](https://g1cp.org/issues/115): Die Templer im Orkfriedhof sterben nun verlässlicher.
 * Fix [#121](https://g1cp.org/issues/121): Die Quest "Shrike's Hütte" heißt nun korrekt "Shrikes Hütte".
 * Fix [#133](https://g1cp.org/issues/133): Im Tagebucheintrag zu der Quest "Aufnahme Altes Lager" lautet die Phrase "Meinem Niederlage gegen Kirgo [...]" nun korrekt "Meine Niederlage gegen Kirgo [...]".
-* Fix [#142](https://g1cp.org/issues/142): Die Dialogzeile "Wer sind eure Gurus?" im Ambient-Dialog der Templer "Wer hat hier das Sagen?" ist nun korrekt dem Spieler Charakter zugewiesen.
+* Fix [#142](https://g1cp.org/issues/142): Die Dialogzeile "Wer sind eure Gurus?" im Ambient-Dialog der Templer "Wer hat hier das Sagen?" ist nun korrekt dem Spielercharakter zugewiesen.
 * Fix [#172](https://g1cp.org/issues/172): Das Schriftstück "Kalom's Rezept" heißt nun korrekt "Kaloms Rezept".
 * Fix [#181](https://g1cp.org/issues/181): Swiney zieht nicht mehr seine eigenen Schürferklamotten aus, wenn er dem Spieler welche gibt.
 * Fix [#182](https://g1cp.org/issues/182): Die Torwache kann nun nur noch einmal bestochen werden, wenn Dusty zum Sumpflager gebracht wird.
 * Fix [#183](https://g1cp.org/issues/183): Corristo bietet nun keine Große Feuerrobe mehr an, wenn der Spieler bereits eine erworben hat.
+* Fix [#197](https://g1cp.org/issues/197): Die Dialogzeile "Also halt dich nur da auf, wo es dir gestattet ist." im Ambient-Dialog der Templer "Was kannst du mir über dieses Lager erzählen?" ist nun korrekt dem Spielercharakter zugewiesen.
 * Fix [#214](https://g1cp.org/issues/214): Graham sitzt nun korrekt abends am Lagerfeuer.
 * Fix [#215](https://g1cp.org/issues/215): Guy sitzt nun korrekt abends bei der Arena.
 * Fix [#216](https://g1cp.org/issues/216): Einer der Buddler im Alten Lager repariert jetzt korrekt tagsüber seine Hütte.
