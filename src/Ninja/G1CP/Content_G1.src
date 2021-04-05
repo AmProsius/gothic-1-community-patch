@@ -41,6 +41,7 @@ Content\Fixes\Session\fix009_NpcStateFlee.d
 Content\Fixes\Session\fix010_FollowWalkMode.d
 Content\Fixes\Session\fix011_PassGuardsCombatMode.d
 Content\Fixes\Session\fix012_RangedDoubleXP.d
+Content\Fixes\Session\fix014_PortalCancelFight.d
 Content\Fixes\Session\fix015_HoratioStrength.d
 Content\Fixes\Session\fix016_ThorusBribeDialog.d
 Content\Fixes\Session\fix017_JackalProtectionMoney.d
@@ -77,8 +78,10 @@ Content\Fixes\Session\fix092_DE_HoratioAddChoiceWipeOut.d
 Content\Fixes\Session\fix094_DE_HoratioInfoDescThoughtStr.d
 Content\Fixes\Session\fix102_JesseProtectionMoneyPay.d
 Content\Fixes\Session\fix109_BloodwynProtectionMoneyPayLater.d
+Content\Fixes\Session\fix110_MobInteractCamera.d
 Content\Fixes\Session\fix111_JackalProtectionMoneyPay.d
 Content\Fixes\Session\fix112_JackalProtectionMoneyPayLater.d
+Content\Fixes\Session\fix115_KillSittingDuck.d
 Content\Fixes\Session\fix122_CavalornDailyRoutine.d
 Content\Fixes\Session\fix125_ButcherText.d
 Content\Fixes\Session\fix126_SharkyTrade.d
@@ -108,6 +111,7 @@ Content\Fixes\Session\fix201_DE_AncientOreArmorText.d
 Content\Fixes\Session\fix214_GrahamDailyRoutine.d
 Content\Fixes\Session\fix215_GuyDailyRoutine.d
 Content\Fixes\Session\fix216_DiggerDailyRoutine.d
+Content\Fixes\Session\fix217_MercenaryDailyRoutine.d
 
 // Game save fixes
 Content\Fixes\Gamesave\fix037_LogEntryGravoMerchant.d
@@ -118,6 +122,8 @@ Content\Fixes\Gamesave\fix052_UseWithItemNCGrindstone.d
 Content\Fixes\Gamesave\fix093_DE_LogEntryHoratio.d
 Content\Fixes\Gamesave\fix121_DE_LogTopicShrikeHut.d
 Content\Fixes\Gamesave\fix124_GateGuardID.d
+Content\Fixes\Gamesave\fix133_DE_LogEntryScatty.d
+Content\Fixes\Gamesave\fix193_GateSwitchesStuck.d
 
 // Tests
 Content\Tests\test001.d
@@ -129,6 +135,7 @@ Content\Tests\test009.d
 Content\Tests\test010.d
 Content\Tests\test011.d
 Content\Tests\test012.d
+Content\Tests\test014.d
 Content\Tests\test015.d
 Content\Tests\test016.d
 Content\Tests\test017.d
@@ -171,13 +178,16 @@ Content\Tests\test093.d
 Content\Tests\test094.d
 Content\Tests\test102.d
 Content\Tests\test109.d
+Content\Tests\test110.d
 Content\Tests\test111.d
 Content\Tests\test112.d
+Content\Tests\test115.d
 Content\Tests\test121.d
 Content\Tests\test122.d
 Content\Tests\test124.d
 Content\Tests\test125.d
 Content\Tests\test126.d
+Content\Tests\test133.d
 Content\Tests\test136.d
 Content\Tests\test142.d
 Content\Tests\test144.d
@@ -198,12 +208,14 @@ Content\Tests\test181.d
 Content\Tests\test182.d
 Content\Tests\test183.d
 Content\Tests\test192.d
+Content\Tests\test193.d
 Content\Tests\test197.d
 Content\Tests\test200.d
 Content\Tests\test201.d
 Content\Tests\test214.d
 Content\Tests\test215.d
 Content\Tests\test216.d
+Content\Tests\test217.d
 
 // Initialization
 Content\initPre.d

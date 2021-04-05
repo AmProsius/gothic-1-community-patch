@@ -19,6 +19,7 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
         G1CP_010_FollowWalkMode();                      // #10
         G1CP_011_PassGuardsCombatMode();                // #11
         G1CP_012_RangedDoubleXP();                      // #12
+        G1CP_014_PortalCancelFight();                   // #14
         G1CP_015_HoratioStrength();                     // #15
         G1CP_016_ThorusBribeDialog();                   // #16
         G1CP_017_JackalProtectionMoney();               // #17
@@ -55,8 +56,10 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
         G1CP_094_DE_HoratioInfoDescThoughtStr();        // #94
         G1CP_102_JesseProtectionMoneyPay();             // #102
         G1CP_109_BloodwynProtectionMoneyPayLater();     // #109
+        G1CP_110_MobInteractCamera();                   // #110
         G1CP_111_JackalProtectionMoneyPay();            // #111
         G1CP_112_JackalProtectionMoneyPayLater();       // #112
+        G1CP_115_KillSittingDuck();                     // #115
         G1CP_122_CavalornDailyRoutine();                // #122
         G1CP_125_ButcherText();                         // #125
         G1CP_126_SharkyTrade();                         // #126
@@ -86,6 +89,7 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
         G1CP_214_GrahamDailyRoutine();                  // #214
         G1CP_215_GuyDailyRoutine();                     // #215
         G1CP_216_DiggerDailyRoutine();                  // #216
+        G1CP_217_MercenaryDailyRoutine();               // #217
     };
 };
 
