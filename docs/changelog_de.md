@@ -38,6 +38,7 @@
 * Fix [#214](https://g1cp.org/issues/214): Graham sitzt nun korrekt abends am Lagerfeuer.
 * Fix [#215](https://g1cp.org/issues/215): Guy sitzt nun korrekt abends bei der Arena.
 * Fix [#216](https://g1cp.org/issues/216): Einer der Buddler im Alten Lager repariert jetzt korrekt tagsüber seine Hütte.
+* Fix [#217](https://g1cp.org/issues/217): Einer der Söldner passt nun korrekt nachmittags am Talkessel der Freien Mine auf.
 
 ## [v1.0.0](https://g1cp.org/releases/tag/v1.0.0) (2021-03-15)
 ### General
