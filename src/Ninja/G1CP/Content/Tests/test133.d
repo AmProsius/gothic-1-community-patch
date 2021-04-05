@@ -93,6 +93,10 @@ func int G1CP_Test_133() {
     self  = MEM_CpyInst(hero);
     other = MEM_CpyInst(hero);
 
+    // Create the topic
+    Log_CreateTopic(topic, LOG_MISSION);
+    Log_SetTopicStatus(topic, LOG_RUNNING);
+
     // Call dialog condition function
     MEM_CallByID(funcId);
 
