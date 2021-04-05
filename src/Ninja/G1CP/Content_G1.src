@@ -25,7 +25,6 @@ Content\Misc\waypoint.d
 Content\Misc\world.d
 Content\Misc\vob.d
 Content\Misc\npc.d
-Content\Misc\ou.d
 
 // Fixes and tests
 Content\Fixes\record.d
