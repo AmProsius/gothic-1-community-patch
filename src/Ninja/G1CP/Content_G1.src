@@ -122,6 +122,7 @@ Content\Fixes\Gamesave\fix093_DE_LogEntryHoratio.d
 Content\Fixes\Gamesave\fix121_DE_LogTopicShrikeHut.d
 Content\Fixes\Gamesave\fix124_GateGuardID.d
 Content\Fixes\Gamesave\fix133_DE_LogEntryScatty.d
+Content\Fixes\Gamesave\fix143_DE_LogEntryBuster.d
 Content\Fixes\Gamesave\fix193_GateSwitchesStuck.d
 
 // Tests
@@ -189,6 +190,7 @@ Content\Tests\test126.d
 Content\Tests\test133.d
 Content\Tests\test136.d
 Content\Tests\test142.d
+Content\Tests\test143.d
 Content\Tests\test144.d
 Content\Tests\test145.d
 Content\Tests\test146.d
