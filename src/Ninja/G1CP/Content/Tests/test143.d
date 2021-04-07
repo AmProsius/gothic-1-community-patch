@@ -14,9 +14,9 @@ func int G1CP_Test_143() {
     const int LOG_RUNNING = 1;
 
     // Define variables for specific test
-    const string wrong = "Buster der Bandit unterichtet das Talent AKROBATIK.";
-    const string right = "Buster der Bandit unterrichtet das Talent AKROBATIK.";
-    const string lopTopicName = "GE_TeacherNC";
+    const string wrongLogEntry = "Buster der Bandit unterichtet das Talent AKROBATIK.";
+    const string rightLogEntry = "Buster der Bandit unterrichtet das Talent AKROBATIK.";
+    const string logTopicName = "GE_TeacherNC";
     const string dialogFunctionName = "DIA_ORG_833_Buster3_Info";
     const int fixNumber = 143;
     
@@ -31,8 +31,8 @@ func int G1CP_Test_143() {
     };
 
     // Check if the constant exists
-    if (MEM_GetSymbolIndex(lopTopicName) == -1) {
-        msg = ConcatStrings("Variable '", lopTopicName);
+    if (MEM_GetSymbolIndex(logTopicName) == -1) {
+        msg = ConcatStrings("Variable '", logTopicName);
         msg = ConcatStrings(msg, "' not found");
         G1CP_TestsuiteErrorDetail(msg);
         passed = FALSE;
@@ -53,7 +53,7 @@ func int G1CP_Test_143() {
     };
 
     // Retrieve the content of the log topic string constant
-    var string topic; topic = G1CP_GetStringVar(lopTopicName, 0, "G1CP invalid string");
+    var string topic; topic = G1CP_GetStringVar(logTopicName, 0, "G1CP invalid string");
 
     // Backup the status of the log topic if it exists already
     newName = ConcatStrings("G1CP test ", IntToString(fixNumber));
@@ -65,17 +65,17 @@ func int G1CP_Test_143() {
     // Create the topic
     Log_CreateTopic(topic, LOG_MISSION);
     Log_SetTopicStatus(topic, LOG_RUNNING);
-    Log_AddEntry(topic, wrong);
+    Log_AddEntry(topic, wrongLogEntry);
 
     // Trigger the fix (careful now, don't overwrite the fix status!)
     var int r; r = G1CP_143_DE_LogEntryBuster();
 
     // Check if it was updated
-    if (G1CP_LogHasEntry(topic, wrong)) {
+    if (G1CP_LogHasEntry(topic, wrongLogEntry)) {
         G1CP_TestsuiteErrorDetail("Log topic entry (incorrect) remained unchanged");
         passed = FALSE;
     };
-    if (!G1CP_LogHasEntry(topic, right)) {
+    if (!G1CP_LogHasEntry(topic, rightLogEntry)) {
         G1CP_TestsuiteErrorDetail("Log topic entry (correct) does not exist");
         passed = FALSE;
     };
@@ -102,11 +102,11 @@ func int G1CP_Test_143() {
     AI_StandUpQuick(hero);
 
     // Check if it was updated
-    if (G1CP_LogHasEntry(topic, wrong)) {
+    if (G1CP_LogHasEntry(topic, wrongLogEntry)) {
         G1CP_TestsuiteErrorDetail("Log topic entry was created with incorrect wording");
         passed = FALSE;
     };
-    if (!G1CP_LogHasEntry(topic, right)) {
+    if (!G1CP_LogHasEntry(topic, rightLogEntry)) {
         G1CP_TestsuiteErrorDetail("Log topic entry was not added by the dialog function");
         passed = FALSE;
     };
