@@ -13,9 +13,17 @@ func int G1CP_Test_093() {
     const int LOG_MISSION = 0;
     const int LOG_RUNNING = 1;
 
+    // Define variables for specific test
     // I'm sorry for not breaking the line at 120 characters
-    const string wrong = "Horatio, ein Bauer auf den Reisfeldern des Neuen Lagers will mir beibringen, stärker zuzuschalgen. Doch irgendwie habe ich noch nicht die richtige Antwort auf seine Frage WOZU gefunden.";
-    const string right = "Horatio, ein Bauer auf den Reisfeldern des Neuen Lagers will mir beibringen, stärker zuzuschlagen. Doch irgendwie habe ich noch nicht die richtige Antwort auf seine Frage WOZU gefunden.";
+    const string wrongLogEntry = "Horatio, ein Bauer auf den Reisfeldern des Neuen Lagers will mir beibringen, stärker zuzuschalgen. Doch irgendwie habe ich noch nicht die richtige Antwort auf seine Frage WOZU gefunden.";
+    const string rightLogEntry = "Horatio, ein Bauer auf den Reisfeldern des Neuen Lagers will mir beibringen, stärker zuzuschlagen. Doch irgendwie habe ich noch nicht die richtige Antwort auf seine Frage WOZU gefunden.";
+    const string logTopicName = "CH1_HoratiosTeachings";
+    const string dialogFunctionName = "DIA_Horatio_PleaseTeachSTR_Info";
+    const int fixNumber = 93;
+    
+    // Define variables for concatenated strings
+    var string msg;
+    var string newName;
 
     // Check language first
     if (G1CP_Lang != G1CP_Lang_DE) {
@@ -24,15 +32,19 @@ func int G1CP_Test_093() {
     };
 
     // Check if the constant exists
-    if (MEM_GetSymbolIndex("CH1_HoratiosTeachings") == -1) {
-        G1CP_TestsuiteErrorDetail("Variable 'CH1_HoratiosTeachings' not found");
+    if (MEM_GetSymbolIndex(logTopicName) == -1) {
+        msg = ConcatStrings("Variable '", logTopicName);
+        msg = ConcatStrings(msg, "' not found");
+        G1CP_TestsuiteErrorDetail(msg);
         passed = FALSE;
     };
 
     // Check if the dialog function exists
-    var int funcId; funcId = MEM_GetSymbolIndex("DIA_Horatio_PleaseTeachSTR_Info");
+    var int funcId; funcId = MEM_GetSymbolIndex(dialogFunctionName);
     if (funcId == -1) {
-        G1CP_TestsuiteErrorDetail("Dialog function 'DIA_Horatio_PleaseTeachSTR_Info' not found");
+        msg = ConcatStrings("Dialog function '", dialogFunctionName);
+        msg = ConcatStrings(msg, "' not found");
+        G1CP_TestsuiteErrorDetail(msg);
         passed = FALSE;
     };
 
@@ -42,27 +54,29 @@ func int G1CP_Test_093() {
     };
 
     // Retrieve the content of the log topic string constant
-    var string topic; topic = G1CP_GetStringVar("CH1_HoratiosTeachings", 0, "G1CP invalid string");
+    var string topic; topic = G1CP_GetStringVar(logTopicName, 0, "G1CP invalid string");
 
     // Backup the status of the log topic if it exists already
-    G1CP_LogRenameTopic(topic, "G1CP test 93 temporary");
+    newName = ConcatStrings("G1CP test ", IntToString(fixNumber));
+    newName = ConcatStrings(newName, " temporary");
+    G1CP_LogRenameTopic(topic, newName);
 
     // First pass: Create the log topic with the faulty entry and see if the fix will update it
 
     // Create the topic
     Log_CreateTopic(topic, LOG_MISSION);
     Log_SetTopicStatus(topic, LOG_RUNNING);
-    Log_AddEntry(topic, wrong);
+    Log_AddEntry(topic, wrongLogEntry);
 
     // Trigger the fix (careful now, don't overwrite the fix status!)
     var int r; r = G1CP_093_DE_LogEntryHoratio();
 
     // Check if it was updated
-    if (G1CP_LogHasEntry(topic, wrong)) {
+    if (G1CP_LogHasEntry(topic, wrongLogEntry)) {
         G1CP_TestsuiteErrorDetail("Log topic entry (incorrect) remained unchanged");
         passed = FALSE;
     };
-    if (!G1CP_LogHasEntry(topic, right)) {
+    if (!G1CP_LogHasEntry(topic, rightLogEntry)) {
         G1CP_TestsuiteErrorDetail("Log topic entry (correct) does not exist");
         passed = FALSE;
     };
@@ -89,18 +103,18 @@ func int G1CP_Test_093() {
     AI_StandUpQuick(hero);
 
     // Check if it was updated
-    if (G1CP_LogHasEntry(topic, wrong)) {
+    if (G1CP_LogHasEntry(topic, wrongLogEntry)) {
         G1CP_TestsuiteErrorDetail("Log topic entry was created with incorrect wording");
         passed = FALSE;
     };
-    if (!G1CP_LogHasEntry(topic, right)) {
+    if (!G1CP_LogHasEntry(topic, rightLogEntry)) {
         G1CP_TestsuiteErrorDetail("Log topic entry was not added by the dialog function");
         passed = FALSE;
     };
     G1CP_LogRemoveTopic(topic);
 
     // Restore the topic to how it was before
-    G1CP_LogRenameTopic("G1CP test 93 temporary", topic);
+    G1CP_LogRenameTopic(newName, topic);
 
     // Return success
     return passed;
