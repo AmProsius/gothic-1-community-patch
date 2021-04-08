@@ -35,6 +35,7 @@
 * Fix [#181](https://g1cp.org/issues/181): Swiney zieht nicht mehr seine eigenen Schürferklamotten aus, wenn er dem Spieler welche gibt.
 * Fix [#182](https://g1cp.org/issues/182): Die Torwache kann nun nur noch einmal bestochen werden, wenn Dusty zum Sumpflager gebracht wird.
 * Fix [#183](https://g1cp.org/issues/183): Corristo bietet nun keine Große Feuerrobe mehr an, wenn der Spieler bereits eine erworben hat.
+* Fix [#186](https://g1cp.org/issues/186): Corristos Dialogoption "Ich möchte in den Kreis der Magier aufgenommen werden." verschwindet nun, wenn der Spieler ihn bereits gefragt und die Stufenvoraussetzungen erfüllt hat.
 * Fix [#197](https://g1cp.org/issues/197): Die Dialogzeile "Also halt dich nur da auf, wo es dir gestattet ist." im Ambient-Dialog der Templer "Was kannst du mir über dieses Lager erzählen?" ist nun korrekt dem Spielercharakter zugewiesen.
 * Fix [#214](https://g1cp.org/issues/214): Graham sitzt nun korrekt abends am Lagerfeuer.
 * Fix [#215](https://g1cp.org/issues/215): Guy sitzt nun korrekt abends bei der Arena.
