@@ -58,7 +58,7 @@ func int G1CP_037_LogEntryGravoMerchant_Toggle(var int apply) {
         MEM_ArrayFree(matches);
 
         // Check if we have found a valid entry
-        if (entryId <= 0) || (entryId >= currSymbolTableLength) {
+        if (entryId <= 0) || (entryId >= MEM_Parser.symtab_table_numInArray) {
             return FALSE;
         };
 
@@ -67,7 +67,7 @@ func int G1CP_037_LogEntryGravoMerchant_Toggle(var int apply) {
         entry = G1CP_GetStringVarByIndex(entryId, 0, entry);
 
         // Now that all is established, let's replace the call to 'B_LogEntry' to squeeze in the creation of the topic
-        i = G1CP_ReplaceCall(funcId, b_logentry_id, MEM_GetSymbolIndex(hookSymbName));
+        i = G1CP_ReplaceCall(funcId, 0, b_logentry_id, MEM_GetSymbolIndex(hookSymbName));
         if (i <= 0) {
             return FALSE;
         };

@@ -68,7 +68,7 @@ func void G1CP_TestsuiteErrorDetail(var string msg) {
     // Obtain test number
     var int id;
     var int callerID; callerID = MEM_GetFuncIDByOffset(MEM_GetCallerStackPos());
-    if (callerID < 0) || (callerID >= currSymbolTableLength) {
+    if (callerID < 0) || (callerID >= MEM_Parser.symtab_table_numInArray) {
         id = -1;
     } else {
         var string callerName; callerName = MEM_ReadString(MEM_GetSymbolByIndex(callerID));

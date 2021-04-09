@@ -39,7 +39,7 @@ func int G1CP_GetIntVarBySymbol(var int symbPtr, var int ele, var int dflt) {
     };
 };
 func int G1CP_GetIntVarByIndex(var int symbId, var int ele, var int dflt) {
-    if (symbId < 0) || (symbId >= currSymbolTableLength) {
+    if (symbId < 0) || (symbId >= MEM_Parser.symtab_table_numInArray) {
         return dflt;
     };
     return G1CP_GetIntVarBySymbol(MEM_GetSymbolByIndex(symbId), ele, dflt);
@@ -59,7 +59,7 @@ func void G1CP_SetIntVarBySymbol(var int symbPtr, var int ele, var int value) {
     };
 };
 func void G1CP_SetIntVarByIndex(var int symbId, var int ele, var int value) {
-    if (symbId < 0) || (symbId >= currSymbolTableLength) {
+    if (symbId < 0) || (symbId >= MEM_Parser.symtab_table_numInArray) {
         return;
     };
     G1CP_SetIntVarBySymbol(MEM_GetSymbolByIndex(symbId), ele, value);

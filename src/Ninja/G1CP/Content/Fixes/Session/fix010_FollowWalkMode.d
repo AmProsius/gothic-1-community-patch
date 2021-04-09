@@ -9,7 +9,7 @@ func int G1CP_010_FollowWalkMode() {
     if (funcId != -1) && (needleId != -1) && (MEM_GetSymbolIndex("B_FollowPC_AssessSC") != -1) {
         HookDaedalusFuncS("ZS_FollowPC_Loop", "G1CP_010_FollowWalkMode_Hook");
         HookDaedalusFuncS("B_FollowPC_AssessSC", "G1CP_010_FollowWalkMode_AssessSCHook");
-        var int count; count = G1CP_ReplaceCall(funcId, needleId, replacId);
+        var int count; count = G1CP_ReplaceCall(funcId, 0, needleId, replacId);
         return (count > 0);
     } else {
         return FALSE;

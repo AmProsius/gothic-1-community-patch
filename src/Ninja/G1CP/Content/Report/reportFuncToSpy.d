@@ -12,7 +12,7 @@ func void G1CP_ReportFuncToSpy() {
     var int namePtr;
     var int posStart; posStart = MEM_GetCallerStackPos();
     var int callerId; callerId = MEM_GetFuncIDByOffset(posStart);
-    if (callerId > 0) && (callerId < currSymbolTableLength) {
+    if (callerId > 0) && (callerId < MEM_Parser.symtab_table_numInArray) {
         // Symbol name of the caller
         namePtr = MEM_GetSymbolByIndex(callerId);
     } else {
@@ -57,7 +57,7 @@ func void G1CP_ReportFuncToSpy() {
         MEMINT_OFTokPar(zPAR_TOK_PUSHINT, -1);
         MEMINT_OFTokPar(zPAR_TOK_CALL,    indent_offset);
         MEMINT_OFTokPar(zPAR_TOK_JUMP,    ret);
-        popPos = ptr2 - currParserStackAddress;
+        popPos = ptr2 - MEM_Parser.stack_stack;
     };
 
     // Inject bytes before the function is called
@@ -78,9 +78,9 @@ func void G1CP_ReportFuncToSpy() {
         MEMINT_OFTokPar(zPAR_TOK_CALL,    set_caller_2fr_offset);
     };
     MEMINT_OFTok(zPAR_TOK_RET);
-    popPos = ptr1 - currParserStackAddress;
+    popPos = ptr1 - MEM_Parser.stack_stack;
     // Replace the call to here
-    MEM_WriteInt(posStart+currParserStackAddress-4, popPos);
+    MEM_WriteInt(posStart+MEM_Parser.stack_stack-4, popPos);
 
     // Finally, jump before the call to this very function to execute the just overwritten bytes and continue there
     MEM_SetCallerStackPos(posStart-5);

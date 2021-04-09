@@ -15,7 +15,7 @@ func int G1CP_133_DE_LogEntryScatty() {
         topicName = G1CP_GetStringVarByIndex(topicId, 0, "");
 
         // Replace the push of the old string with the new string (this is never reverted, i.e. session fix)
-        count = G1CP_ReplacePushStr(MEM_GetSymbolIndex("DIA_Scatty_KirgoSuccess_Info"), curString, newString);
+        count = G1CP_ReplacePushStr(MEM_GetSymbolIndex("DIA_Scatty_KirgoSuccess_Info"), 0, curString, newString);
     };
 
     // Check if the log topic constant exists and if the adding of the log entry was successfully replaced
