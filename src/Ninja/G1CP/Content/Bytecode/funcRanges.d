@@ -1,29 +1,24 @@
 /*
- * Hash tables for function bytecode ranges
+ * Array holding the symbol indices of all valid functions
  */
-const int G1CP_FuncStarts = 0;
-const int G1CP_FuncEnds   = 0;
-const int G1CP_FuncIds    = 0; // zCArray*
+const int G1CP_FuncIds = 0; // zCArray*
 
 /*
- * Create hash tables for function starts and ends in code stack (as address in memory) indexed by symbol index (once).
- * I tried to speed this up as much as possible. The bottle neck is _HT_Insert. But it should be no longer than 550ms.
+ * Create array of function indices. It should be quite fast now.
  */
-func int G1CP_CollectFuncRanges() {
+func int G1CP_CollectFuncIDs() {
     // Only do once
-    if (G1CP_FuncStarts) {
+    if (G1CP_FuncIds) {
         return TRUE;
     };
 
     // Collect the symbol indices of all functions, prototypes and instance functions (assembly for performance)
-    var int htSize;
     G1CP_FuncIds = MEM_ArrayCreate();
     const int zCPar_SymbolTable__GetNumInList = 7318128; //0x6FAA70
     const int zCPar_SymbolTable__GetSymbol    = 7316496; //0x6FA410
     const int zCPar_Symbol__HasFlag           = 7308416; //0x6F8480
     const int zCArray_int__InsertEnd          = 5439504; //0x530010
-    const int zCPrime__NextPrime              = 5889744; //0x59DED0
-    ASM_Open(141+1);
+    ASM_Open(116+1);
     ASM_1(96);                                                         // pusha
     ASM_1(190);   ASM_4(ContentParserAddress);                         // mov    esi, ContentParserAddress
     ASM_3(1076877);                                                    // lea    ebp, [esi+0x10]
@@ -43,7 +38,7 @@ func int G1CP_CollectFuncRanges() {
     ASM_2(49801);                                                      // mov    edx, eax
     ASM_3(2116235);                                                    // mov    ecx, [edx+0x20]
     ASM_2(57729); ASM_4(61440);                                        // and    ecx, 0xf000
-    ASM_2(63873); ASM_4(24576);                                        // cmp    ecx, 0x6000   ; prootype
+    ASM_2(63873); ASM_4(24576);                                        // cmp    ecx, 0x6000   ; prototype
     ASM_2(10868);                                                      // jz     add
     ASM_2(63873); ASM_4(28672);                                        // cmp    ecx, 0x7000   ; instance
     ASM_2(2164);                                                       // jz     checkFlags
@@ -68,55 +63,64 @@ func int G1CP_CollectFuncRanges() {
     ASM_3(312451);                                                     // add    esp, 0x4
     ASM_2(39659);                                                      // jmp    loopStart
     // loopEnd:
-    ASM_1(185);   ASM_4(G1CP_FuncIds);                                 // mov    ecx, G1CP_FuncIds
-    ASM_3(541067);                                                     // mov    eax, [ecx+0x8]
-    ASM_3(194753);                                                     // sar    eax, 0x2
-    ASM_1(80);                                                         // push   eax
-    ASM_1(232);   ASM_4(zCPrime__NextPrime-ASM_Here()-4);              // call   zCPrime::NextPrime
-    ASM_3(312451);                                                     // add    esp, 0x4
-    ASM_1(163);   ASM_4(_@(htSize));                                   // mov    htSize, eax
     ASM_1(97);                                                         // popa
     ASM_1(195);                                                        // ret
     ASM_RunOnce();
-
-    // Allocate memory for the hash tables accordingly
-    var int num; num = MEM_ArraySize(G1CP_FuncIds);
-    var int arr; arr = MEM_ReadInt(G1CP_FuncIds);
-    G1CP_FuncStarts = _HT_CreatePtr(htSize); // Next highest prime number after num/4
-    G1CP_FuncEnds   = _HT_CreatePtr(htSize);
-
-    // Iterate over all symbols for all functions
-    var int prevId; prevId = MEM_ArrayLast(G1CP_FuncIds);
-    repeat(i, num); var int i;
-        var int id; id = MEM_ReadIntArray(arr, i);
-        var int symbPtr; symbPtr = MEM_ReadIntArray(MEM_Parser.symtab_table_array, id);
-        var int addr; addr = MEM_ReadInt(symbPtr + zCParSymbol_content_offset) + MEM_Parser.stack_stack;
-
-        // Record function bytecode start
-        _HT_Insert(G1CP_FuncStarts, addr,     id); // This is slow :(
-        _HT_Insert(G1CP_FuncEnds,   addr - 1, prevId);
-
-        // Determine bytecode end from start of the next function
-        prevId = id;
-    end;
-
-    // The last function ends with the code stack
-    _HT_InsertOrChange(G1CP_FuncEnds, MEM_Parser.stack_stacklast-1, prevId);
 
     // Done
     return TRUE;
 };
 
 /*
+ * Retrieve the position in the function ID array given a function ID. If the given symbol index is not a valid function
+ * return -1.
+ */
+func int G1CP_GetFuncIDArrPos(var int funcId) {
+    // It's not even a binary search, but still faster than a Daedalus hash table
+    const int zCArray__Search = 6151392; //0x5DDCE0
+    const int funcIdPtr = 0;
+    const int call = 0;
+    if (CALL_Begin(call)) {
+        funcIdPtr = _@(funcId);
+        CALL_IntParam(_@(funcIdPtr));
+        CALL_PutRetValTo(_@(ret));
+        CALL__thiscall(_@(G1CP_FuncIds), zCArray__Search);
+        call = CALL_End();
+    };
+
+    var int ret;
+    return +ret;
+};
+
+
+/*
  * Retrieve function bytecode start address. If invalid symbol index, it returns zero.
  */
 func int G1CP_GetFuncStart(var int funcId) {
-    return _HT_Get(G1CP_FuncStarts, funcId);
+    // Avoid checking if it's a valid function, by simply checking the function ID
+    if (G1CP_GetFuncIDArrPos(funcId) == -1) {
+        return FALSE;
+    };
+
+    // Return the function's offset (start in byte code)
+    return MEM_ReadInt(MEM_GetSymbolByIndex(funcId) + zCParSymbol_content_offset) + MEM_Parser.stack_stack;
 };
 
 /*
  * Retrieve function bytecode end address (i.e. address of last byte). If invalid symbol index, it returns zero.
  */
 func int G1CP_GetFuncEnd(var int funcId) {
-    return _HT_Get(G1CP_FuncEnds, funcId);
+    // Find the next function after that one
+    var int nextPos; nextPos = G1CP_GetFuncIDArrPos(funcId) + 1;
+    if (!nextPos) {
+        return FALSE;
+    };
+
+    // And return its starting address
+    if (MEM_ArraySize(G1CP_FuncIds) > nextPos) {
+        var int symbPtr; symbPtr = MEM_GetSymbolByIndex(MEM_ArrayRead(G1CP_FuncIds, nextPos));
+        return MEM_ReadInt(symbPtr + zCParSymbol_content_offset) + MEM_Parser.stack_stack - 1;
+    } else {
+        return MEM_Parser.stack_stacklast-1;
+    };
 };
