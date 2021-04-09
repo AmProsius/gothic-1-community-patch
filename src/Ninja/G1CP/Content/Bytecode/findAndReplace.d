@@ -85,31 +85,30 @@ func int G1CP_FindInCode(var int funcIdOrStartAddr, var int zeroOrEndAddr, var i
 };
 
 /*
- * Find all occurrences of given bytecode in a function.
+ * Find all occurrences of given bytecode in a function. The function returns the number of replacements.
  */
 func int G1CP_FindInFunc(var int funcId, var int needle, var int byteCount) {
     return G1CP_FindInCode(funcId, 0, needle, byteCount);
 };
 
 /*
- * Replace any function calls within a function with a call to another
- * The function returns the number of replacements
+ * Replace any function calls with a call to another. The function returns the number of replacements.
+ * See G1CP_FindInCode for details on the first and second parameter.
  */
-func int G1CP_ReplaceCall(var int funcId, var int needleCallId, var int replaceCallId) {
+func int G1CP_ReplaceCall(var int funcIdOrStartAddr, var int zeroOrEndAddr, var int needleId, var int replaceId) {
     // Make sure all exist
-    if (funcId < 0)        || (funcId >= currSymbolTableLength)
-    || (needleCallId < 0)  || (needleCallId >= currSymbolTableLength)
-    || (replaceCallId < 0) || (replaceCallId >= currSymbolTableLength) {
+    if (needleId < 0)  || (needleId >= MEM_Parser.symtab_table_numInArray)
+    || (replaceId < 0) || (replaceId >= MEM_Parser.symtab_table_numInArray) {
         return 0;
     };
 
     // Needle and replace can only be functions, because instance functions cannot be called from a function directly
-    var zCPar_Symbol needleSymb; needleSymb = _^(MEM_GetSymbolByIndex(needleCallId));
+    var zCPar_Symbol needleSymb; needleSymb = _^(MEM_GetSymbolByIndex(needleId));
     var int type; type = (needleSymb.bitfield & zCPar_Symbol_bitfield_type);
     if (type != zPAR_TYPE_FUNC) {
        return 0;
     };
-    var zCPar_Symbol replaceSymb; replaceSymb = _^(MEM_GetSymbolByIndex(replaceCallId));
+    var zCPar_Symbol replaceSymb; replaceSymb = _^(MEM_GetSymbolByIndex(replaceId));
     if (type != (replaceSymb.bitfield & zCPar_Symbol_bitfield_type)) {
         return 0;
     };
@@ -124,16 +123,16 @@ func int G1CP_ReplaceCall(var int funcId, var int needleCallId, var int replaceC
     if (pNum != (replaceSymb.bitfield & zCPar_Symbol_bitfield_ele)) {
         return 0;
     };
-    if (needleCallId+pNum >= currSymbolTableLength) || (replaceCallId+pNum >= currSymbolTableLength) {
+    if (needleId+pNum >= MEM_Parser.symtab_table_numInArray) || (replaceId+pNum >= MEM_Parser.symtab_table_numInArray) {
         return 0;
     };
 
     // Confirm matching parameter types
     var zCPar_Symbol pSymb;
     repeat(i, pNum); var int i;
-        pSymb = _^(MEM_GetSymbolByIndex(needleCallId+1+i));
+        pSymb = _^(MEM_GetSymbolByIndex(needleId+1+i));
         var int t0; t0 = (pSymb.bitfield & zCPar_Symbol_bitfield_type);
-        pSymb = _^(MEM_GetSymbolByIndex(replaceCallId+1+i));
+        pSymb = _^(MEM_GetSymbolByIndex(replaceId+1+i));
         var int t1; t1 = (pSymb.bitfield & zCPar_Symbol_bitfield_type);
 
         // Strings and instances are special, anything else is just pushed as integer
@@ -146,23 +145,23 @@ func int G1CP_ReplaceCall(var int funcId, var int needleCallId, var int replaceC
     end;
 
     // Decide if Daedalus or external function
-    const int word[2] = {0, 0};
+    const int bytes[2] = {-1, -1};
     if (needleSymb.bitfield & zPAR_FLAG_EXTERNAL) {
-        word[0] = zPAR_TOK_CALLEXTERN << 24;
-        word[1] = needleCallId;
+        bytes[0] = zPAR_TOK_CALLEXTERN << 24;
+        bytes[1] = needleId;
     } else {
-        word[0] = zPAR_TOK_CALL << 24;
-        word[1] = needleSymb.content;
+        bytes[0] = zPAR_TOK_CALL << 24;
+        bytes[1] = needleSymb.content;
     };
 
     // Find function calls
-    var int matches; matches = G1CP_FindInFunc(funcId, _@(word)+3, 5);
+    var int matches; matches = G1CP_FindInCode(funcIdOrStartAddr, zeroOrEndAddr, _@(bytes)+3, 5);
 
     // Overwrite each occurrence
     repeat(i, MEM_ArraySize(matches));
         MEMINT_OverrideFunc_Ptr = MEM_ArrayRead(matches, i);
         if (replaceSymb.bitfield & zPAR_FLAG_EXTERNAL) {
-            MEMINT_OFTokPar(zPAR_TOK_CALLEXTERN, replaceCallId);
+            MEMINT_OFTokPar(zPAR_TOK_CALLEXTERN, replaceId);
         } else {
             MEMINT_OFTokPar(zPAR_TOK_CALL, replaceSymb.content);
         };
@@ -175,14 +174,14 @@ func int G1CP_ReplaceCall(var int funcId, var int needleCallId, var int replaceC
 };
 
 /*
- * Replace any integer assignments within a function with another integer
- * The function returns the number of replacements
+ * Replace any integer assignments with another integer. The function returns the number of replacements.
+ * See G1CP_FindInCode for details on the first and second parameter.
  */
-func int G1CP_ReplaceAssignInt(var int funcId, var string assignedSymb, var int ele, var int needle, var int replace) {
+func int G1CP_ReplaceAssignInt(var int funcIdOrStartAddr, var int zeroOrEndAddr, var string assignedSymb, var int ele,
+                               var int needle, var int replace) {
     // Make sure all exist
     var int destSymbId; destSymbId = MEM_GetSymbolIndex(assignedSymb);
-    if (funcId < 0) || (funcId >= currSymbolTableLength)
-    || (destSymbId == -1) {
+    if (destSymbId == -1) {
         return 0;
     };
 
@@ -193,12 +192,12 @@ func int G1CP_ReplaceAssignInt(var int funcId, var string assignedSymb, var int 
         bytes[0] = zPAR_TOK_PUSHVAR<<24;
         bytes[1] = destSymbId;
         bytes[2] = zPAR_OP_IS;
-        matches = G1CP_FindInFunc(funcId, _@(bytes)+3, 6);
+        matches = G1CP_FindInCode(funcIdOrStartAddr, zeroOrEndAddr, _@(bytes)+3, 6);
     } else {
         bytes[0] = zPAR_TOK_PUSH_ARRAYVAR<<24;
         bytes[1] = destSymbId;
         bytes[2] = ele + (zPAR_OP_IS<<8);
-        matches = G1CP_FindInFunc(funcId, _@(bytes)+3, 7);
+        matches = G1CP_FindInCode(funcIdOrStartAddr, zeroOrEndAddr, _@(bytes)+3, 7);
     };
 
     // Iterate over all matches
@@ -232,27 +231,28 @@ func int G1CP_ReplaceAssignInt(var int funcId, var string assignedSymb, var int 
 };
 
 /*
- * Replace any integer assignments within a function with another integer (by its symbol ID)
- * The function returns the number of replacements
+ * Replace any integer assignments with another integer (by its symbol ID). The function returns the number of
+ * replacements.
+ * See G1CP_FindInCode for details on the first and second parameter.
  */
-func int G1CP_ReplaceAssignIntID(var int funcId, var string assignedSymb, var int ele, var int needle,
-                                 var int replaceId) {
-    if (replaceId < -1) || (replaceId >= currSymbolTableLength) {
+func int G1CP_ReplaceAssignIntID(var int funcIdOrStartAddr, var int zeroOrEndAddr, var string assignedSymb, var int ele,
+                                 var int needle, var int replaceId) {
+    if (replaceId < 0) || (replaceId >= MEM_Parser.symtab_table_numInArray) {
         return 0;
     };
     var int replace; replace = G1CP_GetIntVarByIndex(replaceId, 0, 0);
-    return G1CP_ReplaceAssignInt(funcId, assignedSymb, ele, needle, replace);
+    return G1CP_ReplaceAssignInt(funcIdOrStartAddr, zeroOrEndAddr, assignedSymb, ele, needle, replace);
 };
 
 /*
- * Replace any string assignments within a function with another string (by its symbol ID)
- * The function returns the number of replacements
+ * Replace any string assignments with another string (by its symbol ID). The function returns the number of
+ * replacements.
+ * See G1CP_FindInCode for details on the first and second parameter.
  */
-func int G1CP_ReplaceAssignStrID(var int funcId, var string assignedSymb, var int ele, var string needle,
-                                 var int replaceId) {
+func int G1CP_ReplaceAssignStrID(var int funcIdOrStartAddr, var int zeroOrEndAddr, var string assignedSymb, var int ele,
+                                 var string needle, var int replaceId) {
     // Make sure all exist
-    if (funcId < 0)    || (funcId >= currSymbolTableLength)
-    || (replaceId < 0) || (replaceId >= currSymbolTableLength) {
+    if (replaceId < 0) || (replaceId >= MEM_Parser.symtab_table_numInArray) {
         return 0;
     };
 
@@ -269,7 +269,7 @@ func int G1CP_ReplaceAssignStrID(var int funcId, var string assignedSymb, var in
     var int offset;
     if (Hlp_StrCmp(assignedSymb, "")) {
         // Only check for pushed strings
-        matches = G1CP_FindInFunc(funcId, _@(zPAR_TOK_PUSHVAR), 1);
+        matches = G1CP_FindInCode(funcIdOrStartAddr, zeroOrEndAddr, _@(zPAR_TOK_PUSHVAR), 1);
         offset = 0;
     } else {
         // Check for string assignments
@@ -282,12 +282,12 @@ func int G1CP_ReplaceAssignStrID(var int funcId, var string assignedSymb, var in
             bytes[0] = zPAR_TOK_PUSHVAR<<24;
             bytes[1] = destSymbId;
             bytes[2] = zPAR_TOK_ASSIGNSTR;
-            matches = G1CP_FindInFunc(funcId, _@(bytes)+3, 6);
+            matches = G1CP_FindInCode(funcIdOrStartAddr, zeroOrEndAddr, _@(bytes)+3, 6);
         } else {
             bytes[0] = zPAR_TOK_PUSH_ARRAYVAR<<24;
             bytes[1] = destSymbId;
             bytes[2] = ele + (zPAR_TOK_ASSIGNSTR<<8);
-            matches = G1CP_FindInFunc(funcId, _@(bytes)+3, 7);
+            matches = G1CP_FindInCode(funcIdOrStartAddr, zeroOrEndAddr, _@(bytes)+3, 7);
         };
         offset = 5;
     };
@@ -317,13 +317,13 @@ func int G1CP_ReplaceAssignStrID(var int funcId, var string assignedSymb, var in
 };
 
 /*
- * Replace any string assignments within a function with another string
- * The function returns the number of replacements
+ * Replace any string assignments with another string. The function returns the number of replacements.
+ * See G1CP_FindInCode for details on the first and second parameter.
  */
-func int G1CP_ReplaceAssignStr(var int funcId, var string assignedSymb, var int ele, var string needle,
-                               var string replace) {
+func int G1CP_ReplaceAssignStr(var int funcIdOrStartAddr, var int zeroOrEndAddr, var string assignedSymb, var int ele,
+                               var string needle, var string replace) {
     // Obtain the symbol index of the replacement string
-    var int calledFrom; calledFrom = MEM_GetCallerStackPos()-5+currParserStackAddress;
+    var int calledFrom; calledFrom = MEM_GetCallerStackPos()-5+MEM_Parser.stack_stack;
     if (MEM_ReadByte(calledFrom)   != zPAR_TOK_CALL)
     || (MEM_ReadInt(calledFrom+1)  != MEM_GetFuncOffset(G1CP_ReplaceAssignStr))
     || (MEM_ReadByte(calledFrom-5) != zPAR_TOK_PUSHVAR) {
@@ -333,25 +333,25 @@ func int G1CP_ReplaceAssignStr(var int funcId, var string assignedSymb, var int 
     var int replaceId; replaceId = MEM_ReadInt(calledFrom-4);
 
     // Pass on
-    return G1CP_ReplaceAssignStrID(funcId, assignedSymb, ele, needle, replaceId);
+    return G1CP_ReplaceAssignStrID(funcIdOrStartAddr, zeroOrEndAddr, assignedSymb, ele, needle, replaceId);
 };
 
 /*
- * Replace any pushed strings within a function with another string (by its symbol ID)
- * The function returns the number of replacements
+ * Replace any pushed strings with another string (by its symbol ID). The function returns the number of replacements.
+ * See G1CP_FindInCode for details on the first and second parameter.
  */
-func int G1CP_ReplacePushStrID(var int funcId, var string needle, var int replaceId) {
+func int G1CP_ReplacePushStrID(var int funcIdOrStartAddr, var int zeroOrEndAddr, var string needle, var int replaceId) {
     // Pass on
-    return G1CP_ReplaceAssignStrID(funcId, "", 0, needle, replaceId);
+    return G1CP_ReplaceAssignStrID(funcIdOrStartAddr, zeroOrEndAddr, "", 0, needle, replaceId);
 };
 
 /*
- * Replace any pushed strings within a function with another string
- * The function returns the number of replacements
+ * Replace any pushed strings with another string. The function returns the number of replacements.
+ * See G1CP_FindInCode for details on the first and second parameter.
  */
-func int G1CP_ReplacePushStr(var int funcId, var string needle, var string replace) {
+func int G1CP_ReplacePushStr(var int funcIdOrStartAddr, var int zeroOrEndAddr, var string needle, var string replace) {
     // Obtain the symbol index of the replacement string
-    var int calledFrom; calledFrom = MEM_GetCallerStackPos()-5+currParserStackAddress;
+    var int calledFrom; calledFrom = MEM_GetCallerStackPos()-5+MEM_Parser.stack_stack;
     if (MEM_ReadByte(calledFrom)   != zPAR_TOK_CALL)
     || (MEM_ReadInt(calledFrom+1)  != MEM_GetFuncOffset(G1CP_ReplacePushStr))
     || (MEM_ReadByte(calledFrom-5) != zPAR_TOK_PUSHVAR) {
@@ -361,80 +361,29 @@ func int G1CP_ReplacePushStr(var int funcId, var string needle, var string repla
     var int replaceId; replaceId = MEM_ReadInt(calledFrom-4);
 
     // Pass on
-    return G1CP_ReplaceAssignStrID(funcId, "", 0, needle, replaceId);
+    return G1CP_ReplaceAssignStrID(funcIdOrStartAddr, zeroOrEndAddr, "", 0, needle, replaceId);
 };
 
 /*
- * Add a condition to an if-statement within a function (at a given address in memory) by squeezing in a function call.
- * The address must point to the token zPAR_TOK_JUMPF (execution of an if-condition).
- * The conjunction can either be zPAR_OP_LOG_AND or zPAR_OP_LOG_OR, corresponding to && and ||, respectively. It can
- * also be zero. The function must then either take one integer argument to replace the condition completely, or have
- * no return value to leave the if-condition untouched.
- *
- * With zPAR_OP_LOG_AND the if-condition will be extended like so
- *   if (foo || bar && baz) && new()
- *
- * With zPAR_OP_LOG_OR the if-condition will be extended like so
- *   if (foo || bar && baz) || new()
- *
- * With zero and one function parameter the if-condition will be replaced
- *   if new(foo || bar && baz)
- *
- * With zero and no function parameter or return value the if-condition will remain
- *   _ = (foo || bar && baz); // Evaluated (pushed)
- *   new();                   // Squeezed in
- *   if _                     // Executed (popped)
+ * Replace speaker and listener of matching output unit calls by replacing the pushed instance IDs. The speaker and
+ * listener instances are expected as symbol indices. The function returns the number of replacements.
+ * See G1CP_FindInCode for details on the first and second parameter.
  */
-func void G1CP_AddIfCondition(var int addr, var int conjunction, var func condtion) {
-    // Verify arguments
-    if ((conjunction != 0) && (conjunction != zPAR_OP_LOG_AND) && (conjunction != zPAR_OP_LOG_OR))
-    || (!addr) {
-        return;
-    };
-
-    // Verify address context
-    if (MEM_ReadByte(addr) != zPAR_TOK_JUMPF) {
-        return;
-    };
-
-    // Get jump targets
-    var int targetFalse; targetFalse = MEM_ReadInt(addr+1);           // Offset after the if-block (FALSE)
-    var int targetTrue; targetTrue = addr+5 - currParserStackAddress; // Offset inside the if-block (TRUE)
-
-    // Write byte code with new condition
-    var int detour; detour = MEM_Alloc(15 + (conjunction != 0)); // 15 or 16 bytes
-    MEMINT_OverrideFunc_Ptr = detour;
-    MEMINT_OFTokPar(zPAR_TOK_CALL, MEM_GetFuncOffset(condtion));
-    if (conjunction) {
-        MEMINT_OFTok(conjunction);
-    };
-    MEMINT_OFTokPar(zPAR_TOK_JUMPF, targetFalse);
-    MEMINT_OFTokPar(zPAR_TOK_JUMP, targetTrue);
-
-    // Overwrite the jump to detour to our additional condition
-    MEMINT_OverrideFunc_Ptr = addr;
-    MEMINT_OFTokPar(zPAR_TOK_JUMP, detour - currParserStackAddress);
-};
-
-/*
- * Replace speaker and listener of matching output unit calls within a function by replacing the pushed instance IDs.
- * The speaker and listener instances are expected as symbol indices. The function returns the number of replacements.
- */
-func int G1CP_ReplaceOUInst(var int funcId, var string outputUnit, var int needleIdSpeaker, var int needleIdListener,
+func int G1CP_ReplaceOUInst(var int funcIdOrStartAddr, var int zeroOrEndAddr, var string outputUnit,
+                            var int needleIdSpeaker,  var int needleIdListener,
                             var int replaceIdSpeaker, var int replaceIdListener) {
     // Make sure all exist
-    if (funcId < 0)            || (funcId >= currSymbolTableLength)
-    || (needleIdSpeaker < 0)   || (needleIdSpeaker >= currSymbolTableLength)
-    || (needleIdListener < 0)  || (needleIdListener >= currSymbolTableLength)
-    || (replaceIdSpeaker < 0)  || (replaceIdSpeaker >= currSymbolTableLength)
-    || (replaceIdListener < 0) || (replaceIdListener >= currSymbolTableLength) {
+    if (needleIdSpeaker < 0)   || (needleIdSpeaker >= MEM_Parser.symtab_table_numInArray)
+    || (needleIdListener < 0)  || (needleIdListener >= MEM_Parser.symtab_table_numInArray)
+    || (replaceIdSpeaker < 0)  || (replaceIdSpeaker >= MEM_Parser.symtab_table_numInArray)
+    || (replaceIdListener < 0) || (replaceIdListener >= MEM_Parser.symtab_table_numInArray) {
         return 0;
     };
 
     // Find all matching output units calls
     const int bytes[2] = {zPAR_TOK_CALLEXTERN<<24, -1};
     bytes[1] = MEM_GetFuncID(AI_Output);
-    var int matches; matches = G1CP_FindInFunc(funcId, _@(bytes)+3, 5);
+    var int matches; matches = G1CP_FindInCode(funcIdOrStartAddr, zeroOrEndAddr, _@(bytes)+3, 5);
 
     // Iterate over all calls and check the function arguments
     var int count; count = 0;
@@ -462,4 +411,56 @@ func int G1CP_ReplaceOUInst(var int funcId, var string outputUnit, var int needl
     MEM_ArrayFree(matches);
 
     return count;
+};
+
+/*
+ * Add a condition to an if-statement (at a given address in memory) by squeezing in a function call. The address must
+ * point to the token zPAR_TOK_JUMPF (execution of an if-condition).
+ * The conjunction can either be zPAR_OP_LOG_AND or zPAR_OP_LOG_OR, corresponding to && and ||, respectively. It can
+ * also be zero. The function must then either take one integer argument to replace the condition completely, or have
+ * no return value to leave the if-condition untouched.
+ *
+ * With zPAR_OP_LOG_AND the if-condition will be extended like so
+ *   if (foo || bar && baz) && new()
+ *
+ * With zPAR_OP_LOG_OR the if-condition will be extended like so
+ *   if (foo || bar && baz) || new()
+ *
+ * With zero and one function parameter the if-condition will be replaced
+ *   if new(foo || bar && baz)
+ *
+ * With zero and no function parameter or return value the if-condition will remain
+ *   _ = (foo || bar && baz); // Evaluated (pushed)
+ *   new();                   // Squeezed in
+ *   if _                     // Executed (popped)
+ */
+func void G1CP_AddIfCondition(var int addr, var int conjunction, var func condition) {
+    // Verify arguments
+    if ((conjunction != 0) && (conjunction != zPAR_OP_LOG_AND) && (conjunction != zPAR_OP_LOG_OR))
+    || (!addr) {
+        return;
+    };
+
+    // Verify address context
+    if (MEM_ReadByte(addr) != zPAR_TOK_JUMPF) {
+        return;
+    };
+
+    // Get jump targets
+    var int targetFalse; targetFalse = MEM_ReadInt(addr+1);           // Offset after the if-block (FALSE)
+    var int targetTrue; targetTrue = addr+5 - MEM_Parser.stack_stack; // Offset inside the if-block (TRUE)
+
+    // Write byte code with new condition
+    var int detour; detour = MEM_Alloc(15 + (conjunction != 0)); // 15 or 16 bytes
+    MEMINT_OverrideFunc_Ptr = detour;
+    MEMINT_OFTokPar(zPAR_TOK_CALL, MEM_GetFuncOffset(condition));
+    if (conjunction) {
+        MEMINT_OFTok(conjunction);
+    };
+    MEMINT_OFTokPar(zPAR_TOK_JUMPF, targetFalse);
+    MEMINT_OFTokPar(zPAR_TOK_JUMP, targetTrue);
+
+    // Overwrite the jump to detour to our additional condition
+    MEMINT_OverrideFunc_Ptr = addr;
+    MEMINT_OFTokPar(zPAR_TOK_JUMP, detour - MEM_Parser.stack_stack);
 };
