@@ -21,4 +21,7 @@ func void G1CP_InitPre() {
     if (LeGoEnd > Ninja_Symbols_Start_G1CP) {
         G1CP_SymbStart = LeGoEnd;
     };
+
+    // Collect all function starts and ends
+    G1CP_CollectFuncRanges();
 };

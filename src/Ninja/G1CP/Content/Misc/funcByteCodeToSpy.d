@@ -1,34 +1,30 @@
 /*
- * Print function byte code to spy
+ * Print byte code in certain range in memory to spy
  */
-func void G1CP_FuncByteCodeToSpy(var int funcId) {
-    if (funcId < 0) || (funcId >= currSymbolTableLength) {
-        MEM_Warn("Invalid symbol ID");
+func void G1CP_ByteCodeToSpy(var int posStart, var int posEnd) {
+    if (!posStart) || (!posEnd) {
         return;
     };
 
-    var int symbPtr; symbPtr = MEM_GetSymbolByIndex(funcId);
-    var int funcStart; funcStart = MEM_ReadInt(symbPtr + zCParSymbol_content_offset) + currParserStackAddress;
+    // Operate on stack offsets, because of full 32 bit address space unsigned comparison
+    posStart -= MEM_Parser.stack_stack;
+    posEnd   -= MEM_Parser.stack_stack;
+    var int pos; pos = posStart;
 
-    var int tokens; tokens = MEM_ArrayCreate();
-    var int params; params = MEM_ArrayCreate();
-    var int positions; positions = MEM_ArrayCreate();
-    MEMINT_TokenizeFunction(funcId, tokens, params, positions);
-    var int len; len = MEM_ArraySize(tokens);
-
-    repeat(i, len-1); var int i;
-        var int tok; tok = MEM_ArrayRead(tokens, i);
-        var int par; par = MEM_ArrayRead(params, i);
-        var int pos; pos = MEM_ArrayRead(positions, i);
+    MEM_Info("");
+    while(pos <= posEnd);
+        var int tok; tok = MEM_ReadByte(MEM_Parser.stack_stack + pos);
+        var int par; par = MEM_ReadInt(MEM_Parser.stack_stack + pos + 1);
 
         var string msg;
-        msg = ConcatStrings(G1CP_LFill(IntToString(pos - funcStart), " ", 4), ":   ");
+        msg = ConcatStrings(G1CP_LFill(IntToString(pos - posStart), " ", 4), ":   ");
         msg = ConcatStrings(msg, MEM_ReadStatStringArr(PARSER_TOKEN_NAMES, tok));
         msg = ConcatStrings(msg, "   ");
         if (tok == zPAR_TOK_PUSHVAR)    || (tok == zPAR_TOK_PUSHINST)
         || (tok == zPAR_TOK_CALLEXTERN) || (tok == zPAR_TOK_SETINSTANCE) {
             // Symbol index
             msg = ConcatStrings(msg, MEM_ReadString(MEM_GetSymbolByIndex(par)));
+            pos += 4;
         } else if (tok == zPAR_TOK_PUSH_ARRAYVAR) {
             // Symbol index
             msg = ConcatStrings(msg, MEM_ReadString(MEM_GetSymbolByIndex(par)));
@@ -36,6 +32,7 @@ func void G1CP_FuncByteCodeToSpy(var int funcId) {
             msg = ConcatStrings(msg, "[");
             msg = ConcatStrings(msg, IntToString(MEM_ReadByte(pos+5)));
             msg = ConcatStrings(msg, "]");
+            pos += 5;
         } else if (tok == zPAR_TOK_CALL) {
             // Stack offset
             if (par >= 0) && (par < MEM_Parser.stack_stacksize) {
@@ -43,11 +40,12 @@ func void G1CP_FuncByteCodeToSpy(var int funcId) {
             } else {
                 msg = ConcatStrings(msg, IntToString(par));
             };
+            pos += 4;
         } else if (tok == zPAR_TOK_JUMP) || (tok == zPAR_TOK_JUMPF) {
             // Stack offset+
             if (par >= 0) && (par < MEM_Parser.stack_stacksize) {
                 var int jmpFncId; jmpFncId = MEM_GetFuncIDByOffset(par);
-                symbPtr = MEM_GetSymbolByIndex(jmpFncId);
+                var int symbPtr; symbPtr = MEM_GetSymbolByIndex(jmpFncId);
                 var int stk; stk = MEM_ReadInt(symbPtr + zCParSymbol_content_offset);
                 msg = ConcatStrings(msg, MEM_ReadString(symbPtr));
                 msg = ConcatStrings(msg, "+");
@@ -55,20 +53,31 @@ func void G1CP_FuncByteCodeToSpy(var int funcId) {
             } else {
                 msg = ConcatStrings(msg, IntToString(par));
             };
+            pos += 4;
         } else if (tok == zPAR_TOK_PUSHINT) {
             // Literal
             msg = ConcatStrings(msg, IntToString(par));
-            if (par > 0) && (par < currSymbolTableLength) {
+            if (par > 0) && (par < MEM_Parser.symtab_table_numInArray) {
                 // Possibly symbol index
                 msg = ConcatStrings(msg, "  (");
                 msg = ConcatStrings(msg, MEM_ReadString(MEM_GetSymbolByIndex(par)));
                 msg = ConcatStrings(msg, ")");
             };
+            pos += 4;
         };
+        pos += 1;
         MEM_Info(msg);
     end;
+    MEM_Info("");
+};
 
-    MEM_ArrayFree(tokens);
-    MEM_ArrayFree(params);
-    MEM_ArrayFree(positions);
+/*
+ * Print function byte code to spy
+ */
+func void G1CP_FuncByteCodeToSpy(var int funcId) {
+    if (funcId < 0) || (funcId >= currSymbolTableLength) {
+        MEM_Warn("Invalid symbol ID");
+        return;
+    };
+    G1CP_ByteCodeToSpy(G1CP_GetFuncStart(funcId), G1CP_GetFuncEnd(funcId));
 };
