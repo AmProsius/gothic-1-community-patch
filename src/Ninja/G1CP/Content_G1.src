@@ -17,9 +17,10 @@ Content\Symbols\int.d
 Content\Symbols\string.d
 Content\Symbols\aivar.d
 
-Content\Misc\funcRanges.d
-Content\Misc\findInFunc.d
-Content\Misc\funcByteCodeToSpy.d
+Content\Bytecode\funcRanges.d
+Content\Bytecode\findAndReplace.d
+Content\Bytecode\sendCodeToSpy.d
+
 Content\Misc\info.d
 Content\Misc\topic.d
 Content\Misc\waypoint.d
