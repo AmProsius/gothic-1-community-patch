@@ -58,7 +58,7 @@ func int G1CP_037_LogEntryGravoMerchant_Toggle(var int apply) {
         MEM_ArrayFree(matches);
 
         // Check if we have found a valid entry
-        if (entryId <= 0) || (entryId >= currSymbolTableLength) {
+        if (entryId <= 0) || (entryId >= MEM_Parser.symtab_table_numInArray) {
             return FALSE;
         };
 

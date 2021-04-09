@@ -75,9 +75,5 @@ func void G1CP_ByteCodeToSpy(var int posStart, var int posEnd) {
  * Print function byte code to spy
  */
 func void G1CP_FuncByteCodeToSpy(var int funcId) {
-    if (funcId < 0) || (funcId >= currSymbolTableLength) {
-        MEM_Warn("Invalid symbol ID");
-        return;
-    };
     G1CP_ByteCodeToSpy(G1CP_GetFuncStart(funcId), G1CP_GetFuncEnd(funcId));
 };

@@ -6,11 +6,11 @@
  * Check the content of a given function against: { return 1; }
  */
 func int G1CP_042_ConfirmByteCode(var int funcId) {
-    if (funcId <= 0) || (funcId >= currSymbolTableLength) {
+    if (funcId <= 0) || (funcId >= MEM_Parser.symtab_table_numInArray) {
         return FALSE;
     };
     var zCPar_Symbol symb; symb = _^(MEM_GetSymbolByIndex(funcId));
-    var int pos; pos = symb.content + currParserStackAddress;
+    var int pos; pos = symb.content + MEM_Parser.stack_stack;
 
     // Ends with return
     if (MEM_ReadByte(pos+5) == zPAR_TOK_RET) {
