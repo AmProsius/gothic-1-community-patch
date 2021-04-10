@@ -15,7 +15,6 @@ Content\Report\reportFuncToSpy.d
 
 Content\Symbols\int.d
 Content\Symbols\string.d
-Content\Symbols\aivar.d
 
 Content\Bytecode\funcRanges.d
 Content\Bytecode\findAndReplace.d

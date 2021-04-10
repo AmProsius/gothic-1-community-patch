@@ -109,7 +109,7 @@ func int G1CP_011_CheckInfo(var C_Npc slf, var C_Npc oth) {
     MEM_PushInstParam(slf);
     MEM_GetSymbolIndex("ZS_GuardPassage"); // Cannot push integer
     MEM_Call(Npc_IsInState);
-    var int cond2; cond2 = (MEM_PopIntResult()) && (G1CP_GetAIVar(hero, "AIV_GUARDPASSAGE_STATUS", 0) > 0);
+    var int cond2; cond2 = (MEM_PopIntResult()) && (G1CP_NpcGetAIVar(hero, "AIV_GUARDPASSAGE_STATUS", 0) > 0);
 
     // Abort "B_AssessFighter" if either condition is met
     return (cond1) || (cond2);

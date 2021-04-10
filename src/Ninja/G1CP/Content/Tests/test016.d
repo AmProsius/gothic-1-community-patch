@@ -22,7 +22,7 @@ func int G1CP_Test_016_RunDialog(var string dialogName, var string needsInfo) {
     };
 
     // Check if NPC and AI-variable exist
-    backupValue = G1CP_IdGetAIVar(MEM_GetSymbolIndex("Grd_212_Torwache"), "AIV_PASSGATE", -42);
+    backupValue = G1CP_NpcIDGetAIVar(MEM_GetSymbolIndex("Grd_212_Torwache"), "AIV_PASSGATE", -42);
     if (backupValue == -42) {
         G1CP_TestsuiteErrorDetail("NPC 'Grd_212_Torwache' or variable 'AIV_PASSGATE' not found");
         passed = FALSE;
@@ -34,7 +34,7 @@ func int G1CP_Test_016_RunDialog(var string dialogName, var string needsInfo) {
     };
 
     // Set the variable to TRUE
-    G1CP_IdSetAIVar(MEM_GetSymbolIndex("Grd_212_Torwache"), "AIV_PASSGATE", TRUE);
+    G1CP_NpcIDSetAIVar(MEM_GetSymbolIndex("Grd_212_Torwache"), "AIV_PASSGATE", TRUE);
 
     // Backup told status of required dialog
     backupTold = Npc_KnowsInfo(hero, MEM_GetSymbolIndex(needsInfo));
@@ -60,7 +60,7 @@ func int G1CP_Test_016_RunDialog(var string dialogName, var string needsInfo) {
     G1CP_SetInfoTold(needsInfo, backupTold);
 
     // Restore value
-    G1CP_IdSetAIVar(MEM_GetSymbolIndex("Grd_212_Torwache"), "AIV_PASSGATE", backupValue);
+    G1CP_NpcIDSetAIVar(MEM_GetSymbolIndex("Grd_212_Torwache"), "AIV_PASSGATE", backupValue);
 
     // Check return value
     if (ret) {
