@@ -3,20 +3,7 @@
  */
 func int G1CP_GetFuncStart(var int funcId) {
     // Assert that it's a function or prototype or instance function
-    if (funcId < 0)  || (funcId >= MEM_Parser.symtab_table_numInArray) {
-        return 0;
-    };
-
-    // Only allow non-external functions, prototypes and constant instances (instance functions)
-    var zCPar_Symbol symb; symb = _^(MEM_GetSymbolByIndex(funcId));
-    var int type; type = symb.bitfield & zCPar_Symbol_bitfield_type;
-    if ((symb.bitfield & zPAR_FLAG_CONST) && (!(symb.bitfield & zPAR_FLAG_EXTERNAL))
-    &&  ((type == zPAR_TYPE_FUNC) || (type == zPAR_TYPE_INSTANCE)))
-    ||  (type == zPAR_TYPE_PROTOTYPE) { // Not constant
-        return symb.content + MEM_Parser.stack_stack;
-    } else {
-        return 0;
-    };
+    return G1CP_GetCallableStartI(funcId);
 };
 
 /*
@@ -31,8 +18,8 @@ func int G1CP_GetFuncEnd(var int funcId) {
     };
 
     // Assert that it's a function or prototype or instance function
-    var int offset; offset = G1CP_GetFuncStart(funcId) - MEM_Parser.stack_stack;
-    if (offset < 0) {
+    var int offset; offset = G1CP_GetCallableOffsetI(funcId);
+    if (offset == -1) {
         return 0;
     };
 
