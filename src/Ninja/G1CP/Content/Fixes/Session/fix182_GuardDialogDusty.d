@@ -40,7 +40,7 @@ func int G1CP_182_GuardDialogDusty() {
         G1CP_182_GuardDialogDusty_Entry = G1CP_GetStringI(arg2, "G1CP invalid string");
 
         // Confirm the log topic and that an entry was found
-        if (Hlp_StrCmp(G1CP_182_GuardDialogDusty_Topic, G1CP_GetStringConstI(topicId, "G1CP invalid string 2")))
+        if (Hlp_StrCmp(G1CP_182_GuardDialogDusty_Topic, G1CP_GetStringConstI(topicId, 0, "G1CP invalid string 2")))
         && (!Hlp_StrCmp(G1CP_182_GuardDialogDusty_Entry, "G1CP invalid string")) {
             // Hook the condition function
             HookDaedalusFuncS("DIA_Grd_216_DustyZoll_Condition", "G1CP_182_GuardDialogDusty_Hook");

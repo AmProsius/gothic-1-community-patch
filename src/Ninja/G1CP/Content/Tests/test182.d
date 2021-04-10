@@ -27,7 +27,7 @@ func int G1CP_Test_182() {
     };
 
     // Check if the log topic exists
-    var string topic; topic = G1CP_GetStringConst("CH1_RecruitDusty", "G1CP invalid string");
+    var string topic; topic = G1CP_GetStringConst("CH1_RecruitDusty", 0, "G1CP invalid string");
     if (Hlp_StrCmp(topic, "G1CP invalid string")) {
         G1CP_TestsuiteErrorDetail("Log topic constant 'CH1_RecruitDusty' not found");
         passed = FALSE;
