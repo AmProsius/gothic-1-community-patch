@@ -1,6 +1,6 @@
 /*
- * Check if function symbol exists and return the function offset.
- * The string parameter signature defines the expected function signature. If empty, it will not be checked.
+ * Check if function symbol exists and return the address of the symbol.
+ * The string parameter "signature" defines the expected function signature. If empty, it will not be checked.
  * The string consists of symbol type names separated by "|". The first part is the return type of the function. The
  * following parts are the individual function parameter types. Types are
  *  - "void" (only for return type)
@@ -24,7 +24,7 @@
  *  - "int|int|inst|"   Too many parameters
  *
  */
-func int G1CP_GetFuncOffsetP(var int symbPtr, var string signature) {
+func int G1CP_CheckFuncSymbol(var int symbPtr, var string signature) {
     // Check if symbol exists
     if (!symbPtr) {
         return 0;
@@ -122,8 +122,8 @@ func int G1CP_GetFuncOffsetP(var int symbPtr, var string signature) {
         };
     };
 
-    // Return function offset (i.e. function start in code stack)
-    return symb.content;
+    // Success
+    return symbPtr;
 };
 
 
@@ -131,7 +131,7 @@ func int G1CP_GetFuncOffsetP(var int symbPtr, var string signature) {
  * Check if function symbol exists. For signature see function above.
  */
 func int G1CP_IsFuncP(var int symbPtr, var string signature) {
-    return (G1CP_GetFuncOffsetP(symbPtr, signature) != 0);
+    return (G1CP_CheckFuncSymbol(symbPtr, signature) != 0);
 };
 func int G1CP_IsFuncI(var int symbId, var string signature) {
     if (symbId < 0) || (symbId >= MEM_Parser.symtab_table_numInArray) {
