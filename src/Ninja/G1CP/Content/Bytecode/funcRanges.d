@@ -14,7 +14,7 @@ func int G1CP_GetFuncEnd(var int funcId) {
     const int funcStartsArray = 0;
     if (!funcStartsArray) {
         MEM_InitAll(); // Make sure it was created
-        funcStartsArray = G1CP_GetIntVar("MEM_GetFuncIDByOffset.funcStartsArray", 0, 0);
+        funcStartsArray = G1CP_GetIntConst("MEM_GetFuncIDByOffset.funcStartsArray", 0, 0);
     };
 
     // Assert that it's a function or prototype or instance function

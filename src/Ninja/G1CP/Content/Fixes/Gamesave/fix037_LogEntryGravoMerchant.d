@@ -63,8 +63,8 @@ func int G1CP_037_LogEntryGravoMerchant_Toggle(var int apply) {
         };
 
         // Get the topic strings
-        topic = G1CP_GetStringVarI(topicId, 0, topic);
-        entry = G1CP_GetStringVarI(entryId, 0, entry);
+        topic = G1CP_GetStringConstI(topicId, topic);
+        entry = G1CP_GetStringI(entryId, entry);
 
         // Now that all is established, let's replace the call to 'B_LogEntry' to squeeze in the creation of the topic
         i = G1CP_ReplaceCall(funcId, 0, b_logentry_id, MEM_GetSymbolIndex(hookSymbName));
@@ -117,7 +117,7 @@ func void G1CP_037_LogEntryGravoMerchant_Intercept(var string topic, var string 
     const int    topicSection  = LOG_NOTE;
 
     // Check if this is the correct topic
-    if (Hlp_StrCmp(topic, G1CP_GetStringVar(topicSymbName, 0, "G1CP invalid topic string")))
+    if (Hlp_StrCmp(topic, G1CP_GetStringConst(topicSymbName, "G1CP invalid topic string")))
     && (!G1CP_LogGetTopic(topic)) {
         Log_CreateTopic(topic, topicSection);
         G1CP_SetFixStatus(37, G1CP_FIX_APPLIED); // If it did not exist before, our fix will have to be reverted

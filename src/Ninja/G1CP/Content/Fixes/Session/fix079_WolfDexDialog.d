@@ -39,7 +39,7 @@ func int G1CP_079_WolfDexDialog() {
         // Check for "GIL_GRD"
         var int tok; tok = MEM_ReadByte(pos);
         var int par; par = MEM_ReadInt(pos+1);
-        var int GIL_GRD; GIL_GRD = G1CP_GetIntVarI(cond1Id, 0, 0);
+        var int GIL_GRD; GIL_GRD = G1CP_GetIntConstI(cond1Id, 0, 0);
         if (((par == cond1Id) && (tok  == zPAR_TOK_PUSHVAR))    // GIL_GRD (constant)
         ||  ((par == GIL_GRD) && (tok  == zPAR_TOK_PUSHINT))) { // GIL_GRD (literal integer)
 
@@ -47,7 +47,7 @@ func int G1CP_079_WolfDexDialog() {
             tok = MEM_ReadByte(pos+21);
             par = MEM_ReadInt(pos+22);
             if (tok == zPAR_TOK_PUSHVAR) {
-                par = G1CP_GetIntVarI(par, 0, 0);
+                par = G1CP_GetIntI(par, 0);
             } else if (tok != zPAR_TOK_PUSHINT) {
                 par = 0;
             };

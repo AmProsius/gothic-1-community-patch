@@ -24,7 +24,7 @@
  *  - "int|int|inst|"   Too many parameters
  *
  */
-func int G1CP_CheckFuncSymbol(var int symbPtr, var string signature) {
+func int G1CP_CheckFuncSymbol(var int symbPtr, var string signature, var int isExternal) {
     // Check if symbol exists
     if (!symbPtr) {
         return 0;
@@ -32,12 +32,14 @@ func int G1CP_CheckFuncSymbol(var int symbPtr, var string signature) {
 
     // Check if function
     var zCPar_Symbol symb; symb = _^(symbPtr);
-    if ((symb.bitfield & zCPar_Symbol_bitfield_type) != zPAR_TYPE_FUNC) {
+    if ((symb.bitfield & zCPar_Symbol_bitfield_type) != zPAR_TYPE_FUNC) || (!(symb.bitfield & zPAR_FLAG_CONST)) {
         return 0;
     };
 
     // Check if non-external
-    if (!(symb.bitfield & zPAR_FLAG_CONST)) || (symb.bitfield & zPAR_FLAG_EXTERNAL) {
+    var int isFlgExt; isFlgExt = (symb.bitfield & zPAR_FLAG_EXTERNAL);
+    if ((isExternal ==  1) && (!isFlgExt))   // Should be an external but is NOT
+    || ((isExternal == -1) &&  (isFlgExt)) { // Should NOT be an external but is
         return 0;
     };
 
@@ -130,15 +132,57 @@ func int G1CP_CheckFuncSymbol(var int symbPtr, var string signature) {
 /*
  * Check if function symbol exists. For signature see function above.
  */
-func int G1CP_IsFuncP(var int symbPtr, var string signature) {
-    return (G1CP_CheckFuncSymbol(symbPtr, signature) != 0);
+func int G1CP_IsFuncSymbP(var int symbPtr, var string signature, var int isExternal) {
+    return (G1CP_CheckFuncSymbol(symbPtr, signature, isExternal) != 0);
 };
-func int G1CP_IsFuncI(var int symbId, var string signature) {
+func int G1CP_IsFuncSymbI(var int symbId, var string signature, var int isExternal) {
     if (symbId < 0) || (symbId >= MEM_Parser.symtab_table_numInArray) {
         return 0;
     };
-    return G1CP_IsFuncP(MEM_GetSymbolByIndex(symbId), signature);
+    return G1CP_IsFuncSymbP(MEM_GetSymbolByIndex(symbId), signature, isExternal);
 };
-func int G1CP_IsFunc(var string name, var string signature) {
-    return G1CP_IsFuncP(MEM_GetSymbol(name), signature);
+func int G1CP_IsFuncSymb(var string name, var string signature, var int isExternal) {
+    return G1CP_IsFuncSymbP(MEM_GetSymbol(name), signature, isExternal);
+};
+
+
+/*
+ * Check if any sort of function exists.
+ */
+func int G1CP_IsFuncP(var int symbPtr) {
+    return G1CP_IsFuncSymbP(symbPtr, "", 0);
+};
+func int G1CP_IsFuncI(var int symbId) {
+    return G1CP_IsFuncSymbI(symbId, "", 0);
+};
+func int G1CP_IsFunc(var string name) {
+    return G1CP_IsFuncSymb(name, "", 0);
+};
+
+
+/*
+ * Check if Daedalus function symbol exists. For signature see function above.
+ */
+func int G1CP_IsDaeFuncP(var int symbPtr, var string signature) {
+    return G1CP_IsFuncSymbP(symbPtr, signature, -1);
+};
+func int G1CP_IsDaeFuncI(var int symbId, var string signature) {
+    return G1CP_IsFuncSymbI(symbId, signature, -1);
+};
+func int G1CP_IsDaeFunc(var string name, var string signature) {
+    return G1CP_IsFuncSymb(name, signature, -1);
+};
+
+
+/*
+ * Check if external function symbol exists. For signature see function above.
+ */
+func int G1CP_IsExtFuncP(var int symbPtr, var string signature) {
+    return G1CP_IsFuncSymbP(symbPtr, signature, 1);
+};
+func int G1CP_IsExtFuncI(var int symbId, var string signature) {
+    return G1CP_IsFuncSymbI(symbId, signature, 1);
+};
+func int G1CP_IsExtFunc(var string name, var string signature) {
+    return G1CP_IsFuncSymb(name, signature, 1);
 };

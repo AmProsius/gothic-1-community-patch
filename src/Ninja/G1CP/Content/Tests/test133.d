@@ -72,7 +72,7 @@ func int G1CP_Test_133() {
     };
 
     // Retrieve the content of the log topic string constant
-    var string topic; topic = G1CP_GetStringVar(logTopicName, 0, "G1CP invalid string");
+    var string topic; topic = G1CP_GetStringConst(logTopicName, "G1CP invalid string");
 
     // Backup the status of the log topic if it exists already
     newName = ConcatStrings("G1CP test ", IntToString(fixNumber));

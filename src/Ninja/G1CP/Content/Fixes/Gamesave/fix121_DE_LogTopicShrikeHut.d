@@ -3,10 +3,10 @@
  */
 func int G1CP_121_DE_LogTopicShrikeHut() {
     const string newName = "Shrikes Hütte";
-    var string curName; curName = G1CP_GetStringVar("CH1_ShrikesHut", 0, "");
+    var string curName; curName = G1CP_GetStringConst("CH1_ShrikesHut", "");
 
     if (Hlp_StrCmp(curName, "Shrike's Hütte")) {
-        G1CP_SetStringVar("CH1_ShrikesHut", 0, newName);
+        G1CP_SetStringConst("CH1_ShrikesHut", newName);
         G1CP_LogRenameTopic(curName, newName);
         return TRUE;
     } else {
@@ -24,10 +24,10 @@ func int G1CP_121_DE_LogTopicShrikeHutRevert() {
     };
 
     const string oldName = "Shrike's Hütte";
-    var string curName; curName = G1CP_GetStringVar("CH1_ShrikesHut", 0, "");
+    var string curName; curName = G1CP_GetStringConst("CH1_ShrikesHut", "");
 
     if (Hlp_StrCmp(curName, "Shrikes Hütte")) {
-        G1CP_SetStringVar("CH1_ShrikesHut", 0, oldName); // Necessary for re-applying
+        G1CP_SetStringConst("CH1_ShrikesHut", oldName); // Necessary for re-applying
         G1CP_LogRenameTopic(curName, oldName);
         return TRUE;
     } else {

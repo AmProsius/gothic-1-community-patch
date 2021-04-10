@@ -99,22 +99,14 @@ func int G1CP_FindInFunc(var int funcId, var int needle, var int byteCount) {
  * See G1CP_FindInCode for details on the first and second parameter.
  */
 func int G1CP_ReplaceCall(var int funcIdOrStartAddr, var int zeroOrEndAddr, var int needleId, var int replaceId) {
-    // Make sure all exist
-    if (needleId < 0)  || (needleId >= MEM_Parser.symtab_table_numInArray)
-    || (replaceId < 0) || (replaceId >= MEM_Parser.symtab_table_numInArray) {
+    // Needle and replace can only be functions, because instance functions cannot be called from a function directly
+    if (!G1CP_IsFuncI(needleId))
+    || (!G1CP_IsFuncI(replaceId)) {
         return 0;
     };
 
-    // Needle and replace can only be functions, because instance functions cannot be called from a function directly
     var zCPar_Symbol needleSymb; needleSymb = _^(MEM_GetSymbolByIndex(needleId));
-    var int type; type = (needleSymb.bitfield & zCPar_Symbol_bitfield_type);
-    if (type != zPAR_TYPE_FUNC) {
-       return 0;
-    };
     var zCPar_Symbol replaceSymb; replaceSymb = _^(MEM_GetSymbolByIndex(replaceId));
-    if (type != (replaceSymb.bitfield & zCPar_Symbol_bitfield_type)) {
-        return 0;
-    };
 
     // Confirm matching return value type
     if (needleSymb.offset != replaceSymb.offset) {
@@ -183,8 +175,7 @@ func int G1CP_ReplaceCall(var int funcIdOrStartAddr, var int zeroOrEndAddr, var 
 func int G1CP_ReplaceAssignInt(var int funcIdOrStartAddr, var int zeroOrEndAddr, var string assignedSymb, var int ele,
                                var int needle, var int replace) {
     // Make sure all exist
-    var int destSymbId; destSymbId = MEM_GetSymbolIndex(assignedSymb);
-    if (destSymbId == -1) {
+    if (!G1CP_IsIntSymb(assignedSymb, ele, 0)) {
         return 0;
     };
 
@@ -193,12 +184,12 @@ func int G1CP_ReplaceAssignInt(var int funcIdOrStartAddr, var int zeroOrEndAddr,
     const int bytes[3] = {-1, -1, -1};
     if (ele <= 0) {
         bytes[0] = zPAR_TOK_PUSHVAR<<24;
-        bytes[1] = destSymbId;
+        bytes[1] = MEM_GetSymbolIndex(assignedSymb);
         bytes[2] = zPAR_OP_IS;
         matches = G1CP_FindInCode(funcIdOrStartAddr, zeroOrEndAddr, _@(bytes)+3, 6, 0);
     } else {
         bytes[0] = zPAR_TOK_PUSH_ARRAYVAR<<24;
-        bytes[1] = destSymbId;
+        bytes[1] = MEM_GetSymbolIndex(assignedSymb);
         bytes[2] = ele + (zPAR_OP_IS<<8);
         matches = G1CP_FindInCode(funcIdOrStartAddr, zeroOrEndAddr, _@(bytes)+3, 7, 0);
     };
@@ -211,7 +202,7 @@ func int G1CP_ReplaceAssignInt(var int funcIdOrStartAddr, var int zeroOrEndAddr,
         // Check the pushed integer (variable) content against "needle"
         if (MEM_ReadByte(pos-5) == zPAR_TOK_PUSHVAR) {
             var int varId; varId = MEM_ReadInt(pos-4);
-            if (G1CP_GetIntVarI(varId, 0, -needle) != needle) {
+            if (G1CP_GetIntI(varId, -needle) != needle) {
                 continue;
             };
         } else if (MEM_ReadByte(pos-5) == zPAR_TOK_PUSHINT) {
@@ -240,10 +231,11 @@ func int G1CP_ReplaceAssignInt(var int funcIdOrStartAddr, var int zeroOrEndAddr,
  */
 func int G1CP_ReplaceAssignIntID(var int funcIdOrStartAddr, var int zeroOrEndAddr, var string assignedSymb, var int ele,
                                  var int needle, var int replaceId) {
-    if (replaceId < 0) || (replaceId >= MEM_Parser.symtab_table_numInArray) {
+    // Make sure all exist
+    if (!G1CP_IsIntI(replaceId)) {
         return 0;
     };
-    var int replace; replace = G1CP_GetIntVarI(replaceId, 0, 0);
+    var int replace; replace = G1CP_GetIntI(replaceId, 0);
     return G1CP_ReplaceAssignInt(funcIdOrStartAddr, zeroOrEndAddr, assignedSymb, ele, needle, replace);
 };
 
@@ -255,15 +247,7 @@ func int G1CP_ReplaceAssignIntID(var int funcIdOrStartAddr, var int zeroOrEndAdd
 func int G1CP_ReplaceAssignStrID(var int funcIdOrStartAddr, var int zeroOrEndAddr, var string assignedSymb, var int ele,
                                  var string needle, var int replaceId) {
     // Make sure all exist
-    if (replaceId < 0) || (replaceId >= MEM_Parser.symtab_table_numInArray) {
-        return 0;
-    };
-
-    // Confirm replacement symbol is a string constant
-    var zCPar_Symbol replaceSymb; replaceSymb = _^(MEM_GetSymbolByIndex(replaceId));
-    if ((replaceSymb.bitfield & zCPar_Symbol_bitfield_type) != zPAR_TYPE_STRING)
-    || (!((replaceSymb.bitfield & zCPar_Symbol_bitfield_flags) & zPAR_FLAG_CONST)) {
-        MEM_SendToSpy(zERR_TYPE_FAULT, "G1CP_ReplaceAssignStrID: Argument 'replaceId' has to be a string constant");
+    if (!G1CP_IsStringConstI(replaceId, 0)) { // Must be a constant
         return 0;
     };
 
@@ -276,19 +260,18 @@ func int G1CP_ReplaceAssignStrID(var int funcIdOrStartAddr, var int zeroOrEndAdd
         offset = 0;
     } else {
         // Check for string assignments
-        var int destSymbId; destSymbId = MEM_GetSymbolIndex(assignedSymb);
-        if (destSymbId == -1) {
+        if (!G1CP_IsStringSymb(assignedSymb, ele, 0)) {
             return 0;
         };
         const int bytes[3] = {-1, -1, -1};
         if (ele <= 0) {
             bytes[0] = zPAR_TOK_PUSHVAR<<24;
-            bytes[1] = destSymbId;
+            bytes[1] = MEM_GetSymbolIndex(assignedSymb);
             bytes[2] = zPAR_TOK_ASSIGNSTR;
             matches = G1CP_FindInCode(funcIdOrStartAddr, zeroOrEndAddr, _@(bytes)+3, 6, 0);
         } else {
             bytes[0] = zPAR_TOK_PUSH_ARRAYVAR<<24;
-            bytes[1] = destSymbId;
+            bytes[1] = MEM_GetSymbolIndex(assignedSymb);
             bytes[2] = ele + (zPAR_TOK_ASSIGNSTR<<8);
             matches = G1CP_FindInCode(funcIdOrStartAddr, zeroOrEndAddr, _@(bytes)+3, 7, 0);
         };
@@ -303,7 +286,7 @@ func int G1CP_ReplaceAssignStrID(var int funcIdOrStartAddr, var int zeroOrEndAdd
         // Check the pushed string content against "needle"
         if (MEM_ReadByte(pos-offset) == zPAR_TOK_PUSHVAR) {
             var int varId; varId = MEM_ReadInt(pos-offset+1);
-            if (STR_Compare(G1CP_GetStringVarI(varId, 0, "G1CP invalid string"), needle) == STR_EQUAL) {
+            if (STR_Compare(G1CP_GetStringI(varId, "G1CP invalid string"), needle) == STR_EQUAL) {
 
                 // Overwrite the string assignment with the replacement string
                 MEMINT_OverrideFunc_Ptr = pos-offset;
@@ -400,7 +383,7 @@ func int G1CP_ReplaceOUInst(var int funcIdOrStartAddr, var int zeroOrEndAddr, va
 
         // Confirm: AI_Output(needleIdSpeaker, needleIdListener, outputUnit);
         if (arg1 == needleIdSpeaker) && (arg2 == needleIdListener)
-        && (Hlp_StrCmp(G1CP_GetStringVarI(arg3, 0, "G1CP invalid string"), outputUnit)) {
+        && (Hlp_StrCmp(G1CP_GetStringI(arg3, "G1CP invalid string"), outputUnit)) { // Either var or const
 
             // Assign new speaker and listener: AI_Output(replaceIdSpeaker, replaceIdListener, outputUnit);
             MEMINT_OverrideFunc_Ptr = pos-15;

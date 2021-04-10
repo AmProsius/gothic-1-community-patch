@@ -1,7 +1,7 @@
 /*
  * Check if instance symbol exists and return the address of the symbol.
  * The parameter "clss" specifies the excepted class of the instance. If empty, it will not be checked. The parameter
- * "isFunc" specifies if the instance is a instance function (1) or an instance variable (0). If -1, it will not be
+ * "isFunc" specifies if the instance is a instance function (1) or an instance variable (-1). If 0, it will not be
  * checked.
  * An instance function is defined as
  *   instance name(class) {  ....  };
