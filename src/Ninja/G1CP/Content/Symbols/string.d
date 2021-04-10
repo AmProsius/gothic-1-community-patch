@@ -9,7 +9,7 @@ func int G1CP_GetStringAddrP(var int symbPtr, var int ele) {
 
     // Check if string
     var zCPar_Symbol symb; symb = _^(symbPtr);
-    if ((symb.bitfield & zCPar_Symbol_bitfield_type) != zPAR_TYPE_STRING)  {
+    if ((symb.bitfield & zCPar_Symbol_bitfield_type) != zPAR_TYPE_STRING) {
         return 0;
     };
 
