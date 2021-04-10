@@ -5,9 +5,12 @@
  * symbol index and zero (to probe the contents of a specific function), or both zero (to probe the entire code stack).
  * Any search needs to start with a token byte (e.g. zPAR_TOK_PUSHVAR), as comparison happens starting from each token.
  */
-func int G1CP_FindInCode(var int funcIdOrStartAddr, var int zeroOrEndAddr, var int needle, var int byteCount) {
+func int G1CP_FindInCode(var int funcIdOrStartAddr, var int zeroOrEndAddr, var int needle, var int byteCount,
+                         var int array) {
     // Create array to collect all matches (even if exiting prematurely, to always provide an array as return value)
-    var int all; all = MEM_ArrayCreate();
+    if (!array) {
+        array = MEM_ArrayCreate();
+    };
 
     // Set start and end accordingly
     var int addrStart; var int addrEnd;
@@ -30,7 +33,7 @@ func int G1CP_FindInCode(var int funcIdOrStartAddr, var int zeroOrEndAddr, var i
     var int offsetEnd;   offsetEnd   = addrEnd   - MEM_Parser.stack_stack;
     if (offsetStart < 0) || (offsetEnd >= MEM_Parser.stack_stacksize)
     || (!needle) || (!byteCount) {
-        return all;
+        return array;
     };
 
     // Stop comparing before the end
@@ -59,7 +62,7 @@ func int G1CP_FindInCode(var int funcIdOrStartAddr, var int zeroOrEndAddr, var i
         ASM_2(42739);                        // repe cmpsb
         ASM_2(3189);                         // jnz    tokenSize
         ASM_1(84);                           // push   esp
-        ASM_2(3467);  ASM_4(_@(all));        // mov    ecx, all
+        ASM_2(3467);  ASM_4(_@(array));      // mov    ecx, array
         ASM_1(232);   ASM_4(c-ASM_Here()-4); // call   zCArray<int>::InsertEnd
         // tokenSize:
         ASM_1(89);                           // pop    ecx
@@ -81,14 +84,14 @@ func int G1CP_FindInCode(var int funcIdOrStartAddr, var int zeroOrEndAddr, var i
     };
     ASM_Run(code);
 
-    return all;
+    return array;
 };
 
 /*
  * Find all occurrences of given bytecode in a function. The function returns the number of replacements.
  */
 func int G1CP_FindInFunc(var int funcId, var int needle, var int byteCount) {
-    return G1CP_FindInCode(funcId, 0, needle, byteCount);
+    return G1CP_FindInCode(funcId, 0, needle, byteCount, 0);
 };
 
 /*
@@ -155,7 +158,7 @@ func int G1CP_ReplaceCall(var int funcIdOrStartAddr, var int zeroOrEndAddr, var 
     };
 
     // Find function calls
-    var int matches; matches = G1CP_FindInCode(funcIdOrStartAddr, zeroOrEndAddr, _@(bytes)+3, 5);
+    var int matches; matches = G1CP_FindInCode(funcIdOrStartAddr, zeroOrEndAddr, _@(bytes)+3, 5, 0);
 
     // Overwrite each occurrence
     repeat(i, MEM_ArraySize(matches));
@@ -192,12 +195,12 @@ func int G1CP_ReplaceAssignInt(var int funcIdOrStartAddr, var int zeroOrEndAddr,
         bytes[0] = zPAR_TOK_PUSHVAR<<24;
         bytes[1] = destSymbId;
         bytes[2] = zPAR_OP_IS;
-        matches = G1CP_FindInCode(funcIdOrStartAddr, zeroOrEndAddr, _@(bytes)+3, 6);
+        matches = G1CP_FindInCode(funcIdOrStartAddr, zeroOrEndAddr, _@(bytes)+3, 6, 0);
     } else {
         bytes[0] = zPAR_TOK_PUSH_ARRAYVAR<<24;
         bytes[1] = destSymbId;
         bytes[2] = ele + (zPAR_OP_IS<<8);
-        matches = G1CP_FindInCode(funcIdOrStartAddr, zeroOrEndAddr, _@(bytes)+3, 7);
+        matches = G1CP_FindInCode(funcIdOrStartAddr, zeroOrEndAddr, _@(bytes)+3, 7, 0);
     };
 
     // Iterate over all matches
@@ -269,7 +272,7 @@ func int G1CP_ReplaceAssignStrID(var int funcIdOrStartAddr, var int zeroOrEndAdd
     var int offset;
     if (Hlp_StrCmp(assignedSymb, "")) {
         // Only check for pushed strings
-        matches = G1CP_FindInCode(funcIdOrStartAddr, zeroOrEndAddr, _@(zPAR_TOK_PUSHVAR), 1);
+        matches = G1CP_FindInCode(funcIdOrStartAddr, zeroOrEndAddr, _@(zPAR_TOK_PUSHVAR), 1, 0);
         offset = 0;
     } else {
         // Check for string assignments
@@ -282,12 +285,12 @@ func int G1CP_ReplaceAssignStrID(var int funcIdOrStartAddr, var int zeroOrEndAdd
             bytes[0] = zPAR_TOK_PUSHVAR<<24;
             bytes[1] = destSymbId;
             bytes[2] = zPAR_TOK_ASSIGNSTR;
-            matches = G1CP_FindInCode(funcIdOrStartAddr, zeroOrEndAddr, _@(bytes)+3, 6);
+            matches = G1CP_FindInCode(funcIdOrStartAddr, zeroOrEndAddr, _@(bytes)+3, 6, 0);
         } else {
             bytes[0] = zPAR_TOK_PUSH_ARRAYVAR<<24;
             bytes[1] = destSymbId;
             bytes[2] = ele + (zPAR_TOK_ASSIGNSTR<<8);
-            matches = G1CP_FindInCode(funcIdOrStartAddr, zeroOrEndAddr, _@(bytes)+3, 7);
+            matches = G1CP_FindInCode(funcIdOrStartAddr, zeroOrEndAddr, _@(bytes)+3, 7, 0);
         };
         offset = 5;
     };
@@ -383,7 +386,7 @@ func int G1CP_ReplaceOUInst(var int funcIdOrStartAddr, var int zeroOrEndAddr, va
     // Find all matching output units calls
     const int bytes[2] = {zPAR_TOK_CALLEXTERN<<24, -1};
     bytes[1] = MEM_GetFuncID(AI_Output);
-    var int matches; matches = G1CP_FindInCode(funcIdOrStartAddr, zeroOrEndAddr, _@(bytes)+3, 5);
+    var int matches; matches = G1CP_FindInCode(funcIdOrStartAddr, zeroOrEndAddr, _@(bytes)+3, 5, 0);
 
     // Iterate over all calls and check the function arguments
     var int count; count = 0;
