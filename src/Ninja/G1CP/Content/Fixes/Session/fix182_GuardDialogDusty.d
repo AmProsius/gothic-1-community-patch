@@ -36,11 +36,11 @@ func int G1CP_182_GuardDialogDusty() {
         // B_LogEntry(arg1, arg2)
         var int arg1; arg1 = MEM_ReadInt(pos-9); // Topic
         var int arg2; arg2 = MEM_ReadInt(pos-4); // Entry
-        G1CP_182_GuardDialogDusty_Topic = G1CP_GetStringVarByIndex(arg1, 0, "G1CP invalid string");
-        G1CP_182_GuardDialogDusty_Entry = G1CP_GetStringVarByIndex(arg2, 0, "G1CP invalid string");
+        G1CP_182_GuardDialogDusty_Topic = G1CP_GetStringVarI(arg1, 0, "G1CP invalid string");
+        G1CP_182_GuardDialogDusty_Entry = G1CP_GetStringVarI(arg2, 0, "G1CP invalid string");
 
         // Confirm the log topic and that an entry was found
-        if (Hlp_StrCmp(G1CP_182_GuardDialogDusty_Topic, G1CP_GetStringVarByIndex(topicId, 0, "G1CP invalid string 2")))
+        if (Hlp_StrCmp(G1CP_182_GuardDialogDusty_Topic, G1CP_GetStringVarI(topicId, 0, "G1CP invalid string 2")))
         && (!Hlp_StrCmp(G1CP_182_GuardDialogDusty_Entry, "G1CP invalid string")) {
             // Hook the condition function
             HookDaedalusFuncS("DIA_Grd_216_DustyZoll_Condition", "G1CP_182_GuardDialogDusty_Hook");

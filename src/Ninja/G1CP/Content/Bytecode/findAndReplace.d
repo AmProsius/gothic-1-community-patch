@@ -211,7 +211,7 @@ func int G1CP_ReplaceAssignInt(var int funcIdOrStartAddr, var int zeroOrEndAddr,
         // Check the pushed integer (variable) content against "needle"
         if (MEM_ReadByte(pos-5) == zPAR_TOK_PUSHVAR) {
             var int varId; varId = MEM_ReadInt(pos-4);
-            if (G1CP_GetIntVarByIndex(varId, 0, -needle) != needle) {
+            if (G1CP_GetIntVarI(varId, 0, -needle) != needle) {
                 continue;
             };
         } else if (MEM_ReadByte(pos-5) == zPAR_TOK_PUSHINT) {
@@ -243,7 +243,7 @@ func int G1CP_ReplaceAssignIntID(var int funcIdOrStartAddr, var int zeroOrEndAdd
     if (replaceId < 0) || (replaceId >= MEM_Parser.symtab_table_numInArray) {
         return 0;
     };
-    var int replace; replace = G1CP_GetIntVarByIndex(replaceId, 0, 0);
+    var int replace; replace = G1CP_GetIntVarI(replaceId, 0, 0);
     return G1CP_ReplaceAssignInt(funcIdOrStartAddr, zeroOrEndAddr, assignedSymb, ele, needle, replace);
 };
 
@@ -303,7 +303,7 @@ func int G1CP_ReplaceAssignStrID(var int funcIdOrStartAddr, var int zeroOrEndAdd
         // Check the pushed string content against "needle"
         if (MEM_ReadByte(pos-offset) == zPAR_TOK_PUSHVAR) {
             var int varId; varId = MEM_ReadInt(pos-offset+1);
-            if (STR_Compare(G1CP_GetStringVarByIndex(varId, 0, "G1CP invalid string"), needle) == STR_EQUAL) {
+            if (STR_Compare(G1CP_GetStringVarI(varId, 0, "G1CP invalid string"), needle) == STR_EQUAL) {
 
                 // Overwrite the string assignment with the replacement string
                 MEMINT_OverrideFunc_Ptr = pos-offset;
@@ -400,7 +400,7 @@ func int G1CP_ReplaceOUInst(var int funcIdOrStartAddr, var int zeroOrEndAddr, va
 
         // Confirm: AI_Output(needleIdSpeaker, needleIdListener, outputUnit);
         if (arg1 == needleIdSpeaker) && (arg2 == needleIdListener)
-        && (Hlp_StrCmp(G1CP_GetStringVarByIndex(arg3, 0, "G1CP invalid string"), outputUnit)) {
+        && (Hlp_StrCmp(G1CP_GetStringVarI(arg3, 0, "G1CP invalid string"), outputUnit)) {
 
             // Assign new speaker and listener: AI_Output(replaceIdSpeaker, replaceIdListener, outputUnit);
             MEMINT_OverrideFunc_Ptr = pos-15;

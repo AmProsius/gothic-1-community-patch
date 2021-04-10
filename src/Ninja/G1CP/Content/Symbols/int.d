@@ -1,7 +1,7 @@
 /*
- * Check if integer symbol exists and return the pointer to its content
+ * Check if integer symbol exists and return the address to its content
  */
-func int G1CP_GetIntVarPtrBySymbol(var int symbPtr, var int ele) {
+func int G1CP_GetIntAddrP(var int symbPtr, var int ele) {
     // Check if symbol exists
     if (!symbPtr) {
         return 0;
@@ -28,42 +28,59 @@ func int G1CP_GetIntVarPtrBySymbol(var int symbPtr, var int ele) {
 
 
 /*
+ * Check if integer symbol exists
+ */
+func int G1CP_IsIntVarP(var int symbPtr, var int ele) {
+    return (G1CP_GetIntAddrP(symbPtr, ele) != 0);
+};
+func int G1CP_IsIntVarI(var int symbId, var int ele) {
+    if (symbId < 0) || (symbId >= MEM_Parser.symtab_table_numInArray) {
+        return 0;
+    };
+    return G1CP_IsIntVarP(MEM_GetSymbolByIndex(symbId), ele);
+};
+func int G1CP_IsIntVar(var string name, var int ele) {
+    return G1CP_IsIntVarP(MEM_GetSymbol(name), ele);
+};
+
+
+/*
  * Check if integer symbol exists and return its value
  */
-func int G1CP_GetIntVarBySymbol(var int symbPtr, var int ele, var int dflt) {
-    var int ptr; ptr = G1CP_GetIntVarPtrBySymbol(symbPtr, ele);
+func int G1CP_GetIntVarP(var int symbPtr, var int ele, var int dflt) {
+    var int ptr; ptr = G1CP_GetIntAddrP(symbPtr, ele);
     if (ptr) {
         return MEM_ReadInt(ptr);
     } else {
         return dflt;
     };
 };
-func int G1CP_GetIntVarByIndex(var int symbId, var int ele, var int dflt) {
+func int G1CP_GetIntVarI(var int symbId, var int ele, var int dflt) {
     if (symbId < 0) || (symbId >= MEM_Parser.symtab_table_numInArray) {
         return dflt;
     };
-    return G1CP_GetIntVarBySymbol(MEM_GetSymbolByIndex(symbId), ele, dflt);
+    return G1CP_GetIntVarP(MEM_GetSymbolByIndex(symbId), ele, dflt);
 };
 func int G1CP_GetIntVar(var string name, var int ele, var int dflt) {
-    return G1CP_GetIntVarBySymbol(MEM_GetSymbol(name), ele, dflt);
+    return G1CP_GetIntVarP(MEM_GetSymbol(name), ele, dflt);
 };
 
 
 /*
  * Check if integer symbol exists and set its value
  */
-func void G1CP_SetIntVarBySymbol(var int symbPtr, var int ele, var int value) {
-    var int ptr; ptr = G1CP_GetIntVarPtrBySymbol(symbPtr, ele);
+func void G1CP_SetIntVarP(var int symbPtr, var int ele, var int value) {
+    var int ptr; ptr = G1CP_GetIntAddrP(symbPtr, ele);
     if (ptr) {
         MEM_WriteInt(ptr, value);
     };
 };
-func void G1CP_SetIntVarByIndex(var int symbId, var int ele, var int value) {
+func void G1CP_SetIntVarI(var int symbId, var int ele, var int value) {
     if (symbId < 0) || (symbId >= MEM_Parser.symtab_table_numInArray) {
         return;
     };
-    G1CP_SetIntVarBySymbol(MEM_GetSymbolByIndex(symbId), ele, value);
+    G1CP_SetIntVarP(MEM_GetSymbolByIndex(symbId), ele, value);
 };
 func void G1CP_SetIntVar(var string name, var int ele, var int value) {
-    G1CP_SetIntVarBySymbol(MEM_GetSymbol(name), ele, value);
+    G1CP_SetIntVarP(MEM_GetSymbol(name), ele, value);
 };

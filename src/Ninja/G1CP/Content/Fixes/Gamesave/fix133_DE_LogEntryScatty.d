@@ -12,7 +12,7 @@ func int G1CP_133_DE_LogEntryScatty() {
     if (topicId == -2) {
         // Find and retrieve the topic
         topicId = MEM_GetSymbolIndex("CH1_JoinOC");
-        topicName = G1CP_GetStringVarByIndex(topicId, 0, "");
+        topicName = G1CP_GetStringVarI(topicId, 0, "");
 
         // Replace the push of the old string with the new string (this is never reverted, i.e. session fix)
         count = G1CP_ReplacePushStr(MEM_GetSymbolIndex("DIA_Scatty_KirgoSuccess_Info"), 0, curString, newString);
