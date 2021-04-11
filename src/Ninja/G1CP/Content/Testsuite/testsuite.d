@@ -285,6 +285,9 @@ func string G1CP_TestsuiteList(var string _) {
     return ret;
 };
 
+/*
+ * Check status of test and abort if it does not pass
+ */
 func void G1CP_Testsuite_CheckPassed() {
     // Do not move this code
     if (FALSE) {

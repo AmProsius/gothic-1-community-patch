@@ -1,74 +1,66 @@
 /*
- * Check if item exists and return its symbol index
+ * Check if item exists
  */
-func int G1CP_Testsuite_GetItemId(var string name) {
-    // Check if item instance exists
+func void G1CP_Testsuite_CheckItem(var string name) {
     if (!G1CP_IsItemInst(name)) {
         var string msg; msg = ConcatStrings("Item '", name);
         msg = ConcatStrings(msg, "' not found");
         G1CP_TestsuiteErrorDetail(msg);
         G1CP_TestsuiteStatusPassed = FALSE;
     };
+};
+
+/*
+ * Check if item exists and return its symbol index
+ */
+func int G1CP_Testsuite_GetItemId(var string name) {
+    // Check if item instance exists
+    G1CP_Testsuite_CheckItem(name);
 
     // Return the item's symbol index
     return MEM_GetSymbolIndex(name);
 };
 
 /*
- * Check if integer variable exists and return its symbol pointer
- */
-func int G1CP_Testsuite_GetIntVarPtr(var string name, var int arrIdx) {
-    // Check if variable exists
-    if (!G1CP_IsIntVar(name, arrIdx)) {
-        var string msg; msg = ConcatStrings("Integer variable '", name);
-        msg = ConcatStrings(msg, "' not found/valid");
-        G1CP_TestsuiteErrorDetail(msg);
-        G1CP_TestsuiteStatusPassed = FALSE;
-    };
-
-    // Return the variable's symbol pointer
-    var int symbPtr; symbPtr = MEM_GetSymbol(name);
-    return MEM_ReadInt(symbPtr + zCParSymbol_content_offset);
-};
-
-/*
  * Check if integer variable exists
  */
 func void G1CP_Testsuite_CheckIntVar(var string name, var int arrIdx) {
-    // Check if variable exists
     if (!G1CP_IsIntVar(name, arrIdx)) {
         var string msg; msg = ConcatStrings("Integer variable '", name);
-        msg = ConcatStrings(msg, "' not found/valid");
+        msg = ConcatStrings(msg, "' not found");
         G1CP_TestsuiteErrorDetail(msg);
         G1CP_TestsuiteStatusPassed = FALSE;
     };
 };
 
 /*
- * Check if integer constant exists and return its symbol pointer
- */
-func int G1CP_Testsuite_GetIntConstPtr(var string name, var int arrIdx) {
-    // Check if constant exists
-    if (!G1CP_IsIntConst(name, arrIdx)) {
-        var string msg; msg = ConcatStrings("Integer constant '", name);
-        msg = ConcatStrings(msg, "' not found/valid");
-        G1CP_TestsuiteErrorDetail(msg);
-        G1CP_TestsuiteStatusPassed = FALSE;
-    };
-
-    // Return the constant's symbol pointer
-    var int symbPtr; symbPtr = MEM_GetSymbol(name);
-    return MEM_ReadInt(symbPtr + zCParSymbol_content_offset);
-};
-
-/*
- * Check if integer variable exists
+ * Check if integer constant exists
  */
 func void G1CP_Testsuite_CheckIntConst(var string name, var int arrIdx) {
-    // Check if variable exists
     if (!G1CP_IsIntConst(name, arrIdx)) {
         var string msg; msg = ConcatStrings("Integer constant '", name);
-        msg = ConcatStrings(msg, "' not found/valid");
+        msg = ConcatStrings(msg, "' not found");
+        G1CP_TestsuiteErrorDetail(msg);
+        G1CP_TestsuiteStatusPassed = FALSE;
+    };
+};
+
+/*
+ * Check if info dialog exists
+ */
+func void G1CP_Testsuite_CheckInfo(var string name) {
+    // Check if info instance exists
+    if (!G1CP_IsInfoInst(name)) {
+        var string msg; msg = ConcatStrings("Info instance '", name);
+        msg = ConcatStrings(msg, "' not found");
+        G1CP_TestsuiteErrorDetail(msg);
+        G1CP_TestsuiteStatusPassed = FALSE;
+    };
+
+    // Check if info instance is available in info manager
+    if (!G1CP_GetInfo(name)) {
+        var string msg; msg = ConcatStrings("Info instance '", name);
+        msg = ConcatStrings(msg, "' not available");
         G1CP_TestsuiteErrorDetail(msg);
         G1CP_TestsuiteStatusPassed = FALSE;
     };
@@ -79,15 +71,22 @@ func void G1CP_Testsuite_CheckIntConst(var string name, var int arrIdx) {
  */
 func int G1CP_Testsuite_GetInfoId(var string name) {
     // Check if info instance exists
-    if (!G1CP_IsInfoInst(name)) {
-        var string msg; msg = ConcatStrings("Dialog function '", name);
+    G1CP_Testsuite_CheckInfo(name);
+
+    // Return the dialog's symbol index
+    return MEM_GetSymbolIndex(name);
+};
+
+/*
+ * Check if function exists
+ */
+func void G1CP_Testsuite_CheckFunc(var string name) {
+    if (!G1CP_IsFunc(name, "int|none")) {
+        var string msg; msg = ConcatStrings("Function '", name);
         msg = ConcatStrings(msg, "' not found");
         G1CP_TestsuiteErrorDetail(msg);
         G1CP_TestsuiteStatusPassed = FALSE;
     };
-
-    // Return the dialog's symbol index
-    return MEM_GetSymbolIndex(name);
 };
 
 /*

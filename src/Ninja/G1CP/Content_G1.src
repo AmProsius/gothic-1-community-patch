@@ -33,7 +33,7 @@ Content\Misc\npc.d
 // Fixes and tests
 Content\Fixes\record.d
 Content\Testsuite\testsuite.d
-Content\Testsuite\getter.d
+Content\Testsuite\checks.d
 
 // Session fixes
 Content\Fixes\Session\fix001_NpcStateSleep.d
