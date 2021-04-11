@@ -15,10 +15,14 @@ Content\Report\reportFuncToSpy.d
 
 Content\Symbols\int.d
 Content\Symbols\string.d
-Content\Symbols\aivar.d
+Content\Symbols\func.d
+Content\Symbols\inst.d
+Content\Symbols\callable.d
 
-Content\Misc\findInFunc.d
-Content\Misc\funcByteCodeToSpy.d
+Content\Bytecode\funcRanges.d
+Content\Bytecode\findAndReplace.d
+Content\Bytecode\sendCodeToSpy.d
+
 Content\Misc\info.d
 Content\Misc\topic.d
 Content\Misc\waypoint.d
@@ -103,6 +107,9 @@ Content\Fixes\Session\fix175_EN_RiceLordKeyName.d
 Content\Fixes\Session\fix181_SwineyGiveArmor.d
 Content\Fixes\Session\fix182_GuardDialogDusty.d
 Content\Fixes\Session\fix183_CorristoSellsRobe.d
+Content\Fixes\Session\fix184_BartholoWeedExploit.d
+Content\Fixes\Session\fix185_ScorpioCrossbow.d
+Content\Fixes\Session\fix186_CorristoJoinMages.d
 Content\Fixes\Session\fix188_CorKalomWeedExploit.d
 Content\Fixes\Session\fix192_MagicUserAutoEquip.d
 Content\Fixes\Session\fix197_TemplarCampDialog.d
@@ -123,6 +130,7 @@ Content\Fixes\Gamesave\fix093_DE_LogEntryHoratio.d
 Content\Fixes\Gamesave\fix121_DE_LogTopicShrikeHut.d
 Content\Fixes\Gamesave\fix124_GateGuardID.d
 Content\Fixes\Gamesave\fix133_DE_LogEntryScatty.d
+Content\Fixes\Gamesave\fix143_DE_LogEntryBuster.d
 Content\Fixes\Gamesave\fix193_GateSwitchesStuck.d
 
 // Tests
@@ -190,6 +198,7 @@ Content\Tests\test126.d
 Content\Tests\test133.d
 Content\Tests\test136.d
 Content\Tests\test142.d
+Content\Tests\test143.d
 Content\Tests\test144.d
 Content\Tests\test145.d
 Content\Tests\test146.d
@@ -207,6 +216,9 @@ Content\Tests\test175.d
 Content\Tests\test181.d
 Content\Tests\test182.d
 Content\Tests\test183.d
+Content\Tests\test184.d
+Content\Tests\test185.d
+Content\Tests\test186.d
 Content\Tests\test188.d
 Content\Tests\test192.d
 Content\Tests\test193.d

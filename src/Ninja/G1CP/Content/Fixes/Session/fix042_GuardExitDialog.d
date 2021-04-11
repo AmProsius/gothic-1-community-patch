@@ -6,11 +6,11 @@
  * Check the content of a given function against: { return 1; }
  */
 func int G1CP_042_ConfirmByteCode(var int funcId) {
-    if (funcId <= 0) || (funcId >= currSymbolTableLength) {
+    if (funcId <= 0) || (funcId >= MEM_Parser.symtab_table_numInArray) {
         return FALSE;
     };
     var zCPar_Symbol symb; symb = _^(MEM_GetSymbolByIndex(funcId));
-    var int pos; pos = symb.content + currParserStackAddress;
+    var int pos; pos = symb.content + MEM_Parser.stack_stack;
 
     // Ends with return
     if (MEM_ReadByte(pos+5) == zPAR_TOK_RET) {
@@ -20,7 +20,7 @@ func int G1CP_042_ConfirmByteCode(var int funcId) {
         } else if (MEM_ReadByte(pos) == zPAR_TOK_PUSHVAR) {
             // If it's a variable, check it's contents instead
             var int varId; varId = MEM_ReadInt(pos+1);
-            return (G1CP_GetIntVarByIndex(varId, 0, 0) != 0);
+            return (G1CP_GetIntI(varId, 0, 0) != 0);
         };
     };
 
@@ -63,7 +63,7 @@ func int G1CP_042_GuardExitDialog() {
 func int G1CP_042_NewCondition(var C_Npc slf) {
     // Define possibly missing symbols locally
     const string DIALOG_ENDE = "END";
-    DIALOG_ENDE = G1CP_GetStringVar("DIALOG_ENDE", 0, DIALOG_ENDE);
+    DIALOG_ENDE = G1CP_GetStringConst("DIALOG_ENDE", 0, DIALOG_ENDE);
 
     // Avoid recursion, because G1C_HasInfoWithDesc may call this very condition function
     const int recursion = FALSE;

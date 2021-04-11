@@ -20,7 +20,7 @@ func int G1CP_Test_093() {
     const string logTopicName = "CH1_HoratiosTeachings";
     const string dialogFunctionName = "DIA_Horatio_PleaseTeachSTR_Info";
     const int fixNumber = 93;
-    
+
     // Define variables for concatenated strings
     var string msg;
     var string newName;
@@ -54,7 +54,7 @@ func int G1CP_Test_093() {
     };
 
     // Retrieve the content of the log topic string constant
-    var string topic; topic = G1CP_GetStringVar(logTopicName, 0, "G1CP invalid string");
+    var string topic; topic = G1CP_GetStringConst(logTopicName, 0, "G1CP invalid string");
 
     // Backup the status of the log topic if it exists already
     newName = ConcatStrings("G1CP test ", IntToString(fixNumber));

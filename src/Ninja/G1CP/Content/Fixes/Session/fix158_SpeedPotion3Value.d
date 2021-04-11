@@ -28,5 +28,5 @@ func int G1CP_158_SpeedPotion3Value() {
 
     // Replace any assignments to value
     var int symbId; symbId = MEM_GetSymbolIndex("ItFo_Potion_Haste_03");
-    return (G1CP_ReplaceAssignInt(symbId, "C_ITEM.value", 0, Value_Haste1, Value_Haste3) > 0);
+    return (G1CP_ReplaceAssignInt(symbId, 0, "C_ITEM.value", 0, Value_Haste1, Value_Haste3) > 0);
 };

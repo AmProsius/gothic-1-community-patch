@@ -22,6 +22,9 @@
 * Fix [#181](https://g1cp.org/issues/181): Swiney no longer takes off his own Digger's Dress when he gives one to the player.
 * Fix [#182](https://g1cp.org/issues/182): The gate guard can now only be bribed once when bringing Dusty to the Swamp Camp.
 * Fix [#183](https://g1cp.org/issues/183): Corristo no longer offers to sell a High Robe of Fire if the player already obtained one.
+* Fix [#184](https://g1cp.org/issues/184): Bartholo can now be given Kalom's weed only once.
+* Fix [#185](https://g1cp.org/issues/185): Scorpio no longer offers to teach crossbow level 1 if the player character already gained that skill.
+* Fix [#186](https://g1cp.org/issues/186): Corristo's dialog option to become a mage now disappears when the player has already asked him before and met the level requirements.
 * Fix [#188](https://g1cp.org/issues/188): Cor Kalom can now be told that the weed was delivered only once.
 * Fix [#214](https://g1cp.org/issues/214): Graham now correctly sits at the campfire in the evening.
 * Fix [#215](https://g1cp.org/issues/215): Guy now correctly sits at the arena in the evening.
