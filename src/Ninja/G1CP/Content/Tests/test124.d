@@ -2,7 +2,7 @@
  * #124 Gate guard doesn't close castle gate in chapter 4
  *
  * The chapter four is started and the hero is teleported in front of castle gate.
- * Caution: The game will no longer be playable when running this test. Save the game beforehand.
+ * Caution: This test will break the game. Save the game beforehand.
  *
  * Expected behavior: The castle gate should be closed (or closing?).
  */

@@ -46,5 +46,5 @@ func int G1CP_004_NpcMoveNpcDefeated_Condition() {
     G1CP_ReportFuncToSpy();
 
     // (!self.aivar[AIV_WasDefeatedBySC])
-    return (!G1CP_GetAIVar(self, "AIV_WasDefeatedBySC", 0)); // Symbol exists as established by the function above
+    return (!G1CP_NpcGetAIVar(self, "AIV_WasDefeatedBySC", 0)); // Symbol exists as established by the function above
 };

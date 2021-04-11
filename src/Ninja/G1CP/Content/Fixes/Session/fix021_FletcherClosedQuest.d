@@ -17,14 +17,14 @@ func int G1CP_021_FletcherClosedQuest() {
     var int statusNewId; statusNewId = MEM_GetFuncId(G1CP_021_SetTopicStatus);
 
     // Replace any function calls to Log_CreateTopic and Log_SetTopicStatus
-    applied1 = G1CP_ReplaceCall(funcId, createOrgId, createNewId);
-    applied2 = G1CP_ReplaceCall(funcId, statusOrgId, statusNewId);
+    applied1 = G1CP_ReplaceCall(funcId, 0, createOrgId, createNewId);
+    applied2 = G1CP_ReplaceCall(funcId, 0, statusOrgId, statusNewId);
 
     // Revert any changes if not BOTH were replaced
     if (!applied1) || (!applied2) {
         var int r;
-        r = G1CP_ReplaceCall(funcId, createNewId, createOrgId);
-        r = G1CP_ReplaceCall(funcId, statusNewId, statusOrgId);
+        r = G1CP_ReplaceCall(funcId, 0, createNewId, createOrgId);
+        r = G1CP_ReplaceCall(funcId, 0, statusNewId, statusOrgId);
         return FALSE;
     };
 

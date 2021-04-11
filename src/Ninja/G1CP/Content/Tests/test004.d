@@ -2,7 +2,7 @@
  * #4 NPCs are rude to the player even after defeating them
  *
  * There does not seem an easy way to test this fix programmatically, so this test relies on manual confirmation.
- * Caution: This test breaks the game. Save the game beforehand.
+ * Caution: This test will break the game. Save the game beforehand.
  *
  * Expected behavior: Cronos (set to defeated) should say "May I pass through here?" instead of "Step aside!".
  */
@@ -40,7 +40,7 @@ func void G1CP_Test_004() {
     };
 
     // Set NPC to defeated
-    G1CP_SetAIVar(npc, "AIV_WasDefeatedBySC", TRUE);
+    G1CP_NpcSetAIVar(npc, "AIV_WasDefeatedBySC", TRUE);
 
     // Exactly in the way
     AI_Teleport(hero, "NC_PATH_AROUND_PIT_01");

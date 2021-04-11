@@ -7,7 +7,7 @@ func int G1CP_009_NpcStateFlee() {
     var int replacId; replacId = MEM_GetFuncId(G1CP_009_NpcStateFlee_Wait);
 
     if (funcId != -1) && (needleId != -1) {
-        var int count; count = G1CP_ReplaceCall(funcId, needleId, replacId);
+        var int count; count = G1CP_ReplaceCall(funcId, 0, needleId, replacId);
         return (count > 0);
     } else {
         return FALSE;

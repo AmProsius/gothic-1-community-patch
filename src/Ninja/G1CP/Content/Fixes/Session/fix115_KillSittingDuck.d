@@ -24,7 +24,7 @@ func int G1CP_115_KillSittingDuck() {
         // Check if there is more in the function
         var int pos; pos = MEM_ArrayRead(matches, 0);
         var int funcStart; funcStart = MEM_ReadInt(MEM_GetSymbolByIndex(funcId) + zCParSymbol_content_offset);
-        funcStart += currParserStackAddress;
+        funcStart += MEM_Parser.stack_stack;
 
         // Check remaining part of the function byte code: Either nothing or debug function call
         var int valid; valid = FALSE;

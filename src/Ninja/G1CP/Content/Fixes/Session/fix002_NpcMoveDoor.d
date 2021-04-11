@@ -25,7 +25,7 @@ func void G1CP_002_NpcMoveDoor_Hook() {
         if (Wld_GetMobState(self, door) == 0) {      // Door is closed
             AI_UseMob(self, door,  1);               // Just to be safe
             AI_UseMob(self, door, -1);               // Actual fix
-            G1CP_SetAIVar(self, "AIV_MOVINGMOB", 0); // Prevent starting 'ZS_WaitForPassage'
+            G1CP_NpcSetAIVar(self, "AIV_MOVINGMOB", 0); // Prevent starting 'ZS_WaitForPassage'
         };
     };
 };

@@ -52,14 +52,14 @@ func int G1CP_Test_033() {
     // Backup values
     var int questBak; questBak = MEM_ReadInt(questPtr);
     var int told1Bak; told1Bak = Npc_KnowsInfo(hero, MEM_GetSymbolIndex("DIA_Gorn_Hut"));
-    var int aivarBak; aivarBak = G1CP_GetAIVar(shrike, "AIV_WASDEFEATEDBYSC", FALSE);
+    var int aivarBak; aivarBak = G1CP_NpcGetAIVar(shrike, "AIV_WASDEFEATEDBYSC", FALSE);
     var C_Npc slfBak; slfBak = MEM_CpyInst(self);
     var C_Npc othBak; othBak = MEM_CpyInst(other);
 
     // Set new values
     G1CP_SetInfoTold("DIA_Gorn_Hut", FALSE);            // Not told
     MEM_WriteInt(questPtr, 0);                          // Quest not running
-    G1CP_SetAIVar(shrike, "AIV_WASDEFEATEDBYSC", TRUE);
+    G1CP_NpcSetAIVar(shrike, "AIV_WASDEFEATEDBYSC", TRUE);
     self  = MEM_CpyInst(shrike);
     other = MEM_CpyInst(hero);
 
@@ -70,7 +70,7 @@ func int G1CP_Test_033() {
     // Restore values
     self  = MEM_CpyInst(slfBak);
     other = MEM_CpyInst(othBak);
-    G1CP_SetAIVar(shrike, "AIV_WASDEFEATEDBYSC", aivarBak);
+    G1CP_NpcSetAIVar(shrike, "AIV_WASDEFEATEDBYSC", aivarBak);
     MEM_WriteInt(questPtr, questBak);
     G1CP_SetInfoTold("DIA_Gorn_Hut", told1Bak);
 

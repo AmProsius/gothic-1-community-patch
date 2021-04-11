@@ -2,7 +2,7 @@
  * #193 Gates triggered by switches are stuck after loading
  *
  * There does not seem an easy way to test this fix programmatically, so this test relies on manual confirmation.
- * Caution: This test breaks the game. Save the game beforehand.
+ * Caution: This test will break the game. Save the game beforehand.
  *
  * Expected behavior: The gate (that the PC is teleported to) can be opened again after closing it, saving and loading.
  */

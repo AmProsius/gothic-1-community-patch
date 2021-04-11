@@ -2,7 +2,7 @@
  * #214 Graham doesn't sit at campfire
  *
  * There does not seem an easy way to test this fix programmatically, so this test relies on manual confirmation.
- * Caution: This test breaks the game. Save the game beforehand.
+ * Caution: This test will break the game. Save the game beforehand.
  *
  * Expected behavior: Graham will sit down by the campfire shortly (one game minute) after triggering this test.
  */
