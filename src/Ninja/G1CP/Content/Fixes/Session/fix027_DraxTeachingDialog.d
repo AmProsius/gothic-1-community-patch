@@ -42,7 +42,7 @@ func int G1CP_027_DraxTeachingDialog() {
     if (applied1) {
         var int createOldId; createOldId = MEM_GetFuncId(Log_CreateTopic);
         var int createNewId; createNewId = MEM_GetFuncId(G1CP_027_CreateTopic);
-        applied2 = G1CP_ReplaceCall(funcId, createOldId, createNewId);
+        applied2 = G1CP_ReplaceCall(funcId, 0, createOldId, createNewId);
     };
 
     // Optionally replace function call "B_LogEntry" (if exists) for removing the screen print
@@ -50,7 +50,7 @@ func int G1CP_027_DraxTeachingDialog() {
         var int logEntryOld; logEntryOld = MEM_GetSymbolIndex("B_LogEntry");
         var int logEntryNew; logEntryNew = MEM_GetFuncId(G1CP_027_TopicEntry);
         if (logEntryOld != -1) {
-            i = G1CP_ReplaceCall(funcId, logEntryOld, logEntryNew);
+            i = G1CP_ReplaceCall(funcId, 0, logEntryOld, logEntryNew);
         };
     };
 

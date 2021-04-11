@@ -1,12 +1,12 @@
 /*
- * #93 Spelling - Horatio: "zuzuschlagen" (DE)
+ * #143 Spelling - Buster: "unterrichtet" (DE)
  *
  * The faulty log topic entry will be temporarily created and the fix is called, then the dialog function will be
  * called to check if the entry was correctly created there, too.
  *
  * Expected behavior: The wording of the log topic entry will be correct in both cases.
  */
-func int G1CP_Test_093() {
+func int G1CP_Test_143() {
     var int passed; passed = TRUE;
 
     // Define possibly missing symbols locally
@@ -14,12 +14,11 @@ func int G1CP_Test_093() {
     const int LOG_RUNNING = 1;
 
     // Define variables for specific test
-    // I'm sorry for not breaking the line at 120 characters
-    const string wrongLogEntry = "Horatio, ein Bauer auf den Reisfeldern des Neuen Lagers will mir beibringen, stärker zuzuschalgen. Doch irgendwie habe ich noch nicht die richtige Antwort auf seine Frage WOZU gefunden.";
-    const string rightLogEntry = "Horatio, ein Bauer auf den Reisfeldern des Neuen Lagers will mir beibringen, stärker zuzuschlagen. Doch irgendwie habe ich noch nicht die richtige Antwort auf seine Frage WOZU gefunden.";
-    const string logTopicName = "CH1_HoratiosTeachings";
-    const string dialogFunctionName = "DIA_Horatio_PleaseTeachSTR_Info";
-    const int fixNumber = 93;
+    const string wrongLogEntry = "Buster der Bandit unterichtet das Talent AKROBATIK.";
+    const string rightLogEntry = "Buster der Bandit unterrichtet das Talent AKROBATIK.";
+    const string logTopicName = "GE_TeacherNC";
+    const string dialogFunctionName = "DIA_ORG_833_Buster3_Info";
+    const int fixNumber = 143;
 
     // Define variables for concatenated strings
     var string msg;
@@ -32,15 +31,15 @@ func int G1CP_Test_093() {
     };
 
     // Check if the constant exists
-    if (MEM_GetSymbolIndex(logTopicName) == -1) {
-        msg = ConcatStrings("Variable '", logTopicName);
+    if (!G1CP_IsStringConst(logTopicName, 0)) {
+        msg = ConcatStrings("String constant '", logTopicName);
         msg = ConcatStrings(msg, "' not found");
         G1CP_TestsuiteErrorDetail(msg);
         passed = FALSE;
     };
 
     // Check if the dialog function exists
-    var int funcId; funcId = MEM_GetSymbolIndex(dialogFunctionName);
+    var int funcId; funcId = G1CP_GetFuncID(dialogFunctionName, "void|none");
     if (funcId == -1) {
         msg = ConcatStrings("Dialog function '", dialogFunctionName);
         msg = ConcatStrings(msg, "' not found");
@@ -69,7 +68,7 @@ func int G1CP_Test_093() {
     Log_AddEntry(topic, wrongLogEntry);
 
     // Trigger the fix (careful now, don't overwrite the fix status!)
-    var int r; r = G1CP_093_DE_LogEntryHoratio();
+    var int r; r = G1CP_143_DE_LogEntryBuster();
 
     // Check if it was updated
     if (G1CP_LogHasEntry(topic, wrongLogEntry)) {

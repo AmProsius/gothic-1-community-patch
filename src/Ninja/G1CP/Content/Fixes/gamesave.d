@@ -33,6 +33,7 @@ func void G1CP_GamesaveFixes_Apply() {
         G1CP_121_DE_LogTopicShrikeHut();                // #121
         G1CP_124_GateGuardID();                         // #124
         G1CP_133_DE_LogEntryScatty();                   // #133
+        G1CP_143_DE_LogEntryBuster();                   // #143
         G1CP_193_GateSwitchesStuck();                   // #193
     };
 };
@@ -51,6 +52,7 @@ func void G1CP_GamesaveFixes_Revert() {
         G1CP_121_DE_LogTopicShrikeHutRevert();          // #121
         G1CP_124_GateGuardIDRevert();                   // #124
         G1CP_133_DE_LogEntryScattyRevert();             // #133
+        G1CP_143_DE_LogEntryBusterRevert();             // #143
         G1CP_193_GateSwitchesStuckRevert();             // #193
     };
 };

@@ -13,10 +13,10 @@ func int G1CP_093_DE_LogEntryHoratio() {
     if (topicId == -2) {
         // Find and retrieve the topic
         topicId = MEM_GetSymbolIndex("CH1_HoratiosTeachings");
-        topicName = G1CP_GetStringVarByIndex(topicId, 0, "");
+        topicName = G1CP_GetStringConstI(topicId, 0, "");
 
         // Replace the push of the old string with the new string (this is never reverted, i.e. session fix)
-        count = G1CP_ReplacePushStr(MEM_GetSymbolIndex("DIA_Horatio_PleaseTeachSTR_Info"), curString, newString);
+        count = G1CP_ReplacePushStr(MEM_GetSymbolIndex("DIA_Horatio_PleaseTeachSTR_Info"), 0, curString, newString);
     };
 
     // Check if the log topic constant exists and if the adding of the log entry was successfully replaced
@@ -48,7 +48,7 @@ func int G1CP_093_DE_LogEntryHoratioRevert() {
     // Retrieve the topic name only once per session for performance on consecutive calls
     const int once = 0;
     if (!once) {
-        topicName = G1CP_GetStringVar("CH1_HoratiosTeachings", 0, "");
+        topicName = G1CP_GetStringConst("CH1_HoratiosTeachings", 0, "");
         once = 1;
     };
 

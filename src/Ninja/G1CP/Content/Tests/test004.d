@@ -40,7 +40,7 @@ func void G1CP_Test_004() {
     };
 
     // Set NPC to defeated
-    G1CP_SetAIVar(npc, "AIV_WasDefeatedBySC", TRUE);
+    G1CP_NpcSetAIVar(npc, "AIV_WasDefeatedBySC", TRUE);
 
     // Exactly in the way
     AI_Teleport(hero, "NC_PATH_AROUND_PIT_01");

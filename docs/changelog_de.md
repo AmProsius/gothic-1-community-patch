@@ -31,10 +31,13 @@
 * Fix [#121](https://g1cp.org/issues/121): Die Quest "Shrike's Hütte" heißt nun korrekt "Shrikes Hütte".
 * Fix [#133](https://g1cp.org/issues/133): Im Tagebucheintrag zu der Quest "Aufnahme Altes Lager" lautet die Phrase "Meinem Niederlage gegen Kirgo [...]" nun korrekt "Meine Niederlage gegen Kirgo [...]".
 * Fix [#142](https://g1cp.org/issues/142): Die Dialogzeile "Wer sind eure Gurus?" im Ambient-Dialog der Templer "Wer hat hier das Sagen?" ist nun korrekt dem Spielercharakter zugewiesen.
+* Fix [#143](https://g1cp.org/issues/143): Im Tagebucheintrag für Buster als Lehrer lautet die Phrase "[...] unterichtet das Talent AKROBATIK." nun korrekt "[...] unterrichtet das Talent AKROBATIK.".
 * Fix [#172](https://g1cp.org/issues/172): Das Schriftstück "Kalom's Rezept" heißt nun korrekt "Kaloms Rezept".
 * Fix [#181](https://g1cp.org/issues/181): Swiney zieht nicht mehr seine eigenen Schürferklamotten aus, wenn er dem Spieler welche gibt.
 * Fix [#182](https://g1cp.org/issues/182): Die Torwache kann nun nur noch einmal bestochen werden, wenn Dusty zum Sumpflager gebracht wird.
 * Fix [#183](https://g1cp.org/issues/183): Corristo bietet nun keine Große Feuerrobe mehr an, wenn der Spieler bereits eine erworben hat.
+* Fix [#184](https://g1cp.org/issues/184): Bartholo kann nun nur noch einmal Kaloms Kraut übergeben werden.
+* Fix [#185](https://g1cp.org/issues/185): Scorpio lehrt nicht mehr Armbrust Stufe 1, wenn der Spielercharakter das Talent bereits gelernt hat.
 * Fix [#186](https://g1cp.org/issues/186): Corristos Dialogoption "Ich möchte in den Kreis der Magier aufgenommen werden." verschwindet nun, wenn der Spieler ihn bereits gefragt und die Stufenvoraussetzungen erfüllt hat.
 * Fix [#197](https://g1cp.org/issues/197): Die Dialogzeile "Also halt dich nur da auf, wo es dir gestattet ist." im Ambient-Dialog der Templer "Was kannst du mir über dieses Lager erzählen?" ist nun korrekt dem Spielercharakter zugewiesen.
 * Fix [#214](https://g1cp.org/issues/214): Graham sitzt nun korrekt abends am Lagerfeuer.

@@ -40,7 +40,7 @@ func int G1CP_Test_037() {
     };
 
     // Retrieve the content of the log topic string constant
-    var string topic; topic = G1CP_GetStringVar(topicSymbName, 0, "G1CP invalid string");
+    var string topic; topic = G1CP_GetStringConst(topicSymbName, 0, "G1CP invalid string");
 
     // First test: Check if the dialog function creates the topic if it did not exist beforehand
 

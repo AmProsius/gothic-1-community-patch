@@ -20,7 +20,7 @@ func int G1CP_Test_133() {
     const string dialogFunctionName = "DIA_Scatty_KirgoSuccess_Info";
     const string npcName = "GRD_251_KIRGO";
     const int fixNumber = 133;
-    
+
     // Define variables for concatenated strings
     var string msg;
     var string newName;
@@ -72,7 +72,7 @@ func int G1CP_Test_133() {
     };
 
     // Retrieve the content of the log topic string constant
-    var string topic; topic = G1CP_GetStringVar(logTopicName, 0, "G1CP invalid string");
+    var string topic; topic = G1CP_GetStringConst(logTopicName, 0, "G1CP invalid string");
 
     // Backup the status of the log topic if it exists already
     newName = ConcatStrings("G1CP test ", IntToString(fixNumber));
@@ -103,12 +103,12 @@ func int G1CP_Test_133() {
     // Second pass: Call the dialog function and observe if it creates the corrected entry
 
     // Backup values
-    var int aivarBak; aivarBak = G1CP_GetAIVar(npc, "AIV_HASDEFEATEDSC", FALSE);
+    var int aivarBak; aivarBak = G1CP_NpcGetAIVar(npc, "AIV_HASDEFEATEDSC", FALSE);
     var C_Npc slfBak; slfBak = MEM_CpyInst(self);
     var C_Npc othBak; othBak = MEM_CpyInst(other);
 
     // Set new values
-    G1CP_SetAIVar(npc, "AIV_HASDEFEATEDSC", TRUE);
+    G1CP_NpcSetAIVar(npc, "AIV_HASDEFEATEDSC", TRUE);
     self  = MEM_CpyInst(hero);
     other = MEM_CpyInst(hero);
 
@@ -122,7 +122,7 @@ func int G1CP_Test_133() {
     // Restore values
     self  = MEM_CpyInst(slfBak);
     other = MEM_CpyInst(othBak);
-    G1CP_SetAIVar(npc, "AIV_HASDEFEATEDSC", aivarBak);
+    G1CP_NpcSetAIVar(npc, "AIV_HASDEFEATEDSC", aivarBak);
 
     // Stop the output units
     Npc_ClearAIQueue(hero);
