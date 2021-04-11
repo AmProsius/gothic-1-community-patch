@@ -22,6 +22,9 @@ const string G1CP_TestsuiteMsg = "";
 /* Allow or disallow manual tests */
 const int G1CP_TestsuiteAllowManual = 0;
 
+/* Check if test passes */
+const int G1CP_TestsuiteStatusPassed = 1;
+
 /*
  * Initialization function
  */
@@ -41,6 +44,9 @@ func int G1CP_Testsuite() {
  */
 func int G1CP_TestsuiteRun(var int id) {
     var string idName; idName = G1CP_LFill(IntToString(id), "0", 3);
+
+    // Reset test status
+    G1CP_TestsuiteStatusPassed = TRUE;
 
     // Find test function
     var string funcName; funcName = ConcatStrings("G1CP_Test_", idName);
@@ -118,6 +124,9 @@ func string G1CP_TestsuiteAll(var string _) {
 
     // Do not trigger manual tests
     G1CP_TestsuiteAllowManual = FALSE;
+
+    // Reset test status
+    G1CP_TestsuiteStatusPassed = TRUE;
 
     // Remember the data stack position
     var int stkPosBefore; stkPosBefore = MEM_Parser.datastack_sptr;
