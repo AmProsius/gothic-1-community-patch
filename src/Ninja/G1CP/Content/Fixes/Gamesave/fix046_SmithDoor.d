@@ -205,7 +205,7 @@ instance G1CP_046_SmithDoor_Item(C_Item) {
     endPos -= 5; // Length of zPAR_TOK_JUMP + target
 
     // Overwrite the end of this instance function with a jump to the original key instance function
-    MEMINT_OverrideFunc_Ptr = endPos + currParserStackAddress;
+    MEMINT_OverrideFunc_Ptr = endPos + MEM_Parser.stack_stack;
     MEMINT_OFTokPar(zPAR_TOK_JUMP, origOffset);
 
     // Restore the current instance

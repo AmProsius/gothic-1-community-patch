@@ -13,8 +13,17 @@ func int G1CP_Test_133() {
     const int LOG_MISSION = 0;
     const int LOG_RUNNING = 1;
 
-    const string wrong = "Meinem Niederlage gegen Kirgo hat Scatty nicht sehr beeindruckt.";
-    const string right = "Meine Niederlage gegen Kirgo hat Scatty nicht sehr beeindruckt.";
+    // Define variables for specific test
+    const string wrongLogEntry = "Meinem Niederlage gegen Kirgo hat Scatty nicht sehr beeindruckt.";
+    const string rightLogEntry = "Meine Niederlage gegen Kirgo hat Scatty nicht sehr beeindruckt.";
+    const string logTopicName = "CH1_JoinOC";
+    const string dialogFunctionName = "DIA_Scatty_KirgoSuccess_Info";
+    const string npcName = "GRD_251_KIRGO";
+    const int fixNumber = 133;
+
+    // Define variables for concatenated strings
+    var string msg;
+    var string newName;
 
     // Check language first
     if (G1CP_Lang != G1CP_Lang_DE) {
@@ -23,29 +32,37 @@ func int G1CP_Test_133() {
     };
 
     // Check if the constant exists
-    if (MEM_GetSymbolIndex("CH1_JoinOC") == -1) {
-        G1CP_TestsuiteErrorDetail("Variable 'CH1_JoinOC' not found");
+    if (MEM_GetSymbolIndex(logTopicName) == -1) {
+        msg = ConcatStrings("Variable '", logTopicName);
+        msg = ConcatStrings(msg, "' not found");
+        G1CP_TestsuiteErrorDetail(msg);
         passed = FALSE;
     };
 
     // Check if the dialog function exists
-    var int funcId; funcId = MEM_GetSymbolIndex("DIA_Scatty_KirgoSuccess_Info");
+    var int funcId; funcId = MEM_GetSymbolIndex(dialogFunctionName);
     if (funcId == -1) {
-        G1CP_TestsuiteErrorDetail("Dialog function 'DIA_Scatty_KirgoSuccess_Info' not found");
+        msg = ConcatStrings("Dialog function '", dialogFunctionName);
+        msg = ConcatStrings(msg, "' not found");
+        G1CP_TestsuiteErrorDetail(msg);
         passed = FALSE;
     };
 
-    // Find Kirgo
-    var int symbId; symbId = MEM_GetSymbolIndex("GRD_251_KIRGO");
+    // Find NPC
+    var int symbId; symbId = MEM_GetSymbolIndex(npcName);
     if (symbId == -1) {
-        G1CP_TestsuiteErrorDetail("NPC 'GRD_251_KIRGO' not found");
+        msg = ConcatStrings("NPC '", npcName);
+        msg = ConcatStrings(msg, "' not found");
+        G1CP_TestsuiteErrorDetail(msg);
         passed = FALSE;
     };
 
-    // Check if Kirgo exists in the world
-    var C_Npc kirgo; kirgo = Hlp_GetNpc(symbId);
-    if (!Hlp_IsValidNpc(kirgo)) {
-        G1CP_TestsuiteErrorDetail("NPC 'GRD_251_KIRGO' not valid");
+    // Check if NPC exists in the world
+    var C_Npc npc; npc = Hlp_GetNpc(symbId);
+    if (!Hlp_IsValidNpc(npc)) {
+        msg = ConcatStrings("NPC '", npcName);
+        msg = ConcatStrings(msg, "' not valid");
+        G1CP_TestsuiteErrorDetail(msg);
         passed = FALSE;
     };
 
@@ -55,27 +72,29 @@ func int G1CP_Test_133() {
     };
 
     // Retrieve the content of the log topic string constant
-    var string topic; topic = G1CP_GetStringVar("CH1_JoinOC", 0, "G1CP invalid string");
+    var string topic; topic = G1CP_GetStringConst(logTopicName, 0, "G1CP invalid string");
 
     // Backup the status of the log topic if it exists already
-    G1CP_LogRenameTopic(topic, "G1CP test 133 temporary");
+    newName = ConcatStrings("G1CP test ", IntToString(fixNumber));
+    newName = ConcatStrings(newName, " temporary");
+    G1CP_LogRenameTopic(topic, newName);
 
     // First pass: Create the log topic with the faulty entry and see if the fix will update it
 
     // Create the topic
     Log_CreateTopic(topic, LOG_MISSION);
     Log_SetTopicStatus(topic, LOG_RUNNING);
-    Log_AddEntry(topic, wrong);
+    Log_AddEntry(topic, wrongLogEntry);
 
     // Trigger the fix (careful now, don't overwrite the fix status!)
     var int r; r = G1CP_133_DE_LogEntryScatty();
 
     // Check if it was updated
-    if (G1CP_LogHasEntry(topic, wrong)) {
+    if (G1CP_LogHasEntry(topic, wrongLogEntry)) {
         G1CP_TestsuiteErrorDetail("Log topic entry (incorrect) remained unchanged");
         passed = FALSE;
     };
-    if (!G1CP_LogHasEntry(topic, right)) {
+    if (!G1CP_LogHasEntry(topic, rightLogEntry)) {
         G1CP_TestsuiteErrorDetail("Log topic entry (correct) does not exist");
         passed = FALSE;
     };
@@ -84,12 +103,12 @@ func int G1CP_Test_133() {
     // Second pass: Call the dialog function and observe if it creates the corrected entry
 
     // Backup values
-    var int aivarBak; aivarBak = G1CP_GetAIVar(kirgo, "AIV_HASDEFEATEDSC", FALSE);
+    var int aivarBak; aivarBak = G1CP_NpcGetAIVar(npc, "AIV_HASDEFEATEDSC", FALSE);
     var C_Npc slfBak; slfBak = MEM_CpyInst(self);
     var C_Npc othBak; othBak = MEM_CpyInst(other);
 
     // Set new values
-    G1CP_SetAIVar(kirgo, "AIV_HASDEFEATEDSC", TRUE);
+    G1CP_NpcSetAIVar(npc, "AIV_HASDEFEATEDSC", TRUE);
     self  = MEM_CpyInst(hero);
     other = MEM_CpyInst(hero);
 
@@ -103,25 +122,25 @@ func int G1CP_Test_133() {
     // Restore values
     self  = MEM_CpyInst(slfBak);
     other = MEM_CpyInst(othBak);
-    G1CP_SetAIVar(kirgo, "AIV_HASDEFEATEDSC", aivarBak);
+    G1CP_NpcSetAIVar(npc, "AIV_HASDEFEATEDSC", aivarBak);
 
     // Stop the output units
     Npc_ClearAIQueue(hero);
     AI_StandUpQuick(hero);
 
     // Check if it was updated
-    if (G1CP_LogHasEntry(topic, wrong)) {
+    if (G1CP_LogHasEntry(topic, wrongLogEntry)) {
         G1CP_TestsuiteErrorDetail("Log topic entry was created with incorrect wording");
         passed = FALSE;
     };
-    if (!G1CP_LogHasEntry(topic, right)) {
+    if (!G1CP_LogHasEntry(topic, rightLogEntry)) {
         G1CP_TestsuiteErrorDetail("Log topic entry was not added by the dialog function");
         passed = FALSE;
     };
     G1CP_LogRemoveTopic(topic);
 
     // Restore the topic to how it was before
-    G1CP_LogRenameTopic("G1CP test 133 temporary", topic);
+    G1CP_LogRenameTopic(newName, topic);
 
     // Return success
     return passed;

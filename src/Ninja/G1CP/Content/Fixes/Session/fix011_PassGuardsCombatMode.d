@@ -34,7 +34,7 @@ func int G1CP_011_PassGuardsCombatMode() {
         // Check if it is enclosed in an if-block without processing the return value (jumps to immediately after)
         var int pos; pos = MEM_ArrayRead(matches, i);
         if (MEM_ReadByte(pos-15) == zPAR_TOK_JUMPF)
-        && (MEM_ReadInt(pos-14)  == pos+5 - currParserStackAddress) {
+        && (MEM_ReadInt(pos-14)  == pos+5 - MEM_Parser.stack_stack) {
             // Now we can almost guarantee that the return value is not popped
 
             /* Write byte code to wrap the function call in an if-block and return if true
@@ -52,7 +52,7 @@ func int G1CP_011_PassGuardsCombatMode() {
 
             // Overwrite the call to jump to the above created byte code
             MEMINT_OverrideFunc_Ptr = pos;
-            MEMINT_OFTokPar(zPAR_TOK_JUMP, ptr - currParserStackAddress);
+            MEMINT_OFTokPar(zPAR_TOK_JUMP, ptr - MEM_Parser.stack_stack);
 
             /* The byte code will now look like this
 
@@ -109,7 +109,7 @@ func int G1CP_011_CheckInfo(var C_Npc slf, var C_Npc oth) {
     MEM_PushInstParam(slf);
     MEM_GetSymbolIndex("ZS_GuardPassage"); // Cannot push integer
     MEM_Call(Npc_IsInState);
-    var int cond2; cond2 = (MEM_PopIntResult()) && (G1CP_GetAIVar(hero, "AIV_GUARDPASSAGE_STATUS", 0) > 0);
+    var int cond2; cond2 = (MEM_PopIntResult()) && (G1CP_NpcGetAIVar(hero, "AIV_GUARDPASSAGE_STATUS", 0) > 0);
 
     // Abort "B_AssessFighter" if either condition is met
     return (cond1) || (cond2);

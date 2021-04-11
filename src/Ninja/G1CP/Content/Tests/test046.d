@@ -4,7 +4,7 @@
  * There does not seem an easy way to test this fix programmatically, so this test relies on manual confirmation. The
  * function should be called twice: On first function call to find and pick up the key, on second function call to try
  * it on the door.
- * Caution: This test makes the game unplayable. Save the game beforehand.
+ * Caution: This test will break the game. Save the game beforehand.
  *
  * Expected behavior: First function call: The key is on the ground in the cell. Second function call: The key opens the
  * door.

@@ -23,7 +23,7 @@ func int G1CP_014_PortalCancelFight() {
         */
         var int pos; pos = MEM_ArrayRead(matches, 0);
         var int target; target = MEM_ReadInt(pos+1);                         // Check what's after the if-block
-        if (MEM_ReadByte(target + currParserStackAddress) == zPAR_TOK_RET) { // Function returns: Assumption correct!
+        if (MEM_ReadByte(target + MEM_Parser.stack_stack) == zPAR_TOK_RET) { // Function returns: Assumption correct!
 
             // Add another condition to the if-statement
             G1CP_AddIfCondition(pos, zPAR_OP_LOG_AND, G1CP_014_PortalCancelFight_Condition);

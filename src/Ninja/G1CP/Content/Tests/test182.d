@@ -27,7 +27,7 @@ func int G1CP_Test_182() {
     };
 
     // Check if the log topic exists
-    var string topic; topic = G1CP_GetStringVar("CH1_RecruitDusty", 0, "G1CP invalid string");
+    var string topic; topic = G1CP_GetStringConst("CH1_RecruitDusty", 0, "G1CP invalid string");
     if (Hlp_StrCmp(topic, "G1CP invalid string")) {
         G1CP_TestsuiteErrorDetail("Log topic constant 'CH1_RecruitDusty' not found");
         passed = FALSE;
@@ -65,7 +65,7 @@ func int G1CP_Test_182() {
     var int expNxtBefore; expNxtBefore = hero.exp_next;
     var int expLpBefore; expLpBefore = hero.lp;
     var int lvlBefore; lvlBefore = hero.level;
-    var int aivBak; aivBak = G1CP_GetAIVar(npc, "AIV_PARTYMEMBER", 0);
+    var int aivBak; aivBak = G1CP_NpcGetAIVar(npc, "AIV_PARTYMEMBER", 0);
     var string npcWp; npcWp = Npc_GetNearestWP(npc);
     var C_Npc slfBak; slfBak = MEM_CpyInst(self);
     var C_Npc othBak; othBak = MEM_CpyInst(other);
@@ -88,7 +88,7 @@ func int G1CP_Test_182() {
     MEM_CallByID(funcId);
 
     // Satisfy dialog conditions
-    G1CP_SetAIVar(npc, "AIV_PARTYMEMBER", TRUE);
+    G1CP_NpcSetAIVar(npc, "AIV_PARTYMEMBER", TRUE);
     G1CP_NpcBeamTo(npc, Npc_GetNearestWP(hero));
 
 
@@ -116,7 +116,7 @@ func int G1CP_Test_182() {
     if (amountBefore > 0) {
         CreateInvItems(hero, oreId, amountBefore);
     };
-    G1CP_SetAIVar(npc, "AIV_PARTYMEMBER", aivBak);
+    G1CP_NpcSetAIVar(npc, "AIV_PARTYMEMBER", aivBak);
     G1CP_NpcBeamTo(npc, npcWp);
     G1CP_LogRemoveTopic(topic);
     G1CP_LogRenameTopic("G1CP invalid topic 182", topic);

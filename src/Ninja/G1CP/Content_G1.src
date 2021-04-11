@@ -15,10 +15,14 @@ Content\Report\reportFuncToSpy.d
 
 Content\Symbols\int.d
 Content\Symbols\string.d
-Content\Symbols\aivar.d
+Content\Symbols\func.d
+Content\Symbols\inst.d
+Content\Symbols\callable.d
 
-Content\Misc\findInFunc.d
-Content\Misc\funcByteCodeToSpy.d
+Content\Bytecode\funcRanges.d
+Content\Bytecode\findAndReplace.d
+Content\Bytecode\sendCodeToSpy.d
+
 Content\Misc\info.d
 Content\Misc\topic.d
 Content\Misc\waypoint.d

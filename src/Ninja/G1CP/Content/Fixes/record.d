@@ -61,18 +61,20 @@ func string G1CP_GetFixShortName(var int id) {
     prefix = ConcatStrings(prefix, G1CP_LFill(IntToString(id), "0", 3));
     prefix = ConcatStrings(prefix, "_");
 
-    // Get symbol indices of the called functions within the initialization functions
+    // Get function offsets of the called functions within the initialization functions
+    var int i;
     const int funcCalls = 0;
     if (!funcCalls) {
         funcCalls = MEM_ArrayCreate();
-        var int dump; dump = MEM_ArrayCreate();
-        MEMINT_TokenizeFunction(MEM_GetFuncID(Ninja_G1CP_Menu), dump, funcCalls, dump);
-        MEMINT_TokenizeFunction(MEM_GetFuncID(G1CP_GamesaveFixes_Apply), dump, funcCalls, dump);
-        MEM_ArrayFree(dump);
+        funcCalls = G1CP_FindInCode(MEM_GetFuncID(Ninja_G1CP_Menu),          0, _@(zPAR_TOK_CALL), 1, funcCalls);
+        funcCalls = G1CP_FindInCode(MEM_GetFuncID(G1CP_GamesaveFixes_Apply), 0, _@(zPAR_TOK_CALL), 1, funcCalls);
+        repeat(i, MEM_ArraySize(funcCalls));
+            MEM_ArrayWrite(funcCalls, i, MEM_ReadInt(MEM_ArrayRead(funcCalls, i)+1)); // Get call targets
+        end;
     };
 
     // Iterate over all G1CP symbols
-    repeat(i, G1CP_SymbEnd); var int i; if (!i) { i = G1CP_SymbStart; }; // From SymbStart to SymbEnd
+    repeat(i, G1CP_SymbEnd); if (!i) { i = G1CP_SymbStart; }; // From SymbStart to SymbEnd
 
         // Compare symbol name
         var zCPar_Symbol symb; symb = _^(MEM_GetSymbolByIndex(i));

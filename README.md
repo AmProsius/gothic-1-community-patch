@@ -30,9 +30,9 @@ Please note that this is the first release of the G1CP. Work on the patch contin
 * **szapp**: Rewriting of the provided bug fixes in modular form, management of the project repository
 
 ## Supporters
-* pawbuj1981
-* Blubbler
-* N1kX94
+* [pawbuj1981](https://github.com/pawbuj1981)
+* [Blubbler](https://forum.worldofplayers.de/forum/members/14043-Blubbler)
+* [N1kX94](https://github.com/N1kX94)
 
 ## Sources of Inspiration
 
