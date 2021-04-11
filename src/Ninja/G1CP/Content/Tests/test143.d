@@ -19,7 +19,7 @@ func int G1CP_Test_143() {
     const string logTopicName = "GE_TeacherNC";
     const string dialogFunctionName = "DIA_ORG_833_Buster3_Info";
     const int fixNumber = 143;
-    
+
     // Define variables for concatenated strings
     var string msg;
     var string newName;
@@ -31,15 +31,15 @@ func int G1CP_Test_143() {
     };
 
     // Check if the constant exists
-    if (MEM_GetSymbolIndex(logTopicName) == -1) {
-        msg = ConcatStrings("Variable '", logTopicName);
+    if (!G1CP_IsStringConst(logTopicName, 0)) {
+        msg = ConcatStrings("String constant '", logTopicName);
         msg = ConcatStrings(msg, "' not found");
         G1CP_TestsuiteErrorDetail(msg);
         passed = FALSE;
     };
 
     // Check if the dialog function exists
-    var int funcId; funcId = MEM_GetSymbolIndex(dialogFunctionName);
+    var int funcId; funcId = G1CP_GetFuncID(dialogFunctionName, "void|none");
     if (funcId == -1) {
         msg = ConcatStrings("Dialog function '", dialogFunctionName);
         msg = ConcatStrings(msg, "' not found");
@@ -53,7 +53,7 @@ func int G1CP_Test_143() {
     };
 
     // Retrieve the content of the log topic string constant
-    var string topic; topic = G1CP_GetStringVar(logTopicName, 0, "G1CP invalid string");
+    var string topic; topic = G1CP_GetStringConst(logTopicName, 0, "G1CP invalid string");
 
     // Backup the status of the log topic if it exists already
     newName = ConcatStrings("G1CP test ", IntToString(fixNumber));
