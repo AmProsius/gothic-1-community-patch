@@ -14,25 +14,21 @@ func int G1CP_Test_184() {
     var int passed; passed = TRUE;
 
     // Find the dialog condition function
-    var int funcId; funcId = MEM_GetSymbolIndex("Info_Bartholo_Krautbote_Condition");
+    var int funcId; funcId = G1CP_GetFuncID("Info_Bartholo_Krautbote_Condition", "int|none");
     if (funcId == -1) {
         G1CP_TestsuiteErrorDetail("Dialog condition 'Info_Bartholo_Krautbote_Condition' not found");
         passed = FALSE;
     };
 
     // Obtain symbols
-    var int krautbotePtr; krautbotePtr = MEM_GetSymbol("Kalom_Krautbote");
-    if (!krautbotePtr) {
-        G1CP_TestsuiteErrorDetail("Variable 'Kalom_Krautbote' not found");
+    if (!G1CP_IsIntVar("Kalom_Krautbote", 0)) {
+        G1CP_TestsuiteErrorDetail("Integer variable 'Kalom_Krautbote' not found");
         passed = FALSE;
     };
-    krautbotePtr += zCParSymbol_content_offset;
-    var int deliveredWeedPtr; deliveredWeedPtr = MEM_GetSymbol("Kalom_DeliveredWeed");
-    if (!deliveredWeedPtr) {
-        G1CP_TestsuiteErrorDetail("Variable 'Kalom_DeliveredWeed' not found");
+    if (!G1CP_IsIntVar("Kalom_DeliveredWeed", 0)) {
+        G1CP_TestsuiteErrorDetail("Integer variable 'Kalom_DeliveredWeed' not found");
         passed = FALSE;
     };
-    deliveredWeedPtr += zCParSymbol_content_offset;
 
     // At the latest now, we need to stop if there are fails already
     if (!passed) {
@@ -40,12 +36,12 @@ func int G1CP_Test_184() {
     };
 
     // Back up the values
-    var int krautboteBak;     krautboteBak     = MEM_ReadInt(krautbotePtr);
-    var int deliveredWeedBak; deliveredWeedBak = MEM_ReadInt(deliveredWeedPtr);
+    var int krautboteBak;     krautboteBak     = G1CP_GetIntVar("Kalom_Krautbote", 0, 0);
+    var int deliveredWeedBak; deliveredWeedBak = G1CP_GetIntVar("Kalom_DeliveredWeed", 0, 0);
 
     // Set the variables
-    MEM_WriteInt(krautbotePtr,     LOG_RUNNING);
-    MEM_WriteInt(deliveredWeedPtr, TRUE);
+    G1CP_SetIntVar("Kalom_Krautbote",     0, LOG_RUNNING);
+    G1CP_SetIntVar("Kalom_DeliveredWeed", 0, TRUE);
 
     // Backup self and other
     var C_Npc slfBak; slfBak = MEM_CpyInst(self);
@@ -64,8 +60,8 @@ func int G1CP_Test_184() {
     other = MEM_CpyInst(othBak);
 
     // Restore the variables
-    MEM_WriteInt(krautbotePtr, krautboteBak);
-    MEM_WriteInt(deliveredWeedPtr, deliveredWeedBak);
+    G1CP_SetIntVar("Kalom_Krautbote",     0, krautboteBak);
+    G1CP_SetIntVar("Kalom_DeliveredWeed", 0, deliveredWeedBak);
 
     // Check return value
     if (ret) {
