@@ -284,3 +284,18 @@ func string G1CP_TestsuiteList(var string _) {
 
     return ret;
 };
+
+func void G1CP_Testsuite_CheckPassed() {
+    // Do not move this code
+    if (FALSE) {
+        // This emulates the end of the caller function and forces it to return false
+        FALSE;
+        return;
+    };
+
+    // Check test status
+    if (!G1CP_TestsuiteStatusPassed) {
+        // Return into the if-block above as if it was the caller function
+        MEM_SetCallerStackPos(MEM_GetFuncOffset(G1CP_Testsuite_CheckPassed)+10); // 5 push + 5 jumpf
+    };
+};

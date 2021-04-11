@@ -17,9 +17,9 @@ func int G1CP_Testsuite_GetItemId(var string name) {
 /*
  * Check if integer variable exists and return its symbol pointer
  */
-func int G1CP_Testsuite_GetIntVarPtr(var string name) {
+func int G1CP_Testsuite_GetIntVarPtr(var string name, var int arrIdx) {
     // Check if variable exists
-    if (!G1CP_IsIntVar(name, 0)) {
+    if (!G1CP_IsIntVar(name, arrIdx)) {
         var string msg; msg = ConcatStrings("Integer variable '", name);
         msg = ConcatStrings(msg, "' not found/valid");
         G1CP_TestsuiteErrorDetail(msg);
@@ -32,11 +32,24 @@ func int G1CP_Testsuite_GetIntVarPtr(var string name) {
 };
 
 /*
+ * Check if integer variable exists
+ */
+func void G1CP_Testsuite_CheckIntVar(var string name, var int arrIdx) {
+    // Check if variable exists
+    if (!G1CP_IsIntVar(name, arrIdx)) {
+        var string msg; msg = ConcatStrings("Integer variable '", name);
+        msg = ConcatStrings(msg, "' not found/valid");
+        G1CP_TestsuiteErrorDetail(msg);
+        G1CP_TestsuiteStatusPassed = FALSE;
+    };
+};
+
+/*
  * Check if integer constant exists and return its symbol pointer
  */
-func int G1CP_Testsuite_GetIntConstPtr(var string name) {
+func int G1CP_Testsuite_GetIntConstPtr(var string name, var int arrIdx) {
     // Check if constant exists
-    if (!G1CP_IsIntConst(name, 0)) {
+    if (!G1CP_IsIntConst(name, arrIdx)) {
         var string msg; msg = ConcatStrings("Integer constant '", name);
         msg = ConcatStrings(msg, "' not found/valid");
         G1CP_TestsuiteErrorDetail(msg);
@@ -46,6 +59,19 @@ func int G1CP_Testsuite_GetIntConstPtr(var string name) {
     // Return the constant's symbol pointer
     var int symbPtr; symbPtr = MEM_GetSymbol(name);
     return MEM_ReadInt(symbPtr + zCParSymbol_content_offset);
+};
+
+/*
+ * Check if integer variable exists
+ */
+func void G1CP_Testsuite_CheckIntConst(var string name, var int arrIdx) {
+    // Check if variable exists
+    if (!G1CP_IsIntConst(name, arrIdx)) {
+        var string msg; msg = ConcatStrings("Integer constant '", name);
+        msg = ConcatStrings(msg, "' not found/valid");
+        G1CP_TestsuiteErrorDetail(msg);
+        G1CP_TestsuiteStatusPassed = FALSE;
+    };
 };
 
 /*
