@@ -14,35 +14,33 @@ func int G1CP_Test_188() {
     var int passed; passed = TRUE;
 
     // Find the dialog condition function
-    var int funcId; funcId = MEM_GetSymbolIndex("Info_Kalom_KrautboteBACK_Condition");
+    var int funcId; funcId = G1CP_GetFuncID("Info_Kalom_KrautboteBACK_Condition", "int|none");
     if (funcId == -1) {
         G1CP_TestsuiteErrorDetail("Dialog condition 'Info_Kalom_KrautboteBACK_Condition' not found");
         passed = FALSE;
     };
 
-    // Obtain symbol
-    var int deliveredWeedPtr; deliveredWeedPtr = MEM_GetSymbol("Kalom_DeliveredWeed");
-    if (!deliveredWeedPtr) {
+    // Obtain variable
+    if (!G1CP_IsIntVar("Kalom_DeliveredWeed", 0)) {
         G1CP_TestsuiteErrorDetail("Variable 'Kalom_DeliveredWeed' not found");
         passed = FALSE;
     };
-    deliveredWeedPtr += zCParSymbol_content_offset;
 
-    // Obtain log topic
+    // Obtain log topic indicator variable
+    var int questID;
     if (G1CP_IsFixApplied(24)) {
-        var int krautbotePtr; krautbotePtr = MEM_GetSymbol("Kalom_Krautbote");
-        if (!krautbotePtr) {
+        questID = G1CP_GetIntVarID("Kalom_Krautbote", 0);
+        if (questID == -1) {
             G1CP_TestsuiteErrorDetail("Variable 'Kalom_Krautbote' not found");
             passed = FALSE;
         };
     } else {
-        var int krautbotePtr; krautbotePtr = MEM_GetSymbol("Kalom_DrugMonopol");
-        if (!krautbotePtr) {
+        questID = G1CP_GetIntVarID("Kalom_DrugMonopol", 0);
+        if (questID == -1) {
             G1CP_TestsuiteErrorDetail("Variable 'Kalom_DrugMonopol' not found");
             passed = FALSE;
         };
     };
-    krautbotePtr += zCParSymbol_content_offset;
 
     // At the latest now, we need to stop if there are fails already
     if (!passed) {
@@ -50,12 +48,12 @@ func int G1CP_Test_188() {
     };
 
     // Back up the values
-    var int deliveredWeedBak; deliveredWeedBak = MEM_ReadInt(deliveredWeedPtr);
-    var int krautboteBak;     krautboteBak     = MEM_ReadInt(krautbotePtr);
+    var int deliveredWeedBak; deliveredWeedBak = G1CP_GetIntVar("Kalom_DeliveredWeed", 0, 0);
+    var int krautboteBak;     krautboteBak     = G1CP_GetIntVarI(questID, 0, 0);
 
     // Set the variables
-    MEM_WriteInt(deliveredWeedPtr, TRUE);
-    MEM_WriteInt(krautbotePtr,     LOG_SUCCESS);
+    G1CP_SetIntVar("Kalom_DeliveredWeed", 0, TRUE);
+    G1CP_SetIntVarI(questID, 0, LOG_SUCCESS);
 
     // Backup self and other
     var C_Npc slfBak; slfBak = MEM_CpyInst(self);
@@ -74,8 +72,8 @@ func int G1CP_Test_188() {
     other = MEM_CpyInst(othBak);
 
     // Restore the variables
-    MEM_WriteInt(deliveredWeedPtr, deliveredWeedBak);
-    MEM_WriteInt(krautbotePtr, krautboteBak);
+    G1CP_SetIntVar("Kalom_DeliveredWeed", 0, deliveredWeedBak);
+    G1CP_SetIntVarI(questID, 0, krautboteBak);
 
     // Check return value
     if (ret) {
