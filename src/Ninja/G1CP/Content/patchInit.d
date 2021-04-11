@@ -83,6 +83,7 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
         G1CP_182_GuardDialogDusty();                    // #182
         G1CP_183_CorristoSellsRobe();                   // #183
         G1CP_184_BartholoWeedExploit();                 // #184
+        G1CP_185_ScorpioCrossbow();                     // #185
         G1CP_192_MagicUserAutoEquip();                  // #192
         G1CP_197_TemplarCampDialog();                   // #197
         G1CP_200_DE_ImprovedOreArmorText();             // #200

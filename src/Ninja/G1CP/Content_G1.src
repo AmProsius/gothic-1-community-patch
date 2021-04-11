@@ -108,6 +108,7 @@ Content\Fixes\Session\fix181_SwineyGiveArmor.d
 Content\Fixes\Session\fix182_GuardDialogDusty.d
 Content\Fixes\Session\fix183_CorristoSellsRobe.d
 Content\Fixes\Session\fix184_BartholoWeedExploit.d
+Content\Fixes\Session\fix185_ScorpioCrossbow.d
 Content\Fixes\Session\fix192_MagicUserAutoEquip.d
 Content\Fixes\Session\fix197_TemplarCampDialog.d
 Content\Fixes\Session\fix200_DE_ImprovedOreArmorText.d
@@ -214,6 +215,7 @@ Content\Tests\test181.d
 Content\Tests\test182.d
 Content\Tests\test183.d
 Content\Tests\test184.d
+Content\Tests\test185.d
 Content\Tests\test192.d
 Content\Tests\test193.d
 Content\Tests\test197.d
