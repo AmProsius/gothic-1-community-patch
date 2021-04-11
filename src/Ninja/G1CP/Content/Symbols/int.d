@@ -35,7 +35,7 @@ func int G1CP_CheckIntSymbol(var int symbPtr, var int arrIdx, var int isConst) {
 /*
  * Check if integer symbol exists and return the address to its content.
  */
-func int G1CP_GetIntAddrP(var int symbPtr, var int arrIdx, var int isConst) {
+func int G1CP_GetIntAddr(var int symbPtr, var int arrIdx, var int isConst) {
     if (!G1CP_CheckIntSymbol(symbPtr, arrIdx, isConst)) {
         return 0;
     };
@@ -53,137 +53,117 @@ func int G1CP_GetIntAddrP(var int symbPtr, var int arrIdx, var int isConst) {
 /*
  * Check if integer symbol exists
  */
-func int G1CP_IsIntSymbP(var int symbPtr, var int arrIdx, var int isConst) {
-    return (G1CP_CheckIntSymbol(symbPtr, arrIdx, isConst) != 0);
-};
 func int G1CP_IsIntSymbI(var int symbId, var int arrIdx, var int isConst) {
     if (symbId < 0) || (symbId >= MEM_Parser.symtab_table_numInArray) {
         return 0;
     };
-    return G1CP_IsIntSymbP(MEM_GetSymbolByIndex(symbId), arrIdx, isConst);
+    return (G1CP_CheckIntSymbol(MEM_GetSymbolByIndex(symbId), arrIdx, isConst) != 0);
 };
 func int G1CP_IsIntSymb(var string name, var int arrIdx, var int isConst) {
-    return G1CP_IsIntSymbP(MEM_GetSymbol(name), arrIdx, isConst);
+    return (G1CP_CheckIntSymbol(MEM_GetSymbol(name), arrIdx, isConst) != 0);
+};
+
+
+/*
+ * Check if integer symbol exists and return its symbol index
+ */
+func int G1CP_GetIntSymbID(var string name, var int arrIdx, var int isConst) {
+    if (G1CP_CheckIntSymbol(MEM_GetSymbol(name), arrIdx, isConst)) {
+        return MEM_GetSymbolIndex(name);
+    } else {
+        return -1;
+    };
 };
 
 
 /*
  * Check if integer symbol exists and return its value
  */
-func int G1CP_GetIntSymbP(var int symbPtr, var int arrIdx, var int isConst, var int dflt) {
-    var int ptr; ptr = G1CP_GetIntAddrP(symbPtr, arrIdx, isConst);
+func int G1CP_GetIntSymbI(var int symbId, var int arrIdx, var int isConst, var int dflt) {
+    if (symbId < 0) || (symbId >= MEM_Parser.symtab_table_numInArray) {
+        return dflt;
+    };
+    var int ptr; ptr = G1CP_GetIntAddr(MEM_GetSymbolByIndex(symbId), arrIdx, isConst);
     if (ptr) {
         return MEM_ReadInt(ptr);
     } else {
         return dflt;
     };
 };
-func int G1CP_GetIntSymbI(var int symbId, var int arrIdx, var int isConst, var int dflt) {
-    if (symbId < 0) || (symbId >= MEM_Parser.symtab_table_numInArray) {
+func int G1CP_GetIntSymb(var string name, var int arrIdx, var int isConst, var int dflt) {
+    var int ptr; ptr = G1CP_GetIntAddr(MEM_GetSymbol(name), arrIdx, isConst);
+    if (ptr) {
+        return MEM_ReadInt(ptr);
+    } else {
         return dflt;
     };
-    return G1CP_GetIntSymbP(MEM_GetSymbolByIndex(symbId), arrIdx, isConst, dflt);
-};
-func int G1CP_GetIntSymb(var string name, var int arrIdx, var int isConst, var int dflt) {
-    return G1CP_GetIntSymbP(MEM_GetSymbol(name), arrIdx, isConst, dflt);
+
 };
 
 
 /*
  * Check if integer symbol exists and set its value
  */
-func void G1CP_SetIntSymbP(var int symbPtr, var int arrIdx, var int isConst, var int value) {
-    var int ptr; ptr = G1CP_GetIntAddrP(symbPtr, arrIdx, isConst);
-    if (ptr) {
-        MEM_WriteInt(ptr, value);
-    };
-};
 func void G1CP_SetIntSymbI(var int symbId, var int arrIdx, var int isConst, var int value) {
     if (symbId < 0) || (symbId >= MEM_Parser.symtab_table_numInArray) {
         return;
     };
-    G1CP_SetIntSymbP(MEM_GetSymbolByIndex(symbId), arrIdx, isConst, value);
+    var int ptr; ptr = G1CP_GetIntAddr(MEM_GetSymbolByIndex(symbId), arrIdx, isConst);
+    if (ptr) {
+        MEM_WriteInt(ptr, value);
+    };
 };
 func void G1CP_SetIntSymb(var string name, var int arrIdx, var int isConst, var int value) {
-    G1CP_SetIntSymbP(MEM_GetSymbol(name), arrIdx, isConst, value);
+    var int ptr; ptr = G1CP_GetIntAddr(MEM_GetSymbol(name), arrIdx, isConst);
+    if (ptr) {
+        MEM_WriteInt(ptr, value);
+    };
 };
 
 
 /*
  * Check if any sort of single-element string exists
  */
-func int G1CP_IsIntP(var int symbPtr) {
-    return G1CP_IsIntSymbP(symbPtr, 0, 0);
+func int G1CP_IsIntI(var int symbId, var int arrIdx) {
+    return G1CP_IsIntSymbI(symbId, arrIdx, 0);
 };
-func int G1CP_IsIntI(var int symbId) {
-    return G1CP_IsIntSymbI(symbId, 0, 0);
+func int G1CP_IsInt(var string name, var int arrIdx) {
+    return G1CP_IsIntSymb(name, arrIdx, 0);
 };
-func int G1CP_IsInt(var string name) {
-    return G1CP_IsIntSymb(name, 0, 0);
+func int G1CP_GetIntID(var string name, var int arrIdx) {
+    return G1CP_GetIntSymbID(name, arrIdx, 0);
 };
-
-
-/*
- * Check if any sort of single-element string exists and return its value
- */
-func int G1CP_GetIntP(var int symbPtr, var int dflt) {
-    return G1CP_GetIntSymbP(symbPtr, 0, 0, dflt);
+func int G1CP_GetIntI(var int symbId, var int arrIdx, var int dflt) {
+    return G1CP_GetIntSymbI(symbId, arrIdx, 0, dflt);
 };
-func int G1CP_GetIntI(var int symbId, var int dflt) {
-    return G1CP_GetIntSymbI(symbId, 0, 0, dflt);
+func int G1CP_GetInt(var string name, var int arrIdx, var int dflt) {
+    return G1CP_GetIntSymb(name, arrIdx, 0, dflt);
 };
-func int G1CP_GetInt(var string name, var int dflt) {
-    return G1CP_GetIntSymb(name, 0, 0, dflt);
+func void G1CP_SetIntI(var int symbId, var int arrIdx, var int value) {
+    G1CP_SetIntSymbI(symbId, arrIdx, 0, value);
 };
-
-
-/*
- * Check if any sort of single-element string exists and return its value
- */
-func void G1CP_SetIntP(var int symbPtr, var int value) {
-    G1CP_SetIntSymbP(symbPtr, 0, 0, value);
-};
-func void G1CP_SetIntI(var int symbId, var int value) {
-    G1CP_SetIntSymbI(symbId, 0, 0, value);
-};
-func void G1CP_SetInt(var string name, var int value) {
-    G1CP_SetIntSymb(name, 0, 0, value);
+func void G1CP_SetInt(var string name, var int arrIdx, var int value) {
+    G1CP_SetIntSymb(name, arrIdx, 0, value);
 };
 
 
 /*
  * Check if integer variable exists
  */
-func int G1CP_IsIntVarP(var int symbPtr, var int arrIdx) {
-    return G1CP_IsIntSymbP(symbPtr, arrIdx, -1);
-};
 func int G1CP_IsIntVarI(var int symbId, var int arrIdx) {
     return G1CP_IsIntSymbI(symbId, arrIdx, -1);
 };
 func int G1CP_IsIntVar(var string name, var int arrIdx) {
     return G1CP_IsIntSymb(name, arrIdx, -1);
 };
-
-
-/*
- * Check if integer variable exists and return its value
- */
-func int G1CP_GetIntVarP(var int symbPtr, var int arrIdx, var int dflt) {
-    return G1CP_GetIntSymbP(symbPtr, arrIdx, -1, dflt);
+func int G1CP_GetIntVarID(var string name, var int arrIdx) {
+    return G1CP_GetIntSymbID(name, arrIdx, -1);
 };
 func int G1CP_GetIntVarI(var int symbId, var int arrIdx, var int dflt) {
     return G1CP_GetIntSymbI(symbId, arrIdx, -1, dflt);
 };
 func int G1CP_GetIntVar(var string name, var int arrIdx, var int dflt) {
     return G1CP_GetIntSymb(name, arrIdx, -1, dflt);
-};
-
-
-/*
- * Check if integer variable exists and set its value
- */
-func void G1CP_SetIntVarP(var int symbPtr, var int arrIdx, var int value) {
-    G1CP_SetIntSymbP(symbPtr, arrIdx, -1, value);
 };
 func void G1CP_SetIntVarI(var int symbId, var int arrIdx, var int value) {
     G1CP_SetIntSymbI(symbId, arrIdx, -1, value);
@@ -197,36 +177,20 @@ func void G1CP_SetIntVar(var string name, var int arrIdx, var int value) {
 /*
  * Check if integer constant exists
  */
-func int G1CP_IsIntConstP(var int symbPtr, var int arrIdx) {
-    return G1CP_IsIntSymbP(symbPtr, arrIdx, 1);
-};
 func int G1CP_IsIntConstI(var int symbId, var int arrIdx) {
     return G1CP_IsIntSymbI(symbId, arrIdx, 1);
 };
 func int G1CP_IsIntConst(var string name, var int arrIdx) {
     return G1CP_IsIntSymb(name, arrIdx, 1);
 };
-
-
-/*
- * Check if integer constant exists and return its value
- */
-func int G1CP_GetIntConstP(var int symbPtr, var int arrIdx, var int dflt) {
-    return G1CP_GetIntSymbP(symbPtr, arrIdx, 1, dflt);
+func int G1CP_GetIntConstID(var string name, var int arrIdx) {
+    return G1CP_GetIntSymbID(name, arrIdx, 1);
 };
 func int G1CP_GetIntConstI(var int symbId, var int arrIdx, var int dflt) {
     return G1CP_GetIntSymbI(symbId, arrIdx, 1, dflt);
 };
 func int G1CP_GetIntConst(var string name, var int arrIdx, var int dflt) {
     return G1CP_GetIntSymb(name, arrIdx, 1, dflt);
-};
-
-
-/*
- * Check if integer constant exists and set its value
- */
-func void G1CP_SetIntConstP(var int symbPtr, var int arrIdx, var int value) {
-    G1CP_SetIntSymbP(symbPtr, arrIdx, 1, value);
 };
 func void G1CP_SetIntConstI(var int symbId, var int arrIdx, var int value) {
     G1CP_SetIntSymbI(symbId, arrIdx, 1, value);

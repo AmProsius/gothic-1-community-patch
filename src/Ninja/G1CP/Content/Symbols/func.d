@@ -132,57 +132,38 @@ func int G1CP_CheckFuncSymbol(var int symbPtr, var string signature, var int isE
 /*
  * Check if function symbol exists. For signature see function above.
  */
-func int G1CP_IsFuncSymbP(var int symbPtr, var string signature, var int isExternal) {
-    return (G1CP_CheckFuncSymbol(symbPtr, signature, isExternal) != 0);
-};
 func int G1CP_IsFuncSymbI(var int symbId, var string signature, var int isExternal) {
     if (symbId < 0) || (symbId >= MEM_Parser.symtab_table_numInArray) {
         return 0;
     };
-    return G1CP_IsFuncSymbP(MEM_GetSymbolByIndex(symbId), signature, isExternal);
+    return (G1CP_CheckFuncSymbol(MEM_GetSymbolByIndex(symbId), signature, isExternal) != 0);
 };
 func int G1CP_IsFuncSymb(var string name, var string signature, var int isExternal) {
-    return G1CP_IsFuncSymbP(MEM_GetSymbol(name), signature, isExternal);
+    return (G1CP_CheckFuncSymbol(MEM_GetSymbol(name), signature, isExternal) != 0);
 };
 
 
 /*
- * Check if any sort of function exists.
+ * Check if function symbol exists and return its symbol index. For signature see function above.
  */
-func int G1CP_IsFuncP(var int symbPtr) {
-    return G1CP_IsFuncSymbP(symbPtr, "", 0);
-};
-func int G1CP_IsFuncI(var int symbId) {
-    return G1CP_IsFuncSymbI(symbId, "", 0);
-};
-func int G1CP_IsFunc(var string name) {
-    return G1CP_IsFuncSymb(name, "", 0);
+func int G1CP_GetFuncSymbID(var string name, var string signature, var int isExternal) {
+    if (G1CP_CheckFuncSymbol(MEM_GetSymbol(name), signature, isExternal)) {
+        return MEM_GetSymbolIndex(name);
+    } else {
+        return -1;
+    };
 };
 
 
 /*
- * Check if Daedalus function symbol exists. For signature see function above.
+ * Check if any sort of function exists (either Daedalus or external).
  */
-func int G1CP_IsDaeFuncP(var int symbPtr, var string signature) {
-    return G1CP_IsFuncSymbP(symbPtr, signature, -1);
+func int G1CP_IsFuncI(var int symbId, var string signature) {
+    return G1CP_IsFuncSymbI(symbId, signature, 0);
 };
-func int G1CP_IsDaeFuncI(var int symbId, var string signature) {
-    return G1CP_IsFuncSymbI(symbId, signature, -1);
+func int G1CP_IsFunc(var string name, var string signature) {
+    return G1CP_IsFuncSymb(name, signature, 0);
 };
-func int G1CP_IsDaeFunc(var string name, var string signature) {
-    return G1CP_IsFuncSymb(name, signature, -1);
-};
-
-
-/*
- * Check if external function symbol exists. For signature see function above.
- */
-func int G1CP_IsExtFuncP(var int symbPtr, var string signature) {
-    return G1CP_IsFuncSymbP(symbPtr, signature, 1);
-};
-func int G1CP_IsExtFuncI(var int symbId, var string signature) {
-    return G1CP_IsFuncSymbI(symbId, signature, 1);
-};
-func int G1CP_IsExtFunc(var string name, var string signature) {
-    return G1CP_IsFuncSymb(name, signature, 1);
+func int G1CP_GetFuncID(var string name, var string signature) {
+    return G1CP_GetFuncSymbID(name, signature, 0);
 };

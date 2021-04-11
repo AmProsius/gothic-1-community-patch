@@ -47,7 +47,7 @@ func int G1CP_079_WolfDexDialog() {
             tok = MEM_ReadByte(pos+21);
             par = MEM_ReadInt(pos+22);
             if (tok == zPAR_TOK_PUSHVAR) {
-                par = G1CP_GetIntI(par, 0);
+                par = G1CP_GetIntI(par, 0, 0);
             } else if (tok != zPAR_TOK_PUSHINT) {
                 par = 0;
             };

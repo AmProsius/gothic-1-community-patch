@@ -64,7 +64,7 @@ func int G1CP_037_LogEntryGravoMerchant_Toggle(var int apply) {
 
         // Get the topic strings
         topic = G1CP_GetStringConstI(topicId, 0, topic);
-        entry = G1CP_GetStringI(entryId, entry);
+        entry = G1CP_GetStringI(entryId, 0, entry);
 
         // Now that all is established, let's replace the call to 'B_LogEntry' to squeeze in the creation of the topic
         i = G1CP_ReplaceCall(funcId, 0, b_logentry_id, MEM_GetSymbolIndex(hookSymbName));

@@ -56,17 +56,26 @@ func int G1CP_CheckInstSymbol(var int symbPtr, var string clss, var int isFunc) 
 /*
  * Check if instance symbol exists. For clss and isFunc see function above.
  */
-func int G1CP_IsInstP(var int symbPtr, var string clss, var int isFunc) {
-    return (G1CP_CheckInstSymbol(symbPtr, clss, isFunc) != 0);
-};
 func int G1CP_IsInstI(var int symbId, var string clss, var int isFunc) {
     if (symbId < 0) || (symbId >= MEM_Parser.symtab_table_numInArray) {
         return 0;
     };
-    return G1CP_IsInstP(MEM_GetSymbolByIndex(symbId), clss, isFunc);
+    return (G1CP_CheckInstSymbol(MEM_GetSymbolByIndex(symbId), clss, isFunc) != 0);
 };
 func int G1CP_IsInst(var string name, var string clss, var int isFunc) {
-    return G1CP_IsInstP(MEM_GetSymbol(name), clss, isFunc);
+    return (G1CP_CheckInstSymbol(MEM_GetSymbol(name), clss, isFunc) != 0);
+};
+
+
+/*
+ * Check if instance symbol exists and return its symbol index. For clss and isFunc see function above.
+ */
+func int G1CP_GetInstID(var string name, var string clss, var int isFunc) {
+    if (G1CP_CheckInstSymbol(MEM_GetSymbol(name), clss, isFunc)) {
+        return MEM_GetSymbolIndex(name);
+    } else {
+        return -1;
+    };
 };
 
 
@@ -79,6 +88,9 @@ func int G1CP_IsNpcInst(var string name) {
 func int G1CP_IsNpcInstI(var int symbId) {
     return G1CP_IsInstI(symbId, "C_Npc", 1);
 };
+func int G1CP_GetNpcInstID(var string name) {
+    return G1CP_GetInstID(name, "C_Npc", 1);
+};
 
 
 /*
@@ -89,6 +101,9 @@ func int G1CP_IsItemInst(var string name) {
 };
 func int G1CP_IsItemInstI(var int symbId) {
     return G1CP_IsInstI(symbId, "C_Item", 1);
+};
+func int G1CP_GetItemInstID(var string name) {
+    return G1CP_GetInstID(name, "C_Item", 1);
 };
 
 
@@ -101,5 +116,6 @@ func int G1CP_IsInfoInst(var string name) {
 func int G1CP_IsInfoInstI(var int symbId) {
     return G1CP_IsInstI(symbId, "C_Info", 1);
 };
-
-
+func int G1CP_GetInfoInstID(var string name) {
+    return G1CP_GetInstID(name, "C_Info", 1);
+};
