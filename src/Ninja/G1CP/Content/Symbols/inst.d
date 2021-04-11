@@ -74,10 +74,10 @@ func int G1CP_IsInst(var string name, var string clss, var int isFunc) {
  * Check if NPC instance exists.
  */
 func int G1CP_IsNpcInst(var string name) {
-    return G1CP_IsInst(name, "C_Npc", 0);
+    return G1CP_IsInst(name, "C_Npc", 1);
 };
 func int G1CP_IsNpcInstI(var int symbId) {
-    return G1CP_IsInstI(symbId, "C_Npc", 0);
+    return G1CP_IsInstI(symbId, "C_Npc", 1);
 };
 
 
@@ -85,10 +85,10 @@ func int G1CP_IsNpcInstI(var int symbId) {
  * Check if item instance exists.
  */
 func int G1CP_IsItemInst(var string name) {
-    return G1CP_IsInst(name, "C_Item", 0);
+    return G1CP_IsInst(name, "C_Item", 1);
 };
 func int G1CP_IsItemInstI(var int symbId) {
-    return G1CP_IsInstI(symbId, "C_Item", 0);
+    return G1CP_IsInstI(symbId, "C_Item", 1);
 };
 
 
@@ -96,10 +96,10 @@ func int G1CP_IsItemInstI(var int symbId) {
  * Check if info instance exists.
  */
 func int G1CP_IsInfoInst(var string name) {
-    return G1CP_IsInst(name, "C_Info", 0);
+    return G1CP_IsInst(name, "C_Info", 1);
 };
 func int G1CP_IsInfoInstI(var int symbId) {
-    return G1CP_IsInstI(symbId, "C_Info", 0);
+    return G1CP_IsInstI(symbId, "C_Info", 1);
 };
 
 
