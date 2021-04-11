@@ -56,7 +56,7 @@ func int G1CP_012_RangedDoubleXP_Condition(var C_Npc slf, var int state) {
 
     // Additional condition: self.aivar[AIV_WASDEFEATEDBYSC]
     var int cond2;
-    cond2 = G1CP_GetAIVar(slf, "AIV_WASDEFEATEDBYSC", 0);
+    cond2 = G1CP_NpcGetAIVar(slf, "AIV_WASDEFEATEDBYSC", 0);
 
     // Either one of the conditions
     return (cond1) || (cond2);

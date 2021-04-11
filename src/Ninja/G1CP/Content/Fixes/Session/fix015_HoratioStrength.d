@@ -8,7 +8,7 @@ func int G1CP_015_HoratioStrength() {
 
     if (funcId != -1) {
         HookDaedalusFuncS("DIA_Horatio_HelpSTR_LEARN_NOW", "G1CP_015_HoratioStrength_Hook");
-        var int count; count = G1CP_ReplaceCall(funcId, needleId, replacId);
+        var int count; count = G1CP_ReplaceCall(funcId, 0, needleId, replacId);
         return (count > 0);
     } else {
         return FALSE;

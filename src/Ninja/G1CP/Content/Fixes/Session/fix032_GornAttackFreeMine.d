@@ -87,9 +87,9 @@ func void G1CP_032_GornAttackFreeMine_NoTrauma(var int newsid, var int source, v
     const int fighterFMid = -1;
     const int updated = FALSE;
     if (!updated) {
-        GIL_GRD = G1CP_GetIntVar("GIL_GRD", 0, GIL_GRD);
-        GIL_STT = G1CP_GetIntVar("GIL_STT", 0, GIL_STT);
-        GIL_VLK = G1CP_GetIntVar("GIL_VLK", 0, GIL_VLK);
+        GIL_GRD = G1CP_GetIntConst("GIL_GRD", 0, GIL_GRD);
+        GIL_STT = G1CP_GetIntConst("GIL_STT", 0, GIL_STT);
+        GIL_VLK = G1CP_GetIntConst("GIL_VLK", 0, GIL_VLK);
         fighterFMid = MEM_GetSymbolIndex("PC_FighterFM");
         updated = TRUE;
     };

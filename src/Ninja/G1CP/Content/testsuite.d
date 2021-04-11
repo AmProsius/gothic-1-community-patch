@@ -65,20 +65,24 @@ func void G1CP_TestsuiteErrorDetail(var string msg) {
         G1CP_TestsuiteMsg = ConcatStrings(G1CP_TestsuiteMsg, "|");
     };
 
-    // Obtain test number
-    var int id;
-    var int callerID; callerID = MEM_GetFuncIDByOffset(MEM_GetCallerStackPos());
-    if (callerID < 0) || (callerID >= currSymbolTableLength) {
-        id = -1;
-    } else {
-        var string callerName; callerName = MEM_ReadString(MEM_GetSymbolByIndex(callerID));
-        var int prefixLen; prefixLen = STR_Len("G1CP_Test_000");
-        if (STR_Len(callerName) < prefixLen) {
-            id = -1;
-        } else {
-            id = STR_ToInt(STR_SubStr(callerName, prefixLen-3, 3));
+    // Obtain test number: Find the test function that that the call originated from
+    var int id; id = 0;
+    var int ESP; ESP = MEM_GetFrameBoundary();
+    while(MEMINT_IsFrameBoundary(ESP) && (!id));
+        ESP += MEMINT_DoStackFrameSize;
+        var int popPos; popPos = MEM_ReadInt(ESP - MEMINT_DoStackPopPosOffset);
+        if (popPos > 0) && (popPos < MEM_Parser.stack_stacksize) {
+            var int funcId; funcId = MEM_GetFuncIDByOffset(popPos);
+            var string funcName; funcName = MEM_ReadString(MEM_GetSymbolByIndex(funcId));
+            var int prefixLen; prefixLen = STR_Len("G1CP_Test_000");
+            if (STR_Len(funcName) >= prefixLen) {
+                var int chr; chr = STR_GetCharAt(funcName, prefixLen-3) - 48;
+                if (0 <= chr) && (chr <= 9) {
+                    id = STR_ToInt(STR_SubStr(funcName, prefixLen-3, 3));
+                };
+            };
         };
-    };
+    end;
 
     G1CP_TestsuiteMsg = ConcatStrings(G1CP_TestsuiteMsg, "  Test ");
     G1CP_TestsuiteMsg = ConcatStrings(G1CP_TestsuiteMsg, G1CP_LFill(IntToString(id), " ", 3));

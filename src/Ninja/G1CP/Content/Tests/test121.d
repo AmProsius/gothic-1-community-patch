@@ -26,7 +26,7 @@ func int G1CP_Test_121() {
     };
 
     // Retrieve the content of the log topic string constant
-    var string topic; topic = G1CP_GetStringVar("CH1_ShrikesHut", 0, "G1CP invalid string");
+    var string topic; topic = G1CP_GetStringConst("CH1_ShrikesHut", 0, "G1CP invalid string");
 
     // First test: Check if the name is correct in the string constant
 
@@ -44,7 +44,7 @@ func int G1CP_Test_121() {
 
     // Revert the fix (careful now, don't overwrite the fix status!)
     var int r; r = G1CP_121_DE_LogTopicShrikeHutRevert();
-    topic = G1CP_GetStringVar("CH1_ShrikesHut", 0, "G1CP invalid string"); // Original topic name
+    topic = G1CP_GetStringConst("CH1_ShrikesHut", 0, "G1CP invalid string"); // Original topic name
 
     // Create the topic with original name temporarily (if it does not exist already)
     Log_CreateTopic(topic, LOG_MISSION);

@@ -30,7 +30,7 @@ func int G1CP_049_DungeonKeyText() {
 
             // Overwrite "text = xxx" with a call to the above bytes
             MEMINT_OverrideFunc_Ptr = MEM_ArrayRead(matches, i);
-            MEMINT_OFTokPar(zPAR_TOK_CALL, ptr - currParserStackAddress);
+            MEMINT_OFTokPar(zPAR_TOK_CALL, ptr - MEM_Parser.stack_stack);
 
             applied += 1;
         end;

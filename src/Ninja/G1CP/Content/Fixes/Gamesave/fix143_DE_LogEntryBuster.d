@@ -1,9 +1,9 @@
 /*
- * #133 Spelling - Scatty: "Meine" (DE)
+ * #143 Spelling - Buster: "unterrichtet" (DE)
  */
-func int G1CP_133_DE_LogEntryScatty() {
-    const string curString = "Meinem Niederlage gegen Kirgo hat Scatty nicht sehr beeindruckt.";
-    const string newString = "Meine Niederlage gegen Kirgo hat Scatty nicht sehr beeindruckt.";
+func int G1CP_143_DE_LogEntryBuster() {
+    const string curString = "Buster der Bandit unterichtet das Talent AKROBATIK.";
+    const string newString = "Buster der Bandit unterrichtet das Talent AKROBATIK.";
     const string topicName = "";
 
     // Do only once per session for performance on consecutive calls
@@ -11,11 +11,11 @@ func int G1CP_133_DE_LogEntryScatty() {
     const int count   = -1;
     if (topicId == -2) {
         // Find and retrieve the topic
-        topicId = MEM_GetSymbolIndex("CH1_JoinOC");
+        topicId = G1CP_GetStringConstID("GE_TeacherNC", 0);
         topicName = G1CP_GetStringConstI(topicId, 0, "");
 
         // Replace the push of the old string with the new string (this is never reverted, i.e. session fix)
-        count = G1CP_ReplacePushStr(MEM_GetSymbolIndex("DIA_Scatty_KirgoSuccess_Info"), 0, curString, newString);
+        count = G1CP_ReplacePushStr(G1CP_GetFuncID("DIA_ORG_833_Buster3_Info", "void|none"), 0, curString, newString);
     };
 
     // Check if the log topic constant exists and if the adding of the log entry was successfully replaced
@@ -31,22 +31,22 @@ func int G1CP_133_DE_LogEntryScatty() {
 };
 
 /*
- * This function reverts the changes of #133
+ * This function reverts the changes of #143
  */
-func int G1CP_133_DE_LogEntryScattyRevert() {
-    const string oldString = "Meinem Niederlage gegen Kirgo hat Scatty nicht sehr beeindruckt.";
-    const string curString = "Meine Niederlage gegen Kirgo hat Scatty nicht sehr beeindruckt.";
+func int G1CP_143_DE_LogEntryBusterRevert() {
+    const string oldString = "Buster der Bandit unterichtet das Talent AKROBATIK.";
+    const string curString = "Buster der Bandit unterrichtet das Talent AKROBATIK.";
     const string topicName = "";
 
     // Only revert if it was applied by the G1CP
-    if (!G1CP_IsFixApplied(133)) {
+    if (!G1CP_IsFixApplied(143)) {
         return FALSE;
     };
 
     // Retrieve the topic name only once per session for performance on consecutive calls
     const int once = 0;
     if (!once) {
-        topicName = G1CP_GetStringConst("CH1_JoinOC", 0, "");
+        topicName = G1CP_GetStringConst("GE_TeacherNC", 0, "");
         once = 1;
     };
 

@@ -59,7 +59,7 @@ func int G1CP_InitStart() {
     // Hello? Who dis? jk, I gots your caller-ID!
     var int posStart; posStart = MEM_GetCallerStackPos();
     var int callerId; callerId = MEM_GetFuncIDByOffset(posStart);
-    posStart += currParserStackAddress;
+    posStart += MEM_Parser.stack_stack;
     var int pos; pos = posStart;
     posStart -= 5;
 
@@ -82,7 +82,7 @@ func int G1CP_InitStart() {
 
     // Confirm that the call was made after an 'if'
     var int tok; tok = MEM_ReadByte(pos); pos += 1;
-    var int posEnd; posEnd = MEM_ReadInt(pos) + currParserStackAddress; pos += 4;
+    var int posEnd; posEnd = MEM_ReadInt(pos) + MEM_Parser.stack_stack; pos += 4;
     if (tok != zPAR_TOK_JUMPF) {
         if (tok < 0) || (tok >= 246) {
             tok = zPAR_TOK_PUSH_ARRAYVAR-1; // "[INVALID_TOKEN]"
@@ -139,7 +139,7 @@ func int G1CP_InitStart() {
         var int funcId; funcId = MEM_GetFuncIDByOffset(offset);
 
         // Some initial checks on the function and its name
-        if (funcId > 0) && (funcId < currSymbolTableLength) {
+        if (funcId > 0) && (funcId < MEM_Parser.symtab_table_numInArray) {
             var zCPar_Symbol symb; symb = _^(MEM_GetSymbolByIndex(funcId));
             if (STR_StartsWith(symb.name, "G1CP_"))
             && (STR_Len(symb.name) >= 8)
@@ -197,7 +197,7 @@ func int G1CP_InitStart() {
     // Overwrite the function call to G1CP_InitStart
     MEMINT_OverrideFunc_Ptr = posStart;
     if (!initOnce) {
-        MEMINT_OFTokPar(zPAR_TOK_CALL, SB_GetStream() - currParserStackAddress);
+        MEMINT_OFTokPar(zPAR_TOK_CALL, SB_GetStream() - MEM_Parser.stack_stack);
     } else {
         // Do not call session initialization again (overwrite the condition in 'Ninja_G1CP_Menu' to FALSE)
         MEMINT_OFTokPar(zPAR_TOK_PUSHINT, FALSE);
@@ -216,7 +216,7 @@ func int G1CP_InitStart() {
     SB_Use(so);
 
     // Jump back to before this function call to run the new function
-    MEM_SetCallerStackPos(posStart - currParserStackAddress);
+    MEM_SetCallerStackPos(posStart - MEM_Parser.stack_stack);
 };
 
 
