@@ -1,5 +1,5 @@
 /*
- * #15 Horatio may lower STRENGTH
+ * #15 Horatio may lower Strength
  *
  * The hero is first given strength < 100 and then strength > 100 before each calling the original dialog.
  *
@@ -9,22 +9,17 @@ func int G1CP_Test_015() {
     // Define possibly missing symbols locally
     const int ATR_STRENGTH = 4;
 
+    // Prior checks
+    var int funcId; funcId = G1CP_Testsuite_GetDialogFuncId("DIA_Horatio_HelpSTR_LEARN_NOW");
+    G1CP_Testsuite_CheckPassed();
+
     // Check status of the test
-    var int passed; passed = TRUE;
+    var int result; result = TRUE;
 
-    // Check if the dialog function exists
-    var int funcId; funcId = MEM_GetSymbolIndex("DIA_Horatio_HelpSTR_LEARN_NOW");
-    if (funcId == -1) {
-        G1CP_TestsuiteErrorDetail("Dialog function 'DIA_Horatio_HelpSTR_LEARN_NOW' not found");
-        return FALSE;
-    };
-
-    // Backup the original strength
-    var int strengthBak; strengthBak = hero.attribute[ATR_STRENGTH];
-
-    // Backup self and other
-    var C_Npc slfBak; slfBak = MEM_CpyInst(self);
-    var C_Npc othBak; othBak = MEM_CpyInst(other);
+    // Backup values
+    var int   strengthBak; strengthBak = hero.attribute[ATR_STRENGTH];
+    var C_Npc slfBak;      slfBak      = MEM_CpyInst(self);
+    var C_Npc othBak;      othBak      = MEM_CpyInst(other);
 
     // Set self and other
     self  = MEM_CpyInst(hero);
@@ -35,8 +30,7 @@ func int G1CP_Test_015() {
     MEM_CallByID(funcId);
     if (hero.attribute[ATR_STRENGTH] <= 10) {
         G1CP_TestsuiteErrorDetail("Strength was not increased when below 100");
-        hero.attribute[ATR_STRENGTH] = strengthBak;
-        passed = FALSE;
+        result = FALSE;
     };
 
     // Second pass: strength > 100
@@ -44,8 +38,7 @@ func int G1CP_Test_015() {
     MEM_CallByID(funcId);
     if (hero.attribute[ATR_STRENGTH] < 1000) {
         G1CP_TestsuiteErrorDetail("Strength was decreased when above 100");
-        hero.attribute[ATR_STRENGTH] = strengthBak;
-        passed = FALSE;
+        result = FALSE;
     };
 
     // Restore self and other
@@ -60,5 +53,5 @@ func int G1CP_Test_015() {
     hero.attribute[ATR_STRENGTH] = strengthBak;
 
     // At last
-    return passed;
+    return result;
 };

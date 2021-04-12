@@ -46,7 +46,7 @@ func void G1CP_Testsuite_CheckIntConst(var string name, var int arrIdx) {
 };
 
 /*
- * Check if  info instance exists
+ * Check if info instance exists
  */
 func void G1CP_Testsuite_CheckInfo(var string name) {
     // Check if info instance exists
