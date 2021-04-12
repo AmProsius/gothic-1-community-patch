@@ -46,7 +46,7 @@ func void G1CP_Testsuite_CheckIntConst(var string name, var int arrIdx) {
 };
 
 /*
- * Check if info dialog exists
+ * Check if  info instance exists
  */
 func void G1CP_Testsuite_CheckInfo(var string name) {
     // Check if info instance exists
@@ -67,13 +67,13 @@ func void G1CP_Testsuite_CheckInfo(var string name) {
 };
 
 /*
- * Check if info dialog exists and return its symbol index
+ * Check if info instance exists and return its symbol index
  */
 func int G1CP_Testsuite_GetInfoId(var string name) {
     // Check if info instance exists
     G1CP_Testsuite_CheckInfo(name);
 
-    // Return the dialog's symbol index
+    // Return the info instance's symbol index
     return MEM_GetSymbolIndex(name);
 };
 
@@ -81,7 +81,7 @@ func int G1CP_Testsuite_GetInfoId(var string name) {
  * Check if function exists
  */
 func void G1CP_Testsuite_CheckFunc(var string name, var string signature, var string funcType) {
-    if (funcType == "") {
+    if (Hlp_StrCmp(funcType, "")) {
         funcType = "Function";
     };
     if (!G1CP_IsFunc(name, signature)) {
@@ -101,10 +101,32 @@ func void G1CP_Testsuite_CheckDialogFunc(var string name) {
 };
 
 /*
+ * Check if dialog function exists and return its symbol index
+ */
+func int G1CP_Testsuite_GetDialogFuncId(var string name) {
+    // Check if dialog function exists
+    G1CP_Testsuite_CheckDialogFunc(name);
+
+    // Return the dialog function's symbol index
+    return MEM_GetSymbolIndex(name);
+};
+
+/*
  * Check if dialog condition function exists
  */
 func void G1CP_Testsuite_CheckDialogConditionFunc(var string name) {
     G1CP_Testsuite_CheckFunc(name, "int|none", "Dialog condition function");
+};
+
+/*
+ * Check if dialog condition function exists and return its symbol index
+ */
+func int G1CP_Testsuite_GetDialogConditionFuncId(var string name) {
+    // Check if dialog condition function exists
+    G1CP_Testsuite_CheckDialogConditionFunc(name);
+
+    // Return the dialog condition function's symbol index
+    return MEM_GetSymbolIndex(name);
 };
 
 /*
