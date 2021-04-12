@@ -9,11 +9,8 @@ func int G1CP_Test_015() {
     // Define possibly missing symbols locally
     const int ATR_STRENGTH = 4;
 
-    // Define variables for specific test
-    var string dialogFuncName; dialogFuncName = "DIA_Horatio_HelpSTR_LEARN_NOW";
-
     // Prior checks
-    G1CP_Testsuite_CheckDialogFunc(dialogFuncName);
+    var int funcId; funcId = G1CP_Testsuite_GetDialogFuncId("DIA_Horatio_HelpSTR_LEARN_NOW");
     G1CP_Testsuite_CheckPassed();
 
     // Check status of the test
@@ -30,7 +27,7 @@ func int G1CP_Test_015() {
 
     // First pass: strength < 100
     hero.attribute[ATR_STRENGTH] = 10;
-    MEM_CallByString(dialogFuncName);
+    MEM_CallByID(funcId);
     if (hero.attribute[ATR_STRENGTH] <= 10) {
         G1CP_TestsuiteErrorDetail("Strength was not increased when below 100");
         passed = FALSE;
@@ -38,7 +35,7 @@ func int G1CP_Test_015() {
 
     // Second pass: strength > 100
     hero.attribute[ATR_STRENGTH] = 1000;
-    MEM_CallByString(dialogFuncName);
+    MEM_CallByID(funcId);
     if (hero.attribute[ATR_STRENGTH] < 1000) {
         G1CP_TestsuiteErrorDetail("Strength was decreased when above 100");
         passed = FALSE;
