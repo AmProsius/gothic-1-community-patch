@@ -101,10 +101,32 @@ func void G1CP_Testsuite_CheckDialogFunc(var string name) {
 };
 
 /*
+ * Check if dialog function exists and return its symbol index
+ */
+func int G1CP_Testsuite_GetDialogFuncId(var string name) {
+    // Check if dialog function exists
+    G1CP_Testsuite_CheckDialogFunc(name);
+
+    // Return the dialog function's symbol index
+    return MEM_GetSymbolIndex(name);
+};
+
+/*
  * Check if dialog condition function exists
  */
 func void G1CP_Testsuite_CheckDialogConditionFunc(var string name) {
     G1CP_Testsuite_CheckFunc(name, "int|none", "Dialog condition function");
+};
+
+/*
+ * Check if dialog condition function exists and return its symbol index
+ */
+func int G1CP_Testsuite_GetDialogConditionFuncId(var string name) {
+    // Check if dialog condition function exists
+    G1CP_Testsuite_CheckDialogConditionFunc(name);
+
+    // Return the dialog condition function's symbol index
+    return MEM_GetSymbolIndex(name);
 };
 
 /*
