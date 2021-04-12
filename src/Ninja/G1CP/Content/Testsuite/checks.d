@@ -3,9 +3,7 @@
  */
 func void G1CP_Testsuite_CheckItem(var string name) {
     if (!G1CP_IsItemInst(name)) {
-        var string msg; msg = ConcatStrings("Item '", name);
-        msg = ConcatStrings(msg, "' not found");
-        G1CP_TestsuiteErrorDetail(msg);
+        G1CP_TestsuiteErrorDetail(ConcatStrings(ConcatStrings("Item '", name), "' not found"));
         G1CP_TestsuiteStatusPassed = FALSE;
     };
 };
@@ -26,9 +24,7 @@ func int G1CP_Testsuite_GetItemId(var string name) {
  */
 func void G1CP_Testsuite_CheckIntVar(var string name, var int arrIdx) {
     if (!G1CP_IsIntVar(name, arrIdx)) {
-        var string msg; msg = ConcatStrings("Integer variable '", name);
-        msg = ConcatStrings(msg, "' not found");
-        G1CP_TestsuiteErrorDetail(msg);
+        G1CP_TestsuiteErrorDetail(ConcatStrings(ConcatStrings("Integer variable '", name), "' not found"));
         G1CP_TestsuiteStatusPassed = FALSE;
     };
 };
@@ -38,9 +34,7 @@ func void G1CP_Testsuite_CheckIntVar(var string name, var int arrIdx) {
  */
 func void G1CP_Testsuite_CheckIntConst(var string name, var int arrIdx) {
     if (!G1CP_IsIntConst(name, arrIdx)) {
-        var string msg; msg = ConcatStrings("Integer constant '", name);
-        msg = ConcatStrings(msg, "' not found");
-        G1CP_TestsuiteErrorDetail(msg);
+        G1CP_TestsuiteErrorDetail(ConcatStrings(ConcatStrings("Integer constant '", name), "' not found"));
         G1CP_TestsuiteStatusPassed = FALSE;
     };
 };
@@ -51,17 +45,13 @@ func void G1CP_Testsuite_CheckIntConst(var string name, var int arrIdx) {
 func void G1CP_Testsuite_CheckInfo(var string name) {
     // Check if info instance exists
     if (!G1CP_IsInfoInst(name)) {
-        var string msg; msg = ConcatStrings("Info instance '", name);
-        msg = ConcatStrings(msg, "' not found");
-        G1CP_TestsuiteErrorDetail(msg);
+        G1CP_TestsuiteErrorDetail(ConcatStrings(ConcatStrings("Info instance '", name), "' not found"));
         G1CP_TestsuiteStatusPassed = FALSE;
     };
 
     // Check if info instance is available in info manager
     if (!G1CP_GetInfo(name)) {
-        var string msg; msg = ConcatStrings("Info instance '", name);
-        msg = ConcatStrings(msg, "' not available");
-        G1CP_TestsuiteErrorDetail(msg);
+        G1CP_TestsuiteErrorDetail(ConcatStrings(ConcatStrings("Info instance '", name), "' not available"));
         G1CP_TestsuiteStatusPassed = FALSE;
     };
 };
@@ -85,10 +75,7 @@ func void G1CP_Testsuite_CheckFunc(var string name, var string signature, var st
         funcType = "Function";
     };
     if (!G1CP_IsFunc(name, signature)) {
-        var string msg; msg = ConcatStrings(funcType, " '");
-        msg = ConcatStrings(msg, name);
-        msg = ConcatStrings(msg, "' not found");
-        G1CP_TestsuiteErrorDetail(msg);
+        G1CP_TestsuiteErrorDetail(ConcatStrings(ConcatStrings(ConcatStrings(funcType, " '"), name), "' not found"));
         G1CP_TestsuiteStatusPassed = FALSE;
     };
 };
@@ -133,22 +120,17 @@ func int G1CP_Testsuite_GetDialogConditionFuncId(var string name) {
  * Check if NPC exists and return it
  */
 func MEMINT_HelperClass G1CP_Testsuite_GetNpc(var string name) {
-    var string msg;
-
     // Check if NPC instance exists
     if (!G1CP_IsNpcInst(name)) {
-        msg = ConcatStrings("NPC '", name);
-        msg = ConcatStrings(msg, "' not found");
-        G1CP_TestsuiteErrorDetail(msg);
+        G1CP_TestsuiteErrorDetail(ConcatStrings(ConcatStrings("NPC '", name), "' not found"));
         G1CP_TestsuiteStatusPassed = FALSE;
         MEM_NullToInst();
     } else {
+        // Find NPC
         var int symbId; symbId = MEM_GetSymbolIndex(name);
         var C_Npc npc; npc = Hlp_GetNpc(symbId);
         if (!Hlp_IsValidNpc(npc)) {
-            msg = ConcatStrings("NPC '", name);
-            msg = ConcatStrings(msg, "' not valid");
-            G1CP_TestsuiteErrorDetail(msg);
+            G1CP_TestsuiteErrorDetail(ConcatStrings(ConcatStrings("NPC '", name), "' not valid"));
             G1CP_TestsuiteStatusPassed = FALSE;
             MEM_NullToInst();
         } else {
