@@ -80,9 +80,6 @@ func int G1CP_115_KillSittingDuck_Intercept(var C_Npc self, var float ms) {
     var int slfId; slfId = Hlp_GetInstanceID(self);
     if (slfId != npc1443) && (slfId != npc1444) && (slfId != npc1445) && (slfId != npc1446) && (slfId != npc1463) {
         // Execute original code for anyone else
-
-        MEM_Info("### IGNORE! ###");
-
         AI_Wait(self, ms);
         return LOOP_CONTINUE;
     };
