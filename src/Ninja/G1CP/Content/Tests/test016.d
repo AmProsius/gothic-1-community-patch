@@ -37,7 +37,7 @@ func int G1CP_Test_016_RunDialog(var string dialogName, var string needsInfo) {
 
     // Check return value
     if (ret) {
-        G1CP_TestsuiteErrorDetail(ConcatStrings(ConcatStrings("Dialog condition '", dialogName), "' failed"));
+        G1CP_TestsuiteErrorDetailSSS("Dialog condition '", dialogName, "' failed");
         return FALSE;
     };
 

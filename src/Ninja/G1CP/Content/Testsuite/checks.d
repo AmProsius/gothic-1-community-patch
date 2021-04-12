@@ -3,7 +3,7 @@
  */
 func void G1CP_Testsuite_CheckItem(var string name) {
     if (!G1CP_IsItemInst(name)) {
-        G1CP_TestsuiteErrorDetail(ConcatStrings(ConcatStrings("Item '", name), "' not found"));
+        G1CP_TestsuiteErrorDetailSSS("Item '", name, "' not found");
         G1CP_TestsuiteStatusPassed = FALSE;
     };
 };
@@ -24,7 +24,7 @@ func int G1CP_Testsuite_GetItemId(var string name) {
  */
 func void G1CP_Testsuite_CheckIntVar(var string name, var int arrIdx) {
     if (!G1CP_IsIntVar(name, arrIdx)) {
-        G1CP_TestsuiteErrorDetail(ConcatStrings(ConcatStrings("Integer variable '", name), "' not found"));
+        G1CP_TestsuiteErrorDetailSSS("Integer variable '", name, "' not found");
         G1CP_TestsuiteStatusPassed = FALSE;
     };
 };
@@ -34,7 +34,7 @@ func void G1CP_Testsuite_CheckIntVar(var string name, var int arrIdx) {
  */
 func void G1CP_Testsuite_CheckIntConst(var string name, var int arrIdx) {
     if (!G1CP_IsIntConst(name, arrIdx)) {
-        G1CP_TestsuiteErrorDetail(ConcatStrings(ConcatStrings("Integer constant '", name), "' not found"));
+        G1CP_TestsuiteErrorDetailSSS("Integer constant '", name, "' not found");
         G1CP_TestsuiteStatusPassed = FALSE;
     };
 };
@@ -45,13 +45,13 @@ func void G1CP_Testsuite_CheckIntConst(var string name, var int arrIdx) {
 func void G1CP_Testsuite_CheckInfo(var string name) {
     // Check if info instance exists
     if (!G1CP_IsInfoInst(name)) {
-        G1CP_TestsuiteErrorDetail(ConcatStrings(ConcatStrings("Info instance '", name), "' not found"));
+        G1CP_TestsuiteErrorDetailSSS("Info instance '", name, "' not found");
         G1CP_TestsuiteStatusPassed = FALSE;
     };
 
     // Check if info instance is available in info manager
     if (!G1CP_GetInfo(name)) {
-        G1CP_TestsuiteErrorDetail(ConcatStrings(ConcatStrings("Info instance '", name), "' not available"));
+        G1CP_TestsuiteErrorDetailSSS("Info instance '", name, "' not available");
         G1CP_TestsuiteStatusPassed = FALSE;
     };
 };
@@ -75,7 +75,7 @@ func void G1CP_Testsuite_CheckFunc(var string name, var string signature, var st
         funcType = "Function";
     };
     if (!G1CP_IsFunc(name, signature)) {
-        G1CP_TestsuiteErrorDetail(ConcatStrings(ConcatStrings(ConcatStrings(funcType, " '"), name), "' not found"));
+        G1CP_TestsuiteErrorDetailSSSS(funcType, " '", name, "' not found");
         G1CP_TestsuiteStatusPassed = FALSE;
     };
 };
@@ -122,7 +122,7 @@ func int G1CP_Testsuite_GetDialogConditionFuncId(var string name) {
 func MEMINT_HelperClass G1CP_Testsuite_GetNpc(var string name) {
     // Check if NPC instance exists
     if (!G1CP_IsNpcInst(name)) {
-        G1CP_TestsuiteErrorDetail(ConcatStrings(ConcatStrings("NPC '", name), "' not found"));
+        G1CP_TestsuiteErrorDetailSSS("NPC '", name, "' not found");
         G1CP_TestsuiteStatusPassed = FALSE;
         MEM_NullToInst();
     } else {
@@ -130,7 +130,7 @@ func MEMINT_HelperClass G1CP_Testsuite_GetNpc(var string name) {
         var int symbId; symbId = MEM_GetSymbolIndex(name);
         var C_Npc npc; npc = Hlp_GetNpc(symbId);
         if (!Hlp_IsValidNpc(npc)) {
-            G1CP_TestsuiteErrorDetail(ConcatStrings(ConcatStrings("NPC '", name), "' not valid"));
+            G1CP_TestsuiteErrorDetailSSS("NPC '", name, "' not valid");
             G1CP_TestsuiteStatusPassed = FALSE;
             MEM_NullToInst();
         } else {
