@@ -80,9 +80,13 @@ func int G1CP_Testsuite_GetInfoId(var string name) {
 /*
  * Check if function exists
  */
-func void G1CP_Testsuite_CheckFunc(var string name, var string signature) {
+func void G1CP_Testsuite_CheckFunc(var string name, var string signature, var string funcType) {
+    if (funcType == "") {
+        funcType = "Function";
+    };
     if (!G1CP_IsFunc(name, signature)) {
-        var string msg; msg = ConcatStrings("Function '", name);
+        var string msg; msg = ConcatStrings(funcType, " '");
+        msg = ConcatStrings(msg, name);
         msg = ConcatStrings(msg, "' not found");
         G1CP_TestsuiteErrorDetail(msg);
         G1CP_TestsuiteStatusPassed = FALSE;
@@ -93,14 +97,14 @@ func void G1CP_Testsuite_CheckFunc(var string name, var string signature) {
  * Check if dialog function exists
  */
 func void G1CP_Testsuite_CheckDialogFunc(var string name) {
-    G1CP_Testsuite_CheckFunc(name, "void|none");
+    G1CP_Testsuite_CheckFunc(name, "void|none", "Dialog function");
 };
 
 /*
  * Check if dialog condition function exists
  */
 func void G1CP_Testsuite_CheckDialogConditionFunc(var string name) {
-    G1CP_Testsuite_CheckFunc(name, "int|none");
+    G1CP_Testsuite_CheckFunc(name, "int|none", "Dialog condition function");
 };
 
 /*
