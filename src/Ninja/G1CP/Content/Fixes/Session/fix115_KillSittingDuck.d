@@ -5,7 +5,7 @@ func int G1CP_115_KillSittingDuck() {
     var int applied; applied = FALSE;
 
     // Get necessary symbol indices
-    var int funcId; funcId = MEM_GetSymbolIndex("ZS_SittingDuck_Loop");
+    var int funcId; funcId = G1CP_GetFuncID("ZS_SittingDuck_Loop", "void|none"); // Strangely it's void
     if (funcId == -1) {
         return FALSE;
     };
@@ -23,8 +23,7 @@ func int G1CP_115_KillSittingDuck() {
     if (MEM_ArraySize(matches) == 1) {
         // Check if there is more in the function
         var int pos; pos = MEM_ArrayRead(matches, 0);
-        var int funcStart; funcStart = MEM_ReadInt(MEM_GetSymbolByIndex(funcId) + zCParSymbol_content_offset);
-        funcStart += MEM_Parser.stack_stack;
+        var int funcStart; funcStart = G1CP_GetFuncStart(funcId);
 
         // Check remaining part of the function byte code: Either nothing or debug function call
         var int valid; valid = FALSE;
@@ -33,7 +32,7 @@ func int G1CP_115_KillSittingDuck() {
         } else if (pos - funcStart == 15) && (MEM_ReadByte(pos-5) == zPAR_TOK_CALL) {
             var int funcOffset; funcOffset = MEM_ReadInt(pos-4);
             if (funcOffset >= 0) && (funcOffset < MEM_Parser.stack_stacksize) {
-                valid = (MEM_GetFuncIDByOffset(funcOffset) == MEM_GetSymbolIndex("PrintDebugNpc"));
+                valid = (MEM_GetFuncIDByOffset(funcOffset) == G1CP_GetFuncID("PrintDebugNpc", "void|int|string"));
             };
         };
 
@@ -60,9 +59,33 @@ func int G1CP_115_KillSittingDuck_Intercept(var C_Npc self, var float ms) {
     G1CP_ReportFuncToSpy();
 
     // Define possibly missing symbols locally
-    const int ATR_HITPOINTS = 0;
-    const int LOOP_CONTINUE = 0;
-    const int LOOP_END      = 1;
+    const int ATR_HITPOINTS     = 0;
+    const int LOOP_CONTINUE     = 0;
+    const int LOOP_END          = 1;
+    const int PERC_ASSESSDAMAGE = 8;
+
+    // Safety check: Only consider who we know
+    const int npc1443 = -2; // -1 indicates invalid symbols
+    const int npc1444 = -2;
+    const int npc1445 = -2;
+    const int npc1446 = -2;
+    const int npc1463 = -2;
+    if (npc1443 == -2) {
+        npc1443 = G1CP_GetNpcInstID("TPL_1443_Templer");
+        npc1444 = G1CP_GetNpcInstID("TPL_1444_Templer");
+        npc1445 = G1CP_GetNpcInstID("TPL_1445_Templer");
+        npc1446 = G1CP_GetNpcInstID("TPL_1446_Templer");
+        npc1463 = G1CP_GetNpcInstID("TPL_1463_Templer");
+    };
+    var int slfId; slfId = Hlp_GetInstanceID(self);
+    if (slfId != npc1443) && (slfId != npc1444) && (slfId != npc1445) && (slfId != npc1446) && (slfId != npc1463) {
+        // Execute original code for anyone else
+
+        MEM_Info("### IGNORE! ###");
+
+        AI_Wait(self, ms);
+        return LOOP_CONTINUE;
+    };
 
     // Some additional safety
     if (Npc_IsDead(self)) {
