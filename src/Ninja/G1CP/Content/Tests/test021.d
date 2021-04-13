@@ -12,45 +12,27 @@ func int G1CP_Test_021() {
     const int LOG_RUNNING = 1;
     const int LOG_SUCCESS = 2;
 
+    // Prior checks
+    var int funcId; funcId = G1CP_Testsuite_GetInfoId("DIA_Fletcher_WoNek_Info");
+    G1CP_Testsuite_CheckStringConst("CH1_LostNek", 0);
+    G1CP_Testsuite_CheckPassed();
+
     // Check status of the test
     var int passed; passed = TRUE;
 
-    // Check if dialog exists
-    var int funcId; funcId = MEM_GetSymbolIndex("DIA_Fletcher_WoNek_Info");
-    if (funcId == -1) {
-        G1CP_TestsuiteErrorDetail("Dialog function 'DIA_Fletcher_WoNek_Info' not found");
-        passed = FALSE;
-    };
-
     // Obtain log topic name
-    var string CH1_LostNek;
-    var int topicNamePtr; topicNamePtr = MEM_GetSymbol("CH1_LostNek");
-    if (topicNamePtr) {
-        CH1_LostNek = MEM_ReadString(MEM_ReadInt(topicNamePtr + zCParSymbol_content_offset));
-    } else {
-        G1CP_TestsuiteErrorDetail("Variable 'CH1_LostNek' not found");
-        passed = FALSE;
-    };
+    var string topicName; topicName = G1CP_GetStringConst("CH1_LostNek", 0 , "");
 
-    // At the latest now, we need to stop if there are fails already
-    if (!passed) {
-        return FALSE;
-    };
+    // Backup values
+    var int   topicStatusBak; topicStatusBak = G1CP_LogGetTopicStatus(topicName);
+    var int   guildTrueBak;   guildTrueBak   = Npc_GetTrueGuild(hero);
+    var C_Npc slfBak;         slfBak         = MEM_CpyInst(self);
+    var C_Npc othBak;         othBak         = MEM_CpyInst(other);
 
-    // Back up the values
-    var int topicStatusBak; topicStatusBak = G1CP_LogGetTopicStatus(CH1_LostNek);
-    var int guildTrueBak; guildTrueBak = Npc_GetTrueGuild(hero);
-
-    // Set the variables
-    Log_CreateTopic(CH1_LostNek, LOG_MISSION);
-    Log_SetTopicStatus(CH1_LostNek, LOG_SUCCESS);
+    // Set new values
+    Log_CreateTopic(topicName, LOG_MISSION);
+    Log_SetTopicStatus(topicName, LOG_SUCCESS);
     Npc_SetTrueGuild(hero, GIL_NONE);
-
-    // Backup self and other
-    var C_Npc slfBak; slfBak = MEM_CpyInst(self);
-    var C_Npc othBak; othBak = MEM_CpyInst(other);
-
-    // Set self and other
     self  = MEM_CpyInst(hero);
     other = MEM_CpyInst(hero);
 
@@ -66,19 +48,19 @@ func int G1CP_Test_021() {
     AI_StandUpQuick(hero);
 
     // Check the variables now
-    var int topicStatusAfter; topicStatusAfter = G1CP_LogGetTopicStatus(CH1_LostNek);
+    var int topicStatusAfter; topicStatusAfter = G1CP_LogGetTopicStatus(topicName);
 
     // Restore the variables
     Npc_SetTrueGuild(hero, guildTrueBak);
     if (topicStatusBak == -1) {
-        G1CP_LogRemoveTopic(CH1_LostNek);
+        G1CP_LogRemoveTopic(topicName);
     } else {
-        Log_SetTopicStatus(CH1_LostNek, topicStatusBak);
+        Log_SetTopicStatus(topicName, topicStatusBak);
     };
 
     // Confirm the fix
     if (topicStatusAfter == LOG_RUNNING) {
-        G1CP_TestsuiteErrorDetail("Mission 'CH1_LostNek' was wrongfully set to running");
+        G1CP_TestsuiteErrorDetailSSS("Mission '", topicName, "' was wrongfully set to running");
         passed = FALSE;
     };
 

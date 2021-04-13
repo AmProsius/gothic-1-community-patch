@@ -40,6 +40,26 @@ func void G1CP_Testsuite_CheckIntConst(var string name, var int arrIdx) {
 };
 
 /*
+ * Check if string variable exists
+ */
+func void G1CP_Testsuite_CheckStringVar(var string name, var int arrIdx) {
+    if (!G1CP_IsStringVar(name, arrIdx)) {
+        G1CP_TestsuiteErrorDetailSSS("String variable '", name, "' not found");
+        G1CP_TestsuiteStatusPassed = FALSE;
+    };
+};
+
+/*
+ * Check if string constant exists
+ */
+func void G1CP_Testsuite_CheckStringConst(var string name, var int arrIdx) {
+    if (!G1CP_IsStringConst(name, arrIdx)) {
+        G1CP_TestsuiteErrorDetailSSS("String constant '", name, "' not found");
+        G1CP_TestsuiteStatusPassed = FALSE;
+    };
+};
+
+/*
  * Check if info instance exists
  */
 func void G1CP_Testsuite_CheckInfo(var string name) {
