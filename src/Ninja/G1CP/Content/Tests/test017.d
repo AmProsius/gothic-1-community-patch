@@ -7,7 +7,7 @@
  */
 func int G1CP_Test_017() {
     // Prior checks
-    var int funcId; funcId = G1CP_Testsuite_GetDialogFuncId("Info_Jackal_Hello_Condition");
+    var int funcId; funcId = G1CP_Testsuite_GetDialogConditionFuncId("Info_Jackal_Hello_Condition");
 
     // Backup values
     var int   guildBak; guildBak = Npc_GetTrueGuild(hero);   // Guild
