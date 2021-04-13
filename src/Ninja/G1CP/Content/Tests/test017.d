@@ -6,37 +6,27 @@
  * Expected behavior: The condition function will return FALSE.
  */
 func int G1CP_Test_017() {
-    // Check if dialog exists
-    var int funcId; funcId = MEM_GetSymbolIndex("Info_Jackal_Hello_Condition");
-    if (funcId == -1) {
-        G1CP_TestsuiteErrorDetail("Dialog condition 'Info_Jackal_Hello_Condition' not found");
-        return FALSE;
-    };
+    // Prior checks
+    var int funcId; funcId = G1CP_Testsuite_GetDialogFuncId("Info_Jackal_Hello_Condition");
 
-    // Backup the original guild
-    var int guildBak; guildBak = Npc_GetTrueGuild(hero);
+    // Backup values
+    var int   guildBak; guildBak = Npc_GetTrueGuild(hero);   // Guild
+    var C_Npc slfBak;   slfBak   = MEM_CpyInst(self);        // self
+    var C_Npc othBak;   othBak   = MEM_CpyInst(other);       // other
 
-    // Assign a random guild
-    Npc_SetTrueGuild(hero, 4);
-
-    // Backup self and other
-    var C_Npc slfBak; slfBak = MEM_CpyInst(self);
-    var C_Npc othBak; othBak = MEM_CpyInst(other);
-
-    // Set self and other
-    self  = MEM_CpyInst(hero);
-    other = MEM_CpyInst(hero);
+    // Set new values
+    Npc_SetTrueGuild(hero, 4);                               // Guild (random)
+    self  = MEM_CpyInst(hero);                               // self
+    other = MEM_CpyInst(hero);                               // other
 
     // Call dialog condition function
     MEM_CallByID(funcId);
     var int ret; ret = MEM_PopIntResult();
 
-    // Restore self and other
-    self  = MEM_CpyInst(slfBak);
-    other = MEM_CpyInst(othBak);
-
-    // Restore guild
-    Npc_SetTrueGuild(hero, guildBak);
+    // Restore values
+    self  = MEM_CpyInst(slfBak);                             // self
+    other = MEM_CpyInst(othBak);                             // other
+    Npc_SetTrueGuild(hero, guildBak);                        // Guild
 
     // Check return value
     if (ret) {
