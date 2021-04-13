@@ -11,23 +11,23 @@ func int G1CP_Test_017() {
     G1CP_Testsuite_CheckPassed();
 
     // Backup values
-    var int   guildBak; guildBak = Npc_GetTrueGuild(hero);   // Guild
-    var C_Npc slfBak;   slfBak   = MEM_CpyInst(self);        // self
-    var C_Npc othBak;   othBak   = MEM_CpyInst(other);       // other
+    var int   guildBak; guildBak = Npc_GetTrueGuild(hero);
+    var C_Npc slfBak;   slfBak   = MEM_CpyInst(self);
+    var C_Npc othBak;   othBak   = MEM_CpyInst(other);
 
     // Set new values
-    Npc_SetTrueGuild(hero, 4);                               // Guild (random)
-    self  = MEM_CpyInst(hero);                               // self
-    other = MEM_CpyInst(hero);                               // other
+    Npc_SetTrueGuild(hero, 4); // Random guild
+    self  = MEM_CpyInst(hero);
+    other = MEM_CpyInst(hero);
 
     // Call dialog condition function
     MEM_CallByID(funcId);
     var int ret; ret = MEM_PopIntResult();
 
     // Restore values
-    self  = MEM_CpyInst(slfBak);                             // self
-    other = MEM_CpyInst(othBak);                             // other
-    Npc_SetTrueGuild(hero, guildBak);                        // Guild
+    self  = MEM_CpyInst(slfBak);
+    other = MEM_CpyInst(othBak);
+    Npc_SetTrueGuild(hero, guildBak);
 
     // Check return value
     if (ret) {
