@@ -16,7 +16,7 @@ func int G1CP_Test_018() {
     var C_Npc othBak;   othBak   = MEM_CpyInst(other);
 
     // Set new values
-    Npc_SetTrueGuild(hero, 4);
+    Npc_SetTrueGuild(hero, 4); // Random guild
     self  = MEM_CpyInst(hero);
     other = MEM_CpyInst(hero);
 

@@ -7,41 +7,11 @@
  * Expected behavior: The hero will receive one beer from Kirgo (automatically removed after the test is complete)
  */
 func int G1CP_Test_020() {
-    // Check status of the test
-    var int passed; passed = TRUE;
-
-    // Find Kirgo first
-    var int symbId; symbId = MEM_GetSymbolIndex("Grd_251_Kirgo");
-    if (symbId == -1) {
-        G1CP_TestsuiteErrorDetail("NPC 'Grd_251_Kirgo' not found");
-        passed = FALSE;
-    };
-
-    // Check if Kirgo exists in the world
-    var C_Npc kirgo; kirgo = Hlp_GetNpc(symbId);
-    if (!Hlp_IsValidNpc(kirgo)) {
-        G1CP_TestsuiteErrorDetail("NPC 'Grd_251_Kirgo' not valid");
-        passed = FALSE;
-    };
-
-    // Check if the dialog function exists
-    var int funcId; funcId = MEM_GetSymbolIndex("Info_Kirgo_Charge_Beer");
-    if (funcId == -1) {
-        G1CP_TestsuiteErrorDetail("Dialog function 'Info_Kirgo_Charge_Beer' not found");
-        passed = FALSE;
-    };
-
-    // Check if the beer item exists
-    var int beerId; beerId = MEM_GetSymbolIndex("ItFoBeer");
-    if (beerId == -1) {
-        G1CP_TestsuiteErrorDetail("Item 'ItFoBeer' not found");
-        passed = FALSE;
-    };
-
-    // At the latest now, we need to stop if there are fails already
-    if (!passed) {
-        return FALSE;
-    };
+    // Prior checks
+    var C_Npc npc; npc = G1CP_Testsuite_GetNpc("Grd_251_Kirgo");
+    var int funcId; funcId = G1CP_Testsuite_GetDialogFuncId("Info_Kirgo_Charge_Beer");
+    var int beerId; beerId = G1CP_Testsuite_GetItemId("ItFoBeer");
+    G1CP_Testsuite_CheckPassed();
 
     // Remember the number of beers the player has before
     CreateInvItem(hero, beerId); // Have at least one (to see if the number decreases)
@@ -52,7 +22,7 @@ func int G1CP_Test_020() {
     var C_Npc othBak; othBak = MEM_CpyInst(other);
 
     // Set self and other
-    self  = MEM_CpyInst(kirgo);
+    self  = MEM_CpyInst(npc);
     other = MEM_CpyInst(hero);
 
     // Just run the dialog and see what happens
@@ -77,19 +47,14 @@ func int G1CP_Test_020() {
     };
 
     // Confirm that the fix worked
-    var string msg;
     if (beersAfter == beersBefore) {
         G1CP_TestsuiteErrorDetail("The hero did not receive a beer");
         return FALSE;
     } else if (beersAfter > beersBefore+1) {
-        msg = ConcatStrings("The hero received ", IntToString(beersAfter-(beersBefore+1)));
-        msg = ConcatStrings(msg, " beers too many");
-        G1CP_TestsuiteErrorDetail(msg);
+        G1CP_TestsuiteErrorDetailSIS("The hero received ", beersAfter - (beersBefore+1), " beers too many");
         return FALSE;
     } else if (beersAfter < beersBefore) {
-        msg = ConcatStrings("The hero lost ", IntToString(beersBefore-beersAfter));
-        msg = ConcatStrings(msg, " beers");
-        G1CP_TestsuiteErrorDetail(msg);
+        G1CP_TestsuiteErrorDetailSIS("The hero lost ", beersBefore - beersAfter, " beers");
         return FALSE;
     } else { // (beersAfter == beersBefore+1)
         return TRUE;
