@@ -8,6 +8,7 @@
 func int G1CP_Test_018() {
     // Prior checks
     var int funcId; funcId = G1CP_Testsuite_GetDialogConditionFuncId("Info_Bloodwyn_Hello_Condition");
+    G1CP_Testsuite_CheckPassed();
 
     // Backup values
     var int   guildBak; guildBak = Npc_GetTrueGuild(hero);   // Guild
