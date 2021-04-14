@@ -405,10 +405,14 @@ func int G1CP_055_ReactivateInExtremoRevert() {
     const int symbPtr[13] = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
     const int fncStopMsId = -2; // -1 = invalid, -2 = non-initialized
     const int fncGrimRtId = -1;
+    const int varChaptrId = -1;
+    const int varPlyingId = -1;
     const int oCNpc_daily_routine_offset = 536;
     if (fncStopMsId == -2) {
         fncStopMsId = G1CP_GetFuncID("B_InExtremoStopMusic", "void|none");
         fncGrimRtId = G1CP_GetFuncID("Rtn_InExtremo_580", "void|none");
+        varChaptrId = G1CP_GetIntVarID("Kapitel", 0);
+        varPlyingId = G1CP_GetIntVarID("InExtremoPlaying", 0);
         npc[0]      = G1CP_GetNpcInstID("InExtremo_DrPymonte");
         npc[1]      = G1CP_GetNpcInstID("InExtremo_TheFlail");
         npc[2]      = G1CP_GetNpcInstID("InExtremo_ThomasTheForger");
@@ -469,8 +473,42 @@ func int G1CP_055_ReactivateInExtremoRevert() {
         MEM_WriteInt(MEM_ReadStatArr(symbPtr, i) + zCParSymbol_offset_offset, 0);
     end;
 
-    // Turn off the music
-    MEM_CallById(fncStopMsId);
+    // Special case saving and loading: Do not stop the actual sound of the music
+    //if (G1CP_GetIntVarI(varChaptrId, 0, 0) == 2) {
+    if (FALSE) {
+        // Although this is working as intended, there is no longer any way to reliably determine that the sound is
+        // actually running now. Consequently, the sound will start a second time when re-applying the fix.
+        // For now, just stop the music and then restart it on re-applying (see else-block)
+
+        var int vobPtr;
+        var int bitfieldAddr;
+        var int bitfield;
+        const int zCVobSound__bitfield_offset = sizeof_zCVob + 4 + 20 + 4 + 4; //288
+        const int zCVobSound_isPlaying = 1 << 1;
+        const int zCVobSound_enabled   = 1 << 5;
+
+        // Set playing status of sound VOB for saving (sound continues now)
+        vobPtr = MEM_SearchVobByName("INEXTREMO_MUSIK");
+        if (vobPtr) {
+            bitfieldAddr = vobPtr + zCVobSound__bitfield_offset;
+            bitfield = MEM_ReadByte(bitfieldAddr);
+            MEM_WriteByte(bitfieldAddr, bitfield & ~(zCVobSound_isPlaying | zCVobSound_enabled));
+        };
+
+        // Set the status of the music zone
+        vobPtr = MEM_SearchVobByName("INEXTREMO_IE");
+        if (vobPtr) {
+            bitfieldAddr = vobPtr + zCVobSound__bitfield_offset;
+            bitfield = MEM_ReadByte(bitfieldAddr);
+            MEM_WriteByte(bitfieldAddr, bitfield & ~(zCVobSound_isPlaying | zCVobSound_enabled));
+        };
+
+        // Set the variable
+        G1CP_SetIntVarI(varPlyingId, 0, FALSE);
+    } else {
+        // Turn off the music
+        MEM_CallById(fncStopMsId);
+    };
 
     // Cannot assume Grim's daily routine is unchanged! Only change it if it is set to "InExtremo"
     slf = Hlp_GetNpc(npc[GRIM]);
