@@ -6,146 +6,155 @@
  * One-time initialization
  */
 func int G1CP_055_ReactivateInExtremo_InitSession() {
-    // Check essential functions
-    if (!G1CP_IsFunc("B_InsertInExtremo", "void|none"))                          { return FALSE; };
-    if (!G1CP_IsFunc("B_KillInExtremo", "void|none"))                            { return FALSE; };
-    if (!G1CP_IsFunc("B_InExtremoStartMusic", "void|none"))                      { return FALSE; };
-    if (!G1CP_IsFunc("B_InExtremoStopMusic", "void|none"))                       { return FALSE; };
-    if (!G1CP_IsFunc("B_Kapitelwechsel", "void|int"))                            { return FALSE; };
-    if (!G1CP_IsFunc("B_ExchangeRoutine", "void|int|string"))                    { return FALSE; };
+    // This function consists of a lot of if-conditions. It might seem wise to evaluate every condition separately and
+    // exit es soon as possible. But we are actually not saving any time, because if all goes well, we will go through
+    // the entire function anyway. This function is only called once on first loading and takes no more than 40 ms.
 
-    // Check variables
-    if (!G1CP_IsIntVar("InExtremoPlaying", 0))                                   { return FALSE; };
-    if (!G1CP_IsIntVar("Kapitel", 0))                                            { return FALSE; };
+    // Get/check essential functions
+    var int fncInsertId; fncInsertId = G1CP_GetFuncID("B_InsertInExtremo",     "void|none");
+    var int fncRemoveId; fncRemoveId = G1CP_GetFuncID("B_KillInExtremo",       "void|none");
+    var int fncStrtMsId; fncStrtMsId = G1CP_GetFuncID("B_InExtremoStartMusic", "void|none");
+    var int fncStopMsId; fncStopMsId = G1CP_GetFuncID("B_InExtremoStopMusic",  "void|none");
+    var int fncChpChgId; fncChpChgId = G1CP_GetFuncID("B_Kapitelwechsel",      "void|int");
+    var int fncExgRtnId; fncExgRtnId = G1CP_GetFuncID("B_ExchangeRoutine",     "void|int|string");
+    if (fncInsertId == -1) || (fncRemoveId == -1) || (fncStrtMsId == -1) || (fncStopMsId == -1)
+    || (fncChpChgId == -1) || (fncExgRtnId == -1) {
+        return FALSE;
+    };
 
-    // Check NPCs (including fans)
+    // Get/check variables
+    var int varPlyingId; varPlyingId = G1CP_GetIntVarID("InExtremoPlaying", 0);
+    var int varChaptrId; varChaptrId = G1CP_GetIntVarID("Kapitel",          0);
+    if (varPlyingId == 1) || (varChaptrId == 1) {
+        return FALSE;
+    };
+
+    // Get/check NPCs (including fans)
     // Make no exceptions: We are only re-enabling it, not re-creating it
-    const int npc[14] = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
-    npc[0]  = G1CP_GetNpcInstID("InExtremo_DrPymonte");       if (npc[0]  == -1) { return FALSE; };
-    npc[1]  = G1CP_GetNpcInstID("InExtremo_TheFlail");        if (npc[1]  == -1) { return FALSE; };
-    npc[2]  = G1CP_GetNpcInstID("InExtremo_ThomasTheForger"); if (npc[2]  == -1) { return FALSE; };
-    npc[3]  = G1CP_GetNpcInstID("InExtremo_Unicorn");         if (npc[3]  == -1) { return FALSE; };
-    npc[4]  = G1CP_GetNpcInstID("InExtremo_YellowPfeiffer");  if (npc[4]  == -1) { return FALSE; };
-    npc[5]  = G1CP_GetNpcInstID("InExtremo_Lutter");          if (npc[5]  == -1) { return FALSE; };
-    npc[6]  = G1CP_GetNpcInstID("InExtremo_Flex");            if (npc[6]  == -1) { return FALSE; };
-    npc[7]  = G1CP_GetNpcInstID("IE_397_Announcer");          if (npc[7]  == -1) { return FALSE; };
-    npc[8]  = G1CP_GetNpcInstID("Charlotte");                 if (npc[8]  == -1) { return FALSE; };
-    npc[9]  = G1CP_GetNpcInstID("IEFan1");                    if (npc[9]  == -1) { return FALSE; };
-    npc[10] = G1CP_GetNpcInstID("IEFan2");                    if (npc[10] == -1) { return FALSE; };
-    npc[11] = G1CP_GetNpcInstID("IEFan3");                    if (npc[11] == -1) { return FALSE; };
-    npc[12] = G1CP_GetNpcInstID("IEFan4");                    if (npc[12] == -1) { return FALSE; };
-    npc[13] = G1CP_GetNpcInstID("Vlk_580_Grim");              if (npc[13] == -1) { return FALSE; };
+    const int GRIM = 13;
+    const int ALL  = 14;
+    var int npc[ALL]; // Do not change the order. It matches that of B_InExtremo.d
+    npc[0]  = G1CP_GetNpcInstID("InExtremo_DrPymonte");
+    npc[1]  = G1CP_GetNpcInstID("InExtremo_TheFlail");
+    npc[2]  = G1CP_GetNpcInstID("InExtremo_ThomasTheForger");
+    npc[3]  = G1CP_GetNpcInstID("InExtremo_Unicorn");
+    npc[4]  = G1CP_GetNpcInstID("InExtremo_YellowPfeiffer");
+    npc[5]  = G1CP_GetNpcInstID("InExtremo_Lutter");
+    npc[6]  = G1CP_GetNpcInstID("InExtremo_Flex");
+    npc[7]  = G1CP_GetNpcInstID("IE_397_Announcer");
+    npc[8]  = G1CP_GetNpcInstID("Charlotte");
+    npc[9]  = G1CP_GetNpcInstID("IEFan1");
+    npc[10] = G1CP_GetNpcInstID("IEFan2");
+    npc[11] = G1CP_GetNpcInstID("IEFan3");
+    npc[12] = G1CP_GetNpcInstID("IEFan4");
+    npc[13] = G1CP_GetNpcInstID("Vlk_580_Grim");
+    if (npc[0]  == -1) || (npc[1]  == -1) || (npc[2]  == -1) || (npc[3]  == -1) || (npc[4]  == -1)
+    || (npc[5]  == -1) || (npc[6]  == -1) || (npc[7]  == -1) || (npc[8]  == -1) || (npc[9]  == -1)
+    || (npc[10] == -1) || (npc[11] == -1) || (npc[12] == -1) || (npc[13] == -1) {
+        return FALSE;
+    };
 
-    // Check daily routines
-    if (!G1CP_IsFunc("Rtn_Start_580", "void|none"))                              { return FALSE; };
-    if (!G1CP_IsFunc("Rtn_InExtremo_580", "void|none"))                          { return FALSE; };
-    if (!G1CP_IsFunc("Rtn_announce_397", "void|none"))                           { return FALSE; };
-    if (!G1CP_IsFunc("Rtn_announce_398", "void|none"))                           { return FALSE; };
-    if (!G1CP_IsFunc("Rtn_concert_390", "void|none"))                            { return FALSE; };
-    if (!G1CP_IsFunc("Rtn_concert_391", "void|none"))                            { return FALSE; };
-    if (!G1CP_IsFunc("Rtn_concert_392", "void|none"))                            { return FALSE; };
-    if (!G1CP_IsFunc("Rtn_concert_393", "void|none"))                            { return FALSE; };
-    if (!G1CP_IsFunc("Rtn_concert_394", "void|none"))                            { return FALSE; };
-    if (!G1CP_IsFunc("Rtn_concert_395", "void|none"))                            { return FALSE; };
-    if (!G1CP_IsFunc("Rtn_concert_396", "void|none"))                            { return FALSE; };
-    if (!G1CP_IsFunc("Rtn_concert_397", "void|none"))                            { return FALSE; };
-    if (!G1CP_IsFunc("Rtn_concert_398", "void|none"))                            { return FALSE; };
-    if (!G1CP_IsFunc("Rtn_concert_399", "void|none"))                            { return FALSE; };
-    if (!G1CP_IsFunc("Rtn_concert_400", "void|none"))                            { return FALSE; };
-    if (!G1CP_IsFunc("Rtn_concert_401", "void|none"))                            { return FALSE; };
-    if (!G1CP_IsFunc("Rtn_concert_402", "void|none"))                            { return FALSE; };
-    if (!G1CP_IsFunc("Rtn_off_390", "void|none"))                                { return FALSE; };
-    if (!G1CP_IsFunc("Rtn_off_391", "void|none"))                                { return FALSE; };
-    if (!G1CP_IsFunc("Rtn_off_392", "void|none"))                                { return FALSE; };
-    if (!G1CP_IsFunc("Rtn_off_393", "void|none"))                                { return FALSE; };
-    if (!G1CP_IsFunc("Rtn_off_394", "void|none"))                                { return FALSE; };
-    if (!G1CP_IsFunc("Rtn_off_395", "void|none"))                                { return FALSE; };
-    if (!G1CP_IsFunc("Rtn_off_396", "void|none"))                                { return FALSE; };
-    if (!G1CP_IsFunc("Rtn_off_397", "void|none"))                                { return FALSE; };
-    if (!G1CP_IsFunc("Rtn_off_398", "void|none"))                                { return FALSE; };
-    if (!G1CP_IsFunc("Rtn_off_399", "void|none"))                                { return FALSE; };
-    if (!G1CP_IsFunc("Rtn_off_400", "void|none"))                                { return FALSE; };
-    if (!G1CP_IsFunc("Rtn_off_401", "void|none"))                                { return FALSE; };
-    if (!G1CP_IsFunc("Rtn_off_402", "void|none"))                                { return FALSE; };
+    // Check daily routines (symbol indices not needed again for now)
+    if (!G1CP_IsFunc("Rtn_Start_580",     "void|none")) || (!G1CP_IsFunc("Rtn_InExtremo_580", "void|none"))
+    || (!G1CP_IsFunc("Rtn_announce_397",  "void|none")) || (!G1CP_IsFunc("Rtn_announce_398",  "void|none"))
+    || (!G1CP_IsFunc("Rtn_concert_390",   "void|none")) || (!G1CP_IsFunc("Rtn_concert_391",   "void|none"))
+    || (!G1CP_IsFunc("Rtn_concert_392",   "void|none")) || (!G1CP_IsFunc("Rtn_concert_393",   "void|none"))
+    || (!G1CP_IsFunc("Rtn_concert_394",   "void|none")) || (!G1CP_IsFunc("Rtn_concert_395",   "void|none"))
+    || (!G1CP_IsFunc("Rtn_concert_396",   "void|none")) || (!G1CP_IsFunc("Rtn_concert_397",   "void|none"))
+    || (!G1CP_IsFunc("Rtn_concert_398",   "void|none")) || (!G1CP_IsFunc("Rtn_concert_399",   "void|none"))
+    || (!G1CP_IsFunc("Rtn_concert_400",   "void|none")) || (!G1CP_IsFunc("Rtn_concert_401",   "void|none"))
+    || (!G1CP_IsFunc("Rtn_concert_402",   "void|none")) || (!G1CP_IsFunc("Rtn_off_390",       "void|none"))
+    || (!G1CP_IsFunc("Rtn_off_391",       "void|none")) || (!G1CP_IsFunc("Rtn_off_392",       "void|none"))
+    || (!G1CP_IsFunc("Rtn_off_393",       "void|none")) || (!G1CP_IsFunc("Rtn_off_394",       "void|none"))
+    || (!G1CP_IsFunc("Rtn_off_395",       "void|none")) || (!G1CP_IsFunc("Rtn_off_396",       "void|none"))
+    || (!G1CP_IsFunc("Rtn_off_397",       "void|none")) || (!G1CP_IsFunc("Rtn_off_398",       "void|none"))
+    || (!G1CP_IsFunc("Rtn_off_399",       "void|none")) || (!G1CP_IsFunc("Rtn_off_400",       "void|none"))
+    || (!G1CP_IsFunc("Rtn_off_401",       "void|none")) || (!G1CP_IsFunc("Rtn_off_402",       "void|none")) {
+        return FALSE;
+    };
 
-    // Check Grim's dialog
-    if (!G1CP_IsInfoInst("DIA_Grim_INEXTREMO"))                                  { return FALSE; };
-    if (!G1CP_GetInfo("DIA_Grim_INEXTREMO"))                                     { return FALSE; };
+    // Check the announcer's and Grim's dialogs
+    var int fncDiaGrimId; fncDiaGrimId = G1CP_GetFuncID("DIA_Grim_INEXTREMO_Info", "void|none");
+    if (!G1CP_IsInfoInst("IE_397_Announcer_ANNOUNCE")) || (!G1CP_GetInfo("IE_397_Announcer_ANNOUNCE"))
+    || (!G1CP_IsInfoInst("DIA_Grim_INEXTREMO"))        || (!G1CP_GetInfo("DIA_Grim_INEXTREMO"))
+    || (fncDiaGrimId == -1) {
+        return FALSE;
+    };
+
+    // Now confirm the content of some functions
+    var int bytes[3];
+    var int matches;
+    var int count;
+    var int addr;
+    var int val;
 
     // Check that the content of "B_InsertInExtremo" is as expected
-    var int funcId1; funcId1 = MEM_GetSymbolIndex("B_InsertInExtremo");
-    var int funcId2; funcId2 = MEM_GetFuncID(Wld_InsertNpc);
-    var int addr; addr = G1CP_GetFuncStart(funcId1);
-    repeat(i, 13); var int i; // All NPCs but Grim
-        if (MEM_ReadByte(addr) != zPAR_TOK_PUSHINT)                              { return FALSE; }; addr += 1;
-        if (MEM_ReadInt( addr) != MEM_ReadStatArr(npc, i))                       { return FALSE; }; addr += 4;
-        if (MEM_ReadByte(addr) != zPAR_TOK_PUSHVAR)                              { return FALSE; }; addr += 1+4;
-        if (MEM_ReadByte(addr) != zPAR_TOK_CALLEXTERN)                           { return FALSE; }; addr += 1;
-        if (MEM_ReadInt( addr) != funcId2)                                       { return FALSE; }; addr += 4;
+    var int fncInsrtNpcId; fncInsrtNpcId = MEM_GetFuncID(Wld_InsertNpc);
+    addr = G1CP_GetFuncStart(fncInsertId);
+    repeat(i, GRIM); var int i; // All NPCs but Grim
+        if (MEM_ReadByte(addr) != zPAR_TOK_PUSHINT)        { return FALSE; }; addr += 1;
+        if (MEM_ReadInt( addr) != MEM_ReadStatArr(npc, i)) { return FALSE; }; addr += 4;
+        if (MEM_ReadByte(addr) != zPAR_TOK_PUSHVAR)        { return FALSE; }; addr += 1+4;
+        if (MEM_ReadByte(addr) != zPAR_TOK_CALLEXTERN)     { return FALSE; }; addr += 1;
+        if (MEM_ReadInt( addr) != fncInsrtNpcId)           { return FALSE; }; addr += 4;
     end;
-    if (MEM_ReadByte(addr) != zPAR_TOK_RET)                                      { return FALSE; };
+    if (MEM_ReadByte(addr) != zPAR_TOK_RET)                { return FALSE; };
 
     // Check that the content of "B_KillInExtremo" is as expected
-    var int funcId3; funcId3 = G1CP_GetCallableOffset("B_ExchangeRoutine");
-    addr = G1CP_GetCallableStart("B_KillInExtremo");
-    repeat(i, 14); var int i; // All NPCs including Grim
-        if (MEM_ReadByte(addr) != zPAR_TOK_PUSHINT)                              { return FALSE; }; addr += 1;
-        if (MEM_ReadInt( addr) != MEM_ReadStatArr(npc, i))                       { return FALSE; }; addr += 4;
-        if (MEM_ReadByte(addr) != zPAR_TOK_PUSHVAR)                              { return FALSE; }; addr += 1+4;
-        if (MEM_ReadByte(addr) != zPAR_TOK_CALL)                                 { return FALSE; }; addr += 1;
-        if (MEM_ReadInt( addr) != funcId3)                                       { return FALSE; }; addr += 4;
+    var int fncExgRtnOff; fncExgRtnOff = G1CP_GetCallableOffsetI(fncExgRtnId);
+    addr = G1CP_GetFuncStart(fncRemoveId);
+    repeat(i, ALL); // All NPCs including Grim
+        if (MEM_ReadByte(addr) != zPAR_TOK_PUSHINT)        { return FALSE; }; addr += 1;
+        if (MEM_ReadInt( addr) != MEM_ReadStatArr(npc, i)) { return FALSE; }; addr += 4;
+        if (MEM_ReadByte(addr) != zPAR_TOK_PUSHVAR)        { return FALSE; }; addr += 1+4;
+        if (MEM_ReadByte(addr) != zPAR_TOK_CALL)           { return FALSE; }; addr += 1;
+        if (MEM_ReadInt( addr) != fncExgRtnOff)            { return FALSE; }; addr += 4;
     end;
-    if (MEM_ReadByte(addr) != zPAR_TOK_RET)                                      { return FALSE; };
+    if (MEM_ReadByte(addr) != zPAR_TOK_RET)                { return FALSE; };
 
     // Check that the content of "B_InExtremoStartMusic" is as expected
-    var int val;
-    var int funcId5; funcId5 = MEM_GetSymbolIndex("B_InExtremoStartMusic");
-    var int funcId6; funcId6 = MEM_GetFuncID(Wld_SendTrigger);
-    addr = G1CP_GetCallableStartI(funcId5);
-    var int varId; varId = MEM_GetSymbolIndex("InExtremoPlaying");
-    if (MEM_ReadByte(addr) != zPAR_TOK_PUSHVAR)                                  { return FALSE; }; addr += 5;
-    if (MEM_ReadByte(addr) != zPAR_TOK_CALLEXTERN)                               { return FALSE; }; addr += 1;
-    if (MEM_ReadInt( addr) != funcId6)                                           { return FALSE; }; addr += 4;
-    if (MEM_ReadByte(addr) != zPAR_TOK_PUSHVAR)                                  { return FALSE; }; addr += 5;
-    if (MEM_ReadByte(addr) != zPAR_TOK_CALLEXTERN)                               { return FALSE; }; addr += 1;
-    if (MEM_ReadInt( addr) != funcId6)                                           { return FALSE; }; addr += 4;
+    var int fncSndTrggrId; fncSndTrggrId = MEM_GetFuncID(Wld_SendTrigger);
+    addr = G1CP_GetFuncStart(fncStrtMsId);
+    if (MEM_ReadByte(addr) != zPAR_TOK_PUSHVAR)            { return FALSE; }; addr += 5;
+    if (MEM_ReadByte(addr) != zPAR_TOK_CALLEXTERN)         { return FALSE; }; addr += 1;
+    if (MEM_ReadInt( addr) != fncSndTrggrId)               { return FALSE; }; addr += 4;
+    if (MEM_ReadByte(addr) != zPAR_TOK_PUSHVAR)            { return FALSE; }; addr += 5;
+    if (MEM_ReadByte(addr) != zPAR_TOK_CALLEXTERN)         { return FALSE; }; addr += 1;
+    if (MEM_ReadInt( addr) != fncSndTrggrId)               { return FALSE; }; addr += 4;
     val = MEM_ReadInt(addr+1);
     if (MEM_ReadByte(addr) == zPAR_TOK_PUSHVAR) {
         val = G1CP_GetIntI(val, 0, 0);
-    } else if (MEM_ReadByte(addr) != zPAR_TOK_PUSHINT)                           { return FALSE; }; addr += 1;
-    if (val == 0)                                                                { return FALSE; }; addr += 4;
-    if (MEM_ReadByte(addr) != zPAR_TOK_PUSHVAR)                                  { return FALSE; }; addr += 1;
-    if (MEM_ReadInt( addr) != varId)                                             { return FALSE; }; addr += 4;
-    if (MEM_ReadByte(addr) != zPAR_OP_IS)                                        { return FALSE; }; addr += 1;
-    if (MEM_ReadByte(addr) != zPAR_TOK_RET)                                      { return FALSE; };
+    } else if (MEM_ReadByte(addr) != zPAR_TOK_PUSHINT)     { return FALSE; }; addr += 1;
+    if (val == 0)                                          { return FALSE; }; addr += 4;
+    if (MEM_ReadByte(addr) != zPAR_TOK_PUSHVAR)            { return FALSE; }; addr += 1;
+    if (MEM_ReadInt( addr) != varPlyingId)                 { return FALSE; }; addr += 4;
+    if (MEM_ReadByte(addr) != zPAR_OP_IS)                  { return FALSE; }; addr += 1;
+    if (MEM_ReadByte(addr) != zPAR_TOK_RET)                { return FALSE; };
 
     // Check that the content of "B_InExtremoStopMusic" is as expected
-    var int funcId7; funcId7 = MEM_GetSymbolIndex("B_InExtremoStopMusic");
-    var int funcId8; funcId8 = MEM_GetFuncID(Wld_SendUnTrigger);
-    addr = G1CP_GetCallableStartI(funcId7);
-    if (MEM_ReadByte(addr) != zPAR_TOK_PUSHVAR)                                  { return FALSE; }; addr += 5;
-    if (MEM_ReadByte(addr) != zPAR_TOK_CALLEXTERN)                               { return FALSE; }; addr += 1;
-    if (MEM_ReadInt( addr) != funcId8)                                           { return FALSE; }; addr += 4;
-    if (MEM_ReadByte(addr) != zPAR_TOK_PUSHVAR)                                  { return FALSE; }; addr += 5;
-    if (MEM_ReadByte(addr) != zPAR_TOK_CALLEXTERN)                               { return FALSE; }; addr += 1;
-    if (MEM_ReadInt( addr) != funcId8)                                           { return FALSE; }; addr += 4;
+    var int fncUnSndTrgId; fncUnSndTrgId = MEM_GetFuncID(Wld_SendUnTrigger);
+    addr = G1CP_GetFuncStart(fncStopMsId);
+    if (MEM_ReadByte(addr) != zPAR_TOK_PUSHVAR)            { return FALSE; }; addr += 5;
+    if (MEM_ReadByte(addr) != zPAR_TOK_CALLEXTERN)         { return FALSE; }; addr += 1;
+    if (MEM_ReadInt( addr) != fncUnSndTrgId)               { return FALSE; }; addr += 4;
+    if (MEM_ReadByte(addr) != zPAR_TOK_PUSHVAR)            { return FALSE; }; addr += 5;
+    if (MEM_ReadByte(addr) != zPAR_TOK_CALLEXTERN)         { return FALSE; }; addr += 1;
+    if (MEM_ReadInt( addr) != fncUnSndTrgId)               { return FALSE; }; addr += 4;
     val = MEM_ReadInt(addr+1);
     if (MEM_ReadByte(addr) == zPAR_TOK_PUSHVAR) {
         val = G1CP_GetIntI(val, 0, 1);
-    } else if (MEM_ReadByte(addr) != zPAR_TOK_PUSHINT)                           { return FALSE; }; addr += 1;
-    if (val != 0)                                                                { return FALSE; }; addr += 4;
-    if (MEM_ReadByte(addr) != zPAR_TOK_PUSHVAR)                                  { return FALSE; }; addr += 1;
-    if (MEM_ReadInt( addr) != varId)                                             { return FALSE; }; addr += 4;
-    if (MEM_ReadByte(addr) != zPAR_OP_IS)                                        { return FALSE; }; addr += 1;
-    if (MEM_ReadByte(addr) != zPAR_TOK_RET)                                      { return FALSE; };
+    } else if (MEM_ReadByte(addr) != zPAR_TOK_PUSHINT)     { return FALSE; }; addr += 1;
+    if (val != 0)                                          { return FALSE; }; addr += 4;
+    if (MEM_ReadByte(addr) != zPAR_TOK_PUSHVAR)            { return FALSE; }; addr += 1;
+    if (MEM_ReadInt( addr) != varPlyingId)                 { return FALSE; }; addr += 4;
+    if (MEM_ReadByte(addr) != zPAR_OP_IS)                  { return FALSE; }; addr += 1;
+    if (MEM_ReadByte(addr) != zPAR_TOK_RET)                { return FALSE; };
 
-    // Check that the content of "DIA_Grim_INEXTREMO_Info" is as expected: change of routine
-    var int funcId9; funcId9 = MEM_GetSymbolIndex("DIA_Grim_INEXTREMO_Info");
-    const int bytes[3] = {-1, -1, -1};
+    // Check that the content of "DIA_Grim_INEXTREMO_Info" is as expected: Change of routine
     bytes[0] = zPAR_TOK_CALLEXTERN<<24;
     bytes[1] = MEM_GetFuncID(Npc_ExchangeRoutine);
-    var int matches; matches = G1CP_FindInFunc(funcId9, _@(bytes)+3, 5);
-    var int count; count = MEM_ArraySize(matches);
+    matches = G1CP_FindInFunc(fncDiaGrimId, _@(bytes)+3, 5);
+    count = MEM_ArraySize(matches);
     if (count == 1) {
         addr = MEM_ArrayRead(matches, 0);
     };
@@ -153,14 +162,14 @@ func int G1CP_055_ReactivateInExtremo_InitSession() {
     if (count != 1) {
         return FALSE;
     };
-    varId = MEM_ReadInt(addr-4);
-    if (!Hlp_StrCmp(G1CP_GetStringI(varId, 0, ""), "InExtremo")) {
+    val = MEM_ReadInt(addr-4);
+    if (!Hlp_StrCmp(G1CP_GetStringI(val, 0, ""), "InExtremo")) {
         return FALSE;
     };
 
     // Check that the function "B_InsertInExtremo" is not called anywhere
     bytes[0] = zPAR_TOK_CALL<<24;
-    bytes[1] = G1CP_GetCallableOffsetI(funcId1);
+    bytes[1] = G1CP_GetCallableOffsetI(fncInsertId);
     matches = G1CP_FindInCode(0, 0, _@(bytes)+3, 5, 0);
     count = MEM_ArraySize(matches);
     MEM_ArrayFree(matches);
@@ -170,14 +179,14 @@ func int G1CP_055_ReactivateInExtremo_InitSession() {
 
     // Check that the variable "InExtremoPlaying" is not set anywhere else
     bytes[0] = zPAR_TOK_PUSHVAR<<24;
-    bytes[1] = MEM_GetSymbolIndex("InExtremoPlaying");
+    bytes[1] = varPlyingId;
     bytes[2] = zPAR_OP_IS;
     count = 0;
     matches = G1CP_FindInCode(0, 0, _@(bytes)+3, 6, 0);
     repeat(i, MEM_ArraySize(matches));
         var int offset; offset = MEM_ArrayRead(matches, i) - MEM_Parser.stack_stack;
         var int funcId; funcId = MEM_GetFuncIDByOffset(offset);
-        if (funcId != funcId5) && (funcId != funcId7) {
+        if (funcId != fncStrtMsId) && (funcId != fncStopMsId) {
             count = 1;
             break;
         };
@@ -193,7 +202,7 @@ func int G1CP_055_ReactivateInExtremo_InitSession() {
     const int zFILE_VDFS__LockCriticalSection   = 4485568; //0x4471C0
     const int zFILE_VDFS__UnlockCriticalSection = 4485600; //0x4471E0
     CALL__cdecl(zFILE_VDFS__LockCriticalSection);
-    CALL_IntParam(1); // Only VDF_VIRTUAL
+    CALL_IntParam(1); // Only check VDF_VIRTUAL (no physical files)
     CALL_PutRetValTo(_@(ret));
     CALL_cStringPtrParam("\_WORK\DATA\SOUND\SFX\CS_INEXTREMO.WAV");
     CALL__cdecl(_vdf_fexists);
@@ -273,44 +282,41 @@ func int G1CP_055_ReactivateInExtremo() {
         return FALSE;
     };
 
-    // Check now to apply the fix
-    if (G1CP_GetIntVar("Kapitel", 0, 0) != 2)  {
-        return FALSE;
+    // Get the symbol indices only once (no need to check anything: they exist, see function above)
+    const int ANNOUNCER   = 11;
+    const int GRIM        = 13;
+    const int npc[14]     = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
+    const int fncStrtMsId = -2; // -1 = invalid, -2 = non-initialized
+    const int infoGrimsId = -1;
+    const int infoStartId = -1;
+    const int fncGrimRtId = -1;
+    const int varChaptrId = -1;
+    const int varPlyingId = -1;
+    const int oCNpc_daily_routine_offset = 536;
+    if (fncStrtMsId == -2) {
+        fncStrtMsId = G1CP_GetFuncID("B_InExtremoStartMusic", "void|none");
+        fncGrimRtId = G1CP_GetFuncID("Rtn_Start_580", "void|none");
+        infoGrimsId = G1CP_GetInfoInstID("DIA_Grim_INEXTREMO");
+        infoStartId = G1CP_GetInfoInstID("IE_397_Announcer_ANNOUNCE");
+        varChaptrId = G1CP_GetIntVarID("Kapitel", 0);
+        varPlyingId = G1CP_GetIntVarID("InExtremoPlaying", 0);
+        npc[0]      = G1CP_GetNpcInstID("InExtremo_DrPymonte");
+        npc[1]      = G1CP_GetNpcInstID("InExtremo_TheFlail");
+        npc[2]      = G1CP_GetNpcInstID("InExtremo_ThomasTheForger");
+        npc[3]      = G1CP_GetNpcInstID("InExtremo_Unicorn");
+        npc[4]      = G1CP_GetNpcInstID("InExtremo_YellowPfeiffer");
+        npc[5]      = G1CP_GetNpcInstID("InExtremo_Lutter");
+        npc[6]      = G1CP_GetNpcInstID("InExtremo_Flex");
+        npc[7]      = G1CP_GetNpcInstID("IEFan1");
+        npc[8]      = G1CP_GetNpcInstID("IEFan2");
+        npc[9]      = G1CP_GetNpcInstID("IEFan3");
+        npc[10]     = G1CP_GetNpcInstID("IEFan4");
+        npc[11]     = G1CP_GetNpcInstID("IE_397_Announcer");
+        npc[12]     = G1CP_GetNpcInstID("Charlotte");
+        npc[13]     = G1CP_GetNpcInstID("Vlk_580_Grim");
     };
 
-    // Safety first: How could that ever happen?
-    if (G1CP_GetIntVar("InExtremoPlaying", 0, 0))  {
-        return FALSE;
-    };
-
-    // Get the symbol indices only once
-    const int npc[14] = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
-    const int func1Id = -2;
-    const int func2Id = -1;
-    const int info1Id = -1;
-    const int info2Id = -1;
-    const int func3Id = -1;
-    if (func1Id == -2) {
-        npc[0]  = G1CP_GetNpcInstID("InExtremo_DrPymonte");
-        npc[1]  = G1CP_GetNpcInstID("InExtremo_TheFlail");
-        npc[2]  = G1CP_GetNpcInstID("InExtremo_ThomasTheForger");
-        npc[3]  = G1CP_GetNpcInstID("InExtremo_Unicorn");
-        npc[4]  = G1CP_GetNpcInstID("InExtremo_YellowPfeiffer");
-        npc[5]  = G1CP_GetNpcInstID("InExtremo_Lutter");
-        npc[6]  = G1CP_GetNpcInstID("InExtremo_Flex");
-        npc[7]  = G1CP_GetNpcInstID("IEFan1");
-        npc[8]  = G1CP_GetNpcInstID("IEFan2");
-        npc[9]  = G1CP_GetNpcInstID("IEFan3");
-        npc[10] = G1CP_GetNpcInstID("IEFan4");
-        npc[11] = G1CP_GetNpcInstID("IE_397_Announcer");
-        npc[12] = G1CP_GetNpcInstID("Charlotte");
-        npc[13] = G1CP_GetNpcInstID("Vlk_580_Grim");
-        info1Id = G1CP_GetInfoInstID("DIA_Grim_INEXTREMO");
-        info2Id = G1CP_GetInfoInstID("IE_397_Announcer_ANNOUNCE");
-        func1Id = G1CP_GetFuncID("B_InsertInExtremo", "void|none");
-        func2Id = G1CP_GetFuncID("B_InExtremoStartMusic", "void|none");
-        func3Id = G1CP_GetFuncID("Rtn_Start_580", "void|none");
-    };
+    // All insert way points (should also work without)
     const string wp[13] = {
         "OCR_IE_PYMONTE",
         "OCR_IE_FLAIL",
@@ -327,47 +333,57 @@ func int G1CP_055_ReactivateInExtremo() {
         "OCR_AUDIENCE_03"
     };
 
-    // Update Grim's routine (only if it is his default - might have been changed)
-    var C_Npc tmp;
-    if (Npc_KnowsInfo(hero, info1Id)) {
-        tmp = Hlp_GetNpc(npc[13]);
-        if (Hlp_IsValidNpc(tmp)) {
-            var int rtnId; rtnId = MEM_ReadInt(_@(tmp)+536); // oCNpc.daily_routine (read as integer)
-            if (rtnId == func3Id) {
-                Npc_ExchangeRoutine(tmp, "INEXTREMO");
-            };
-        };
+    // Everything below is executed every time the function is called
+
+    // Check chapter
+    if (G1CP_GetIntVarI(varChaptrId, 0, 0) != 2)  {
+        return FALSE;
     };
 
-    // Start playing if the concert had started
-    var int i; var int id;
-    var int nmax; nmax = 11;
-    if (Npc_KnowsInfo(hero, info2Id)) {
-        MEM_CallById(func2Id);
-        nmax = 13;
-    } else {
-        // Update daily routine to announcing
-        repeat(i, 2);
-            id = MEM_ReadStatArr(npc, i+11);
-            tmp = Hlp_GetNpc(id);
-            if (!Hlp_IsValidNpc(tmp)) {
-                Wld_InsertNpc(id, MEM_ReadStatStringArr(wp, i+11));
-                tmp = Hlp_GetNpc(id);
-            };
-            Npc_ExchangeRoutine(tmp, "ANNOUNCE");
-        end;
+    // Safety first: How could that ever happen?
+    if (G1CP_GetIntVarI(varPlyingId, 0, 0))  {
+        return FALSE;
+    };
+
+    // All checks through: Let's party
+
+    // Check if the concert start by the told status of the announcer
+    var int playing; playing = Npc_KnowsInfo(hero, infoStartId);
+
+    // Start the music
+    if (playing) {
+        MEM_CallById(fncStrtMsId);
     };
 
     // Insert the NPCs or reinstate their daily routine of everyone (except Grim)
-    repeat(i, nmax);
-        id = MEM_ReadStatArr(npc, i);
-        tmp = Hlp_GetNpc(id);
-        if (!Hlp_IsValidNpc(tmp)) {
+    var C_Npc slf;
+    repeat(i, GRIM); var int i;
+        var int id; id = MEM_ReadStatArr(npc, i);
+        slf = Hlp_GetNpc(id);
+        if (!Hlp_IsValidNpc(slf)) {
             Wld_InsertNpc(id, MEM_ReadStatStringArr(wp, i));
-            tmp = Hlp_GetNpc(id);
+            slf = Hlp_GetNpc(id);
         };
-        Npc_ExchangeRoutine(tmp, "CONCERT");
+        // The announcer and Charlotte have a separate routine
+        if (i < ANNOUNCER) || (playing) {
+            Npc_ExchangeRoutine(slf, "CONCERT");
+        } else {
+            Npc_ExchangeRoutine(slf, "ANNOUNCE");
+        };
     end;
+
+    // Update Grim's routine (only if it is his default - might have been changed)
+    if (playing) {
+        if (Npc_KnowsInfo(hero, infoGrimsId)) {
+            slf = Hlp_GetNpc(npc[GRIM]);
+            if (Hlp_IsValidNpc(slf)) {
+                var int rtnId; rtnId = MEM_ReadInt(_@(slf)+oCNpc_daily_routine_offset); // Read func as integer
+                if (rtnId == fncGrimRtId) {
+                    Npc_ExchangeRoutine(slf, "INEXTREMO");
+                };
+            };
+        };
+    };
 
     // Hope that does it!
     return TRUE;
@@ -384,31 +400,45 @@ func int G1CP_055_ReactivateInExtremoRevert() {
     };
 
     // Get the symbol indices only once
-    const int npc[14] = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
-    const int func1Id = -2;
-    const int func2Id = -1;
-    const int func3Id = -1;
-    if (func1Id == -2) {
-        npc[0]  = G1CP_GetNpcInstID("InExtremo_DrPymonte");
-        npc[1]  = G1CP_GetNpcInstID("InExtremo_TheFlail");
-        npc[2]  = G1CP_GetNpcInstID("InExtremo_ThomasTheForger");
-        npc[3]  = G1CP_GetNpcInstID("InExtremo_Unicorn");
-        npc[4]  = G1CP_GetNpcInstID("InExtremo_YellowPfeiffer");
-        npc[5]  = G1CP_GetNpcInstID("InExtremo_Lutter");
-        npc[6]  = G1CP_GetNpcInstID("InExtremo_Flex");
-        npc[7]  = G1CP_GetNpcInstID("IEFan1");
-        npc[8]  = G1CP_GetNpcInstID("IEFan2");
-        npc[9]  = G1CP_GetNpcInstID("IEFan3");
-        npc[10] = G1CP_GetNpcInstID("IEFan4");
-        npc[11] = G1CP_GetNpcInstID("IE_397_Announcer");
-        npc[12] = G1CP_GetNpcInstID("Charlotte");
-        npc[13] = G1CP_GetNpcInstID("Vlk_580_Grim");
-        func1Id = G1CP_GetInfoInstID("DIA_Grim_INEXTREMO");
-        func2Id = G1CP_GetFuncID("B_InExtremoStopMusic", "void|none");
-        func3Id = G1CP_GetFuncID("Rtn_InExtremo_580", "void|none");
+    const int GRIM        = 13;
+    const int npc[14]     = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
+    const int symbPtr[13] = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
+    const int fncStopMsId = -2; // -1 = invalid, -2 = non-initialized
+    const int fncGrimRtId = -1;
+    const int oCNpc_daily_routine_offset = 536;
+    if (fncStopMsId == -2) {
+        fncStopMsId = G1CP_GetFuncID("B_InExtremoStopMusic", "void|none");
+        fncGrimRtId = G1CP_GetFuncID("Rtn_InExtremo_580", "void|none");
+        npc[0]      = G1CP_GetNpcInstID("InExtremo_DrPymonte");
+        npc[1]      = G1CP_GetNpcInstID("InExtremo_TheFlail");
+        npc[2]      = G1CP_GetNpcInstID("InExtremo_ThomasTheForger");
+        npc[3]      = G1CP_GetNpcInstID("InExtremo_Unicorn");
+        npc[4]      = G1CP_GetNpcInstID("InExtremo_YellowPfeiffer");
+        npc[5]      = G1CP_GetNpcInstID("InExtremo_Lutter");
+        npc[6]      = G1CP_GetNpcInstID("InExtremo_Flex");
+        npc[7]      = G1CP_GetNpcInstID("IEFan1");
+        npc[8]      = G1CP_GetNpcInstID("IEFan2");
+        npc[9]      = G1CP_GetNpcInstID("IEFan3");
+        npc[10]     = G1CP_GetNpcInstID("IEFan4");
+        npc[11]     = G1CP_GetNpcInstID("IE_397_Announcer");
+        npc[12]     = G1CP_GetNpcInstID("Charlotte");
+        npc[13]     = G1CP_GetNpcInstID("Vlk_580_Grim");
+        symbPtr[0]  = MEM_GetSymbol("InExtremo_DrPymonte");
+        symbPtr[1]  = MEM_GetSymbol("InExtremo_TheFlail");
+        symbPtr[2]  = MEM_GetSymbol("InExtremo_ThomasTheForger");
+        symbPtr[3]  = MEM_GetSymbol("InExtremo_Unicorn");
+        symbPtr[4]  = MEM_GetSymbol("InExtremo_YellowPfeiffer");
+        symbPtr[5]  = MEM_GetSymbol("InExtremo_Lutter");
+        symbPtr[6]  = MEM_GetSymbol("InExtremo_Flex");
+        symbPtr[7]  = MEM_GetSymbol("IEFan1");
+        symbPtr[8]  = MEM_GetSymbol("IEFan2");
+        symbPtr[9]  = MEM_GetSymbol("IEFan3");
+        symbPtr[10] = MEM_GetSymbol("IEFan4");
+        symbPtr[11] = MEM_GetSymbol("IE_397_Announcer");
+        symbPtr[12] = MEM_GetSymbol("Charlotte");
     };
 
-    // Create call once
+    // We need to properly de-register the NPCs from their MOBs before removing them. Construct an engine call for that
     var int npcPtr;
     var int mobPtr;
     const int oCMobInter__InterruptInteraction = 6812512; //0x67F360
@@ -420,33 +450,38 @@ func int G1CP_055_ReactivateInExtremoRevert() {
         call = CALL_Close();
     };
 
-    // De-register mob users and remove all NPCs
-    var oCNpc tmp;
-    repeat(i, 13); var int i;
+    // De-register mob users and remove all NPCs (except for Grim)
+    var oCNpc slf;
+    repeat(i, GRIM); var int i;
         var int id; id = MEM_ReadStatArr(npc, i);
-        tmp = Hlp_GetNpc(id);
-        if (Hlp_IsValidNpc(tmp)) {
-            if (tmp.interactMob) {
-                npcPtr = _@(tmp);
-                mobPtr = tmp.interactMob;
+        slf = Hlp_GetNpc(id);
+        if (Hlp_IsValidNpc(slf)) {
+            if (slf.interactMob) {
+                npcPtr = _@(slf);
+                mobPtr = slf.interactMob;
                 ASM_Run(call);
             };
         };
+
         Wld_RemoveNpc(id);
-        MEM_WriteInt(MEM_GetSymbolByIndex(id) + zCParSymbol_offset_offset, 0); // Reset instance
+
+        // Removing an NPC like that doesn't cut it here. We need to remove the reference of the instance
+        MEM_WriteInt(MEM_ReadStatArr(symbPtr, i) + zCParSymbol_offset_offset, 0);
     end;
 
     // Turn off the music
-    MEM_CallById(func2Id);
+    MEM_CallById(fncStopMsId);
 
-    // Cannot assume Grim's daily routine is unchanged! Only change it if it is set to "inextremo"
-    tmp = Hlp_GetNpc(npc[13]);
-    if (Hlp_IsValidNpc(tmp)) {
-        var int rtnId; rtnId = MEM_ReadInt(_@(tmp)+536); // oCNpc.daily_routine (read as integer)
-        if (rtnId == func3Id) {
-            Npc_ExchangeRoutine(tmp, "START");
+    // Cannot assume Grim's daily routine is unchanged! Only change it if it is set to "InExtremo"
+    slf = Hlp_GetNpc(npc[GRIM]);
+    if (Hlp_IsValidNpc(slf)) {
+        var int rtnId; rtnId = MEM_ReadInt(_@(slf)+oCNpc_daily_routine_offset); // Read as func as integer
+        if (rtnId == fncGrimRtId) {
+            Npc_ExchangeRoutine(slf, "START");
         };
     };
+
+    // Silence
     return TRUE;
 };
 
@@ -454,27 +489,28 @@ func int G1CP_055_ReactivateInExtremoRevert() {
 /*
  * Hook after "B_Kapitelwechsel" to enable/disable the InExtremo concert
  */
-func void G1CP_055_ReactivateInExtremoHook(var int num) {
+func void G1CP_055_ReactivateInExtremoHook(var int chapterNum) {
     G1CP_ReportFuncToSpy();
 
-    var int chBefore; chBefore = G1CP_GetIntVar("Kapitel", 0, 0);
+    var int chapterBefore; chapterBefore = G1CP_GetIntVar("Kapitel", 0, 0);
 
     // First call the original function
-    PassArgumentI(num);
+    PassArgumentI(chapterNum);
     ContinueCall();
 
-    var int chAfter; chAfter = G1CP_GetIntVar("Kapitel", 0, 0);
+    var int chapterNow; chapterNow = G1CP_GetIntVar("Kapitel", 0, 0);
 
-    if (chAfter == chBefore) || (chAfter != num) {
-        // What the heck
+    // Sanity check
+    if (chapterNow == chapterBefore) || (chapterNow != chapterNum) {
         return;
     };
 
     // Apply/revert fix (call all to update the lookup table properly)
-    var int r;
-    if (chAfter == 2) {
+    if (chapterNow == 2) {
+        // Enter chapter two: start concert
         MEM_Call(G1CP_GamesaveFixes_Apply);
-    } else if (chBefore == 2) {
+    } else if (chapterBefore == 2) {
+        // Leave chapter two: stop concert but reapply any other fixes
         MEM_Call(G1CP_GamesaveFixes_Revert);
         MEM_Call(G1CP_GamesaveFixes_Apply);
     };
