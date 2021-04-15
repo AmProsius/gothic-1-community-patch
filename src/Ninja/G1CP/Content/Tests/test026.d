@@ -10,72 +10,44 @@ func int G1CP_Test_026() {
     const int ATT_NEUTRAL       = 2;
     const int AIV_GPS_FIRSTWARN = 1;
 
-    // Check status of the test
-    var int passed; passed = TRUE;
+    // Define variables for specific test
+    var string guildName; guildName = "GIL_GRD";
+    var string aiVarName; aiVarName = "AIV_GUARDPASSAGE_STATUS";
 
-    // Check if the dialog exists
-    var int funcId; funcId = MEM_GetSymbolIndex("Info_Org_804_FirstWarn_Condition");
-    if (funcId == -1) {
-        G1CP_TestsuiteErrorDetail("Dialog condition 'Info_Org_804_FirstWarn_Condition' not found");
-        passed = FALSE;
-    };
-
-    // Find the guard NPC
-    var int guardId; guardId = MEM_GetSymbolIndex("Org_804_Organisator");
-    if (guardId == -1) {
-        G1CP_TestsuiteErrorDetail("NPC 'Org_804_Organisator' not found");
-        passed = FALSE;
-    };
-
-    // Check if NPC exists
-    var C_Npc guard; guard = Hlp_GetNpc(guardId);
-    if (!Hlp_IsValidNpc(guard)) {
-        G1CP_TestsuiteErrorDetail("NPC 'Org_804_Organisator' not valid");
-        passed = FALSE;
-    };
-
-    // Find the guild
-    var int symbPtr; symbPtr = MEM_GetSymbol("GIL_GRD");
-    if (!symbPtr) {
-        G1CP_TestsuiteErrorDetail("Variable 'GIL_GRD' not found");
-        passed = FALSE;
-    };
-
-    // Obtain guild value
-    var int GIL_GRD; GIL_GRD = MEM_ReadInt(symbPtr + zCParSymbol_content_offset);
-
-    // At the latest now, we need to stop if there are fails already
-    if (!passed) {
-        return FALSE;
-    };
+    // Prior checks
+    var int   funcId; funcId = G1CP_Testsuite_GetDialogConditionFuncId("Info_Org_804_FirstWarn_Condition");
+    var C_Npc npc;    npc    = G1CP_Testsuite_GetNpc("Org_804_Organisator");
+    G1CP_Testsuite_CheckIntConst(guildName, 0);
+    G1CP_Testsuite_CheckIntVar(aiVarName, 0);
+    G1CP_Testsuite_CheckPassed();
 
     // Backup values
-    var int attitBak; attitBak = Npc_GetAttitude(guard, hero);                          // Attitude
-    var int guildBak; guildBak = hero.guild;                                            // Player guild
-    var string wpBak; wpBak = guard.wp;                                                 // Waypoint
-    var int aiVarBak; aiVarBak = G1CP_NpcGetAIVar(hero, "AIV_GUARDPASSAGE_STATUS", -1); // AI variable
-    var C_Npc slfBak; slfBak = MEM_CpyInst(self);                                       // Self
-    var C_Npc othBak; othBak = MEM_CpyInst(other);                                      // Other
+    var int    attitBak; attitBak = Npc_GetAttitude(npc, hero);
+    var int    aiVarBak; aiVarBak = G1CP_NpcGetAIVar(hero, aiVarName, -1);
+    var int    guildBak; guildBak = hero.guild;
+    var string wpBak;    wpBak    = npc.wp;
+    var C_Npc  slfBak;   slfBak   = MEM_CpyInst(self);
+    var C_Npc  othBak;   othBak   = MEM_CpyInst(other);
 
     // Set new values
-    Npc_SetTempAttitude(guard, ATT_NEUTRAL);                                            // Attitude
-    hero.guild = GIL_GRD;                                                               // Player guild
-    guard.wp = Npc_GetNearestWP(guard);                                                 // Waypoint
-    G1CP_NpcSetAIVar(hero, "AIV_GUARDPASSAGE_STATUS", AIV_GPS_FIRSTWARN);               // AI variable
-    self  = MEM_CpyInst(guard);                                                         // Self
-    other = MEM_CpyInst(hero);                                                          // Other
+    Npc_SetTempAttitude(npc, ATT_NEUTRAL);
+    G1CP_NpcSetAIVar(hero, aiVarName, AIV_GPS_FIRSTWARN);
+    hero.guild = G1CP_GetIntConst(guildName, 0, 0);
+    npc.wp     = Npc_GetNearestWP(npc);
+    self       = MEM_CpyInst(npc);
+    other      = MEM_CpyInst(hero);
 
     // Call dialog condition function
     MEM_CallByID(funcId);
     var int ret; ret = MEM_PopIntResult();
 
     // Restore values
-    self  = MEM_CpyInst(slfBak);                                                        // Self
-    other = MEM_CpyInst(othBak);                                                        // Other
-    G1CP_NpcSetAIVar(hero, "AIV_GUARDPASSAGE_STATUS", aiVarBak);                        // AI variable
-    guard.wp = wpBak;                                                                   // Waypoint
-    hero.guild = guildBak;                                                              // Player guild
-    Npc_SetTempAttitude(guard, attitBak);                                               // Attitude
+    self       = MEM_CpyInst(slfBak);
+    other      = MEM_CpyInst(othBak);
+    Npc_SetTempAttitude(npc, attitBak);
+    G1CP_NpcSetAIVar(hero, aiVarName, aiVarBak);
+    hero.guild = guildBak;
+    npc.wp     = wpBak;
 
     // Check return value
     if (ret) {
