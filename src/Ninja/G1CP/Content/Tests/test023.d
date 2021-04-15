@@ -11,7 +11,7 @@ func int G1CP_Test_023() {
 
     // Prior checks
     G1CP_Testsuite_CheckIntVar(chapterVar, 0);
-    var int funcId;  funcId  = G1CP_Testsuite_GetInfoId("GUR_1204_BaalNamib_ARMOR_Info");
+    var int funcId;  funcId  = G1CP_Testsuite_GetDialogFuncId("GUR_1204_BaalNamib_ARMOR_Info");
     var int armorId; armorId = G1CP_Testsuite_GetItemId("NOV_ARMOR_H");
     var int oreId;   oreId   = G1CP_Testsuite_GetItemId("ItMinugget");
     G1CP_Testsuite_CheckPassed();

@@ -6,6 +6,9 @@
  * Expected behavior: The variable "drax_Lehrer_frei" is set/not set and log entry is created/not created accordingly.
  */
 func int G1CP_Test_027() {
+    // Prior checks
+    var int funcId; funcId = G1CP_Testsuite_GetDialogFuncId("Org_819_Drax_Scavenger_Info");
+
     // Check status of the test
     var int passed; passed = TRUE;
 

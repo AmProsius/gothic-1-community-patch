@@ -13,7 +13,7 @@ func int G1CP_Test_021() {
     const int LOG_SUCCESS = 2;
 
     // Prior checks
-    var int funcId; funcId = G1CP_Testsuite_GetInfoId("DIA_Fletcher_WoNek_Info");
+    var int funcId; funcId = G1CP_Testsuite_GetDialogFuncId("DIA_Fletcher_WoNek_Info");
     G1CP_Testsuite_CheckStringConst("CH1_LostNek", 0);
     G1CP_Testsuite_CheckPassed();
 

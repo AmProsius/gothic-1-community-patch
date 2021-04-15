@@ -17,7 +17,7 @@ func int G1CP_Test_024() {
 
     // Prior checks
     var C_Npc npc;    npc    = G1CP_Testsuite_GetNpc("GUR_1201_CorKalom");
-    var int   funcId; funcId = G1CP_Testsuite_GetInfoId("Info_Kalom_KrautboteBACK_Info");
+    var int   funcId; funcId = G1CP_Testsuite_GetDialogFuncId("Info_Kalom_KrautboteBACK_Info");
     var int   oreId;  oreId  = G1CP_Testsuite_GetItemId("ItMiNugget");
     G1CP_Testsuite_CheckIntVar(drugMonopolName);
     G1CP_Testsuite_CheckIntVar(krautboteName);
