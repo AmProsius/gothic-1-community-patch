@@ -20,7 +20,7 @@ func int G1CP_Test_027() {
     G1CP_Testsuite_CheckPassed();
 
     // Get constant values
-    const int TOPIC = 0; TOPIC = G1CP_GetStringConst(TOPIC_NAME, 0, 0);
+    const string TOPIC = ""; TOPIC = G1CP_GetStringConst(TOPIC_NAME, 0, 0);
 
     // Rename the log topic if it already exists
     const string TEMP_TOPIC_NAME = "G1CP Test 27"; // Has to be a unique name with absolute certainty
