@@ -6,6 +6,9 @@
  * Expected behavior: The condition function will return FALSE.
  */
 func int G1CP_Test_019() {
+    // Define possibly missing symbols locally
+    const int GIL_NONE = 0;
+    
     // Define constants for specific test
     const string CHAPTER_NAME = "Kapitel";
     const string INFO_NAME = "DIA_Scorpio_Hello";
@@ -25,7 +28,7 @@ func int G1CP_Test_019() {
 
     // Set new values
     G1CP_SetIntVar(CHAPTER_NAME, 0, 4);
-    Npc_SetTrueGuild(hero, 0);
+    Npc_SetTrueGuild(hero, GIL_NONE);
     G1CP_SetInfoTold(INFO_NAME, TRUE);
     self = MEM_CpyInst(hero);
     other = MEM_CpyInst(hero);
