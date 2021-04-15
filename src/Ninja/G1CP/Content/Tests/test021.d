@@ -21,7 +21,7 @@ func int G1CP_Test_021() {
     G1CP_Testsuite_CheckPassed();
 
     // Get constant values
-    const string TOPIC = ""; TOPIC = G1CP_GetStringConst(TOPIC_NAME, 0 , "");
+    const string TOPIC = ""; TOPIC = G1CP_GetStringConst(TOPIC_NAME, 0 , "G1CP invalid string");
 
     // Backup values
     var int topicStatusBak; topicStatusBak = G1CP_LogGetTopicStatus(TOPIC);
