@@ -9,17 +9,17 @@ func void G1CP_Test_032() {
      if (G1CP_TestsuiteAllowManual) {
         // Define possibly missing symbols locally
         const int NPC_FLAG_IMMORTAL = 1 << 1;
-        const int ATR_STRENGTH      = 4;
+        const int ATR_STRENGTH = 4;
 
-        // Toggle the attitude changes
-        var int symbPtr; symbPtr = MEM_GetSymbol("Kapitel");
-        if (!symbPtr) {
-            G1CP_TestsuiteErrorDetail("Variable 'Kapitel' not found");
-            return;
-        };
+        // Define constants for specific test
+        const string CHAPTER_NAME = "Kapitel";
+
+        // Prior checks
+        G1CP_Testsuite_CheckIntVar(CHAPTER_NAME, 0);
+        G1CP_Testsuite_CheckPassed();
 
         // Setting the variable suffices to trigger the attitude change
-        MEM_WriteInt(symbPtr + zCParSymbol_content_offset, 4);
+        G1CP_SetIntVar(CHAPTER_NAME, 0, 4);
 
         // Set PC to invincible to observe the action
         hero.flags = hero.flags | NPC_FLAG_IMMORTAL;
