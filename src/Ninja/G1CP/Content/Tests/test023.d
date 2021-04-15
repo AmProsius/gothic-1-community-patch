@@ -11,17 +11,17 @@ func int G1CP_Test_023() {
 
     // Prior checks
     G1CP_Testsuite_CheckIntVar(CHAPTER_NAME, 0);
-    var int funcId;  funcId  = G1CP_Testsuite_GetDialogFuncId("GUR_1204_BaalNamib_ARMOR_Info");
+    var int funcId; funcId = G1CP_Testsuite_GetDialogFuncId("GUR_1204_BaalNamib_ARMOR_Info");
     var int armorId; armorId = G1CP_Testsuite_GetItemId("NOV_ARMOR_H");
-    var int oreId;   oreId   = G1CP_Testsuite_GetItemId("ItMinugget");
+    var int oreId; oreId = G1CP_Testsuite_GetItemId("ItMinugget");
     G1CP_Testsuite_CheckPassed();
 
     // Backup values
-    var int   chapterBak;  chapterBak  = G1CP_GetIntVar(CHAPTER_NAME, 0, 0);
-    var int   armorBefore; armorBefore = Npc_HasItems(hero, armorId);
-    var int   oreBefore;   oreBefore   = Npc_HasItems(hero, oreId);
-    var C_Npc slfBak;      slfBak      = MEM_CpyInst(self);
-    var C_Npc othBak;      othBak      = MEM_CpyInst(other);
+    var int chapterBak; chapterBak = G1CP_GetIntVar(CHAPTER_NAME, 0, 0);
+    var int armorBefore; armorBefore = Npc_HasItems(hero, armorId);
+    var int oreBefore; oreBefore = Npc_HasItems(hero, oreId);
+    var C_Npc slfBak; slfBak = MEM_CpyInst(self);
+    var C_Npc othBak; othBak = MEM_CpyInst(other);
 
     // Remove all necessary items (ignores equipped armor, give me a break)
     if (armorBefore > 0) {
@@ -35,14 +35,14 @@ func int G1CP_Test_023() {
     G1CP_SetIntVar(CHAPTER_NAME, 0, 2);
     CreateInvItems(hero, oreId, 5000); // Give enough ore (don't care about the details)
     GetItemHelper();
-    self  = MEM_CpyInst(Item_Helper);
+    self = MEM_CpyInst(Item_Helper);
     other = MEM_CpyInst(hero);
 
     // Just run the dialog and see what happens
     MEM_CallByID(funcId);
 
     // Restore self and other
-    self  = MEM_CpyInst(slfBak);
+    self = MEM_CpyInst(slfBak);
     other = MEM_CpyInst(othBak);
 
     // Stop the output units

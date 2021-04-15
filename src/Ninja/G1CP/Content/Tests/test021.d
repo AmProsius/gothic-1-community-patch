@@ -7,7 +7,7 @@
  */
 func int G1CP_Test_021() {
     // Define possibly missing symbols locally
-    const int GIL_NONE    = 0;
+    const int GIL_NONE = 0;
     const int LOG_MISSION = 0;
     const int LOG_RUNNING = 1;
     const int LOG_SUCCESS = 2;
@@ -24,23 +24,23 @@ func int G1CP_Test_021() {
     const string TOPIC = ""; TOPIC = G1CP_GetStringConst(TOPIC_NAME, 0 , "");
 
     // Backup values
-    var int   topicStatusBak; topicStatusBak = G1CP_LogGetTopicStatus(TOPIC);
-    var int   guildTrueBak;   guildTrueBak   = Npc_GetTrueGuild(hero);
-    var C_Npc slfBak;         slfBak         = MEM_CpyInst(self);
-    var C_Npc othBak;         othBak         = MEM_CpyInst(other);
+    var int topicStatusBak; topicStatusBak = G1CP_LogGetTopicStatus(TOPIC);
+    var int guildTrueBak; guildTrueBak = Npc_GetTrueGuild(hero);
+    var C_Npc slfBak; slfBak = MEM_CpyInst(self);
+    var C_Npc othBak; othBak = MEM_CpyInst(other);
 
     // Set new values
     Log_CreateTopic(TOPIC, LOG_MISSION);
     Log_SetTopicStatus(TOPIC, LOG_SUCCESS);
     Npc_SetTrueGuild(hero, GIL_NONE);
-    self  = MEM_CpyInst(hero);
+    self = MEM_CpyInst(hero);
     other = MEM_CpyInst(hero);
 
     // Just run the dialog and see what happens
     MEM_CallByID(funcId);
 
     // Restore self and other
-    self  = MEM_CpyInst(slfBak);
+    self = MEM_CpyInst(slfBak);
     other = MEM_CpyInst(othBak);
 
     // Stop the output units

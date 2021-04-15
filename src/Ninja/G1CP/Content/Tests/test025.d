@@ -11,7 +11,7 @@ func int G1CP_Test_025() {
 
     // Prior checks
     var int funcId; funcId = G1CP_Testsuite_GetDialogConditionFuncId("KDW_600_Saturas_HEAVYARMOR_Condition");
-    var int robeId; robeId = G1CP_Testsuite_GetItemId("KDW_ARMOR_H");
+    var int itemId; itemId = G1CP_Testsuite_GetItemId("KDW_ARMOR_H");
     G1CP_Testsuite_CheckIntConst(GUILD_NAME, 0);
     G1CP_Testsuite_CheckPassed();
 
@@ -19,26 +19,26 @@ func int G1CP_Test_025() {
     const int GUILD = 0; GUILD = G1CP_GetIntConst(GUILD_NAME, 0, 0);
 
     // Backup values
-    var int   guildBak;     guildBak     = hero.guild;
-    var int   trueGuildBak; trueGuildBak = Npc_GetTrueGuild(hero);
-    var C_Npc slfBak;       slfBak       = MEM_CpyInst(self);
-    var C_Npc othBak;       othBak       = MEM_CpyInst(other);
+    var int guildBak; guildBak = hero.guild;
+    var int trueGuildBak; trueGuildBak = Npc_GetTrueGuild(hero);
+    var C_Npc slfBak; slfBak = MEM_CpyInst(self);
+    var C_Npc othBak; othBak = MEM_CpyInst(other);
 
     // Set new values
-    CreateInvItem(hero, robeId);
+    CreateInvItem(hero, itemId);
     Npc_SetTrueGuild(hero, GUILD);
     hero.guild = GUILD;
-    self       = MEM_CpyInst(hero);
-    other      = MEM_CpyInst(hero);
+    self = MEM_CpyInst(hero);
+    other = MEM_CpyInst(hero);
 
     // Call dialog condition function
     MEM_CallByID(funcId);
     var int ret; ret = MEM_PopIntResult();
 
     // Restore values
-    self  = MEM_CpyInst(slfBak);
+    self = MEM_CpyInst(slfBak);
     other = MEM_CpyInst(othBak);
-    Npc_RemoveInvItems(hero, robeId, 1);
+    Npc_RemoveInvItems(hero, itemId, 1);
     Npc_SetTrueGuild(hero, trueGuildBak);
     hero.guild = guildBak;
 

@@ -8,12 +8,12 @@
 func int G1CP_Test_027() {
     // Define variables for specific test
     const string BIER_BEKOMMEN_NAME = "drax_bierbekommen";
-    const string LEHRER_FREI_NAME   = "drax_Lehrer_frei";
-    const string TOPIC_NAME         = "GE_TeacherOW";
+    const string LEHRER_FREI_NAME = "drax_Lehrer_frei";
+    const string TOPIC_NAME = "GE_TeacherOW";
 
     // Prior checks
     var int funcId; funcId = G1CP_Testsuite_GetDialogFuncId("Org_819_Drax_Scavenger_Info");
-    var int beerId; beerId = G1CP_Testsuite_GetItemId("ItFoBeer");
+    var int itemId; itemId = G1CP_Testsuite_GetItemId("ItFoBeer");
     G1CP_Testsuite_CheckIntVar(BIER_BEKOMMEN_NAME, 0);
     G1CP_Testsuite_CheckIntVar(LEHRER_FREI_NAME, 0);
     G1CP_Testsuite_CheckIntConst(TOPIC_NAME, 0);
@@ -27,14 +27,14 @@ func int G1CP_Test_027() {
     G1CP_LogRenameTopic(TOPIC, TEMP_TOPIC_NAME);
 
     // Backup values
-    var int   beersBefore;  beersBefore  = Npc_HasItems(hero, beerId);
-    var int   beerGivenBak; beerGivenBak = G1CP_GetIntVar(BIER_BEKOMMEN_NAME, 0, 0);
-    var int   teachingBak;  teachingBak  = G1CP_GetIntVar(LEHRER_FREI_NAME, 0, 0);
-    var C_Npc slfBak;       slfBak       = MEM_CpyInst(self);
-    var C_Npc othBak;       othBak       = MEM_CpyInst(other);
+    var int beersBefore; beersBefore = Npc_HasItems(hero, itemId);
+    var int beerGivenBak; beerGivenBak = G1CP_GetIntVar(BIER_BEKOMMEN_NAME, 0, 0);
+    var int teachingBak; teachingBak = G1CP_GetIntVar(LEHRER_FREI_NAME, 0, 0);
+    var C_Npc slfBak; slfBak = MEM_CpyInst(self);
+    var C_Npc othBak; othBak = MEM_CpyInst(other);
 
     // Set self and other
-    self  = MEM_CpyInst(hero);
+    self = MEM_CpyInst(hero);
     other = MEM_CpyInst(hero);
 
     // Do two passes
@@ -47,7 +47,7 @@ func int G1CP_Test_027() {
 
     // Set variables
     if (beersBefore > 0) {
-        Npc_RemoveInvItems(hero, beerId, beersBefore);
+        Npc_RemoveInvItems(hero, itemId, beersBefore);
     };
     G1CP_SetIntVar(BIER_BEKOMMEN_NAME, 0, FALSE);
     G1CP_SetIntVar(LEHRER_FREI_NAME, 0, FALSE);
@@ -60,7 +60,7 @@ func int G1CP_Test_027() {
     AI_StandUpQuick(hero);
 
     // Check the variable and log topic
-    topicCreated     = G1CP_LogGetTopic(TOPIC) != 0;
+    topicCreated = G1CP_LogGetTopic(TOPIC) != 0;
     teachingUnlocked = G1CP_GetIntVar(LEHRER_FREI_NAME, 0, 0);
     if (topicCreated) {
         G1CP_TestsuiteErrorDetailSSS("Log note '", TOPIC_NAME, "' was wrongfully created");
@@ -76,7 +76,7 @@ func int G1CP_Test_027() {
     // Second pass: Has beer, variable should be set to true and log entry should be created
 
     // Set variables
-    CreateInvItem(hero, beerId);
+    CreateInvItem(hero, itemId);
     G1CP_SetIntVar(BIER_BEKOMMEN_NAME, 0, FALSE);
     G1CP_SetIntVar(LEHRER_FREI_NAME, 0, FALSE);
 
@@ -88,7 +88,7 @@ func int G1CP_Test_027() {
     AI_StandUpQuick(hero);
 
     // Check the variable and log topic
-    topicCreated     = G1CP_LogGetTopic(TOPIC) != 0;
+    topicCreated = G1CP_LogGetTopic(TOPIC) != 0;
     teachingUnlocked = G1CP_GetIntVar(LEHRER_FREI_NAME, 0, 0);
     if (!topicCreated) {
         G1CP_TestsuiteErrorDetailSSS("Log note '", TOPIC_NAME, "' was not created");
@@ -100,12 +100,12 @@ func int G1CP_Test_027() {
 
     // Remove possibly created log topic and remove any beers
     G1CP_LogRemoveTopic(TOPIC);
-    Npc_RemoveInvItems(hero, beerId, Npc_HasItems(hero, beerId));
+    Npc_RemoveInvItems(hero, itemId, Npc_HasItems(hero, itemId));
 
     // Clean up
 
     // Restore self and other
-    self  = MEM_CpyInst(slfBak);
+    self = MEM_CpyInst(slfBak);
     other = MEM_CpyInst(othBak);
 
     // Restore values
@@ -113,7 +113,7 @@ func int G1CP_Test_027() {
     G1CP_SetIntVar(LEHRER_FREI_NAME, 0, teachingBak);
     G1CP_LogRenameTopic(TEMP_TOPIC_NAME, TOPIC);
     if (beersBefore > 0) {
-        CreateInvItems(hero, beerId, beersBefore);
+        CreateInvItems(hero, itemId, beersBefore);
     };
 
     // Confirm the fix

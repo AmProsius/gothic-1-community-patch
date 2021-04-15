@@ -17,12 +17,12 @@ func int G1CP_Test_015() {
     var int passed; passed = TRUE;
 
     // Backup values
-    var int   strengthBak; strengthBak = hero.attribute[ATR_STRENGTH];
-    var C_Npc slfBak;      slfBak      = MEM_CpyInst(self);
-    var C_Npc othBak;      othBak      = MEM_CpyInst(other);
+    var int strengthBak; strengthBak = hero.attribute[ATR_STRENGTH];
+    var C_Npc slfBak; slfBak = MEM_CpyInst(self);
+    var C_Npc othBak; othBak = MEM_CpyInst(other);
 
     // Set self and other
-    self  = MEM_CpyInst(hero);
+    self = MEM_CpyInst(hero);
     other = MEM_CpyInst(hero);
 
     // First pass: strength < 100
@@ -42,7 +42,7 @@ func int G1CP_Test_015() {
     };
 
     // Restore self and other
-    self  = MEM_CpyInst(slfBak);
+    self = MEM_CpyInst(slfBak);
     other = MEM_CpyInst(othBak);
 
     // Stop the output units

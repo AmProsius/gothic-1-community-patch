@@ -22,14 +22,14 @@ func int G1CP_Test_020() {
     var C_Npc othBak; othBak = MEM_CpyInst(other);
 
     // Set self and other
-    self  = MEM_CpyInst(npc);
+    self = MEM_CpyInst(npc);
     other = MEM_CpyInst(hero);
 
     // Just run the dialog and see what happens
     MEM_CallByID(funcId);
 
     // Restore self and other
-    self  = MEM_CpyInst(slfBak);
+    self = MEM_CpyInst(slfBak);
     other = MEM_CpyInst(othBak);
 
     // Stop the output units
