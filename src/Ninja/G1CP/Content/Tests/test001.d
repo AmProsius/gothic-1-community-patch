@@ -6,8 +6,10 @@
  * Expected behavior: NPCs should be able to sleep.
  */
 func void G1CP_Test_001() {
-    if (G1CP_TestsuiteAllowManual) {
-        Wld_SetTime(0, 0);
-        AI_Teleport(hero, "PSI_PATH_11_5");
+    if (!G1CP_TestsuiteAllowManual) {
+        return;
     };
+    
+    Wld_SetTime(0, 0);
+    AI_Teleport(hero, "PSI_PATH_11_5");
 };

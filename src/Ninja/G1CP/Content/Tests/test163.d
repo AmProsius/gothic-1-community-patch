@@ -7,15 +7,17 @@
  * Expected behavior: The gate properly opens and closes when using the winch.
  */
 func void G1CP_Test_163() {
-    if (G1CP_TestsuiteAllowManual) {
-        // Define possibly missing symbols locally
-        const int GIL_GRD = 2;
-
-        // Change the player's guild to not be attacked
-        hero.guild = GIL_GRD;
-        Npc_SetTrueGuild(hero, GIL_GRD);
-
-        // Teleport the PC to the winch
-        AI_Teleport(hero, "OCC_GATE_VWHEEL");
+    if (!G1CP_TestsuiteAllowManual) {
+        return;
     };
+    
+    // Define possibly missing symbols locally
+    const int GIL_GRD = 2;
+
+    // Change the player's guild to not be attacked
+    hero.guild = GIL_GRD;
+    Npc_SetTrueGuild(hero, GIL_GRD);
+
+    // Teleport the PC to the winch
+    AI_Teleport(hero, "OCC_GATE_VWHEEL");
 };
