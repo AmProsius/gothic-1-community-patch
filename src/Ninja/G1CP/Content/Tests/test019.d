@@ -12,13 +12,14 @@ func int G1CP_Test_019() {
 
     // Prior checks
     var int funcId; funcId = G1CP_Testsuite_GetDialogConditionFuncId("DIA_Scorpio_REFUSETRAIN_Condition");
+    var int infoId; infoId = G1CP_Testsuite_GetInfoId(INFO_NAME);
     G1CP_Testsuite_CheckIntVar(CHAPTER_NAME, 0);
     G1CP_Testsuite_CheckPassed();
 
     // Backup values
     var int chapterBak; chapterBak = G1CP_GetIntVar(CHAPTER_NAME, 0, 0);
     var int guildBak; guildBak = Npc_GetTrueGuild(hero);
-    var int toldBak; toldBak = Npc_KnowsInfo(hero, MEM_GetSymbolIndex(INFO_NAME));
+    var int toldBak; toldBak = Npc_KnowsInfo(hero, infoId);
     var C_Npc slfBak; slfBak = MEM_CpyInst(self);
     var C_Npc othBak; othBak = MEM_CpyInst(other);
 
