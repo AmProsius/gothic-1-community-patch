@@ -11,30 +11,30 @@ func int G1CP_Test_024() {
     const int LOG_RUNNING = 1;
     const int LOG_SUCCESS = 2;
 
-    // Define variables for specific test
-    var string drugMonopolName; drugMonopolName = "Kalom_DrugMonopol";
-    var string krautboteName;   krautboteName   = "Kalom_Krautbote";
+    // Define constants for specific test
+    const string DRUG_MONOPOL_NAME = "Kalom_DrugMonopol";
+    const string KRAUTBOTE_NAME    = "Kalom_Krautbote";
 
     // Prior checks
     var C_Npc npc;    npc    = G1CP_Testsuite_GetNpc("GUR_1201_CorKalom");
     var int   funcId; funcId = G1CP_Testsuite_GetDialogFuncId("Info_Kalom_KrautboteBACK_Info");
     var int   oreId;  oreId  = G1CP_Testsuite_GetItemId("ItMiNugget");
-    G1CP_Testsuite_CheckIntVar(drugMonopolName);
-    G1CP_Testsuite_CheckIntVar(krautboteName);
+    G1CP_Testsuite_CheckIntVar(DRUG_MONOPOL_NAME);
+    G1CP_Testsuite_CheckIntVar(KRAUTBOTE_NAME);
     G1CP_Testsuite_CheckPassed();
 
     // Check status of the test
     var int passed; passed = TRUE;
 
     // Backup values
-    var int   drugMonopolBak; drugMonopolBak = G1CP_GetIntVar(drugMonopolName, 0, 0);
-    var int   krautboteBak;   krautboteBak   = G1CP_GetIntVar(krautboteName, 0, 0);
+    var int   drugMonopolBak; drugMonopolBak = G1CP_GetIntVar(DRUG_MONOPOL_NAME, 0, 0);
+    var int   krautboteBak;   krautboteBak   = G1CP_GetIntVar(KRAUTBOTE_NAME, 0, 0);
     var C_Npc slfBak;         slfBak         = MEM_CpyInst(self);
     var C_Npc othBak;         othBak         = MEM_CpyInst(other);
 
     // Set new variables
-    G1CP_SetIntVar(drugMonopolName, 0, LOG_RUNNING);
-    G1CP_SetIntVar(krautboteName, 0, LOG_RUNNING);
+    G1CP_SetIntVar(DRUG_MONOPOL_NAME, 0, LOG_RUNNING);
+    G1CP_SetIntVar(KRAUTBOTE_NAME, 0, LOG_RUNNING);
     CreateInvItems(hero, oreId, 500); // Add 500 ore for the condition within the dialog
     self  = MEM_CpyInst(npc);
     other = MEM_CpyInst(hero);
@@ -51,20 +51,20 @@ func int G1CP_Test_024() {
     AI_StandUpQuick(hero);
 
     // Check the variables now
-    var int drugMonopolAfter; drugMonopolAfter = G1CP_GetIntVar(drugMonopolName, 0, 0);
-    var int krautboteAfter;   krautboteAfter   = G1CP_GetIntVar(krautboteName, 0, 0);
+    var int drugMonopolAfter; drugMonopolAfter = G1CP_GetIntVar(DRUG_MONOPOL_NAME, 0, 0);
+    var int krautboteAfter;   krautboteAfter   = G1CP_GetIntVar(KRAUTBOTE_NAME, 0, 0);
 
     // Restore the variables
-    G1CP_SetIntVar(drugMonopolName, 0, drugMonopolBak);
-    G1CP_SetIntVar(krautboteName, 0, krautboteBak);
+    G1CP_SetIntVar(DRUG_MONOPOL_NAME, 0, drugMonopolBak);
+    G1CP_SetIntVar(KRAUTBOTE_NAME, 0, krautboteBak);
 
     // Confirm the fix
     if (drugMonopolAfter != LOG_RUNNING) {
-        G1CP_TestsuiteErrorDetailSSS("Mission '", drugMonopolName, "' was wrongfully closed");
+        G1CP_TestsuiteErrorDetailSSS("Mission '", DRUG_MONOPOL_NAME, "' was wrongfully closed");
         passed = FALSE;
     };
     if (krautboteAfter != LOG_SUCCESS) {
-        G1CP_TestsuiteErrorDetailSSS("Mission '", krautboteName, "' is still open");
+        G1CP_TestsuiteErrorDetailSSS("Mission '", KRAUTBOTE_NAME, "' is still open");
         passed = FALSE;
     };
 
