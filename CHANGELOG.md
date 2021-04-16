@@ -4,6 +4,7 @@
 ### General
 * Fix [#4](https://g1cp.org/issues/4): NPCs no longer confront the player when he is standing in their way if he has defeated them before.
 * Fix [#14](https://g1cp.org/issues/14): The player can no longer cancel fights by entering and leaving a room. The behavior is unchanged, if trespassing into the room was the reason for the fight.
+* Fix [#45](https://g1cp.org/issues/45): Two snappers outside the Monastery ruins now correctly spawn.
 * Fix [#50](https://g1cp.org/issues/50): The inaccessible chest of the crypt below the stonehenge is now correctly positioned and accessible.
 * Fix [#52](https://g1cp.org/issues/52): The grindstone in the New Camp now correctly requires a sword blade to use.
 * Fix [#110](https://g1cp.org/issues/110): Mouse input is no longer locked when interacting with objects to allow adjusting the camera viewpoint.

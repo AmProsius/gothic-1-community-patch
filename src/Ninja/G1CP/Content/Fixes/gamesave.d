@@ -25,6 +25,7 @@ func int G1CP_HookGameSaveFixes() {
 func void G1CP_GamesaveFixes_Apply() {
     if (G1CP_InitStart()) {                             // Maximum fix function name length: 45 characters
         G1CP_037_LogEntryGravoMerchant();               // #37
+        G1CP_045_SpawnSnappersMonastery();              // #45
         G1CP_046_SmithDoor();                           // #46
         G1CP_050_Pillar();                              // #50
         G1CP_051_StonehengeCryptChest();                // #51
@@ -44,6 +45,7 @@ func void G1CP_GamesaveFixes_Apply() {
 func void G1CP_GamesaveFixes_Revert() {
     if (G1CP_InitStart()) {                             // Maximum fix function name length: 45 characters
         G1CP_037_LogEntryGravoMerchantRevert();         // #37
+        G1CP_045_SpawnSnappersMonasteryRevert();        // #45
         G1CP_046_SmithDoorRevert();                     // #46
         G1CP_050_PillarRevert();                        // #50
         G1CP_051_StonehengeCryptChestRevert();          // #51
