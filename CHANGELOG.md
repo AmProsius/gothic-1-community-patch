@@ -26,6 +26,7 @@
 * Fix [#185](https://g1cp.org/issues/185): Scorpio no longer offers to teach crossbow level 1 if the player character already gained that skill.
 * Fix [#186](https://g1cp.org/issues/186): Corristo's dialog option to become a mage now disappears when the player has already asked him before and met the level requirements.
 * Fix [#188](https://g1cp.org/issues/188): Cor Kalom can now be told that the weed was delivered only once.
+* Fix [#203](https://g1cp.org/issues/203): Graham is now correctly listed as "Merchant in the Old Camp" in the journal.
 * Fix [#214](https://g1cp.org/issues/214): Graham now correctly sits at the campfire in the evening.
 * Fix [#215](https://g1cp.org/issues/215): Guy now correctly sits at the arena in the evening.
 * Fix [#216](https://g1cp.org/issues/216): One of the diggers in the Old Camp now correctly repairs his hut during daytime.
