@@ -132,6 +132,7 @@ Content\Fixes\Gamesave\fix124_GateGuardID.d
 Content\Fixes\Gamesave\fix133_DE_LogEntryScatty.d
 Content\Fixes\Gamesave\fix143_DE_LogEntryBuster.d
 Content\Fixes\Gamesave\fix193_GateSwitchesStuck.d
+Content\Fixes\Gamesave\fix204_LogEntryCavalornTutor.d
 
 // Tests
 Content\Tests\test001.d
@@ -225,6 +226,7 @@ Content\Tests\test193.d
 Content\Tests\test197.d
 Content\Tests\test200.d
 Content\Tests\test201.d
+Content\Tests\test204.d
 Content\Tests\test214.d
 Content\Tests\test215.d
 Content\Tests\test216.d
