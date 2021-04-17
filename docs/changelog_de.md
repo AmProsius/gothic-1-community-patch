@@ -41,7 +41,7 @@
 * Fix [#186](https://g1cp.org/issues/186): Corristos Dialogoption "Ich möchte in den Kreis der Magier aufgenommen werden." verschwindet nun, wenn der Spieler ihn bereits gefragt und die Stufenvoraussetzungen erfüllt hat.
 * Fix [#188](https://g1cp.org/issues/188): Cor Kalom kann nun nur noch einmal erzählt werden, dass das Kraut abgeliefert wurde.
 * Fix [#197](https://g1cp.org/issues/197): Die Dialogzeile "Also halt dich nur da auf, wo es dir gestattet ist." im Ambient-Dialog der Templer "Was kannst du mir über dieses Lager erzählen?" ist nun korrekt dem Spielercharakter zugewiesen.
-* Fix [#204](https://g1cp.org/issues/204): Cavalorn ist nun korrekt als "Lehrer ausserhalb der Lager" im Tagebuch aufgelistet.
+* Fix [#204](https://g1cp.org/issues/204): Fingers Dialog über Cavalorn erstellt nun korrekt den Eintrag in "Lehrer ausserhalb der Lager" im Tagebuch.
 * Fix [#214](https://g1cp.org/issues/214): Graham sitzt nun korrekt abends am Lagerfeuer.
 * Fix [#215](https://g1cp.org/issues/215): Guy sitzt nun korrekt abends bei der Arena.
 * Fix [#216](https://g1cp.org/issues/216): Einer der Buddler im Alten Lager repariert jetzt korrekt tagsüber seine Hütte.

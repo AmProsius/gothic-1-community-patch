@@ -115,6 +115,7 @@ Content\Fixes\Session\fix192_MagicUserAutoEquip.d
 Content\Fixes\Session\fix197_TemplarCampDialog.d
 Content\Fixes\Session\fix200_DE_ImprovedOreArmorText.d
 Content\Fixes\Session\fix201_DE_AncientOreArmorText.d
+Content\Fixes\Session\fix204_LogEntryCavalornTutor.d
 Content\Fixes\Session\fix214_GrahamDailyRoutine.d
 Content\Fixes\Session\fix215_GuyDailyRoutine.d
 Content\Fixes\Session\fix216_DiggerDailyRoutine.d
@@ -132,7 +133,6 @@ Content\Fixes\Gamesave\fix124_GateGuardID.d
 Content\Fixes\Gamesave\fix133_DE_LogEntryScatty.d
 Content\Fixes\Gamesave\fix143_DE_LogEntryBuster.d
 Content\Fixes\Gamesave\fix193_GateSwitchesStuck.d
-Content\Fixes\Gamesave\fix204_LogEntryCavalornTutor.d
 
 // Tests
 Content\Tests\test001.d
