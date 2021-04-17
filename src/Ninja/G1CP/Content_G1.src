@@ -21,7 +21,12 @@ Content\Symbols\callable.d
 
 Content\Bytecode\funcRanges.d
 Content\Bytecode\findAndReplace.d
-Content\Bytecode\sendCodeToSpy.d
+Content\Bytecode\call.d
+Content\Bytecode\int.d
+Content\Bytecode\string.d
+Content\Bytecode\if.d
+Content\Bytecode\ou.d
+Content\Bytecode\sendToSpy.d
 
 Content\Misc\info.d
 Content\Misc\topic.d
