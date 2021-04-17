@@ -4,6 +4,7 @@
 ### General
 * Fix [#4](https://g1cp.org/issues/4): NPCs no longer confront the player when he is standing in their way if he has defeated them before.
 * Fix [#14](https://g1cp.org/issues/14): The player can no longer cancel fights by entering and leaving a room. The behavior is unchanged, if trespassing into the room was the reason for the fight.
+* Fix [#45](https://g1cp.org/issues/45): Two snappers outside the Monastery ruins now correctly spawn.
 * Fix [#50](https://g1cp.org/issues/50): The inaccessible chest of the crypt below the stonehenge is now correctly positioned and accessible.
 * Fix [#52](https://g1cp.org/issues/52): The grindstone in the New Camp now correctly requires a sword blade to use.
 * Fix [#110](https://g1cp.org/issues/110): Mouse input is no longer locked when interacting with objects to allow adjusting the camera viewpoint.
@@ -24,6 +25,10 @@
 * Fix [#183](https://g1cp.org/issues/183): Corristo no longer offers to sell a High Robe of Fire if the player already obtained one.
 * Fix [#184](https://g1cp.org/issues/184): Bartholo can now be given Kalom's weed only once.
 * Fix [#185](https://g1cp.org/issues/185): Scorpio no longer offers to teach crossbow level 1 if the player character already gained that skill.
+* Fix [#186](https://g1cp.org/issues/186): Corristo's dialog option to become a mage now disappears when the player has already asked him before and met the level requirements.
+* Fix [#188](https://g1cp.org/issues/188): Cor Kalom can now be told that the weed was delivered only once.
+* Fix [#203](https://g1cp.org/issues/203): Graham is now correctly listed as "Merchant in the Old Camp" in the journal.
+* Fix [#205](https://g1cp.org/issues/205): Wolf is now correctly listed as "Merchant in the New Camp" in the journal.
 * Fix [#214](https://g1cp.org/issues/214): Graham now correctly sits at the campfire in the evening.
 * Fix [#215](https://g1cp.org/issues/215): Guy now correctly sits at the arena in the evening.
 * Fix [#216](https://g1cp.org/issues/216): One of the diggers in the Old Camp now correctly repairs his hut during daytime.
