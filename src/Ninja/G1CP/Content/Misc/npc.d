@@ -60,6 +60,62 @@ func int G1CP_NpcIsVisibleOnScreen(var C_Npc slf) {
 
 
 /*
+ * Get the oTSpawnNode of an NPC, if currently in the spawn manager
+ */
+func int G1CP_NpcGetSpawnNode(var C_Npc slf) {
+    // NPC must be valid
+    if (!Hlp_IsValidNpc(slf)) {
+        return 0;
+    };
+
+    // Iterate over spawn list (in machine code for performance)
+    const int ret = 0;
+    const int code = 0;
+    const int npcPtr = 0;
+    if (!code) {
+        MEM_InitGlobalInst();
+        ASM_Open(47+1);
+        ASM_1(96);                              // pusha
+        ASM_1(185);   ASM_4(MEM_Game.spawnman); // mov    ecx, spawnman
+        ASM_3(545163);                          // mov    edx, [ecx+0x8]
+        ASM_2(53893);                           // test   edx, edx
+        ASM_2(6260);                            // jz     notFound
+        ASM_2(2443);                            // mov    ecx, [ecx]
+        ASM_2(13707); ASM_4(_@(npcPtr));        // mov    esi, npcPtr
+        ASM_2(49201);                           // xor    eax, eax
+        // loopStart:
+        ASM_2(14731);                           // mov    edi, [ecx]
+        ASM_2(14137);                           // cmp    [edi], esi
+        ASM_2(2676);                            // jz     found
+        ASM_1(64);                              // inc    eax
+        ASM_3(311683);                          // add    ecx, 0x4
+        ASM_2(53305);                           // cmp    eax, edx
+        ASM_2(62076);                           // jl     loopStart
+        // notFound:
+        ASM_2(65329);                           // xor    edi, edi
+        // found:
+        ASM_2(15753);  ASM_4(_@(ret));          // mov    [ret], edi
+        ASM_1(97);                              // popa
+        ASM_1(195);                             // ret
+        code = ASM_Close();
+    };
+
+    // Execute the code
+    npcPtr = _@(slf);
+    ASM_Run(code);
+    return +ret;
+};
+
+
+/*
+ * Check if an NPC is in the spawn manager. That is not the case if they are currently spawned, dead or lost.
+ */
+func int G1CP_NpcIsInSpawnMan(var C_Npc slf) {
+    return (G1CP_NpcGetSpawnNode(slf) != 0);
+};
+
+
+/*
  * Instant teleport (for the testsuite functions)
  * Advantages:
  * - Destination may be anything from a waypoint to a VOB name/NPC instance name
