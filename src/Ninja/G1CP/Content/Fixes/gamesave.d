@@ -36,6 +36,7 @@ func void G1CP_GamesaveFixes_Apply() {
         G1CP_133_DE_LogEntryScatty();                   // #133
         G1CP_143_DE_LogEntryBuster();                   // #143
         G1CP_193_GateSwitchesStuck();                   // #193
+        G1CP_212_UseWithItemNCCauldron1();              // #212
     };
 };
 
@@ -56,5 +57,6 @@ func void G1CP_GamesaveFixes_Revert() {
         G1CP_133_DE_LogEntryScattyRevert();             // #133
         G1CP_143_DE_LogEntryBusterRevert();             // #143
         G1CP_193_GateSwitchesStuckRevert();             // #193
+        G1CP_212_UseWithItemNCCauldron1Revert();        // #212
     };
 };
