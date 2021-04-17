@@ -95,6 +95,35 @@ func int G1CP_FindInFunc(var int funcId, var int needle, var int byteCount) {
 };
 
 /*
+ * Find any function calls. The return value is an array containing the (start) addresses in memory of all matches.
+ * See G1CP_FindInCode for details on the first and second parameter.
+ */
+func int G1CP_FindCall(var int funcIdOrStartAddr, var int zeroOrEndAddr, var int needleId) {
+    // Create array from the start
+    var int array; array = MEM_ArrayCreate();
+
+    // Needle can only be a function, because instance functions cannot be called from a function directly
+    if (!G1CP_IsFuncI(needleId,  "")) {
+        return array;
+    };
+
+    // Decide if Daedalus or external function
+    var zCPar_Symbol needleSymb; needleSymb = _^(MEM_GetSymbolByIndex(needleId));
+    const int bytes[2] = {-1, -1};
+    if (needleSymb.bitfield & zPAR_FLAG_EXTERNAL) {
+        bytes[0] = zPAR_TOK_CALLEXTERN << 24;
+        bytes[1] = needleId;
+    } else {
+        bytes[0] = zPAR_TOK_CALL << 24;
+        bytes[1] = needleSymb.content;
+    };
+
+    // Find function calls
+    array = G1CP_FindInCode(funcIdOrStartAddr, zeroOrEndAddr, _@(bytes)+3, 5, 0);
+    return array;
+};
+
+/*
  * Replace any function calls with a call to another. The function returns the number of replacements.
  * See G1CP_FindInCode for details on the first and second parameter.
  */
@@ -139,18 +168,8 @@ func int G1CP_ReplaceCall(var int funcIdOrStartAddr, var int zeroOrEndAddr, var 
         };
     end;
 
-    // Decide if Daedalus or external function
-    const int bytes[2] = {-1, -1};
-    if (needleSymb.bitfield & zPAR_FLAG_EXTERNAL) {
-        bytes[0] = zPAR_TOK_CALLEXTERN << 24;
-        bytes[1] = needleId;
-    } else {
-        bytes[0] = zPAR_TOK_CALL << 24;
-        bytes[1] = needleSymb.content;
-    };
-
     // Find function calls
-    var int matches; matches = G1CP_FindInCode(funcIdOrStartAddr, zeroOrEndAddr, _@(bytes)+3, 5, 0);
+    var int matches; matches = G1CP_FindCall(funcIdOrStartAddr, zeroOrEndAddr, needleId);
 
     // Overwrite each occurrence
     repeat(i, MEM_ArraySize(matches));
@@ -169,14 +188,17 @@ func int G1CP_ReplaceCall(var int funcIdOrStartAddr, var int zeroOrEndAddr, var 
 };
 
 /*
- * Replace any integer assignments with another integer. The function returns the number of replacements.
+ * Find any integer assignments. The return value is an array containing the (start) addresses in memory of all matches.
  * See G1CP_FindInCode for details on the first and second parameter.
  */
-func int G1CP_ReplaceAssignInt(var int funcIdOrStartAddr, var int zeroOrEndAddr, var string assignedSymb,
-                               var int arrIdx, var int needle, var int replace) {
+func int G1CP_FindAssignInt(var int funcIdOrStartAddr, var int zeroOrEndAddr, var string assignedSymb, var int arrIdx,
+                            var int needle) {
+    // Create array from the start
+    var int array; array = MEM_ArrayCreate();
+
     // Make sure all exist
     if (!G1CP_IsInt(assignedSymb, arrIdx)) {
-        return 0;
+        return array;
     };
 
     // Check for integer assignments
@@ -211,6 +233,36 @@ func int G1CP_ReplaceAssignInt(var int funcIdOrStartAddr, var int zeroOrEndAddr,
                 continue;
             };
         };
+
+        // Found match
+        MEM_ArrayInsert(array, pos);
+    end;
+
+    // Free the array
+    MEM_ArrayFree(matches);
+
+    // Return the matches
+    return array;
+};
+
+/*
+ * Replace any integer assignments with another integer. The function returns the number of replacements.
+ * See G1CP_FindInCode for details on the first and second parameter.
+ */
+func int G1CP_ReplaceAssignInt(var int funcIdOrStartAddr, var int zeroOrEndAddr, var string assignedSymb,
+                               var int arrIdx, var int needle, var int replace) {
+    // Make sure all exist
+    if (!G1CP_IsInt(assignedSymb, arrIdx)) {
+        return 0;
+    };
+
+    // Find all string assignments
+    var int matches; matches = G1CP_FindAssignInt(funcIdOrStartAddr, zeroOrEndAddr, assignedSymb, arrIdx, needle);
+
+    // Iterate over all matches
+    var int count; count = 0;
+    repeat(i, MEM_ArraySize(matches)); var int i;
+        var int pos; pos = MEM_ArrayRead(matches, i);
 
         // Overwrite the integer assignment with the replacement integer
         MEMINT_OverrideFunc_Ptr = pos-5;
