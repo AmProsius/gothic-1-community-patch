@@ -3,7 +3,7 @@
  */
 func void G1CP_Testsuite_CheckItem(var string name) {
     if (!G1CP_IsItemInst(name)) {
-        G1CP_TestsuiteErrorDetailSSS("Item '", name, "' not found");
+        G1CP_TestsuiteErrorDetailSSS("Item instance '", name, "' not found");
         G1CP_TestsuiteStatusPassed = FALSE;
     };
 };
@@ -142,7 +142,7 @@ func int G1CP_Testsuite_GetDialogConditionFuncId(var string name) {
 func MEMINT_HelperClass G1CP_Testsuite_GetNpc(var string name) {
     // Check if NPC instance exists
     if (!G1CP_IsNpcInst(name)) {
-        G1CP_TestsuiteErrorDetailSSS("NPC '", name, "' not found");
+        G1CP_TestsuiteErrorDetailSSS("NPC instance '", name, "' not found");
         G1CP_TestsuiteStatusPassed = FALSE;
         MEM_NullToInst();
     } else {
@@ -157,5 +157,34 @@ func MEMINT_HelperClass G1CP_Testsuite_GetNpc(var string name) {
             // Return NPC
             MEMINT_StackPushInst(npc);
         };
+    };
+};
+
+/*
+ * Check if item instance exists, create an item of that instance and return it
+ */
+func MEMINT_HelperClass G1CP_Testsuite_GetItem(var string name) {
+    // Check if item instance exists
+    if (!G1CP_IsItemInst(name)) {
+        G1CP_Testsuite_CheckItem(name); // Does not return anything
+        MEM_NullToInst();
+    } else {
+        // Backup global symbol
+        var C_Item itemBak; itemBak = MEM_CpyInst(item);
+
+        // Create the item locally using the Item_Helper
+        var C_Item itm; // Need an intermediate instance
+        var int symbId; symbId = MEM_GetSymbolIndex(name);
+        if (Itm_GetPtr(symbId)) {
+            itm = MEM_CpyInst(item); // Item_Helper assigns global symbol
+            MEMINT_StackPushInst(itm);
+        } else {
+            G1CP_TestsuiteErrorDetailSSS("Item of instance '", name, "' could not be created");
+            G1CP_TestsuiteStatusPassed = FALSE;
+            MEM_NullToInst();
+        };
+
+        // Restore global symbol
+        item = MEM_CpyInst(itemBak);
     };
 };
