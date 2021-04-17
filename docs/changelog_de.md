@@ -43,6 +43,7 @@
 * Fix [#188](https://g1cp.org/issues/188): Cor Kalom kann nun nur noch einmal erzählt werden, dass das Kraut abgeliefert wurde.
 * Fix [#197](https://g1cp.org/issues/197): Die Dialogzeile "Also halt dich nur da auf, wo es dir gestattet ist." im Ambient-Dialog der Templer "Was kannst du mir über dieses Lager erzählen?" ist nun korrekt dem Spielercharakter zugewiesen.
 * Fix [#203](https://g1cp.org/issues/203): Graham ist nun korrekt als "Händler im Alten Lager" im Tagebuch aufgelistet.
+* Fix [#205](https://g1cp.org/issues/205): Wolf ist nun korrekt als "Händler im Neuen Lager" im Tagebuch aufgelistet.
 * Fix [#214](https://g1cp.org/issues/214): Graham sitzt nun korrekt abends am Lagerfeuer.
 * Fix [#215](https://g1cp.org/issues/215): Guy sitzt nun korrekt abends bei der Arena.
 * Fix [#216](https://g1cp.org/issues/216): Einer der Buddler im Alten Lager repariert jetzt korrekt tagsüber seine Hütte.
