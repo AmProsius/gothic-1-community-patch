@@ -15,6 +15,5 @@ func void G1CP_Test_030() {
     var C_Npc npc; npc = G1CP_Testsuite_GetNpc("Org_841_Silas");
     G1CP_Testsuite_CheckPassed();
 
-    // Teleport the hero to Silas
-    AI_Teleport(hero, silas.wp);
+    AI_Teleport(hero, npc.wp);
 };

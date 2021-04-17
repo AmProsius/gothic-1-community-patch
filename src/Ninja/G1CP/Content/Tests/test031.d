@@ -48,7 +48,7 @@ func int G1CP_Test_031() {
     const string VAR_NAME = "Knows_GetMCPlates";
 
     // Prior checks
-    G1CP_Testsuite_CheckIntVar(VAR_NAME);
+    G1CP_Testsuite_CheckIntVar(VAR_NAME, 0);
     var int itemId; itemId = G1CP_Testsuite_GetItemId("ItAt_Crawler_02");
     G1CP_Testsuite_CheckPassed();
 

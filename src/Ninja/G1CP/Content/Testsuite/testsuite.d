@@ -134,9 +134,6 @@ func string G1CP_TestsuiteAll(var string _) {
     // Do not trigger manual tests
     G1CP_TestsuiteAllowManual = FALSE;
 
-    // Reset test status
-    G1CP_TestsuiteStatusPassed = TRUE;
-
     // Remember the data stack position
     var int stkPosBefore; stkPosBefore = MEM_Parser.datastack_sptr;
 
@@ -158,6 +155,9 @@ func string G1CP_TestsuiteAll(var string _) {
                 msg = ConcatStrings(msg, "* ");
             };
             msg = ConcatStrings(msg, "... ");
+
+            // Reset test status before every test
+            G1CP_TestsuiteStatusPassed = TRUE;
 
             // Reset the data stack position and call the test function
             MEM_Parser.datastack_sptr = stkPosBefore;

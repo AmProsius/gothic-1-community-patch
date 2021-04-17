@@ -15,7 +15,7 @@ func int G1CP_Test_033() {
     var int funcId; funcId = G1CP_Testsuite_GetDialogConditionFuncId("DIA_Shrike_GetLost_Condition");
     var int infoId; infoId = G1CP_Testsuite_GetInfoId(INFO_NAME);
     var C_Npc npc; npc = G1CP_Testsuite_GetNpc("ORG_842_Shrike");
-    G1CP_Testsuite_CheckIntVar(AI_VAR_NAME, 0);
+    G1CP_Testsuite_CheckIntConst(AI_VAR_NAME, 0);
     G1CP_Testsuite_CheckIntVar(VAR_NAME, 0);
     G1CP_Testsuite_CheckPassed();
 

@@ -16,11 +16,11 @@ func int G1CP_Test_027() {
     var int itemId; itemId = G1CP_Testsuite_GetItemId("ItFoBeer");
     G1CP_Testsuite_CheckIntVar(BIER_BEKOMMEN_NAME, 0);
     G1CP_Testsuite_CheckIntVar(LEHRER_FREI_NAME, 0);
-    G1CP_Testsuite_CheckIntConst(TOPIC_NAME, 0);
+    G1CP_Testsuite_CheckStringConst(TOPIC_NAME, 0);
     G1CP_Testsuite_CheckPassed();
 
     // Get constant values
-    const string TOPIC = ""; TOPIC = G1CP_GetStringConst(TOPIC_NAME, 0, 0);
+    const string TOPIC = ""; TOPIC = G1CP_GetStringConst(TOPIC_NAME, 0, TOPIC);
 
     // Rename the log topic if it already exists
     const string TEMP_TOPIC_NAME = "G1CP Test 27"; // Has to be a unique name with absolute certainty

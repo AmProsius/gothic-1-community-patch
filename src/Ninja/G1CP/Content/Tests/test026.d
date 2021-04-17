@@ -18,7 +18,7 @@ func int G1CP_Test_026() {
     var int funcId; funcId = G1CP_Testsuite_GetDialogConditionFuncId("Info_Org_804_FirstWarn_Condition");
     var C_Npc npc; npc = G1CP_Testsuite_GetNpc("Org_804_Organisator");
     G1CP_Testsuite_CheckIntConst(GUILD_NAME, 0);
-    G1CP_Testsuite_CheckIntVar(AI_VAR_NAME, 0);
+    G1CP_Testsuite_CheckIntConst(AI_VAR_NAME, 0);
     G1CP_Testsuite_CheckPassed();
 
     // Backup values
