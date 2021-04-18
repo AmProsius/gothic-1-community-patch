@@ -20,7 +20,7 @@
 ### Story
 * Fix [#23](https://g1cp.org/issues/23): The armor "Novice's Armor" is now available in chapter 2 to make it accessible before receiving the first templar armor.
 * Fix [#36](https://g1cp.org/issues/36) (updated): Fisk's quest "New Fence for Fisk" is now available when the player either knocked out or killed Mordrag.
-* Fix [#37](https://g1cp.org/issues/37): Gravo is now correctly listed as merchant in the Old Camp in the journal.
+* Fix [#37](https://g1cp.org/issues/37): Gravo is now correctly listed as "Merchant in the Old Camp" in the journal.
 * Fix [#115](https://g1cp.org/issues/115): The templars in the orc graveyard are now less likely to survive.
 * Fix [#174](https://g1cp.org/issues/174): The key "Gomez' Bowl" is now correctly labelled as "Gomez' Key".
 * Fix [#175](https://g1cp.org/issues/175): The key "Rice Lord's Bowl" is now correctly labelled as "Rice Lord's Key".
@@ -32,6 +32,7 @@
 * Fix [#186](https://g1cp.org/issues/186): Corristo's dialog option to become a mage now disappears when the player has already asked him before and met the level requirements.
 * Fix [#188](https://g1cp.org/issues/188): Cor Kalom can now be told that the weed was delivered only once.
 * Fix [#203](https://g1cp.org/issues/203): Graham is now correctly listed as "Merchant in the Old Camp" in the journal.
+* Fix [#204](https://g1cp.org/issues/204): Finger's dialog about Cavalorn will now correctly create the entry in "Tutor outside the camps" in the journal.
 * Fix [#205](https://g1cp.org/issues/205): Wolf is now correctly listed as "Merchant in the New Camp" in the journal.
 * Fix [#214](https://g1cp.org/issues/214): Graham now correctly sits at the campfire in the evening.
 * Fix [#215](https://g1cp.org/issues/215): Guy now correctly sits at the arena in the evening.
