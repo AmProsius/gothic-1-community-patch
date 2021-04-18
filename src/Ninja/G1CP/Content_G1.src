@@ -124,6 +124,7 @@ Content\Fixes\Session\fix214_GrahamDailyRoutine.d
 Content\Fixes\Session\fix215_GuyDailyRoutine.d
 Content\Fixes\Session\fix216_DiggerDailyRoutine.d
 Content\Fixes\Session\fix217_MercenaryDailyRoutine.d
+Content\Fixes\Session\fix223_CorKalomSpyQuest.d
 
 // Game save fixes
 Content\Fixes\Gamesave\fix037_LogEntryGravoMerchant.d
@@ -240,6 +241,7 @@ Content\Tests\test214.d
 Content\Tests\test215.d
 Content\Tests\test216.d
 Content\Tests\test217.d
+Content\Tests\test223.d
 
 // Initialization
 Content\initPre.d

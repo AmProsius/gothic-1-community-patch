@@ -3,6 +3,7 @@
 ## v1.2.0 (TBA)
 ### General
 ### Story
+* Fix [#223](https://g1cp.org/issues/223): Das Tagebuch zeigt nicht mehr die Einträge für sowohl Altes Lager als auch Neues Lager für Quest "Die Große Sache der Bruderschaft".
 
 ## v1.1.0 (TBA)
 ### General

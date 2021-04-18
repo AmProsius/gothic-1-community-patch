@@ -3,6 +3,7 @@
 ## v1.2.0 (TBA)
 ### General
 ### Story
+* Fix [#223](https://g1cp.org/issues/223): The Quest log no longer shows entries for both Old Camp and New Camp for the quest "The Big Thing of the Brotherhood".
 
 ## v1.1.0 (TBA)
 ### General
