@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.2.0 (TBA)
+### General
+### Story
+
 ## v1.1.0 (TBA)
 ### General
 * Fix [#4](https://g1cp.org/issues/4): NPCs no longer confront the player when he is standing in their way if he has defeated them before.
