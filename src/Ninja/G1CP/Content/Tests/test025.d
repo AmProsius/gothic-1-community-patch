@@ -6,17 +6,13 @@
  * Expected behavior: The condition function will return FALSE.
  */
 func int G1CP_Test_025() {
-    // Define constants for specific test
-    const string GUILD_NAME = "GIL_KDW";
-
-    // Prior checks
-    var int funcId; funcId = G1CP_Testsuite_GetDialogConditionFuncId("KDW_600_Saturas_HEAVYARMOR_Condition");
-    var int itemId; itemId = G1CP_Testsuite_GetItemId("KDW_ARMOR_H");
-    G1CP_Testsuite_CheckIntConst(GUILD_NAME, 0);
+    var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("KDW_600_Saturas_HEAVYARMOR_Condition");
+    var int itemId; itemId = G1CP_Testsuite_CheckItem("KDW_ARMOR_H");
+    var int gilId; gilId = G1CP_Testsuite_CheckIntConst("GIL_KDW", 0);
     G1CP_Testsuite_CheckPassed();
 
     // Get constant values
-    const int GUILD = 0; GUILD = G1CP_GetIntConst(GUILD_NAME, 0, 0);
+    const int GUILD = 0; GUILD = G1CP_GetIntConstI(gilId, 0, 0);
 
     // Backup values
     var int guildBak; guildBak = hero.guild;

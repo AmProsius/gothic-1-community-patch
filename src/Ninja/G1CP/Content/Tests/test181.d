@@ -7,9 +7,7 @@
  * Expected behavior: The hero is merely teleported there, the dialog should work properly.
  */
 func void G1CP_Test_181() {
-    if (!G1CP_TestsuiteAllowManual) {
-        return;
-    };
+    G1CP_Testsuite_CheckManual();
 
     // Check status of the test
     var int passed; passed = TRUE;

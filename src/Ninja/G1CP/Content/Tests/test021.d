@@ -6,22 +6,18 @@
  * Expected behavior: The log entry is not moved to the "running" section.
  */
 func int G1CP_Test_021() {
+    var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc("DIA_Fletcher_WoNek_Info");
+    var int topicId; topicId = G1CP_Testsuite_CheckStringConst("CH1_LostNek", 0);
+    G1CP_Testsuite_CheckPassed();
+
     // Define possibly missing symbols locally
     const int GIL_NONE = 0;
     const int LOG_MISSION = 0;
     const int LOG_RUNNING = 1;
     const int LOG_SUCCESS = 2;
 
-    // Define constants for specific test
-    const string TOPIC_NAME = "CH1_LostNek";
-
-    // Prior checks
-    var int funcId; funcId = G1CP_Testsuite_GetDialogFuncId("DIA_Fletcher_WoNek_Info");
-    G1CP_Testsuite_CheckStringConst(TOPIC_NAME, 0);
-    G1CP_Testsuite_CheckPassed();
-
     // Get constant values
-    const string TOPIC = ""; TOPIC = G1CP_GetStringConst(TOPIC_NAME, 0 , "");
+    const string TOPIC = ""; TOPIC = G1CP_GetStringConstI(topicId, 0 , TOPIC);
 
     // Backup values
     var int topicStatusBak; topicStatusBak = G1CP_LogGetTopicStatus(TOPIC);

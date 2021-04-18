@@ -6,8 +6,7 @@
  * Expected behavior: The condition function will return FALSE.
  */
 func int G1CP_Test_017() {
-    // Prior checks
-    var int funcId; funcId = G1CP_Testsuite_GetDialogConditionFuncId("Info_Jackal_Hello_Condition");
+    var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("Info_Jackal_Hello_Condition");
     G1CP_Testsuite_CheckPassed();
 
     // Backup values

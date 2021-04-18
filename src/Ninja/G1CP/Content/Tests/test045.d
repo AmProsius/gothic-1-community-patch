@@ -7,9 +7,7 @@
  * Expected behavior: The snappers appear at the waypoint, identifiable by bounding boxes.
  */
 func void G1CP_Test_045() {
-    if (!G1CP_TestsuiteAllowManual) {
-        return;
-    };
+    G1CP_Testsuite_CheckManual();
 
     // Define possibly missing symbols locally
     const int NPC_FLAG_IMMORTAL = 1 << 1;

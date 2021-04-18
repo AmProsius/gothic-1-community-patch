@@ -10,16 +10,11 @@
 const int G1CP_Test_007_Pass = 0;
 
 func void G1CP_Test_007() {
-    if (!G1CP_TestsuiteAllowManual) {
-        return;
-    };
-
-    // Check if AI state exists
-    var int symbId; symbId = MEM_GetSymbolIndex("ZS_PracticeSword");
-    if (symbId == -1) {
-        G1CP_TestsuiteErrorDetail("AI state 'ZS_PracticeSword' not found");
-        return;
-    };
+    G1CP_Testsuite_CheckManual();
+    G1CP_Testsuite_CheckAiStateStartFunc("ZS_PracticeSword");
+    G1CP_Testsuite_CheckItem("ItRw_Bow_Small_01");
+    G1CP_Testsuite_CheckItem("Scars_Schwert");
+    G1CP_Testsuite_CheckPassed();
 
     // Two passes
     G1CP_Test_007_Pass = 0;
@@ -70,23 +65,17 @@ func int  ZS_G1CP_Test_007_NpcRountine_Loop() {
         G1CP_Test_007_Pass += 1;
 
         // Trigger the AI state
-        var int symbId; symbId = MEM_GetSymbolIndex("ZS_PracticeSword");
-        if (symbId != -1) {
-            // AI_StartState(self, symbId, 0, ""); // Does not work, expects func parameter
-            MEM_PushInstParam(self);
-            MEM_PushIntParam(symbId); // Func parameter as integer
-            MEM_PushIntParam(0);
-            MEM_PushStringParam("");
-            MEM_Call(AI_StartState);
+        // AI_StartState(self, symbId, 0, ""); // Does not work, expects func parameter
+        MEM_PushInstParam(self);
+        MEM_PushIntParam(MEM_GetSymbolIndex("ZS_PracticeSword")); // Func parameter as integer
+        MEM_PushIntParam(0);
+        MEM_PushStringParam("");
+        MEM_Call(AI_StartState);
 
-            // Somehow needs to end
-            AI_TurnToNpc(hero, self);
-            AI_Wait(hero, 5);
-            AI_Function(hero, G1CP_Test_007_Success);
-        } else {
-            // Send to zSpy directly here because it is after the test has finished
-            MEM_SendToSpy(zERR_TYPE_FAULT, "  Test   7: AI state 'ZS_PracticeSword' not found");
-        };
+        // Somehow needs to end
+        AI_TurnToNpc(hero, self);
+        AI_Wait(hero, 5);
+        AI_Function(hero, G1CP_Test_007_Success);
         return 1;
     };
 };

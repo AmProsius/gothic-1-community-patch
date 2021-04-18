@@ -7,10 +7,8 @@
  * Expected behavior: The castle gate should be closed (or closing?).
  */
 func void G1CP_Test_124() {
-    if (!G1CP_TestsuiteAllowManual) {
-        return;
-    };
-    
+    G1CP_Testsuite_CheckManual();
+
     // Define possibly missing symbols locally
     const int GIL_GRD = 2;
 

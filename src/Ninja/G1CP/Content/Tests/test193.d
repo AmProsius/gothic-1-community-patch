@@ -7,9 +7,7 @@
  * Expected behavior: The gate (that the PC is teleported to) can be opened again after closing it, saving and loading.
  */
 func void G1CP_Test_193() {
-    if (!G1CP_TestsuiteAllowManual) {
-        return;
-    };
+    G1CP_Testsuite_CheckManual();
 
     // Check status of the test
     var int passed; passed = TRUE;

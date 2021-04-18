@@ -6,10 +6,8 @@
  * Expected behavior: The grindstone is not usable anymore (without a sword blade).
  */
 func void G1CP_Test_052() {
-    if (!G1CP_TestsuiteAllowManual) {
-        return;
-    };
-    
+    G1CP_Testsuite_CheckManual();
+
     Wld_SetTime(3, 0); // Get that mercenary out of the way
     AI_Teleport(hero, "NC_HUT03_OUT_MOVEMENT");
 };

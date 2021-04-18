@@ -6,9 +6,7 @@
  * Expected behavior: Sharky will not open the trade menu when talking about Fisk's quest.
  */
 func void G1CP_Test_126() {
-    if (!G1CP_TestsuiteAllowManual) {
-        return;
-    };
+    G1CP_Testsuite_CheckManual();
 
     // Define possibly missing symbols locally
     const int LOG_RUNNING = 1;

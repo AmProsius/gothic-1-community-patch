@@ -6,12 +6,11 @@
  * Expected behavior: The hero never loses strength
  */
 func int G1CP_Test_015() {
+    var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc("DIA_Horatio_HelpSTR_LEARN_NOW");
+    G1CP_Testsuite_CheckPassed();
+
     // Define possibly missing symbols locally
     const int ATR_STRENGTH = 4;
-
-    // Prior checks
-    var int funcId; funcId = G1CP_Testsuite_GetDialogFuncId("DIA_Horatio_HelpSTR_LEARN_NOW");
-    G1CP_Testsuite_CheckPassed();
 
     // Check status of the test
     var int passed; passed = TRUE;

@@ -6,10 +6,8 @@
  * Expected behavior: The pillar falls in the correct direction and has collision to be able to walk over the cliff.
  */
 func void G1CP_Test_050() {
-    if (!G1CP_TestsuiteAllowManual) {
-        return;
-    };
-    
+    G1CP_Testsuite_CheckManual();
+
     // Check if pillar is found
     var int vobPtr; vobPtr = MEM_SearchVobByName("MOBSISEULE");
     if (vobPtr) {

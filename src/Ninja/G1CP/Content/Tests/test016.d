@@ -7,24 +7,20 @@
  * Expected behavior: The condition functions will return FALSE.
  */
 func int G1CP_Test_016_RunDialog(var string dialogConditionName, var string infoName) {
-    // Define constants for specific test
-    const string AI_VAR_NAME = "AIV_PASSGATE";
-
-    // Prior checks
-    var int funcId; funcId = G1CP_Testsuite_GetDialogConditionFuncId(dialogConditionName);
-    var int infoId; infoId = G1CP_Testsuite_GetInfoId(infoName);
-    var C_Npc npc; npc = G1CP_Testsuite_GetNpc("Grd_212_Torwache");
-    G1CP_Testsuite_CheckIntConst(AI_VAR_NAME, 0);
+    var C_Npc npc; npc = G1CP_Testsuite_FindNpc("Grd_212_Torwache");
+    var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc(dialogConditionName);
+    var int infoId; infoId = G1CP_Testsuite_CheckInfo(infoName);
+    var int aiVarId; aiVarId = G1CP_Testsuite_CheckIntConst("AIV_PASSGATE", 0);
     G1CP_Testsuite_CheckPassed();
 
     // Backup values
-    var int aiVarBak; aiVarBak = G1CP_NpcGetAIVar(npc, AI_VAR_NAME, 0);
+    var int aiVarBak; aiVarBak = G1CP_NpcGetAIVarI(npc, aiVarId, 0);
     var int toldBak; toldBak = Npc_KnowsInfo(hero, infoId);
     var C_Npc slfBak; slfBak = MEM_CpyInst(self);
     var C_Npc othBak; othBak = MEM_CpyInst(other);
 
     // Set new values
-    G1CP_NpcSetAIVar(npc, AI_VAR_NAME, TRUE);
+    G1CP_NpcSetAIVarI(npc, aiVarId, TRUE);
     G1CP_SetInfoTold(infoName, TRUE);
     self = MEM_CpyInst(hero);
     other = MEM_CpyInst(hero);
@@ -36,7 +32,7 @@ func int G1CP_Test_016_RunDialog(var string dialogConditionName, var string info
     // Restore values
     self = MEM_CpyInst(slfBak);
     other = MEM_CpyInst(othBak);
-    G1CP_NpcSetAIVar(npc, AI_VAR_NAME, aiVarBak);
+    G1CP_NpcSetAIVarI(npc, aiVarId, aiVarBak);
     G1CP_SetInfoTold(infoName, toldBak);
 
     // Check return value
@@ -48,11 +44,11 @@ func int G1CP_Test_016_RunDialog(var string dialogConditionName, var string info
     return TRUE;
 };
 func int G1CP_Test_016() {
-    var int ret; ret = 0;
+    var int passed; passed = FALSE;
 
     // First dialog
-    ret += G1CP_Test_016_RunDialog("Info_Thorus_Give1000Ore_Condition", "Info_Thorus_BribeGuard");
-    ret += G1CP_Test_016_RunDialog("Info_Thorus_LetterForMages_Condition", "Info_Thorus_EnterCastle");
+    passed += G1CP_Test_016_RunDialog("Info_Thorus_Give1000Ore_Condition", "Info_Thorus_BribeGuard");
+    passed += G1CP_Test_016_RunDialog("Info_Thorus_LetterForMages_Condition", "Info_Thorus_EnterCastle");
 
-    return (ret == 2);
+    return (passed == 2);
 };

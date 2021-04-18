@@ -6,30 +6,25 @@
  * Expected behavior: The condition function will return FALSE.
  */
 func int G1CP_Test_019() {
-    // Define possibly missing symbols locally
-    const int GIL_NONE = 0;
-    
-    // Define constants for specific test
-    const string CHAPTER_NAME = "Kapitel";
-    const string INFO_NAME = "DIA_Scorpio_Hello";
-
-    // Prior checks
-    var int funcId; funcId = G1CP_Testsuite_GetDialogConditionFuncId("DIA_Scorpio_REFUSETRAIN_Condition");
-    var int infoId; infoId = G1CP_Testsuite_GetInfoId(INFO_NAME);
-    G1CP_Testsuite_CheckIntVar(CHAPTER_NAME, 0);
+    var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("DIA_Scorpio_REFUSETRAIN_Condition");
+    var int infoId; infoId = G1CP_Testsuite_CheckInfo("DIA_Scorpio_Hello");
+    var int chptrId; chptrId = G1CP_Testsuite_CheckIntVar("Kapitel", 0);
     G1CP_Testsuite_CheckPassed();
 
+    // Define possibly missing symbols locally
+    const int GIL_NONE = 0;
+
     // Backup values
-    var int chapterBak; chapterBak = G1CP_GetIntVar(CHAPTER_NAME, 0, 0);
+    var int chapterBak; chapterBak = G1CP_GetIntVarI(chptrId, 0, 0);
     var int guildBak; guildBak = Npc_GetTrueGuild(hero);
     var int toldBak; toldBak = Npc_KnowsInfo(hero, infoId);
     var C_Npc slfBak; slfBak = MEM_CpyInst(self);
     var C_Npc othBak; othBak = MEM_CpyInst(other);
 
     // Set new values
-    G1CP_SetIntVar(CHAPTER_NAME, 0, 4);
+    G1CP_SetIntVarI(chptrId, 0, 4);
     Npc_SetTrueGuild(hero, GIL_NONE);
-    G1CP_SetInfoTold(INFO_NAME, TRUE);
+    G1CP_SetInfoToldI(infoId, TRUE);
     self = MEM_CpyInst(hero);
     other = MEM_CpyInst(hero);
 
@@ -40,9 +35,9 @@ func int G1CP_Test_019() {
     // Restore values
     self = MEM_CpyInst(slfBak);
     other = MEM_CpyInst(othBak);
-    G1CP_SetIntVar(CHAPTER_NAME, 0, chapterBak);
+    G1CP_SetIntVarI(chptrId, 0, chapterBak);
     Npc_SetTrueGuild(hero, guildBak);
-    G1CP_SetInfoTold(INFO_NAME, toldBak);
+    G1CP_SetInfoToldI(infoId, toldBak);
 
     // Check return value
     if (ret) {

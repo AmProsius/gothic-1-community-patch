@@ -6,9 +6,7 @@
  * Expected behavior: The hero is merely teleported to Fletcher, the available dialog choices should match the skills.
  */
 func void G1CP_Test_039() {
-    if (!G1CP_TestsuiteAllowManual) {
-        return;
-    };
+    G1CP_Testsuite_CheckManual();
 
     // Check status of the test
     var int passed; passed = TRUE;

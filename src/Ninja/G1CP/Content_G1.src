@@ -18,6 +18,7 @@ Content\Symbols\string.d
 Content\Symbols\func.d
 Content\Symbols\inst.d
 Content\Symbols\callable.d
+Content\Symbols\general.d
 
 Content\Bytecode\funcRanges.d
 Content\Bytecode\findAndReplace.d
@@ -37,9 +38,11 @@ Content\Misc\npc.d
 
 // Fixes and tests
 Content\Fixes\record.d
+Content\Testsuite\error.d
 Content\Testsuite\testsuite.d
 Content\Testsuite\check.d
-Content\Testsuite\get.d
+Content\Testsuite\find.d
+Content\Testsuite\create.d
 
 // Session fixes
 Content\Fixes\Session\fix001_NpcStateSleep.d

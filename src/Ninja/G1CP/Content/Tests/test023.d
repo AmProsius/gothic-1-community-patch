@@ -6,18 +6,14 @@
  * Expected behavior: The armor is sold at chapter 2.
  */
 func int G1CP_Test_023() {
-    // Define constants for specific test
-    const string CHAPTER_NAME = "Kapitel";
-
-    // Prior checks
-    G1CP_Testsuite_CheckIntVar(CHAPTER_NAME, 0);
-    var int funcId; funcId = G1CP_Testsuite_GetDialogFuncId("GUR_1204_BaalNamib_ARMOR_Info");
-    var int armorId; armorId = G1CP_Testsuite_GetItemId("NOV_ARMOR_H");
-    var int oreId; oreId = G1CP_Testsuite_GetItemId("ItMinugget");
+    var int chptId; chptId = G1CP_Testsuite_CheckIntVar("Kapitel", 0);
+    var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc("GUR_1204_BaalNamib_ARMOR_Info");
+    var int armorId; armorId = G1CP_Testsuite_CheckItem("NOV_ARMOR_H");
+    var int oreId; oreId = G1CP_Testsuite_CheckItem("ItMinugget");
     G1CP_Testsuite_CheckPassed();
 
     // Backup values
-    var int chapterBak; chapterBak = G1CP_GetIntVar(CHAPTER_NAME, 0, 0);
+    var int chapterBak; chapterBak = G1CP_GetIntVarI(chptId, 0, 0);
     var int armorBefore; armorBefore = Npc_HasItems(hero, armorId);
     var int oreBefore; oreBefore = Npc_HasItems(hero, oreId);
     var C_Npc slfBak; slfBak = MEM_CpyInst(self);
@@ -32,7 +28,7 @@ func int G1CP_Test_023() {
     };
 
     // Set new values
-    G1CP_SetIntVar(CHAPTER_NAME, 0, 2);
+    G1CP_SetIntVarI(chptId, 0, 2);
     CreateInvItems(hero, oreId, 5000); // Give enough ore (don't care about the details)
     GetItemHelper();
     self = MEM_CpyInst(Item_Helper);
@@ -68,7 +64,7 @@ func int G1CP_Test_023() {
     };
 
     // Restore the chapter
-    G1CP_SetIntVar(CHAPTER_NAME, 0, chapterBak);
+    G1CP_SetIntVarI(chptId, 0, chapterBak);
 
     // Check the amount
     if (armorAfter > 0) {

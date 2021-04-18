@@ -6,30 +6,24 @@
  * Expected behavior: The variable "drax_Lehrer_frei" is set/not set and log entry is created/not created accordingly.
  */
 func int G1CP_Test_027() {
-    // Define variables for specific test
-    const string BIER_BEKOMMEN_NAME = "drax_bierbekommen";
-    const string LEHRER_FREI_NAME = "drax_Lehrer_frei";
-    const string TOPIC_NAME = "GE_TeacherOW";
-
-    // Prior checks
-    var int funcId; funcId = G1CP_Testsuite_GetDialogFuncId("Org_819_Drax_Scavenger_Info");
-    var int itemId; itemId = G1CP_Testsuite_GetItemId("ItFoBeer");
-    G1CP_Testsuite_CheckIntVar(BIER_BEKOMMEN_NAME, 0);
-    G1CP_Testsuite_CheckIntVar(LEHRER_FREI_NAME, 0);
-    G1CP_Testsuite_CheckStringConst(TOPIC_NAME, 0);
+    const string TEMP_TOPIC_NAME = "G1CP Test 27"; // Has to be a unique name with absolute certainty
+    var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc("Org_819_Drax_Scavenger_Info");
+    var int itemId; itemId = G1CP_Testsuite_CheckItem("ItFoBeer");
+    var int var1Id; var1Id = G1CP_Testsuite_CheckIntVar("drax_bierbekommen", 0);
+    var int var2Id; var2Id = G1CP_Testsuite_CheckIntVar("drax_Lehrer_frei", 0);
+    var int topicId; topicId = G1CP_Testsuite_CheckStringConst("GE_TeacherOW", 0);
     G1CP_Testsuite_CheckPassed();
 
     // Get constant values
-    const string TOPIC = ""; TOPIC = G1CP_GetStringConst(TOPIC_NAME, 0, TOPIC);
+    const string TOPIC = ""; TOPIC = G1CP_GetStringConstI(topicId, 0, TOPIC);
 
     // Rename the log topic if it already exists
-    const string TEMP_TOPIC_NAME = "G1CP Test 27"; // Has to be a unique name with absolute certainty
     G1CP_LogRenameTopic(TOPIC, TEMP_TOPIC_NAME);
 
     // Backup values
     var int beersBefore; beersBefore = Npc_HasItems(hero, itemId);
-    var int beerGivenBak; beerGivenBak = G1CP_GetIntVar(BIER_BEKOMMEN_NAME, 0, 0);
-    var int teachingBak; teachingBak = G1CP_GetIntVar(LEHRER_FREI_NAME, 0, 0);
+    var int beerGivenBak; beerGivenBak = G1CP_GetIntVarI(var1Id, 0, 0);
+    var int teachingBak; teachingBak = G1CP_GetIntVarI(var2Id, 0, 0);
     var C_Npc slfBak; slfBak = MEM_CpyInst(self);
     var C_Npc othBak; othBak = MEM_CpyInst(other);
 
@@ -49,8 +43,8 @@ func int G1CP_Test_027() {
     if (beersBefore > 0) {
         Npc_RemoveInvItems(hero, itemId, beersBefore);
     };
-    G1CP_SetIntVar(BIER_BEKOMMEN_NAME, 0, FALSE);
-    G1CP_SetIntVar(LEHRER_FREI_NAME, 0, FALSE);
+    G1CP_SetIntVarI(var1Id, 0, FALSE);
+    G1CP_SetIntVarI(var2Id, 0, FALSE);
 
     // Just run the dialog and see what happens
     MEM_CallByID(funcId);
@@ -61,12 +55,12 @@ func int G1CP_Test_027() {
 
     // Check the variable and log topic
     topicCreated = G1CP_LogGetTopic(TOPIC) != 0;
-    teachingUnlocked = G1CP_GetIntVar(LEHRER_FREI_NAME, 0, 0);
+    teachingUnlocked = G1CP_GetIntVarI(var2Id, 0, 0);
     if (topicCreated) {
-        G1CP_TestsuiteErrorDetailSSS("Log note '", TOPIC_NAME, "' was wrongfully created");
+        G1CP_TestsuiteErrorDetailSSS("Log note '", G1CP_GetSymbolName(topicId), "' was wrongfully created");
     };
     if (teachingUnlocked) {
-        G1CP_TestsuiteErrorDetailSSS("Variable '", LEHRER_FREI_NAME, "' was wrongfully set to true");
+        G1CP_TestsuiteErrorDetailSSS("Variable '", G1CP_GetSymbolName(var2Id), "' was wrongfully set to true");
     };
     pass1passed = (!topicCreated) && (!teachingUnlocked);
 
@@ -77,8 +71,8 @@ func int G1CP_Test_027() {
 
     // Set variables
     CreateInvItem(hero, itemId);
-    G1CP_SetIntVar(BIER_BEKOMMEN_NAME, 0, FALSE);
-    G1CP_SetIntVar(LEHRER_FREI_NAME, 0, FALSE);
+    G1CP_SetIntVarI(var1Id, 0, FALSE);
+    G1CP_SetIntVarI(var2Id, 0, FALSE);
 
     // Just run the dialog and see what happens
     MEM_CallByID(funcId);
@@ -89,12 +83,12 @@ func int G1CP_Test_027() {
 
     // Check the variable and log topic
     topicCreated = G1CP_LogGetTopic(TOPIC) != 0;
-    teachingUnlocked = G1CP_GetIntVar(LEHRER_FREI_NAME, 0, 0);
+    teachingUnlocked = G1CP_GetIntVarI(var2Id, 0, 0);
     if (!topicCreated) {
-        G1CP_TestsuiteErrorDetailSSS("Log note '", TOPIC_NAME, "' was not created");
+        G1CP_TestsuiteErrorDetailSSS("Log note '", G1CP_GetSymbolName(topicId), "' was not created");
     };
     if (!teachingUnlocked) {
-        G1CP_TestsuiteErrorDetailSSS("Variable '", LEHRER_FREI_NAME, "' was not set to true");
+        G1CP_TestsuiteErrorDetailSSS("Variable '", G1CP_GetSymbolName(var2Id), "' was not set to true");
     };
     pass2passed = (topicCreated) && (teachingUnlocked);
 
@@ -109,8 +103,8 @@ func int G1CP_Test_027() {
     other = MEM_CpyInst(othBak);
 
     // Restore values
-    G1CP_SetIntVar(BIER_BEKOMMEN_NAME, 0, beerGivenBak);
-    G1CP_SetIntVar(LEHRER_FREI_NAME, 0, teachingBak);
+    G1CP_SetIntVarI(var1Id, 0, beerGivenBak);
+    G1CP_SetIntVarI(var2Id, 0, teachingBak);
     G1CP_LogRenameTopic(TEMP_TOPIC_NAME, TOPIC);
     if (beersBefore > 0) {
         CreateInvItems(hero, itemId, beersBefore);
