@@ -7,9 +7,9 @@
  * Expected behavior: NPCs should now stop attacking if their reason was trespassing, but continue for other offenses.
  */
 func void G1CP_Test_014() {
-    if (!G1CP_TestsuiteAllowManual) {
-        return;
-    };
+    G1CP_Testsuite_CheckManual();
+    var zCWaypoint wp; wp = G1CP_Testsuite_FindWaypoint("NC_HUT21_OUT");
+    G1CP_Testsuite_CheckPassed();
 
     // Define possibly missing symbols locally
     const int NPC_FLAG_IMMORTAL = 1 << 1;
@@ -21,5 +21,5 @@ func void G1CP_Test_014() {
     Wld_SetTime(12, 0);
 
     // Teleport to a suitable spot
-    AI_Teleport(hero, "NC_HUT21_OUT");
+    AI_Teleport(hero, wp.name);
 };

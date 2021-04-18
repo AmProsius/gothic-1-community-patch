@@ -7,9 +7,7 @@
  * Expected behavior: The hero is merely teleported there, the dialog choice has the correct wording.
  */
 func void G1CP_Test_091() {
-    if (!G1CP_TestsuiteAllowManual) {
-        return;
-    };
+    G1CP_Testsuite_CheckManual();
 
     // Check language first
     if (G1CP_Lang != G1CP_Lang_DE) {

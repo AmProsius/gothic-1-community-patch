@@ -6,10 +6,8 @@
  * Expected behavior: The templars will be dead or reliably dying when walking through the orc graveyard.
  */
 func void G1CP_Test_115() {
-    if (!G1CP_TestsuiteAllowManual) {
-        return;
-    };
-    
+    G1CP_Testsuite_CheckManual();
+
     // Define possibly missing symbols locally
     const int NPC_FLAG_IMMORTAL = 1 << 1;
 

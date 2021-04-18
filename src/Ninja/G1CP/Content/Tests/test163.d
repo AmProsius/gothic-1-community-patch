@@ -7,10 +7,8 @@
  * Expected behavior: The gate properly opens and closes when using the winch.
  */
 func void G1CP_Test_163() {
-    if (!G1CP_TestsuiteAllowManual) {
-        return;
-    };
-    
+    G1CP_Testsuite_CheckManual();
+
     // Define possibly missing symbols locally
     const int GIL_GRD = 2;
 

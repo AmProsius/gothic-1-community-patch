@@ -13,9 +13,7 @@ const int G1CP_Test_078_HeroStrengthBak = 0;
  * Test function
  */
 func void G1CP_Test_078() {
-    if (!G1CP_TestsuiteAllowManual) {
-        return;
-    };
+    G1CP_Testsuite_CheckManual();
 
     // Check for orc warrior and orc slave
     var int warriorId; warriorId = MEM_GetSymbolIndex("OrcWarrior1");

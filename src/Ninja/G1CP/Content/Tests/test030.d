@@ -1,20 +1,18 @@
 /*
  * #30 Silas trades only one time
  *
- * There does not seem an easy way to test this fix programmatically, so this test relies on manual confirmation.
+ * The "permanent" property of the info is checked.
  *
- * Expected behavior: Silas can trade multiple times.
+ * Expected behavior: The dialog is permanent.
  */
-func void G1CP_Test_030() {
-    if (!G1CP_TestsuiteAllowManual) {
-        return;
-    };
-
-    // Prior checks
-    G1CP_Testsuite_CheckInfo("DIA_Silas_Trade");
-    var C_Npc npc; npc = G1CP_Testsuite_GetNpc("Org_841_Silas");
+func int G1CP_Test_030() {
+    var oCInfo info; info = G1CP_Testsuite_FindInfo("DIA_Silas_Trade");
     G1CP_Testsuite_CheckPassed();
 
-    // Teleport the hero to Silas
-    AI_Teleport(hero, silas.wp);
+    if (!info.permanent) {
+        G1CP_TestsuiteErrorDetail("Dialog is not permanent");
+        return FALSE;
+    } else {
+        return TRUE;
+    };
 };

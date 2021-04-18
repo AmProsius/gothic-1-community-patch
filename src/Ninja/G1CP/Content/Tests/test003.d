@@ -6,9 +6,15 @@
  * Expected behavior: The NPC will pick up and equip the sword, leave the bow, draw the sword and show it
  */
 func void G1CP_Test_003() {
-    if (!G1CP_TestsuiteAllowManual) {
-        return;
-    };
+    G1CP_Testsuite_CheckManual();
+    G1CP_Testsuite_CheckAiStateStartFunc("ZS_PracticeSword");
+    var int symbId1; symbId1 = G1CP_Testsuite_CheckItem("Whistlers_Schwert");
+    var int symbId2; symbId2 = G1CP_Testsuite_CheckItem("Wolfs_Bogen");
+    var int symbId3; symbId3 = G1CP_Testsuite_CheckItem("ItAmArrow");
+    G1CP_Testsuite_CheckItem("Diegos_Bogen");
+    G1CP_Testsuite_CheckItem("ItRw_Bow_Small_01");
+    G1CP_Testsuite_CheckFunc("B_RegainDroppedWeapon", "void|C_Npc", "");
+    G1CP_Testsuite_CheckPassed();
 
     // Insert test NPC
     var string wp; wp = Npc_GetNearestWP(hero);
@@ -21,9 +27,9 @@ func void G1CP_Test_003() {
 
     // Insert items
     wp = Npc_GetNearestWP(hero);
-    Wld_InsertItem(MEM_GetSymbolIndex("Whistlers_Schwert"), wp);
-    Wld_InsertItem(MEM_GetSymbolIndex("Wolfs_Bogen"), wp);
-    Wld_InsertItem(MEM_GetSymbolIndex("ItAmArrow"), wp);
+    Wld_InsertItem(symbId1, wp);
+    Wld_InsertItem(symbId2, wp);
+    Wld_InsertItem(symbId3, wp);
 };
 
 
@@ -57,15 +63,8 @@ func void ZS_G1CP_Test_003_NpcRountine() {};
 func int  ZS_G1CP_Test_003_NpcRountine_Loop() {
     // First pass: Trigger the script
     if (Npc_GetStateTime(self) <= 1) {
-        var int symbId; symbId = MEM_GetSymbolIndex("B_RegainDroppedWeapon");
-        if (symbId != -1) {
-            MEM_PushInstParam(self);
-            MEM_CallById(symbId);
-        } else {
-            // Send to zSpy directly here because it is after the test has finished
-            MEM_SendToSpy(zERR_TYPE_FAULT, "  Test   3: 'B_RegainDroppedWeapon' not found");
-        };
-
+        MEM_PushInstParam(self);
+        MEM_CallByString("B_RegainDroppedWeapon");
         Npc_SetStateTime(self, 2);
         return 0;
     };

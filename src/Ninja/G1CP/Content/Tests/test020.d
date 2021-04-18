@@ -7,10 +7,9 @@
  * Expected behavior: The hero will receive one beer from Kirgo (automatically removed after the test is complete)
  */
 func int G1CP_Test_020() {
-    // Prior checks
-    var C_Npc npc; npc = G1CP_Testsuite_GetNpc("Grd_251_Kirgo");
-    var int funcId; funcId = G1CP_Testsuite_GetDialogFuncId("Info_Kirgo_Charge_Beer");
-    var int beerId; beerId = G1CP_Testsuite_GetItemId("ItFoBeer");
+    var C_Npc npc; npc = G1CP_Testsuite_FindNpc("Grd_251_Kirgo");
+    var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc("Info_Kirgo_Charge_Beer");
+    var int beerId; beerId = G1CP_Testsuite_CheckItem("ItFoBeer");
     G1CP_Testsuite_CheckPassed();
 
     // Remember the number of beers the player has before

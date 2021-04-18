@@ -7,21 +7,15 @@
  * Expected behavior: Cronos (set to defeated) should say "May I pass through here?" instead of "Step aside!".
  */
 func void G1CP_Test_004() {
-    if (!G1CP_TestsuiteAllowManual) {
-        return;
-    };
-
-    // Define constants for specific test
-    const string AI_VAR_NAME = "AIV_WASDEFEATEDBYSC";
-
-    // Prior checks
-    G1CP_Testsuite_CheckIntConst(AI_VAR_NAME, 0);
-    var C_Npc npc; npc = G1CP_Testsuite_GetNpc("KDW_604_Cronos");
+    G1CP_Testsuite_CheckManual();
+    var C_Npc npc; npc = G1CP_Testsuite_FindNpc("KDW_604_Cronos");
+    var zCWaypoint wp; wp = G1CP_Testsuite_FindWaypoint("NC_PATH_AROUND_PIT_01");
+    var int aiVarId; aiVarId = G1CP_Testsuite_CheckIntConst("AIV_WASDEFEATEDBYSC", 0);
     G1CP_Testsuite_CheckPassed();
 
     // Set NPC to defeated
-    G1CP_NpcSetAIVar(npc, AI_VAR_NAME, TRUE);
+    G1CP_NpcSetAIVarI(npc, aiVarId, TRUE);
 
     // Exactly in the way
-    AI_Teleport(hero, "NC_PATH_AROUND_PIT_01");
+    AI_Teleport(hero, wp.name);
 };

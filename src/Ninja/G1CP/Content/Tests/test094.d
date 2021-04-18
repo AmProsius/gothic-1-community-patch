@@ -7,9 +7,7 @@
  * Expected behavior: The wording of the dialog option is now correct.
  */
 func void G1CP_Test_094() {
-    if (!G1CP_TestsuiteAllowManual) {
-        return;
-    };
+    G1CP_Testsuite_CheckManual();
 
     // Check language first
     if (G1CP_Lang != G1CP_Lang_DE) {

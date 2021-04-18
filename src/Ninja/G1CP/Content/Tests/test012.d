@@ -6,19 +6,12 @@
  * Expected behavior: The NPC will not give XP again when first downed by hand and then killed with bow and arrow
  */
 func void G1CP_Test_012() {
-    if (!G1CP_TestsuiteAllowManual) {
-        return;
-    };
-
-    // Check symbols first
-    if (MEM_GetSymbolIndex("B_DeathXP") == -1) {
-        G1CP_TestsuiteErrorDetail("Function 'B_DeathXP' not found");
-        return;
-    };
-    if (MEM_GetSymbolIndex("AIV_WASDEFEATEDBYSC") == -1) {
-        G1CP_TestsuiteErrorDetail("Variable 'AIV_WASDEFEATEDBYSC' not found");
-        return;
-    };
+    G1CP_Testsuite_CheckManual();
+    G1CP_Testsuite_CheckFunc("B_DeathXP", "void|none", "");
+    G1CP_Testsuite_CheckIntConst("AIV_WASDEFEATEDBYSC", 0);
+    var int bowId; bowId = G1CP_Testsuite_CheckItem("ItRw_Bow_Small_01");
+    var int arrowId; arrowId = G1CP_Testsuite_CheckItem("ItAmArrow");
+    G1CP_Testsuite_CheckPassed();
 
     // Insert test NPC
     var string wp; wp = Npc_GetNearestWP(hero);
@@ -30,15 +23,8 @@ func void G1CP_Test_012() {
     };
 
     // Give bow and arrow to player
-    var int symbId;
-    symbId = MEM_GetSymbolIndex("ItRw_Bow_Small_01");
-    if (symbId != -1) {
-        CreateInvItem(hero, symbId);
-    };
-    symbId = MEM_GetSymbolIndex("ItAmArrow");
-    if (symbId != -1) {
-        CreateInvItems(hero, symbId, 20);
-    };
+    CreateInvItem(hero, bowId);
+    CreateInvItems(hero, arrowId, 20);
 };
 
 instance G1CP_Test_012_Npc(C_Npc) {
