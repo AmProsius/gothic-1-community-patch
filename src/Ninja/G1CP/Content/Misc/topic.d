@@ -1,5 +1,5 @@
 /*
- * Find a topic by its name
+ * Get a topic by its name
  */
 func int G1CP_LogGetTopic(var string topic) {
     // Iterate over all topics (irrespective of their section)
@@ -18,6 +18,13 @@ func int G1CP_LogGetTopic(var string topic) {
 
     // Not found
     return 0;
+};
+
+/*
+ * Check whether a certain log topic exists
+ */
+func int G1CP_LogHasTopic(var string topic) {
+    return (G1CP_LogGetTopic(topic) != 0);
 };
 
 /*
@@ -124,9 +131,9 @@ func void G1CP_LogRemoveTopic(var string topic) {
 };
 
 /*
- * Check whether a log topic has a certain entry
+ * Get a log entry by its topic and its name
  */
-func int G1CP_LogHasEntry(var string topic, var string entry) {
+func int G1CP_LogGetEntry(var string topic, var string entry) {
     var int lt; lt = G1CP_LogGetTopic(topic);
     if (lt) {
         var oCLogTopic logTopic; logTopic = _^(lt);
@@ -139,14 +146,21 @@ func int G1CP_LogHasEntry(var string topic, var string entry) {
             list = l.next;
             if (l.data) {
                 if (Hlp_StrCmp(MEM_ReadString(l.data), entry)) {
-                    return TRUE;
+                    return l.data;
                 };
             };
         end;
     };
 
     // Not found
-    return FALSE;
+    return 0;
+};
+
+/*
+ * Check whether a log topic has a certain entry
+ */
+func int G1CP_LogHasEntry(var string topic, var string entry) {
+    return (G1CP_LogGetEntry(topic, entry) != 0);
 };
 
 /*

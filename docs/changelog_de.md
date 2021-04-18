@@ -1,5 +1,9 @@
 # Changelog (DE)
 
+## v1.2.0 (TBA)
+### General
+### Story
+
 ## v1.1.0 (TBA)
 ### General
 * Fix [#4](https://g1cp.org/issues/4): Zuvor besiegte NSCs fahren den Spieler nun nicht mehr an, wenn er ihnen im Weg steht.
@@ -24,7 +28,7 @@
 ### Story
 * Fix [#23](https://g1cp.org/issues/23): Die Rüstung "Novizenrüstung" ist nun im zweiten Kapitel erhältlich, damit sie vor der ersten Templerrüstung erlangt werden kann.
 * Fix [#36](https://g1cp.org/issues/36) (aktualisiert): Fisks Quest "Neuer Hehler für Fisk" is nun verfügbar, wenn der Spieler Mordrag entweder KO geschlagen oder getötet hat.
-* Fix [#37](https://g1cp.org/issues/37): Gravo ist nun korrekt als Händler im Alten Lager im Tagebuch aufgelistet.
+* Fix [#37](https://g1cp.org/issues/37): Gravo ist nun korrekt als "Händler im Alten Lager" im Tagebuch aufgelistet.
 * Fix [#91](https://g1cp.org/issues/91): Die Dialogauswahl mit Horatio: "Ja. Ich will es mit Ricelord und seinen Schlägern aufnehmen können!" lautet nun korrekt "Ja. Ich will es mit dem Reislord und seinen Schlägern aufnehmen können!"
 * Fix [#92](https://g1cp.org/issues/92): Die Dialogauswahl mit Horatio: "Damit ich Reislord und seine Schläger fertigmachen kann!" lautet nun korrekt "Damit ich den Reislord und seine Schläger fertigmachen kann!"
 * Fix [#93](https://g1cp.org/issues/93): Im Tagebucheintrag zu der Quest "Horatio der Bauer" lautet die Phrase "[...] stärker zuzuschalgen." nun korrekt "[...] stärker zuzuschlagen."
@@ -43,6 +47,9 @@
 * Fix [#186](https://g1cp.org/issues/186): Corristos Dialogoption "Ich möchte in den Kreis der Magier aufgenommen werden." verschwindet nun, wenn der Spieler ihn bereits gefragt und die Stufenvoraussetzungen erfüllt hat.
 * Fix [#188](https://g1cp.org/issues/188): Cor Kalom kann nun nur noch einmal erzählt werden, dass das Kraut abgeliefert wurde.
 * Fix [#197](https://g1cp.org/issues/197): Die Dialogzeile "Also halt dich nur da auf, wo es dir gestattet ist." im Ambient-Dialog der Templer "Was kannst du mir über dieses Lager erzählen?" ist nun korrekt dem Spielercharakter zugewiesen.
+* Fix [#203](https://g1cp.org/issues/203): Graham ist nun korrekt als "Händler im Alten Lager" im Tagebuch aufgelistet.
+* Fix [#204](https://g1cp.org/issues/204): Fingers' Dialog über Cavalorn erstellt nun korrekt den Eintrag in "Lehrer ausserhalb der Lager" im Tagebuch.
+* Fix [#205](https://g1cp.org/issues/205): Wolf ist nun korrekt als "Händler im Neuen Lager" im Tagebuch aufgelistet.
 * Fix [#214](https://g1cp.org/issues/214): Graham sitzt nun korrekt abends am Lagerfeuer.
 * Fix [#215](https://g1cp.org/issues/215): Guy sitzt nun korrekt abends bei der Arena.
 * Fix [#216](https://g1cp.org/issues/216): Einer der Buddler im Alten Lager repariert jetzt korrekt tagsüber seine Hütte.
