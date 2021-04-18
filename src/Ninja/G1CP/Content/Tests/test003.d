@@ -8,9 +8,9 @@
 func void G1CP_Test_003() {
     G1CP_Testsuite_CheckManual();
     G1CP_Testsuite_CheckAiStateStartFunc("ZS_PracticeSword");
-    var int symbId1; symbId1 = G1CP_Testsuite_CheckItem("Whistlers_Schwert");
-    var int symbId2; symbId2 = G1CP_Testsuite_CheckItem("Wolfs_Bogen");
-    var int symbId3; symbId3 = G1CP_Testsuite_CheckItem("ItAmArrow");
+    var int swordId; swordId = G1CP_Testsuite_CheckItem("Whistlers_Schwert");
+    var int bowId; bowId = G1CP_Testsuite_CheckItem("Wolfs_Bogen");
+    var int arrowId; arrowId = G1CP_Testsuite_CheckItem("ItAmArrow");
     G1CP_Testsuite_CheckItem("Diegos_Bogen");
     G1CP_Testsuite_CheckItem("ItRw_Bow_Small_01");
     G1CP_Testsuite_CheckFunc("B_RegainDroppedWeapon", "void|C_Npc", "");
@@ -27,9 +27,9 @@ func void G1CP_Test_003() {
 
     // Insert items
     wp = Npc_GetNearestWP(hero);
-    Wld_InsertItem(symbId1, wp);
-    Wld_InsertItem(symbId2, wp);
-    Wld_InsertItem(symbId3, wp);
+    Wld_InsertItem(swordId, wp);
+    Wld_InsertItem(bowId, wp);
+    Wld_InsertItem(arrowId, wp);
 };
 
 

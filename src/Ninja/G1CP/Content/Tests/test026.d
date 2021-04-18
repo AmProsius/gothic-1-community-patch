@@ -8,7 +8,7 @@
 func int G1CP_Test_026() {
     var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("Info_Org_804_FirstWarn_Condition");
     var C_Npc npc; npc = G1CP_Testsuite_FindNpc("Org_804_Organisator");
-    var int gilId; gilId = G1CP_Testsuite_CheckIntConst("GIL_GRD", 0);
+    var int guildId; guildId = G1CP_Testsuite_CheckIntConst("GIL_GRD", 0);
     var int aiVarId; aiVarId = G1CP_Testsuite_CheckIntConst("AIV_GUARDPASSAGE_STATUS", 0);
     G1CP_Testsuite_CheckPassed();
 
@@ -27,7 +27,7 @@ func int G1CP_Test_026() {
     // Set new values
     Npc_SetTempAttitude(npc, ATT_NEUTRAL);
     G1CP_NpcSetAIVarI(hero, aiVarId, AIV_GPS_FIRSTWARN);
-    hero.guild = G1CP_GetIntConstI(gilId, 0, 0);
+    hero.guild = G1CP_GetIntConstI(guildId, 0, 0);
     npc.wp = Npc_GetNearestWP(npc);
     self = MEM_CpyInst(npc);
     other = MEM_CpyInst(hero);

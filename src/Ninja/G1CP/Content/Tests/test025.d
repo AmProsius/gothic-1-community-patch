@@ -8,11 +8,11 @@
 func int G1CP_Test_025() {
     var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("KDW_600_Saturas_HEAVYARMOR_Condition");
     var int itemId; itemId = G1CP_Testsuite_CheckItem("KDW_ARMOR_H");
-    var int gilId; gilId = G1CP_Testsuite_CheckIntConst("GIL_KDW", 0);
+    var int guildId; guildId = G1CP_Testsuite_CheckIntConst("GIL_KDW", 0);
     G1CP_Testsuite_CheckPassed();
 
     // Get constant values
-    const int GUILD = 0; GUILD = G1CP_GetIntConstI(gilId, 0, 0);
+    const int GUILD = 0; GUILD = G1CP_GetIntConstI(guildId, 0, 0);
 
     // Backup values
     var int guildBak; guildBak = hero.guild;

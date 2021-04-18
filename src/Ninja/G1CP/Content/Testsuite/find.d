@@ -36,7 +36,7 @@ func oCInfo G1CP_Testsuite_FindInfo(var string name) {
 };
 
 /*
- * Check if waypoint exists and return its
+ * Check if waypoint exists and return it
  */
 func zCWaypoint G1CP_Testsuite_FindWaypoint(var string name) {
     var int wpPtr; wpPtr = G1CP_GetWaypoint(name);
