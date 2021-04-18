@@ -109,6 +109,7 @@ Content\Fixes\Session\fix172_DE_KalomsRecipeName.d
 Content\Fixes\Session\fix173_DE_GomezKeyText.d
 Content\Fixes\Session\fix174_EN_GomezKeyName.d
 Content\Fixes\Session\fix175_EN_RiceLordKeyName.d
+Content\Fixes\Session\fix176_InvItemTextValue.d
 Content\Fixes\Session\fix181_SwineyGiveArmor.d
 Content\Fixes\Session\fix182_GuardDialogDusty.d
 Content\Fixes\Session\fix183_CorristoSellsRobe.d
@@ -222,6 +223,7 @@ Content\Tests\test172.d
 Content\Tests\test173.d
 Content\Tests\test174.d
 Content\Tests\test175.d
+Content\Tests\test176.d
 Content\Tests\test181.d
 Content\Tests\test182.d
 Content\Tests\test183.d

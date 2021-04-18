@@ -2,6 +2,7 @@
 
 ## v1.2.0 (TBA)
 ### General
+* Fix [#176](https://g1cp.org/issues/176): Items with no value no longer show an empty "Value:" in the inventory text.
 ### Story
 
 ## v1.1.0 (TBA)

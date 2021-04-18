@@ -2,6 +2,7 @@
 
 ## v1.2.0 (TBA)
 ### General
+* Fix [#176](https://g1cp.org/issues/176): Gegenstände ohne Wert zeigen nicht mehr ein leeres "Wert:" im Inventartext an.
 ### Story
 
 ## v1.1.0 (TBA)
