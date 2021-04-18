@@ -23,6 +23,7 @@
 * Fix [#193](https://g1cp.org/issues/193): Objekte, die durch Hebel/Schalter/Winden aktiviert wurden, stecken nach dem Spielladen nicht mehr fest.
 * Fix [#200](https://g1cp.org/issues/200): Die Beschreibung der Rüstung "Verbesserte Erzrüstung" passt nun in die Textbox des Inventars.
 * Fix [#201](https://g1cp.org/issues/201): Die Beschreibung der Rüstung "Antike Erzrüstung" passt nun in die Textbox des Inventars und enthält keinen Rechtschreibfehler mehr.
+* Fix [#212](https://g1cp.org/issues/212): Der Kessel nahe dem Erzhaufen im Neuen Lager setzt zur Benutzung nun korrekt einen Kochlöffel voraus.
 
 ### Story
 * Fix [#23](https://g1cp.org/issues/23): Die Rüstung "Novizenrüstung" ist nun im zweiten Kapitel erhältlich, damit sie vor der ersten Templerrüstung erlangt werden kann.
