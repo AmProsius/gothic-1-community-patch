@@ -21,7 +21,12 @@ Content\Symbols\callable.d
 
 Content\Bytecode\funcRanges.d
 Content\Bytecode\findAndReplace.d
-Content\Bytecode\sendCodeToSpy.d
+Content\Bytecode\call.d
+Content\Bytecode\int.d
+Content\Bytecode\string.d
+Content\Bytecode\if.d
+Content\Bytecode\ou.d
+Content\Bytecode\sendToSpy.d
 
 Content\Misc\info.d
 Content\Misc\topic.d
@@ -123,6 +128,7 @@ Content\Fixes\Session\fix217_MercenaryDailyRoutine.d
 
 // Game save fixes
 Content\Fixes\Gamesave\fix037_LogEntryGravoMerchant.d
+Content\Fixes\Gamesave\fix045_SpawnSnappersMonastery.d
 Content\Fixes\Gamesave\fix046_SmithDoor.d
 Content\Fixes\Gamesave\fix050_Pillar.d
 Content\Fixes\Gamesave\fix051_StonehengeCryptChest.d
@@ -133,6 +139,8 @@ Content\Fixes\Gamesave\fix124_GateGuardID.d
 Content\Fixes\Gamesave\fix133_DE_LogEntryScatty.d
 Content\Fixes\Gamesave\fix143_DE_LogEntryBuster.d
 Content\Fixes\Gamesave\fix193_GateSwitchesStuck.d
+Content\Fixes\Gamesave\fix203_LogEntryGrahamMerchant.d
+Content\Fixes\Gamesave\fix205_LogEntryWolfMerchant.d
 
 // Tests
 Content\Tests\test001.d
@@ -172,6 +180,7 @@ Content\Tests\test040.d
 Content\Tests\test042.d
 Content\Tests\test043.d
 Content\Tests\test044.d
+Content\Tests\test045.d
 Content\Tests\test046.d
 Content\Tests\test049.d
 Content\Tests\test050.d
@@ -226,7 +235,9 @@ Content\Tests\test193.d
 Content\Tests\test197.d
 Content\Tests\test200.d
 Content\Tests\test201.d
+Content\Tests\test203.d
 Content\Tests\test204.d
+Content\Tests\test205.d
 Content\Tests\test214.d
 Content\Tests\test215.d
 Content\Tests\test216.d

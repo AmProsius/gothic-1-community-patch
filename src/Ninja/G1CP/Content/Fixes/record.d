@@ -350,7 +350,10 @@ func int G1CP_InitLookupTable() {
  *
  */
 func int G1CP_ReadDisabledFixesIni() {
-    // First load the basis of disabled fixes
+    // First get the internally disabled fixes
+    var string intern; intern = G1CP_HotfixDisable;
+
+    // Then load the basis of disabled fixes
     var string base;
     if (MEM_ModOptExists("OVERRIDES", "G1CP.disabled")) {
         // Priority 1: Overrides from the mod
@@ -380,12 +383,13 @@ func int G1CP_ReadDisabledFixesIni() {
     var int arr; arr = MEM_ArrayCreate();
 
     // Add a final delimiter
+    intern = ConcatStrings(intern, " ");
     base = ConcatStrings(base, " ");
     add = ConcatStrings(add, " ");
 
-    // Check "base" first, then check "add"
-    var zString zStr; zStr = _^(_@s(base));
-    repeat(i, 2); var int i;
+    // Check "intern" fist, then check "base", and finally "add"
+    var zString zStr; zStr = _^(_@s(intern));
+    repeat(i, 3); var int i;
         var int buffer; buffer = 0;
         var int bufferLen; bufferLen = 0;
 
@@ -410,8 +414,12 @@ func int G1CP_ReadDisabledFixesIni() {
             };
         end;
 
-        // Repeat for mod additions
-        zStr = _^(_@s(add));
+        // Repeat for base and mod additions
+        if (!i) {
+            zStr = _^(_@s(base));
+        } else {
+            zStr = _^(_@s(add));
+        };
     end;
 
     // Report disabled fixes (unique and ordered)

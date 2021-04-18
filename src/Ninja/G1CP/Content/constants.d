@@ -14,3 +14,6 @@ const int G1CP_FIX_NOT_FOUND   = -2;
 const int G1CP_FIX_DISABLED    = -1;
 const int G1CP_FIX_NOT_APPLIED =  0;
 const int G1CP_FIX_APPLIED     =  1;
+
+/* Comma or space separated list of fix IDs for globally deactivated fixes */
+const string G1CP_HotfixDisable = "";

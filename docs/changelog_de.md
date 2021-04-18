@@ -1,9 +1,14 @@
 # Changelog (DE)
 
+## v1.2.0 (TBA)
+### General
+### Story
+
 ## v1.1.0 (TBA)
 ### General
 * Fix [#4](https://g1cp.org/issues/4): Zuvor besiegte NSCs fahren den Spieler nun nicht mehr an, wenn er ihnen im Weg steht.
 * Fix [#14](https://g1cp.org/issues/14): Der Spieler kann Kämpfe nicht mehr durch Betreten und Verlassen eines Raumes abbrechen. Falls das unerlaubte Betreten des Raumes der Angriffsgrund war, bleibt das Verhalten unverändert.
+* Fix [#45](https://g1cp.org/issues/45): Zwei Snapper außerhalb der Klosterruine spawnen nun korrekt.
 * Fix [#50](https://g1cp.org/issues/50): Die unerreichbare Truhe in der Gruft unter dem Stonehenge ist nun korrekt positioniert und zugänglich.
 * Fix [#52](https://g1cp.org/issues/52): Der Schleifstein im Neuen Lager setzt zur Benutzung nun korrekt eine Schwertklinge voraus.
 * Fix [#110](https://g1cp.org/issues/110): Die Maus ist während Interaktionen mit Objekten/Gegenständen nicht mehr blockiert und kann die Kameraperspektive beinflussen.
@@ -41,7 +46,9 @@
 * Fix [#186](https://g1cp.org/issues/186): Corristos Dialogoption "Ich möchte in den Kreis der Magier aufgenommen werden." verschwindet nun, wenn der Spieler ihn bereits gefragt und die Stufenvoraussetzungen erfüllt hat.
 * Fix [#188](https://g1cp.org/issues/188): Cor Kalom kann nun nur noch einmal erzählt werden, dass das Kraut abgeliefert wurde.
 * Fix [#197](https://g1cp.org/issues/197): Die Dialogzeile "Also halt dich nur da auf, wo es dir gestattet ist." im Ambient-Dialog der Templer "Was kannst du mir über dieses Lager erzählen?" ist nun korrekt dem Spielercharakter zugewiesen.
-* Fix [#204](https://g1cp.org/issues/204): Fingers Dialog über Cavalorn erstellt nun korrekt den Eintrag in "Lehrer ausserhalb der Lager" im Tagebuch.
+* Fix [#203](https://g1cp.org/issues/203): Graham ist nun korrekt als "Händler im Alten Lager" im Tagebuch aufgelistet.
+* Fix [#204](https://g1cp.org/issues/204): Fingers' Dialog über Cavalorn erstellt nun korrekt den Eintrag in "Lehrer ausserhalb der Lager" im Tagebuch.
+* Fix [#205](https://g1cp.org/issues/205): Wolf ist nun korrekt als "Händler im Neuen Lager" im Tagebuch aufgelistet.
 * Fix [#214](https://g1cp.org/issues/214): Graham sitzt nun korrekt abends am Lagerfeuer.
 * Fix [#215](https://g1cp.org/issues/215): Guy sitzt nun korrekt abends bei der Arena.
 * Fix [#216](https://g1cp.org/issues/216): Einer der Buddler im Alten Lager repariert jetzt korrekt tagsüber seine Hütte.
