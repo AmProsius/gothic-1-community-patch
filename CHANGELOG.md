@@ -1,9 +1,14 @@
 # Changelog
 
+## v1.2.0 (TBA)
+### General
+### Story
+
 ## v1.1.0 (TBA)
 ### General
 * Fix [#4](https://g1cp.org/issues/4): NPCs no longer confront the player when he is standing in their way if he has defeated them before.
 * Fix [#14](https://g1cp.org/issues/14): The player can no longer cancel fights by entering and leaving a room. The behavior is unchanged, if trespassing into the room was the reason for the fight.
+* Fix [#45](https://g1cp.org/issues/45): Two snappers outside the Monastery ruins now correctly spawn.
 * Fix [#50](https://g1cp.org/issues/50): The inaccessible chest of the crypt below the stonehenge is now correctly positioned and accessible.
 * Fix [#52](https://g1cp.org/issues/52): The grindstone in the New Camp now correctly requires a sword blade to use.
 * Fix [#110](https://g1cp.org/issues/110): Mouse input is no longer locked when interacting with objects to allow adjusting the camera viewpoint.
@@ -11,11 +16,13 @@
 * Fix [#152](https://g1cp.org/issues/152): The description of the ring "Protection of Fire" is corrected to "Ring of Fire Protection".
 * Fix [#192](https://g1cp.org/issues/192): Mages (NPCs fighting only with spells) no longer auto-equip weapons (e.g. after trading). This requires fix #59 to be active.
 * Fix [#193](https://g1cp.org/issues/193): Objects activated by switches/levers/winches are no longer stuck after loading a game.
+* Fix [#212](https://g1cp.org/issues/212): The cauldron near the ore heap in the New Camp now correctly requires a scoop to use.
+* Fix [#213](https://g1cp.org/issues/213): The cauldron near the entrance of the hollow of the New Camp now correctly requires a scoop to use.
 
 ### Story
 * Fix [#23](https://g1cp.org/issues/23): The armor "Novice's Armor" is now available in chapter 2 to make it accessible before receiving the first templar armor.
 * Fix [#36](https://g1cp.org/issues/36) (updated): Fisk's quest "New Fence for Fisk" is now available when the player either knocked out or killed Mordrag.
-* Fix [#37](https://g1cp.org/issues/37): Gravo is now correctly listed as merchant in the Old Camp in the journal.
+* Fix [#37](https://g1cp.org/issues/37): Gravo is now correctly listed as "Merchant in the Old Camp" in the journal.
 * Fix [#55](https://g1cp.org/issues/55): Given all necessary files are present, the In Extremo concert can be enabled in the settings. This fix is disabled by default due to legal ambiguities. See [here](https://g1cp.org/issues/55) on how to enable it.
 * Fix [#115](https://g1cp.org/issues/115): The templars in the orc graveyard are now less likely to survive.
 * Fix [#174](https://g1cp.org/issues/174): The key "Gomez' Bowl" is now correctly labelled as "Gomez' Key".
@@ -27,6 +34,9 @@
 * Fix [#185](https://g1cp.org/issues/185): Scorpio no longer offers to teach crossbow level 1 if the player character already gained that skill.
 * Fix [#186](https://g1cp.org/issues/186): Corristo's dialog option to become a mage now disappears when the player has already asked him before and met the level requirements.
 * Fix [#188](https://g1cp.org/issues/188): Cor Kalom can now be told that the weed was delivered only once.
+* Fix [#203](https://g1cp.org/issues/203): Graham is now correctly listed as "Merchant in the Old Camp" in the journal.
+* Fix [#204](https://g1cp.org/issues/204): Finger's dialog about Cavalorn will now correctly create the entry in "Tutor outside the camps" in the journal.
+* Fix [#205](https://g1cp.org/issues/205): Wolf is now correctly listed as "Merchant in the New Camp" in the journal.
 * Fix [#214](https://g1cp.org/issues/214): Graham now correctly sits at the campfire in the evening.
 * Fix [#215](https://g1cp.org/issues/215): Guy now correctly sits at the arena in the evening.
 * Fix [#216](https://g1cp.org/issues/216): One of the diggers in the Old Camp now correctly repairs his hut during daytime.
