@@ -17,6 +17,7 @@
 * Fix [#192](https://g1cp.org/issues/192): Mages (NPCs fighting only with spells) no longer auto-equip weapons (e.g. after trading). This requires fix #59 to be active.
 * Fix [#193](https://g1cp.org/issues/193): Objects activated by switches/levers/winches are no longer stuck after loading a game.
 * Fix [#212](https://g1cp.org/issues/212): The cauldron near the ore heap in the New Camp now correctly requires a scoop to use.
+* Fix [#213](https://g1cp.org/issues/213): The cauldron near the entrance of the hollow of the New Camp now correctly requires a scoop to use.
 
 ### Story
 * Fix [#23](https://g1cp.org/issues/23): The armor "Novice's Armor" is now available in chapter 2 to make it accessible before receiving the first templar armor.

@@ -39,6 +39,7 @@ func void G1CP_GamesaveFixes_Apply() {
         G1CP_203_LogEntryGrahamMerchant();              // #203
         G1CP_205_LogEntryWolfMerchant();                // #205
         G1CP_212_UseWithItemNCCauldron1();              // #212
+        G1CP_213_UseWithItemNCCauldron2();              // #213
     };
 };
 
@@ -62,5 +63,6 @@ func void G1CP_GamesaveFixes_Revert() {
         G1CP_203_LogEntryGrahamMerchantRevert();        // #203
         G1CP_205_LogEntryWolfMerchantRevert();          // #205
         G1CP_212_UseWithItemNCCauldron1Revert();        // #212
+        G1CP_213_UseWithItemNCCauldron2Revert();        // #213
     };
 };
