@@ -12,9 +12,12 @@ instance G1CP_Test_192_Npc(C_Npc) {
     attribute[4] = 1000; // Enough strength to carry any weapon
     fight_tactic = 25;   // FAI_HUMAN_MAGE
     Mdl_SetVisual(self, "HUMANS.MDS");
-    CreateInvItem(self, MEM_FindParserSymbol("Thorus_Schwert"));
+    CreateInvItem(self, MEM_GetSymbolIndex("Thorus_Schwert"));
 };
 func int G1CP_Test_192() {
+    G1CP_Testsuite_CheckItem("Thorus_Schwert");
+    G1CP_Testsuite_CheckPassed();
+
     // Insert test NPC
     var string wp; wp = Npc_GetNearestWP(hero);
     Wld_InsertNpc(G1CP_Test_192_Npc, wp);
