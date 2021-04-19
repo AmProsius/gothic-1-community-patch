@@ -21,24 +21,18 @@ func int G1CP_Test_026() {
     var int attitBak; attitBak = Npc_GetAttitude(npc, hero);
     var int aiVarBak; aiVarBak = G1CP_NpcGetAIVarI(hero, aiVarId, -1);
     var string wpBak; wpBak = npc.wp;
-    var C_Npc slfBak; slfBak = MEM_CpyInst(self);
-    var C_Npc othBak; othBak = MEM_CpyInst(other);
 
     // Set new values
     Npc_SetTempAttitude(npc, ATT_NEUTRAL);
     G1CP_NpcSetAIVarI(hero, aiVarId, AIV_GPS_FIRSTWARN);
     hero.guild = GIL_GRD;
     npc.wp = Npc_GetNearestWP(npc);
-    self = MEM_CpyInst(npc);
-    other = MEM_CpyInst(hero);
 
     // Call dialog condition function
-    MEM_CallByID(funcId);
+    G1CP_Testsuite_Call(funcId, npc, hero, FALSE);
     var int ret; ret = MEM_PopIntResult();
 
     // Restore values
-    self = MEM_CpyInst(slfBak);
-    other = MEM_CpyInst(othBak);
     hero.guild = guildBak;
     Npc_SetTempAttitude(npc, attitBak);
     G1CP_NpcSetAIVarI(hero, aiVarId, aiVarBak);

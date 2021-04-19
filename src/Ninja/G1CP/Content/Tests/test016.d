@@ -16,22 +16,16 @@ func int G1CP_Test_016_RunDialog(var string dialogConditionName, var string info
     // Backup values
     var int aiVarBak; aiVarBak = G1CP_NpcGetAIVarI(npc, aiVarId, 0);
     var int toldBak; toldBak = Npc_KnowsInfo(hero, infoId);
-    var C_Npc slfBak; slfBak = MEM_CpyInst(self);
-    var C_Npc othBak; othBak = MEM_CpyInst(other);
 
     // Set new values
     G1CP_NpcSetAIVarI(npc, aiVarId, TRUE);
     G1CP_SetInfoTold(infoName, TRUE);
-    self = MEM_CpyInst(hero);
-    other = MEM_CpyInst(hero);
 
     // Call dialog condition function
-    MEM_CallByID(funcId);
+    G1CP_Testsuite_Call(funcId, 0, 0, FALSE);
     var int ret; ret = MEM_PopIntResult();
 
     // Restore values
-    self = MEM_CpyInst(slfBak);
-    other = MEM_CpyInst(othBak);
     G1CP_NpcSetAIVarI(npc, aiVarId, aiVarBak);
     G1CP_SetInfoTold(infoName, toldBak);
 

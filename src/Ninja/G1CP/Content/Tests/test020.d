@@ -16,24 +16,8 @@ func int G1CP_Test_020() {
     CreateInvItem(hero, beerId); // Have at least one (to see if the number decreases)
     var int beersBefore; beersBefore = Npc_HasItems(hero, beerId);
 
-    // Backup self and other
-    var C_Npc slfBak; slfBak = MEM_CpyInst(self);
-    var C_Npc othBak; othBak = MEM_CpyInst(other);
-
-    // Set self and other
-    self = MEM_CpyInst(npc);
-    other = MEM_CpyInst(hero);
-
     // Just run the dialog and see what happens
-    MEM_CallByID(funcId);
-
-    // Restore self and other
-    self = MEM_CpyInst(slfBak);
-    other = MEM_CpyInst(othBak);
-
-    // Stop the output units
-    Npc_ClearAIQueue(hero);
-    AI_StandUpQuick(hero);
+    G1CP_Testsuite_Call(funcId, npc, hero, TRUE);
 
     // Check how many beers the player has now
     var int beersAfter; beersAfter = Npc_HasItems(hero, beerId);

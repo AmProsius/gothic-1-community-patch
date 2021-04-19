@@ -14,26 +14,20 @@ func int G1CP_Test_060() {
     };
 
     // Backup values
-    var int told1Bak; told1Bak = Npc_KnowsInfo(hero, MEM_GetSymbolIndex("DIA_Jesse_Warn"));    // Told status
-    var int told2Bak; told2Bak = Npc_KnowsInfo(hero, MEM_GetSymbolIndex("DIA_Jesse_Mission")); // Told status
-    var C_Npc slfBak; slfBak = MEM_CpyInst(self);                                              // Self
-    var C_Npc othBak; othBak = MEM_CpyInst(other);                                             // Other
+    var int told1Bak; told1Bak = Npc_KnowsInfo(hero, MEM_GetSymbolIndex("DIA_Jesse_Warn"));
+    var int told2Bak; told2Bak = Npc_KnowsInfo(hero, MEM_GetSymbolIndex("DIA_Jesse_Mission"));
 
     // Set new values
-    G1CP_SetInfoTold("DIA_Jesse_Warn", TRUE);                                                  // Told status
-    G1CP_SetInfoTold("DIA_Jesse_Mission", FALSE);                                              // Told status
-    self  = MEM_CpyInst(hero);                                                                 // Self
-    other = MEM_CpyInst(hero);                                                                 // Other
+    G1CP_SetInfoTold("DIA_Jesse_Warn", TRUE);
+    G1CP_SetInfoTold("DIA_Jesse_Mission", FALSE);
 
     // Call dialog condition function
-    MEM_CallByID(funcId);
+    G1CP_Testsuite_Call(funcId, 0, 0, FALSE);
     var int ret; ret = MEM_PopIntResult();
 
     // Restore values
-    self  = MEM_CpyInst(slfBak);                                                               // Self
-    other = MEM_CpyInst(othBak);                                                               // Other
-    G1CP_SetInfoTold("DIA_Jesse_Warn", told1Bak);                                              // Told status
-    G1CP_SetInfoTold("DIA_Jesse_Mission", told2Bak);                                           // Told status
+    G1CP_SetInfoTold("DIA_Jesse_Warn", told1Bak);
+    G1CP_SetInfoTold("DIA_Jesse_Mission", told2Bak);
 
     // Check return value
     if (ret) {

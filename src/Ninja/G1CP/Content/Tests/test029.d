@@ -17,22 +17,16 @@ func int G1CP_Test_029() {
     // Backup values
     var int toldBak; toldBak = Npc_KnowsInfo(hero, infoId);
     var int talentBak; talentBak = Npc_GetTalentSkill(hero, TALENT);
-    var C_Npc slfBak; slfBak = MEM_CpyInst(self);
-    var C_Npc othBak; othBak = MEM_CpyInst(other);
 
     // Set new values
     G1CP_SetInfoToldI(infoId, TRUE);
     Npc_SetTalentSkill(hero, TALENT, TRUE);
-    self = MEM_CpyInst(hero);
-    other = MEM_CpyInst(hero);
 
     // Call dialog condition function
-    MEM_CallByID(funcId);
+    G1CP_Testsuite_Call(funcId, 0, 0, FALSE);
     var int ret; ret = MEM_PopIntResult();
 
     // Restore values
-    self = MEM_CpyInst(slfBak);
-    other = MEM_CpyInst(othBak);
     G1CP_SetInfoToldI(infoId, toldBak);
     Npc_SetTalentSkill(hero, TALENT, talentBak);
 

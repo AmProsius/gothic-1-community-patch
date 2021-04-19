@@ -44,14 +44,8 @@ func int G1CP_Test_079() {
     };
 
     // Backup values
-    var int guildBak; guildBak = hero.guild;                     // True guild
-    var int guildTrueBak; guildTrueBak = Npc_GetTrueGuild(hero); // Guild
-    var C_Npc slfBak; slfBak = MEM_CpyInst(self);                // Self
-    var C_Npc othBak; othBak = MEM_CpyInst(other);               // Other
-
-    // Set self and other
-    self  = MEM_CpyInst(hero);
-    other = MEM_CpyInst(hero);
+    var int guildBak; guildBak = hero.guild;
+    var int guildTrueBak; guildTrueBak = Npc_GetTrueGuild(hero);
 
     // Do two passes (first one should yield true, second false)
     var int ret1;
@@ -62,7 +56,7 @@ func int G1CP_Test_079() {
     Npc_SetTrueGuild(hero, GIL_GRD);
 
     // Call dialog condition function
-    MEM_CallByID(funcId);
+    G1CP_Testsuite_Call(funcId, 0, 0, FALSE);
     ret1 = MEM_PopIntResult();
     if (ret1) {
         G1CP_TestsuiteErrorDetail("Dialog condition returned true for GIL_GRD");
@@ -73,17 +67,15 @@ func int G1CP_Test_079() {
     Npc_SetTrueGuild(hero, GIL_ORG);
 
     // Call dialog condition function
-    MEM_CallByID(funcId);
+    G1CP_Testsuite_Call(funcId, 0, 0, FALSE);
     ret2 = MEM_PopIntResult();
     if (!ret2) {
         G1CP_TestsuiteErrorDetail("Dialog condition returned false for GIL_ORG");
     };
 
     // Restore values
-    self  = MEM_CpyInst(slfBak);           // Self
-    other = MEM_CpyInst(othBak);           // Other
-    hero.guild = guildBak;                 // Guild
-    Npc_SetTrueGuild(hero, guildTrueBak);  // True guild
+    hero.guild = guildBak;
+    Npc_SetTrueGuild(hero, guildTrueBak);
 
     // Pass on return value
     return (!ret1) && (ret2);

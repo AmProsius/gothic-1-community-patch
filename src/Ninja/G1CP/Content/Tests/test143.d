@@ -83,23 +83,7 @@ func int G1CP_Test_143() {
 
     // Second pass: Call the dialog function and observe if it creates the corrected entry
 
-    // Backup self and other
-    var C_Npc slfBak; slfBak = MEM_CpyInst(self);
-    var C_Npc othBak; othBak = MEM_CpyInst(other);
-
-    // Set self and other
-    self  = MEM_CpyInst(hero);
-    other = MEM_CpyInst(hero);
-
-    MEM_CallByID(funcId);
-
-    // Restore self and other
-    self  = MEM_CpyInst(slfBak);
-    other = MEM_CpyInst(othBak);
-
-    // Stop the output units
-    Npc_ClearAIQueue(hero);
-    AI_StandUpQuick(hero);
+    G1CP_Testsuite_Call(funcId, 0, 0, TRUE);
 
     // Check if it was updated
     if (G1CP_LogHasEntry(topic, wrongLogEntry)) {

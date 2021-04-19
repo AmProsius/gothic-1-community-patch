@@ -30,8 +30,6 @@ func int G1CP_Test_109() {
 
     // Backup values
     var int amountBefore; amountBefore = Npc_HasItems(hero, oreId);
-    var C_Npc slfBak; slfBak = MEM_CpyInst(self);
-    var C_Npc othBak; othBak = MEM_CpyInst(other);
 
     // Remove all ore and then add 20
     if (amountBefore > 0) {
@@ -39,13 +37,9 @@ func int G1CP_Test_109() {
     };
     CreateInvItems(hero, oreId, 20);
 
-    // Set self and other
-    GetItemHelper();
-    self  = MEM_CpyInst(Item_Helper);
-    other = MEM_CpyInst(hero);
-
     // Just run the dialog and see what happens
-    MEM_CallByID(funcId);
+    GetItemHelper();
+    G1CP_Testsuite_Call(funcId, Item_Helper, hero, TRUE);
 
     // Check the amount
     var string msg;
@@ -70,14 +64,6 @@ func int G1CP_Test_109() {
     if (amountAfter > 0) {
         Npc_RemoveInvItems(hero, oreId, amountAfter);
     };
-
-    // Restore self and other
-    self  = MEM_CpyInst(slfBak);
-    other = MEM_CpyInst(othBak);
-
-    // Stop the output units
-    Npc_ClearAIQueue(hero);
-    AI_StandUpQuick(hero);
 
     // Restore any ore
     if (amountBefore > 0) {

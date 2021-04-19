@@ -22,14 +22,10 @@ func int G1CP_Test_036() {
     var int stayAtNCBak; stayAtNCBak = G1CP_GetIntVarI(varId2, 0, 0);
     var int guildBak; guildBak = Npc_GetTrueGuild(hero);
     var int hpBak; hpBak = npc.attribute[ATR_HITPOINTS];
-    var C_Npc slfBak; slfBak = MEM_CpyInst(self);
-    var C_Npc othBak; othBak = MEM_CpyInst(other);
 
     // Set new values
     G1CP_SetIntVarI(varId1, 0, FALSE);
     Npc_SetTrueGuild(hero, GIL_NONE);
-    self = MEM_CpyInst(hero);
-    other = MEM_CpyInst(hero);
 
     // Now do two passes for each OR-condition
     var int pass1;
@@ -40,7 +36,7 @@ func int G1CP_Test_036() {
     npc.attribute[ATR_HITPOINTS] = 0;
 
     // Call dialog condition function
-    MEM_CallByID(funcId);
+    G1CP_Testsuite_Call(funcId, 0, 0, FALSE);
     pass1 = MEM_PopIntResult();
     if (!pass1) {
         G1CP_TestsuiteErrorDetailSSS("Condition '", G1CP_GetSymbolName(varId1), "' failed");
@@ -51,15 +47,13 @@ func int G1CP_Test_036() {
     npc.attribute[ATR_HITPOINTS] = npc.attribute[ATR_HITPOINTS_MAX];
 
     // Call dialog condition function
-    MEM_CallByID(funcId);
+    G1CP_Testsuite_Call(funcId, 0, 0, FALSE);
     pass2 = MEM_PopIntResult();
     if (pass2) {
         G1CP_TestsuiteErrorDetailSSS("Condition '", G1CP_GetSymbolName(varId2), "' did not fail");
     };
 
     // Restore values
-    self = MEM_CpyInst(slfBak);
-    other = MEM_CpyInst(othBak);
     G1CP_SetIntVarI(varId1, 0, hauAbBak);
     G1CP_SetIntVarI(varId2, 0, stayAtNCBak);
     Npc_SetTrueGuild(hero, guildBak);

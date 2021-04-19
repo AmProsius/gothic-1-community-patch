@@ -23,22 +23,8 @@ func int G1CP_Test_203() {
     // Rename the log topic if it already exists
     G1CP_LogRenameTopic(TOPIC, TEMP_TOPIC_NAME);
 
-    // Backup and set self and other
-    var C_Npc slfBak; slfBak = MEM_CpyInst(self);
-    var C_Npc othBak; othBak = MEM_CpyInst(other);
-    self  = MEM_CpyInst(hero);
-    other = MEM_CpyInst(hero);
-
     // Just run the dialog and see what happens
-    MEM_CallByID(funcId);
-
-    // Stop the output units
-    Npc_ClearAIQueue(hero);
-    AI_StandUpQuick(hero);
-
-    // Restore self and other
-    self  = MEM_CpyInst(slfBak);
-    other = MEM_CpyInst(othBak);
+    G1CP_Testsuite_Call(funcId, 0, 0, TRUE);
 
     // Check if the log entry was created
     if (!G1CP_LogGetTopic(TOPIC)) {

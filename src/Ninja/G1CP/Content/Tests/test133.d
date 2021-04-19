@@ -104,29 +104,19 @@ func int G1CP_Test_133() {
 
     // Backup values
     var int aivarBak; aivarBak = G1CP_NpcGetAIVar(npc, "AIV_HASDEFEATEDSC", FALSE);
-    var C_Npc slfBak; slfBak = MEM_CpyInst(self);
-    var C_Npc othBak; othBak = MEM_CpyInst(other);
 
     // Set new values
     G1CP_NpcSetAIVar(npc, "AIV_HASDEFEATEDSC", TRUE);
-    self  = MEM_CpyInst(hero);
-    other = MEM_CpyInst(hero);
 
     // Create the topic
     Log_CreateTopic(topic, LOG_MISSION);
     Log_SetTopicStatus(topic, LOG_RUNNING);
 
     // Call dialog condition function
-    MEM_CallByID(funcId);
+    G1CP_Testsuite_Call(funcId, 0, 0, TRUE);
 
     // Restore values
-    self  = MEM_CpyInst(slfBak);
-    other = MEM_CpyInst(othBak);
     G1CP_NpcSetAIVar(npc, "AIV_HASDEFEATEDSC", aivarBak);
-
-    // Stop the output units
-    Npc_ClearAIQueue(hero);
-    AI_StandUpQuick(hero);
 
     // Check if it was updated
     if (G1CP_LogHasEntry(topic, wrongLogEntry)) {

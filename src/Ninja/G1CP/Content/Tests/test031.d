@@ -12,22 +12,16 @@ func int G1CP_Test_031_RunDialog(var int itemId, var int num, var string dialogN
 
     // Backup values
     var int toldBak; toldBak = Npc_KnowsInfo(hero, infoId);
-    var C_Npc slfBak; slfBak = MEM_CpyInst(self);
-    var C_Npc othBak; othBak = MEM_CpyInst(other);
 
     // Set new values
     G1CP_SetInfoToldI(infoId, TRUE);
     CreateInvItems(hero, itemId, num);
-    self  = MEM_CpyInst(hero);
-    other = MEM_CpyInst(hero);
 
     // Call dialog condition function
-    MEM_CallByID(funcId);
+    G1CP_Testsuite_Call(funcId, 0, 0, FALSE);
     var int ret; ret = MEM_PopIntResult();
 
     // Restore values
-    self  = MEM_CpyInst(slfBak);
-    other = MEM_CpyInst(othBak);
     G1CP_SetInfoToldI(infoId, toldBak);
     Npc_RemoveInvItems(hero, itemId, Npc_HasItems(hero, itemId));
 

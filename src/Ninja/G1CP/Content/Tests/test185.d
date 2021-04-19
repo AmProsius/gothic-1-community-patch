@@ -38,26 +38,20 @@ func int G1CP_Test_185() {
     var int GIL_GRD; GIL_GRD = G1CP_GetIntConst("GIL_GRD", 0, 0);
 
     // Backup values
-    var int guildBak; guildBak = hero.guild;                                      // Player guild
-    var int talentBak; talentBak = Npc_GetTalentSkill(hero, NPC_TALENT_CROSSBOW); // Talent
-    var C_Npc slfBak; slfBak = MEM_CpyInst(self);                                 // Self
-    var C_Npc othBak; othBak = MEM_CpyInst(other);                                // Other
+    var int guildBak; guildBak = hero.guild;
+    var int talentBak; talentBak = Npc_GetTalentSkill(hero, NPC_TALENT_CROSSBOW);
 
     // Set new values
-    hero.guild = GIL_GRD;                                                         // Player guild
-    Npc_SetTalentSkill(hero, NPC_TALENT_CROSSBOW, 1);                             // Talent
-    self  = MEM_CpyInst(hero);                                                    // Self
-    other = MEM_CpyInst(hero);                                                    // Other
+    hero.guild = GIL_GRD;
+    Npc_SetTalentSkill(hero, NPC_TALENT_CROSSBOW, 1);
 
     // Call dialog condition function
-    MEM_CallByID(funcId);
+    G1CP_Testsuite_Call(funcId, 0, 0, FALSE);
     var int ret; ret = MEM_PopIntResult();
 
     // Restore values
-    self  = MEM_CpyInst(slfBak);                                                  // Self
-    other = MEM_CpyInst(othBak);                                                  // Other
-    hero.guild = guildBak;                                                        // Player guild
-    Npc_SetTalentSkill(hero, NPC_TALENT_CROSSBOW, talentBak);                     // Talent
+    hero.guild = guildBak;
+    Npc_SetTalentSkill(hero, NPC_TALENT_CROSSBOW, talentBak);
 
     // Check return value
     if (ret) {

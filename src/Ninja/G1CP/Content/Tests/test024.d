@@ -24,26 +24,14 @@ func int G1CP_Test_024() {
     // Backup values
     var int drugMonopolBak; drugMonopolBak = G1CP_GetIntVarI(drugId, 0, 0);
     var int krautboteBak; krautboteBak = G1CP_GetIntVarI(krautId, 0, 0);
-    var C_Npc slfBak; slfBak = MEM_CpyInst(self);
-    var C_Npc othBak; othBak = MEM_CpyInst(other);
 
     // Set new variables
     G1CP_SetIntVarI(drugId, 0, LOG_RUNNING);
     G1CP_SetIntVarI(krautId, 0, LOG_RUNNING);
     CreateInvItems(hero, itemId, 500); // Add 500 ore for the condition within the dialog
-    self = MEM_CpyInst(npc);
-    other = MEM_CpyInst(hero);
 
     // Just run the dialog and see what happens
-    MEM_CallByID(funcId);
-
-    // Restore self and other
-    self = MEM_CpyInst(slfBak);
-    other = MEM_CpyInst(othBak);
-
-    // Stop the output units
-    Npc_ClearAIQueue(hero);
-    AI_StandUpQuick(hero);
+    G1CP_Testsuite_Call(funcId, npc, hero, TRUE);
 
     // Check the variables now
     var int drugMonopolAfter; drugMonopolAfter = G1CP_GetIntVarI(drugId, 0, 0);

@@ -24,12 +24,6 @@ func int G1CP_Test_027() {
     var int beersBefore; beersBefore = Npc_HasItems(hero, itemId);
     var int beerGivenBak; beerGivenBak = G1CP_GetIntVarI(var1Id, 0, 0);
     var int teachingBak; teachingBak = G1CP_GetIntVarI(var2Id, 0, 0);
-    var C_Npc slfBak; slfBak = MEM_CpyInst(self);
-    var C_Npc othBak; othBak = MEM_CpyInst(other);
-
-    // Set self and other
-    self = MEM_CpyInst(hero);
-    other = MEM_CpyInst(hero);
 
     // Do two passes
     var int pass1passed;
@@ -47,11 +41,7 @@ func int G1CP_Test_027() {
     G1CP_SetIntVarI(var2Id, 0, FALSE);
 
     // Just run the dialog and see what happens
-    MEM_CallByID(funcId);
-
-    // Stop the output units
-    Npc_ClearAIQueue(hero);
-    AI_StandUpQuick(hero);
+    G1CP_Testsuite_Call(funcId, 0, 0, TRUE);
 
     // Check the variable and log topic
     topicCreated = G1CP_LogGetTopic(TOPIC) != 0;
@@ -75,11 +65,7 @@ func int G1CP_Test_027() {
     G1CP_SetIntVarI(var2Id, 0, FALSE);
 
     // Just run the dialog and see what happens
-    MEM_CallByID(funcId);
-
-    // Stop the output units
-    Npc_ClearAIQueue(hero);
-    AI_StandUpQuick(hero);
+    G1CP_Testsuite_Call(funcId, 0, 0, TRUE);
 
     // Check the variable and log topic
     topicCreated = G1CP_LogGetTopic(TOPIC) != 0;
@@ -97,10 +83,6 @@ func int G1CP_Test_027() {
     Npc_RemoveInvItems(hero, itemId, Npc_HasItems(hero, itemId));
 
     // Clean up
-
-    // Restore self and other
-    self = MEM_CpyInst(slfBak);
-    other = MEM_CpyInst(othBak);
 
     // Restore values
     G1CP_SetIntVarI(var1Id, 0, beerGivenBak);

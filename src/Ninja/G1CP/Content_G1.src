@@ -44,6 +44,7 @@ Content\Testsuite\check.d
 Content\Testsuite\get.d
 Content\Testsuite\find.d
 Content\Testsuite\create.d
+Content\Testsuite\call.d
 
 // Session fixes
 Content\Fixes\Session\fix001_NpcStateSleep.d

@@ -36,29 +36,23 @@ func int G1CP_Test_186() {
     var int GIL_STT; GIL_STT = G1CP_GetIntConst("GIL_STT", 0, 0);
 
     // Backup values
-    var int toldBak; toldBak = Npc_KnowsInfo(hero, G1CP_GetInfoInstID("GRD_200_Thorus_WANNABEMAGE")); // Told status
-    var int kdfAufnahmeBak; kdfAufnahmeBak = G1CP_GetIntVar("Corristo_KDFAufnahmer", 0, 0);           // Variable
-    var int guildBak; guildBak = hero.guild;                                                          // Player guild
-    var C_Npc slfBak; slfBak = MEM_CpyInst(self);                                                     // Self
-    var C_Npc othBak; othBak = MEM_CpyInst(other);                                                    // Other
+    var int toldBak; toldBak = Npc_KnowsInfo(hero, G1CP_GetInfoInstID("GRD_200_Thorus_WANNABEMAGE"));
+    var int kdfAufnahmeBak; kdfAufnahmeBak = G1CP_GetIntVar("Corristo_KDFAufnahmer", 0, 0);
+    var int guildBak; guildBak = hero.guild;
 
     // Set new values
-    G1CP_SetInfoTold("GRD_200_Thorus_WANNABEMAGE", TRUE);                                             // Told status
-    hero.guild = GIL_STT;                                                                             // Player guild
-    G1CP_SetIntVar("Corristo_KDFAufnahmer", 0, TRUE);                                                 // Variable
-    self  = MEM_CpyInst(hero);                                                                        // Self
-    other = MEM_CpyInst(hero);                                                                        // Other
+    G1CP_SetInfoTold("GRD_200_Thorus_WANNABEMAGE", TRUE);
+    hero.guild = GIL_STT;
+    G1CP_SetIntVar("Corristo_KDFAufnahmer", 0, TRUE);
 
     // Call dialog condition function
-    MEM_CallByID(funcId);
+    G1CP_Testsuite_Call(funcId, 0, 0, FALSE);
     var int ret; ret = MEM_PopIntResult();
 
     // Restore values
-    self  = MEM_CpyInst(slfBak);                                                                      // Self
-    other = MEM_CpyInst(othBak);                                                                      // Other
-    G1CP_SetInfoTold("GRD_200_Thorus_WANNABEMAGE", toldBak);                                          // Told status
-    hero.guild = guildBak;                                                                            // Player guild
-    G1CP_SetIntVar("Corristo_KDFAufnahmer", 0, kdfAufnahmeBak);                                       // Variable
+    G1CP_SetInfoTold("GRD_200_Thorus_WANNABEMAGE", toldBak);
+    hero.guild = guildBak;
+    G1CP_SetIntVar("Corristo_KDFAufnahmer", 0, kdfAufnahmeBak);
 
     // Check return value
     if (ret) {

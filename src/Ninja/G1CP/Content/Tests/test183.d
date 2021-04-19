@@ -14,23 +14,17 @@ func int G1CP_Test_183() {
     // Backup values
     var int guildBak; guildBak = hero.guild;
     var int trueGuildBak; trueGuildBak = Npc_GetTrueGuild(hero);
-    var C_Npc slfBak; slfBak = MEM_CpyInst(self);
-    var C_Npc othBak; othBak = MEM_CpyInst(other);
 
     // Set new values
     CreateInvItem(hero, itemId);
     Npc_SetTrueGuild(hero, GIL_KDF);
     hero.guild = GIL_KDF;
-    self = MEM_CpyInst(hero);
-    other = MEM_CpyInst(hero);
 
     // Call dialog condition function
-    MEM_CallByID(funcId);
+    G1CP_Testsuite_Call(funcId, 0, 0, FALSE);
     var int ret; ret = MEM_PopIntResult();
 
     // Restore values
-    self = MEM_CpyInst(slfBak);
-    other = MEM_CpyInst(othBak);
     Npc_RemoveInvItems(hero, itemId, 1);
     Npc_SetTrueGuild(hero, trueGuildBak);
     hero.guild = guildBak;

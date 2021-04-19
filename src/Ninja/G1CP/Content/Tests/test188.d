@@ -55,21 +55,9 @@ func int G1CP_Test_188() {
     G1CP_SetIntVar("Kalom_DeliveredWeed", 0, TRUE);
     G1CP_SetIntVarI(questID, 0, LOG_SUCCESS);
 
-    // Backup self and other
-    var C_Npc slfBak; slfBak = MEM_CpyInst(self);
-    var C_Npc othBak; othBak = MEM_CpyInst(other);
-
-    // Set self and other
-    self  = MEM_CpyInst(hero);
-    other = MEM_CpyInst(hero);
-
     // Call dialog condition function
-    MEM_CallByID(funcId);
+    G1CP_Testsuite_Call(funcId, 0, 0, FALSE);
     var int ret; ret = MEM_PopIntResult();
-
-    // Restore self and other
-    self  = MEM_CpyInst(slfBak);
-    other = MEM_CpyInst(othBak);
 
     // Restore the variables
     G1CP_SetIntVar("Kalom_DeliveredWeed", 0, deliveredWeedBak);

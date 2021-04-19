@@ -17,16 +17,10 @@ func int G1CP_Test_015() {
 
     // Backup values
     var int strengthBak; strengthBak = hero.attribute[ATR_STRENGTH];
-    var C_Npc slfBak; slfBak = MEM_CpyInst(self);
-    var C_Npc othBak; othBak = MEM_CpyInst(other);
-
-    // Set self and other
-    self = MEM_CpyInst(hero);
-    other = MEM_CpyInst(hero);
 
     // First pass: strength < 100
     hero.attribute[ATR_STRENGTH] = 10;
-    MEM_CallByID(funcId);
+    G1CP_Testsuite_Call(funcId, 0, 0, TRUE);
     if (hero.attribute[ATR_STRENGTH] <= 10) {
         G1CP_TestsuiteErrorDetail("Strength was not increased when below 100");
         passed = FALSE;
@@ -34,19 +28,11 @@ func int G1CP_Test_015() {
 
     // Second pass: strength > 100
     hero.attribute[ATR_STRENGTH] = 1000;
-    MEM_CallByID(funcId);
+    G1CP_Testsuite_Call(funcId, 0, 0, TRUE);
     if (hero.attribute[ATR_STRENGTH] < 1000) {
         G1CP_TestsuiteErrorDetail("Strength was decreased when above 100");
         passed = FALSE;
     };
-
-    // Restore self and other
-    self = MEM_CpyInst(slfBak);
-    other = MEM_CpyInst(othBak);
-
-    // Stop the output units
-    Npc_ClearAIQueue(hero);
-    AI_StandUpQuick(hero);
 
     // Restore original strength
     hero.attribute[ATR_STRENGTH] = strengthBak;

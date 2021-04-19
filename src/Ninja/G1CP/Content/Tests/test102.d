@@ -43,8 +43,6 @@ func int G1CP_Test_102() {
     // Backup values
     var int topicBak; topicBak = MEM_ReadInt(topicPtr);
     var int amountBefore; amountBefore = Npc_HasItems(hero, oreId);
-    var C_Npc slfBak; slfBak = MEM_CpyInst(self);
-    var C_Npc othBak; othBak = MEM_CpyInst(other);
 
     // Remove all ore
     if (amountBefore > 0) {
@@ -53,11 +51,6 @@ func int G1CP_Test_102() {
 
     // Set the topic status variable to LOG_RUNNING
     MEM_WriteInt(topicPtr, LOG_RUNNING);
-
-    // Set self and other
-    GetItemHelper();
-    self  = MEM_CpyInst(Item_Helper);
-    other = MEM_CpyInst(hero);
 
     // Two passes
     var int amountPass1;
@@ -68,7 +61,8 @@ func int G1CP_Test_102() {
     CreateInvItems(hero, oreId, 8);
 
     // Just run the dialog and see what happens
-    MEM_CallByID(funcId);
+    GetItemHelper();
+    G1CP_Testsuite_Call(funcId, Item_Helper, hero, TRUE);
 
     // Check the amount
     amountPass1 = Npc_HasItems(hero, oreId);
@@ -92,7 +86,7 @@ func int G1CP_Test_102() {
     CreateInvItems(hero, oreId, 20); // Have at least 10 (to see if the amount decreases)
 
     // Just run the dialog and see what happens
-    MEM_CallByID(funcId);
+    G1CP_Testsuite_Call(funcId, Item_Helper, hero, TRUE);
 
     // Check the amount
     amountPass2 = Npc_HasItems(hero, oreId);
@@ -116,14 +110,6 @@ func int G1CP_Test_102() {
     if (amountPass2 > 0) {
         Npc_RemoveInvItems(hero, oreId, amountPass2);
     };
-
-    // Restore self and other
-    self  = MEM_CpyInst(slfBak);
-    other = MEM_CpyInst(othBak);
-
-    // Stop the output units
-    Npc_ClearAIQueue(hero);
-    AI_StandUpQuick(hero);
 
     // Restore any ore
     if (amountBefore > 0) {

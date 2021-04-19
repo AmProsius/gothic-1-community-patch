@@ -67,8 +67,6 @@ func int G1CP_Test_182() {
     var int lvlBefore; lvlBefore = hero.level;
     var int aivBak; aivBak = G1CP_NpcGetAIVar(npc, "AIV_PARTYMEMBER", 0);
     var string npcWp; npcWp = Npc_GetNearestWP(npc);
-    var C_Npc slfBak; slfBak = MEM_CpyInst(self);
-    var C_Npc othBak; othBak = MEM_CpyInst(other);
     G1CP_LogRenameTopic(topic, "G1CP invalid topic 182");
 
     // Remove all ore
@@ -80,12 +78,8 @@ func int G1CP_Test_182() {
     // Create log topic
     Log_CreateTopic(topic, LOG_MISSION);
 
-    // Set self and other
-    self  = MEM_CpyInst(hero);
-    other = MEM_CpyInst(hero);
-
     // Execute the bribe dialog function
-    MEM_CallByID(funcId);
+    G1CP_Testsuite_Call(funcId, 0, 0, TRUE);
 
     // Satisfy dialog conditions
     G1CP_NpcSetAIVar(npc, "AIV_PARTYMEMBER", TRUE);
@@ -93,16 +87,8 @@ func int G1CP_Test_182() {
 
 
     // Call the condition function
-    MEM_CallByID(condId);
+    G1CP_Testsuite_Call(condId, 0, 0, TRUE);
     var int ret; ret = MEM_PopIntResult();
-
-    // Restore self and other
-    self  = MEM_CpyInst(slfBak);
-    other = MEM_CpyInst(othBak);
-
-    // Stop the output units
-    Npc_ClearAIQueue(hero);
-    AI_StandUpQuick(hero);
 
     // Restore values
     hero.exp = expBefore;
