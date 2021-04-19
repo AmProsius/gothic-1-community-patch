@@ -19,6 +19,7 @@ func int G1CP_055_ReactivateInExtremo_InitSession() {
     var int fncExgRtnId; fncExgRtnId = G1CP_GetFuncID("B_ExchangeRoutine",     "void|int|string");
     if (fncInsertId == -1) || (fncRemoveId == -1) || (fncStrtMsId == -1) || (fncStopMsId == -1)
     || (fncChpChgId == -1) || (fncExgRtnId == -1) {
+        MEM_Info("Necessary functions not found");
         return FALSE;
     };
 
@@ -26,6 +27,7 @@ func int G1CP_055_ReactivateInExtremo_InitSession() {
     var int varPlyingId; varPlyingId = G1CP_GetIntVarID("InExtremoPlaying", 0);
     var int varChaptrId; varChaptrId = G1CP_GetIntVarID("Kapitel",          0);
     if (varPlyingId == 1) || (varChaptrId == 1) {
+        MEM_Info("Necessary variables not found");
         return FALSE;
     };
 
@@ -51,6 +53,7 @@ func int G1CP_055_ReactivateInExtremo_InitSession() {
     if (npc[0]  == -1) || (npc[1]  == -1) || (npc[2]  == -1) || (npc[3]  == -1) || (npc[4]  == -1)
     || (npc[5]  == -1) || (npc[6]  == -1) || (npc[7]  == -1) || (npc[8]  == -1) || (npc[9]  == -1)
     || (npc[10] == -1) || (npc[11] == -1) || (npc[12] == -1) || (npc[13] == -1) {
+        MEM_Info("Necessary NPC instances not found");
         return FALSE;
     };
 
@@ -70,6 +73,7 @@ func int G1CP_055_ReactivateInExtremo_InitSession() {
     || (!G1CP_IsFunc("Rtn_off_397",       "void|none")) || (!G1CP_IsFunc("Rtn_off_398",       "void|none"))
     || (!G1CP_IsFunc("Rtn_off_399",       "void|none")) || (!G1CP_IsFunc("Rtn_off_400",       "void|none"))
     || (!G1CP_IsFunc("Rtn_off_401",       "void|none")) || (!G1CP_IsFunc("Rtn_off_402",       "void|none")) {
+        MEM_Info("Necessary daily routines not found");
         return FALSE;
     };
 
@@ -78,6 +82,7 @@ func int G1CP_055_ReactivateInExtremo_InitSession() {
     if (!G1CP_IsInfoInst("IE_397_Announcer_ANNOUNCE")) || (!G1CP_GetInfo("IE_397_Announcer_ANNOUNCE"))
     || (!G1CP_IsInfoInst("DIA_Grim_INEXTREMO"))        || (!G1CP_GetInfo("DIA_Grim_INEXTREMO"))
     || (fncDiaGrimId == -1) {
+        MEM_Info("Necessary dialogs not found");
         return FALSE;
     };
 
@@ -87,68 +92,89 @@ func int G1CP_055_ReactivateInExtremo_InitSession() {
     var int count;
     var int addr;
     var int val;
+    var int good;
 
     // Check that the content of "B_InsertInExtremo" is as expected
     var int fncInsrtNpcId; fncInsrtNpcId = MEM_GetFuncID(Wld_InsertNpc);
     addr = G1CP_GetFuncStart(fncInsertId);
+    good = TRUE;
     repeat(i, GRIM); var int i; // All NPCs but Grim
-        if (MEM_ReadByte(addr) != zPAR_TOK_PUSHINT)        { return FALSE; }; addr += 1;
-        if (MEM_ReadInt( addr) != MEM_ReadStatArr(npc, i)) { return FALSE; }; addr += 4;
-        if (MEM_ReadByte(addr) != zPAR_TOK_PUSHVAR)        { return FALSE; }; addr += 1+4;
-        if (MEM_ReadByte(addr) != zPAR_TOK_CALLEXTERN)     { return FALSE; }; addr += 1;
-        if (MEM_ReadInt( addr) != fncInsrtNpcId)           { return FALSE; }; addr += 4;
+        if (MEM_ReadByte(addr) != zPAR_TOK_PUSHINT)        { good = FALSE; }; addr += 1;
+        if (MEM_ReadInt( addr) != MEM_ReadStatArr(npc, i)) { good = FALSE; }; addr += 4;
+        if (MEM_ReadByte(addr) != zPAR_TOK_PUSHVAR)        { good = FALSE; }; addr += 1+4;
+        if (MEM_ReadByte(addr) != zPAR_TOK_CALLEXTERN)     { good = FALSE; }; addr += 1;
+        if (MEM_ReadInt( addr) != fncInsrtNpcId)           { good = FALSE; }; addr += 4;
     end;
-    if (MEM_ReadByte(addr) != zPAR_TOK_RET)                { return FALSE; };
+    if (MEM_ReadByte(addr) != zPAR_TOK_RET)                { good = FALSE; };
+    if (!good) {
+        MEM_Info("Content of function 'B_InsertInExtremo' not as expected");
+        return FALSE;
+    };
 
     // Check that the content of "B_KillInExtremo" is as expected
     var int fncExgRtnOff; fncExgRtnOff = G1CP_GetCallableOffsetI(fncExgRtnId);
     addr = G1CP_GetFuncStart(fncRemoveId);
+    good = TRUE;
     repeat(i, ALL); // All NPCs including Grim
-        if (MEM_ReadByte(addr) != zPAR_TOK_PUSHINT)        { return FALSE; }; addr += 1;
-        if (MEM_ReadInt( addr) != MEM_ReadStatArr(npc, i)) { return FALSE; }; addr += 4;
-        if (MEM_ReadByte(addr) != zPAR_TOK_PUSHVAR)        { return FALSE; }; addr += 1+4;
-        if (MEM_ReadByte(addr) != zPAR_TOK_CALL)           { return FALSE; }; addr += 1;
-        if (MEM_ReadInt( addr) != fncExgRtnOff)            { return FALSE; }; addr += 4;
+        if (MEM_ReadByte(addr) != zPAR_TOK_PUSHINT)        { good = FALSE; }; addr += 1;
+        if (MEM_ReadInt( addr) != MEM_ReadStatArr(npc, i)) { good = FALSE; }; addr += 4;
+        if (MEM_ReadByte(addr) != zPAR_TOK_PUSHVAR)        { good = FALSE; }; addr += 1+4;
+        if (MEM_ReadByte(addr) != zPAR_TOK_CALL)           { good = FALSE; }; addr += 1;
+        if (MEM_ReadInt( addr) != fncExgRtnOff)            { good = FALSE; }; addr += 4;
     end;
-    if (MEM_ReadByte(addr) != zPAR_TOK_RET)                { return FALSE; };
+    if (MEM_ReadByte(addr) != zPAR_TOK_RET)                { good = FALSE; };
+    if (!good) {
+        MEM_Info("Content of function 'B_InsertInExtremo' not as expected");
+        return FALSE;
+    };
 
     // Check that the content of "B_InExtremoStartMusic" is as expected
     var int fncSndTrggrId; fncSndTrggrId = MEM_GetFuncID(Wld_SendTrigger);
     addr = G1CP_GetFuncStart(fncStrtMsId);
-    if (MEM_ReadByte(addr) != zPAR_TOK_PUSHVAR)            { return FALSE; }; addr += 5;
-    if (MEM_ReadByte(addr) != zPAR_TOK_CALLEXTERN)         { return FALSE; }; addr += 1;
-    if (MEM_ReadInt( addr) != fncSndTrggrId)               { return FALSE; }; addr += 4;
-    if (MEM_ReadByte(addr) != zPAR_TOK_PUSHVAR)            { return FALSE; }; addr += 5;
-    if (MEM_ReadByte(addr) != zPAR_TOK_CALLEXTERN)         { return FALSE; }; addr += 1;
-    if (MEM_ReadInt( addr) != fncSndTrggrId)               { return FALSE; }; addr += 4;
+    good = TRUE;
+    if (MEM_ReadByte(addr) != zPAR_TOK_PUSHVAR)            { good = FALSE; }; addr += 5;
+    if (MEM_ReadByte(addr) != zPAR_TOK_CALLEXTERN)         { good = FALSE; }; addr += 1;
+    if (MEM_ReadInt( addr) != fncSndTrggrId)               { good = FALSE; }; addr += 4;
+    if (MEM_ReadByte(addr) != zPAR_TOK_PUSHVAR)            { good = FALSE; }; addr += 5;
+    if (MEM_ReadByte(addr) != zPAR_TOK_CALLEXTERN)         { good = FALSE; }; addr += 1;
+    if (MEM_ReadInt( addr) != fncSndTrggrId)               { good = FALSE; }; addr += 4;
     val = MEM_ReadInt(addr+1);
     if (MEM_ReadByte(addr) == zPAR_TOK_PUSHVAR) {
         val = G1CP_GetIntI(val, 0, 0);
-    } else if (MEM_ReadByte(addr) != zPAR_TOK_PUSHINT)     { return FALSE; }; addr += 1;
-    if (val == 0)                                          { return FALSE; }; addr += 4;
-    if (MEM_ReadByte(addr) != zPAR_TOK_PUSHVAR)            { return FALSE; }; addr += 1;
-    if (MEM_ReadInt( addr) != varPlyingId)                 { return FALSE; }; addr += 4;
-    if (MEM_ReadByte(addr) != zPAR_OP_IS)                  { return FALSE; }; addr += 1;
-    if (MEM_ReadByte(addr) != zPAR_TOK_RET)                { return FALSE; };
+    } else if (MEM_ReadByte(addr) != zPAR_TOK_PUSHINT)     { good = FALSE; }; addr += 1;
+    if (val == 0)                                          { good = FALSE; }; addr += 4;
+    if (MEM_ReadByte(addr) != zPAR_TOK_PUSHVAR)            { good = FALSE; }; addr += 1;
+    if (MEM_ReadInt( addr) != varPlyingId)                 { good = FALSE; }; addr += 4;
+    if (MEM_ReadByte(addr) != zPAR_OP_IS)                  { good = FALSE; }; addr += 1;
+    if (MEM_ReadByte(addr) != zPAR_TOK_RET)                { good = FALSE; };
+    if (!good) {
+        MEM_Info("Content of function 'B_InExtremoStartMusic' not as expected");
+        return FALSE;
+    };
 
     // Check that the content of "B_InExtremoStopMusic" is as expected
     var int fncUnSndTrgId; fncUnSndTrgId = MEM_GetFuncID(Wld_SendUnTrigger);
     addr = G1CP_GetFuncStart(fncStopMsId);
-    if (MEM_ReadByte(addr) != zPAR_TOK_PUSHVAR)            { return FALSE; }; addr += 5;
-    if (MEM_ReadByte(addr) != zPAR_TOK_CALLEXTERN)         { return FALSE; }; addr += 1;
-    if (MEM_ReadInt( addr) != fncUnSndTrgId)               { return FALSE; }; addr += 4;
-    if (MEM_ReadByte(addr) != zPAR_TOK_PUSHVAR)            { return FALSE; }; addr += 5;
-    if (MEM_ReadByte(addr) != zPAR_TOK_CALLEXTERN)         { return FALSE; }; addr += 1;
-    if (MEM_ReadInt( addr) != fncUnSndTrgId)               { return FALSE; }; addr += 4;
+    good = TRUE;
+    if (MEM_ReadByte(addr) != zPAR_TOK_PUSHVAR)            { good = FALSE; }; addr += 5;
+    if (MEM_ReadByte(addr) != zPAR_TOK_CALLEXTERN)         { good = FALSE; }; addr += 1;
+    if (MEM_ReadInt( addr) != fncUnSndTrgId)               { good = FALSE; }; addr += 4;
+    if (MEM_ReadByte(addr) != zPAR_TOK_PUSHVAR)            { good = FALSE; }; addr += 5;
+    if (MEM_ReadByte(addr) != zPAR_TOK_CALLEXTERN)         { good = FALSE; }; addr += 1;
+    if (MEM_ReadInt( addr) != fncUnSndTrgId)               { good = FALSE; }; addr += 4;
     val = MEM_ReadInt(addr+1);
     if (MEM_ReadByte(addr) == zPAR_TOK_PUSHVAR) {
         val = G1CP_GetIntI(val, 0, 1);
-    } else if (MEM_ReadByte(addr) != zPAR_TOK_PUSHINT)     { return FALSE; }; addr += 1;
-    if (val != 0)                                          { return FALSE; }; addr += 4;
-    if (MEM_ReadByte(addr) != zPAR_TOK_PUSHVAR)            { return FALSE; }; addr += 1;
-    if (MEM_ReadInt( addr) != varPlyingId)                 { return FALSE; }; addr += 4;
-    if (MEM_ReadByte(addr) != zPAR_OP_IS)                  { return FALSE; }; addr += 1;
-    if (MEM_ReadByte(addr) != zPAR_TOK_RET)                { return FALSE; };
+    } else if (MEM_ReadByte(addr) != zPAR_TOK_PUSHINT)     { good = FALSE; }; addr += 1;
+    if (val != 0)                                          { good = FALSE; }; addr += 4;
+    if (MEM_ReadByte(addr) != zPAR_TOK_PUSHVAR)            { good = FALSE; }; addr += 1;
+    if (MEM_ReadInt( addr) != varPlyingId)                 { good = FALSE; }; addr += 4;
+    if (MEM_ReadByte(addr) != zPAR_OP_IS)                  { good = FALSE; }; addr += 1;
+    if (MEM_ReadByte(addr) != zPAR_TOK_RET)                { good = FALSE; };
+    if (!good) {
+        MEM_Info("Content of function 'B_InExtremoStopMusic' not as expected");
+        return FALSE;
+    };
 
     // Check that the content of "DIA_Grim_INEXTREMO_Info" is as expected: Change of routine
     bytes[0] = zPAR_TOK_CALLEXTERN<<24;
@@ -160,10 +186,12 @@ func int G1CP_055_ReactivateInExtremo_InitSession() {
     };
     MEM_ArrayFree(matches);
     if (count != 1) {
+        MEM_Info("Content of function 'DIA_Grim_INEXTREMO_Info' not as expected (no 'Npc_ExchangeRoutine')");
         return FALSE;
     };
     val = MEM_ReadInt(addr-4);
     if (!Hlp_StrCmp(G1CP_GetStringI(val, 0, ""), "InExtremo")) {
+        MEM_Info("Content of function 'DIA_Grim_INEXTREMO_Info' not as expected (no 'InExtremo' routine)");
         return FALSE;
     };
 
@@ -174,6 +202,7 @@ func int G1CP_055_ReactivateInExtremo_InitSession() {
     count = MEM_ArraySize(matches);
     MEM_ArrayFree(matches);
     if (count != 0) {
+        MEM_Info("Function 'B_InsertInExtremo' referenced in the scripts");
         return FALSE;
     };
 
@@ -193,6 +222,7 @@ func int G1CP_055_ReactivateInExtremo_InitSession() {
     end;
     MEM_ArrayFree(matches);
     if (count != 0) {
+        MEM_Info("Variable 'InExtremoPlaying' referenced in the scripts");
         return FALSE;
     };
 
@@ -203,12 +233,16 @@ func int G1CP_055_ReactivateInExtremo_InitSession() {
     const int zFILE_VDFS__UnlockCriticalSection = 4485600; //0x4471E0
     CALL__cdecl(zFILE_VDFS__LockCriticalSection);
     CALL_IntParam(1); // Only check VDF_VIRTUAL (no physical files)
-    CALL_PutRetValTo(_@(ret));
+    CALL_PutRetValTo(_@(good));
     CALL_cStringPtrParam("\_WORK\DATA\SOUND\SFX\CS_INEXTREMO.WAV");
     CALL__cdecl(_vdf_fexists);
     CALL__cdecl(zFILE_VDFS__UnlockCriticalSection);
-    var int ret;
-    return +ret;
+    if (good) {
+        return TRUE;
+    } else {
+        MEM_Info("Music file 'CS_INEXTREMO.WAV' not found");
+        return FALSE;
+    };
 };
 
 
@@ -225,28 +259,33 @@ func int G1CP_055_ReactivateInExtremo_InitWorld() {
     // Check the music file
     var int soundNameAddr; soundNameAddr = vobPtr + sizeof_zCVob + 4;
     if (MEM_ReadInt(soundNameAddr) != zString__vtbl) {
+        MEM_Info("Sound VOB 'INEXTREMO_MUSIK' corrupt");
         return FALSE;
     }
     if (!Hlp_StrCmp(MEM_ReadString(soundNameAddr), "CS_INEXTREMO")) {
+        MEM_Info("Sound VOB 'INEXTREMO_MUSIK' has incorrect sound file");
         return FALSE;
     };
 
     // Assume now, we are in the correct world. Check for each and every way point. If even only one does not exist,
     // this fix will be marked to never be applied
-    if (!G1CP_GetWaypoint("OCR_IE_PYMONTE"))  { return FALSE; };
-    if (!G1CP_GetWaypoint("OCR_IE_FLAIL"))    { return FALSE; };
-    if (!G1CP_GetWaypoint("OCR_IE_THOMAS"))   { return FALSE; };
-    if (!G1CP_GetWaypoint("OCR_IE_UNICORN"))  { return FALSE; };
-    if (!G1CP_GetWaypoint("OCR_IE_PFEIFFER")) { return FALSE; };
-    if (!G1CP_GetWaypoint("OCR_IE_LUTTER"))   { return FALSE; };
-    if (!G1CP_GetWaypoint("OCR_IE_FLEX"))     { return FALSE; };
-    if (!G1CP_GetWaypoint("OCR_AUDIENCE_01")) { return FALSE; };
-    if (!G1CP_GetWaypoint("OCR_AUDIENCE_02")) { return FALSE; };
-    if (!G1CP_GetWaypoint("OCR_AUDIENCE_03")) { return FALSE; };
-    if (!G1CP_GetWaypoint("OCR_CROWD_01"))    { return FALSE; };
-    if (!G1CP_GetWaypoint("OCR_CROWD_02"))    { return FALSE; };
-    if (!G1CP_GetWaypoint("OCR_CROWD_03"))    { return FALSE; };
-    if (!G1CP_GetWaypoint("OCR_CROWD_04"))    { return FALSE; };
+    if (!G1CP_GetWaypoint("OCR_IE_PYMONTE"))
+    || (!G1CP_GetWaypoint("OCR_IE_FLAIL"))
+    || (!G1CP_GetWaypoint("OCR_IE_THOMAS"))
+    || (!G1CP_GetWaypoint("OCR_IE_UNICORN"))
+    || (!G1CP_GetWaypoint("OCR_IE_PFEIFFER"))
+    || (!G1CP_GetWaypoint("OCR_IE_LUTTER"))
+    || (!G1CP_GetWaypoint("OCR_IE_FLEX"))
+    || (!G1CP_GetWaypoint("OCR_AUDIENCE_01"))
+    || (!G1CP_GetWaypoint("OCR_AUDIENCE_02"))
+    || (!G1CP_GetWaypoint("OCR_AUDIENCE_03"))
+    || (!G1CP_GetWaypoint("OCR_CROWD_01"))
+    || (!G1CP_GetWaypoint("OCR_CROWD_02"))
+    || (!G1CP_GetWaypoint("OCR_CROWD_03"))
+    || (!G1CP_GetWaypoint("OCR_CROWD_04")) {
+        MEM_Info("Necessary waypoints not found");
+        return FALSE;
+    };
 
     // All confirmed, let's create the story hook
     HookDaedalusFuncS("B_Kapitelwechsel", "G1CP_055_ReactivateInExtremoHook");
