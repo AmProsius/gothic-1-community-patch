@@ -10,8 +10,6 @@ func int G1CP_Test_049() {
     var C_Item item; item = G1CP_Testsuite_CreateItem("DungeonKey");
     G1CP_Testsuite_CheckPassed();
 
-    // Create the key locally
-
     // Static string arrays cannot be read directly
     var string item_text_1; item_text_1 = MEM_ReadStatStringArr(item.text, 1);
 
