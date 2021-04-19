@@ -6,17 +6,17 @@
  * Expected behavior: The item will have the correct mainflag.
  */
 func int G1CP_Test_044() {
-    var C_Item item; item = G1CP_Testsuite_CreateItem("ItAt_Meatbug_01");
+    var C_Item itm; itm = G1CP_Testsuite_CreateItem("ItAt_Meatbug_01");
     G1CP_Testsuite_CheckPassed();
 
     // Define possibly missing symbols locally
     const int ITEM_KAT_FOOD = 1 << 5;
 
     // Create the item locally
-    if (item.mainflag == ITEM_KAT_FOOD) {
+    if (itm.mainflag == ITEM_KAT_FOOD) {
         return TRUE;
     } else {
-        G1CP_TestsuiteErrorDetailSIS("Category incorrect: mainflag = '", item.mainflag, "'");
+        G1CP_TestsuiteErrorDetailSIS("Category incorrect: mainflag = '", itm.mainflag, "'");
         return FALSE;
     };
 };
