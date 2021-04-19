@@ -8,14 +8,14 @@
  */
 func void G1CP_Test_163() {
     G1CP_Testsuite_CheckManual();
-
-    // Define possibly missing symbols locally
-    const int GIL_GRD = 2;
+    const int GIL_GRD = 0; GIL_GRD = G1CP_Testsuite_GetIntConst("GIL_GRD", 0);
+    var zCWaypoint wp; wp = G1CP_Testsuite_FindWaypoint("OCC_GATE_VWHEEL");
+    G1CP_Testsuite_CheckPassed();
 
     // Change the player's guild to not be attacked
     hero.guild = GIL_GRD;
     Npc_SetTrueGuild(hero, GIL_GRD);
 
     // Teleport the PC to the winch
-    AI_Teleport(hero, "OCC_GATE_VWHEEL");
+    AI_Teleport(hero, wp.name);
 };
