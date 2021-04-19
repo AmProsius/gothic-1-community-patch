@@ -25,6 +25,7 @@ func int G1CP_HookGameSaveFixes() {
 func void G1CP_GamesaveFixes_Apply() {
     if (G1CP_InitStart()) {                             // Maximum fix function name length: 45 characters
         G1CP_037_LogEntryGravoMerchant();               // #37
+        G1CP_045_SpawnSnappersMonastery();              // #45
         G1CP_046_SmithDoor();                           // #46
         G1CP_050_Pillar();                              // #50
         G1CP_051_StonehengeCryptChest();                // #51
@@ -36,6 +37,10 @@ func void G1CP_GamesaveFixes_Apply() {
         G1CP_133_DE_LogEntryScatty();                   // #133
         G1CP_143_DE_LogEntryBuster();                   // #143
         G1CP_193_GateSwitchesStuck();                   // #193
+        G1CP_203_LogEntryGrahamMerchant();              // #203
+        G1CP_205_LogEntryWolfMerchant();                // #205
+        G1CP_212_UseWithItemNCCauldron1();              // #212
+        G1CP_213_UseWithItemNCCauldron2();              // #213
     };
 };
 
@@ -45,6 +50,7 @@ func void G1CP_GamesaveFixes_Apply() {
 func void G1CP_GamesaveFixes_Revert() {
     if (G1CP_InitStart()) {                             // Maximum fix function name length: 45 characters
         G1CP_037_LogEntryGravoMerchantRevert();         // #37
+        G1CP_045_SpawnSnappersMonasteryRevert();        // #45
         G1CP_046_SmithDoorRevert();                     // #46
         G1CP_050_PillarRevert();                        // #50
         G1CP_051_StonehengeCryptChestRevert();          // #51
@@ -56,5 +62,9 @@ func void G1CP_GamesaveFixes_Revert() {
         G1CP_133_DE_LogEntryScattyRevert();             // #133
         G1CP_143_DE_LogEntryBusterRevert();             // #143
         G1CP_193_GateSwitchesStuckRevert();             // #193
+        G1CP_203_LogEntryGrahamMerchantRevert();        // #203
+        G1CP_205_LogEntryWolfMerchantRevert();          // #205
+        G1CP_212_UseWithItemNCCauldron1Revert();        // #212
+        G1CP_213_UseWithItemNCCauldron2Revert();        // #213
     };
 };
