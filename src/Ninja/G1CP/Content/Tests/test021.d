@@ -7,12 +7,14 @@
  */
 func int G1CP_Test_021() {
     const int GIL_NONE = 0; GIL_NONE = G1CP_Testsuite_GetIntConst("GIL_NONE", 0);
-    const int LOG_MISSION = 0; LOG_MISSION = G1CP_Testsuite_GetIntConst("LOG_MISSION", 0);
-    const int LOG_RUNNING = 0; LOG_RUNNING = G1CP_Testsuite_GetIntConst("LOG_RUNNING", 0);
-    const int LOG_SUCCESS = 0; LOG_SUCCESS = G1CP_Testsuite_GetIntConst("LOG_SUCCESS", 0);
     const string CH1_LostNek = ""; CH1_LostNek = G1CP_Testsuite_GetStringConst("CH1_LostNek", 0);
     var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc("DIA_Fletcher_WoNek_Info");
     G1CP_Testsuite_CheckPassed();
+
+    // Define possibly missing symbols locally
+    const int LOG_MISSION = 0;
+    const int LOG_RUNNING = 1;
+    const int LOG_SUCCESS = 2;
 
     // Backup values
     var int topicStatusBak; topicStatusBak = G1CP_LogGetTopicStatus(CH1_LostNek);
