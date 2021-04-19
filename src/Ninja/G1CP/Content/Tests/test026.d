@@ -6,9 +6,9 @@
  * Expected behavior: The condition function will return FALSE.
  */
 func int G1CP_Test_026() {
+    const int GIL_GRD = 0; GIL_GRD = G1CP_Testsuite_GetIntConst("GIL_GRD", 0);
     var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("Info_Org_804_FirstWarn_Condition");
     var C_Npc npc; npc = G1CP_Testsuite_FindNpc("Org_804_Organisator");
-    var int guildId; guildId = G1CP_Testsuite_CheckIntConst("GIL_GRD", 0);
     var int aiVarId; aiVarId = G1CP_Testsuite_CheckIntConst("AIV_GUARDPASSAGE_STATUS", 0);
     G1CP_Testsuite_CheckPassed();
 
@@ -17,9 +17,9 @@ func int G1CP_Test_026() {
     const int AIV_GPS_FIRSTWARN = 1;
 
     // Backup values
+    var int guildBak; guildBak = hero.guild;
     var int attitBak; attitBak = Npc_GetAttitude(npc, hero);
     var int aiVarBak; aiVarBak = G1CP_NpcGetAIVarI(hero, aiVarId, -1);
-    var int guildBak; guildBak = hero.guild;
     var string wpBak; wpBak = npc.wp;
     var C_Npc slfBak; slfBak = MEM_CpyInst(self);
     var C_Npc othBak; othBak = MEM_CpyInst(other);
@@ -27,7 +27,7 @@ func int G1CP_Test_026() {
     // Set new values
     Npc_SetTempAttitude(npc, ATT_NEUTRAL);
     G1CP_NpcSetAIVarI(hero, aiVarId, AIV_GPS_FIRSTWARN);
-    hero.guild = G1CP_GetIntConstI(guildId, 0, 0);
+    hero.guild = GIL_GRD;
     npc.wp = Npc_GetNearestWP(npc);
     self = MEM_CpyInst(npc);
     other = MEM_CpyInst(hero);
@@ -39,9 +39,9 @@ func int G1CP_Test_026() {
     // Restore values
     self = MEM_CpyInst(slfBak);
     other = MEM_CpyInst(othBak);
+    hero.guild = guildBak;
     Npc_SetTempAttitude(npc, attitBak);
     G1CP_NpcSetAIVarI(hero, aiVarId, aiVarBak);
-    hero.guild = guildBak;
     npc.wp = wpBak;
 
     // Check return value

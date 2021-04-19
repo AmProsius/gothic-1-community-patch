@@ -6,13 +6,10 @@
  * Expected behavior: The condition function will return FALSE.
  */
 func int G1CP_Test_025() {
+    const int GIL_KDW = 0; GIL_KDW = G1CP_Testsuite_GetIntConst("GIL_KDW", 0);
     var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("KDW_600_Saturas_HEAVYARMOR_Condition");
     var int itemId; itemId = G1CP_Testsuite_CheckItem("KDW_ARMOR_H");
-    var int guildId; guildId = G1CP_Testsuite_CheckIntConst("GIL_KDW", 0);
     G1CP_Testsuite_CheckPassed();
-
-    // Get constant values
-    const int GUILD = 0; GUILD = G1CP_GetIntConstI(guildId, 0, 0);
 
     // Backup values
     var int guildBak; guildBak = hero.guild;
@@ -22,8 +19,8 @@ func int G1CP_Test_025() {
 
     // Set new values
     CreateInvItem(hero, itemId);
-    Npc_SetTrueGuild(hero, GUILD);
-    hero.guild = GUILD;
+    Npc_SetTrueGuild(hero, GIL_KDW);
+    hero.guild = GIL_KDW;
     self = MEM_CpyInst(hero);
     other = MEM_CpyInst(hero);
 

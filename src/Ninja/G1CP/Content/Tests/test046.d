@@ -11,16 +11,13 @@
  */
 func void G1CP_Test_046() {
     G1CP_Testsuite_CheckManual();
+    const int GIL_GRD = 0; GIL_GRD = G1CP_Testsuite_GetIntConst("GIL_GRD", 0);
     var int funcId; funcId = G1CP_Testsuite_CheckFunc("B_Story_ExploreSunkenTower", "void|none", "");
-    var int guildId; guildId = G1CP_Testsuite_CheckIntConst("GIL_GRD", 0);
     var int bartholoId; bartholoId = G1CP_Testsuite_CheckInfo("DIA_EBR_106_Bartholo_Wait4SC");
     var int skipId; skipId = G1CP_Testsuite_CheckInfo("GRD_211_Skip_WELCOME");
     var zCWaypoint cellarWp; cellarWp = G1CP_Testsuite_FindWaypoint("OCC_CELLAR_BACK_LEFT_CELL");
     var zCWaypoint staircaseWp; staircaseWp = G1CP_Testsuite_FindWaypoint("OCC_STABLE_STAIRCASE_TOP");
     G1CP_Testsuite_CheckPassed();
-
-    // Get constant values
-    const int GUILD = 0; GUILD = G1CP_GetIntConstI(guildId, 0, 0);
 
     // Two passes
     if (!Npc_HasItems(hero, G1CP_046_SmithDoor_Item)) {
@@ -37,8 +34,8 @@ func void G1CP_Test_046() {
         AI_Teleport(hero, cellarWp.name);
 
         // Change the player's guild to not be attacked (just in case)
-        hero.guild = GUILD;
-        Npc_SetTrueGuild(hero, GUILD);
+        hero.guild = GIL_GRD;
+        Npc_SetTrueGuild(hero, GIL_GRD);
 
         // Some information
         Print("Confirm that the key is on the ground, pick it up and call the test again to teleport to the door.");

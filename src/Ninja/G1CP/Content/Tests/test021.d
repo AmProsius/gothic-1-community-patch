@@ -6,28 +6,23 @@
  * Expected behavior: The log entry is not moved to the "running" section.
  */
 func int G1CP_Test_021() {
+    const int GIL_NONE = 0; GIL_NONE = G1CP_Testsuite_GetIntConst("GIL_NONE", 0);
+    const int LOG_MISSION = 0; LOG_MISSION = G1CP_Testsuite_GetIntConst("LOG_MISSION", 0);
+    const int LOG_RUNNING = 0; LOG_RUNNING = G1CP_Testsuite_GetIntConst("LOG_RUNNING", 0);
+    const int LOG_SUCCESS = 0; LOG_SUCCESS = G1CP_Testsuite_GetIntConst("LOG_SUCCESS", 0);
+    const string CH1_LostNek = ""; CH1_LostNek = G1CP_Testsuite_GetStringConst("CH1_LostNek", 0);
     var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc("DIA_Fletcher_WoNek_Info");
-    var int topicId; topicId = G1CP_Testsuite_CheckStringConst("CH1_LostNek", 0);
     G1CP_Testsuite_CheckPassed();
 
-    // Define possibly missing symbols locally
-    const int GIL_NONE = 0;
-    const int LOG_MISSION = 0;
-    const int LOG_RUNNING = 1;
-    const int LOG_SUCCESS = 2;
-
-    // Get constant values
-    const string TOPIC = ""; TOPIC = G1CP_GetStringConstI(topicId, 0 , TOPIC);
-
     // Backup values
-    var int topicStatusBak; topicStatusBak = G1CP_LogGetTopicStatus(TOPIC);
+    var int topicStatusBak; topicStatusBak = G1CP_LogGetTopicStatus(CH1_LostNek);
     var int guildTrueBak; guildTrueBak = Npc_GetTrueGuild(hero);
     var C_Npc slfBak; slfBak = MEM_CpyInst(self);
     var C_Npc othBak; othBak = MEM_CpyInst(other);
 
     // Set new values
-    Log_CreateTopic(TOPIC, LOG_MISSION);
-    Log_SetTopicStatus(TOPIC, LOG_SUCCESS);
+    Log_CreateTopic(CH1_LostNek, LOG_MISSION);
+    Log_SetTopicStatus(CH1_LostNek, LOG_SUCCESS);
     Npc_SetTrueGuild(hero, GIL_NONE);
     self = MEM_CpyInst(hero);
     other = MEM_CpyInst(hero);
@@ -44,20 +39,20 @@ func int G1CP_Test_021() {
     AI_StandUpQuick(hero);
 
     // Check the variables now
-    var int topicStatusAfter; topicStatusAfter = G1CP_LogGetTopicStatus(TOPIC);
+    var int topicStatusAfter; topicStatusAfter = G1CP_LogGetTopicStatus(CH1_LostNek);
 
     // Restore the variables
     Npc_SetTrueGuild(hero, guildTrueBak);
     if (topicStatusBak == -1) {
-        G1CP_LogRemoveTopic(TOPIC);
+        G1CP_LogRemoveTopic(CH1_LostNek);
     } else {
-        Log_SetTopicStatus(TOPIC, topicStatusBak);
+        Log_SetTopicStatus(CH1_LostNek, topicStatusBak);
     };
 
     // Confirm the fix
     var int passed; passed = TRUE;
     if (topicStatusAfter == LOG_RUNNING) {
-        G1CP_TestsuiteErrorDetailSSS("Mission '", TOPIC, "' was wrongfully set to running");
+        G1CP_TestsuiteErrorDetailSSS("Mission '", CH1_LostNek, "' was wrongfully set to running");
         passed = FALSE;
     };
 

@@ -6,13 +6,11 @@
  * Expected behavior: The condition function will return FALSE.
  */
 func int G1CP_Test_019() {
+    const int GIL_NONE = 0; GIL_NONE = G1CP_Testsuite_GetIntConst("GIL_NONE", 0);
     var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("DIA_Scorpio_REFUSETRAIN_Condition");
     var int infoId; infoId = G1CP_Testsuite_CheckInfo("DIA_Scorpio_Hello");
     var int chptrId; chptrId = G1CP_Testsuite_CheckIntVar("Kapitel", 0);
     G1CP_Testsuite_CheckPassed();
-
-    // Define possibly missing symbols locally
-    const int GIL_NONE = 0;
 
     // Backup values
     var int chapterBak; chapterBak = G1CP_GetIntVarI(chptrId, 0, 0);
