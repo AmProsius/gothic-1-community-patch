@@ -6,35 +6,14 @@
  * Expected behavior: The armor will have the correct text (checked for German localization only).
  */
 func int G1CP_Test_201() {
-    // Check language first
-    if (G1CP_Lang != G1CP_Lang_DE) {
-        G1CP_TestsuiteErrorDetail("Test applicable for German localization only");
-        return TRUE; // True?
-    };
+    G1CP_Testsuite_CheckLang(G1CP_Lang_DE);
+    var C_Item itm; itm = G1CP_Testsuite_CreateItem("ORE_ARMOR_M");
+    G1CP_Testsuite_CheckPassed();
 
-    // Check if item exists
-    var int symbId; symbId = MEM_GetSymbolIndex("ORE_ARMOR_M");
-    if (symbId == -1) {
-        G1CP_TestsuiteErrorDetail("Item 'ORE_ARMOR_M' not found");
-        return FALSE;
-    };
-
-    // Create the armor locally
-    if (Itm_GetPtr(symbId)) {
-        // Static string arrays cannot be read directly
-        var string item_text_0; item_text_0 = MEM_ReadStatStringArr(item.text, 0);
-
-        if (Hlp_StrCmp(item_text_0, "Diese alte Rüstung wurde aus magischem Erz gefertigt.")) {
-            return TRUE;
-        } else {
-            var string msg; msg = "Text incorrect: text[0] = '";
-            msg = ConcatStrings(msg, item_text_0);
-            msg = ConcatStrings(msg, "'");
-            G1CP_TestsuiteErrorDetail(msg);
-            return FALSE;
-        };
+    if (Hlp_StrCmp(itm.text, "Diese alte Rüstung wurde aus magischem Erz gefertigt.")) {
+        return TRUE;
     } else {
-        G1CP_TestsuiteErrorDetail("Item 'ORE_ARMOR_M' could not be created");
+        G1CP_TestsuiteErrorDetailSSS("Text incorrect: text[0] = '", itm.text, "'");
         return FALSE;
     };
 };
