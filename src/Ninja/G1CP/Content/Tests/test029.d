@@ -8,19 +8,16 @@
 func int G1CP_Test_029() {
     var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("DIA_ORG_833_Buster3_Condition");
     var int infoId; infoId = G1CP_Testsuite_CheckInfo("DIA_ORG_833_Buster");
-    var int talId; talId = G1CP_Testsuite_CheckIntConst("NPC_TALENT_ACROBAT", 0);
+    const int NPC_TALENT_ACROBAT = 0; NPC_TALENT_ACROBAT = G1CP_Testsuite_GetIntConst("NPC_TALENT_ACROBAT", 0);
     G1CP_Testsuite_CheckPassed();
-
-    // Get constant values
-    const int TALENT = 0; TALENT = G1CP_GetIntConstI(talId, 0, 0);
 
     // Backup values
     var int toldBak; toldBak = Npc_KnowsInfo(hero, infoId);
-    var int talentBak; talentBak = Npc_GetTalentSkill(hero, TALENT);
+    var int talentBak; talentBak = Npc_GetTalentSkill(hero, NPC_TALENT_ACROBAT);
 
     // Set new values
     G1CP_SetInfoToldI(infoId, TRUE);
-    Npc_SetTalentSkill(hero, TALENT, TRUE);
+    Npc_SetTalentSkill(hero, NPC_TALENT_ACROBAT, TRUE);
 
     // Call dialog condition function
     G1CP_Testsuite_Call(funcId, 0, 0, FALSE);
@@ -28,7 +25,7 @@ func int G1CP_Test_029() {
 
     // Restore values
     G1CP_SetInfoToldI(infoId, toldBak);
-    Npc_SetTalentSkill(hero, TALENT, talentBak);
+    Npc_SetTalentSkill(hero, NPC_TALENT_ACROBAT, talentBak);
 
     // Check return value
     if (ret) {
