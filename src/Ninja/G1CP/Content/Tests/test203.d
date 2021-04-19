@@ -7,13 +7,10 @@
  */
 func int G1CP_Test_203() {
     const string TEMP_TOPIC_NAME = "G1CP Test 203"; // Has to be a unique name with absolute certainty
-    var int topicId; topicId = G1CP_Testsuite_CheckStringConst("GE_TraderOC", 0);
+    const string GE_TraderOC = ""; GE_TraderOC = G1CP_Testsuite_GetStringConst("GE_TraderOC", 0);
     var int infoId; infoId = G1CP_Testsuite_CheckInfo("DIA_Graham_Hello");
     var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc("DIA_Graham_Hello_Info");
     G1CP_Testsuite_CheckPassed();
-
-    // Get constant values
-    const string TOPIC = ""; TOPIC = G1CP_GetStringConstI(topicId, 0, TOPIC);
 
     // Check status of the test
     var int passed; passed = TRUE;
@@ -21,19 +18,19 @@ func int G1CP_Test_203() {
     // First test: Check if the dialog function creates the topic if it did not exist beforehand
 
     // Rename the log topic if it already exists
-    G1CP_LogRenameTopic(TOPIC, TEMP_TOPIC_NAME);
+    G1CP_LogRenameTopic(GE_TraderOC, TEMP_TOPIC_NAME);
 
     // Just run the dialog and see what happens
     G1CP_Testsuite_Call(funcId, 0, 0, TRUE);
 
     // Check if the log entry was created
-    if (!G1CP_LogGetTopic(TOPIC)) {
+    if (!G1CP_LogGetTopic(GE_TraderOC)) {
         G1CP_TestsuiteErrorDetail("Log topic was not created by the dialog function");
         passed = FALSE;
     };
 
     // Clean up
-    G1CP_LogRemoveTopic(TOPIC);
+    G1CP_LogRemoveTopic(GE_TraderOC);
 
     // Second test: Check if the log entry is created on applying the fix
     // This second test is specific to how the G1CP fixes the bug and will fail if a mod fixed the issue in another way
@@ -52,7 +49,7 @@ func int G1CP_Test_203() {
     r = G1CP_203_LogEntryGrahamMerchant();
 
     // Check if the topic was created
-    if (!G1CP_LogGetTopic(TOPIC)) {
+    if (!G1CP_LogGetTopic(GE_TraderOC)) {
         G1CP_TestsuiteErrorDetail("Log topic was not auto-created on applying the fix");
         passed = FALSE;
     };
@@ -61,8 +58,8 @@ func int G1CP_Test_203() {
     r = G1CP_203_LogEntryGrahamMerchantRevert();
     G1CP_SetInfoToldI(infoId, toldBak);
     r = G1CP_203_LogEntryGrahamMerchant();
-    G1CP_LogRemoveTopic(TOPIC);
-    G1CP_LogRenameTopic(TEMP_TOPIC_NAME, TOPIC);
+    G1CP_LogRemoveTopic(GE_TraderOC);
+    G1CP_LogRenameTopic(TEMP_TOPIC_NAME, GE_TraderOC);
 
     // Return success
     return passed;
