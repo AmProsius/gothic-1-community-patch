@@ -1,9 +1,9 @@
 /* Language of the scripts */
 const int G1CP_Lang    = 0; // Filled on first initialization
-const int G1CP_Lang_EN = 0;
-const int G1CP_Lang_DE = 1;
-const int G1CP_Lang_PL = 2;
-const int G1CP_Lang_RU = 3;
+const int G1CP_Lang_EN = 1 << 0;
+const int G1CP_Lang_DE = 1 << 1;
+const int G1CP_Lang_PL = 1 << 2;
+const int G1CP_Lang_RU = 1 << 3;
 
 /* Range of G1CP symbols (filled on first initialization) */
 const int G1CP_SymbStart = -1;

@@ -35,6 +35,40 @@ func void G1CP_Testsuite_CheckPassed() {
 };
 
 /*
+ * Check localization of the game and abort if it does not match
+ */
+ func void G1CP_Testsuite_CheckLang(var int lang) {
+    // Do not move this code
+    if (FALSE) {
+        // This emulates the end of the caller function and forces it to return true
+        TRUE;
+        return;
+    };
+
+    // Check test status
+    if (!(G1CP_Lang & lang)) {
+        // Get language name by given parameter
+        var string langNames; langNames = "";
+        if (lang & G1CP_Lang_EN) {
+            langNames = ConcatStrings(langNames, " English");
+        };
+        if (lang & G1CP_Lang_DE) {
+            langNames = ConcatStrings(langNames, " German");
+        };
+        if (lang & G1CP_Lang_PL) {
+            langNames = ConcatStrings(langNames, " Polish");
+        };
+        if (lang & G1CP_Lang_RU) {
+            langNames = ConcatStrings(langNames, " Russian");
+        };
+        G1CP_TestsuiteErrorDetailSSS("Test applicable for", langNames, " localization only");
+
+        // Return into the if-block above as if it was the caller function
+        MEM_SetCallerStackPos(MEM_GetFuncOffset(G1CP_Testsuite_CheckLang)+10); // 5 push + 5 jumpf
+    };
+ };
+
+/*
  * Check if integer variable exists
  */
 func int G1CP_Testsuite_CheckIntVar(var string name, var int arrIdx) {
