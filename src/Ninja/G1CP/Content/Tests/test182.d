@@ -6,58 +6,17 @@
  * Expected behavior: The dialog condition function returns false.
  */
 func int G1CP_Test_182() {
-    // Check status of the test
-    var int passed; passed = TRUE;
+    const string TEMP_TOPIC_NAME = "G1CP invalid topic 182";
+    const string CH1_RecruitDusty = ""; CH1_RecruitDusty = G1CP_Testsuite_GetStringConst("CH1_RecruitDusty", 0);
+    var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc("DIA_Grd_216_DustyZoll_LittleWalk");
+    var int condId; condId = G1CP_Testsuite_CheckDialogConditionFunc("DIA_Grd_216_DustyZoll_Condition");
+    var int oreId; oreId = G1CP_Testsuite_CheckItem("ItMiNugget");
+    var C_Npc npc; npc = G1CP_Testsuite_FindNpc("Vlk_524_Dusty");
+    var int aiVarId; aiVarId = G1CP_Testsuite_CheckIntConst("AIV_PARTYMEMBER", 0);
+    G1CP_Testsuite_CheckPassed();
 
     // Define possibly missing symbols locally
     const int LOG_MISSION = 0;
-
-    // Check if the dialog function exists
-    var int funcId; funcId = MEM_GetSymbolIndex("DIA_Grd_216_DustyZoll_LittleWalk");
-    if (funcId == -1) {
-        G1CP_TestsuiteErrorDetail("Dialog function 'DIA_Grd_216_DustyZoll_LittleWalk' not found");
-        passed = FALSE;
-    };
-
-    // Check if the dialog condition function exists
-    var int condId; condId = MEM_GetSymbolIndex("DIA_Grd_216_DustyZoll_Condition");
-    if (condId == -1) {
-        G1CP_TestsuiteErrorDetail("Dialog condition 'DIA_Grd_216_DustyZoll_Condition' not found");
-        passed = FALSE;
-    };
-
-    // Check if the log topic exists
-    var string topic; topic = G1CP_GetStringConst("CH1_RecruitDusty", 0, "G1CP invalid string");
-    if (Hlp_StrCmp(topic, "G1CP invalid string")) {
-        G1CP_TestsuiteErrorDetail("Log topic constant 'CH1_RecruitDusty' not found");
-        passed = FALSE;
-    };
-
-    // Check if the ore item exists
-    var int oreId; oreId = MEM_GetSymbolIndex("ItMiNugget");
-    if (oreId == -1) {
-        G1CP_TestsuiteErrorDetail("Item 'ItMiNugget' not found");
-        passed = FALSE;
-    };
-
-    // Find NPC
-    var int symbId; symbId = MEM_GetSymbolIndex("Vlk_524_Dusty");
-    if (symbId == -1) {
-        G1CP_TestsuiteErrorDetail("NPC 'Vlk_524_Dusty' not found");
-        return FALSE; // Return immediately, because the last condition below would fail anyway
-    };
-
-    // Check if NPC exists in the world
-    var C_Npc npc; npc = Hlp_GetNpc(symbId);
-    if (!Hlp_IsValidNpc(npc)) {
-        G1CP_TestsuiteErrorDetail("NPC 'Vlk_524_Dusty' not valid");
-        passed = FALSE;
-    };
-
-    // At the latest now, we need to stop if there are fails already
-    if (!passed) {
-        return FALSE;
-    };
 
     // Backup values
     var int amountBefore; amountBefore = Npc_HasItems(hero, oreId);
@@ -65,9 +24,9 @@ func int G1CP_Test_182() {
     var int expNxtBefore; expNxtBefore = hero.exp_next;
     var int expLpBefore; expLpBefore = hero.lp;
     var int lvlBefore; lvlBefore = hero.level;
-    var int aivBak; aivBak = G1CP_NpcGetAIVar(npc, "AIV_PARTYMEMBER", 0);
+    var int aivBak; aivBak = G1CP_NpcGetAiVarI(npc, aiVarId, 0);
     var string npcWp; npcWp = Npc_GetNearestWP(npc);
-    G1CP_LogRenameTopic(topic, "G1CP invalid topic 182");
+    G1CP_LogRenameTopic(CH1_RecruitDusty, TEMP_TOPIC_NAME);
 
     // Remove all ore
     if (amountBefore > 0) {
@@ -76,15 +35,14 @@ func int G1CP_Test_182() {
     CreateInvItems(hero, oreId, 5000); // Should be enough
 
     // Create log topic
-    Log_CreateTopic(topic, LOG_MISSION);
+    Log_CreateTopic(CH1_RecruitDusty, LOG_MISSION);
 
     // Execute the bribe dialog function
     G1CP_Testsuite_Call(funcId, 0, 0, TRUE);
 
     // Satisfy dialog conditions
-    G1CP_NpcSetAIVar(npc, "AIV_PARTYMEMBER", TRUE);
+    G1CP_NpcSetAIVarI(npc, aiVarId, TRUE);
     G1CP_NpcBeamTo(npc, Npc_GetNearestWP(hero));
-
 
     // Call the condition function
     G1CP_Testsuite_Call(condId, 0, 0, TRUE);
@@ -102,10 +60,10 @@ func int G1CP_Test_182() {
     if (amountBefore > 0) {
         CreateInvItems(hero, oreId, amountBefore);
     };
-    G1CP_NpcSetAIVar(npc, "AIV_PARTYMEMBER", aivBak);
+    G1CP_NpcSetAIVarI(npc, aiVarId, aivBak);
     G1CP_NpcBeamTo(npc, npcWp);
-    G1CP_LogRemoveTopic(topic);
-    G1CP_LogRenameTopic("G1CP invalid topic 182", topic);
+    G1CP_LogRemoveTopic(CH1_RecruitDusty);
+    G1CP_LogRenameTopic(TEMP_TOPIC_NAME, CH1_RecruitDusty);
 
     // Check return value
     if (ret) {
