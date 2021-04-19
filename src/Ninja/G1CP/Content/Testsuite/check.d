@@ -39,6 +39,10 @@ func void G1CP_Testsuite_CheckPassed() {
  */
  func void G1CP_Testsuite_CheckLang(var int lang) {
     // Do not move this code
+    /* Popping the parameter takes 6 bytes
+    zPAR_TOK_PUSHVAR  G1CP_Testsuite_CheckLang.lang
+    zPAR_OP_IS
+    */
     if (FALSE) {
         // This emulates the end of the caller function and forces it to return true
         TRUE;
@@ -64,7 +68,7 @@ func void G1CP_Testsuite_CheckPassed() {
         G1CP_TestsuiteErrorDetailSSS("Test applicable for", langNames, " localization only");
 
         // Return into the if-block above as if it was the caller function
-        MEM_SetCallerStackPos(MEM_GetFuncOffset(G1CP_Testsuite_CheckLang)+10); // 5 push + 5 jumpf
+        MEM_SetCallerStackPos(MEM_GetFuncOffset(G1CP_Testsuite_CheckLang)+16); // 5 push + 1 is + 5 push + 5 jumpf
     };
  };
 
