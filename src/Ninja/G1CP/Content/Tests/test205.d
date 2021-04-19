@@ -6,46 +6,22 @@
  * Expected behavior: The log topic is correctly created in both cases.
  */
 func int G1CP_Test_205() {
+    const string TEMP_TOPIC_NAME = "G1CP Test 205"; // Has to be a unique name with absolute certainty
+    var int topicId; topicId = G1CP_Testsuite_CheckStringConst("GE_TraderNC", 0);
+    var int infoId; infoId = G1CP_Testsuite_CheckInfo("DIA_Wolf_Hello");
+    var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc("DIA_Wolf_Hello_Info");
+    G1CP_Testsuite_CheckPassed();
+
+    // Get constant values
+    const string TOPIC = ""; TOPIC = G1CP_GetStringConst(topicId, 0, TOPIC);
+
+    // Check status of the test
     var int passed; passed = TRUE;
-
-    // Parameters of this fix
-    const string topicSymbName = "GE_TraderNC";
-    const string infoSymbName  = "DIA_Wolf_Hello";
-    const string funcSymbName  = "DIA_Wolf_Hello_Info";
-    const string tempTopicName = "G1CP Test 205";
-
-    // Check if dialog exists
-    var int infoId; infoId = MEM_GetSymbolIndex(infoSymbName);
-    if (infoId == -1) {
-        G1CP_TestsuiteErrorDetail(ConcatStrings(ConcatStrings("Dialog '", infoSymbName), "' not found"));
-        passed = FALSE;
-    };
-
-    // Check if dialog function exists
-    var int funcId; funcId = MEM_GetSymbolIndex(funcSymbName);
-    if (funcId == -1) {
-        G1CP_TestsuiteErrorDetail(ConcatStrings(ConcatStrings("Dialog function '", funcSymbName), "' not found"));
-        passed = FALSE;
-    };
-
-    // Check if the constant exists
-    if (MEM_GetSymbolIndex(topicSymbName) == -1) {
-        G1CP_TestsuiteErrorDetail(ConcatStrings(ConcatStrings("Variable '", topicSymbName), "' not found"));
-        passed = FALSE;
-    };
-
-    // At the latest now, we need to stop if there are fails already
-    if (!passed) {
-        return FALSE;
-    };
-
-    // Retrieve the content of the log topic string constant
-    var string topic; topic = G1CP_GetStringConst(topicSymbName, 0, "G1CP invalid string");
 
     // First test: Check if the dialog function creates the topic if it did not exist beforehand
 
     // Rename the log topic if it already exists
-    G1CP_LogRenameTopic(topic, tempTopicName);
+    G1CP_LogRenameTopic(TOPIC, TEMP_TOPIC_NAME);
 
     // Backup and set self and other
     var C_Npc slfBak; slfBak = MEM_CpyInst(self);
@@ -65,13 +41,13 @@ func int G1CP_Test_205() {
     other = MEM_CpyInst(othBak);
 
     // Check if the log entry was created
-    if (!G1CP_LogGetTopic(topic)) {
+    if (!G1CP_LogGetTopic(TOPIC)) {
         G1CP_TestsuiteErrorDetail("Log topic was not created by the dialog function");
         passed = FALSE;
     };
 
     // Clean up
-    G1CP_LogRemoveTopic(topic);
+    G1CP_LogRemoveTopic(TOPIC);
 
     // Second test: Check if the log entry is created on applying the fix
     // This second test is specific to how the G1CP fixes the bug and will fail if a mod fixed the issue in another way
@@ -84,23 +60,23 @@ func int G1CP_Test_205() {
     r = G1CP_205_LogEntryWolfMerchantRevert();
 
     // Set the dialog to told
-    G1CP_SetInfoTold(infoSymbName, TRUE);
+    G1CP_SetInfoToldI(infoId, TRUE);
 
     // Re-apply the fix
     r = G1CP_205_LogEntryWolfMerchant();
 
     // Check if the topic was created
-    if (!G1CP_LogGetTopic(topic)) {
+    if (!G1CP_LogGetTopic(TOPIC)) {
         G1CP_TestsuiteErrorDetail("Log topic was not auto-created on applying the fix");
         passed = FALSE;
     };
 
     // Revert everything
     r = G1CP_205_LogEntryWolfMerchantRevert();
-    G1CP_SetInfoTold(infoSymbName, toldBak);
+    G1CP_SetInfoToldI(infoId, toldBak);
     r = G1CP_205_LogEntryWolfMerchant();
-    G1CP_LogRemoveTopic(topic);
-    G1CP_LogRenameTopic(tempTopicName, topic);
+    G1CP_LogRemoveTopic(TOPIC);
+    G1CP_LogRenameTopic(TEMP_TOPIC_NAME, TOPIC);
 
     // Return success
     return passed;
