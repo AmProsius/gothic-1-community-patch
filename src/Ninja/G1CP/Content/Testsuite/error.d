@@ -42,6 +42,9 @@ func void G1CP_TestsuiteErrorDetailSIS(var string s1, var int i2, var string s3)
 func void G1CP_TestsuiteErrorDetailSSSS(var string s1, var string s2, var string s3, var string s4) {
     G1CP_TestsuiteErrorDetail(ConcatStrings(ConcatStrings(ConcatStrings(s1, s2), s3), s4));
 };
+func void G1CP_TestsuiteErrorDetailSSSSS(var string s1, var string s2, var string s3, var string s4, var string s5) {
+    G1CP_TestsuiteErrorDetail(ConcatStrings(ConcatStrings(ConcatStrings(ConcatStrings(s1, s2), s3), s4, s5)));
+};
 
 /*
  * Print error messages
