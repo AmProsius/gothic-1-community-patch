@@ -13,7 +13,7 @@ func int G1CP_Test_203() {
     G1CP_Testsuite_CheckPassed();
 
     // Get constant values
-    const string TOPIC = ""; TOPIC = G1CP_GetStringConst(topicId, 0, TOPIC);
+    const string TOPIC = ""; TOPIC = G1CP_GetStringConstI(topicId, 0, TOPIC);
 
     // Check status of the test
     var int passed; passed = TRUE;

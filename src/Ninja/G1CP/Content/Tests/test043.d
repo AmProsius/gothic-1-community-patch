@@ -7,7 +7,7 @@
  */
 func int G1CP_Test_043() {
     G1CP_Testsuite_CheckLang(G1CP_Lang_EN);
-    var int funcId; funcId = G1CP_Testsuite_CheckFunc("B_BuildLearnString", "string|none", "");
+    var int funcId; funcId = G1CP_Testsuite_CheckFunc("B_BuildLearnString", "string|string|int|int", "");
     G1CP_Testsuite_CheckPassed();
 
     // Call the function

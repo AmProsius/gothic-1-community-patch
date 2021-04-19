@@ -31,7 +31,7 @@ func int G1CP_Test_183() {
     // Restore values
     self = MEM_CpyInst(slfBak);
     other = MEM_CpyInst(othBak);
-    Npc_RemoveInvItems(hero, robeId, 1);
+    Npc_RemoveInvItems(hero, itemId, 1);
     Npc_SetTrueGuild(hero, trueGuildBak);
     hero.guild = guildBak;
 
