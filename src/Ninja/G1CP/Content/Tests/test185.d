@@ -7,35 +7,10 @@
  * Expected behavior: The condition function will return FALSE.
  */
 func int G1CP_Test_185() {
-    // Check status of the test
-    var int passed; passed = TRUE;
-
-    // Check if the dialog exists
-    var int funcId; funcId = G1CP_GetFuncID("GRD_205_Scorpio_CROSSBOW_Condition", "int|none");
-    if (funcId == -1) {
-        G1CP_TestsuiteErrorDetail("Dialog condition 'GRD_205_Scorpio_CROSSBOW_Condition' not found");
-        passed = FALSE;
-    };
-
-    // Check if the guild variable exists
-    if (!G1CP_IsIntConst("GIL_GRD", 0)) {
-        G1CP_TestsuiteErrorDetail("Integer constant 'GIL_GRD' not found");
-        passed = FALSE;
-    };
-
-    // Check if the talent symbol exists
-    if (!G1CP_IsIntConst("NPC_TALENT_CROSSBOW", 0)) {
-        G1CP_TestsuiteErrorDetail("Integer constant 'NPC_TALENT_CROSSBOW' not found");
-        passed = FALSE;
-    };
-
-    // At the latest now, we need to stop if there are fails already
-    if (!passed) {
-        return FALSE;
-    };
-
-    var int NPC_TALENT_CROSSBOW; NPC_TALENT_CROSSBOW = G1CP_GetIntConst("NPC_TALENT_CROSSBOW", 0, 0);
-    var int GIL_GRD; GIL_GRD = G1CP_GetIntConst("GIL_GRD", 0, 0);
+    var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("GRD_205_Scorpio_CROSSBOW_Condition");
+    const int NPC_TALENT_CROSSBOW = 0; NPC_TALENT_CROSSBOW = G1CP_Testsuite_GetIntConst("NPC_TALENT_CROSSBOW", 0);
+    const int GIL_GRD = 0; GIL_GRD = G1CP_Testsuite_GetIntConst("GIL_GRD", 0);
+    G1CP_Testsuite_CheckPassed();
 
     // Backup values
     var int guildBak; guildBak = hero.guild;
