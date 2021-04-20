@@ -11,8 +11,9 @@ func int G1CP_055_ReactivateInExtremo_InitSession() {
     // the entire function anyway. This function is only called once on first loading and takes no more than 40 ms.
 
     // Some functions may require minor adjustments
-    var int adjustStrtMs; adjustStrtMs = TRUE;
-    var int adjustStopMs; adjustStopMs = TRUE;
+    var int adjustStrtMs; adjustStrtMs = 0;
+    var int adjustStopMs; adjustStopMs = 0;
+    var int adjustDiaAnc; adjustDiaAnc = 0;
 
     // Get/check essential functions
     var int fncInsertId; fncInsertId = G1CP_GetFuncID("B_InsertInExtremo",     "void|none");
@@ -84,9 +85,10 @@ func int G1CP_055_ReactivateInExtremo_InitSession() {
 
     // Check the announcer's and Grim's dialogs
     var int fncDiaGrimId; fncDiaGrimId = G1CP_GetFuncID("DIA_Grim_INEXTREMO_Info", "void|none");
+    var int fncDiaAncrId; fncDiaAncrId = G1CP_GetFuncID("IE_397_Announcer_Announce_Condition", "int|none");
     if (!G1CP_IsInfoInst("IE_397_Announcer_ANNOUNCE")) || (!G1CP_GetInfo("IE_397_Announcer_ANNOUNCE"))
     || (!G1CP_IsInfoInst("DIA_Grim_INEXTREMO"))        || (!G1CP_GetInfo("DIA_Grim_INEXTREMO"))
-    || (fncDiaGrimId == -1) {
+    || (fncDiaGrimId == -1) || (fncDiaAncrId == -1) {
         MEM_Info("Necessary dialogs not found");
         return FALSE;
     };
@@ -193,7 +195,7 @@ func int G1CP_055_ReactivateInExtremo_InitSession() {
         if (MEM_ReadByte(addr) != zPAR_OP_IS)              { good = FALSE; }; addr += 1;
         if (MEM_ReadByte(addr) != zPAR_TOK_RET)            { good = FALSE; };
     } else {
-            // Variable "InExtremoPlaying" not set, set it manually later at this address
+        // Variable "InExtremoPlaying" not set, set it manually later at this address
         adjustStopMs = addr-5;
     };
     if (!good) {
@@ -217,6 +219,34 @@ func int G1CP_055_ReactivateInExtremo_InitSession() {
     val = MEM_ReadInt(addr-4);
     if (!Hlp_StrCmp(G1CP_GetStringI(val, 0, ""), "InExtremo")) {
         MEM_Info("Content of function 'DIA_Grim_INEXTREMO_Info' not as expected (no 'InExtremo' routine)");
+        return FALSE;
+    };
+
+    // Check that the content of "IE_397_Announcer_Announce_Condition" is as expected: Dialog triggered in chapter two
+    addr = G1CP_GetFuncStart(fncDiaAncrId);
+    good = TRUE;
+    val = MEM_ReadInt(addr+1);
+    if (MEM_ReadByte(addr) == zPAR_TOK_PUSHVAR) {
+        val = G1CP_GetIntI(val, 0, 1);
+    } else if (MEM_ReadByte(addr) != zPAR_TOK_PUSHINT)     { good = FALSE; }; addr += 1;
+    if (val != 2)                                          { good = FALSE; }; addr += 4;
+    if (MEM_ReadByte(addr) != zPAR_TOK_PUSHVAR)            { good = FALSE; }; addr += 1;
+    if (MEM_ReadInt( addr) != varChaptrId)                 { good = FALSE; }; addr += 4;
+    if (MEM_ReadByte(addr) != zPAR_OP_EQUAL)               { good = FALSE; }; addr += 1;
+    if (MEM_ReadByte(addr) != zPAR_TOK_JUMPF)              { good = FALSE; }; addr += 5;
+    if (MEM_ReadByte(addr) != zPAR_TOK_RET) {
+        val = MEM_ReadInt(addr+1);
+        if (MEM_ReadByte(addr) == zPAR_TOK_PUSHVAR) {
+            val = G1CP_GetIntI(val, 0, 1);
+        } else if (MEM_ReadByte(addr) != zPAR_TOK_PUSHINT)     { good = FALSE; }; addr += 1;
+        if (val == 0)                                          { good = FALSE; }; addr += 4;
+        if (MEM_ReadByte(addr) != zPAR_TOK_RET)                { good = FALSE; };
+    } else {
+        // Condition not met, set it manually later at this address
+        adjustDiaAnc = addr - 5;
+    };
+    if (!good) {
+        MEM_Info("Content of function 'IE_397_Announcer_Announce_Condition' not as expected");
         return FALSE;
     };
 
@@ -276,6 +306,14 @@ func int G1CP_055_ReactivateInExtremo_InitSession() {
         MEMINT_OverrideFunc_Ptr = adjustStopMs;
         MEMINT_OFTokPar(zPAR_TOK_CALL, MEM_GetFuncOffset(G1CP_055_ReactivateInExtremo_PlayFalse));
     };
+    if (adjustDiaAnc) {
+        MEMINT_OverrideFunc_Ptr = adjustDiaAnc;
+        MEMINT_OFTok(zPAR_TOK_RET); // Return the pushed condition
+        MEMINT_OFTok(zPAR_TOK_RET); // Fill remaining four bytes
+        MEMINT_OFTok(zPAR_TOK_RET);
+        MEMINT_OFTok(zPAR_TOK_RET);
+        MEMINT_OFTok(zPAR_TOK_RET);
+    };
 
     // All good!
     return TRUE;
@@ -283,15 +321,17 @@ func int G1CP_055_ReactivateInExtremo_InitSession() {
 
 
 /*
- * Intercept functions to set variable
+ * Intercept functions to set variable/conditions
  */
 func void G1CP_055_ReactivateInExtremo_PlayTrue(var string vobName) {
-    G1CP_SetIntVar("InExtremoPlaying", 0, TRUE);
+    G1CP_ReportFuncToSpy();
     Wld_SendTrigger(vobName);
+    G1CP_SetIntVar("InExtremoPlaying", 0, TRUE);
 };
 func void G1CP_055_ReactivateInExtremo_PlayFalse(var string vobName) {
-    G1CP_SetIntVar("InExtremoPlaying", 0, FALSE);
+    G1CP_ReportFuncToSpy();
     Wld_SendUnTrigger(vobName);
+    G1CP_SetIntVar("InExtremoPlaying", 0, FALSE);
 };
 
 
