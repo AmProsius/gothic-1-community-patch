@@ -7,51 +7,18 @@
  */
 func void G1CP_Test_126() {
     G1CP_Testsuite_CheckManual();
+    var int infoId; infoId = G1CP_Testsuite_CheckInfo("Org_843_Sharky_Fisk");
+    var int fenceId; fenceId = G1CP_Testsuite_CheckIntVar("Fisk_GetNewHehler", 0);
+    var C_Npc npc; npc = G1CP_Testsuite_FindNpc("Org_843_Sharky");
+    G1CP_Testsuite_CheckPassed();
 
     // Define possibly missing symbols locally
     const int LOG_RUNNING = 1;
 
-    // Check status of the test
-    var int passed; passed = TRUE;
-
-    // Check if the dialog exists
-    var int funcId; funcId = MEM_GetSymbolIndex("Org_843_Sharky_Fisk");
-    if (funcId == -1) {
-        G1CP_TestsuiteErrorDetail("Info 'Org_843_Sharky_Fisk' not found");
-        passed = FALSE;
-    };
-
-    // Check if variable exists
-    var int questPtr; questPtr = MEM_GetSymbol("Fisk_GetNewHehler");
-    if (!questPtr) {
-        G1CP_TestsuiteErrorDetail("Variable 'Fisk_GetNewHehler' not found");
-        passed = FALSE;
-    };
-    questPtr += zCParSymbol_content_offset;
-
-    // Find Sharky
-    var int symbId; symbId = MEM_GetSymbolIndex("Org_843_Sharky");
-    if (symbId == -1) {
-        G1CP_TestsuiteErrorDetail("NPC 'Org_843_Sharky' not found");
-        return;
-    };
-
-    // Check if Sharky exists in the world
-    var C_Npc sharky; sharky = Hlp_GetNpc(symbId);
-    if (!Hlp_IsValidNpc(sharky)) {
-        G1CP_TestsuiteErrorDetail("NPC 'Org_843_Sharky' not valid");
-        passed = FALSE;
-    };
-
-    // At the latest now, we need to stop if there are fails already
-    if (!passed) {
-        return;
-    };
-
     // Enable the dialog by setting the quest marker to running
-    MEM_WriteInt(questPtr, LOG_RUNNING);
-    G1CP_SetInfoTold("Org_843_Sharky_Fisk", FALSE);
+    G1CP_SetIntVarI(fenceId, 0, LOG_RUNNING);
+    G1CP_SetInfoToldI(infoId, FALSE);
 
-    // Teleport the hero to Sharky
-    AI_Teleport(hero, sharky.wp);
+    // Teleport the hero to the NPC
+    AI_Teleport(hero, npc.wp);
 };
