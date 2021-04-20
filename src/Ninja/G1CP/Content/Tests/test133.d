@@ -15,15 +15,15 @@ func int G1CP_Test_133() {
     var int aiVarId; aiVarId = G1CP_Testsuite_CheckIntConst("AIV_HASDEFEATEDSC", 0);
     G1CP_Testsuite_CheckPassed();
 
-    // Define possibly missing symbols locally
-    const int LOG_MISSION = 0;
-    const int LOG_RUNNING = 1;
-
     // Define variables for specific test
     const string logEntryWrong = "Meinem Niederlage gegen Kirgo hat Scatty nicht sehr beeindruckt.";
     const string logEntryRight = "Meine Niederlage gegen Kirgo hat Scatty nicht sehr beeindruckt.";
 
-    // Backup the status of the log topic if it exists already
+    // Define possibly missing symbols locally
+    const int LOG_MISSION = 0;
+    const int LOG_RUNNING = 1;
+
+    // Rename the log topic if it already exists
     G1CP_LogRenameTopic(CH1_JoinOC, TEMP_TOPIC_NAME);
 
     // Check status of the test

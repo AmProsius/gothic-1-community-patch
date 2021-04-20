@@ -14,14 +14,14 @@ func int G1CP_Test_093() {
     var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc("DIA_Horatio_PleaseTeachSTR_Info");
     G1CP_Testsuite_CheckPassed();
 
-    // Define possibly missing symbols locally
-    const int LOG_MISSION = 0;
-    const int LOG_RUNNING = 1;
-
     // Define variables for specific test
     // I'm sorry for not breaking the line at 120 characters
     const string logEntryWrong = "Horatio, ein Bauer auf den Reisfeldern des Neuen Lagers will mir beibringen, stärker zuzuschalgen. Doch irgendwie habe ich noch nicht die richtige Antwort auf seine Frage WOZU gefunden.";
     const string logEntryRight = "Horatio, ein Bauer auf den Reisfeldern des Neuen Lagers will mir beibringen, stärker zuzuschlagen. Doch irgendwie habe ich noch nicht die richtige Antwort auf seine Frage WOZU gefunden.";
+
+    // Define possibly missing symbols locally
+    const int LOG_MISSION = 0;
+    const int LOG_RUNNING = 1;
 
     // Rename the log topic if it already exists
     G1CP_LogRenameTopic(CH1_HoratiosTeachings, TEMP_TOPIC_NAME);
