@@ -6,51 +6,18 @@
  * Expected behavior: The armor is sold at chapter 2.
  */
 func int G1CP_Test_023() {
-    // Check status of the test
-    var int passed; passed = TRUE;
-
-    // Check if the dialog function exists
-    var int funcId; funcId = MEM_GetSymbolIndex("GUR_1204_BaalNamib_ARMOR_Info");
-    if (funcId == -1) {
-        G1CP_TestsuiteErrorDetail("Dialog function 'GUR_1204_BaalNamib_ARMOR_Info' not found");
-        passed = FALSE;
-    };
-
-    // Check if the variable exists
-    var int chapterPtr; chapterPtr = MEM_GetSymbol("Kapitel");
-    if (!chapterPtr) {
-        G1CP_TestsuiteErrorDetail("Variable 'Kapitel' not found");
-        passed = FALSE;
-    };
-    chapterPtr += zCParSymbol_content_offset;
-
-    // Check if the armor item exists
-    var int armorId; armorId = MEM_GetSymbolIndex("NOV_ARMOR_H");
-    if (armorId == -1) {
-        G1CP_TestsuiteErrorDetail("Item 'NOV_ARMOR_H' not found");
-        passed = FALSE;
-    };
-
-    // Check if the ore item exists
-    var int oreId; oreId = MEM_GetSymbolIndex("ItMinugget");
-    if (oreId == -1) {
-        G1CP_TestsuiteErrorDetail("Item 'ItMinugget' not found");
-        passed = FALSE;
-    };
-
-    // At the latest now, we need to stop if there are fails already
-    if (!passed) {
-        return FALSE;
-    };
+    var int chptId; chptId = G1CP_Testsuite_CheckIntVar("Kapitel", 0);
+    var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc("GUR_1204_BaalNamib_ARMOR_Info");
+    var int armorId; armorId = G1CP_Testsuite_CheckItem("NOV_ARMOR_H");
+    var int oreId; oreId = G1CP_Testsuite_CheckItem("ItMinugget");
+    G1CP_Testsuite_CheckPassed();
 
     // Backup values
-    var int chapterBak; chapterBak = MEM_ReadInt(chapterPtr);
+    var int chapterBak; chapterBak = G1CP_GetIntVarI(chptId, 0, 0);
     var int armorBefore; armorBefore = Npc_HasItems(hero, armorId);
     var int oreBefore; oreBefore = Npc_HasItems(hero, oreId);
-    var C_Npc slfBak; slfBak = MEM_CpyInst(self);
-    var C_Npc othBak; othBak = MEM_CpyInst(other);
 
-    // Remove all armor (ignores equipped armor, give me a break)
+    // Remove all necessary items (ignores equipped armor, give me a break)
     if (armorBefore > 0) {
         Npc_RemoveInvItems(hero, armorId, armorBefore);
     };
@@ -58,27 +25,13 @@ func int G1CP_Test_023() {
         Npc_RemoveInvItems(hero, oreId, oreBefore);
     };
 
-    // Set variable
-    MEM_WriteInt(chapterPtr, 2);
-
-    // Give enough ore (don't care about the details)
-    CreateInvItems(hero, oreId, 5000);
-
-    // Set self and other
-    GetItemHelper();
-    self  = MEM_CpyInst(Item_Helper);
-    other = MEM_CpyInst(hero);
+    // Set new values
+    G1CP_SetIntVarI(chptId, 0, 2);
+    CreateInvItems(hero, oreId, 5000); // Give enough ore (don't care about the details)
 
     // Just run the dialog and see what happens
-    MEM_CallByID(funcId);
-
-    // Restore self and other
-    self  = MEM_CpyInst(slfBak);
-    other = MEM_CpyInst(othBak);
-
-    // Stop the output units
-    Npc_ClearAIQueue(hero);
-    AI_StandUpQuick(hero);
+    GetItemHelper();
+    G1CP_Testsuite_Call(funcId, Item_Helper, hero, TRUE);
 
     // Restore the amount of ore
     var int oreAfter; oreAfter = Npc_HasItems(hero, oreId);
@@ -98,8 +51,8 @@ func int G1CP_Test_023() {
         CreateInvItems(hero, armorId, armorBefore);
     };
 
-    // Revert variable
-    MEM_WriteInt(chapterPtr, chapterBak);
+    // Restore the chapter
+    G1CP_SetIntVarI(chptId, 0, chapterBak);
 
     // Check the amount
     if (armorAfter > 0) {

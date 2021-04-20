@@ -6,9 +6,11 @@
  * Expected behavior: The Digger will repair his hut shortly after triggering this test.
  */
 func void G1CP_Test_216() {
-    if (G1CP_TestsuiteAllowManual) {
-        // Set time and place
-        Wld_SetTime(11, 0);
-        AI_Teleport(hero, "OCR_HUT_15");
-    };
+    G1CP_Testsuite_CheckManual();
+    var zCWaypoint wp; wp = G1CP_Testsuite_FindWaypoint("OCR_HUT_15");
+    G1CP_Testsuite_CheckPassed();
+
+    // Set time and place
+    Wld_SetTime(11, 0);
+    AI_Teleport(hero, wp.name);
 };

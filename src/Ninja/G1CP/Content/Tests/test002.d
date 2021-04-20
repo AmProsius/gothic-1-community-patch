@@ -8,8 +8,10 @@
  * Expected behavior: The NPC properly goes through the door.
  */
 func void G1CP_Test_002() {
-    if (G1CP_TestsuiteAllowManual) {
-        Wld_SetTime(5, 59);
-        AI_Teleport(hero, "OCC_MERCS_LEFT_ROOM_BED1");
-    };
+    G1CP_Testsuite_CheckManual();
+    var zCWaypoint wp; wp = G1CP_Testsuite_FindWaypoint("OCC_MERCS_LEFT_ROOM_BED1");
+    G1CP_Testsuite_CheckPassed();
+
+    Wld_SetTime(5, 59);
+    AI_Teleport(hero, wp.name);
 };

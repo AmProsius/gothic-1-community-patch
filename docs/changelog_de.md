@@ -20,15 +20,19 @@
 * Fix [#148](https://g1cp.org/issues/148): Die Rüstung "antike Erzrüstung" heißt nun korrekt "Antike Erzrüstung".
 * Fix [#149](https://g1cp.org/issues/149): Die Rüstung "verbesserte Erzrüstung" heißt nun korrekt "Verbesserte Erzrüstung".
 * Fix [#173](https://g1cp.org/issues/173): Im Text von "Gomez' Schlüssel" ist nun die Phrase "Öffnet Gomez Truhen" korrigiert zu "Öffnet Gomez' Truhen".
+* Fix [#176](https://g1cp.org/issues/176): Gegenstände ohne Wert zeigen nicht mehr ein leeres "Wert:" im Inventartext an.
 * Fix [#192](https://g1cp.org/issues/192): Magier (NSCs, die nur mit Magie kämpfen) rüsten nicht länger automatisch Nah- und Fernkampfwaffen aus (z.B. nach dem Handeln). Dieser Fix setzt den Fix [#59](https://g1cp.org/issues/59) voraus.
 * Fix [#193](https://g1cp.org/issues/193): Objekte, die durch Hebel/Schalter/Winden aktiviert wurden, stecken nach dem Spielladen nicht mehr fest.
 * Fix [#200](https://g1cp.org/issues/200): Die Beschreibung der Rüstung "Verbesserte Erzrüstung" passt nun in die Textbox des Inventars.
 * Fix [#201](https://g1cp.org/issues/201): Die Beschreibung der Rüstung "Antike Erzrüstung" passt nun in die Textbox des Inventars und enthält keinen Rechtschreibfehler mehr.
+* Fix [#212](https://g1cp.org/issues/212): Der Kessel nahe dem Erzhaufen im Neuen Lager setzt zur Benutzung nun korrekt einen Kochlöffel voraus.
+* Fix [#213](https://g1cp.org/issues/213): Der Kessel nahe dem Höhleneingang im Neuen Lager setzt zur Benutzung nun korrekt einen Kochlöffel voraus.
 
 ### Story
 * Fix [#23](https://g1cp.org/issues/23): Die Rüstung "Novizenrüstung" ist nun im zweiten Kapitel erhältlich, damit sie vor der ersten Templerrüstung erlangt werden kann.
 * Fix [#36](https://g1cp.org/issues/36) (aktualisiert): Fisks Quest "Neuer Hehler für Fisk" is nun verfügbar, wenn der Spieler Mordrag entweder KO geschlagen oder getötet hat.
-* Fix [#37](https://g1cp.org/issues/37): Gravo ist nun korrekt als Händler im Alten Lager im Tagebuch aufgelistet.
+* Fix [#37](https://g1cp.org/issues/37): Gravo ist nun korrekt als "Händler im Alten Lager" im Tagebuch aufgelistet.
+* Fix [#55](https://g1cp.org/issues/55): Vorausgesetzt alle nötigen Dateien sind vorhanden, kann das In Extremo Konzert in den Einstellungen aktiviert werden. Dieser Fix ist standardmäßig deaktiviert, um rechtliche Unklarheiten zu vermeiden. Siehe [hier](https://g1cp.org/issues/55#de) wie man ihn aktiviert.
 * Fix [#91](https://g1cp.org/issues/91): Die Dialogauswahl mit Horatio: "Ja. Ich will es mit Ricelord und seinen Schlägern aufnehmen können!" lautet nun korrekt "Ja. Ich will es mit dem Reislord und seinen Schlägern aufnehmen können!"
 * Fix [#92](https://g1cp.org/issues/92): Die Dialogauswahl mit Horatio: "Damit ich Reislord und seine Schläger fertigmachen kann!" lautet nun korrekt "Damit ich den Reislord und seine Schläger fertigmachen kann!"
 * Fix [#93](https://g1cp.org/issues/93): Im Tagebucheintrag zu der Quest "Horatio der Bauer" lautet die Phrase "[...] stärker zuzuschalgen." nun korrekt "[...] stärker zuzuschlagen."
@@ -48,6 +52,7 @@
 * Fix [#188](https://g1cp.org/issues/188): Cor Kalom kann nun nur noch einmal erzählt werden, dass das Kraut abgeliefert wurde.
 * Fix [#197](https://g1cp.org/issues/197): Die Dialogzeile "Also halt dich nur da auf, wo es dir gestattet ist." im Ambient-Dialog der Templer "Was kannst du mir über dieses Lager erzählen?" ist nun korrekt dem Spielercharakter zugewiesen.
 * Fix [#203](https://g1cp.org/issues/203): Graham ist nun korrekt als "Händler im Alten Lager" im Tagebuch aufgelistet.
+* Fix [#204](https://g1cp.org/issues/204): Fingers' Dialog über Cavalorn erstellt nun korrekt den Eintrag in "Lehrer ausserhalb der Lager" im Tagebuch.
 * Fix [#205](https://g1cp.org/issues/205): Wolf ist nun korrekt als "Händler im Neuen Lager" im Tagebuch aufgelistet.
 * Fix [#214](https://g1cp.org/issues/214): Graham sitzt nun korrekt abends am Lagerfeuer.
 * Fix [#215](https://g1cp.org/issues/215): Guy sitzt nun korrekt abends bei der Arena.

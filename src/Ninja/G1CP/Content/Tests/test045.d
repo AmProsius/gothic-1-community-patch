@@ -7,9 +7,9 @@
  * Expected behavior: The snappers appear at the waypoint, identifiable by bounding boxes.
  */
 func void G1CP_Test_045() {
-    if (!G1CP_TestsuiteAllowManual) {
-        return;
-    };
+    G1CP_Testsuite_CheckManual();
+    var zCWaypoint wp; wp = G1CP_Testsuite_FindWaypoint("OW_MONSTER_NAVIGATE_02");
+    G1CP_Testsuite_CheckPassed();
 
     // Define possibly missing symbols locally
     const int NPC_FLAG_IMMORTAL = 1 << 1;
@@ -29,5 +29,5 @@ func void G1CP_Test_045() {
     };
 
     // Teleport the player right to them
-    AI_Teleport(hero, "OW_MONSTER_NAVIGATE_02");
+    AI_Teleport(hero, wp.name);
 };

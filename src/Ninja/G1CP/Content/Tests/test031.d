@@ -5,87 +5,59 @@
  *
  * Expected behavior: The condition functions will return FALSE.
  */
-func int G1CP_Test_031_RunDialog(var int itmInst, var int num, var string dialogName) {
-    // Check if dialog exists
-    var int funcId; funcId = MEM_GetSymbolIndex(dialogName);
-    if (funcId == -1) {
-        G1CP_TestsuiteErrorDetail(ConcatStrings(ConcatStrings("Dialog condition '", dialogName), "' not found"));
-        return FALSE;
-    };
+func int G1CP_Test_031_RunDialog(var int itemId, var int num, var string dialogName) {
+    var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc(dialogName);
+    var int infoId; infoId = G1CP_Testsuite_CheckInfo("Info_Wolf_MCPLATESENOUGH");
+    G1CP_Testsuite_CheckPassed();
 
     // Backup values
-    var int toldBak; toldBak = Npc_KnowsInfo(hero, MEM_GetSymbolIndex("Info_Wolf_MCPLATESENOUGH")); // Told status
-    var C_Npc slfBak; slfBak = MEM_CpyInst(self);                                                   // Self
-    var C_Npc othBak; othBak = MEM_CpyInst(other);                                                  // Other
+    var int toldBak; toldBak = Npc_KnowsInfo(hero, infoId);
 
     // Set new values
-    G1CP_SetInfoTold("Info_Wolf_MCPLATESENOUGH", TRUE);                                             // Told status
-    CreateInvItems(hero, itmInst, num);                                                             // Create items
-    self  = MEM_CpyInst(hero);                                                                      // Self
-    other = MEM_CpyInst(hero);                                                                      // Other
+    G1CP_SetInfoToldI(infoId, TRUE);
+    CreateInvItems(hero, itemId, num);
 
     // Call dialog condition function
-    MEM_CallByID(funcId);
+    G1CP_Testsuite_Call(funcId, 0, 0, FALSE);
     var int ret; ret = MEM_PopIntResult();
 
     // Restore values
-    self  = MEM_CpyInst(slfBak);                                                                    // Self
-    other = MEM_CpyInst(othBak);                                                                    // Other
-    Npc_RemoveInvItems(hero, itmInst, Npc_HasItems(hero, itmInst));                                 // Remove items
-    G1CP_SetInfoTold("Info_Wolf_MCPLATESENOUGH", toldBak);                                          // Told status
+    G1CP_SetInfoToldI(infoId, toldBak);
+    Npc_RemoveInvItems(hero, itemId, Npc_HasItems(hero, itemId));
 
     // Check return value
     if (ret) {
-        G1CP_TestsuiteErrorDetail(ConcatStrings(ConcatStrings("Dialog condition '", dialogName), "' failed"));
+        G1CP_TestsuiteErrorDetailSSS("Dialog condition '", dialogName, "' failed");
         return FALSE;
     };
 
     return TRUE;
 };
 func int G1CP_Test_031() {
-    // Check status of the test
-    var int passed; passed = TRUE;
+    var int varId; varId = G1CP_Testsuite_CheckIntVar("Knows_GetMCPlates", 0);
+    var int itemId; itemId = G1CP_Testsuite_CheckItem("ItAt_Crawler_02");
+    G1CP_Testsuite_CheckPassed();
 
-    // Find item
-    var int itmInst; itmInst = MEM_GetSymbolIndex("ItAt_Crawler_02");
-    if (itmInst == -1) {
-        G1CP_TestsuiteErrorDetail("Item 'ItAt_Crawler_02' not found");
-        passed = FALSE;
-    };
-
-    // Check if variable exists
-    var int knowsPlatesPtr; knowsPlatesPtr = MEM_GetSymbol("Knows_GetMCPlates");
-    if (!knowsPlatesPtr) {
-        G1CP_TestsuiteErrorDetail("Variable 'Knows_GetMCPlates' not found");
-        passed = FALSE;
-    };
-    knowsPlatesPtr += zCParSymbol_content_offset;
-
-    // At the latest now, we need to stop if there are fails already
-    if (!passed) {
-        return FALSE;
-    };
-
-    // Backup common values
-    var int knowsPlatesBak; knowsPlatesBak = MEM_ReadInt(knowsPlatesPtr);
-    var int itmNumBak; itmNumBak = Npc_HasItems(hero, itmInst);
+    // Backup values
+    var int varBak; varBak = G1CP_GetIntVarI(varId, 0, 0);
+    var int itmNumBak; itmNumBak = Npc_HasItems(hero, itemId);
 
     // Set new values
-    MEM_WriteInt(knowsPlatesPtr, TRUE);
+    G1CP_SetIntVarI(varId, 0, TRUE);
     if (itmNumBak > 0) {
-        Npc_RemoveInvItems(hero, itmInst, itmNumBak);
+        Npc_RemoveInvItems(hero, itemId, itmNumBak);
     };
 
     // Run dialogs
-    var int ret; ret = 0;
-    ret += G1CP_Test_031_RunDialog(itmInst, 1,  "Info_Wolf_MCPLATESFEW_Condition");
-    ret += G1CP_Test_031_RunDialog(itmInst, 15, "Info_Wolf_MCPLATESENOUGH_Condition");
+    var int passed; passed = FALSE;
+    passed += G1CP_Test_031_RunDialog(itemId, 1,  "Info_Wolf_MCPLATESFEW_Condition");
+    passed += G1CP_Test_031_RunDialog(itemId, 15, "Info_Wolf_MCPLATESENOUGH_Condition");
 
     // Restore values
-    MEM_WriteInt(knowsPlatesPtr, knowsPlatesBak);
+    G1CP_SetIntVarI(varId, 0, varBak);
     if (itmNumBak > 0) {
-        CreateInvItems(hero, itmInst, itmNumBak);
+        CreateInvItems(hero, itemId, itmNumBak);
     };
 
-    return (ret == 2);
+    return (passed == 2);
 };

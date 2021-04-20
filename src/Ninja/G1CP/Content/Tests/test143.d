@@ -7,113 +7,64 @@
  * Expected behavior: The wording of the log topic entry will be correct in both cases.
  */
 func int G1CP_Test_143() {
-    var int passed; passed = TRUE;
+    G1CP_Testsuite_CheckLang(G1CP_Lang_DE);
+    const string TEMP_TOPIC_NAME = "G1CP Test 143"; // Has to be a unique name with absolute certainty
+    const string GE_TeacherNC = ""; GE_TeacherNC = G1CP_Testsuite_GetStringConst("GE_TeacherNC", 0);
+    var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc("DIA_ORG_833_Buster3_Info");
+    G1CP_Testsuite_CheckPassed();
+
+    // Define variables for specific test
+    const string logEntryWrong = "Buster der Bandit unterichtet das Talent AKROBATIK.";
+    const string logEntryRight = "Buster der Bandit unterrichtet das Talent AKROBATIK.";
 
     // Define possibly missing symbols locally
     const int LOG_MISSION = 0;
     const int LOG_RUNNING = 1;
 
-    // Define variables for specific test
-    const string wrongLogEntry = "Buster der Bandit unterichtet das Talent AKROBATIK.";
-    const string rightLogEntry = "Buster der Bandit unterrichtet das Talent AKROBATIK.";
-    const string logTopicName = "GE_TeacherNC";
-    const string dialogFunctionName = "DIA_ORG_833_Buster3_Info";
-    const int fixNumber = 143;
+    // Rename the log topic if it already exists
+    G1CP_LogRenameTopic(GE_TeacherNC, TEMP_TOPIC_NAME);
 
-    // Define variables for concatenated strings
-    var string msg;
-    var string newName;
-
-    // Check language first
-    if (G1CP_Lang != G1CP_Lang_DE) {
-        G1CP_TestsuiteErrorDetail("Test applicable for German localization only");
-        return TRUE; // True?
-    };
-
-    // Check if the constant exists
-    if (!G1CP_IsStringConst(logTopicName, 0)) {
-        msg = ConcatStrings("String constant '", logTopicName);
-        msg = ConcatStrings(msg, "' not found");
-        G1CP_TestsuiteErrorDetail(msg);
-        passed = FALSE;
-    };
-
-    // Check if the dialog function exists
-    var int funcId; funcId = G1CP_GetFuncID(dialogFunctionName, "void|none");
-    if (funcId == -1) {
-        msg = ConcatStrings("Dialog function '", dialogFunctionName);
-        msg = ConcatStrings(msg, "' not found");
-        G1CP_TestsuiteErrorDetail(msg);
-        passed = FALSE;
-    };
-
-    // At the latest now, we need to stop if there are fails already
-    if (!passed) {
-        return FALSE;
-    };
-
-    // Retrieve the content of the log topic string constant
-    var string topic; topic = G1CP_GetStringConst(logTopicName, 0, "G1CP invalid string");
-
-    // Backup the status of the log topic if it exists already
-    newName = ConcatStrings("G1CP test ", IntToString(fixNumber));
-    newName = ConcatStrings(newName, " temporary");
-    G1CP_LogRenameTopic(topic, newName);
+    // Check status of the test
+    var int passed; passed = TRUE;
 
     // First pass: Create the log topic with the faulty entry and see if the fix will update it
 
     // Create the topic
-    Log_CreateTopic(topic, LOG_MISSION);
-    Log_SetTopicStatus(topic, LOG_RUNNING);
-    Log_AddEntry(topic, wrongLogEntry);
+    Log_CreateTopic(GE_TeacherNC, LOG_MISSION);
+    Log_SetTopicStatus(GE_TeacherNC, LOG_RUNNING);
+    Log_AddEntry(GE_TeacherNC, logEntryWrong);
 
     // Trigger the fix (careful now, don't overwrite the fix status!)
     var int r; r = G1CP_143_DE_LogEntryBuster();
 
     // Check if it was updated
-    if (G1CP_LogHasEntry(topic, wrongLogEntry)) {
+    if (G1CP_LogHasEntry(GE_TeacherNC, logEntryWrong)) {
         G1CP_TestsuiteErrorDetail("Log topic entry (incorrect) remained unchanged");
         passed = FALSE;
     };
-    if (!G1CP_LogHasEntry(topic, rightLogEntry)) {
+    if (!G1CP_LogHasEntry(GE_TeacherNC, logEntryRight)) {
         G1CP_TestsuiteErrorDetail("Log topic entry (correct) does not exist");
         passed = FALSE;
     };
-    G1CP_LogRemoveTopic(topic);
+    G1CP_LogRemoveTopic(GE_TeacherNC);
 
     // Second pass: Call the dialog function and observe if it creates the corrected entry
 
-    // Backup self and other
-    var C_Npc slfBak; slfBak = MEM_CpyInst(self);
-    var C_Npc othBak; othBak = MEM_CpyInst(other);
-
-    // Set self and other
-    self  = MEM_CpyInst(hero);
-    other = MEM_CpyInst(hero);
-
-    MEM_CallByID(funcId);
-
-    // Restore self and other
-    self  = MEM_CpyInst(slfBak);
-    other = MEM_CpyInst(othBak);
-
-    // Stop the output units
-    Npc_ClearAIQueue(hero);
-    AI_StandUpQuick(hero);
+    G1CP_Testsuite_Call(funcId, 0, 0, TRUE);
 
     // Check if it was updated
-    if (G1CP_LogHasEntry(topic, wrongLogEntry)) {
+    if (G1CP_LogHasEntry(GE_TeacherNC, logEntryWrong)) {
         G1CP_TestsuiteErrorDetail("Log topic entry was created with incorrect wording");
         passed = FALSE;
     };
-    if (!G1CP_LogHasEntry(topic, rightLogEntry)) {
+    if (!G1CP_LogHasEntry(GE_TeacherNC, logEntryRight)) {
         G1CP_TestsuiteErrorDetail("Log topic entry was not added by the dialog function");
         passed = FALSE;
     };
-    G1CP_LogRemoveTopic(topic);
+    G1CP_LogRemoveTopic(GE_TeacherNC);
 
     // Restore the topic to how it was before
-    G1CP_LogRenameTopic(newName, topic);
+    G1CP_LogRenameTopic(TEMP_TOPIC_NAME, GE_TeacherNC);
 
     // Return success
     return passed;

@@ -30,6 +30,7 @@ func void G1CP_GamesaveFixes_Apply() {
         G1CP_050_Pillar();                              // #50
         G1CP_051_StonehengeCryptChest();                // #51
         G1CP_052_UseWithItemNCGrindstone();             // #52
+        G1CP_055_ReactivateInExtremo();                 // #55
         G1CP_093_DE_LogEntryHoratio();                  // #93
         G1CP_121_DE_LogTopicShrikeHut();                // #121
         G1CP_124_GateGuardID();                         // #124
@@ -38,6 +39,8 @@ func void G1CP_GamesaveFixes_Apply() {
         G1CP_193_GateSwitchesStuck();                   // #193
         G1CP_203_LogEntryGrahamMerchant();              // #203
         G1CP_205_LogEntryWolfMerchant();                // #205
+        G1CP_212_UseWithItemNCCauldron1();              // #212
+        G1CP_213_UseWithItemNCCauldron2();              // #213
     };
 };
 
@@ -52,6 +55,7 @@ func void G1CP_GamesaveFixes_Revert() {
         G1CP_050_PillarRevert();                        // #50
         G1CP_051_StonehengeCryptChestRevert();          // #51
         G1CP_052_UseWithItemNCGrindstoneRevert();       // #52
+        G1CP_055_ReactivateInExtremoRevert();           // #55
         G1CP_093_DE_LogEntryHoratioRevert();            // #93
         G1CP_121_DE_LogTopicShrikeHutRevert();          // #121
         G1CP_124_GateGuardIDRevert();                   // #124
@@ -60,5 +64,7 @@ func void G1CP_GamesaveFixes_Revert() {
         G1CP_193_GateSwitchesStuckRevert();             // #193
         G1CP_203_LogEntryGrahamMerchantRevert();        // #203
         G1CP_205_LogEntryWolfMerchantRevert();          // #205
+        G1CP_212_UseWithItemNCCauldron1Revert();        // #212
+        G1CP_213_UseWithItemNCCauldron2Revert();        // #213
     };
 };

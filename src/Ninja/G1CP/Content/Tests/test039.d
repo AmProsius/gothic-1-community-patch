@@ -6,50 +6,15 @@
  * Expected behavior: The hero is merely teleported to Fletcher, the available dialog choices should match the skills.
  */
 func void G1CP_Test_039() {
-    if (!G1CP_TestsuiteAllowManual) {
-        return;
-    };
-
-    // Check status of the test
-    var int passed; passed = TRUE;
-
-    // Check if dialog exists
-    var int funcId; funcId = MEM_GetSymbolIndex("DIA_Fingers_Lehrer_Info");
-    if (funcId == -1) {
-        G1CP_TestsuiteErrorDetail("Dialog function 'DIA_Fingers_Lehrer_Info' not found");
-        passed = FALSE;
-    };
-
-    // Find Fingers
-    var int symbId; symbId = MEM_GetSymbolIndex("STT_331_Fingers");
-    if (symbId == -1) {
-        G1CP_TestsuiteErrorDetail("NPC 'STT_331_Fingers' not found");
-        passed = FALSE;
-    };
-
-    // Check if Fingers exists in the world
-    var C_Npc fingers; fingers = Hlp_GetNpc(symbId);
-    if (!Hlp_IsValidNpc(fingers)) {
-        G1CP_TestsuiteErrorDetail("NPC 'STT_331_Fingers' not valid");
-        passed = FALSE;
-    };
-
-    // Check if variable exists
-    var int canTeachPtr; canTeachPtr = MEM_GetSymbol("Fingers_CanTeach");
-    if (!canTeachPtr) {
-        G1CP_TestsuiteErrorDetail("Variable 'Fingers_CanTeach' not found");
-        passed = FALSE;
-    };
-    canTeachPtr += zCParSymbol_content_offset;
-
-    // At the latest now, we need to stop if there are fails already
-    if (!passed) {
-        return;
-    };
+    G1CP_Testsuite_CheckManual();
+    G1CP_Testsuite_CheckDialogFunc("DIA_Fingers_Lehrer_Info");
+    var C_Npc npc; npc = G1CP_Testsuite_FindNpc("STT_331_Fingers");
+    var int varId; varId = G1CP_Testsuite_CheckIntVar("Fingers_CanTeach", 0);
+    G1CP_Testsuite_CheckPassed();
 
     // Set unlock the dialog
-    MEM_WriteInt(canTeachPtr, TRUE);
+    G1CP_SetIntVarI(varId, 0, TRUE);
 
-    // Teleport the hero to Silas
-    AI_Teleport(hero, fingers.wp);
+    // Teleport the hero
+    AI_Teleport(hero, npc.wp);
 };

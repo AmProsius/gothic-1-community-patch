@@ -23,11 +23,11 @@ func void G1CP_ByteCodeToSpy(var int posStart, var int posEnd) {
         if (tok == zPAR_TOK_PUSHVAR)    || (tok == zPAR_TOK_PUSHINST)
         || (tok == zPAR_TOK_CALLEXTERN) || (tok == zPAR_TOK_SETINSTANCE) {
             // Symbol index
-            msg = ConcatStrings(msg, MEM_ReadString(MEM_GetSymbolByIndex(par)));
+            msg = ConcatStrings(msg, G1CP_GetSymbolName(par));
             pos += 4;
         } else if (tok == zPAR_TOK_PUSH_ARRAYVAR) {
             // Symbol index
-            msg = ConcatStrings(msg, MEM_ReadString(MEM_GetSymbolByIndex(par)));
+            msg = ConcatStrings(msg, G1CP_GetSymbolName(par));
             // Array index
             msg = ConcatStrings(msg, "[");
             msg = ConcatStrings(msg, IntToString(MEM_ReadByte(pos+5)));
@@ -36,7 +36,7 @@ func void G1CP_ByteCodeToSpy(var int posStart, var int posEnd) {
         } else if (tok == zPAR_TOK_CALL) {
             // Stack offset
             if (par >= 0) && (par < MEM_Parser.stack_stacksize) {
-                msg = ConcatStrings(msg, MEM_ReadString(MEM_GetSymbolByIndex(MEM_GetFuncIDByOffset(par))));
+                msg = ConcatStrings(msg, G1CP_GetSymbolName(MEM_GetFuncIDByOffset(par)));
             } else {
                 msg = ConcatStrings(msg, IntToString(par));
             };
@@ -60,7 +60,7 @@ func void G1CP_ByteCodeToSpy(var int posStart, var int posEnd) {
             if (par > 0) && (par < MEM_Parser.symtab_table_numInArray) {
                 // Possibly symbol index
                 msg = ConcatStrings(msg, "  (");
-                msg = ConcatStrings(msg, MEM_ReadString(MEM_GetSymbolByIndex(par)));
+                msg = ConcatStrings(msg, G1CP_GetSymbolName(par));
                 msg = ConcatStrings(msg, ")");
             };
             pos += 4;

@@ -6,7 +6,9 @@
  * Expected behavior: The ambient templar NPC that the player is teleported to has the correct subtitles.
  */
 func void G1CP_Test_142() {
-    if (G1CP_TestsuiteAllowManual) {
-        AI_Teleport(hero, "PSI_GUARD2");
-    };
+    G1CP_Testsuite_CheckManual();
+    var zCWaypoint wp; wp = G1CP_Testsuite_FindWaypoint("PSI_GUARD2");
+    G1CP_Testsuite_CheckPassed();
+
+    AI_Teleport(hero, wp.name);
 };

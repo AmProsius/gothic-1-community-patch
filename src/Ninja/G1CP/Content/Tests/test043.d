@@ -6,18 +6,9 @@
  * Expected behavior: The whitespace will be correctly added to the string.
  */
 func int G1CP_Test_043() {
-    // Check language first
-    if (G1CP_Lang != G1CP_Lang_EN) {
-        G1CP_TestsuiteErrorDetail("Test applicable for English localization only");
-        return TRUE; // True?
-    };
-
-    // Check if function exists
-    var int funcId; funcId = MEM_GetSymbolIndex("B_BuildLearnString");
-    if (funcId == -1) {
-        G1CP_TestsuiteErrorDetail("Function 'B_BuildLearnString' not found");
-        return FALSE;
-    };
+    G1CP_Testsuite_CheckLang(G1CP_Lang_EN);
+    var int funcId; funcId = G1CP_Testsuite_CheckFunc("B_BuildLearnString", "string|string|int|int", "");
+    G1CP_Testsuite_CheckPassed();
 
     // Call the function
     MEM_PushStringParam("Test 43"); // text

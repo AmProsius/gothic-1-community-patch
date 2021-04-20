@@ -6,50 +6,26 @@
  * Expected behavior: The condition function will return FALSE.
  */
 func int G1CP_Test_028() {
-    // Check status of the test
-    var int passed; passed = TRUE;
-
-    // Check if the dialog exists
-    var int funcId; funcId = MEM_GetSymbolIndex("Org_826_Mordrag_GotoNewcamp_Condition");
-    if (funcId == -1) {
-        G1CP_TestsuiteErrorDetail("Dialog condition 'Org_826_Mordrag_GotoNewcamp_Condition' not found");
-        passed = FALSE;
-    };
-
-    // Check if variable exists
-    var int hauAbPtr; hauAbPtr = MEM_GetSymbol("MordragKO_HauAb");
-    if (!hauAbPtr) {
-        G1CP_TestsuiteErrorDetail("Variable 'MordragKO_HauAb' not found");
-        passed = FALSE;
-    };
-    hauAbPtr += zCParSymbol_content_offset;
-
-    // At the latest now, we need to stop if there are fails already
-    if (!passed) {
-        return FALSE;
-    };
+    var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("Org_826_Mordrag_GotoNewcamp_Condition");
+    var int infoId; infoId = G1CP_Testsuite_CheckInfo("Org_826_Mordrag_JoinNewcamp");
+    var int varId; varId = G1CP_Testsuite_CheckIntVar("MordragKO_HauAb", 0);
+    G1CP_Testsuite_CheckPassed();
 
     // Backup values
-    var int hauAbBak; hauAbBak = MEM_ReadInt(hauAbPtr);                                                // Variable
-    var int toldBak; toldBak = Npc_KnowsInfo(hero, MEM_GetSymbolIndex("Org_826_Mordrag_JoinNewcamp")); // Told status
-    var C_Npc slfBak; slfBak = MEM_CpyInst(self);                                                      // Self
-    var C_Npc othBak; othBak = MEM_CpyInst(other);                                                     // Other
+    var int toldBak; toldBak = Npc_KnowsInfo(hero, infoId);
+    var int varBak; varBak = G1CP_GetIntVarI(varId, 0, 0);
 
     // Set new values
-    MEM_WriteInt(hauAbPtr, TRUE);                                                                      // Variable
-    G1CP_SetInfoTold("Org_826_Mordrag_JoinNewcamp", TRUE);                                             // Told status
-    self  = MEM_CpyInst(hero);                                                                         // Self
-    other = MEM_CpyInst(hero);                                                                         // Other
+    G1CP_SetInfoToldI(infoId, TRUE);
+    G1CP_SetIntVarI(varId, 0, TRUE);
 
     // Call dialog condition function
-    MEM_CallByID(funcId);
+    G1CP_Testsuite_Call(funcId, 0, 0, FALSE);
     var int ret; ret = MEM_PopIntResult();
 
     // Restore values
-    self  = MEM_CpyInst(slfBak);                                                                       // Self
-    other = MEM_CpyInst(othBak);                                                                       // Other
-    MEM_WriteInt(hauAbPtr, hauAbBak);                                                                  // Variable
-    G1CP_SetInfoTold("Org_826_Mordrag_JoinNewcamp", toldBak);                                          // Told status
+    G1CP_SetInfoToldI(infoId, toldBak);
+    G1CP_SetIntVarI(varId, 0, varBak);
 
     // Check return value
     if (ret) {

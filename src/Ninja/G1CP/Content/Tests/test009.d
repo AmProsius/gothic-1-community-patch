@@ -6,19 +6,12 @@
  * Expected behavior: The NPCs will flee from the player without freezing (might be hard to determine when the run away)
  */
 func void G1CP_Test_009() {
-    if (!G1CP_TestsuiteAllowManual) {
-        return;
-    };
+    G1CP_Testsuite_CheckManual();
+    G1CP_Testsuite_CheckAiState("ZS_Flee");
+    var zCWaypoint wp; wp = G1CP_Testsuite_FindWaypoint("PSI_TEMPLE_COURT_2");
+    G1CP_Testsuite_CheckPassed();
 
-    var int symbId; symbId = MEM_GetSymbolIndex("ZS_Flee");
-    if (MEM_GetSymbolIndex("ZS_Flee") == -1)
-    || (MEM_GetSymbolIndex("ZS_Flee_Loop") == -1)
-    || (MEM_GetSymbolIndex("ZS_Flee_End") == -1) {
-        G1CP_TestsuiteErrorDetail("AI state 'ZS_Flee' (or sub-functions) not found");
-        return;
-    };
-
-    // AI_Teleport(hero, "PSI_TEMPLE_COURT_2"); // Clears AI queue!
+    G1CP_NpcBeamTo(hero, wp.name);
     AI_SetNpcsToState(hero, ZS_G1CP_Test_009_State, 4500);
 };
 

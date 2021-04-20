@@ -6,38 +6,36 @@
   * Expected behavior: Gorn no longer attacks the player or comments on a death during the raid of the Free Mine.
   */
 func void G1CP_Test_032() {
-     if (G1CP_TestsuiteAllowManual) {
-        // Define possibly missing symbols locally
-        const int NPC_FLAG_IMMORTAL = 1 << 1;
-        const int ATR_STRENGTH      = 4;
+    const string WORLD = "FREEMINE.ZEN";
+    const string WP = "FM_02";
+    G1CP_Testsuite_CheckManual();
+    var int chptrId; chptrId = G1CP_Testsuite_CheckIntVar("Kapitel", 0);
+    var int weapId; weapId = G1CP_Testsuite_CheckItem("ItMw_1H_Sword_Old_01");
+    G1CP_Testsuite_CheckPassed();
 
-        // Toggle the attitude changes
-        var int symbPtr; symbPtr = MEM_GetSymbol("Kapitel");
-        if (!symbPtr) {
-            G1CP_TestsuiteErrorDetail("Variable 'Kapitel' not found");
-            return;
-        };
+    // Define possibly missing symbols locally
+    const int NPC_FLAG_IMMORTAL = 1 << 1;
+    const int ATR_STRENGTH = 4;
 
-        // Setting the variable suffices to trigger the attitude change
-        MEM_WriteInt(symbPtr + zCParSymbol_content_offset, 4);
+    // Setting the variable suffices to trigger the attitude change
+    G1CP_SetIntVarI(chptrId, 0, 4);
 
-        // Set PC to invincible to observe the action
-        hero.flags = hero.flags | NPC_FLAG_IMMORTAL;
+    // Set PC to invincible to observe the action
+    hero.flags = hero.flags | NPC_FLAG_IMMORTAL;
 
-        // Give the PC enough strength to insta-kill
-        hero.attribute[ATR_STRENGTH] = 1000;
+    // Give the PC enough strength to insta-kill
+    hero.attribute[ATR_STRENGTH] = 1000;
 
-        // But needs a weapon to finish them off
-        EquipWeapon(hero, MEM_GetSymbolIndex("ItMw_1H_Sword_Old_01"));
+    // But needs a weapon to finish them off
+    EquipWeapon(hero, weapId);
 
-        // Teleport the player to the entrance of the Free Mine
-        if (!Hlp_StrCmp(MEM_World.worldFilename, "FREEMINE.ZEN")) {
-            const int oCGame__TriggerChangeLevel = 6542464; //0x63D480
-            CALL_zStringPtrParam("FM_02");
-            CALL_zStringPtrParam("FREEMINE.ZEN");
-            CALL__thiscall(_@(MEM_Game), oCGame__TriggerChangeLevel);
-        } else {
-            AI_Teleport(hero, "FM_02");
-        };
+    // Teleport the player to the entrance of the Free Mine
+    if (!Hlp_StrCmp(MEM_World.worldFilename, WORLD)) {
+        const int oCGame__TriggerChangeLevel = 6542464; //0x63D480
+        CALL_zStringPtrParam(WP);
+        CALL_zStringPtrParam(WORLD);
+        CALL__thiscall(_@(MEM_Game), oCGame__TriggerChangeLevel);
+    } else {
+        AI_Teleport(hero, WP);
     };
 };
