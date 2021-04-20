@@ -17,5 +17,6 @@ func void G1CP_Test_004() {
     G1CP_NpcSetAIVarI(npc, aiVarId, TRUE);
 
     // Exactly in the way
+    Wld_SetTime(12,0);
     AI_Teleport(hero, wp.name);
 };

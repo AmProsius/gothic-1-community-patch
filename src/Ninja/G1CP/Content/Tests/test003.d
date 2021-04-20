@@ -13,7 +13,7 @@ func void G1CP_Test_003() {
     var int arrowId; arrowId = G1CP_Testsuite_CheckItem("ItAmArrow");
     G1CP_Testsuite_CheckItem("Diegos_Bogen");
     G1CP_Testsuite_CheckItem("ItRw_Bow_Small_01");
-    G1CP_Testsuite_CheckFunc("B_RegainDroppedWeapon", "void|C_Npc", "");
+    G1CP_Testsuite_CheckFunc("B_RegainDroppedWeapon", "void|inst", "");
     G1CP_Testsuite_CheckPassed();
 
     // Insert test NPC
