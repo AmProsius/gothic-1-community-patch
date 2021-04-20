@@ -14,8 +14,8 @@ func int G1CP_Test_143() {
     G1CP_Testsuite_CheckPassed();
 
     // Define variables for specific test
-    const string wrongLogEntry = "Buster der Bandit unterichtet das Talent AKROBATIK.";
-    const string rightLogEntry = "Buster der Bandit unterrichtet das Talent AKROBATIK.";
+    const string logEntryWrong = "Buster der Bandit unterichtet das Talent AKROBATIK.";
+    const string logEntryRight = "Buster der Bandit unterrichtet das Talent AKROBATIK.";
 
     // Define possibly missing symbols locally
     const int LOG_MISSION = 0;
@@ -32,17 +32,17 @@ func int G1CP_Test_143() {
     // Create the topic
     Log_CreateTopic(GE_TeacherNC, LOG_MISSION);
     Log_SetTopicStatus(GE_TeacherNC, LOG_RUNNING);
-    Log_AddEntry(GE_TeacherNC, wrongLogEntry);
+    Log_AddEntry(GE_TeacherNC, logEntryWrong);
 
     // Trigger the fix (careful now, don't overwrite the fix status!)
     var int r; r = G1CP_143_DE_LogEntryBuster();
 
     // Check if it was updated
-    if (G1CP_LogHasEntry(GE_TeacherNC, wrongLogEntry)) {
+    if (G1CP_LogHasEntry(GE_TeacherNC, logEntryWrong)) {
         G1CP_TestsuiteErrorDetail("Log topic entry (incorrect) remained unchanged");
         passed = FALSE;
     };
-    if (!G1CP_LogHasEntry(GE_TeacherNC, rightLogEntry)) {
+    if (!G1CP_LogHasEntry(GE_TeacherNC, logEntryRight)) {
         G1CP_TestsuiteErrorDetail("Log topic entry (correct) does not exist");
         passed = FALSE;
     };
@@ -53,11 +53,11 @@ func int G1CP_Test_143() {
     G1CP_Testsuite_Call(funcId, 0, 0, TRUE);
 
     // Check if it was updated
-    if (G1CP_LogHasEntry(GE_TeacherNC, wrongLogEntry)) {
+    if (G1CP_LogHasEntry(GE_TeacherNC, logEntryWrong)) {
         G1CP_TestsuiteErrorDetail("Log topic entry was created with incorrect wording");
         passed = FALSE;
     };
-    if (!G1CP_LogHasEntry(GE_TeacherNC, rightLogEntry)) {
+    if (!G1CP_LogHasEntry(GE_TeacherNC, logEntryRight)) {
         G1CP_TestsuiteErrorDetail("Log topic entry was not added by the dialog function");
         passed = FALSE;
     };
