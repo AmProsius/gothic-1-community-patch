@@ -7,38 +7,13 @@
  * Expected behavior: The player will not give ore on the first pass but on the second one.
  */
 func int G1CP_Test_112() {
-    // Check status of the test
-    var int passed; passed = TRUE;
-
-    // Check if the dialog function exists
-    var int funcId; funcId = MEM_GetSymbolIndex("Info_Jackal_Schutz_Info");
-    if (funcId == -1) {
-        G1CP_TestsuiteErrorDetail("Dialog function 'Info_Jackal_Schutz_Info' not found");
-        passed = FALSE;
-    };
-
-    // Check if the variable exists
-    var int paidPtr; paidPtr = MEM_GetSymbol("Jackal_ProtectionPaid");
-    if (!paidPtr) {
-        G1CP_TestsuiteErrorDetail("Item 'Jackal_ProtectionPaid' not found");
-        passed = FALSE;
-    };
-    paidPtr += zCParSymbol_content_offset;
-
-    // Check if the ore item exists
-    var int oreId; oreId = MEM_GetSymbolIndex("ItMiNugget");
-    if (oreId == -1) {
-        G1CP_TestsuiteErrorDetail("Item 'ItMiNugget' not found");
-        passed = FALSE;
-    };
-
-    // At the latest now, we need to stop if there are fails already
-    if (!passed) {
-        return FALSE;
-    };
+    var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc("Info_Jackal_Schutz_Info");
+    var int paidId; paidId = G1CP_Testsuite_CheckIntVar("Jackal_ProtectionPaid", 0);
+    var int oreId; oreId = G1CP_Testsuite_CheckItem("ItMiNugget");
+    G1CP_Testsuite_CheckPassed();
 
     // Backup values
-    var int paidStatusBak; paidStatusBak = MEM_ReadInt(paidPtr);
+    var int paidStatusBak; paidStatusBak = G1CP_GetIntVarI(paidId, 0, 0);
     var int amountBefore; amountBefore = Npc_HasItems(hero, oreId);
 
     // Remove all ore
@@ -47,7 +22,7 @@ func int G1CP_Test_112() {
     };
 
     // Set variable
-    MEM_WriteInt(paidPtr, FALSE);
+    G1CP_SetIntVarI(paidId, 0, FALSE);
 
     // Two passes
     var int amountPass1;
@@ -64,20 +39,16 @@ func int G1CP_Test_112() {
     // Check the amount
     amountPass1 = Npc_HasItems(hero, oreId);
     if (amountPass1 > 8) {
-        msg = ConcatStrings("The hero wrongfully payed ", IntToString(8 - amountPass1));
-        msg = ConcatStrings(msg, " ore");
-        G1CP_TestsuiteErrorDetail(msg);
+        G1CP_TestsuiteErrorDetailSIS("The hero wrongfully payed ", 8 - amountPass1, " ore");
     } else if (amountPass1 < 8) {
-        msg = ConcatStrings("The hero wrongfully received ", IntToString(amountPass1 - 8));
-        msg = ConcatStrings(msg, " ore");
-        G1CP_TestsuiteErrorDetail(msg);
+        G1CP_TestsuiteErrorDetailSIS("The hero wrongfully received ", amountPass1 - 8, " ore");
     };
 
     // Reset
     if (amountPass1 > 0) {
         Npc_RemoveInvItems(hero, oreId, amountPass1);
     };
-    MEM_WriteInt(paidPtr, FALSE);
+    G1CP_SetIntVarI(paidId, 0, FALSE);
 
     // Second pass: Enough ore, amount is decrease by 10
     CreateInvItems(hero, oreId, 20); // Have at least 10 (to see if the amount decreases)
@@ -90,17 +61,11 @@ func int G1CP_Test_112() {
     if (amountPass2 == 20) {
         G1CP_TestsuiteErrorDetail("The hero wrongfully kept all ore");
     } else if (amountPass2 < 10) {
-        msg = ConcatStrings("The hero wrongfully payed ", IntToString(10 - amountPass2));
-        msg = ConcatStrings(msg, " ore too much");
-        G1CP_TestsuiteErrorDetail(msg);
+        G1CP_TestsuiteErrorDetailSIS("The hero wrongfully payed ", 10 - amountPass2, " ore too much");
     } else if (amountPass2 > 20) {
-        msg = ConcatStrings("The hero wrongfully received ", IntToString(amountPass2 - 20));
-        msg = ConcatStrings(msg, " ore");
-        G1CP_TestsuiteErrorDetail(msg);
+        G1CP_TestsuiteErrorDetailSIS("The hero wrongfully received ", amountPass2 - 20, " ore");
     } else if (amountPass2 > 10) {
-        msg = ConcatStrings("The hero wrongfully payed ", IntToString(amountPass2 - 10));
-        msg = ConcatStrings(msg, " ore too little");
-        G1CP_TestsuiteErrorDetail(msg);
+        G1CP_TestsuiteErrorDetailSIS("The hero wrongfully payed ", amountPass2 - 10, " ore too little");
     };
 
     // Remove all ore
@@ -114,7 +79,7 @@ func int G1CP_Test_112() {
     };
 
     // Revert topic status
-    MEM_WriteInt(paidPtr, paidStatusBak);
+    G1CP_SetIntVarI(paidId, 0, paidStatusBak);
 
     // Return success
     return (amountPass1 == 8) && (amountPass2 == 10);
