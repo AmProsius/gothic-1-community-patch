@@ -86,9 +86,10 @@ func int G1CP_055_ReactivateInExtremo_InitSession() {
     // Check the announcer's and Grim's dialogs
     var int fncDiaGrimId; fncDiaGrimId = G1CP_GetFuncID("DIA_Grim_INEXTREMO_Info", "void|none");
     var int fncDiaAncrId; fncDiaAncrId = G1CP_GetFuncID("IE_397_Announcer_Announce_Condition", "int|none");
+    var int fncDiaAInfId; fncDiaAInfId = G1CP_GetFuncID("IE_397_Announcer_ANNOUNCE_Info", "void|none");
     if (!G1CP_IsInfoInst("IE_397_Announcer_ANNOUNCE")) || (!G1CP_GetInfo("IE_397_Announcer_ANNOUNCE"))
     || (!G1CP_IsInfoInst("DIA_Grim_INEXTREMO"))        || (!G1CP_GetInfo("DIA_Grim_INEXTREMO"))
-    || (fncDiaGrimId == -1) || (fncDiaAncrId == -1) {
+    || (fncDiaGrimId == -1) || (fncDiaAncrId == -1) || (fncDiaAInfId == -1) {
         MEM_Info("Necessary dialogs not found");
         return FALSE;
     };
@@ -378,6 +379,7 @@ func int G1CP_055_ReactivateInExtremo_InitWorld() {
 
     // All confirmed, let's create the story hook
     HookDaedalusFuncS("B_Kapitelwechsel", "G1CP_055_ReactivateInExtremoHook");
+    HookDaedalusFuncS("IE_397_Announcer_ANNOUNCE_Info", "G1CP_055_ReactivateInExtremo_StartMusicDialog");
 
     // Success, all good: Never come here again
     return TRUE;
@@ -679,5 +681,20 @@ func void G1CP_055_ReactivateInExtremoHook(var int chapterNum) {
         // Leave chapter two: stop concert but reapply any other fixes
         MEM_Call(G1CP_GamesaveFixes_Revert);
         MEM_Call(G1CP_GamesaveFixes_Apply);
+    };
+};
+
+/*
+ * Hook the announcer dialog to trigger the start of the concert
+ */
+func void G1CP_055_ReactivateInExtremo_StartMusicDialog() {
+    G1CP_ReportFuncToSpy();
+
+    // Execute original dialog
+    ContinueCall();
+
+    // Check if concert was started
+    if (!G1CP_GetIntVar("InExtremoPlaying", 0, FALSE)) {
+        MEM_CallByString("B_InExtremoStartMusic");
     };
 };
