@@ -124,7 +124,7 @@ func int G1CP_055_ReactivateInExtremo_InitSession() {
     end;
     if (MEM_ReadByte(addr) != zPAR_TOK_RET)                { good = FALSE; };
     if (!good) {
-        MEM_Info("Content of function 'B_InsertInExtremo' not as expected");
+        MEM_Info("Content of function 'B_KillInExtremo' not as expected");
         return FALSE;
     };
 
