@@ -12,6 +12,7 @@ func int G1CP_055_ReactivateInExtremo_InitSession() {
 
     // Some functions may require minor adjustments
     var int adjustStrtMs; adjustStrtMs = TRUE;
+    var int adjustStopMs; adjustStopMs = TRUE;
 
     // Get/check essential functions
     var int fncInsertId; fncInsertId = G1CP_GetFuncID("B_InsertInExtremo",     "void|none");
@@ -181,15 +182,20 @@ func int G1CP_055_ReactivateInExtremo_InitSession() {
     if (MEM_ReadByte(addr) != zPAR_TOK_PUSHVAR)            { good = FALSE; }; addr += 5;
     if (MEM_ReadByte(addr) != zPAR_TOK_CALLEXTERN)         { good = FALSE; }; addr += 1;
     if (MEM_ReadInt( addr) != fncUnSndTrgId)               { good = FALSE; }; addr += 4;
-    val = MEM_ReadInt(addr+1);
-    if (MEM_ReadByte(addr) == zPAR_TOK_PUSHVAR) {
-        val = G1CP_GetIntI(val, 0, 1);
-    } else if (MEM_ReadByte(addr) != zPAR_TOK_PUSHINT)     { good = FALSE; }; addr += 1;
-    if (val != 0)                                          { good = FALSE; }; addr += 4;
-    if (MEM_ReadByte(addr) != zPAR_TOK_PUSHVAR)            { good = FALSE; }; addr += 1;
-    if (MEM_ReadInt( addr) != varPlyingId)                 { good = FALSE; }; addr += 4;
-    if (MEM_ReadByte(addr) != zPAR_OP_IS)                  { good = FALSE; }; addr += 1;
-    if (MEM_ReadByte(addr) != zPAR_TOK_RET)                { good = FALSE; };
+    if (MEM_ReadByte(addr) != zPAR_TOK_RET) {
+        val = MEM_ReadInt(addr+1);
+        if (MEM_ReadByte(addr) == zPAR_TOK_PUSHVAR) {
+            val = G1CP_GetIntI(val, 0, 1);
+        } else if (MEM_ReadByte(addr) != zPAR_TOK_PUSHINT) { good = FALSE; }; addr += 1;
+        if (val != 0)                                      { good = FALSE; }; addr += 4;
+        if (MEM_ReadByte(addr) != zPAR_TOK_PUSHVAR)        { good = FALSE; }; addr += 1;
+        if (MEM_ReadInt( addr) != varPlyingId)             { good = FALSE; }; addr += 4;
+        if (MEM_ReadByte(addr) != zPAR_OP_IS)              { good = FALSE; }; addr += 1;
+        if (MEM_ReadByte(addr) != zPAR_TOK_RET)            { good = FALSE; };
+    } else {
+            // Variable "InExtremoPlaying" not set, set it manually later at this address
+        adjustStopMs = addr-5;
+    };
     if (!good) {
         MEM_Info("Content of function 'B_InExtremoStopMusic' not as expected");
         return FALSE;
@@ -266,6 +272,10 @@ func int G1CP_055_ReactivateInExtremo_InitSession() {
         MEMINT_OverrideFunc_Ptr = adjustStrtMs;
         MEMINT_OFTokPar(zPAR_TOK_CALL, MEM_GetFuncOffset(G1CP_055_ReactivateInExtremo_PlayTrue));
     };
+    if (adjustStopMs) {
+        MEMINT_OverrideFunc_Ptr = adjustStopMs;
+        MEMINT_OFTokPar(zPAR_TOK_CALL, MEM_GetFuncOffset(G1CP_055_ReactivateInExtremo_PlayFalse));
+    };
 
     // All good!
     return TRUE;
@@ -278,6 +288,10 @@ func int G1CP_055_ReactivateInExtremo_InitSession() {
 func void G1CP_055_ReactivateInExtremo_PlayTrue(var string vobName) {
     G1CP_SetIntVar("InExtremoPlaying", 0, TRUE);
     Wld_SendTrigger(vobName);
+};
+func void G1CP_055_ReactivateInExtremo_PlayFalse(var string vobName) {
+    G1CP_SetIntVar("InExtremoPlaying", 0, FALSE);
+    Wld_SendUnTrigger(vobName);
 };
 
 
