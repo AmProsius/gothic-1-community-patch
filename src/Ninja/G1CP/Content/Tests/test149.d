@@ -6,33 +6,16 @@
  * Expected behavior: The armor will have the correct name (checked for English and German localization only).
  */
 func int G1CP_Test_149() {
-    // Check language first
-    if (G1CP_Lang != G1CP_Lang_EN) && (G1CP_Lang != G1CP_Lang_DE) {
-        G1CP_TestsuiteErrorDetail("Test applicable for English and German localization only");
-        return TRUE; // True?
-    };
+    G1CP_Testsuite_CheckLang(G1CP_Lang_EN | G1CP_Lang_DE);
+    var C_Item itm; itm = G1CP_Testsuite_CreateItem("ORE_ARMOR_H");
+    G1CP_Testsuite_CheckPassed();
 
-    // Check if item exists
-    var int symbId; symbId = MEM_GetSymbolIndex("ORE_ARMOR_H");
-    if (symbId == -1) {
-        G1CP_TestsuiteErrorDetail("Item 'ORE_ARMOR_H' not found");
-        return FALSE;
-    };
-
-    // Create the armor locally
-    if (Itm_GetPtr(symbId)) {
-        if (Hlp_StrCmp(item.name, "Improved Ore Armor")) // EN
-        || (Hlp_StrCmp(item.name, "Verbesserte Erzrüstung")) { // DE
-            return TRUE;
-        } else {
-            var string msg; msg = "Text incorrect: name = '";
-            msg = ConcatStrings(msg, item.name);
-            msg = ConcatStrings(msg, "'");
-            G1CP_TestsuiteErrorDetail(msg);
-            return FALSE;
-        };
+    // Case-sensitive comparison!
+    if (STR_Compare(itm.name, "Improved Ore Armor") == STR_EQUAL) // EN
+    || (STR_Compare(itm.name, "Verbesserte Erzrüstung") == STR_EQUAL) { // DE
+        return TRUE;
     } else {
-        G1CP_TestsuiteErrorDetail("Item 'ORE_ARMOR_H' could not be created");
+        G1CP_TestsuiteErrorDetailSSS("Name incorrect: name = '", itm.name, "'");
         return FALSE;
     };
 };
