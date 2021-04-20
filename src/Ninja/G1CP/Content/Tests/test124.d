@@ -8,37 +8,22 @@
  */
 func void G1CP_Test_124() {
     G1CP_Testsuite_CheckManual();
-
-    // Define possibly missing symbols locally
-    const int GIL_GRD = 2;
-
-    var int passed; passed = TRUE;
-
-    var int func1Id; func1Id = MEM_GetSymbolIndex("B_Kapitelwechsel");
-    if (func1Id == -1) {
-        G1CP_TestsuiteErrorDetail("Function 'B_Kapitelwechsel' not found");
-        passed = FALSE;
-    };
-
-    var int func2Id; func2Id = MEM_GetSymbolIndex("B_Story_FMTaken");
-    if (func2Id == -1) {
-        G1CP_TestsuiteErrorDetail("Function 'B_Story_FMTaken' not found");
-        passed = FALSE;
-    };
-
-    if (!passed) {
-        return;
-    };
+    const int GIL_GRD = 0; G1CP_Testsuite_GetIntConst("GIL_GRD", 0);
+    const int CHAPTER_NUM = 4;
+    var zCWaypoint wp; wp = G1CP_Testsuite_FindWaypoint("OCR_THORUS");
+    var int fncChptrId; fncChptrId = MEM_GetSymbolIndex("B_Kapitelwechsel");
+    var int fncFmTakenId; fncFmTakenId = MEM_GetSymbolIndex("B_Story_FMTaken");
+    G1CP_Testsuite_CheckPassed();
 
     // Change the chapter
-    MEM_PushIntParam(4);
-    MEM_CallById(func1Id);
-    MEM_CallById(func2Id);
+    MEM_PushIntParam(CHAPTER_NUM);
+    MEM_CallById(fncChptrId);
+    MEM_CallById(fncFmTakenId);
 
     // Change the player's guild to not be attacked
     hero.guild = GIL_GRD;
     Npc_SetTrueGuild(hero, GIL_GRD);
 
     // Teleport the PC to the castle gate
-    AI_Teleport(hero, "OCR_THORUS");
+    AI_Teleport(hero, wp.name);
 };
