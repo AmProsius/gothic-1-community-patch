@@ -10,6 +10,9 @@ func int G1CP_055_ReactivateInExtremo_InitSession() {
     // exit es soon as possible. But we are actually not saving any time, because if all goes well, we will go through
     // the entire function anyway. This function is only called once on first loading and takes no more than 40 ms.
 
+    // Some functions may require minor adjustments
+    var int adjustStrtMs; adjustStrtMs = TRUE;
+
     // Get/check essential functions
     var int fncInsertId; fncInsertId = G1CP_GetFuncID("B_InsertInExtremo",     "void|none");
     var int fncRemoveId; fncRemoveId = G1CP_GetFuncID("B_KillInExtremo",       "void|none");
@@ -149,15 +152,20 @@ func int G1CP_055_ReactivateInExtremo_InitSession() {
     if (MEM_ReadByte(addr) != zPAR_TOK_PUSHVAR)            { good = FALSE; }; addr += 5;
     if (MEM_ReadByte(addr) != zPAR_TOK_CALLEXTERN)         { good = FALSE; }; addr += 1;
     if (MEM_ReadInt( addr) != fncSndTrggrId)               { good = FALSE; }; addr += 4;
-    val = MEM_ReadInt(addr+1);
-    if (MEM_ReadByte(addr) == zPAR_TOK_PUSHVAR) {
-        val = G1CP_GetIntI(val, 0, 0);
-    } else if (MEM_ReadByte(addr) != zPAR_TOK_PUSHINT)     { good = FALSE; }; addr += 1;
-    if (val == 0)                                          { good = FALSE; }; addr += 4;
-    if (MEM_ReadByte(addr) != zPAR_TOK_PUSHVAR)            { good = FALSE; }; addr += 1;
-    if (MEM_ReadInt( addr) != varPlyingId)                 { good = FALSE; }; addr += 4;
-    if (MEM_ReadByte(addr) != zPAR_OP_IS)                  { good = FALSE; }; addr += 1;
-    if (MEM_ReadByte(addr) != zPAR_TOK_RET)                { good = FALSE; };
+    if (MEM_ReadByte(addr) != zPAR_TOK_RET) {
+        val = MEM_ReadInt(addr+1);
+        if (MEM_ReadByte(addr) == zPAR_TOK_PUSHVAR) {
+            val = G1CP_GetIntI(val, 0, 0);
+        } else if (MEM_ReadByte(addr) != zPAR_TOK_PUSHINT) { good = FALSE; }; addr += 1;
+        if (val == 0)                                      { good = FALSE; }; addr += 4;
+        if (MEM_ReadByte(addr) != zPAR_TOK_PUSHVAR)        { good = FALSE; }; addr += 1;
+        if (MEM_ReadInt( addr) != varPlyingId)             { good = FALSE; }; addr += 4;
+        if (MEM_ReadByte(addr) != zPAR_OP_IS)              { good = FALSE; }; addr += 1;
+        if (MEM_ReadByte(addr) != zPAR_TOK_RET)            { good = FALSE; };
+    } else {
+        // Variable "InExtremoPlaying" not set, set it manually later at this address
+        adjustStrtMs = addr-5;
+    };
     if (!good) {
         MEM_Info("Content of function 'B_InExtremoStartMusic' not as expected");
         return FALSE;
@@ -248,12 +256,28 @@ func int G1CP_055_ReactivateInExtremo_InitSession() {
     CALL_cStringPtrParam("\_WORK\DATA\SOUND\SFX\CS_INEXTREMO.WAV");
     CALL__cdecl(_vdf_fexists);
     CALL__cdecl(zFILE_VDFS__UnlockCriticalSection);
-    if (good) {
-        return TRUE;
-    } else {
+    if (!good) {
         MEM_Info("Music file 'CS_INEXTREMO.WAV' not found");
         return FALSE;
     };
+
+    // All set. Make necessary adjustments if any
+    if (adjustStrtMs) {
+        MEMINT_OverrideFunc_Ptr = adjustStrtMs;
+        MEMINT_OFTokPar(zPAR_TOK_CALL, MEM_GetFuncOffset(G1CP_055_ReactivateInExtremo_PlayTrue));
+    };
+
+    // All good!
+    return TRUE;
+};
+
+
+/*
+ * Intercept functions to set variable
+ */
+func void G1CP_055_ReactivateInExtremo_PlayTrue(var string vobName) {
+    G1CP_SetIntVar("InExtremoPlaying", 0, TRUE);
+    Wld_SendTrigger(vobName);
 };
 
 
