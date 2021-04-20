@@ -6,16 +6,10 @@
  * Expected behavior: The cauldron is not usable anymore (without a spoon).
  */
 func void G1CP_Test_212() {
-    if (!G1CP_TestsuiteAllowManual) {
-        return;
-    };
-
-    // Check for the item
-    var int itemId; itemId = G1CP_GetItemInstID("ITMISCOOP");
-    if (itemId == -1) {
-        G1CP_TestsuiteErrorDetail("Item 'ItMiScoop' not found");
-        return;
-    };
+    G1CP_Testsuite_CheckManual();
+    var zCWaypoint wp; wp = G1CP_Testsuite_FindWaypoint("NC_HUT13_OUT");
+    var int itemId; itemId = G1CP_Testsuite_CheckItem("ITMISCOOP");
+    G1CP_Testsuite_CheckPassed();
 
     // Give the player item to check
     if (!Npc_HasItems(hero, itemId)) {
@@ -26,5 +20,5 @@ func void G1CP_Test_212() {
     Wld_SetTime(3, 0);
 
     // Teleport the player to the MOB
-    AI_Teleport(hero, "NC_HUT13_OUT");
+    AI_Teleport(hero, wp.name);
 };
