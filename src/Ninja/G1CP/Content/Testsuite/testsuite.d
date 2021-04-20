@@ -27,6 +27,7 @@ const int G1CP_TestsuiteStatusPassed = TRUE;
  */
 func int G1CP_Testsuite() {
     CC_Register(G1CP_TestsuiteList, "test list", "List all tests of G1CP");
+    CC_Register(G1CP_TestsuiteNext, "test next", "Execute next manual test of G1CP");
     CC_Register(G1CP_TestsuiteAll, "test all", "Run complete test suite for G1CP");
     CC_Register(G1CP_TestsuiteCmd, "test ", "Run test from test suite for G1CP");
 
@@ -176,6 +177,51 @@ func string G1CP_TestsuiteCmd(var string command) {
     G1CP_TestsuitePrintErrors();
 
     return retStr;
+};
+
+func string G1CP_TestsuiteNext(var string _) {
+    // Constant to continue where left off
+    const int symbId = 0;
+
+    // Restart from the beginning
+    if (symbId <= 0) || (symbId >= G1CP_SymbEnd) {
+        symbId = G1CP_SymbStart;
+    };
+
+    // Iterate over symbols and find next manual test
+    while(symbId < G1CP_SymbEnd);
+        // Compare symbol name
+        var zCPar_Symbol symb; symb = _^(MEM_GetSymbolByIndex(symbId));
+        if (STR_StartsWith(symb.name, "G1CP_TEST_"))
+        && (STR_Len(symb.name) == 13)
+        && ((symb.bitfield & zCPar_Symbol_bitfield_type) == zPAR_TYPE_FUNC) {
+            // Get test ID
+            var int id; id = STR_ToInt(STR_SubStr(symb.name, 10, 3));
+
+            // Check if manual or automatic
+            if (symb.offset == (zPAR_TYPE_VOID >> 12)) {
+                break;
+            };
+        };
+        symbId += 1;
+    end;
+
+    // Reached last
+    if (symbId >= G1CP_SymbEnd) {
+        return "Reached end of manual tests. Will restart from the beginning on next call";
+    };
+
+    // Otherwise execute test and advance iterator
+    G1CP_TestsuiteCmd(IntToString(id));
+    symbId += 1;
+
+    // Return info
+    var string msg; msg = "Start test of #";
+    msg = ConcatStrings(msg, IntToString(id));
+    msg = ConcatStrings(msg, " '");
+    msg = ConcatStrings(msg, G1CP_GetFixShortName(id));
+    msg = ConcatStrings(msg, "'");
+    return msg;
 };
 
 func string G1CP_TestsuiteList(var string _) {
