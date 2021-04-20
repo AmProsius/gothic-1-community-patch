@@ -7,6 +7,8 @@
  */
 func void G1CP_Test_115() {
     G1CP_Testsuite_CheckManual();
+    const string WORLD = "ORCGRAVEYARD.ZEN";
+    const string WP = "GRYD_001";
 
     // Define possibly missing symbols locally
     const int NPC_FLAG_IMMORTAL = 1 << 1;
@@ -15,12 +17,12 @@ func void G1CP_Test_115() {
     hero.flags = hero.flags | NPC_FLAG_IMMORTAL;
 
     // Teleport the player to the entrance of the orc graveyard
-    if (!Hlp_StrCmp(MEM_World.worldFilename, "ORCGRAVEYARD.ZEN")) {
+    if (!Hlp_StrCmp(MEM_World.worldFilename, WORLD)) {
         const int oCGame__TriggerChangeLevel = 6542464; //0x63D480
-        CALL_zStringPtrParam("GRYD_001");
-        CALL_zStringPtrParam("ORCGRAVEYARD.ZEN");
+        CALL_zStringPtrParam(WP);
+        CALL_zStringPtrParam(WORLD);
         CALL__thiscall(_@(MEM_Game), oCGame__TriggerChangeLevel);
     } else {
-        AI_Teleport(hero, "GRYD_001");
+        AI_Teleport(hero, WP);
     };
 };
