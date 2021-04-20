@@ -6,50 +6,18 @@
  * Expected behavior: The condition function will return FALSE for the first and TRUE for the second pass.
  */
 func int G1CP_Test_079() {
-    var int symbPtr;
-    var int GIL_GRD;
-    var int GIL_ORG;
-
-    // Check status of the test
-    var int passed; passed = TRUE;
-
-    // Check if the dialog exists
-    var int funcId; funcId = MEM_GetSymbolIndex("ORG_855_Wolf_Teach_Condition");
-    if (funcId == -1) {
-        G1CP_TestsuiteErrorDetail("Dialog condition 'ORG_855_Wolf_Teach_Condition' not found");
-        passed = FALSE;
-    };
-
-    // Check if guild exists
-    symbPtr = MEM_GetSymbol("GIL_GRD");
-    if (!symbPtr) {
-        G1CP_TestsuiteErrorDetail("Symbol 'GIL_GRD' not found");
-        passed = FALSE;
-    } else {
-        GIL_GRD = MEM_ReadInt(symbPtr + zCParSymbol_content_offset);
-    };
-
-    // Check if guild exists
-    symbPtr = MEM_GetSymbol("GIL_ORG");
-    if (!symbPtr) {
-        G1CP_TestsuiteErrorDetail("Symbol 'GIL_ORG' not found");
-        passed = FALSE;
-    } else {
-        GIL_ORG = MEM_ReadInt(symbPtr + zCParSymbol_content_offset);
-    };
-
-    // At the latest now, we need to stop if there are fails already
-    if (!passed) {
-        return FALSE;
-    };
+    const int GIL_GRD = 0; GIL_GRD = G1CP_Testsuite_GetIntConst("GIL_GRD", 0);
+    const int GIL_ORG = 0; GIL_ORG = G1CP_Testsuite_GetIntConst("GIL_ORG", 0);
+    var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("ORG_855_Wolf_Teach_Condition");
+    G1CP_Testsuite_CheckPassed();
 
     // Backup values
     var int guildBak; guildBak = hero.guild;
-    var int guildTrueBak; guildTrueBak = Npc_GetTrueGuild(hero);
+    var int trueGuildBak; trueGuildBak = Npc_GetTrueGuild(hero);
 
     // Do two passes (first one should yield true, second false)
-    var int ret1;
-    var int ret2;
+    var int pass1;
+    var int pass2;
 
     // First pass
     hero.guild = GIL_GRD;
@@ -57,8 +25,8 @@ func int G1CP_Test_079() {
 
     // Call dialog condition function
     G1CP_Testsuite_Call(funcId, 0, 0, FALSE);
-    ret1 = MEM_PopIntResult();
-    if (ret1) {
+    pass1 = MEM_PopIntResult();
+    if (pass1) {
         G1CP_TestsuiteErrorDetail("Dialog condition returned true for GIL_GRD");
     };
 
@@ -68,15 +36,15 @@ func int G1CP_Test_079() {
 
     // Call dialog condition function
     G1CP_Testsuite_Call(funcId, 0, 0, FALSE);
-    ret2 = MEM_PopIntResult();
-    if (!ret2) {
+    pass2 = MEM_PopIntResult();
+    if (!pass2) {
         G1CP_TestsuiteErrorDetail("Dialog condition returned false for GIL_ORG");
     };
 
     // Restore values
     hero.guild = guildBak;
-    Npc_SetTrueGuild(hero, guildTrueBak);
+    Npc_SetTrueGuild(hero, trueGuildBak);
 
     // Pass on return value
-    return (!ret1) && (ret2);
+    return (!pass1) && (pass2);
 };
