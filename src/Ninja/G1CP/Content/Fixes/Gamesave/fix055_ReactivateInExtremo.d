@@ -26,6 +26,7 @@ func int G1CP_055_ReactivateInExtremo_InitSession() {
     // Get/check variables
     var int varPlyingId; varPlyingId = G1CP_GetIntVarID("InExtremoPlaying", 0);
     var int varChaptrId; varChaptrId = G1CP_GetIntVarID("Kapitel",          0);
+    var int varOnStgeId; varOnStgeId = G1CP_GetIntVarID("InExtremoOnStage", 0); // Not required
     if (varPlyingId == 1) || (varChaptrId == 1) {
         MEM_Info("Necessary variables not found");
         return FALSE;
@@ -105,7 +106,17 @@ func int G1CP_055_ReactivateInExtremo_InitSession() {
         if (MEM_ReadByte(addr) != zPAR_TOK_CALLEXTERN)     { good = FALSE; }; addr += 1;
         if (MEM_ReadInt( addr) != fncInsrtNpcId)           { good = FALSE; }; addr += 4;
     end;
-    if (MEM_ReadByte(addr) != zPAR_TOK_RET)                { good = FALSE; };
+    if (MEM_ReadByte(addr) != zPAR_TOK_RET) {
+        val = MEM_ReadInt(addr+1);
+        if (MEM_ReadByte(addr) == zPAR_TOK_PUSHVAR) {
+            val = G1CP_GetIntI(val, 0, 0);
+        } else if (MEM_ReadByte(addr) != zPAR_TOK_PUSHINT) { good = FALSE; }; addr += 1;
+        if (val == 0)                                      { good = FALSE; }; addr += 4;
+        if (MEM_ReadByte(addr) != zPAR_TOK_PUSHVAR)        { good = FALSE; }; addr += 1;
+        if (MEM_ReadInt( addr) != varOnStgeId)             { good = FALSE; }; addr += 4;
+        if (MEM_ReadByte(addr) != zPAR_OP_IS)              { good = FALSE; }; addr += 1;
+        if (MEM_ReadByte(addr) != zPAR_TOK_RET)            { good = FALSE; };
+    };
     if (!good) {
         MEM_Info("Content of function 'B_InsertInExtremo' not as expected");
         return FALSE;
