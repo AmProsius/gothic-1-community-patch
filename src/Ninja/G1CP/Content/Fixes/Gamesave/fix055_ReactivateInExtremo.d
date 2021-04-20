@@ -108,10 +108,10 @@ func int G1CP_055_ReactivateInExtremo_InitSession() {
     good = TRUE;
     repeat(i, GRIM); var int i; // All NPCs but Grim
         if (MEM_ReadByte(addr) != zPAR_TOK_PUSHINT)        { good = FALSE; }; addr += 1;
-        if (MEM_ReadInt( addr) != MEM_ReadStatArr(npc, i)) { good = FALSE; }; addr += 4;
+        if (MEM_ReadInt(addr)  != MEM_ReadStatArr(npc, i)) { good = FALSE; }; addr += 4;
         if (MEM_ReadByte(addr) != zPAR_TOK_PUSHVAR)        { good = FALSE; }; addr += 1+4;
         if (MEM_ReadByte(addr) != zPAR_TOK_CALLEXTERN)     { good = FALSE; }; addr += 1;
-        if (MEM_ReadInt( addr) != fncInsrtNpcId)           { good = FALSE; }; addr += 4;
+        if (MEM_ReadInt(addr)  != fncInsrtNpcId)           { good = FALSE; }; addr += 4;
     end;
     if (MEM_ReadByte(addr) != zPAR_TOK_RET) {
         val = MEM_ReadInt(addr+1);
@@ -120,7 +120,7 @@ func int G1CP_055_ReactivateInExtremo_InitSession() {
         } else if (MEM_ReadByte(addr) != zPAR_TOK_PUSHINT) { good = FALSE; }; addr += 1;
         if (val == 0)                                      { good = FALSE; }; addr += 4;
         if (MEM_ReadByte(addr) != zPAR_TOK_PUSHVAR)        { good = FALSE; }; addr += 1;
-        if (MEM_ReadInt( addr) != varOnStgeId)             { good = FALSE; }; addr += 4;
+        if (MEM_ReadInt(addr)  != varOnStgeId)             { good = FALSE; }; addr += 4;
         if (MEM_ReadByte(addr) != zPAR_OP_IS)              { good = FALSE; }; addr += 1;
         if (MEM_ReadByte(addr) != zPAR_TOK_RET)            { good = FALSE; };
     };
@@ -135,10 +135,10 @@ func int G1CP_055_ReactivateInExtremo_InitSession() {
     good = TRUE;
     repeat(i, ALL); // All NPCs including Grim
         if (MEM_ReadByte(addr) != zPAR_TOK_PUSHINT)        { good = FALSE; }; addr += 1;
-        if (MEM_ReadInt( addr) != MEM_ReadStatArr(npc, i)) { good = FALSE; }; addr += 4;
+        if (MEM_ReadInt(addr)  != MEM_ReadStatArr(npc, i)) { good = FALSE; }; addr += 4;
         if (MEM_ReadByte(addr) != zPAR_TOK_PUSHVAR)        { good = FALSE; }; addr += 1+4;
         if (MEM_ReadByte(addr) != zPAR_TOK_CALL)           { good = FALSE; }; addr += 1;
-        if (MEM_ReadInt( addr) != fncExgRtnOff)            { good = FALSE; }; addr += 4;
+        if (MEM_ReadInt(addr)  != fncExgRtnOff)            { good = FALSE; }; addr += 4;
     end;
     if (MEM_ReadByte(addr) != zPAR_TOK_RET)                { good = FALSE; };
     if (!good) {
@@ -150,12 +150,12 @@ func int G1CP_055_ReactivateInExtremo_InitSession() {
     var int fncSndTrggrId; fncSndTrggrId = MEM_GetFuncID(Wld_SendTrigger);
     addr = G1CP_GetFuncStart(fncStrtMsId);
     good = TRUE;
+    if (MEM_ReadByte(addr) != zPAR_TOK_PUSHVAR)            { good = FALSE; }; addr += 1+4;
+    if (MEM_ReadByte(addr) != zPAR_TOK_CALLEXTERN)         { good = FALSE; }; addr += 1;
+    if (MEM_ReadInt(addr)  != fncSndTrggrId)               { good = FALSE; }; addr += 4;
     if (MEM_ReadByte(addr) != zPAR_TOK_PUSHVAR)            { good = FALSE; }; addr += 5;
     if (MEM_ReadByte(addr) != zPAR_TOK_CALLEXTERN)         { good = FALSE; }; addr += 1;
-    if (MEM_ReadInt( addr) != fncSndTrggrId)               { good = FALSE; }; addr += 4;
-    if (MEM_ReadByte(addr) != zPAR_TOK_PUSHVAR)            { good = FALSE; }; addr += 5;
-    if (MEM_ReadByte(addr) != zPAR_TOK_CALLEXTERN)         { good = FALSE; }; addr += 1;
-    if (MEM_ReadInt( addr) != fncSndTrggrId)               { good = FALSE; }; addr += 4;
+    if (MEM_ReadInt(addr)  != fncSndTrggrId)               { good = FALSE; }; addr += 4;
     if (MEM_ReadByte(addr) != zPAR_TOK_RET) {
         val = MEM_ReadInt(addr+1);
         if (MEM_ReadByte(addr) == zPAR_TOK_PUSHVAR) {
@@ -163,7 +163,7 @@ func int G1CP_055_ReactivateInExtremo_InitSession() {
         } else if (MEM_ReadByte(addr) != zPAR_TOK_PUSHINT) { good = FALSE; }; addr += 1;
         if (val == 0)                                      { good = FALSE; }; addr += 4;
         if (MEM_ReadByte(addr) != zPAR_TOK_PUSHVAR)        { good = FALSE; }; addr += 1;
-        if (MEM_ReadInt( addr) != varPlyingId)             { good = FALSE; }; addr += 4;
+        if (MEM_ReadInt(addr)  != varPlyingId)             { good = FALSE; }; addr += 4;
         if (MEM_ReadByte(addr) != zPAR_OP_IS)              { good = FALSE; }; addr += 1;
         if (MEM_ReadByte(addr) != zPAR_TOK_RET)            { good = FALSE; };
     } else {
@@ -179,12 +179,12 @@ func int G1CP_055_ReactivateInExtremo_InitSession() {
     var int fncUnSndTrgId; fncUnSndTrgId = MEM_GetFuncID(Wld_SendUnTrigger);
     addr = G1CP_GetFuncStart(fncStopMsId);
     good = TRUE;
+    if (MEM_ReadByte(addr) != zPAR_TOK_PUSHVAR)            { good = FALSE; }; addr += 1+4;
+    if (MEM_ReadByte(addr) != zPAR_TOK_CALLEXTERN)         { good = FALSE; }; addr += 1;
+    if (MEM_ReadInt(addr)  != fncUnSndTrgId)               { good = FALSE; }; addr += 4;
     if (MEM_ReadByte(addr) != zPAR_TOK_PUSHVAR)            { good = FALSE; }; addr += 5;
     if (MEM_ReadByte(addr) != zPAR_TOK_CALLEXTERN)         { good = FALSE; }; addr += 1;
-    if (MEM_ReadInt( addr) != fncUnSndTrgId)               { good = FALSE; }; addr += 4;
-    if (MEM_ReadByte(addr) != zPAR_TOK_PUSHVAR)            { good = FALSE; }; addr += 5;
-    if (MEM_ReadByte(addr) != zPAR_TOK_CALLEXTERN)         { good = FALSE; }; addr += 1;
-    if (MEM_ReadInt( addr) != fncUnSndTrgId)               { good = FALSE; }; addr += 4;
+    if (MEM_ReadInt(addr)  != fncUnSndTrgId)               { good = FALSE; }; addr += 4;
     if (MEM_ReadByte(addr) != zPAR_TOK_RET) {
         val = MEM_ReadInt(addr+1);
         if (MEM_ReadByte(addr) == zPAR_TOK_PUSHVAR) {
@@ -192,7 +192,7 @@ func int G1CP_055_ReactivateInExtremo_InitSession() {
         } else if (MEM_ReadByte(addr) != zPAR_TOK_PUSHINT) { good = FALSE; }; addr += 1;
         if (val != 0)                                      { good = FALSE; }; addr += 4;
         if (MEM_ReadByte(addr) != zPAR_TOK_PUSHVAR)        { good = FALSE; }; addr += 1;
-        if (MEM_ReadInt( addr) != varPlyingId)             { good = FALSE; }; addr += 4;
+        if (MEM_ReadInt(addr)  != varPlyingId)             { good = FALSE; }; addr += 4;
         if (MEM_ReadByte(addr) != zPAR_OP_IS)              { good = FALSE; }; addr += 1;
         if (MEM_ReadByte(addr) != zPAR_TOK_RET)            { good = FALSE; };
     } else {
@@ -232,16 +232,16 @@ func int G1CP_055_ReactivateInExtremo_InitSession() {
     } else if (MEM_ReadByte(addr) != zPAR_TOK_PUSHINT)     { good = FALSE; }; addr += 1;
     if (val != 2)                                          { good = FALSE; }; addr += 4;
     if (MEM_ReadByte(addr) != zPAR_TOK_PUSHVAR)            { good = FALSE; }; addr += 1;
-    if (MEM_ReadInt( addr) != varChaptrId)                 { good = FALSE; }; addr += 4;
+    if (MEM_ReadInt(addr)  != varChaptrId)                 { good = FALSE; }; addr += 4;
     if (MEM_ReadByte(addr) != zPAR_OP_EQUAL)               { good = FALSE; }; addr += 1;
-    if (MEM_ReadByte(addr) != zPAR_TOK_JUMPF)              { good = FALSE; }; addr += 5;
+    if (MEM_ReadByte(addr) != zPAR_TOK_JUMPF)              { good = FALSE; }; addr += 1+4;
     if (MEM_ReadByte(addr) != zPAR_TOK_RET) {
         val = MEM_ReadInt(addr+1);
         if (MEM_ReadByte(addr) == zPAR_TOK_PUSHVAR) {
             val = G1CP_GetIntI(val, 0, 1);
-        } else if (MEM_ReadByte(addr) != zPAR_TOK_PUSHINT)     { good = FALSE; }; addr += 1;
-        if (val == 0)                                          { good = FALSE; }; addr += 4;
-        if (MEM_ReadByte(addr) != zPAR_TOK_RET)                { good = FALSE; };
+        } else if (MEM_ReadByte(addr) != zPAR_TOK_PUSHINT) { good = FALSE; }; addr += 1;
+        if (val == 0)                                      { good = FALSE; }; addr += 4;
+        if (MEM_ReadByte(addr) != zPAR_TOK_RET)            { good = FALSE; };
     } else {
         // Condition not met, set it manually later at this address
         adjustDiaAnc = addr - 5;
