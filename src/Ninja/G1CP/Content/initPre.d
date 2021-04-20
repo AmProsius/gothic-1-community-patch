@@ -22,3 +22,11 @@ func void G1CP_InitPre() {
         G1CP_SymbStart = LeGoEnd;
     };
 };
+
+/*
+ * Release stub. This function will be replaced if the test suite is present
+ */
+func int G1CP_Testsuite() {
+    MEM_Info("Test suite disabled in release version");
+    return FALSE;
+};
