@@ -16,11 +16,11 @@ func int G1CP_223_CarKalomSpyQuest() {
     };
 
     // Get the topic names
-    const string TOPIC1 = ""; G1CP_GetStringConstI(topic1Id, 0, TOPIC1);
-    const string TOPIC2 = ""; G1CP_GetStringConstI(topic12d, 0, TOPIC2);
+    const string CH1_GotoPsiCamp = ""; CH1_GotoPsiCamp = G1CP_GetStringConstI(topic1Id, 0, CH1_GotoPsiCamp);
+    const string CH1_GotoPsi = ""; CH1_GotoPsi = G1CP_GetStringConstI(topic2Id, 0, CH1_GotoPsi);
 
     // Check if the fix is even necessary
-    if (!Hlp_StrCmp(TOPIC1, TOPIC2)) {
+    if (!Hlp_StrCmp(CH1_GotoPsiCamp, CH1_GotoPsi)) {
         return FALSE;
     };
 
@@ -48,8 +48,8 @@ func int G1CP_223_CarKalomSpyQuest() {
         };
 
         // Next check the first arguments of both
-        if (!Hlp_StrCmp(G1CP_GetStringI(MEM_ReadInt(addr-9), 0), TOPIC1))
-        || (!Hlp_StrCmp(G1CP_GetStringI(MEM_ReadInt(addr-1), 0), TOPIC2)) {
+        if (!Hlp_StrCmp(G1CP_GetStringI(MEM_ReadInt(addr-9), 0, "G1CP invalid string 1"), CH1_GotoPsiCamp))
+        || (!Hlp_StrCmp(G1CP_GetStringI(MEM_ReadInt(addr+6), 0, "G1CP invalid string 2"), CH1_GotoPsi)) {
             continue;
         };
 
