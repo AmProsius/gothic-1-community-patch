@@ -8,15 +8,18 @@
  */
 func void G1CP_Test_122() {
     G1CP_Testsuite_CheckManual();
+    var zCWaypoint wpNight; wpNight = G1CP_Testsuite_FindWaypoint("OW_SAWHUT_SLEEP_01");
+    var zCWaypoint wpDay; wpDay = G1CP_Testsuite_FindWaypoint("OW_CAVALORN_01");
+    G1CP_Testsuite_CheckPassed();
 
     // Set the time
     const int night = 0;
     night = !night;
     if (night) {
         Wld_SetTime(0, 0);
-        AI_Teleport(hero, "OW_SAWHUT_SLEEP_01");
+        AI_Teleport(hero, wpNight.name);
     } else {
         Wld_SetTime(12, 0);
-        AI_Teleport(hero, "OW_CAVALORN_01");
+        AI_Teleport(hero, wpDay.name);
     };
 };
