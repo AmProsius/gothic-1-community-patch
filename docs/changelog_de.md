@@ -19,6 +19,7 @@
 * Fix [#148](https://g1cp.org/issues/148): Die Rüstung "antike Erzrüstung" heißt nun korrekt "Antike Erzrüstung".
 * Fix [#149](https://g1cp.org/issues/149): Die Rüstung "verbesserte Erzrüstung" heißt nun korrekt "Verbesserte Erzrüstung".
 * Fix [#173](https://g1cp.org/issues/173): Im Text von "Gomez' Schlüssel" ist nun die Phrase "Öffnet Gomez Truhen" korrigiert zu "Öffnet Gomez' Truhen".
+* Fix [#176](https://g1cp.org/issues/176): Gegenstände ohne Wert zeigen nicht mehr ein leeres "Wert:" im Inventartext an.
 * Fix [#192](https://g1cp.org/issues/192): Magier (NSCs, die nur mit Magie kämpfen) rüsten nicht länger automatisch Nah- und Fernkampfwaffen aus (z.B. nach dem Handeln). Dieser Fix setzt den Fix [#59](https://g1cp.org/issues/59) voraus.
 * Fix [#193](https://g1cp.org/issues/193): Objekte, die durch Hebel/Schalter/Winden aktiviert wurden, stecken nach dem Spielladen nicht mehr fest.
 * Fix [#200](https://g1cp.org/issues/200): Die Beschreibung der Rüstung "Verbesserte Erzrüstung" passt nun in die Textbox des Inventars.

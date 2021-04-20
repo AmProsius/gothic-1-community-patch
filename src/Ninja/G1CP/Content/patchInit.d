@@ -79,6 +79,7 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
         G1CP_173_DE_GomezKeyText();                     // #173
         G1CP_174_EN_GomezKeyName();                     // #174
         G1CP_175_EN_RiceLordKeyName();                  // #175
+        G1CP_176_InvItemTextValue();                    // #176
         G1CP_181_SwineyGiveArmor();                     // #181
         G1CP_182_GuardDialogDusty();                    // #182
         G1CP_183_CorristoSellsRobe();                   // #183
