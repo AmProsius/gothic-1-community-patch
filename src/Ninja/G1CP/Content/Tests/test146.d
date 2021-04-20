@@ -6,32 +6,13 @@
  * Expected behavior: The armor will have the correct name (checked for German localization only).
  */
 func int G1CP_Test_146() {
-    // Check language first
-    if (G1CP_Lang != G1CP_Lang_DE) {
-        G1CP_TestsuiteErrorDetail("Test applicable for German localization only");
-        return TRUE; // True?
-    };
+    G1CP_Testsuite_CheckLang(G1CP_Lang_DE);
+    var C_Item itm; itm = G1CP_Testsuite_CreateItem("NOV_ARMOR_L");
+    G1CP_Testsuite_CheckPassed();
 
-    // Check if item exists
-    var int symbId; symbId = MEM_GetSymbolIndex("NOV_ARMOR_L");
-    if (symbId == -1) {
-        G1CP_TestsuiteErrorDetail("Item 'NOV_ARMOR_L' not found");
-        return FALSE;
-    };
-
-    // Create the armor locally
-    if (Itm_GetPtr(symbId)) {
-        if (Hlp_StrCmp(item.name, "Novizenrock")) {
-            return TRUE;
-        } else {
-            var string msg; msg = "Name incorrect: name = '";
-            msg = ConcatStrings(msg, item.name);
-            msg = ConcatStrings(msg, "'");
-            G1CP_TestsuiteErrorDetail(msg);
-            return FALSE;
-        };
+    if (Hlp_StrCmp(itm.name, "Novizenrock")) {
+        return TRUE;
     } else {
-        G1CP_TestsuiteErrorDetail("Item 'NOV_ARMOR_L' could not be created");
-        return FALSE;
+        G1CP_TestsuiteErrorDetailSSS("Name incorrect: name = '", itm.name, "'");
     };
 };

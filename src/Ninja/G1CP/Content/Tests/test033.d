@@ -6,73 +6,31 @@
  * Expected behavior: The condition function will return FALSE.
  */
 func int G1CP_Test_033() {
-    // Check status of the test
-    var int passed; passed = TRUE;
-
-    // Check if the dialog exists
-    var int funcId; funcId = MEM_GetSymbolIndex("DIA_Shrike_GetLost_Condition");
-    if (funcId == -1) {
-        G1CP_TestsuiteErrorDetail("Dialog condition 'DIA_Shrike_GetLost_Condition' not found");
-        passed = FALSE;
-    };
-
-    // Find Shrike
-    var int symbId; symbId = MEM_GetSymbolIndex("ORG_842_Shrike");
-    if (symbId == -1) {
-        G1CP_TestsuiteErrorDetail("NPC 'ORG_842_Shrike' not found");
-        passed = FALSE;
-    };
-
-    // Check if Shrike exists in the world
-    var C_Npc shrike; shrike = Hlp_GetNpc(symbId);
-    if (!Hlp_IsValidNpc(shrike)) {
-        G1CP_TestsuiteErrorDetail("NPC 'ORG_842_Shrike' not valid");
-        passed = FALSE;
-    };
-
-    // Check if the dialog exist
-    if (MEM_GetSymbolIndex("DIA_Gorn_Hut") == -1) {
-        G1CP_TestsuiteErrorDetail("Dialog 'DIA_Gorn_Hut' not found");
-        passed = FALSE;
-    };
-
-    // Check if variable exists
-    var int questPtr; questPtr = MEM_GetSymbol("Gorn_ShrikesHut");
-    if (!questPtr) {
-        G1CP_TestsuiteErrorDetail("Variable 'Gorn_ShrikesHut' not found");
-        passed = FALSE;
-    };
-    questPtr += zCParSymbol_content_offset;
-
-    // At the latest now, we need to stop if there are fails already
-    if (!passed) {
-        return FALSE;
-    };
+    var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("DIA_Shrike_GetLost_Condition");
+    var int infoId; infoId = G1CP_Testsuite_CheckInfo("DIA_Gorn_Hut");
+    var C_Npc npc; npc = G1CP_Testsuite_FindNpc("ORG_842_Shrike");
+    var int aiVarId; aiVarId = G1CP_Testsuite_CheckIntConst("AIV_WASDEFEATEDBYSC", 0);
+    var int varId; varId = G1CP_Testsuite_CheckIntVar("Gorn_ShrikesHut", 0);
+    G1CP_Testsuite_CheckPassed();
 
     // Backup values
-    var int questBak; questBak = MEM_ReadInt(questPtr);
-    var int told1Bak; told1Bak = Npc_KnowsInfo(hero, MEM_GetSymbolIndex("DIA_Gorn_Hut"));
-    var int aivarBak; aivarBak = G1CP_NpcGetAIVar(shrike, "AIV_WASDEFEATEDBYSC", FALSE);
-    var C_Npc slfBak; slfBak = MEM_CpyInst(self);
-    var C_Npc othBak; othBak = MEM_CpyInst(other);
+    var int toldBak; toldBak = Npc_KnowsInfo(hero, infoId);
+    var int aiVarBak; aiVarBak = G1CP_NpcGetAIVarI(npc, aiVarId, FALSE);
+    var int varBak; varBak = G1CP_GetIntVarI(varId, 0, 0);
 
     // Set new values
-    G1CP_SetInfoTold("DIA_Gorn_Hut", FALSE);            // Not told
-    MEM_WriteInt(questPtr, 0);                          // Quest not running
-    G1CP_NpcSetAIVar(shrike, "AIV_WASDEFEATEDBYSC", TRUE);
-    self  = MEM_CpyInst(shrike);
-    other = MEM_CpyInst(hero);
+    G1CP_SetInfoToldI(infoId, FALSE);
+    G1CP_NpcSetAIVarI(npc, aiVarId, TRUE);
+    G1CP_SetIntVarI(varId, 0, 0);
 
     // Call dialog condition function
-    MEM_CallByID(funcId);
+    G1CP_Testsuite_Call(funcId, npc, hero, FALSE);
     var int ret; ret = MEM_PopIntResult();
 
     // Restore values
-    self  = MEM_CpyInst(slfBak);
-    other = MEM_CpyInst(othBak);
-    G1CP_NpcSetAIVar(shrike, "AIV_WASDEFEATEDBYSC", aivarBak);
-    MEM_WriteInt(questPtr, questBak);
-    G1CP_SetInfoTold("DIA_Gorn_Hut", told1Bak);
+    G1CP_SetInfoToldI(infoId, toldBak);
+    G1CP_NpcSetAIVarI(npc, aiVarId, aiVarBak);
+    G1CP_SetIntVarI(varId, 0, varBak);
 
     // Check return value
     if (ret) {

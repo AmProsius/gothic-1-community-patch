@@ -6,32 +6,14 @@
  * Expected behavior: The scroll will have the correct name (checked for German localization only).
  */
 func int G1CP_Test_172() {
-    // Check language first
-    if (G1CP_Lang != G1CP_Lang_DE) {
-        G1CP_TestsuiteErrorDetail("Test applicable for German localization only");
-        return TRUE; // True?
-    };
+    G1CP_Testsuite_CheckLang(G1CP_Lang_DE);
+    var C_Item itm; itm = G1CP_Testsuite_CreateItem("KalomsRecipe");
+    G1CP_Testsuite_CheckPassed();
 
-    // Check if item exists
-    var int symbId; symbId = MEM_GetSymbolIndex("KalomsRecipe");
-    if (symbId == -1) {
-        G1CP_TestsuiteErrorDetail("Item 'KalomsRecipe' not found");
-        return FALSE;
-    };
-
-    // Create the scroll locally
-    if (Itm_GetPtr(symbId)) {
-        if (Hlp_StrCmp(item.name, "Kaloms Rezept")) {
-            return TRUE;
-        } else {
-            var string msg; msg = "Name incorrect: name = '";
-            msg = ConcatStrings(msg, item.name);
-            msg = ConcatStrings(msg, "'");
-            G1CP_TestsuiteErrorDetail(msg);
-            return FALSE;
-        };
+    if (Hlp_StrCmp(itm.name, "Kaloms Rezept")) {
+        return TRUE;
     } else {
-        G1CP_TestsuiteErrorDetail("Item 'KalomsRecipe' could not be created");
+        G1CP_TestsuiteErrorDetailSSS("Name incorrect: name = '", itm.name, "'");
         return FALSE;
     };
 };

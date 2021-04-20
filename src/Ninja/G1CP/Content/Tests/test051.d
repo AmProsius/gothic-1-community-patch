@@ -7,14 +7,16 @@
  * Expected behavior: The chest is now accessible.
  */
 func void G1CP_Test_051() {
-    if (G1CP_TestsuiteAllowManual) {
-        // Define possibly missing symbols locally
-        const int NPC_FLAG_IMMORTAL = 1 << 1;
+    G1CP_Testsuite_CheckManual();
+    var zCWaypoint wp; wp = G1CP_Testsuite_FindWaypoint("LOCATION_05_02_STONEHENGE5");
+    G1CP_Testsuite_CheckPassed();
 
-        // Set PC to invincible to not be killed
-        hero.flags = hero.flags | NPC_FLAG_IMMORTAL;
+    // Define possibly missing symbols locally
+    const int NPC_FLAG_IMMORTAL = 1 << 1;
 
-        // Teleport to the nearest waypoint
-        AI_Teleport(hero, "LOCATION_05_02_STONEHENGE5");
-    };
+    // Set PC to invincible to not be killed
+    hero.flags = hero.flags | NPC_FLAG_IMMORTAL;
+
+    // Teleport to the nearest waypoint
+    AI_Teleport(hero, wp.name);
 };

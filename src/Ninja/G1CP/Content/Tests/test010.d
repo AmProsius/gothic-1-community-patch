@@ -6,9 +6,10 @@
  * Expected behavior: The NPC will pick up on the hero's walking mode
  */
 func void G1CP_Test_010() {
-    if (!G1CP_TestsuiteAllowManual) {
-        return;
-    };
+    G1CP_Testsuite_CheckManual();
+    var int symbId; symbId = G1CP_Testsuite_CheckAiStateStartFunc("ZS_FollowPC");
+    G1CP_Testsuite_CheckAiStateStartFunc("ZS_Talk");
+    G1CP_Testsuite_CheckPassed();
 
     // Insert test NPC
     var string wp; wp = Npc_GetNearestWP(hero);
@@ -16,13 +17,6 @@ func void G1CP_Test_010() {
     var C_Npc test; test = Hlp_GetNpc(G1CP_Test_010_Npc);
     if (!Hlp_IsValidNpc(test)) {
         G1CP_TestsuiteErrorDetail("Failed to insert NPC");
-        return;
-    };
-
-    // Check for ZS_FollowPC
-    var int symbId; symbId = MEM_GetSymbolIndex("ZS_FollowPC");
-    if (!symbId) {
-        G1CP_TestsuiteErrorDetail("AI state 'ZS_FollowPC' not found");
         return;
     };
 

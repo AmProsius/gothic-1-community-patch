@@ -1,5 +1,5 @@
 /*
- * Guess localization (0 = EN, 1 = DE, 2 = PL, 3 = RU)
+ * Guess localization (1 = EN, 2 = DE, 4 = PL, 8 = RU)
  * Source: https://github.com/szapp/Ninja/wiki/Inject-Changes#localization
  */
 func int G1CP_GuessLocalization() {

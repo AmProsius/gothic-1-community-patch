@@ -1,10 +1,9 @@
 /*
  * Get info in a safe way (instance might not be initialized!)
  */
-func int G1CP_GetInfo(var string infoName) {
+func int G1CP_GetInfoI(var int symbId) {
     MEM_InitGlobalInst();
 
-    var int symbId; symbId = MEM_GetSymbolIndex(infoName);
     var int infoMan; infoMan = MEM_Game.infoman;
 
     const int oCInfoManager__GetInformation = 6703616; //0x664A00
@@ -19,11 +18,21 @@ func int G1CP_GetInfo(var string infoName) {
     var int ret;
     return +ret;
 };
+func int G1CP_GetInfo(var string infoName) {
+    return G1CP_GetInfoI(MEM_GetSymbolIndex(infoName));
+};
 
 
 /*
  * Function to set the told status of infos
  */
+func void G1CP_SetInfoToldI(var int symbId, var int isTold) {
+    var int ptr; ptr = G1CP_GetInfoI(symbId);
+    if (ptr) {
+        var oCInfo info; info = _^(ptr);
+        info.told = !!isTold;
+    };
+};
 func void G1CP_SetInfoTold(var string infoName, var int isTold) {
     var int ptr; ptr = G1CP_GetInfo(infoName);
     if (ptr) {
@@ -31,7 +40,6 @@ func void G1CP_SetInfoTold(var string infoName, var int isTold) {
         info.told = !!isTold;
     };
 };
-
 
 /*
  * Check if an NPC has an info with a specific description

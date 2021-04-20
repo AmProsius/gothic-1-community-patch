@@ -15,6 +15,10 @@ instance G1CP_Test_059_Npc(C_Npc) {
     EquipItem(self, MEM_GetSymbolIndex("ItMw_1H_Scythe_01"));
 };
 func int G1CP_Test_059() {
+    G1CP_Testsuite_CheckItem("Thorus_Schwert");
+    var int itemId; itemId = G1CP_Testsuite_CheckItem("ItMw_1H_Scythe_01");
+    G1CP_Testsuite_CheckPassed();
+
     // Insert test NPC
     var string wp; wp = Npc_GetNearestWP(hero);
     Wld_InsertNpc(G1CP_Test_059_Npc, wp);
@@ -37,7 +41,7 @@ func int G1CP_Test_059() {
     Wld_RemoveNpc(G1CP_Test_059_Npc);
 
     // Check if weapon matches
-    if (weapId != MEM_GetSymbolIndex("ItMw_1H_Scythe_01")) {
+    if (weapId != itemId) {
         var string weapName;
         if (Hlp_IsValidItem(weap)) {
             weapName = weap.name;

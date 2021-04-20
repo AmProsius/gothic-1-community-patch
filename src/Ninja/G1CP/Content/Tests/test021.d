@@ -6,64 +6,27 @@
  * Expected behavior: The log entry is not moved to the "running" section.
  */
 func int G1CP_Test_021() {
+    const int GIL_NONE = 0; GIL_NONE = G1CP_Testsuite_GetIntConst("GIL_NONE", 0);
+    const string CH1_LostNek = ""; CH1_LostNek = G1CP_Testsuite_GetStringConst("CH1_LostNek", 0);
+    var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc("DIA_Fletcher_WoNek_Info");
+    G1CP_Testsuite_CheckPassed();
+
     // Define possibly missing symbols locally
-    const int GIL_NONE    = 0;
     const int LOG_MISSION = 0;
     const int LOG_RUNNING = 1;
     const int LOG_SUCCESS = 2;
 
-    // Check status of the test
-    var int passed; passed = TRUE;
-
-    // Check if dialog exists
-    var int funcId; funcId = MEM_GetSymbolIndex("DIA_Fletcher_WoNek_Info");
-    if (funcId == -1) {
-        G1CP_TestsuiteErrorDetail("Dialog function 'DIA_Fletcher_WoNek_Info' not found");
-        passed = FALSE;
-    };
-
-    // Obtain log topic name
-    var string CH1_LostNek;
-    var int topicNamePtr; topicNamePtr = MEM_GetSymbol("CH1_LostNek");
-    if (topicNamePtr) {
-        CH1_LostNek = MEM_ReadString(MEM_ReadInt(topicNamePtr + zCParSymbol_content_offset));
-    } else {
-        G1CP_TestsuiteErrorDetail("Variable 'CH1_LostNek' not found");
-        passed = FALSE;
-    };
-
-    // At the latest now, we need to stop if there are fails already
-    if (!passed) {
-        return FALSE;
-    };
-
-    // Back up the values
+    // Backup values
     var int topicStatusBak; topicStatusBak = G1CP_LogGetTopicStatus(CH1_LostNek);
     var int guildTrueBak; guildTrueBak = Npc_GetTrueGuild(hero);
 
-    // Set the variables
+    // Set new values
     Log_CreateTopic(CH1_LostNek, LOG_MISSION);
     Log_SetTopicStatus(CH1_LostNek, LOG_SUCCESS);
     Npc_SetTrueGuild(hero, GIL_NONE);
 
-    // Backup self and other
-    var C_Npc slfBak; slfBak = MEM_CpyInst(self);
-    var C_Npc othBak; othBak = MEM_CpyInst(other);
-
-    // Set self and other
-    self  = MEM_CpyInst(hero);
-    other = MEM_CpyInst(hero);
-
     // Just run the dialog and see what happens
-    MEM_CallByID(funcId);
-
-    // Restore self and other
-    self  = MEM_CpyInst(slfBak);
-    other = MEM_CpyInst(othBak);
-
-    // Stop the output units
-    Npc_ClearAIQueue(hero);
-    AI_StandUpQuick(hero);
+    G1CP_Testsuite_Call(funcId, 0, 0, TRUE);
 
     // Check the variables now
     var int topicStatusAfter; topicStatusAfter = G1CP_LogGetTopicStatus(CH1_LostNek);
@@ -77,8 +40,9 @@ func int G1CP_Test_021() {
     };
 
     // Confirm the fix
+    var int passed; passed = TRUE;
     if (topicStatusAfter == LOG_RUNNING) {
-        G1CP_TestsuiteErrorDetail("Mission 'CH1_LostNek' was wrongfully set to running");
+        G1CP_TestsuiteErrorDetailSSS("Mission '", CH1_LostNek, "' was wrongfully set to running");
         passed = FALSE;
     };
 

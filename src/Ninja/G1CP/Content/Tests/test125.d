@@ -6,36 +6,18 @@
  * Expected behavior: The sword will have the correct text (checked for English and German localization only).
  */
 func int G1CP_Test_125() {
-    // Check language first
-    if (G1CP_Lang != G1CP_Lang_EN) && (G1CP_Lang != G1CP_Lang_DE) {
-        G1CP_TestsuiteErrorDetail("Test applicable for English and German localization only");
-        return TRUE; // True?
-    };
+    G1CP_Testsuite_CheckLang(G1CP_Lang_EN | G1CP_Lang_DE);
+    var C_Item itm; itm = G1CP_Testsuite_CreateItem("ItMw_1H_Sword_Bastard_02");
+    G1CP_Testsuite_CheckPassed();
 
-    // Check if item exists
-    var int symbId; symbId = MEM_GetSymbolIndex("ItMw_1H_Sword_Bastard_02");
-    if (symbId == -1) {
-        G1CP_TestsuiteErrorDetail("Item 'ItMw_1H_Sword_Bastard_02' not found");
-        return FALSE;
-    };
+    // Static string arrays cannot be read directly
+    var string itm_text_4; itm_text_4 = MEM_ReadStatStringArr(itm.text, 4);
 
-    // Create the sword locally
-    if (Itm_GetPtr(symbId)) {
-        // Static string arrays cannot be read directly
-        var string item_text_4; item_text_4 = MEM_ReadStatStringArr(item.text, 4);
-
-        if (Hlp_StrCmp(item_text_4, "One-handed Weapon")) // EN
-        || (Hlp_StrCmp(item_text_4, "Einhandwaffe")) {    // DE
-            return TRUE;
-        } else {
-            var string msg; msg = "Text incorrect: text[4] = '";
-            msg = ConcatStrings(msg, item_text_4);
-            msg = ConcatStrings(msg, "'");
-            G1CP_TestsuiteErrorDetail(msg);
-            return FALSE;
-        };
+    if (Hlp_StrCmp(itm_text_4, "One-handed Weapon")) // EN
+    || (Hlp_StrCmp(itm_text_4, "Einhandwaffe")) {    // DE
+        return TRUE;
     } else {
-        G1CP_TestsuiteErrorDetail("Item 'ItMw_1H_Sword_Bastard_02' could not be created");
+        G1CP_TestsuiteErrorDetailSSS("Text incorrect: text[4] = '", itm_text_4, "'");
         return FALSE;
     };
 };

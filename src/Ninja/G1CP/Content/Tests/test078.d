@@ -13,33 +13,13 @@ const int G1CP_Test_078_HeroStrengthBak = 0;
  * Test function
  */
 func void G1CP_Test_078() {
-    if (!G1CP_TestsuiteAllowManual) {
-        return;
-    };
-
-    // Check for orc warrior and orc slave
-    var int warriorId; warriorId = MEM_GetSymbolIndex("OrcWarrior1");
-    if (warriorId == -1)  {
-        G1CP_TestsuiteErrorDetail("NPC 'OrcWarrior1' not found");
-        return;
-    };
-    var int slaveId; slaveId = MEM_GetSymbolIndex("OrcSlave");
-    if (slaveId == -1) {
-        G1CP_TestsuiteErrorDetail("NPC 'OrcSlave' not found");
-        return;
-    };
-
-    // Check for Ulumulu
-    var int ulumuluId; ulumuluId = MEM_GetSymbolIndex("UluMulu");
-    if (ulumuluId == -1) {
-        G1CP_TestsuiteErrorDetail("Item 'UluMulu' not found");
-    };
-
-    // Require perceptions
-    var int percId; percId = MEM_GetSymbolIndex("B_AssessEnemy");
-    if (percId == -1) {
-        G1CP_TestsuiteErrorDetail("Function 'B_AssessEnemy' not found");
-    };
+    G1CP_Testsuite_CheckManual();
+    var int warriorId; warriorId = G1CP_Testsuite_CheckNpc("OrcWarrior1");
+    var int slaveId; slaveId = G1CP_Testsuite_CheckNpc("OrcSlave");
+    var int ulumuluId; ulumuluId = G1CP_Testsuite_CheckItem("UluMulu");
+    G1CP_Testsuite_CheckItem("Scars_Schwert");
+    G1CP_Testsuite_CheckFunc("B_AssessEnemy", "void|none", "");
+    G1CP_Testsuite_CheckPassed();
 
     // Insert test NPC
     var string wp; wp = Npc_GetNearestWP(hero);

@@ -16,17 +16,18 @@
  * specifically with 'test ID'.
  */
 
-/* Collect error details */
-const string G1CP_TestsuiteMsg = "";
-
 /* Allow or disallow manual tests */
-const int G1CP_TestsuiteAllowManual = 0;
+const int G1CP_TestsuiteAllowManual = FALSE;
+
+/* Check if test passes */
+const int G1CP_TestsuiteStatusPassed = TRUE;
 
 /*
  * Initialization function
  */
 func int G1CP_Testsuite() {
     CC_Register(G1CP_TestsuiteList, "test list", "List all tests of G1CP");
+    CC_Register(G1CP_TestsuiteNext, "test next", "Execute next manual test of G1CP");
     CC_Register(G1CP_TestsuiteAll, "test all", "Run complete test suite for G1CP");
     CC_Register(G1CP_TestsuiteCmd, "test ", "Run test from test suite for G1CP");
 
@@ -41,6 +42,9 @@ func int G1CP_Testsuite() {
  */
 func int G1CP_TestsuiteRun(var int id) {
     var string idName; idName = G1CP_LFill(IntToString(id), "0", 3);
+
+    // Reset test status
+    G1CP_TestsuiteStatusPassed = TRUE;
 
     // Find test function
     var string funcName; funcName = ConcatStrings("G1CP_Test_", idName);
@@ -58,55 +62,6 @@ func int G1CP_TestsuiteRun(var int id) {
 };
 
 /*
- * Add error message (to be printed in the end)
- */
-func void G1CP_TestsuiteErrorDetail(var string msg) {
-    if (!Hlp_StrCmp(G1CP_TestsuiteMsg, "")) {
-        G1CP_TestsuiteMsg = ConcatStrings(G1CP_TestsuiteMsg, "|");
-    };
-
-    // Obtain test number: Find the test function that that the call originated from
-    var int id; id = 0;
-    var int ESP; ESP = MEM_GetFrameBoundary();
-    while(MEMINT_IsFrameBoundary(ESP) && (!id));
-        ESP += MEMINT_DoStackFrameSize;
-        var int popPos; popPos = MEM_ReadInt(ESP - MEMINT_DoStackPopPosOffset);
-        if (popPos > 0) && (popPos < MEM_Parser.stack_stacksize) {
-            var int funcId; funcId = MEM_GetFuncIDByOffset(popPos);
-            var string funcName; funcName = MEM_ReadString(MEM_GetSymbolByIndex(funcId));
-            var int prefixLen; prefixLen = STR_Len("G1CP_Test_000");
-            if (STR_Len(funcName) >= prefixLen) {
-                var int chr; chr = STR_GetCharAt(funcName, prefixLen-3) - 48;
-                if (0 <= chr) && (chr <= 9) {
-                    id = STR_ToInt(STR_SubStr(funcName, prefixLen-3, 3));
-                };
-            };
-        };
-    end;
-
-    G1CP_TestsuiteMsg = ConcatStrings(G1CP_TestsuiteMsg, "  Test ");
-    G1CP_TestsuiteMsg = ConcatStrings(G1CP_TestsuiteMsg, G1CP_LFill(IntToString(id), " ", 3));
-    G1CP_TestsuiteMsg = ConcatStrings(G1CP_TestsuiteMsg, ": ");
-    G1CP_TestsuiteMsg = ConcatStrings(G1CP_TestsuiteMsg, msg);
-};
-
-/*
- * Print error messages
- */
-func void G1CP_TestsuitePrintErrors() {
-    if (Hlp_StrCmp(G1CP_TestsuiteMsg, "")) {
-        return;
-    };
-    var int count; count = STR_SplitCount(G1CP_TestsuiteMsg, "|");
-    MEM_Info("");
-    MEM_SendToSpy(zERR_TYPE_FAULT, ConcatStrings(IntToString(count), " errors occurred."));
-    repeat(i, count); var int i;
-        MEM_SendToSpy(zERR_TYPE_FAULT, STR_Split(G1CP_TestsuiteMsg, "|", i));
-    end;
-    MEM_Info("");
-};
-
-/*
  * Command handler
  */
 func string G1CP_TestsuiteAll(var string _) {
@@ -118,6 +73,9 @@ func string G1CP_TestsuiteAll(var string _) {
 
     // Do not trigger manual tests
     G1CP_TestsuiteAllowManual = FALSE;
+
+    // Reset error details
+    G1CP_TestsuiteMsg = "";
 
     // Remember the data stack position
     var int stkPosBefore; stkPosBefore = MEM_Parser.datastack_sptr;
@@ -140,6 +98,9 @@ func string G1CP_TestsuiteAll(var string _) {
                 msg = ConcatStrings(msg, "* ");
             };
             msg = ConcatStrings(msg, "... ");
+
+            // Reset test status before every test
+            G1CP_TestsuiteStatusPassed = TRUE;
 
             // Reset the data stack position and call the test function
             MEM_Parser.datastack_sptr = stkPosBefore;
@@ -180,7 +141,6 @@ func string G1CP_TestsuiteAll(var string _) {
 
     // Print error details
     G1CP_TestsuitePrintErrors();
-    G1CP_TestsuiteMsg = "";
 
     msg = IntToString(passed);
     msg = ConcatStrings(msg, " passed, ");
@@ -215,9 +175,53 @@ func string G1CP_TestsuiteCmd(var string command) {
 
     // Print error details
     G1CP_TestsuitePrintErrors();
-    G1CP_TestsuiteMsg = "";
 
     return retStr;
+};
+
+func string G1CP_TestsuiteNext(var string _) {
+    // Constant to continue where left off
+    const int symbId = 0;
+
+    // Restart from the beginning
+    if (symbId <= 0) || (symbId >= G1CP_SymbEnd) {
+        symbId = G1CP_SymbStart;
+    };
+
+    // Iterate over symbols and find next manual test
+    while(symbId < G1CP_SymbEnd);
+        // Compare symbol name
+        var zCPar_Symbol symb; symb = _^(MEM_GetSymbolByIndex(symbId));
+        if (STR_StartsWith(symb.name, "G1CP_TEST_"))
+        && (STR_Len(symb.name) == 13)
+        && ((symb.bitfield & zCPar_Symbol_bitfield_type) == zPAR_TYPE_FUNC) {
+            // Get test ID
+            var int id; id = STR_ToInt(STR_SubStr(symb.name, 10, 3));
+
+            // Check if manual or automatic
+            if (symb.offset == (zPAR_TYPE_VOID >> 12)) {
+                break;
+            };
+        };
+        symbId += 1;
+    end;
+
+    // Reached last
+    if (symbId >= G1CP_SymbEnd) {
+        return "Reached end of manual tests. Will restart from the beginning on next call";
+    };
+
+    // Otherwise execute test and advance iterator
+    G1CP_TestsuiteCmd(IntToString(id));
+    symbId += 1;
+
+    // Return info
+    var string msg; msg = "Start test of #";
+    msg = ConcatStrings(msg, IntToString(id));
+    msg = ConcatStrings(msg, " '");
+    msg = ConcatStrings(msg, G1CP_GetFixShortName(id));
+    msg = ConcatStrings(msg, "'");
+    return msg;
 };
 
 func string G1CP_TestsuiteList(var string _) {
