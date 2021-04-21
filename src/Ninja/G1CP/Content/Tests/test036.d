@@ -9,8 +9,7 @@ func int G1CP_Test_036() {
     const int GIL_NONE = 0; GIL_NONE = G1CP_Testsuite_GetIntConst("GIL_NONE", 0);
     var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("Stt_311_Fisk_MordragKO_Condition");
     var C_Npc npc; npc = G1CP_Testsuite_FindNpc("Org_826_Mordrag");
-    var int varId1; varId1 = G1CP_Testsuite_CheckIntVar("MordragKO_HauAb", 0);
-    var int varId2; varId2 = G1CP_Testsuite_CheckIntVar("MordragKO_StayAtNC", 0);
+    var int varId; varId = G1CP_Testsuite_CheckIntVar("MordragKO_HauAb", 0);
     G1CP_Testsuite_CheckPassed();
 
     // Define possibly missing symbols locally
@@ -18,47 +17,44 @@ func int G1CP_Test_036() {
     const int ATR_HITPOINTS_MAX = 1;
 
     // Backup values
-    var int hauAbBak; hauAbBak = G1CP_GetIntVarI(varId1, 0, 0);
-    var int stayAtNCBak; stayAtNCBak = G1CP_GetIntVarI(varId2, 0, 0);
+    var int varBak; varBak = G1CP_GetIntVarI(varId, 0, 0);
     var int guildBak; guildBak = Npc_GetTrueGuild(hero);
     var int hpBak; hpBak = npc.attribute[ATR_HITPOINTS];
 
     // Set new values
-    G1CP_SetIntVarI(varId1, 0, FALSE);
     Npc_SetTrueGuild(hero, GIL_NONE);
 
     // Now do two passes for each OR-condition
     var int pass1;
     var int pass2;
 
-    // First pass: Mordrag is dead but var2 is false
-    G1CP_SetIntVarI(varId2, 0, FALSE);
+    // First pass: Mordrag is dead but the variable is false
+    G1CP_SetIntVarI(varId, 0, FALSE);
     npc.attribute[ATR_HITPOINTS] = 0;
 
     // Call dialog condition function
     G1CP_Testsuite_Call(funcId, 0, 0, FALSE);
     pass1 = MEM_PopIntResult();
     if (!pass1) {
-        G1CP_TestsuiteErrorDetailSSS("Condition '", G1CP_GetSymbolName(varId1), "' failed");
+        G1CP_TestsuiteErrorDetailSSS("Condition '", G1CP_GetSymbolName(npc), " is dead' failed");
     };
 
-    // Second pass: var2 is true but Mordrag is alive
-    G1CP_SetIntVarI(varId2, 0, TRUE);
+    // Second pass: The variable is true but Mordrag is alive
+    G1CP_SetIntVarI(varId, 0, TRUE);
     npc.attribute[ATR_HITPOINTS] = npc.attribute[ATR_HITPOINTS_MAX];
 
     // Call dialog condition function
     G1CP_Testsuite_Call(funcId, 0, 0, FALSE);
     pass2 = MEM_PopIntResult();
-    if (pass2) {
-        G1CP_TestsuiteErrorDetailSSS("Condition '", G1CP_GetSymbolName(varId2), "' did not fail");
+    if (!pass2) {
+        G1CP_TestsuiteErrorDetailSSS("Condition '", G1CP_GetSymbolName(varId), " == FALSE' failed");
     };
 
     // Restore values
-    G1CP_SetIntVarI(varId1, 0, hauAbBak);
-    G1CP_SetIntVarI(varId2, 0, stayAtNCBak);
+    G1CP_SetIntVarI(varId, 0, varBak);
     Npc_SetTrueGuild(hero, guildBak);
     npc.attribute[ATR_HITPOINTS] = hpBak;
 
     // Check return value
-    return (pass1) && (!pass2);
+    return (pass1) && (pass2);
 };
