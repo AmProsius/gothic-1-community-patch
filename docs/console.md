@@ -8,6 +8,7 @@ Command                | Description
 `FIX NAME ALL`         | List the short names of all G1CP fixes in the zSpy
 `FIX NAME `            | Show the short name of a G1CP fix by [id]
 | | |
+| | **Not available in release build** |
 `TEST LIST`            | List all tests of G1CP
 `TEST ALL`             | Run complete test suite for G1CP
 `TEST `                | Run test from test suite for G1CP by [id]
