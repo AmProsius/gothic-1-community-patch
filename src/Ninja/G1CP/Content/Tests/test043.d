@@ -14,7 +14,7 @@ func int G1CP_Test_043() {
     MEM_PushStringParam("Test 43"); // text
     MEM_PushIntParam(20);           // lp
     MEM_PushIntParam(10);           // ore
-    MEM_CallByID(funcId);
+    MEM_CallById(funcId);
     var string output; output = MEM_PopStringResult();
 
     // Test the output

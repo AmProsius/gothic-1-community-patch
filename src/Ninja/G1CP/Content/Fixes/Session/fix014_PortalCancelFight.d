@@ -5,8 +5,9 @@ func int G1CP_014_PortalCancelFight() {
     var int applied; applied = FALSE;
 
     // Get necessary symbol indices
-    var int funcId; funcId = MEM_GetSymbolIndex("B_CombatAssessEnterRoom");
-    if (funcId == -1) || (MEM_GetSymbolIndex("ZS_ClearRoom") == -1) || (MEM_GetSymbolIndex("ZS_ClearRoomWait") == -1) {
+    var int funcId; funcId = G1CP_GetFuncId("B_CombatAssessEnterRoom", "void|none");
+    if (funcId == -1)
+    || (!G1CP_IsFunc("ZS_ClearRoom", "void|none")) || (!G1CP_IsFunc("ZS_ClearRoomWait", "void|none")) {
         return FALSE;
     };
 

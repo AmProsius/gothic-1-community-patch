@@ -53,10 +53,10 @@ func int G1CP_Test_133() {
     // Second pass: Call the dialog function and observe if it creates the corrected entry
 
     // Backup values
-    var int aivarBak; aivarBak = G1CP_NpcGetAIVarI(npc, aiVarId, FALSE);
+    var int aivarBak; aivarBak = G1CP_NpcGetAiVarI(npc, aiVarId, FALSE);
 
     // Set new values
-    G1CP_NpcSetAIVarI(npc, aiVarId, TRUE);
+    G1CP_NpcSetAiVarI(npc, aiVarId, TRUE);
 
     // Create the topic
     Log_CreateTopic(CH1_JoinOC, LOG_MISSION);
@@ -66,7 +66,7 @@ func int G1CP_Test_133() {
     G1CP_Testsuite_Call(funcId, 0, 0, TRUE);
 
     // Restore values
-    G1CP_NpcSetAIVarI(npc, aiVarId, aivarBak);
+    G1CP_NpcSetAiVarI(npc, aiVarId, aivarBak);
 
     // Check if it was updated
     if (G1CP_LogHasEntry(CH1_JoinOC, logEntryWrong)) {

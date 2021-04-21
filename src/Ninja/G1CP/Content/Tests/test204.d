@@ -14,7 +14,7 @@ func int G1CP_Test_204() {
     const string tempTopicName = "G1CP Test 204";
 
     // Check if dialog function exists
-    var int funcId; funcId = G1CP_GetFuncID(funcSymbName, "void|none");
+    var int funcId; funcId = G1CP_GetFuncId(funcSymbName, "void|none");
     if (funcId == -1) {
         G1CP_TestsuiteErrorDetail(ConcatStrings(ConcatStrings("Dialog function '", funcSymbName), "' not found"));
         passed = FALSE;
@@ -44,10 +44,10 @@ func int G1CP_Test_204() {
     other = MEM_CpyInst(hero);
 
     // Just run the dialog and see what happens
-    MEM_CallByID(funcId);
+    MEM_CallById(funcId);
 
     // Stop the output units
-    Npc_ClearAIQueue(hero);
+    Npc_ClearAiQueue(hero);
     AI_StandUpQuick(hero);
 
     // Restore self and other

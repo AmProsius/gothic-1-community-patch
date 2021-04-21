@@ -5,15 +5,15 @@ func int G1CP_004_NpcMoveNpcDefeated() {
     var int applied; applied = FALSE;
 
     // Get necessary symbol indices
-    var int funcId; funcId = MEM_GetSymbolIndex("B_MoveNpc");
-    if (funcId == -1) || (MEM_GetSymbolIndex("AIV_WasDefeatedBySC") == -1) {
+    var int funcId; funcId = G1CP_GetFuncId("B_MoveNpc", "void|none");
+    if (funcId == -1) || (!G1CP_IsIntConst("AIV_WasDefeatedBySC", 0)) {
         return FALSE;
     };
 
     // Recreate the very specific list of if-conditions to find the position just before the if-block
     var int bytes[3]; // 11 bytes used
     MEMINT_OverrideFunc_Ptr = _@(bytes);
-    MEMINT_OFTokPar(zPAR_TOK_CALLEXTERN, MEM_GetFuncID(Npc_GetAttitude));
+    MEMINT_OFTokPar(zPAR_TOK_CALLEXTERN, MEM_GetFuncId(Npc_GetAttitude));
     MEMINT_OFTok(zPAR_OP_EQUAL);
     MEMINT_OFTok(zPAR_OP_LOG_OR);
     MEMINT_OFTok(zPAR_OP_LOG_AND);
@@ -46,5 +46,5 @@ func int G1CP_004_NpcMoveNpcDefeated_Condition() {
     G1CP_ReportFuncToSpy();
 
     // (!self.aivar[AIV_WasDefeatedBySC])
-    return (!G1CP_NpcGetAIVar(self, "AIV_WasDefeatedBySC", 0)); // Symbol exists as established by the function above
+    return (!G1CP_NpcGetAiVar(self, "AIV_WasDefeatedBySC", 0)); // Symbol exists as established by the function above
 };

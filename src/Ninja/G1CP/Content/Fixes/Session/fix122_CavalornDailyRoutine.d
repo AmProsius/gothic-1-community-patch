@@ -5,22 +5,22 @@ func int G1CP_122_CavalornDailyRoutine() {
     var int applied; applied = FALSE;
 
     // Get necessary symbol indices
-    var int funcId; funcId = MEM_GetSymbolIndex("Rtn_start_336");
-    var int sleepSymbPtr; sleepSymbPtr = MEM_GetSymbol("TA_Sleep");
-    var int standSymbPtr; standSymbPtr = MEM_GetSymbol("TA_StandAround");
-    if (funcId == -1) || (!sleepSymbPtr) || (!standSymbPtr) {
+    var int funcId; funcId = G1CP_GetFuncId("Rtn_start_336", "void|none");
+    var int sleepSymbId; sleepSymbId = G1CP_GetFuncId("TA_Sleep", "void|int|int|int|int|string");
+    var int standSymbId; standSymbId = G1CP_GetFuncId("TA_StandAround", "void|int|int|int|int|string");
+    if (funcId == -1) || (sleepSymbId == -1) || (standSymbId == -1) {
         return FALSE;
     };
 
     // Find function calls in "Rtn_start_336"
     const int bytes[2] = {zPAR_TOK_CALL<<24, -1};
 
-    // Find all calls to TA_Sleep"
-    bytes[1] = MEM_ReadInt(sleepSymbPtr + zCParSymbol_content_offset);
+    // Find all calls to "TA_Sleep"
+    bytes[1] = G1CP_GetCallableOffsetI(sleepSymbId);
     var int sleepMatches; sleepMatches = G1CP_FindInFunc(funcId, _@(bytes)+3, 5);
 
     // Find all calls to "TA_StandAround"
-    bytes[1] = MEM_ReadInt(standSymbPtr + zCParSymbol_content_offset);
+    bytes[1] = G1CP_GetCallableOffsetI(standSymbId);
     var int standMatches; standMatches = G1CP_FindInFunc(funcId, _@(bytes)+3, 5);
 
     // Narrow down the context

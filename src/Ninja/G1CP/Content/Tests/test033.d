@@ -15,12 +15,12 @@ func int G1CP_Test_033() {
 
     // Backup values
     var int toldBak; toldBak = Npc_KnowsInfo(hero, infoId);
-    var int aiVarBak; aiVarBak = G1CP_NpcGetAIVarI(npc, aiVarId, FALSE);
+    var int aiVarBak; aiVarBak = G1CP_NpcGetAiVarI(npc, aiVarId, FALSE);
     var int varBak; varBak = G1CP_GetIntVarI(varId, 0, 0);
 
     // Set new values
     G1CP_SetInfoToldI(infoId, FALSE);
-    G1CP_NpcSetAIVarI(npc, aiVarId, TRUE);
+    G1CP_NpcSetAiVarI(npc, aiVarId, TRUE);
     G1CP_SetIntVarI(varId, 0, 0);
 
     // Call dialog condition function
@@ -29,7 +29,7 @@ func int G1CP_Test_033() {
 
     // Restore values
     G1CP_SetInfoToldI(infoId, toldBak);
-    G1CP_NpcSetAIVarI(npc, aiVarId, aiVarBak);
+    G1CP_NpcSetAiVarI(npc, aiVarId, aiVarBak);
     G1CP_SetIntVarI(varId, 0, varBak);
 
     // Check return value

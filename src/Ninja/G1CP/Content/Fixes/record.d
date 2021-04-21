@@ -66,8 +66,8 @@ func string G1CP_GetFixShortName(var int id) {
     const int funcCalls = 0;
     if (!funcCalls) {
         funcCalls = MEM_ArrayCreate();
-        funcCalls = G1CP_FindInCode(MEM_GetFuncID(Ninja_G1CP_Menu),          0, _@(zPAR_TOK_CALL), 1, funcCalls);
-        funcCalls = G1CP_FindInCode(MEM_GetFuncID(G1CP_GamesaveFixes_Apply), 0, _@(zPAR_TOK_CALL), 1, funcCalls);
+        funcCalls = G1CP_FindInCode(MEM_GetFuncId(Ninja_G1CP_Menu),          0, _@(zPAR_TOK_CALL), 1, funcCalls);
+        funcCalls = G1CP_FindInCode(MEM_GetFuncId(G1CP_GamesaveFixes_Apply), 0, _@(zPAR_TOK_CALL), 1, funcCalls);
         repeat(i, MEM_ArraySize(funcCalls));
             MEM_ArrayWrite(funcCalls, i, MEM_ReadInt(MEM_ArrayRead(funcCalls, i)+1)); // Get call targets
         end;

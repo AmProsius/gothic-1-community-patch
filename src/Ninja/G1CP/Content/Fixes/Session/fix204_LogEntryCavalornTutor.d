@@ -3,9 +3,9 @@
  */
 func int G1CP_204_LogEntryCavalornTutor() {
     // Check the necessary symbols
-    var int topicId; topicId = G1CP_GetStringConstID("GE_TeacherOW", 0);
-    var int funcId; funcId = G1CP_GetFuncID("DIA_Fingers_WhereCavalorn_Info", "void|none");
-    var int b_logentry_id; b_logentry_id = G1CP_GetFuncID("B_LogEntry", "void|string|string");
+    var int topicId; topicId = G1CP_GetStringConstId("GE_TeacherOW", 0);
+    var int funcId; funcId = G1CP_GetFuncId("DIA_Fingers_WhereCavalorn_Info", "void|none");
+    var int b_logentry_id; b_logentry_id = G1CP_GetFuncId("B_LogEntry", "void|string|string");
     if (funcId == -1) || (b_logentry_id == -1) || (topicId == -1) {
         return FALSE;
     };
@@ -44,7 +44,7 @@ func int G1CP_204_LogEntryCavalornTutor() {
     };
 
     // Now that all is established, let's replace the call to 'B_LogEntry' to squeeze in the creation of the topic
-    return (G1CP_ReplaceCall(funcId, 0, b_logentry_id, MEM_GetFuncID(G1CP_204_LogEntryCavalornTutor_Intercept)) > 0);
+    return (G1CP_ReplaceCall(funcId, 0, b_logentry_id, MEM_GetFuncId(G1CP_204_LogEntryCavalornTutor_Intercept)) > 0);
 };
 
 /*

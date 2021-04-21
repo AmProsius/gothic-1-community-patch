@@ -14,7 +14,7 @@ instance G1CP_045_SpawnSnappersMonastery_Snapper2 (C_Npc);
  */
 func int G1CP_045_SpawnSnappersMonastery_InitSession() {
     // Get necessary symbols
-    var int funcId; funcId = G1CP_GetFuncID("Startup_Sub_Surface", "void|none");
+    var int funcId; funcId = G1CP_GetFuncId("Startup_Sub_Surface", "void|none");
     var int instId; instId = G1CP_GetNpcInstId("Snapper");
     if (funcId == -1) || (instId == -1) {
         return FALSE;
@@ -28,7 +28,7 @@ func int G1CP_045_SpawnSnappersMonastery_InitSession() {
     var int matches; matches = G1CP_FindInCode(funcId, 0, _@(bytes), 6, 0);
 
     // Verify context: Wld_InsertNpc(Snapper, "OW_MONSTER_NAVIGATE02")
-    var int insertId; insertId = MEM_GetFuncID(Wld_InsertNpc);
+    var int insertId; insertId = MEM_GetFuncId(Wld_InsertNpc);
     var int i; i = 0;
     var int wasFixed; wasFixed = FALSE;
     while(i < MEM_ArraySize(matches));

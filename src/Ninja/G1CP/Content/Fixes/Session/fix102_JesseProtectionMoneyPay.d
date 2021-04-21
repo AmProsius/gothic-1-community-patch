@@ -2,9 +2,9 @@
  * #102 The player doesn't lose ore when paying for Jesse
  */
 func int G1CP_102_JesseProtectionMoneyPay() {
-    if (MEM_GetSymbolIndex("Info_Bloodwyn_PayForJesse_Info") != -1)
-    && (MEM_GetSymbolIndex("Jesse_PayForMe")                 != -1)
-    && (MEM_GetSymbolIndex("ItMiNugget")                     != -1) {
+    if (G1CP_IsFunc("Info_Bloodwyn_PayForJesse_Info", "void|none"))
+    && (G1CP_IsIntVar("Jesse_PayForMe", 0))
+    && (G1CP_IsItemInst("ItMiNugget")) {
         HookDaedalusFuncS("Info_Bloodwyn_PayForJesse_Info", "G1CP_102_JesseProtectionMoneyPay_Hook");
         return TRUE;
     } else {

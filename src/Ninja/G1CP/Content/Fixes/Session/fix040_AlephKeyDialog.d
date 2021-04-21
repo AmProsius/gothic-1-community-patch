@@ -2,8 +2,8 @@
  * #40 Aleph's key dialog doesn't disappear
  */
 func int G1CP_040_AlephKeyDialog() {
-    if (MEM_GetSymbolIndex("VLK_585_Aleph_DIRTY_Condition") != -1)
-    && (MEM_GetSymbolIndex("VLK_585_Aleph_SCHUPPEN") != -1) {
+    if (G1CP_IsFunc("VLK_585_Aleph_DIRTY_Condition", "int|none"))
+    && (G1CP_IsInfoInst("VLK_585_Aleph_SCHUPPEN")) {
         HookDaedalusFuncS("VLK_585_Aleph_DIRTY_Condition", "G1CP_040_AlephKeyDialog_Hook");
         return TRUE;
     } else {

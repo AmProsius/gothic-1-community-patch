@@ -11,11 +11,11 @@ func int G1CP_143_DE_LogEntryBuster() {
     const int count   = -1;
     if (topicId == -2) {
         // Find and retrieve the topic
-        topicId = G1CP_GetStringConstID("GE_TeacherNC", 0);
+        topicId = G1CP_GetStringConstId("GE_TeacherNC", 0);
         topicName = G1CP_GetStringConstI(topicId, 0, "");
 
         // Replace the push of the old string with the new string (this is never reverted, i.e. session fix)
-        count = G1CP_ReplacePushStr(G1CP_GetFuncID("DIA_ORG_833_Buster3_Info", "void|none"), 0, curString, newString);
+        count = G1CP_ReplacePushStr(G1CP_GetFuncId("DIA_ORG_833_Buster3_Info", "void|none"), 0, curString, newString);
     };
 
     // Check if the log topic constant exists and if the adding of the log entry was successfully replaced

@@ -5,9 +5,9 @@ func int G1CP_012_RangedDoubleXP() {
     var int applied; applied = FALSE;
 
     // Get necessary symbol indices
-    var int funcId;  funcId = MEM_GetSymbolIndex("B_DeathXP");
-    var int cond1Id; cond1Id = MEM_GetSymbolIndex("ZS_Unconscious");
-    var int cond3Id; cond3Id = MEM_GetSymbolIndex("AIV_WASDEFEATEDBYSC");
+    var int funcId; funcId = G1CP_GetFuncId("B_DeathXP", "void|none");
+    var int cond1Id; cond1Id = G1CP_GetFuncId("ZS_Unconscious", "void|none");
+    var int cond3Id; cond3Id = G1CP_GetIntConstId("AIV_WASDEFEATEDBYSC", 0);
     var int replOff; replOff = MEM_GetFuncOffset(G1CP_012_RangedDoubleXP_Condition);
     if (funcId == -1) || (cond1Id == -1) || (cond3Id == -1) {
         return FALSE;
@@ -16,7 +16,7 @@ func int G1CP_012_RangedDoubleXP() {
     // Byte code to search for (not using G1CP_ReplaceCall here because of extra checks below)
     const int bytes[4] = {zPAR_TOK_PUSHINT<<24, -1, zPAR_TOK_CALLEXTERN, -1};
     bytes[1] = cond1Id;
-    MEM_WriteInt(_@(bytes)+9, MEM_GetFuncID(Npc_WasInState));
+    MEM_WriteInt(_@(bytes)+9, MEM_GetFuncId(Npc_WasInState));
     var int matches; matches = G1CP_FindInFunc(funcId, _@(bytes)+3, 10);
 
     // Iterate over the matches
@@ -56,7 +56,7 @@ func int G1CP_012_RangedDoubleXP_Condition(var C_Npc slf, var int state) {
 
     // Additional condition: self.aivar[AIV_WASDEFEATEDBYSC]
     var int cond2;
-    cond2 = G1CP_NpcGetAIVar(slf, "AIV_WASDEFEATEDBYSC", 0);
+    cond2 = G1CP_NpcGetAiVar(slf, "AIV_WASDEFEATEDBYSC", 0);
 
     // Either one of the conditions
     return (cond1) || (cond2);

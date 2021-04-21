@@ -13,7 +13,7 @@ func int G1CP_003_RegainDroppedWeapon() {
     const int AI_EquipBestMeleeWeapon_p  = 6654871; //0x658B97
     const int AI_EquipBestRangedWeapon_p = 6655079; //0x658C67
 
-    if (MEM_GetSymbolIndex("B_RegainDroppedWeapon") != -1)
+    if (G1CP_IsFunc("B_RegainDroppedWeapon", "void|inst"))
     && (G1CP_CheckBytes(AI_TakeItem_p,              "8B F8 83 C4") == 1) // 1 == cannot be hooked
     && (G1CP_CheckBytes(AI_EquipBestMeleeWeapon_p,  "8B F8 83 C4") == 1)
     && (G1CP_CheckBytes(AI_EquipBestRangedWeapon_p, "8B F8 83 C4") == 1) {
@@ -43,27 +43,27 @@ func void G1CP_003_RegainDroppedWeapon_Logic(var C_Npc slf) {
     // Melee weapon
     if (Wld_DetectItem(slf, ITEM_KAT_NF)) {
         if (Npc_GetDistToItem(slf, item) < 300)   // Prevent walking off too far
-        && (G1CP_NpcCanSeeItemFreeLOS(slf, item)) // Does not have to face it, only line of sight
+        && (G1CP_NpcCanSeeItemFreeLos(slf, item)) // Does not have to face it, only line of sight
         && (!Npc_HasEquippedMeleeWeapon(slf)) {
             AI_TakeItem(slf, item);
-            AI_Function_NI(slf, EquipWeapon, slf, Hlp_GetInstanceID(item)); // Equip this exact weapon in particular
+            AI_Function_NI(slf, EquipWeapon, slf, Hlp_GetInstanceId(item)); // Equip this exact weapon in particular
         };
     };
 
     // Ranged weapon
     if (Wld_DetectItem(slf, ITEM_KAT_FF)) {
         if (Npc_GetDistToItem(slf, item) < 300)
-        && (G1CP_NpcCanSeeItemFreeLOS(slf, item))
+        && (G1CP_NpcCanSeeItemFreeLos(slf, item))
         && (!Npc_HasEquippedRangedWeapon(slf)) {
             AI_TakeItem(slf, item);
-            AI_Function_NI(slf, EquipWeapon, slf, Hlp_GetInstanceID(item));
+            AI_Function_NI(slf, EquipWeapon, slf, Hlp_GetInstanceId(item));
         };
     };
 
     // Ammunition (just a bonus)
     if (Wld_DetectItem(slf, ITEM_KAT_MUN)) {
         if (Npc_GetDistToItem(slf, item) < 300)
-        && (G1CP_NpcCanSeeItemFreeLOS(slf, item)) {
+        && (G1CP_NpcCanSeeItemFreeLos(slf, item)) {
             AI_TakeItem(slf, item);
         };
     };

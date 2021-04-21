@@ -74,7 +74,7 @@ func int G1CP_IsStringSymb(var string name, var int arrIdx, var int isConst) {
 /*
  * Check if string symbol exists and return its value
  */
-func int G1CP_GetStringSymbID(var string name, var int arrIdx, var int isConst) {
+func int G1CP_GetStringSymbId(var string name, var int arrIdx, var int isConst) {
     if (G1CP_CheckStringSymbol(MEM_GetSymbol(name), arrIdx, isConst)) {
         return MEM_GetSymbolIndex(name);
     } else {
@@ -136,8 +136,8 @@ func int G1CP_IsStringI(var int symbId, var int arrIdx) {
 func int G1CP_IsString(var string name, var int arrIdx) {
     return G1CP_IsStringSymb(name, arrIdx, 0);
 };
-func int G1CP_GetStringID(var string name, var int arrIdx) {
-    return G1CP_GetStringSymbID(name, arrIdx, 0);
+func int G1CP_GetStringId(var string name, var int arrIdx) {
+    return G1CP_GetStringSymbId(name, arrIdx, 0);
 };
 func string G1CP_GetStringI(var int symbId, var int arrIdx, var string dflt) {
     return G1CP_GetStringSymbI(symbId, arrIdx, 0, dflt);
@@ -162,8 +162,8 @@ func int G1CP_IsStringVarI(var int symbId, var int arrIdx) {
 func int G1CP_IsStringVar(var string name, var int arrIdx) {
     return G1CP_IsStringSymb(name, arrIdx, -1);
 };
-func int G1CP_GetStringVarID(var string name, var int arrIdx) {
-    return G1CP_GetStringSymbID(name, arrIdx, -1);
+func int G1CP_GetStringVarId(var string name, var int arrIdx) {
+    return G1CP_GetStringSymbId(name, arrIdx, -1);
 };
 func string G1CP_GetStringVarI(var int symbId, var int arrIdx, var string dflt) {
     return G1CP_GetStringSymbI(symbId, arrIdx, -1, dflt);
@@ -188,8 +188,8 @@ func int G1CP_IsStringConstI(var int symbId, var int arrIdx) {
 func int G1CP_IsStringConst(var string name, var int arrIdx) {
     return G1CP_IsStringSymb(name, arrIdx, 1);
 };
-func int G1CP_GetStringConstID(var string name, var int arrIdx) {
-    return G1CP_GetStringSymbID(name, arrIdx, 1);
+func int G1CP_GetStringConstId(var string name, var int arrIdx) {
+    return G1CP_GetStringSymbId(name, arrIdx, 1);
 };
 func string G1CP_GetStringConstI(var int symbId, var int arrIdx, var string dflt) {
     return G1CP_GetStringSymbI(symbId, arrIdx, 1, dflt);

@@ -2,8 +2,8 @@
  * #181 Swiney gives his own pants to the player
  */
 func int G1CP_181_SwineyGiveArmor() {
-    if (MEM_GetSymbolIndex("Info_Swiney_Schuerfer_Ja") != -1)
-    && (MEM_GetSymbolIndex("Info_Swiney_Schuerfer_Nein") != -1) {
+    if (G1CP_IsFunc("Info_Swiney_Schuerfer_Ja", "void|none"))
+    && (G1CP_IsFunc("Info_Swiney_Schuerfer_Nein", "void|none")) {
         HookDaedalusFuncS("Info_Swiney_Schuerfer_Ja", "G1CP_181_SwineyGiveArmor_Hook1");
         HookDaedalusFuncS("Info_Swiney_Schuerfer_Nein", "G1CP_181_SwineyGiveArmor_Hook2");
         return TRUE;

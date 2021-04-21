@@ -2,12 +2,12 @@
  * #1 NPCs wake up immediately
  */
 func int G1CP_001_NpcStateSleep() {
-    var int funcId;   funcId   = MEM_GetSymbolIndex("ZS_SleepBed_Loop");
-    var int needleId; needleId = MEM_GetSymbolIndex("AI_StartState");
-    var int stateId;  stateId = MEM_GetSymbolIndex("ZS_SitAround");
+    var int funcId; funcId = G1CP_GetFuncId("ZS_SleepBed_Loop", "int|none");
+    var int stateId; stateId = G1CP_GetFuncId("ZS_SitAround", "void|none");
+    var int needleId; needleId = MEM_GetFuncId(AI_StartState);
     var int replacId; replacId = MEM_GetFuncId(G1CP_001_NpcStateSleep_StartState);
 
-    if (funcId != -1) && (needleId != -1) && (stateId != -1) {
+    if (funcId != -1) && (stateId != -1) {
         var int count; count = G1CP_ReplaceCall(funcId, 0, needleId, replacId);
         return (count > 0);
     } else {

@@ -2,11 +2,11 @@
  * #10 Companions don't adjust their walking speed
  */
 func int G1CP_010_FollowWalkMode() {
-    var int funcId;   funcId   = MEM_GetSymbolIndex("ZS_FollowPC_Loop");
-    var int needleId; needleId = MEM_GetSymbolIndex("AI_SetWalkMode");
+    var int funcId; funcId = G1CP_GetFuncId("ZS_FollowPC_Loop", "int|none");
+    var int needleId; needleId = MEM_GetFuncId(AI_SetWalkMode);
     var int replacId; replacId = MEM_GetFuncId(G1CP_010_FollowWalkMode_SetWalkMode);
 
-    if (funcId != -1) && (needleId != -1) && (MEM_GetSymbolIndex("B_FollowPC_AssessSC") != -1) {
+    if (funcId != -1) && (needleId != -1) && (G1CP_IsFunc("B_FollowPC_AssessSC", "void|none")) {
         HookDaedalusFuncS("ZS_FollowPC_Loop", "G1CP_010_FollowWalkMode_Hook");
         HookDaedalusFuncS("B_FollowPC_AssessSC", "G1CP_010_FollowWalkMode_AssessSCHook");
         var int count; count = G1CP_ReplaceCall(funcId, 0, needleId, replacId);
@@ -65,7 +65,7 @@ func void G1CP_010_FollowWalkMode_AssessSCHook() {
     const int NPC_RUN               = 0;
 
     if (G1CP_BodyStateContains(hero, BS_RUN)) && (G1CP_BodyStateContains(self, BS_WALK)) {
-        Npc_ClearAIQueue(self);
+        Npc_ClearAiQueue(self);
         AI_StandUpQuick(self);
         AI_SetWalkmode(self, NPC_RUN);
     };

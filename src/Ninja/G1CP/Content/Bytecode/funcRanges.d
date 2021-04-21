@@ -8,13 +8,13 @@ func int G1CP_GetFuncStart(var int funcId) {
 
 /*
  * Retrieve function bytecode end address (i.e. address of last byte). If invalid symbol index, it returns zero.
- * This function works on the same principle and is largely copied from "MEM_GetFuncIDByOffset" in Ikarus.
+ * This function works on the same principle and is largely copied from "MEM_GetFuncIdByOffset" in Ikarus.
  */
 func int G1CP_GetFuncEnd(var int funcId) {
     const int funcStartsArray = 0;
     if (!funcStartsArray) {
         MEM_InitAll(); // Make sure it was created
-        funcStartsArray = G1CP_GetIntConst("MEM_GetFuncIDByOffset.funcStartsArray", 0, 0);
+        funcStartsArray = G1CP_GetIntConst("MEM_GetFuncIdByOffset.funcStartsArray", 0, 0);
     };
 
     // Assert that it's a function or prototype or instance function
@@ -58,7 +58,7 @@ func int G1CP_GetFuncEnd(var int funcId) {
 
         if (res != -1) {
             if (2 * (res+1) < array.numInArray) {
-                // Instead of in "MEM_GetFuncIDByOffset", return here the offset of the next function
+                // Instead of in "MEM_GetFuncIdByOffset", return here the offset of the next function
                 return MEM_ReadIntArray(array.array, 2 * (res+1)) + MEM_Parser.stack_stack - 1;
             } else {
                 return MEM_Parser.stack_stacklast - 1;

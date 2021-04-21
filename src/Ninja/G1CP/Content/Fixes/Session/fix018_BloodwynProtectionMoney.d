@@ -2,7 +2,7 @@
  * #18 Bloodwyn doesn't recognize the player's camp membership
  */
 func int G1CP_018_BloodwynProtectionMoney() {
-    if (MEM_GetSymbolIndex("Info_Bloodwyn_Hello_Condition") != -1) {
+    if (G1CP_IsFunc("Info_Bloodwyn_Hello_Condition", "int|none")) {
         HookDaedalusFuncS("Info_Bloodwyn_Hello_Condition", "G1CP_018_BloodwynProtectionMoney_Hook");
         return TRUE;
     } else {

@@ -1,23 +1,23 @@
 /*
- * #52 MOBs in New Camp can be used without corresponding items
+ * #213 Cauldron in the New Camp can be used without a scoop pt. 2
  */
-func int G1CP_052_UseWithItemNCGrindstone() {
+func int G1CP_213_UseWithItemNcCauldron2() {
     // Make sure the usage item actually exists
     const int symbId = -2;
     if (symbId == -2) {
-        symbId = MEM_GetSymbolIndex("ItMiSwordBlade");
+        symbId = G1CP_GetItemInstId("ITMISCOOP");
     };
     if (symbId == -1) {
         return FALSE;
     };
 
     // Search the VOB
-    var int vobPtr; vobPtr = G1CP_FindVobByPosF(-58212.9141, 3233.08716, 7490.75928);
+    var int vobPtr; vobPtr = G1CP_FindVobByPosF(-53449.8203, 2380.74316, 5637.86377);
     if (Hlp_Is_oCMobInter(vobPtr)) {
         var oCMobInter mob; mob  = _^(vobPtr);
-        if (Hlp_StrCmp(mob.sceme, "BSSHARP"))
+        if (Hlp_StrCmp(mob.sceme, "CAULDRON"))
         && (Hlp_StrCmp(mob.useWithItem, "")) {
-            mob.useWithItem = "ITMISWORDBLADE";
+            mob.useWithItem = "ITMISCOOP";
             return TRUE;
         };
     };
@@ -27,18 +27,18 @@ func int G1CP_052_UseWithItemNCGrindstone() {
 /*
  * This function reverts the changes
  */
-func int G1CP_052_UseWithItemNCGrindstoneRevert() {
+func int G1CP_213_UseWithItemNcCauldron2Revert() {
     // Only revert if it was applied by the G1CP
-    if (!G1CP_IsFixApplied(52)) {
+    if (!G1CP_IsFixApplied(213)) {
         return FALSE;
     };
 
     // Search the VOB again
-    var int vobPtr; vobPtr = G1CP_FindVobByPosF(-58212.9141, 3233.08716, 7490.75928);
+    var int vobPtr; vobPtr = G1CP_FindVobByPosF(-53449.8203, 2380.74316, 5637.86377);
     if (Hlp_Is_oCMobInter(vobPtr)) {
         var oCMobInter mob; mob  = _^(vobPtr);
-        if (Hlp_StrCmp(mob.sceme, "BSSHARP"))
-        && (Hlp_StrCmp(mob.useWithItem, "ITMISWORDBLADE")) {
+        if (Hlp_StrCmp(mob.sceme, "CAULDRON"))
+        && (Hlp_StrCmp(mob.useWithItem, "ITMISCOOP")) {
             mob.useWithItem = "";
             return TRUE;
         };

@@ -6,7 +6,7 @@
  * Check the content of a given function against: { return 1; }
  */
 func int G1CP_042_ConfirmByteCode(var int funcId) {
-    if (funcId <= 0) || (funcId >= MEM_Parser.symtab_table_numInArray) {
+    if (!G1CP_IsFuncI(funcId, "int|none")) {
         return FALSE;
     };
     var zCPar_Symbol symb; symb = _^(MEM_GetSymbolByIndex(funcId));
@@ -17,10 +17,8 @@ func int G1CP_042_ConfirmByteCode(var int funcId) {
         // And pushes a non-zero value onto the stack
         if (MEM_ReadByte(pos) == zPAR_TOK_PUSHINT) && (MEM_ReadInt(pos+1) != 0) {
             return TRUE;
-        } else if (MEM_ReadByte(pos) == zPAR_TOK_PUSHVAR) {
-            // If it's a variable, check it's contents instead
-            var int varId; varId = MEM_ReadInt(pos+1);
-            return (G1CP_GetIntI(varId, 0, 0) != 0);
+        } else if (MEM_ReadByte(pos) == zPAR_TOK_PUSHVAR) && (G1CP_GetIntI(MEM_ReadInt(pos+1), 0, 0) != 0) {
+            return TRUE;
         };
     };
 
@@ -41,6 +39,9 @@ func int G1CP_042_GuardExitDialog() {
     var int applied2; applied2 = FALSE;
 
     // Find all necessary symbols
+    if (!G1CP_IsStringConst("DIALOG_ENDE", 0)) {
+        return FALSE;
+    };
     var int func1Id; func1Id = MEM_GetSymbolIndex("DIA_Grd_218_Exit_Condition");
     var int func2Id; func2Id = MEM_GetSymbolIndex("DIA_Grd_245_Exit_Condition");
 

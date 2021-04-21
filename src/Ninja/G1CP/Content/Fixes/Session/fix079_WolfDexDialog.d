@@ -5,9 +5,9 @@ func int G1CP_079_WolfDexDialog() {
     var int applied; applied = FALSE;
 
     // Find all necessary symbols
-    var int funcId; funcId = MEM_GetSymbolIndex("ORG_855_Wolf_Teach_Condition");
-    var int cond1Id; cond1Id = MEM_GetSymbolIndex("GIL_GRD");
-    var int cond2Start; cond2Start = G1CP_GetFuncStart(MEM_GetSymbolIndex("C_NpcBelongsToNewCamp"));
+    var int funcId; funcId = G1CP_GetFuncId("ORG_855_Wolf_Teach_Condition", "int|none");
+    var int cond1Id; cond1Id = G1CP_GetIntConstId("GIL_GRD", 0);
+    var int cond2Start; cond2Start = G1CP_GetFuncStart(G1CP_GetFuncId("C_NpcBelongsToNewCamp", "int|inst"));
     if (funcId == -1) || (cond1Id == -1) || (!cond2Start) {
         return FALSE;
     };
@@ -27,7 +27,7 @@ func int G1CP_079_WolfDexDialog() {
     // Find "if (Npc_GetTrueGuild(xxxx) == xxxx) { ... }; "
     var int bytes[3]; // 11 bytes used
     MEMINT_OverrideFunc_Ptr = _@(bytes);
-    MEMINT_OFTokPar(zPAR_TOK_CALLEXTERN, MEM_GetFuncID(Npc_GetTrueGuild));
+    MEMINT_OFTokPar(zPAR_TOK_CALLEXTERN, MEM_GetFuncId(Npc_GetTrueGuild));
     MEMINT_OFTok(zPAR_OP_EQUAL);
     MEMINT_OFTokPar(zPAR_TOK_JUMPF,      G1CP_GetFuncStart(funcId) - MEM_Parser.stack_stack+27);
     var int matches; matches = G1CP_FindInFunc(funcId, _@(bytes), 11);
@@ -63,7 +63,7 @@ func int G1CP_079_WolfDexDialog() {
             MEMINT_OverrideFunc_Ptr = pos;
             MEMINT_OFTokPar(zPAR_TOK_PUSHINT, 1);
             MEMINT_OverrideFunc_Ptr += 5;
-            MEMINT_OFTokPar(zPAR_TOK_CALL,    cond2Start - MEM_Parser.stack_stack);
+            MEMINT_OFTokPar(zPAR_TOK_CALL, cond2Start - MEM_Parser.stack_stack);
 
             // Success
             applied = TRUE;

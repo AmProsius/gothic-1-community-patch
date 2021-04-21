@@ -11,7 +11,7 @@ func void G1CP_ReportFuncToSpy() {
     // Get information of the calling function
     var int namePtr;
     var int posStart; posStart = MEM_GetCallerStackPos();
-    var int callerId; callerId = MEM_GetFuncIDByOffset(posStart);
+    var int callerId; callerId = MEM_GetFuncIdByOffset(posStart);
     if (callerId > 0) && (callerId < MEM_Parser.symtab_table_numInArray) {
         // Symbol name of the caller
         namePtr = MEM_GetSymbolByIndex(callerId);
@@ -37,9 +37,9 @@ func void G1CP_ReportFuncToSpy() {
     const string str = "Calling ";
     if (indent_offset == -1) {
         indent_offset = MEM_GetFuncOffset(G1CP_zSpyIndent);
-        concatstrings_id = MEM_GetFuncID(ConcatStrings);
+        concatstrings_id = MEM_GetFuncId(ConcatStrings);
         mem_readstring_offset = MEM_GetFuncOffset(MEM_ReadString);
-        printdebug_ch_id = MEM_GetFuncID(PrintDebugCh);
+        printdebug_ch_id = MEM_GetFuncId(PrintDebugCh);
         set_caller_2fr_offset = MEM_GetFuncOffset(G1CP_ReportFuncToSpy_SetCaller2FStackPos);
         str_id = MEM_GetSymbolIndex("G1CP_ReportFuncToSpy.str");
     };

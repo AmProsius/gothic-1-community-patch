@@ -16,7 +16,7 @@ func void G1CP_TestsuiteErrorDetail(var string msg) {
         ESP += MEMINT_DoStackFrameSize;
         var int popPos; popPos = MEM_ReadInt(ESP - MEMINT_DoStackPopPosOffset);
         if (popPos > 0) && (popPos < MEM_Parser.stack_stacksize) {
-            var int funcId; funcId = MEM_GetFuncIDByOffset(popPos);
+            var int funcId; funcId = MEM_GetFuncIdByOffset(popPos);
             var string funcName; funcName = G1CP_GetSymbolName(funcId);
             var int prefixLen; prefixLen = STR_Len("G1CP_Test_000");
             if (STR_Len(funcName) >= prefixLen) {

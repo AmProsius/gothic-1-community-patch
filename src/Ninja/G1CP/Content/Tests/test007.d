@@ -20,7 +20,7 @@ func void G1CP_Test_007() {
     G1CP_Test_007_Pass = 0;
 
     // Insert test NPC
-    var string wp; wp = Npc_GetNearestWP(hero);
+    var string wp; wp = Npc_GetNearestWp(hero);
     Wld_InsertNpc(G1CP_Test_007_Npc, wp);
     var C_Npc test; test = Hlp_GetNpc(G1CP_Test_007_Npc);
     if (!Hlp_IsValidNpc(test)) {

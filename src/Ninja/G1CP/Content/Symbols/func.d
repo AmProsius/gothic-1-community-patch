@@ -146,7 +146,7 @@ func int G1CP_IsFuncSymb(var string name, var string signature, var int isExtern
 /*
  * Check if function symbol exists and return its symbol index. For signature see function above.
  */
-func int G1CP_GetFuncSymbID(var string name, var string signature, var int isExternal) {
+func int G1CP_GetFuncSymbId(var string name, var string signature, var int isExternal) {
     if (G1CP_CheckFuncSymbol(MEM_GetSymbol(name), signature, isExternal)) {
         return MEM_GetSymbolIndex(name);
     } else {
@@ -164,6 +164,6 @@ func int G1CP_IsFuncI(var int symbId, var string signature) {
 func int G1CP_IsFunc(var string name, var string signature) {
     return G1CP_IsFuncSymb(name, signature, 0);
 };
-func int G1CP_GetFuncID(var string name, var string signature) {
-    return G1CP_GetFuncSymbID(name, signature, 0);
+func int G1CP_GetFuncId(var string name, var string signature) {
+    return G1CP_GetFuncSymbId(name, signature, 0);
 };

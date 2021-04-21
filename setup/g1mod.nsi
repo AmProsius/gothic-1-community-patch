@@ -45,8 +45,8 @@ CRCCheck force
 !define MOD_LINK "$%WEBSITE%"   ; Herausgeber-Link
 !define MOD_COPY "$%AUTHOR%"    ; Copyright
 
-!define SRC_BASEDIR "..\build"
-!define OUTDIR "..\build"
+!define SRC_BASEDIR "..\build\$%BTYPE%"
+!define OUTDIR "..\build\$%BTYPE%"
 
 
 ;===============================================================================

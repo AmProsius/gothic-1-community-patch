@@ -2,9 +2,9 @@
  * #31 Wolf's minecrawler plate dialog doesn't disappear
  */
 func int G1CP_031_WolfPlateDialog() {
-    if (MEM_GetSymbolIndex("Info_Wolf_MCPLATESFEW_Condition")    != -1)
-    && (MEM_GetSymbolIndex("Info_Wolf_MCPLATESENOUGH_Condition") != -1)
-    && (MEM_GetSymbolIndex("Info_Wolf_MCPLATESENOUGH")           != -1) {
+    if (G1CP_IsFunc("Info_Wolf_MCPLATESFEW_Condition", "int|none"))
+    && (G1CP_IsFunc("Info_Wolf_MCPLATESENOUGH_Condition", "int|none"))
+    && (G1CP_IsInfoInst("Info_Wolf_MCPLATESENOUGH")) {
         HookDaedalusFuncS("Info_Wolf_MCPLATESFEW_Condition", "G1CP_031_WolfPlateDialog_Hook1");
         HookDaedalusFuncS("Info_Wolf_MCPLATESENOUGH_Condition", "G1CP_031_WolfPlateDialog_Hook2");
         return TRUE;

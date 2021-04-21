@@ -5,7 +5,7 @@ func int G1CP_115_KillSittingDuck() {
     var int applied; applied = FALSE;
 
     // Get necessary symbol indices
-    var int funcId; funcId = G1CP_GetFuncID("ZS_SittingDuck_Loop", "void|none"); // Strangely it's void
+    var int funcId; funcId = G1CP_GetFuncId("ZS_SittingDuck_Loop", "void|none"); // Strangely it's void
     if (funcId == -1) {
         return FALSE;
     };
@@ -15,7 +15,7 @@ func int G1CP_115_KillSittingDuck() {
     MEMINT_OverrideFunc_Ptr = _@(bytes);
     MEMINT_OFTokPar(zPAR_TOK_PUSHINST,   self);
     MEMINT_OFTokPar(zPAR_TOK_PUSHINT,    FLOATONE);
-    MEMINT_OFTokPar(zPAR_TOK_CALLEXTERN, MEM_GetFuncID(AI_Wait));
+    MEMINT_OFTokPar(zPAR_TOK_CALLEXTERN, MEM_GetFuncId(AI_Wait));
     MEMINT_OFTok(zPAR_TOK_RET);
     var int matches; matches = G1CP_FindInFunc(funcId, _@(bytes), 16);
 
@@ -32,7 +32,7 @@ func int G1CP_115_KillSittingDuck() {
         } else if (pos - funcStart == 15) && (MEM_ReadByte(pos-5) == zPAR_TOK_CALL) {
             var int funcOffset; funcOffset = MEM_ReadInt(pos-4);
             if (funcOffset >= 0) && (funcOffset < MEM_Parser.stack_stacksize) {
-                valid = (MEM_GetFuncIDByOffset(funcOffset) == G1CP_GetFuncID("PrintDebugNpc", "void|int|string"));
+                valid = (MEM_GetFuncIdByOffset(funcOffset) == G1CP_GetFuncId("PrintDebugNpc", "void|int|string"));
             };
         };
 
@@ -71,13 +71,13 @@ func int G1CP_115_KillSittingDuck_Intercept(var C_Npc self, var float ms) {
     const int npc1446 = -2;
     const int npc1463 = -2;
     if (npc1443 == -2) {
-        npc1443 = G1CP_GetNpcInstID("TPL_1443_Templer");
-        npc1444 = G1CP_GetNpcInstID("TPL_1444_Templer");
-        npc1445 = G1CP_GetNpcInstID("TPL_1445_Templer");
-        npc1446 = G1CP_GetNpcInstID("TPL_1446_Templer");
-        npc1463 = G1CP_GetNpcInstID("TPL_1463_Templer");
+        npc1443 = G1CP_GetNpcInstId("TPL_1443_Templer");
+        npc1444 = G1CP_GetNpcInstId("TPL_1444_Templer");
+        npc1445 = G1CP_GetNpcInstId("TPL_1445_Templer");
+        npc1446 = G1CP_GetNpcInstId("TPL_1446_Templer");
+        npc1463 = G1CP_GetNpcInstId("TPL_1463_Templer");
     };
-    var int slfId; slfId = Hlp_GetInstanceID(self);
+    var int slfId; slfId = Hlp_GetInstanceId(self);
     if (slfId != npc1443) && (slfId != npc1444) && (slfId != npc1445) && (slfId != npc1446) && (slfId != npc1463) {
         // Execute original code for anyone else
         AI_Wait(self, ms);
@@ -96,7 +96,7 @@ func int G1CP_115_KillSittingDuck_Intercept(var C_Npc self, var float ms) {
     while(Npc_GetNextTarget(self));
         // This enemy is in range/sight, pretend to attack
         if (Npc_GetDistToNpc(self, other) < 1200) // 12 m
-        || (Npc_CanSeeNpcFreeLOS(other, self)) {
+        || (Npc_CanSeeNpcFreeLos(other, self)) {
             Npc_SendSinglePerc(self, other, PERC_ASSESSDAMAGE); // You will think I hurt you, kill me now!
             count += 1;
         };

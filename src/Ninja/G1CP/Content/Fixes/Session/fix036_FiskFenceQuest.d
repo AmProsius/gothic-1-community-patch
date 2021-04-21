@@ -5,9 +5,9 @@ func int G1CP_036_FiskFenceQuest() {
     var int applied; applied = FALSE;
 
     // Get all necessary symbols
-    var int funcId; funcId = MEM_GetSymbolIndex("Stt_311_Fisk_MordragKO_Condition");
-    var int varId; varId = MEM_GetSymbolIndex("MordragKO_HauAb");
-    if (funcId == -1) || (varID == -1) || (MEM_GetSymbolIndex("Org_826_Mordrag") == -1) {
+    var int funcId; funcId = G1CP_GetFuncId("Stt_311_Fisk_MordragKO_Condition", "int|none");
+    var int varId; varId = G1CP_GetIntVarId("MordragKO_HauAb", 0);
+    if (funcId == -1) || (varId == -1) || (!G1CP_IsNpcInst("Org_826_Mordrag")) {
         return FALSE;
     };
 

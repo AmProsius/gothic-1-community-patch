@@ -19,7 +19,7 @@ func int G1CP_Test_192() {
     G1CP_Testsuite_CheckPassed();
 
     // Insert test NPC
-    var string wp; wp = Npc_GetNearestWP(hero);
+    var string wp; wp = Npc_GetNearestWp(hero);
     Wld_InsertNpc(G1CP_Test_192_Npc, wp);
     var zCVob test; test = Hlp_GetNpc(G1CP_Test_192_Npc);
     if (!Hlp_IsValidNpc(test)) {

@@ -11,6 +11,6 @@ func int G1CP_044_BugmeatCategory() {
     ITEM_KAT_FOOD = G1CP_GetIntConst("ITEM_KAT_FOOD", 0, ITEM_KAT_FOOD);
 
     // Replace any assignments to mainflag
-    var int symbId; symbId = MEM_GetSymbolIndex("ItAt_Meatbug_01");
-    return (G1CP_ReplaceAssignInt(symbId, 0, "C_ITEM.mainflag", 0, ITEM_KAT_NONE, ITEM_KAT_FOOD) > 0);
+    var int itemId; itemId = G1CP_GetItemInstId("ItAt_Meatbug_01");
+    return (G1CP_ReplaceAssignInt(itemId, 0, "C_ITEM.mainflag", 0, ITEM_KAT_NONE, ITEM_KAT_FOOD) > 0);
 };

@@ -2,7 +2,7 @@
  * #7 NPCs practice sword training without a weapon
  */
 func int G1CP_007_PracticeSwordWithWeapon() {
-    if (MEM_GetSymbolIndex("ZS_PracticeSword_Loop") != -1) {
+    if (G1CP_IsFunc("ZS_PracticeSword_Loop", "|none")) { // Should be "int|none" but is void in the original
         HookDaedalusFuncS("ZS_PracticeSword_Loop", "G1CP_007_PracticeSwordWithWeapon_Hook");
         return TRUE;
     } else {
@@ -42,7 +42,7 @@ func void G1CP_007_PracticeSwordWithWeapon_Hook() {
                 Npc_GetInvItemBySlot(self, INV_WEAPON, slot);
                 if (Hlp_IsValidItem(item)) {
                     if (item.mainflag == ITEM_KAT_NF) {
-                        EquipWeapon(self, Hlp_GetInstanceID(item)); // Equip this exact weapon in particular
+                        EquipWeapon(self, Hlp_GetInstanceId(item)); // Equip this exact weapon in particular
                         AI_RemoveWeapon(self); // In case of fist mode
                         AI_DrawWeapon(self);
                         success = 1;
@@ -58,7 +58,7 @@ func void G1CP_007_PracticeSwordWithWeapon_Hook() {
 
             // No melee weapon, what now?
             if (!success) {
-                var int symbId; symbId = MEM_GetSymbolIndex("ZS_StandAround");
+                var int symbId; symbId = G1CP_GetFuncId("ZS_StandAround", "void|none");
                 if (symbId != -1) {
                     // AI_StartState(self, symbId, 1, ""); // Does not work, expects func parameter
                     MEM_PushInstParam(self);

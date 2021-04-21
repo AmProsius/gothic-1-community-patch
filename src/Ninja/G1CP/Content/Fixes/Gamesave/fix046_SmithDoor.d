@@ -25,10 +25,10 @@ func int G1CP_046_SmithDoor() {
     const int varId    = -2;
     const int varPtr   =  0;
     if (keyIdOld == -2) {
-        keyIdOld = MEM_GetSymbolIndex("ITKEY_OB_SMITH_01");
-        keyIdNew = MEM_GetSymbolIndex("ITKE_OB_SMITH_01");
-        funcId = MEM_GetSymbolIndex("B_Story_ExploreSunkenTower");
-        varId = MEM_GetSymbolIndex("ExploreSunkenTower");
+        keyIdOld = G1CP_GetItemInstId("ITKEY_OB_SMITH_01");
+        keyIdNew = G1CP_GetItemInstId("ITKE_OB_SMITH_01");
+        funcId = G1CP_GetFuncId("B_Story_ExploreSunkenTower", "void|none");
+        varId = G1CP_GetIntVarId("ExploreSunkenTower", 0);
         varPtr = MEM_GetSymbol("ExploreSunkenTower") + zCParSymbol_content_offset;
     };
 
@@ -100,7 +100,7 @@ func int G1CP_046_SmithDoor() {
 
                 // Hook the function only if it makes sense
                 if (funcGood == TRUE) {
-                    HookDaedalusFuncI(funcId, MEM_GetFuncID(G1CP_046_SmithDoor_HookStory));
+                    HookDaedalusFuncI(funcId, MEM_GetFuncId(G1CP_046_SmithDoor_HookStory));
                 };
             };
         };

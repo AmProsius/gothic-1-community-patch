@@ -14,11 +14,11 @@ func int G1CP_Test_016_RunDialog(var string dialogConditionName, var string info
     G1CP_Testsuite_CheckPassed();
 
     // Backup values
-    var int aiVarBak; aiVarBak = G1CP_NpcGetAIVarI(npc, aiVarId, 0);
+    var int aiVarBak; aiVarBak = G1CP_NpcGetAiVarI(npc, aiVarId, 0);
     var int toldBak; toldBak = Npc_KnowsInfo(hero, infoId);
 
     // Set new values
-    G1CP_NpcSetAIVarI(npc, aiVarId, TRUE);
+    G1CP_NpcSetAiVarI(npc, aiVarId, TRUE);
     G1CP_SetInfoTold(infoName, TRUE);
 
     // Call dialog condition function
@@ -26,7 +26,7 @@ func int G1CP_Test_016_RunDialog(var string dialogConditionName, var string info
     var int ret; ret = MEM_PopIntResult();
 
     // Restore values
-    G1CP_NpcSetAIVarI(npc, aiVarId, aiVarBak);
+    G1CP_NpcSetAiVarI(npc, aiVarId, aiVarBak);
     G1CP_SetInfoTold(infoName, toldBak);
 
     // Check return value

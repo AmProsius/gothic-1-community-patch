@@ -3,22 +3,20 @@
  */
 func int G1CP_157_SpeedPotion2Value() {
     // Get content of potion values
-    var int Value_Haste1;
     var int Value_Haste2;
-
-    var int value1SymbPtr; value1SymbPtr = MEM_GetSymbol("Value_Haste1");
-    var int value2SymbPtr; value2SymbPtr = MEM_GetSymbol("Value_Haste2");
-    if (value2SymbPtr) {
+    if (G1CP_IsIntConst("Value_Haste2", 0)) {
         // Find value from constant
-        Value_Haste2 = MEM_ReadInt(value2SymbPtr + zCParSymbol_content_offset);
+        Value_Haste2 = G1CP_GetIntConst("Value_Haste2", 0, 0);
     } else {
         // This one is strictly required
         return FALSE;
     };
-    if (value1SymbPtr) {
+
+    var int Value_Haste1;
+    if (G1CP_IsIntConst("Value_Haste1", 0)) {
         // Find value from constant
-        Value_Haste1 = MEM_ReadInt(value1SymbPtr + zCParSymbol_content_offset);
-    } else if (Itm_GetPtr(MEM_GetSymbolIndex("ItFo_Potion_Haste_01"))) {
+        Value_Haste1 = G1CP_GetIntConst("Value_Haste1", 0, 0);
+    } else if (Itm_GetPtr(G1CP_GetItemInstId("ItFo_Potion_Haste_01"))) {
         // If not found, determine from level one speed potion
         Value_Haste1 = item.value;
     } else {
@@ -27,6 +25,6 @@ func int G1CP_157_SpeedPotion2Value() {
     };
 
     // Replace any assignments to value
-    var int symbId; symbId = MEM_GetSymbolIndex("ItFo_Potion_Haste_02");
-    return (G1CP_ReplaceAssignInt(symbId, 0, "C_ITEM.value", 0, Value_Haste1, Value_Haste2) > 0);
+    var int itemId; itemId = G1CP_GetItemInstId("ItFo_Potion_Haste_02");
+    return (G1CP_ReplaceAssignInt(itemId, 0, "C_ITEM.value", 0, Value_Haste1, Value_Haste2) > 0);
 };

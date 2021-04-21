@@ -5,8 +5,8 @@ func int G1CP_023_BaalNamibSellArmor() {
     var int applied; applied = FALSE;
 
     // Get necessary symbol indices
-    var int funcId;  funcId = MEM_GetSymbolIndex("GUR_1204_BaalNamib_ARMOR_Info");
-    var int chptrId; chptrId = MEM_GetSymbolIndex("Kapitel");
+    var int funcId; funcId = G1CP_GetFuncId("GUR_1204_BaalNamib_ARMOR_Info", "void|none");
+    var int chptrId; chptrId = G1CP_GetIntVarId("Kapitel", 0);
     if (funcId == -1) || (chptrId == -1) {
         return FALSE;
     };

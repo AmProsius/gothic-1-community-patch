@@ -2,7 +2,7 @@
  * #2 NPCs don't use doors properly
  */
 func int G1CP_002_NpcMoveDoor() {
-    if (MEM_GetSymbolIndex("B_MoveMob") != -1) {
+    if (G1CP_IsFunc("B_MoveMob", "void|none")) {
         HookDaedalusFuncS("B_MoveMob", "G1CP_002_NpcMoveDoor_Hook");
         return TRUE;
     } else {
@@ -25,7 +25,7 @@ func void G1CP_002_NpcMoveDoor_Hook() {
         if (Wld_GetMobState(self, door) == 0) {      // Door is closed
             AI_UseMob(self, door,  1);               // Just to be safe
             AI_UseMob(self, door, -1);               // Actual fix
-            G1CP_NpcSetAIVar(self, "AIV_MOVINGMOB", 0); // Prevent starting 'ZS_WaitForPassage'
+            G1CP_NpcSetAiVar(self, "AIV_MOVINGMOB", 0); // Prevent starting 'ZS_WaitForPassage'
         };
     };
 };
