@@ -24,7 +24,7 @@ func void G1CP_Test_046() {
         // First function call (PC doesn't have the key yet): Teleport to the key
 
         // Advance the story progression
-        MEM_CallByID(funcId);
+        MEM_CallById(funcId);
 
         // This dialog would strangely trigger through walls (investigate why! Maybe by "B_CheckForImportantInfo"?)
         G1CP_SetInfoToldI(bartholoId, TRUE);

@@ -18,7 +18,7 @@ func int G1CP_026_LaresGuardAttacks_Hook() {
     G1CP_ReportFuncToSpy();
 
     // Add the new condition (other conditions remain untouched)
-    if (G1CP_NpcGetAIVar(hero, "AIV_GUARDPASSAGE_STATUS", 0)) {
+    if (G1CP_NpcGetAiVar(hero, "AIV_GUARDPASSAGE_STATUS", 0)) {
         return FALSE;
     };
 

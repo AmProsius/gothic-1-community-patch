@@ -7,7 +7,7 @@ func int G1CP_036_FiskFenceQuest() {
     // Get all necessary symbols
     var int funcId; funcId = MEM_GetSymbolIndex("Stt_311_Fisk_MordragKO_Condition");
     var int varId; varId = MEM_GetSymbolIndex("MordragKO_HauAb");
-    if (funcId == -1) || (varID == -1) || (MEM_GetSymbolIndex("Org_826_Mordrag") == -1) {
+    if (funcId == -1) || (varId == -1) || (MEM_GetSymbolIndex("Org_826_Mordrag") == -1) {
         return FALSE;
     };
 

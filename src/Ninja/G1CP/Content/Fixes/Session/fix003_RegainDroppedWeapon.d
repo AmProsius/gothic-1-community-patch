@@ -43,27 +43,27 @@ func void G1CP_003_RegainDroppedWeapon_Logic(var C_Npc slf) {
     // Melee weapon
     if (Wld_DetectItem(slf, ITEM_KAT_NF)) {
         if (Npc_GetDistToItem(slf, item) < 300)   // Prevent walking off too far
-        && (G1CP_NpcCanSeeItemFreeLOS(slf, item)) // Does not have to face it, only line of sight
+        && (G1CP_NpcCanSeeItemFreeLos(slf, item)) // Does not have to face it, only line of sight
         && (!Npc_HasEquippedMeleeWeapon(slf)) {
             AI_TakeItem(slf, item);
-            AI_Function_NI(slf, EquipWeapon, slf, Hlp_GetInstanceID(item)); // Equip this exact weapon in particular
+            AI_Function_NI(slf, EquipWeapon, slf, Hlp_GetInstanceId(item)); // Equip this exact weapon in particular
         };
     };
 
     // Ranged weapon
     if (Wld_DetectItem(slf, ITEM_KAT_FF)) {
         if (Npc_GetDistToItem(slf, item) < 300)
-        && (G1CP_NpcCanSeeItemFreeLOS(slf, item))
+        && (G1CP_NpcCanSeeItemFreeLos(slf, item))
         && (!Npc_HasEquippedRangedWeapon(slf)) {
             AI_TakeItem(slf, item);
-            AI_Function_NI(slf, EquipWeapon, slf, Hlp_GetInstanceID(item));
+            AI_Function_NI(slf, EquipWeapon, slf, Hlp_GetInstanceId(item));
         };
     };
 
     // Ammunition (just a bonus)
     if (Wld_DetectItem(slf, ITEM_KAT_MUN)) {
         if (Npc_GetDistToItem(slf, item) < 300)
-        && (G1CP_NpcCanSeeItemFreeLOS(slf, item)) {
+        && (G1CP_NpcCanSeeItemFreeLos(slf, item)) {
             AI_TakeItem(slf, item);
         };
     };

@@ -21,7 +21,7 @@ func void G1CP_Test_055() {
 
     // Start the second chapter
     MEM_PushIntParam(CHAPTER_NUM);
-    MEM_CallByID(funcId);
+    MEM_CallById(funcId);
 
     // Teleport the player
     Wld_SetTime(10, 0);

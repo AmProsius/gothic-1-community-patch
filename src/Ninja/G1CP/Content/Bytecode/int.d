@@ -92,7 +92,7 @@ func int G1CP_ReplaceAssignInt(var int funcIdOrStartAddr, var int zeroOrEndAddr,
  * replacements.
  * See G1CP_FindInCode for details on the first and second parameter.
  */
-func int G1CP_ReplaceAssignIntID(var int funcIdOrStartAddr, var int zeroOrEndAddr, var string assignedSymb,
+func int G1CP_ReplaceAssignIntId(var int funcIdOrStartAddr, var int zeroOrEndAddr, var string assignedSymb,
                                  var int arrIdx, var int needle, var int replaceId) {
     // Make sure all exist
     if (!G1CP_IsIntI(replaceId, 0)) {

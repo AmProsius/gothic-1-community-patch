@@ -19,14 +19,14 @@ func int G1CP_Test_026() {
     // Backup values
     var int guildBak; guildBak = hero.guild;
     var int attitBak; attitBak = Npc_GetAttitude(npc, hero);
-    var int aiVarBak; aiVarBak = G1CP_NpcGetAIVarI(hero, aiVarId, -1);
+    var int aiVarBak; aiVarBak = G1CP_NpcGetAiVarI(hero, aiVarId, -1);
     var string wpBak; wpBak = npc.wp;
 
     // Set new values
     Npc_SetTempAttitude(npc, ATT_NEUTRAL);
-    G1CP_NpcSetAIVarI(hero, aiVarId, AIV_GPS_FIRSTWARN);
+    G1CP_NpcSetAiVarI(hero, aiVarId, AIV_GPS_FIRSTWARN);
     hero.guild = GIL_GRD;
-    npc.wp = Npc_GetNearestWP(npc);
+    npc.wp = Npc_GetNearestWp(npc);
 
     // Call dialog condition function
     G1CP_Testsuite_Call(funcId, npc, hero, FALSE);
@@ -35,7 +35,7 @@ func int G1CP_Test_026() {
     // Restore values
     hero.guild = guildBak;
     Npc_SetTempAttitude(npc, attitBak);
-    G1CP_NpcSetAIVarI(hero, aiVarId, aiVarBak);
+    G1CP_NpcSetAiVarI(hero, aiVarId, aiVarBak);
     npc.wp = wpBak;
 
     // Check return value

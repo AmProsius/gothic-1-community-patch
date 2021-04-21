@@ -1,11 +1,11 @@
 /*
  * #213 Cauldron in the New Camp can be used without a scoop pt. 2
  */
-func int G1CP_213_UseWithItemNCCauldron2() {
+func int G1CP_213_UseWithItemNcCauldron2() {
     // Make sure the usage item actually exists
     const int symbId = -2;
     if (symbId == -2) {
-        symbId = G1CP_GetItemInstID("ITMISCOOP");
+        symbId = G1CP_GetItemInstId("ITMISCOOP");
     };
     if (symbId == -1) {
         return FALSE;
@@ -27,7 +27,7 @@ func int G1CP_213_UseWithItemNCCauldron2() {
 /*
  * This function reverts the changes
  */
-func int G1CP_213_UseWithItemNCCauldron2Revert() {
+func int G1CP_213_UseWithItemNcCauldron2Revert() {
     // Only revert if it was applied by the G1CP
     if (!G1CP_IsFixApplied(213)) {
         return FALSE;

@@ -98,7 +98,7 @@ func void G1CP_InsertWaypoint(var string name, var int posPtr, var string wp1, v
 /*
  * Get distance to a waypoint
  */
-func int G1CP_GetDistToWP(var int vobPtr, var string wp) {
+func int G1CP_GetDistToWp(var int vobPtr, var string wp) {
     if (!vobPtr) {
         return -1;
     };
@@ -130,7 +130,7 @@ func int G1CP_GetDistToWP(var int vobPtr, var string wp) {
 /*
  * Get nearest waypoint
  */
-func string G1CP_GetNearestWP(var int vobPtr) {
+func string G1CP_GetNearestWp(var int vobPtr) {
     if (!vobPtr) {
         return "";
     };

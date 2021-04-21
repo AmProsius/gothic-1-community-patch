@@ -100,7 +100,7 @@ func int G1CP_046_SmithDoor() {
 
                 // Hook the function only if it makes sense
                 if (funcGood == TRUE) {
-                    HookDaedalusFuncI(funcId, MEM_GetFuncID(G1CP_046_SmithDoor_HookStory));
+                    HookDaedalusFuncI(funcId, MEM_GetFuncId(G1CP_046_SmithDoor_HookStory));
                 };
             };
         };

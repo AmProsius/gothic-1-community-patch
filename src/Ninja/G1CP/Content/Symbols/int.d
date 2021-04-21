@@ -67,7 +67,7 @@ func int G1CP_IsIntSymb(var string name, var int arrIdx, var int isConst) {
 /*
  * Check if integer symbol exists and return its symbol index
  */
-func int G1CP_GetIntSymbID(var string name, var int arrIdx, var int isConst) {
+func int G1CP_GetIntSymbId(var string name, var int arrIdx, var int isConst) {
     if (G1CP_CheckIntSymbol(MEM_GetSymbol(name), arrIdx, isConst)) {
         return MEM_GetSymbolIndex(name);
     } else {
@@ -130,8 +130,8 @@ func int G1CP_IsIntI(var int symbId, var int arrIdx) {
 func int G1CP_IsInt(var string name, var int arrIdx) {
     return G1CP_IsIntSymb(name, arrIdx, 0);
 };
-func int G1CP_GetIntID(var string name, var int arrIdx) {
-    return G1CP_GetIntSymbID(name, arrIdx, 0);
+func int G1CP_GetIntId(var string name, var int arrIdx) {
+    return G1CP_GetIntSymbId(name, arrIdx, 0);
 };
 func int G1CP_GetIntI(var int symbId, var int arrIdx, var int dflt) {
     return G1CP_GetIntSymbI(symbId, arrIdx, 0, dflt);
@@ -156,8 +156,8 @@ func int G1CP_IsIntVarI(var int symbId, var int arrIdx) {
 func int G1CP_IsIntVar(var string name, var int arrIdx) {
     return G1CP_IsIntSymb(name, arrIdx, -1);
 };
-func int G1CP_GetIntVarID(var string name, var int arrIdx) {
-    return G1CP_GetIntSymbID(name, arrIdx, -1);
+func int G1CP_GetIntVarId(var string name, var int arrIdx) {
+    return G1CP_GetIntSymbId(name, arrIdx, -1);
 };
 func int G1CP_GetIntVarI(var int symbId, var int arrIdx, var int dflt) {
     return G1CP_GetIntSymbI(symbId, arrIdx, -1, dflt);
@@ -183,8 +183,8 @@ func int G1CP_IsIntConstI(var int symbId, var int arrIdx) {
 func int G1CP_IsIntConst(var string name, var int arrIdx) {
     return G1CP_IsIntSymb(name, arrIdx, 1);
 };
-func int G1CP_GetIntConstID(var string name, var int arrIdx) {
-    return G1CP_GetIntSymbID(name, arrIdx, 1);
+func int G1CP_GetIntConstId(var string name, var int arrIdx) {
+    return G1CP_GetIntSymbId(name, arrIdx, 1);
 };
 func int G1CP_GetIntConstI(var int symbId, var int arrIdx, var int dflt) {
     return G1CP_GetIntSymbI(symbId, arrIdx, 1, dflt);

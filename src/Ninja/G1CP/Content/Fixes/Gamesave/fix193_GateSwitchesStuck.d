@@ -89,14 +89,14 @@ func int G1CP_193_GateSwitchesStuck() {
                     aniStr = ConcatStrings("S_S", IntToString(state));
 
                     // Check if the model has the corresponding animation
-                    const int zCModel__GetAniIDFromAniName = 4713552; //0x47EC50
+                    const int zCModel__GetAniIdFromAniName = 4713552; //0x47EC50
                     const int strPtr = 0;
                     const int call2 = 0;
                     if (CALL_Begin(call2)) {
                         strPtr = _@s(aniStr);
                         CALL_PtrParam(_@(strPtr));
                         CALL_PutRetValTo(_@(aniId));
-                        CALL__thiscall(_@(model), zCModel__GetAniIDFromAniName);
+                        CALL__thiscall(_@(model), zCModel__GetAniIdFromAniName);
                         call2 = CALL_End();
                     };
 

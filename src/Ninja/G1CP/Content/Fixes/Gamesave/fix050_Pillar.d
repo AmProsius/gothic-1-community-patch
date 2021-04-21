@@ -173,7 +173,7 @@ func void G1CP_050_Pillar_FixBbox() {
 
     // Iterate over all model nodes to compute the correct bounding box
     var int bbox[6]; var int bboxPtr; bboxPtr = _@(bbox);
-    var int modelBBoxPtr; modelBBoxPtr = vob.visual+204; // zCModel.bbox
+    var int modelBboxPtr; modelBboxPtr = vob.visual+204; // zCModel.bbox
     var zCArray nodeList; nodeList = _^(vob.visual+100); // zCArray<zCModelNodeInst*>
     repeat(j, nodeList.numInArray); var int j;
         var int nodeInst; nodeInst = MEM_ReadIntArray(nodeList.array, j); // zCModelNodeInst*
@@ -190,7 +190,7 @@ func void G1CP_050_Pillar_FixBbox() {
             const int call2 = 0;
             if (CALL_Begin(call2)) {
                 CALL_PtrParam(_@(bboxPtr));
-                CALL__thiscall(_@(modelBBoxPtr), zTBBox3D__CalcGreaterBBox3D);
+                CALL__thiscall(_@(modelBboxPtr), zTBBox3D__CalcGreaterBBox3D);
                 call2 = CALL_End();
             };
         };

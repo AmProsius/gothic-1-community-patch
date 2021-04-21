@@ -42,7 +42,7 @@ func void G1CP_007_PracticeSwordWithWeapon_Hook() {
                 Npc_GetInvItemBySlot(self, INV_WEAPON, slot);
                 if (Hlp_IsValidItem(item)) {
                     if (item.mainflag == ITEM_KAT_NF) {
-                        EquipWeapon(self, Hlp_GetInstanceID(item)); // Equip this exact weapon in particular
+                        EquipWeapon(self, Hlp_GetInstanceId(item)); // Equip this exact weapon in particular
                         AI_RemoveWeapon(self); // In case of fist mode
                         AI_DrawWeapon(self);
                         success = 1;

@@ -132,18 +132,18 @@ Content\Fixes\Gamesave\fix045_SpawnSnappersMonastery.d
 Content\Fixes\Gamesave\fix046_SmithDoor.d
 Content\Fixes\Gamesave\fix050_Pillar.d
 Content\Fixes\Gamesave\fix051_StonehengeCryptChest.d
-Content\Fixes\Gamesave\fix052_UseWithItemNCGrindstone.d
+Content\Fixes\Gamesave\fix052_UseWithItemNcGrindstone.d
 Content\Fixes\Gamesave\fix055_ReactivateInExtremo.d
 Content\Fixes\Gamesave\fix093_DE_LogEntryHoratio.d
 Content\Fixes\Gamesave\fix121_DE_LogTopicShrikeHut.d
-Content\Fixes\Gamesave\fix124_GateGuardID.d
+Content\Fixes\Gamesave\fix124_GateGuardId.d
 Content\Fixes\Gamesave\fix133_DE_LogEntryScatty.d
 Content\Fixes\Gamesave\fix143_DE_LogEntryBuster.d
 Content\Fixes\Gamesave\fix193_GateSwitchesStuck.d
 Content\Fixes\Gamesave\fix203_LogEntryGrahamMerchant.d
 Content\Fixes\Gamesave\fix205_LogEntryWolfMerchant.d
-Content\Fixes\Gamesave\fix212_UseWithItemNCCauldron1.d
-Content\Fixes\Gamesave\fix213_UseWithItemNCCauldron2.d
+Content\Fixes\Gamesave\fix212_UseWithItemNcCauldron1.d
+Content\Fixes\Gamesave\fix213_UseWithItemNcCauldron2.d
 
 // Initialization
 Content\initPre.d

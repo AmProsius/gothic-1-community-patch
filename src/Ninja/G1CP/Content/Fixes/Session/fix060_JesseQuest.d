@@ -16,7 +16,7 @@ func int G1CP_060_JesseQuest() {
     var int bytes[3]; // 11 bytes used
     MEMINT_OverrideFunc_Ptr = _@(bytes);
     MEMINT_OFTokPar(zPAR_TOK_PUSHINT, cond1Id);
-    MEMINT_OFTokPar(zPAR_TOK_CALLEXTERN, MEM_GetFuncID(Npc_KnowsInfo));
+    MEMINT_OFTokPar(zPAR_TOK_CALLEXTERN, MEM_GetFuncId(Npc_KnowsInfo));
     MEMINT_OFTok(zPAR_TOK_JUMPF);
     var int matches; matches = G1CP_FindInFunc(funcId, _@(bytes), 11);
 

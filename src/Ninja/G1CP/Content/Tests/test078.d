@@ -22,7 +22,7 @@ func void G1CP_Test_078() {
     G1CP_Testsuite_CheckPassed();
 
     // Insert test NPC
-    var string wp; wp = Npc_GetNearestWP(hero);
+    var string wp; wp = Npc_GetNearestWp(hero);
     Wld_InsertNpc(G1CP_Test_078_Npc, wp);
     var C_Npc test; test = Hlp_GetNpc(G1CP_Test_078_Npc);
     if (!Hlp_IsValidNpc(test)) {
@@ -31,7 +31,7 @@ func void G1CP_Test_078() {
     };
 
     // Insert the orcs
-    wp = Npc_GetNextWP(hero);
+    wp = Npc_GetNextWp(hero);
     Wld_InsertNpc(warriorId, wp);
     test = Hlp_GetNpc(warriorId);
     if (!Hlp_IsValidNpc(test)) {

@@ -1,7 +1,7 @@
 /*
  * Call a function and save the context
  */
-func void G1CP_Testsuite_Call(var int funcId, var int slf, var int oth, var int interruptPC) {
+func void G1CP_Testsuite_Call(var int funcId, var int slf, var int oth, var int interrupt) {
     // Backup global instances
     var C_Npc slfBak; slfBak = MEM_CpyInst(self);
     var C_Npc othBak; othBak = MEM_CpyInst(other);
@@ -30,8 +30,8 @@ func void G1CP_Testsuite_Call(var int funcId, var int slf, var int oth, var int 
     self = MEM_CpyInst(slfBak);
 
     // Optionally reset the PC (e.g. to stop any output units)
-    if (interruptPC) {
-        Npc_ClearAIQueue(hero);
+    if (interrupt) {
+        Npc_ClearAiQueue(hero);
         AI_StandUpQuick(hero);
     };
 };

@@ -59,7 +59,7 @@ func void G1CP_020_KirgoGivesBeer_Hook2(var C_Npc giver, var C_Npc taker, var in
     // Only add actions if fix is currently in progress
     if (G1CP_020_KirgoGivesBeer_Active) {
         // Double check who is giving to who (don't check Kirgo, in case his instance name changed)
-        if (Hlp_GetInstanceID(giver) == Hlp_GetInstanceID(hero)) {
+        if (Hlp_GetInstanceId(giver) == Hlp_GetInstanceId(hero)) {
             // Switch giver and taker
             giver = MEM_CpyInst(taker);
             taker = MEM_CpyInst(hero);

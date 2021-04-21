@@ -69,7 +69,7 @@ func int G1CP_FindPushStr(var int funcIdOrStartAddr, var int zeroOrEndAddr, var 
  * replacements.
  * See G1CP_FindInCode for details on the first and second parameter.
  */
-func int G1CP_ReplaceAssignStrID(var int funcIdOrStartAddr, var int zeroOrEndAddr, var string assignedSymb,
+func int G1CP_ReplaceAssignStrId(var int funcIdOrStartAddr, var int zeroOrEndAddr, var string assignedSymb,
                                  var int arrIdx, var string needle, var int replaceId) {
     // Make sure all exist
     if (!G1CP_IsStringConstI(replaceId, 0)) { // Must be a constant
@@ -113,16 +113,16 @@ func int G1CP_ReplaceAssignStr(var int funcIdOrStartAddr, var int zeroOrEndAddr,
     var int replaceId; replaceId = MEM_ReadInt(calledFrom-4);
 
     // Pass on
-    return G1CP_ReplaceAssignStrID(funcIdOrStartAddr, zeroOrEndAddr, assignedSymb, arrIdx, needle, replaceId);
+    return G1CP_ReplaceAssignStrId(funcIdOrStartAddr, zeroOrEndAddr, assignedSymb, arrIdx, needle, replaceId);
 };
 
 /*
  * Replace any pushed strings with another string (by its symbol ID). The function returns the number of replacements.
  * See G1CP_FindInCode for details on the first and second parameter.
  */
-func int G1CP_ReplacePushStrID(var int funcIdOrStartAddr, var int zeroOrEndAddr, var string needle, var int replaceId) {
+func int G1CP_ReplacePushStrId(var int funcIdOrStartAddr, var int zeroOrEndAddr, var string needle, var int replaceId) {
     // Pass on
-    return G1CP_ReplaceAssignStrID(funcIdOrStartAddr, zeroOrEndAddr, "", 0, needle, replaceId);
+    return G1CP_ReplaceAssignStrId(funcIdOrStartAddr, zeroOrEndAddr, "", 0, needle, replaceId);
 };
 
 /*
@@ -141,5 +141,5 @@ func int G1CP_ReplacePushStr(var int funcIdOrStartAddr, var int zeroOrEndAddr, v
     var int replaceId; replaceId = MEM_ReadInt(calledFrom-4);
 
     // Pass on
-    return G1CP_ReplaceAssignStrID(funcIdOrStartAddr, zeroOrEndAddr, "", 0, needle, replaceId);
+    return G1CP_ReplaceAssignStrId(funcIdOrStartAddr, zeroOrEndAddr, "", 0, needle, replaceId);
 };

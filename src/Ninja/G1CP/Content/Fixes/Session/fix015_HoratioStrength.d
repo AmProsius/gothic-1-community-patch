@@ -3,8 +3,8 @@
  */
 func int G1CP_015_HoratioStrength() {
     var int funcId;   funcId   = MEM_GetSymbolIndex("DIA_Horatio_HelpSTR_LEARN_NOW");
-    var int needleId; needleId = MEM_GetFuncID(PrintScreen);
-    var int replacId; replacId = MEM_GetFuncID(G1CP_015_HoratioStrength_PrintScreen);
+    var int needleId; needleId = MEM_GetFuncId(PrintScreen);
+    var int replacId; replacId = MEM_GetFuncId(G1CP_015_HoratioStrength_PrintScreen);
 
     if (funcId != -1) {
         HookDaedalusFuncS("DIA_Horatio_HelpSTR_LEARN_NOW", "G1CP_015_HoratioStrength_Hook");

@@ -65,7 +65,7 @@ func void G1CP_010_FollowWalkMode_AssessSCHook() {
     const int NPC_RUN               = 0;
 
     if (G1CP_BodyStateContains(hero, BS_RUN)) && (G1CP_BodyStateContains(self, BS_WALK)) {
-        Npc_ClearAIQueue(self);
+        Npc_ClearAiQueue(self);
         AI_StandUpQuick(self);
         AI_SetWalkmode(self, NPC_RUN);
     };

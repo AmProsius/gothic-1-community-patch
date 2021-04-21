@@ -16,7 +16,7 @@ func int G1CP_012_RangedDoubleXP() {
     // Byte code to search for (not using G1CP_ReplaceCall here because of extra checks below)
     const int bytes[4] = {zPAR_TOK_PUSHINT<<24, -1, zPAR_TOK_CALLEXTERN, -1};
     bytes[1] = cond1Id;
-    MEM_WriteInt(_@(bytes)+9, MEM_GetFuncID(Npc_WasInState));
+    MEM_WriteInt(_@(bytes)+9, MEM_GetFuncId(Npc_WasInState));
     var int matches; matches = G1CP_FindInFunc(funcId, _@(bytes)+3, 10);
 
     // Iterate over the matches
@@ -56,7 +56,7 @@ func int G1CP_012_RangedDoubleXP_Condition(var C_Npc slf, var int state) {
 
     // Additional condition: self.aivar[AIV_WASDEFEATEDBYSC]
     var int cond2;
-    cond2 = G1CP_NpcGetAIVar(slf, "AIV_WASDEFEATEDBYSC", 0);
+    cond2 = G1CP_NpcGetAiVar(slf, "AIV_WASDEFEATEDBYSC", 0);
 
     // Either one of the conditions
     return (cond1) || (cond2);

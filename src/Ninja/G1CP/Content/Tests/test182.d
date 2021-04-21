@@ -25,7 +25,7 @@ func int G1CP_Test_182() {
     var int expLpBefore; expLpBefore = hero.lp;
     var int lvlBefore; lvlBefore = hero.level;
     var int aivBak; aivBak = G1CP_NpcGetAiVarI(npc, aiVarId, 0);
-    var string npcWp; npcWp = Npc_GetNearestWP(npc);
+    var string npcWp; npcWp = Npc_GetNearestWp(npc);
     G1CP_LogRenameTopic(CH1_RecruitDusty, TEMP_TOPIC_NAME);
 
     // Remove all ore
@@ -41,8 +41,8 @@ func int G1CP_Test_182() {
     G1CP_Testsuite_Call(funcId, 0, 0, TRUE);
 
     // Satisfy dialog conditions
-    G1CP_NpcSetAIVarI(npc, aiVarId, TRUE);
-    G1CP_NpcBeamTo(npc, Npc_GetNearestWP(hero));
+    G1CP_NpcSetAiVarI(npc, aiVarId, TRUE);
+    G1CP_NpcBeamTo(npc, Npc_GetNearestWp(hero));
 
     // Call the condition function
     G1CP_Testsuite_Call(condId, 0, 0, TRUE);
@@ -60,7 +60,7 @@ func int G1CP_Test_182() {
     if (amountBefore > 0) {
         CreateInvItems(hero, oreId, amountBefore);
     };
-    G1CP_NpcSetAIVarI(npc, aiVarId, aivBak);
+    G1CP_NpcSetAiVarI(npc, aiVarId, aivBak);
     G1CP_NpcBeamTo(npc, npcWp);
     G1CP_LogRemoveTopic(CH1_RecruitDusty);
     G1CP_LogRenameTopic(TEMP_TOPIC_NAME, CH1_RecruitDusty);

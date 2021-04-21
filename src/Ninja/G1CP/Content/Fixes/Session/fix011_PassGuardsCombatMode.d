@@ -96,7 +96,7 @@ func int G1CP_011_CheckInfo(var C_Npc slf, var C_Npc oth) {
 
     // Check if the player is in range to trigger the dialog (a check that is missing in "B_CheckForImportantInfo")
     if (cond1) {
-        if (Npc_CanSeeNpcFreeLOS(slf, oth)) && (Npc_GetDistToNpc(slf, oth) < PERC_DIST_DIALOG) {
+        if (Npc_CanSeeNpcFreeLos(slf, oth)) && (Npc_GetDistToNpc(slf, oth) < PERC_DIST_DIALOG) {
             // B_CheckForImportantInfo(slf, oth)
             MEM_PushInstParam(slf);
             MEM_PushInstParam(oth);
@@ -109,7 +109,7 @@ func int G1CP_011_CheckInfo(var C_Npc slf, var C_Npc oth) {
     MEM_PushInstParam(slf);
     MEM_GetSymbolIndex("ZS_GuardPassage"); // Cannot push integer
     MEM_Call(Npc_IsInState);
-    var int cond2; cond2 = (MEM_PopIntResult()) && (G1CP_NpcGetAIVar(hero, "AIV_GUARDPASSAGE_STATUS", 0) > 0);
+    var int cond2; cond2 = (MEM_PopIntResult()) && (G1CP_NpcGetAiVar(hero, "AIV_GUARDPASSAGE_STATUS", 0) > 0);
 
     // Abort "B_AssessFighter" if either condition is met
     return (cond1) || (cond2);

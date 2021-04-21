@@ -42,10 +42,10 @@ func int G1CP_InitStart() {
         G1CP_zSpyIndent_offset = MEM_GetFuncOffset(G1CP_zSpyIndent);
         G1CP_InitBuildLine_offset = MEM_GetFuncOffset(G1CP_InitBuildLine);
         G1CP_InitBuildLastLine_offset = MEM_GetFuncOffset(G1CP_InitBuildLastLine);
-        sessioninit_id = MEM_GetFuncID(Ninja_G1CP_Menu);
-        gameinit_id = MEM_GetFuncID(G1CP_GamesaveFixes_Apply);
-        gamerevert_id = MEM_GetFuncID(G1CP_GamesaveFixes_Revert);
-        ConcatStrings_id = MEM_GetFuncID(ConcatStrings);
+        sessioninit_id = MEM_GetFuncId(Ninja_G1CP_Menu);
+        gameinit_id = MEM_GetFuncId(G1CP_GamesaveFixes_Apply);
+        gamerevert_id = MEM_GetFuncId(G1CP_GamesaveFixes_Revert);
+        ConcatStrings_id = MEM_GetFuncId(ConcatStrings);
         time_id = MEM_GetSymbolIndex("G1CP_InitStart.time");
         indentStr_id = MEM_GetSymbolIndex("G1CP_InitStart.indentStr");
         actionStr_id = MEM_GetSymbolIndex("G1CP_InitStart.actionStr");
@@ -58,7 +58,7 @@ func int G1CP_InitStart() {
 
     // Hello? Who dis? jk, I gots your caller-ID!
     var int posStart; posStart = MEM_GetCallerStackPos();
-    var int callerId; callerId = MEM_GetFuncIDByOffset(posStart);
+    var int callerId; callerId = MEM_GetFuncIdByOffset(posStart);
     posStart += MEM_Parser.stack_stack;
     var int pos; pos = posStart;
     posStart -= 5;
@@ -136,7 +136,7 @@ func int G1CP_InitStart() {
     // Iterate over all following function calls
     while((tok == zPAR_TOK_CALL) && (pos <= posEnd));
         // Get function that's called next
-        var int funcId; funcId = MEM_GetFuncIDByOffset(offset);
+        var int funcId; funcId = MEM_GetFuncIdByOffset(offset);
 
         // Some initial checks on the function and its name
         if (funcId > 0) && (funcId < MEM_Parser.symtab_table_numInArray) {

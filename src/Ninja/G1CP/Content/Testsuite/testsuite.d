@@ -104,7 +104,7 @@ func string G1CP_TestsuiteAll(var string _) {
 
             // Reset the data stack position and call the test function
             MEM_Parser.datastack_sptr = stkPosBefore;
-            MEM_CallByID(i);
+            MEM_CallById(i);
 
             if (symb.offset == (zPAR_TYPE_INT >> 12)) {
                 if (MEM_PopIntResult()) {

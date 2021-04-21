@@ -27,7 +27,7 @@ func int G1CP_079_WolfDexDialog() {
     // Find "if (Npc_GetTrueGuild(xxxx) == xxxx) { ... }; "
     var int bytes[3]; // 11 bytes used
     MEMINT_OverrideFunc_Ptr = _@(bytes);
-    MEMINT_OFTokPar(zPAR_TOK_CALLEXTERN, MEM_GetFuncID(Npc_GetTrueGuild));
+    MEMINT_OFTokPar(zPAR_TOK_CALLEXTERN, MEM_GetFuncId(Npc_GetTrueGuild));
     MEMINT_OFTok(zPAR_OP_EQUAL);
     MEMINT_OFTokPar(zPAR_TOK_JUMPF,      G1CP_GetFuncStart(funcId) - MEM_Parser.stack_stack+27);
     var int matches; matches = G1CP_FindInFunc(funcId, _@(bytes), 11);

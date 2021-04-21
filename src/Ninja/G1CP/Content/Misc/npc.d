@@ -36,9 +36,9 @@ func int G1CP_NpcCanSeeVob(var int npcPtr, var int vobPtr, var int withAngles) {
 
 
 /*
- * Equivalent function of Npc_CanSeeNpcFreeLOS for Items
+ * Equivalent function of Npc_CanSeeNpcFreeLos for Items
  */
-func int G1CP_NpcCanSeeItemFreeLOS(var C_Npc slf, var C_Item itm) {
+func int G1CP_NpcCanSeeItemFreeLos(var C_Npc slf, var C_Item itm) {
     if (Hlp_IsValidNpc(slf)) && (Hlp_IsValidItem(itm)) {
         return G1CP_NpcCanSeeVob(_@(slf), _@(itm), TRUE);
     } else {
@@ -138,7 +138,7 @@ func void G1CP_NpcBeamTo(var C_Npc slf, var string destination) {
 /*
  * Safe way to obtain the content of an AI-variable
  */
-func int G1CP_NpcGetAIVarI(var C_Npc slf, var int aiVarId, var int dflt) {
+func int G1CP_NpcGetAiVarI(var C_Npc slf, var int aiVarId, var int dflt) {
     // Check if NPC exists
     if (!Hlp_IsValidNpc(slf)) {
         return dflt;
@@ -152,23 +152,23 @@ func int G1CP_NpcGetAIVarI(var C_Npc slf, var int aiVarId, var int dflt) {
     // Read AI variable
     return MEM_ReadStatArr(slf.aivar, G1CP_GetIntConstI(aiVarId, 0, 0));
 };
-func int G1CP_NpcGetAIVar(var C_Npc slf, var string aiVarName, var int dflt) {
-    return G1CP_NpcGetAIVarI(slf, MEM_GetSymbolIndex(aiVarName), dflt);
+func int G1CP_NpcGetAiVar(var C_Npc slf, var string aiVarName, var int dflt) {
+    return G1CP_NpcGetAiVarI(slf, MEM_GetSymbolIndex(aiVarName), dflt);
 };
-func int G1CP_NpcIDGetAIVarI(var int npcInstance, var int aiVarId, var int dflt) {
+func int G1CP_NpcIdGetAiVarI(var int npcInstance, var int aiVarId, var int dflt) {
     var C_Npc slf; slf = Hlp_GetNpc(npcInstance);
-    return G1CP_NpcGetAIVarI(slf, aiVarId, dflt);
+    return G1CP_NpcGetAiVarI(slf, aiVarId, dflt);
 };
-func int G1CP_NpcIDGetAIVar(var int npcInstance, var string aiVarName, var int dflt) {
+func int G1CP_NpcIdGetAiVar(var int npcInstance, var string aiVarName, var int dflt) {
     var C_Npc slf; slf = Hlp_GetNpc(npcInstance);
-    return G1CP_NpcGetAIVar(slf, aiVarName, dflt);
+    return G1CP_NpcGetAiVar(slf, aiVarName, dflt);
 };
 
 
 /*
  * Safe way to set the content of an AI-variable
  */
-func void G1CP_NpcSetAIVarI(var C_Npc slf, var int aiVarId, var int value) {
+func void G1CP_NpcSetAiVarI(var C_Npc slf, var int aiVarId, var int value) {
     // Check if NPC exists
     if (!Hlp_IsValidNpc(slf)) {
         return;
@@ -182,14 +182,14 @@ func void G1CP_NpcSetAIVarI(var C_Npc slf, var int aiVarId, var int value) {
     // Write AI-variable
     MEM_WriteStatArr(slf.aivar, G1CP_GetIntConstI(aiVarId, 0, 0), value);
 };
-func void G1CP_NpcSetAIVar(var C_Npc slf, var string aiVarName, var int value) {
-    G1CP_NpcSetAIVarI(slf, MEM_GetSymbolIndex(aiVarName), value);
+func void G1CP_NpcSetAiVar(var C_Npc slf, var string aiVarName, var int value) {
+    G1CP_NpcSetAiVarI(slf, MEM_GetSymbolIndex(aiVarName), value);
 };
-func void G1CP_NpcIDSetAIVarI(var int npcInstance, var int aiVarId, var int value) {
+func void G1CP_NpcIdSetAiVarI(var int npcInstance, var int aiVarId, var int value) {
     var C_Npc slf; slf = Hlp_GetNpc(npcInstance);
-    G1CP_NpcSetAIVarI(slf, aiVarId, value);
+    G1CP_NpcSetAiVarI(slf, aiVarId, value);
 };
-func void G1CP_NpcIDSetAIVar(var int npcInstance, var string aiVarName, var int value) {
+func void G1CP_NpcIdSetAiVar(var int npcInstance, var string aiVarName, var int value) {
     var C_Npc slf; slf = Hlp_GetNpc(npcInstance);
-    G1CP_NpcSetAIVar(slf, aiVarName, value);
+    G1CP_NpcSetAiVar(slf, aiVarName, value);
 };

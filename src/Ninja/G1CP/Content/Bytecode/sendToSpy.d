@@ -36,7 +36,7 @@ func void G1CP_ByteCodeToSpy(var int posStart, var int posEnd) {
         } else if (tok == zPAR_TOK_CALL) {
             // Stack offset
             if (par >= 0) && (par < MEM_Parser.stack_stacksize) {
-                msg = ConcatStrings(msg, G1CP_GetSymbolName(MEM_GetFuncIDByOffset(par)));
+                msg = ConcatStrings(msg, G1CP_GetSymbolName(MEM_GetFuncIdByOffset(par)));
             } else {
                 msg = ConcatStrings(msg, IntToString(par));
             };
@@ -44,7 +44,7 @@ func void G1CP_ByteCodeToSpy(var int posStart, var int posEnd) {
         } else if (tok == zPAR_TOK_JUMP) || (tok == zPAR_TOK_JUMPF) {
             // Stack offset+
             if (par >= 0) && (par < MEM_Parser.stack_stacksize) {
-                var int jmpFncId; jmpFncId = MEM_GetFuncIDByOffset(par);
+                var int jmpFncId; jmpFncId = MEM_GetFuncIdByOffset(par);
                 var int symbPtr; symbPtr = MEM_GetSymbolByIndex(jmpFncId);
                 var int stk; stk = MEM_ReadInt(symbPtr + zCParSymbol_content_offset);
                 msg = ConcatStrings(msg, MEM_ReadString(symbPtr));

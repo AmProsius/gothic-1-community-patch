@@ -14,7 +14,7 @@ func void G1CP_Test_004() {
     G1CP_Testsuite_CheckPassed();
 
     // Set NPC to defeated
-    G1CP_NpcSetAIVarI(npc, aiVarId, TRUE);
+    G1CP_NpcSetAiVarI(npc, aiVarId, TRUE);
 
     // Exactly in the way
     Wld_SetTime(12,0);
