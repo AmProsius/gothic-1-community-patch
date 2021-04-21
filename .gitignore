@@ -1,5 +1,4 @@
 .idea
-/build/*.vdf
-/build/*.exe
+/build/*
 
 /scriptbase/_work/Data/Scripts/_compiled
