@@ -81,8 +81,15 @@ func int G1CP_193_GateSwitchesStuck() {
         // Update animation and state
         if (state != mob.state) {
 
-            // Get MOB model
-            var int model; model = mob._zCVob_visual;
+            // Get MOB model (in a safe way)
+            const int oCMOB__GetModel = 6794496; //0x67AD00
+            const int call2 = 0;
+            if (CALL_Begin(call2)) {
+                CALL_PutRetValTo(_@(model));
+                CALL__thiscall(_@(vobPtr), oCMOB__GetModel);
+                call2 = CALL_End();
+            };
+            var int model;
             if (model) {
                 if (MEM_ReadInt(model+88)) { // Extra safety: Check for zCModelPrototype
                     const string aniStr = "";
@@ -91,25 +98,25 @@ func int G1CP_193_GateSwitchesStuck() {
                     // Check if the model has the corresponding animation
                     const int zCModel__GetAniIdFromAniName = 4713552; //0x47EC50
                     const int strPtr = 0;
-                    const int call2 = 0;
-                    if (CALL_Begin(call2)) {
+                    const int call3 = 0;
+                    if (CALL_Begin(call3)) {
                         strPtr = _@s(aniStr);
                         CALL_PtrParam(_@(strPtr));
                         CALL_PutRetValTo(_@(aniId));
                         CALL__thiscall(_@(model), zCModel__GetAniIdFromAniName);
-                        call2 = CALL_End();
+                        call3 = CALL_End();
                     };
 
                     // Only if it does, apply it
                     var int aniId;
                     if (aniId != -1) {
                         const int zCModel__StartAni = 5640864; //0x5612A0
-                        const int call3 = 0;
-                        if (CALL_Begin(call3)) {
+                        const int call4 = 0;
+                        if (CALL_Begin(call4)) {
                             CALL_IntParam(_@(FALSE));
                             CALL_PtrParam(_@(aniId));
                             CALL__thiscall(_@(model), zCModel__StartAni);
-                            call3 = CALL_End();
+                            call4 = CALL_End();
                         };
 
                         // Finally update the state
