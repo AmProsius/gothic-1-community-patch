@@ -96,7 +96,7 @@ func int G1CP_050_Pillar() {
 
         // Add state function
         var oCMobInter mob; mob = _^(vobPtr);
-        if (!Hlp_StrCmp(mob.onStateFuncName, "")) && (MEM_GetSymbolIndex(mob.onStateFuncName) != -1) {
+        if (!Hlp_StrCmp(mob.onStateFuncName, "")) && (G1CP_IsCallable(mob.onStateFuncName)) {
             HookDaedalusFuncS(mob.onStateFuncName, "G1CP_050_Pillar_StateFunc_S1");
         } else {
             mob.onStateFuncName = "G1CP_050_PILLAR_STATEFUNC"; // _S1 added automatically

@@ -11,11 +11,12 @@ func int G1CP_133_DE_LogEntryScatty() {
     const int count   = -1;
     if (topicId == -2) {
         // Find and retrieve the topic
-        topicId = MEM_GetSymbolIndex("CH1_JoinOC");
+        topicId = G1CP_GetStringConstId("CH1_JoinOC", 0);
         topicName = G1CP_GetStringConstI(topicId, 0, "");
 
         // Replace the push of the old string with the new string (this is never reverted, i.e. session fix)
-        count = G1CP_ReplacePushStr(MEM_GetSymbolIndex("DIA_Scatty_KirgoSuccess_Info"), 0, curString, newString);
+        var int funcId; funcId = G1CP_GetFuncId("DIA_Scatty_KirgoSuccess_Info", "void|none");
+        count = G1CP_ReplacePushStr(funcId, 0, curString, newString);
     };
 
     // Check if the log topic constant exists and if the adding of the log entry was successfully replaced

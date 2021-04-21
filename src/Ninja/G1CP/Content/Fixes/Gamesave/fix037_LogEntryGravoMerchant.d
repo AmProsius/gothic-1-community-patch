@@ -11,23 +11,23 @@ func int G1CP_037_LogEntryGravoMerchant_Toggle(var int apply) {
     const int LOG_NOTE    = 1;
 
     // Parameters of this fix
-    const int    topicSection  = LOG_NOTE;
+    const int topicSection = LOG_NOTE;
     const string topicSymbName = "GE_TraderOC";
-    const string infoSymbName  = "DIA_Gravo_HelpHow";
-    const string funcSymbName  = "DIA_Gravo_HelpHow_Info";
-    const string hookSymbName  = "G1CP_037_LogEntryGravoMerchant_Intercept";
+    const string infoSymbName = "DIA_Gravo_HelpHow";
+    const string funcSymbName = "DIA_Gravo_HelpHow_Info";
+    const string hookSymbName = "G1CP_037_LogEntryGravoMerchant_Intercept";
 
     // Retrieve the topic and entry strings once and modify the info function
-    const int    infoId  = -2; // -1 is reserved for invalid symbols
-    const int    topicId = -1;
-    const int    entryId = -1;
-    const string topic   = "G1CP invalid topic name";
-    const string entry   = "G1CP invalid topic entry";
+    const int infoId  = -2; // -1 is reserved for invalid symbols
+    const int topicId = -1;
+    const int entryId = -1;
+    const string topic = "G1CP invalid topic name";
+    const string entry = "G1CP invalid topic entry";
     if (infoId == -2) {
-        infoId = MEM_GetSymbolIndex(infoSymbName);
-        topicId = MEM_GetSymbolIndex(topicSymbName);
-        var int funcId; funcId = MEM_GetSymbolIndex(funcSymbName);
-        var int b_logentry_id; b_logentry_id = MEM_GetSymbolIndex("B_LogEntry");
+        infoId = G1CP_GetInfoInstId(infoSymbName);
+        topicId = G1CP_GetStringConstId(topicSymbName, 0);
+        var int funcId; funcId = G1CP_GetFuncId(funcSymbName, "void|none");
+        var int b_logentry_id; b_logentry_id = G1CP_GetFuncId("B_LogEntry", "void|string|string");
 
         // Do this only once (this is never reverted, i.e. session fix)
         if (infoId == -1) || (funcId == -1) || (b_logentry_id == -1) || (topicId == -1) {

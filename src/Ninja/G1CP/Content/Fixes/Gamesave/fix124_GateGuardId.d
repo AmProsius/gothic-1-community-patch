@@ -8,7 +8,7 @@
 func int G1CP_124_GateGuardId_GetInst() {
     const int guardId = -2; // -1 is reserved for invalid symbols
     if (guardId == -2) {
-        guardId = MEM_GetSymbolIndex("GRD_280_Gardist");
+        guardId = G1CP_GetNpcInstId("GRD_280_Gardist");
     };
     return guardId;
 };
@@ -22,7 +22,7 @@ func int G1CP_124_GateGuardId_CodePosPtr() {
     if (!once) {
         once = TRUE;
         const int bytes[3] = {zPar_TOK_PUSHVAR<<24, -1, zPAR_OP_IS};
-        bytes[1] = MEM_GetSymbolIndex("C_Npc.id");
+        bytes[1] = G1CP_GetIntId("C_Npc.id", 0);
         var int matches; matches = G1CP_FindInFunc(G1CP_124_GateGuardId_GetInst(), _@(bytes)+3, 6);
         if (MEM_ArraySize(matches)) {
             codePosPtr = MEM_ArrayLast(matches) - 4;

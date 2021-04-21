@@ -5,7 +5,7 @@ func int G1CP_052_UseWithItemNcGrindstone() {
     // Make sure the usage item actually exists
     const int symbId = -2;
     if (symbId == -2) {
-        symbId = MEM_GetSymbolIndex("ItMiSwordBlade");
+        symbId = G1CP_GetItemInstId("ItMiSwordBlade");
     };
     if (symbId == -1) {
         return FALSE;
