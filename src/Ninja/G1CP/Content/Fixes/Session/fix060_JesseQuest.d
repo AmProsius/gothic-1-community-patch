@@ -5,9 +5,9 @@ func int G1CP_060_JesseQuest() {
     var int applied; applied = FALSE;
 
     // Find all necessary symbols
-    var int funcId; funcId = MEM_GetSymbolIndex("DIA_Jesse_Mission_Condition");
-    var int cond1Id; cond1Id = MEM_GetSymbolIndex("DIA_Jesse_Mission");
-    var int cond2Id; cond2Id = MEM_GetSymbolIndex("DIA_Jesse_Warn");
+    var int funcId; funcId = G1CP_GetFuncId("DIA_Jesse_Mission_Condition", "int|none");
+    var int cond1Id; cond1Id = G1CP_GetInfoInstId("DIA_Jesse_Mission");
+    var int cond2Id; cond2Id = G1CP_GetInfoInstId("DIA_Jesse_Warn");
     if (funcId == -1) || (cond1Id == -1) || (cond2Id == -1) {
         return FALSE;
     };

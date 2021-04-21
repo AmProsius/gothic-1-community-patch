@@ -2,9 +2,9 @@
  * #24 Cor Kalom closes wrong quest
  */
 func int G1CP_024_CorKalomWrongQuest() {
-    if (MEM_GetSymbolIndex("Info_Kalom_KrautboteBACK_Info") != -1)
-    && (MEM_GetSymbolIndex("Kalom_DrugMonopol")             != -1)
-    && (MEM_GetSymbolIndex("Kalom_Krautbote")               != -1) {
+    if (G1CP_IsFunc("Info_Kalom_KrautboteBACK_Info", "void|none"))
+    && (G1CP_IsIntVar("Kalom_DrugMonopol", 0))
+    && (G1CP_IsIntVar("Kalom_Krautbote", 0)) {
         HookDaedalusFuncS("Info_Kalom_KrautboteBACK_Info", "G1CP_024_CorKalomWrongQuest_Hook");
         return TRUE;
     } else {

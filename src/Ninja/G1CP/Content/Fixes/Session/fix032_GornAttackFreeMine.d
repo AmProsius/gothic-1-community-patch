@@ -5,12 +5,13 @@ func int G1CP_032_GornAttackFreeMine() {
     var int applied; applied = FALSE;
 
     // Get necessary symbol indices
-    var int memFncId; memFncId = MEM_GetSymbolIndex("B_AssessAndMemorize");
-    var int assFncId; assFncId = MEM_GetSymbolIndex("B_AssessFightSound");
-    var int state1Id; state1Id = MEM_GetSymbolIndex("ZS_ProclaimAndPunish");
+    var int memFncId; memFncId = G1CP_GetFuncId("B_AssessAndMemorize", "void|int|int|inst|inst|inst");
+    var int assFncId; assFncId = G1CP_GetFuncId("B_AssessFightSound", "void|none");
+    var int state1Id; state1Id = G1CP_GetFuncId("ZS_ProclaimAndPunish", "void|none");
     var int state2Id; state2Id = MEM_GetFuncId(G1CP_032_GornAttackFreeMine_AttackRelay);
     var int sstateId; sstateId = MEM_GetFuncId(AI_StartState);
-    if (memFncId == -1) || (assFncId == -1) || (state1Id == -1) || (MEM_GetSymbolIndex("ZS_Attack") == -1) {
+    if (memFncId == -1) || (assFncId == -1) || (state1Id == -1) || (!G1CP_IsFunc("ZS_Attack", "void|none"))
+    || (!G1CP_IsNpcInst("PC_FighterFM")) {
         return FALSE;
     };
 

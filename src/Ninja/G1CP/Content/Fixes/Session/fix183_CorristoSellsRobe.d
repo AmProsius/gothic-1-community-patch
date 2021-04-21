@@ -2,8 +2,8 @@
  * #183 Corristo sells High Robe multiple times
  */
 func int G1CP_183_CorristoSellsRobe() {
-    if (MEM_GetSymbolIndex("KDF_402_Corristo_HEAVYARMOR_Condition") != -1)
-    && (MEM_GetSymbolIndex("KDF_ARMOR_H") != -1) {
+    if (G1CP_IsFunc("KDF_402_Corristo_HEAVYARMOR_Condition", "int|none"))
+    && (G1CP_IsItemInst("KDF_ARMOR_H")) {
         HookDaedalusFuncS("KDF_402_Corristo_HEAVYARMOR_Condition", "G1CP_183_CorristoSellsRobe_Hook");
         return TRUE;
     } else {

@@ -2,8 +2,8 @@
  * #25 Saturas sells High Robe twice
  */
 func int G1CP_025_SaturasSellsRobe() {
-    if (MEM_GetSymbolIndex("KDW_600_Saturas_HEAVYARMOR_Condition") != -1)
-    && (MEM_GetSymbolIndex("KDW_ARMOR_H") != -1) {
+    if (G1CP_IsFunc("KDW_600_Saturas_HEAVYARMOR_Condition", "int|none"))
+    && (G1CP_IsItemInst("KDW_ARMOR_H")) {
         HookDaedalusFuncS("KDW_600_Saturas_HEAVYARMOR_Condition", "G1CP_025_SaturasSellsRobe_Hook");
         return TRUE;
     } else {

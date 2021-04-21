@@ -2,8 +2,8 @@
  * #109 The player doesn't lose ore when paying protection money to Bloodwyn again
  */
 func int G1CP_109_BloodwynProtectionMoneyPayLater() {
-    if (MEM_GetSymbolIndex("Info_Bloodwyn_PayDay_PayAgain") != -1)
-    && (MEM_GetSymbolIndex("ItMiNugget")                    != -1) {
+    if (G1CP_IsFunc("Info_Bloodwyn_PayDay_PayAgain", "void|none"))
+    && (G1CP_IsItemInst("ItMiNugget")) {
         HookDaedalusFuncS("Info_Bloodwyn_PayDay_PayAgain", "G1CP_109_BloodwynProtectionMoneyPayLater_Hook");
         return TRUE;
     } else {

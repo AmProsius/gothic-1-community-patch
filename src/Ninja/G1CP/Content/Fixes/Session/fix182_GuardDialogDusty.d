@@ -15,18 +15,17 @@ func int G1CP_182_GuardDialogDusty() {
     var int applied; applied = FALSE;
 
     // Get necessary symbol indices
-    var int condId; condId = MEM_GetSymbolIndex("DIA_Grd_216_DustyZoll_Condition");
-    var int funcId; funcId = MEM_GetSymbolIndex("DIA_Grd_216_DustyZoll_LittleWalk");
-    var int entryFuncId; entryFuncId = MEM_GetSymbolIndex("B_LogEntry");
-    var int topicId; topicId = MEM_GetSymbolIndex("CH1_RecruitDusty");
+    var int condId; condId = G1CP_GetFuncId("DIA_Grd_216_DustyZoll_Condition", "int|none");
+    var int funcId; funcId = G1CP_GetFuncId("DIA_Grd_216_DustyZoll_LittleWalk", "void|none");
+    var int entryFuncId; entryFuncId = G1CP_GetFuncId("B_LogEntry", "void|string|string");
+    var int topicId; topicId = G1CP_GetStringConstId("CH1_RecruitDusty", 0);
     if (funcId == -1) || (condId == -1) || (entryFuncId == -1) || (topicId == -1) {
         return FALSE;
     };
 
     // Find "B_LogEntry" in the dialog info function
     const int bytes[2] = {zPAR_TOK_CALL<<24, -1};
-    var zCPar_Symbol symb; symb = _^(MEM_GetSymbolByIndex(entryFuncId));
-    bytes[1] = symb.content;
+    bytes[1] = G1CP_GetCallableOffsetI(entryFuncId);
     var int matches; matches = G1CP_FindInFunc(funcId, _@(bytes)+3, 5);
 
     // There should only be one occurrence, otherwise the function was somehow modified and we cannot identify the entry

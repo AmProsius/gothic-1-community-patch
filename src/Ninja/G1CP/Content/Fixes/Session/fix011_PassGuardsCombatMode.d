@@ -5,14 +5,14 @@ func int G1CP_011_PassGuardsCombatMode() {
     var int applied; applied = FALSE;
 
     // Check if all necessary symbols exist
-    var int funcId; funcId = MEM_GetSymbolIndex("B_AssessFighter");
-    var int checkInfoSymbPtr; checkInfoSymbPtr = MEM_GetSymbol("B_CheckForImportantInfo");
-    if (funcId == -1) || (!checkInfoSymbPtr) {
+    var int funcId; funcId = G1CP_GetFuncId("B_AssessFighter", "void|none");
+    var int checkInfoId; checkInfoId = G1CP_GetFuncId("B_CheckForImportantInfo", "int|inst|inst");
+    if (funcId == -1) || (checkInfoId == -1) {
         return FALSE;
     };
 
     // Get function offsets
-    var int checkInfoOffset; checkInfoOffset = MEM_ReadInt(checkInfoSymbPtr + zCParSymbol_content_offset);
+    var int checkInfoOffset; checkInfoOffset = G1CP_GetCallableOffsetI(checkInfoId);
     var int interceptOffset; interceptOffset = MEM_GetFuncOffset(G1CP_011_CheckInfo);
 
     /* Expected byte code within the function
@@ -107,7 +107,7 @@ func int G1CP_011_CheckInfo(var C_Npc slf, var C_Npc oth) {
     // Additional condition: Is the NPC a guard and is the player trespassing?
     // Npc_IsInState(slf, ZS_GuardPassage)
     MEM_PushInstParam(slf);
-    MEM_GetSymbolIndex("ZS_GuardPassage"); // Cannot push integer
+    G1CP_GetFuncId("ZS_GuardPassage", "void|none"); // Cannot push integer
     MEM_Call(Npc_IsInState);
     var int cond2; cond2 = (MEM_PopIntResult()) && (G1CP_NpcGetAiVar(hero, "AIV_GUARDPASSAGE_STATUS", 0) > 0);
 

@@ -2,9 +2,9 @@
  * #20 Kirgo doesn't give a beer to the player
  */
 func int G1CP_020_KirgoGivesBeer() {
-    if (MEM_GetSymbolIndex("Info_Kirgo_Charge_Beer") != -1)
-    && (MEM_GetSymbolIndex("B_GiveInvItems")         != -1)
-    && (MEM_GetSymbolIndex("ItFoBeer")               != -1) {
+    if (G1CP_IsFunc("Info_Kirgo_Charge_Beer", "void|none"))
+    && (G1CP_IsFunc("B_GiveInvItems", "void|inst|inst|int|int"))
+    && (G1CP_IsItemInst("ItFoBeer")) {
         HookDaedalusFuncS("Info_Kirgo_Charge_Beer", "G1CP_020_KirgoGivesBeer_Hook1");
         HookDaedalusFuncS("B_GiveInvItems", "G1CP_020_KirgoGivesBeer_Hook2");
         return TRUE;

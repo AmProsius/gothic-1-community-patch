@@ -3,15 +3,14 @@
  */
 func int G1CP_039_FingersTeachDialog() {
     // Check if all necessary symbols exist
-    var int funcId;  funcId  = MEM_GetSymbolIndex("DIA_Fingers_Lehrer_Info");
-    var int cond1Id; cond1Id = MEM_GetSymbolIndex("DIA_Fingers_Lehrer_Pickpocket2");
-    var int cond2Id; cond2Id = MEM_GetSymbolIndex("DIA_Fingers_Lehrer_Pickpocket");
-    var int cond3Id; cond3Id = MEM_GetSymbolIndex("DIA_Fingers_Lehrer_Lockpick2");
-    var int cond4Id; cond4Id = MEM_GetSymbolIndex("DIA_Fingers_Lehrer_Lockpick");
-    var int cond5Id; cond5Id = MEM_GetSymbolIndex("NPC_TALENT_PICKPOCKET");
-    var int cond6Id; cond6Id = MEM_GetSymbolIndex("NPC_TALENT_PICKLOCK");
-    if (cond1Id == -1) || (cond2Id == -1) || (cond3Id == -1)
-    || (cond4Id == -1) || (cond5Id == -1) || (cond6Id == -1) || (funcId == -1) {
+    var int funcId; funcId = G1CP_GetFuncId("DIA_Fingers_Lehrer_Info", "void|none");
+    if (funcId == -1)
+    || (!G1CP_IsFunc("DIA_Fingers_Lehrer_Pickpocket2", "void|none"))
+    || (!G1CP_IsFunc("DIA_Fingers_Lehrer_Pickpocket", "void|none"))
+    || (!G1CP_IsFunc("DIA_Fingers_Lehrer_Lockpick2", "void|none"))
+    || (!G1CP_IsFunc("DIA_Fingers_Lehrer_Lockpick", "void|none"))
+    || (!G1CP_IsIntConst("NPC_TALENT_PICKPOCKET", 0))
+    || (!G1CP_IsIntConst("NPC_TALENT_PICKLOCK", 0)) {
         return FALSE;
     };
 
@@ -43,8 +42,8 @@ func void G1CP_039_AllowAddChoice(var int dia, var string choice, var int fncId)
         pp1Id = MEM_GetSymbolIndex("DIA_Fingers_Lehrer_Pickpocket");
         lp2Id = MEM_GetSymbolIndex("DIA_Fingers_Lehrer_Lockpick2");
         lp1Id = MEM_GetSymbolIndex("DIA_Fingers_Lehrer_Lockpick");
-        NPC_TALENT_PICKPOCKET = MEM_ReadInt(MEM_GetSymbol("NPC_TALENT_PICKPOCKET") + zCParSymbol_content_offset);
-        NPC_TALENT_PICKLOCK = MEM_ReadInt(MEM_GetSymbol("NPC_TALENT_PICKLOCK") + zCParSymbol_content_offset);
+        NPC_TALENT_PICKPOCKET = G1CP_GetIntConst("NPC_TALENT_PICKPOCKET", 0, 0);
+        NPC_TALENT_PICKLOCK = G1CP_GetIntConst("NPC_TALENT_PICKLOCK", 0, 0);
     };
 
     // Sanity check

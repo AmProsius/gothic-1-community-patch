@@ -5,7 +5,7 @@ func int G1CP_021_FletcherClosedQuest() {
     var int applied1; var int applied2;
 
     // Check if necessary symbols exist
-    var int funcId; funcId = MEM_GetSymbolIndex("DIA_Fletcher_WoNek_Info");
+    var int funcId; funcId = G1CP_GetFuncId("DIA_Fletcher_WoNek_Info", "void|none");
     if (funcId == -1) {
         return FALSE;
     };

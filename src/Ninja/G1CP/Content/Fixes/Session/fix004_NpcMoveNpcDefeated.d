@@ -5,8 +5,8 @@ func int G1CP_004_NpcMoveNpcDefeated() {
     var int applied; applied = FALSE;
 
     // Get necessary symbol indices
-    var int funcId; funcId = MEM_GetSymbolIndex("B_MoveNpc");
-    if (funcId == -1) || (MEM_GetSymbolIndex("AIV_WasDefeatedBySC") == -1) {
+    var int funcId; funcId = G1CP_GetFuncId("B_MoveNpc", "void|none");
+    if (funcId == -1) || (!G1CP_IsIntConst("AIV_WasDefeatedBySC", 0)) {
         return FALSE;
     };
 

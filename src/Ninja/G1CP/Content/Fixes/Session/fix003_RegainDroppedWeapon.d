@@ -13,7 +13,7 @@ func int G1CP_003_RegainDroppedWeapon() {
     const int AI_EquipBestMeleeWeapon_p  = 6654871; //0x658B97
     const int AI_EquipBestRangedWeapon_p = 6655079; //0x658C67
 
-    if (MEM_GetSymbolIndex("B_RegainDroppedWeapon") != -1)
+    if (G1CP_IsFunc("B_RegainDroppedWeapon", "void|inst"))
     && (G1CP_CheckBytes(AI_TakeItem_p,              "8B F8 83 C4") == 1) // 1 == cannot be hooked
     && (G1CP_CheckBytes(AI_EquipBestMeleeWeapon_p,  "8B F8 83 C4") == 1)
     && (G1CP_CheckBytes(AI_EquipBestRangedWeapon_p, "8B F8 83 C4") == 1) {

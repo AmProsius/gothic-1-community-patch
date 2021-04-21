@@ -2,8 +2,8 @@
  * #9 NPCs freeze when fleeing
  */
 func int G1CP_009_NpcStateFlee() {
-    var int funcId;   funcId   = MEM_GetSymbolIndex("ZS_Flee_Loop");
-    var int needleId; needleId = MEM_GetSymbolIndex("AI_Wait");
+    var int funcId; funcId = G1CP_GetFuncId("ZS_Flee_Loop", "int|none");
+    var int needleId; needleId = MEM_GetFuncId(AI_Wait);
     var int replacId; replacId = MEM_GetFuncId(G1CP_009_NpcStateFlee_Wait);
 
     if (funcId != -1) && (needleId != -1) {

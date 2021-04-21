@@ -2,8 +2,8 @@
  * #22 Y'Berion doesn't attack the player
  */
 func int G1CP_022_YBerionAttacks() {
-    if (MEM_GetSymbolIndex("DIA_YBerion_Wache_Info") != -1)
-    && (MEM_GetSymbolIndex("ZS_ATTACK")              != -1) {
+    if (G1CP_IsFunc("DIA_YBerion_Wache_Info", "void|none"))
+    && (G1CP_IsFunc("ZS_ATTACK", "void|none")) {
         HookDaedalusFuncS("DIA_YBerion_Wache_Info", "G1CP_022_YBerionAttacks_Hook");
         return TRUE;
     } else {

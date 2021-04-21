@@ -2,7 +2,7 @@
  * #136 NPCs cannot use ladders when following the player
  */
 func int G1CP_136_FollowLadder() {
-    if (MEM_GetSymbolIndex("B_FollowPC_AssessSC") != -1) {
+    if (G1CP_IsFunc("B_FollowPC_AssessSC", "void|none")) {
         HookDaedalusFuncS("B_FollowPC_AssessSC", "G1CP_136_FollowLadder_PercHook");
         return TRUE;
     } else {

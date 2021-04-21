@@ -2,8 +2,8 @@
  * #19 Scorpio's fight dialog doesn't disappear
  */
 func int G1CP_019_ScorpioFightDialog() {
-    if (MEM_GetSymbolIndex("DIA_Scorpio_REFUSETRAIN_Condition") != -1)
-    && (MEM_GetSymbolIndex("Kapitel") != -1) {
+    if (G1CP_IsFunc("DIA_Scorpio_REFUSETRAIN_Condition", "int|none"))
+    && (G1CP_IsIntVar("Kapitel", 0)) {
         HookDaedalusFuncS("DIA_Scorpio_REFUSETRAIN_Condition", "G1CP_019_ScorpioFightDialog_Hook");
         return TRUE;
     } else {

@@ -2,7 +2,7 @@
  * #15 Horatio may lower STRENGTH
  */
 func int G1CP_015_HoratioStrength() {
-    var int funcId;   funcId   = MEM_GetSymbolIndex("DIA_Horatio_HelpSTR_LEARN_NOW");
+    var int funcId; funcId = G1CP_GetFuncId("DIA_Horatio_HelpSTR_LEARN_NOW", "void|none");
     var int needleId; needleId = MEM_GetFuncId(PrintScreen);
     var int replacId; replacId = MEM_GetFuncId(G1CP_015_HoratioStrength_PrintScreen);
 
