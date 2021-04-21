@@ -1,5 +1,9 @@
 # Changelog (DE)
 
+## v1.2.0 (TBA)
+### General
+### Story
+
 ## v1.1.0 (TBA)
 ### General
 * Fix [#4](https://g1cp.org/issues/4): Zuvor besiegte NSCs fahren den Spieler nun nicht mehr an, wenn er ihnen im Weg steht.
