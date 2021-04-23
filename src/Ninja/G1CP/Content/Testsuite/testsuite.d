@@ -22,6 +22,9 @@ const int G1CP_TestsuiteAllowManual = FALSE;
 /* Check if test passes */
 const int G1CP_TestsuiteStatusPassed = TRUE;
 
+/* Keep track of the next symbol index for iterating over tests */
+const int G1CP_TestsuiteNext_SymbId = 0;
+
 /*
  * Initialization function
  */
@@ -52,6 +55,9 @@ func int G1CP_TestsuiteRun(var int id) {
     if (!symbPtr) {
         return -1;
     };
+
+    // Update the iterator
+    G1CP_TestsuiteNext_SymbId = MEM_GetSymbolIndex(funcName) + 1;
 
     // Call test function and return
     MEM_CallByString(funcName);
@@ -180,18 +186,15 @@ func string G1CP_TestsuiteCmd(var string command) {
 };
 
 func string G1CP_TestsuiteNext(var string _) {
-    // Constant to continue where left off
-    const int symbId = 0;
-
     // Restart from the beginning
-    if (symbId <= 0) || (symbId >= G1CP_SymbEnd) {
-        symbId = G1CP_SymbStart;
+    if (G1CP_TestsuiteNext_SymbId < G1CP_SymbStart) || (G1CP_TestsuiteNext_SymbId >= G1CP_SymbEnd) {
+        G1CP_TestsuiteNext_SymbId = G1CP_SymbStart;
     };
 
     // Iterate over symbols and find next manual test
-    while(symbId < G1CP_SymbEnd);
+    while(G1CP_TestsuiteNext_SymbId < G1CP_SymbEnd);
         // Compare symbol name
-        var zCPar_Symbol symb; symb = _^(MEM_GetSymbolByIndex(symbId));
+        var zCPar_Symbol symb; symb = _^(MEM_GetSymbolByIndex(G1CP_TestsuiteNext_SymbId));
         if (STR_StartsWith(symb.name, "G1CP_TEST_"))
         && (STR_Len(symb.name) == 13)
         && ((symb.bitfield & zCPar_Symbol_bitfield_type) == zPAR_TYPE_FUNC) {
@@ -203,17 +206,16 @@ func string G1CP_TestsuiteNext(var string _) {
                 break;
             };
         };
-        symbId += 1;
+        G1CP_TestsuiteNext_SymbId += 1;
     end;
 
     // Reached last
-    if (symbId >= G1CP_SymbEnd) {
+    if (G1CP_TestsuiteNext_SymbId >= G1CP_SymbEnd) {
         return "Reached end of manual tests. Will restart from the beginning on next call";
     };
 
-    // Otherwise execute test and advance iterator
+    // Otherwise execute test (advances the iterator)
     G1CP_TestsuiteCmd(IntToString(id));
-    symbId += 1;
 
     // Return info
     var string msg; msg = "Start test of #";
