@@ -26,6 +26,7 @@
 * Fix [#201](https://g1cp.org/issues/201): Die Beschreibung der Rüstung "Antike Erzrüstung" passt nun in die Textbox des Inventars und enthält keinen Rechtschreibfehler mehr.
 * Fix [#212](https://g1cp.org/issues/212): Der Kessel nahe dem Erzhaufen im Neuen Lager setzt zur Benutzung nun korrekt einen Kochlöffel voraus.
 * Fix [#213](https://g1cp.org/issues/213): Der Kessel nahe dem Höhleneingang im Neuen Lager setzt zur Benutzung nun korrekt einen Kochlöffel voraus.
+* Fix [#223](https://g1cp.org/issues/223): Das Tagebuch zeigt nicht mehr die Einträge für sowohl das Alte als auch für das Neue Lager für die Quest "Die Große Sache der Bruderschaft" an.
 
 ### Story
 * Fix [#23](https://g1cp.org/issues/23): Die Rüstung "Novizenrüstung" ist nun im zweiten Kapitel erhältlich, damit sie vor der ersten Templerrüstung erlangt werden kann.
