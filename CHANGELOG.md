@@ -2,6 +2,7 @@
 
 ## v1.2.0 (TBA)
 ### General
+* Fix [#194](https://g1cp.org/issues/194): NPCs now correctly pick up the weapon of their defeated opponent.
 ### Story
 
 ## v1.1.0 (TBA)

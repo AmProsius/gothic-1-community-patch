@@ -2,6 +2,7 @@
 
 ## v1.2.0 (TBA)
 ### General
+* Fix [#194](https://g1cp.org/issues/194): NSCs sammeln nun korrekt die Waffe ihres besiegten Gegners auf.
 ### Story
 
 ## v1.1.0 (TBA)
