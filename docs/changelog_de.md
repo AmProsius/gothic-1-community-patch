@@ -2,6 +2,7 @@
 
 ## v1.2.0 (TBA)
 ### General
+* Fix [#226](https://g1cp.org/issues/226): Ein falsch platzierter Manatrank ist nun korrekt in einer der Truhen in der Gruft unter dem Stonehenge aufzufinden.
 ### Story
 
 ## v1.1.0 (TBA)

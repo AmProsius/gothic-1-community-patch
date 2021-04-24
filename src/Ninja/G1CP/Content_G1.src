@@ -145,6 +145,7 @@ Content\Fixes\Gamesave\fix203_LogEntryGrahamMerchant.d
 Content\Fixes\Gamesave\fix205_LogEntryWolfMerchant.d
 Content\Fixes\Gamesave\fix212_UseWithItemNcCauldron1.d
 Content\Fixes\Gamesave\fix213_UseWithItemNcCauldron2.d
+Content\Fixes\Gamesave\fix226_PotionStonehengeChest.d
 
 // Initialization
 Content\initPre.d
