@@ -32,6 +32,7 @@ func int G1CP_Testsuite() {
     CC_Register(G1CP_TestsuiteList, "test list", "List all tests of G1CP");
     CC_Register(G1CP_TestsuiteNext, "test next", "Execute next manual test of G1CP");
     CC_Register(G1CP_TestsuiteAll, "test all", "Run complete test suite for G1CP");
+    CC_Register(G1CP_TestsuiteActive, "test active", "Run test suite on all active fixes of G1CP");
     CC_Register(G1CP_TestsuiteCmd, "test ", "Run test from test suite for G1CP");
 
     // Confirm registration
@@ -68,9 +69,9 @@ func int G1CP_TestsuiteRun(var int id) {
 };
 
 /*
- * Command handler
+ * Run multiple tests at once
  */
-func string G1CP_TestsuiteAll(var string _) {
+func string G1CP_TestsuiteRunMultiple(var int appliedOnly) {
     var int passed; passed = 0;
     var int failed; failed = 0;
     var int manual; manual = 0;
@@ -100,6 +101,9 @@ func string G1CP_TestsuiteAll(var string _) {
             var int id; id = STR_ToInt(STR_SubStr(symb.name, 10, 3));
             if (G1CP_IsFixApplied(id)) {
                 msg = ConcatStrings(msg, " .");
+            } else if (appliedOnly) {
+                // Skip tests of inactive fixes
+                continue;
             } else {
                 msg = ConcatStrings(msg, "* ");
             };
@@ -155,7 +159,17 @@ func string G1CP_TestsuiteAll(var string _) {
     msg = ConcatStrings(msg, IntToString(manual));
     msg = ConcatStrings(msg, " require manual confirmation. See zSpy for details.");
     return msg;
+};
 
+/*
+ * Command handlers
+ */
+func string G1CP_TestsuiteAll(var string _) {
+    return G1CP_TestsuiteRunMultiple(FALSE);
+};
+
+func string G1CP_TestsuiteActive(var string _) {
+    return G1CP_TestsuiteRunMultiple(TRUE);
 };
 
 func string G1CP_TestsuiteCmd(var string command) {
