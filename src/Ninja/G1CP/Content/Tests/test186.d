@@ -7,7 +7,7 @@
  */
 func int G1CP_Test_186() {
     var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("KDF_402_Corristo_WANNBEKDF_Condition");
-    var int joinId; joinId = G1CP_IsIntVar("Corristo_KDFAufnahme", 0);
+    var int joinId; joinId = G1CP_Testsuite_CheckIntVar("Corristo_KDFAufnahme", 0);
     var int wannaId; wannaId = G1CP_Testsuite_CheckInfo("GRD_200_Thorus_WANNABEMAGE");
     const int GIL_STT = 0; GIL_STT = G1CP_Testsuite_GetIntConst("GIL_STT", 0);
     G1CP_Testsuite_CheckPassed();
@@ -15,11 +15,11 @@ func int G1CP_Test_186() {
     // Backup values
     var int toldBak; toldBak = Npc_KnowsInfo(hero, wannaId);
     var int kdfAufnahmeBak; kdfAufnahmeBak = G1CP_GetIntVarI(joinId, 0, 0);
-    var int guildBak; guildBak = hero.guild;
+    var int guildBak; guildBak = Npc_GetTrueGuild(hero);
 
     // Set new values
     G1CP_SetInfoToldI(wannaId, TRUE);
-    hero.guild = GIL_STT;
+    Npc_SetTrueGuild(hero, GIL_STT);
     G1CP_SetIntVarI(joinId, 0, TRUE);
 
     // Call dialog condition function
@@ -28,7 +28,7 @@ func int G1CP_Test_186() {
 
     // Restore values
     G1CP_SetInfoToldI(wannaId, toldBak);
-    hero.guild = guildBak;
+    Npc_SetTrueGuild(hero, guildBak);
     G1CP_SetIntVarI(joinId, 0, kdfAufnahmeBak);
 
     // Check return value
