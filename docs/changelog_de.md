@@ -2,6 +2,7 @@
 
 ## v1.2.0 (TBA)
 ### General
+* Fix [#58](https://g1cp.org/issues/58): Fallen kann nicht mehr durch Blocken in der Luft unterbrochen werden.
 ### Story
 
 ## v1.1.0 (TBA)

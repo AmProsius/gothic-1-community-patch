@@ -136,6 +136,28 @@ func void G1CP_NpcBeamTo(var C_Npc slf, var string destination) {
 
 
 /*
+ * Instant teleport (for the testsuite functions) to an exact position (rotation not considered)
+ */
+func void G1CP_NpcBeamToPosF(var C_Npc slf, var float x, var float y, var float z) {
+    // Abuse a random waypoint
+    var zCWaypoint wp; wp = _^(MEM_GetAnyWPPtr());
+    var int posBak[3];
+    posBak[0] = wp.pos[0];
+    posBak[1] = wp.pos[1];
+    posBak[2] = wp.pos[2];
+
+    wp.pos[0] = castToIntf(x);
+    wp.pos[1] = castToIntf(y);
+    wp.pos[2] = castToIntf(z);
+    G1CP_NpcBeamTo(slf, wp.name);
+
+    wp.pos[0] = posBak[0];
+    wp.pos[1] = posBak[1];
+    wp.pos[2] = posBak[2];
+};
+
+
+/*
  * Safe way to obtain the content of an AI-variable
  */
 func int G1CP_NpcGetAiVarI(var C_Npc slf, var int aiVarId, var int dflt) {

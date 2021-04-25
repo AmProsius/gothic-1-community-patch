@@ -47,6 +47,7 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
         G1CP_043_EN_SkillMissingWhitespace();           // #43
         G1CP_044_BugmeatCategory();                     // #44
         G1CP_049_DungeonKeyText();                      // #49
+        G1CP_058_BlockFall();                           // #58
         G1CP_059_NpcEquipBestWeapons();                 // #59
         G1CP_060_JesseQuest();                          // #60
         G1CP_078_HumanAttackOrc();                      // #78
