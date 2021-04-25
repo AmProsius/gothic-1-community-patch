@@ -1,5 +1,5 @@
 /*
- * #58 Player can decelerate falls by blocking in mid-air
+ * #58 Player can decelerate falls by fight actions in mid-air
  *
  * There does not seem an easy way to test this fix programmatically, so this test relies on manual confirmation.
  *

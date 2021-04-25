@@ -2,7 +2,7 @@
 
 ## v1.2.0 (TBA)
 ### General
-* Fix [#58](https://g1cp.org/issues/58): Falling can no longer be interrupted by blocking mid-air.
+* Fix [#58](https://g1cp.org/issues/58): Falling can no longer be interrupted by fight actions mid-air.
 ### Story
 
 ## v1.1.0 (TBA)
