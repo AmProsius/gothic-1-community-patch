@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.2.0 (TBA)
+### General
+### Story
+
 ## [v1.1.0](https://g1cp.org/releases/tag/v1.1.0) (2021-05-01)
 ### General
 * Fix [#4](https://g1cp.org/issues/4): NPCs no longer confront the player when he is standing in their way if he has defeated them before.
@@ -15,7 +19,6 @@
 * Fix [#193](https://g1cp.org/issues/193): Objects activated by switches/levers/winches are no longer stuck after loading a game.
 * Fix [#212](https://g1cp.org/issues/212): The cauldron near the ore heap in the New Camp now correctly requires a scoop to use.
 * Fix [#213](https://g1cp.org/issues/213): The cauldron near the entrance of the hollow of the New Camp now correctly requires a scoop to use.
-* Fix [#223](https://g1cp.org/issues/223): The quest log no longer shows entries for both Old Camp and New Camp for the quest "The Big Thing of the Brotherhood".
 
 ### Story
 * Fix [#23](https://g1cp.org/issues/23): The armor "Novice's Armor" is now available in chapter 2 to make it accessible before receiving the first templar armor.
@@ -39,6 +42,7 @@
 * Fix [#215](https://g1cp.org/issues/215): Guy now correctly sits at the arena in the evening.
 * Fix [#216](https://g1cp.org/issues/216): One of the diggers in the Old Camp now correctly repairs his hut during daytime.
 * Fix [#217](https://g1cp.org/issues/217): One of the mercenaries now correctly guards the palisade at the Free Mine in the afternoon.
+* Fix [#223](https://g1cp.org/issues/223): The quest log no longer shows entries for both Old Camp and New Camp for the quest "The Big Thing of the Brotherhood".
 
 ## [v1.0.0](https://github.com/AmProsius/gothic-1-community-patch/releases/tag/v1.0.0) (2021-03-15)
 ### General
