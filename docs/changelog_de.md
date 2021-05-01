@@ -1,10 +1,6 @@
 # Changelog (DE)
 
-## v1.2.0 (TBA)
-### General
-### Story
-
-## v1.1.0 (TBA)
+## [v1.1.0](https://g1cp.org/releases/tag/v1.1.0) (01.05.2021)
 ### General
 * Fix [#4](https://g1cp.org/issues/4): Zuvor besiegte NSCs fahren den Spieler nun nicht mehr an, wenn er ihnen im Weg steht.
 * Fix [#14](https://g1cp.org/issues/14): Der Spieler kann Kämpfe nicht mehr durch Betreten und Verlassen eines Raumes abbrechen. Falls das unerlaubte Betreten des Raumes der Angriffsgrund war, bleibt das Verhalten unverändert.
@@ -59,7 +55,7 @@
 * Fix [#216](https://g1cp.org/issues/216): Einer der Buddler im Alten Lager repariert jetzt korrekt tagsüber seine Hütte.
 * Fix [#217](https://g1cp.org/issues/217): Einer der Söldner passt nun korrekt nachmittags am Talkessel der Freien Mine auf.
 
-## [v1.0.0](https://g1cp.org/releases/tag/v1.0.0) (2021-03-15)
+## [v1.0.0](https://g1cp.org/releases/tag/v1.0.0) (05.03.2021)
 ### General
 * Fix [#1](https://g1cp.org/issues/1): NSCs wachen nicht mehr sofort auf, nachdem sie ins Bett gegangen sind, sondern bleiben liegen.
 * Fix [#2](https://g1cp.org/issues/2): NSCs öffnen nun korrekt geschlossene Türen und gehen hindurch.

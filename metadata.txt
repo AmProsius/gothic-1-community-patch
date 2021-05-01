@@ -1,7 +1,7 @@
 export PATCHNAME=G1CP
 export LONGNAME=Gothic 1 Community Patch
 export VBASE=1
-export VMAJOR=0
+export VMAJOR=1
 export VMINOR=0
 export WEBSITE=https://g1cp.org
 export AUTHOR=G1CP Team

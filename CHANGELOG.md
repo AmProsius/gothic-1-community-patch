@@ -1,10 +1,6 @@
 # Changelog
 
-## v1.2.0 (TBA)
-### General
-### Story
-
-## v1.1.0 (TBA)
+## [v1.1.0](https://g1cp.org/releases/tag/v1.1.0) (2021-05-01)
 ### General
 * Fix [#4](https://g1cp.org/issues/4): NPCs no longer confront the player when he is standing in their way if he has defeated them before.
 * Fix [#14](https://g1cp.org/issues/14): The player can no longer cancel fights by entering and leaving a room. The behavior is unchanged, if trespassing into the room was the reason for the fight.
