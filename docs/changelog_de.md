@@ -3,6 +3,7 @@
 ## v1.2.0 (TBA)
 ### General
 ### Story
+* Fix [#55](https://g1cp.org/issues/55) (aktualisiert): Grim erwähnt In Extremo im zweiten Kapitel nun auch wenn das Konzert noch nicht begonnen hat. Für weitere Informationen zum Fix, siehe v1.1.0.
 
 ## [v1.1.0](https://g1cp.org/releases/tag/v1.1.0) (01.05.2021)
 ### General
@@ -31,7 +32,7 @@
 * Fix [#23](https://g1cp.org/issues/23): Die Rüstung "Novizenrüstung" ist nun im zweiten Kapitel erhältlich, damit sie vor der ersten Templerrüstung erlangt werden kann.
 * Fix [#36](https://g1cp.org/issues/36) (aktualisiert): Fisks Quest "Neuer Hehler für Fisk" is nun verfügbar, wenn der Spieler Mordrag entweder KO geschlagen oder getötet hat.
 * Fix [#37](https://g1cp.org/issues/37): Gravo ist nun korrekt als "Händler im Alten Lager" im Tagebuch aufgelistet.
-* Fix [#55](https://g1cp.org/issues/55): Vorausgesetzt alle nötigen Dateien sind vorhanden, kann das In Extremo Konzert in den Einstellungen aktiviert werden. Dieser Fix ist standardmäßig deaktiviert, um rechtliche Unklarheiten zu vermeiden. Siehe [hier](https://g1cp.org/issues/55#de) wie man ihn aktiviert.
+* Fix [#55](https://g1cp.org/issues/55): Vorausgesetzt alle nötigen Dateien sind vorhanden, kann das In Extremo Konzert in den Einstellungen aktiviert werden. Dieser Fix ist standardmäßig deaktiviert, um rechtliche Unklarheiten zu vermeiden. Siehe [hier](https://g1cp.org/issues/55#de) wie man ihn aktiviert. (überarbeitet in v1.2.0)
 * Fix [#91](https://g1cp.org/issues/91): Die Dialogauswahl mit Horatio: "Ja. Ich will es mit Ricelord und seinen Schlägern aufnehmen können!" lautet nun korrekt "Ja. Ich will es mit dem Reislord und seinen Schlägern aufnehmen können!"
 * Fix [#92](https://g1cp.org/issues/92): Die Dialogauswahl mit Horatio: "Damit ich Reislord und seine Schläger fertigmachen kann!" lautet nun korrekt "Damit ich den Reislord und seine Schläger fertigmachen kann!"
 * Fix [#93](https://g1cp.org/issues/93): Im Tagebucheintrag zu der Quest "Horatio der Bauer" lautet die Phrase "[...] stärker zuzuschalgen." nun korrekt "[...] stärker zuzuschlagen."

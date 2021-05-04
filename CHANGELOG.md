@@ -3,6 +3,7 @@
 ## v1.2.0 (TBA)
 ### General
 ### Story
+* Fix [#55](https://g1cp.org/issues/55) (updated): Grim now correctly mentions In Extremo in the second chapter even if the concert has not yet started playing. For details on the fix, see v1.1.0.
 
 ## [v1.1.0](https://g1cp.org/releases/tag/v1.1.0) (2021-05-01)
 ### General
@@ -24,7 +25,7 @@
 * Fix [#23](https://g1cp.org/issues/23): The armor "Novice's Armor" is now available in chapter 2 to make it accessible before receiving the first templar armor.
 * Fix [#36](https://g1cp.org/issues/36) (updated): Fisk's quest "New Fence for Fisk" is now available when the player either knocked out or killed Mordrag.
 * Fix [#37](https://g1cp.org/issues/37): Gravo is now correctly listed as "Merchant in the Old Camp" in the journal.
-* Fix [#55](https://g1cp.org/issues/55): Given all necessary files are present, the In Extremo concert can be enabled in the settings. This fix is disabled by default due to legal ambiguities. See [here](https://g1cp.org/issues/55) on how to enable it.
+* Fix [#55](https://g1cp.org/issues/55): Given all necessary files are present, the In Extremo concert can be enabled in the settings. This fix is disabled by default due to legal ambiguities. See [here](https://g1cp.org/issues/55) on how to enable it. (revisited in v1.2.0)
 * Fix [#115](https://g1cp.org/issues/115): The templars in the orc graveyard are now less likely to survive.
 * Fix [#174](https://g1cp.org/issues/174): The key "Gomez' Bowl" is now correctly labelled as "Gomez' Key".
 * Fix [#175](https://g1cp.org/issues/175): The key "Rice Lord's Bowl" is now correctly labelled as "Rice Lord's Key".
