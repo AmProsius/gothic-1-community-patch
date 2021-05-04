@@ -14,6 +14,7 @@ func int G1CP_055_ReactivateInExtremo_InitSession() {
     var int adjustStrtMs; adjustStrtMs = 0;
     var int adjustStopMs; adjustStopMs = 0;
     var int adjustDiaAnc; adjustDiaAnc = 0;
+    var int adjustDiaGrm; adjustDiaGrm = 0;
 
     // Get/check essential functions
     var int fncInsertId; fncInsertId = G1CP_GetFuncId("B_InsertInExtremo",     "void|none");
@@ -84,12 +85,13 @@ func int G1CP_055_ReactivateInExtremo_InitSession() {
     };
 
     // Check the announcer's and Grim's dialogs
+    var int fncDiaGConId; fncDiaGConId = G1CP_GetFuncId("DIA_Grim_INEXTREMO_Condition", "int|none");
     var int fncDiaGrimId; fncDiaGrimId = G1CP_GetFuncId("DIA_Grim_INEXTREMO_Info", "void|none");
     var int fncDiaAncrId; fncDiaAncrId = G1CP_GetFuncId("IE_397_Announcer_Announce_Condition", "int|none");
     var int fncDiaAinfId; fncDiaAinfId = G1CP_GetFuncId("IE_397_Announcer_ANNOUNCE_Info", "void|none");
     if (!G1CP_IsInfoInst("IE_397_Announcer_ANNOUNCE")) || (!G1CP_GetInfo("IE_397_Announcer_ANNOUNCE"))
     || (!G1CP_IsInfoInst("DIA_Grim_INEXTREMO"))        || (!G1CP_GetInfo("DIA_Grim_INEXTREMO"))
-    || (fncDiaGrimId == -1) || (fncDiaAncrId == -1) || (fncDiaAinfId == -1) {
+    || (fncDiaGConId == -1) || (fncDiaGrimId == -1) || (fncDiaAncrId == -1) || (fncDiaAinfId == -1) {
         MEM_Info("Necessary dialogs not found");
         return FALSE;
     };
@@ -223,6 +225,25 @@ func int G1CP_055_ReactivateInExtremo_InitSession() {
         return FALSE;
     };
 
+    // Check if "DIA_Grim_INEXTREMO_Condition" has to be adjusted
+    addr = G1CP_GetFuncStart(fncDiaGConId);
+    if (MEM_ReadByte(addr) == zPAR_TOK_PUSHVAR) && (MEM_ReadInt(addr+1) == varPlyingId) {
+        // Condition for "InExtremoPlaying" is present, remove it later
+        adjustDiaGrm = addr;
+    } else if (MEM_ReadByte(addr+5) == zPAR_TOK_PUSHVAR) && (MEM_ReadInt(addr+5+1) == varPlyingId) {
+        var int tok; tok = MEM_ReadByte(addr);
+        if (tok == zPAR_TOK_PUSHVAR) || (tok == zPAR_TOK_PUSHINT) {
+            val = MEM_ReadInt(addr+1);
+            if (tok == zPAR_TOK_PUSHVAR) {
+                val = G1CP_GetIntI(val, 0, 0);
+            };
+            if (val == 1) && (MEM_ReadByte(addr+10) == zPAR_OP_EQUAL) {
+                // Condition for "InExtremoPlaying" is present, remove it later
+                adjustDiaGrm = addr+5;
+            };
+        };
+    };
+
     // Check that the content of "IE_397_Announcer_Announce_Condition" is as expected: Dialog triggered in chapter two
     addr = G1CP_GetFuncStart(fncDiaAncrId);
     good = TRUE;
@@ -304,6 +325,10 @@ func int G1CP_055_ReactivateInExtremo_InitSession() {
     if (adjustStopMs) {
         MEMINT_OverrideFunc_Ptr = adjustStopMs;
         MEMINT_OFTokPar(zPAR_TOK_CALL, MEM_GetFuncOffset(G1CP_055_ReactivateInExtremo_PlayFalse));
+    };
+    if (adjustDiaGrm) {
+        MEMINT_OverrideFunc_Ptr = adjustDiaGrm;
+        MEMINT_OFTokPar(zPAR_TOK_PUSHINT, 1); // Overwrite partial condition to true
     };
     if (adjustDiaAnc) {
         MEMINT_OverrideFunc_Ptr = adjustDiaAnc;
