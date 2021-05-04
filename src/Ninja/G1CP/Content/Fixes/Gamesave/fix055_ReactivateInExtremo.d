@@ -32,7 +32,7 @@ func int G1CP_055_ReactivateInExtremo_InitSession() {
     var int varPlyingId; varPlyingId = G1CP_GetIntVarId("InExtremoPlaying", 0);
     var int varChaptrId; varChaptrId = G1CP_GetIntVarId("Kapitel",          0);
     var int varOnStgeId; varOnStgeId = G1CP_GetIntVarId("InExtremoOnStage", 0); // Not required
-    if (varPlyingId == 1) || (varChaptrId == 1) {
+    if (varPlyingId == -1) || (varChaptrId == -1) {
         MEM_Info("Necessary variables not found");
         return FALSE;
     };
@@ -252,9 +252,7 @@ func int G1CP_055_ReactivateInExtremo_InitSession() {
     };
 
     // Check that the function "B_InsertInExtremo" is not called anywhere
-    bytes[0] = zPAR_TOK_CALL<<24;
-    bytes[1] = G1CP_GetCallableOffsetI(fncInsertId);
-    matches = G1CP_FindInCode(0, 0, _@(bytes)+3, 5, 0);
+    matches = G1CP_FindCall(0, 0, fncInsertId);
     count = MEM_ArraySize(matches);
     MEM_ArrayFree(matches);
     if (count != 0) {
