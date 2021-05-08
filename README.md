@@ -24,15 +24,15 @@ Please note that this is the first release of the G1CP. Work on the patch contin
 * [Spine](https://clockwork-origins.com/de/spine/): Spine makes it easy to manage tools, patches and mods. It enables to install the G1CP with just one click. Another useful feature is the auto-updater that always keeps your version of the G1CP up to date.
 
 ## Contributors
-* **AmProsius**: Project management, quality assurance  
-* **catalinstoian**: Provision of bug fixes from the UnPatch mod 
-* **i5sue5**: Provision of bug fixes from the Definitive Edition mod
-* **szapp**: Rewriting of the provided bug fixes in modular form, management of the project repository
+* [AmProsius](https://github.com/AmProsius)
+* [szapp](https://github.com/szapp)
 
 ## Supporters
-* [pawbuj1981](https://github.com/pawbuj1981)
 * [Blubbler](https://forum.worldofplayers.de/forum/members/14043-Blubbler)
+* [catalinstoian](https://github.com/catalinstoian)
+* [i5sue5](https://github.com/i5sue5)
 * [N1kX94](https://github.com/N1kX94)
+* [pawbuj1981](https://github.com/pawbuj1981)
 
 ## Sources of Inspiration
 

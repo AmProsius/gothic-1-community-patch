@@ -55,7 +55,7 @@ func int G1CP_046_SmithDoor() {
     };
 
     // Check if the door is still locked (an unlocked door does not need this fix)
-    if (!(mob._oCMobLockable_bitfield | oCMobLockable_bitfield_locked)) {
+    if (!(mob._oCMobLockable_bitfield & oCMobLockable_bitfield_locked)) {
         return FALSE;
     };
 
