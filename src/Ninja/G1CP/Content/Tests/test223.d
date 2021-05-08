@@ -26,7 +26,11 @@ func int G1CP_Test_223_CallFunc(var int funcId, var string topic, var string ite
     var int ltPtr; ltPtr = G1CP_LogGetTopic(topic);
     if (ltPtr) {
         var oCLogTopic lt; lt = _^(ltPtr);
-        count = List_Length(lt.m_lstEntries_next);
+        if (lt.m_lstEntries_next) {
+            count = List_Length(lt.m_lstEntries_next);
+        } else {
+            count = 0;
+        };
     };
 
     G1CP_LogRemoveTopic(topic);

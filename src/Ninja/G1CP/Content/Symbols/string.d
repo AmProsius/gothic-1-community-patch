@@ -203,3 +203,41 @@ func void G1CP_SetStringConstI(var int symbId, var int arrIdx, var string value)
 func void G1CP_SetStringConst(var string name, var int arrIdx, var string value) {
     G1CP_SetStringSymb(name, arrIdx, 1, value);
 };
+
+
+/*
+ * Find a string in a constant string array (case-sensitive) and return its array index
+ */
+func int G1CP_FindStringConstArrIdxI(var int symbId, var string needle) {
+    if (symbId < 0) || (symbId >= MEM_Parser.symtab_table_numInArray) {
+        return -1;
+    };
+
+    // Find the string constant symbol
+    var int symbPtr; symbPtr = G1CP_CheckStringSymbol(MEM_GetSymbolByIndex(symbId), 0, TRUE);
+    if (!symbPtr) {
+        return -1;
+    };
+
+    // Search the strings in the array and return the first match if any
+    var zCPar_Symbol symb; symb = _^(symbPtr);
+    repeat(arrIdx, symb.bitfield & zCPar_Symbol_bitfield_ele); var int arrIdx;
+        var int addr; addr = symb.content + sizeof_zString * arrIdx;
+
+        // Paranoid
+        if (MEM_ReadInt(addr) != zString__vtbl) {
+            continue;
+        };
+
+        // Check for match (case-sensitive!)
+        if (STR_Compare(MEM_ReadString(addr), needle) == STR_EQUAL) {
+            return arrIdx;
+        };
+    end;
+
+    // Not found
+    return -1;
+};
+func int G1CP_FindStringConstArrIdx(var string name, var string needle) {
+    return G1CP_FindStringConstArrIdxI(MEM_GetSymbolIndex(name), needle);
+};

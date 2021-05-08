@@ -89,6 +89,7 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
         G1CP_186_CorristoJoinMages();                   // #186
         G1CP_188_CorKalomWeedExploit();                 // #188
         G1CP_192_MagicUserAutoEquip();                  // #192
+        G1CP_194_TakeOpponentWeapon();                  // #194
         G1CP_197_TemplarCampDialog();                   // #197
         G1CP_200_DE_ImprovedOreArmorText();             // #200
         G1CP_201_DE_AncientOreArmorText();              // #201
