@@ -2,6 +2,7 @@
 
 ## v1.2.0 (TBA)
 ### General
+* Fix [#58](https://g1cp.org/issues/58): Fallen kann nicht mehr durch Kampfaktionen in der Luft unterbrochen werden.
 * Fix [#194](https://g1cp.org/issues/194): NSCs sammeln nun korrekt die Waffe ihres besiegten Gegners auf.
 * Fix [#226](https://g1cp.org/issues/226): Ein falsch platzierter Manatrank ist nun korrekt in einer der Truhen in der Gruft unter dem Stonehenge aufzufinden.
 ### Story
