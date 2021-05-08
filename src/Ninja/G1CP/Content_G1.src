@@ -128,6 +128,7 @@ Content\Fixes\Session\fix215_GuyDailyRoutine.d
 Content\Fixes\Session\fix216_DiggerDailyRoutine.d
 Content\Fixes\Session\fix217_MercenaryDailyRoutine.d
 Content\Fixes\Session\fix223_CorKalomSpyQuest.d
+Content\Fixes\Session\fix235_DE_OrcDogMagBook.d
 
 // Game save fixes
 Content\Fixes\Gamesave\fix037_LogEntryGravoMerchant.d

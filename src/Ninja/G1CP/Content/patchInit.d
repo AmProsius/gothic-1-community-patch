@@ -99,6 +99,7 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
         G1CP_216_DiggerDailyRoutine();                  // #216
         G1CP_217_MercenaryDailyRoutine();               // #217
         G1CP_223_CarKalomSpyQuest();                    // #223
+        G1CP_235_DE_OrcDogMagBook();                    // #235
     };
 };
 
