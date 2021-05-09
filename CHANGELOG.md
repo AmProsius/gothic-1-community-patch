@@ -6,7 +6,7 @@
 * Fix [#194](https://g1cp.org/issues/194): NPCs now correctly pick up the weapon of their defeated opponent.
 
 ### Story
-* Fix [#55](https://g1cp.org/issues/55) (updated): Grim now correctly mentions In Extremo in the second chapter even if the concert has not yet started playing. For details on the fix, see v1.1.0.
+* Fix [#55](https://g1cp.org/issues/55) (updated): Grim now correctly mentions In Extremo in the second chapter even if the concert has not yet started playing. For details on the fix, see [v1.1.0](https://g1cp.org/blob/master/CHANGELOG.md#v110-2021-05-01).
 * Fix [#129](https://g1cp.org/issues/129): Drake's body skin color now matches his head.
 * Fix [#220](https://g1cp.org/issues/220): Gor Na Ran no longer attacks the player character in chapter 6.
 * Fix [#224](https://g1cp.org/issues/224): Grash-Varrag-Arushat (the last undead orc priest) can no longer be killed by fall damage.

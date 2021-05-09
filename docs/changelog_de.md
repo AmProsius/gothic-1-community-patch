@@ -8,7 +8,7 @@
 * Fix [#236](https://g1cp.org/issues/226): Der Name in der Gildenzuordnung des Monsters "Ork-Hund" heißt nun korrekt "Orkhund".
 
 ### Story
-* Fix [#55](https://g1cp.org/issues/55) (aktualisiert): Grim erwähnt In Extremo im zweiten Kapitel nun auch wenn das Konzert noch nicht begonnen hat. Für weitere Informationen zum Fix, siehe v1.1.0.
+* Fix [#55](https://g1cp.org/issues/55) (aktualisiert): Grim erwähnt In Extremo im zweiten Kapitel nun auch wenn das Konzert noch nicht begonnen hat. Für weitere Informationen zum Fix, siehe [v1.1.0](https://g1cp.org/blob/master/docs/changelog_de.md#v110-01052021).
 * Fix [#129](https://g1cp.org/issues/129): Drakes Hautfarbe des Körpers entspricht jetzt der seines Kopfes.
 * Fix [#220](https://g1cp.org/issues/220): Gor Na Ran no longer attacks the player character in chapter 6.
 * Fix [#224](https://g1cp.org/issues/224): Grash-Varrag-Arushat (der letzte untote Ork-Priester) kann nicht mehr durch Fallschaden getötet werden.
@@ -70,7 +70,7 @@
 * Fix [#217](https://g1cp.org/issues/217): Einer der Söldner passt nun korrekt nachmittags am Talkessel der Freien Mine auf.
 * Fix [#223](https://g1cp.org/issues/223): Das Tagebuch zeigt nicht mehr die Einträge für sowohl das Alte als auch für das Neue Lager für die Quest "Die Große Sache der Bruderschaft" an.
 
-## [v1.0.0](https://g1cp.org/releases/tag/v1.0.0) (05.03.2021)
+## [v1.0.0](https://g1cp.org/releases/tag/v1.0.0) (15.03.2021)
 ### General
 * Fix [#1](https://g1cp.org/issues/1): NSCs wachen nicht mehr sofort auf, nachdem sie ins Bett gegangen sind, sondern bleiben liegen.
 * Fix [#2](https://g1cp.org/issues/2): NSCs öffnen nun korrekt geschlossene Türen und gehen hindurch.
