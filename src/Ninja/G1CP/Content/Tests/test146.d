@@ -14,5 +14,6 @@ func int G1CP_Test_146() {
         return TRUE;
     } else {
         G1CP_TestsuiteErrorDetailSSS("Name incorrect: name = '", itm.name, "'");
+        return FALSE;
     };
 };
