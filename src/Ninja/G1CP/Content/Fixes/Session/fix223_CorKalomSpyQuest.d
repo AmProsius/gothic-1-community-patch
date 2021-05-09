@@ -80,7 +80,10 @@ func void G1CP_223_CarKalomSpyQuest_Topic1(var string topic, var string entry) {
 
     var C_Npc npc; npc = Hlp_GetNpc(G1CP_GetNpcInstId("Org_826_Mordrag"));
     if (G1CP_GetIntVar("Mordrag_GotoKalom", 0, 0) == LOG_RUNNING) && (!Npc_IsDead(npc)) {
-        B_LogEntry(topic, entry);
+        // B_LogEntry(topic, entry);
+        MEM_PushStringParam(topic);
+        MEM_PushStringParam(entry);
+        MEM_CallByString("B_LogEntry");
     };
 };
 
@@ -94,6 +97,9 @@ func void G1CP_223_CarKalomSpyQuest_Topic2(var string topic, var string entry) {
     const int LOG_RUNNING = 1;
 
     if (G1CP_GetIntVar("Raven_SpySect", 0, 0) == LOG_RUNNING) {
-        B_LogEntry(topic, entry);
+        // B_LogEntry(topic, entry);
+        MEM_PushStringParam(topic);
+        MEM_PushStringParam(entry);
+        MEM_CallByString("B_LogEntry");
     };
 };
