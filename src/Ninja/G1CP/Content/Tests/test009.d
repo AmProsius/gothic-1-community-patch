@@ -11,7 +11,7 @@ func void G1CP_Test_009() {
     var zCWaypoint wp; wp = G1CP_Testsuite_FindWaypoint("PSI_TEMPLE_COURT_2");
     G1CP_Testsuite_CheckPassed();
 
-    G1CP_NpcBeamTo(hero, wp.name);
+    G1CP_Testsuite_NpcBeamTo(hero, wp.name);
     AI_SetNpcsToState(hero, ZS_G1CP_Test_009_State, 4500);
 };
 

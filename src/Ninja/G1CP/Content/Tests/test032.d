@@ -6,8 +6,6 @@
   * Expected behavior: Gorn no longer attacks the player or comments on a death during the raid of the Free Mine.
   */
 func void G1CP_Test_032() {
-    const string WORLD = "FREEMINE.ZEN";
-    const string WP = "FM_02";
     G1CP_Testsuite_CheckManual();
     var int chptrId; chptrId = G1CP_Testsuite_CheckIntVar("Kapitel", 0);
     var int weapId; weapId = G1CP_Testsuite_CheckItem("ItMw_1H_Sword_Old_01");
@@ -30,12 +28,5 @@ func void G1CP_Test_032() {
     EquipWeapon(hero, weapId);
 
     // Teleport the player to the entrance of the Free Mine
-    if (!Hlp_StrCmp(MEM_World.worldFilename, WORLD)) {
-        const int oCGame__TriggerChangeLevel = 6542464; //0x63D480
-        CALL_zStringPtrParam(WP);
-        CALL_zStringPtrParam(WORLD);
-        CALL__thiscall(_@(MEM_Game), oCGame__TriggerChangeLevel);
-    } else {
-        AI_Teleport(hero, WP);
-    };
+    G1CP_Testsuite_NpcTeleportToWorld(hero, "FREEMINE.ZEN", "FM_02");
 };

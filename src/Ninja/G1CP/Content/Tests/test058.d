@@ -9,5 +9,5 @@ func void G1CP_Test_058() {
     G1CP_Testsuite_CheckManual();
 
     Npc_SetToFistMode(hero);
-    G1CP_NpcBeamToPosF(hero, -5055.20459, 3906.66333, -3661.51001);
+    G1CP_Testsuite_NpcBeamToPosF(hero, -5055.20459, 3906.66333, -3661.51001);
 };

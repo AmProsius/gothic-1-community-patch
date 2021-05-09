@@ -42,7 +42,7 @@ func int G1CP_Test_182() {
 
     // Satisfy dialog conditions
     G1CP_NpcSetAiVarI(npc, aiVarId, TRUE);
-    G1CP_NpcBeamTo(npc, Npc_GetNearestWp(hero));
+    G1CP_Testsuite_NpcBeamTo(npc, Npc_GetNearestWp(hero));
 
     // Call the condition function
     G1CP_Testsuite_Call(condId, 0, 0, TRUE);
@@ -61,7 +61,7 @@ func int G1CP_Test_182() {
         CreateInvItems(hero, oreId, amountBefore);
     };
     G1CP_NpcSetAiVarI(npc, aiVarId, aivBak);
-    G1CP_NpcBeamTo(npc, npcWp);
+    G1CP_Testsuite_NpcBeamTo(npc, npcWp);
     G1CP_LogRemoveTopic(CH1_RecruitDusty);
     G1CP_LogRenameTopic(TEMP_TOPIC_NAME, CH1_RecruitDusty);
 
