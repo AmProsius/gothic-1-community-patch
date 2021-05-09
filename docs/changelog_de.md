@@ -6,6 +6,7 @@
 * Fix [#194](https://g1cp.org/issues/194): NSCs sammeln nun korrekt die Waffe ihres besiegten Gegners auf.
 * Fix [#226](https://g1cp.org/issues/226): Ein falsch platzierter Manatrank ist nun korrekt in einer der Truhen in der Gruft unter dem Stonehenge aufzufinden.
 * Fix [#235](https://g1cp.org/issues/235): Der Name im Magiebuch des Zaubers "Verwandlung Orc-Hund" heißt nun korrekt "Verwandlung Orkhund".
+* Fix [#236](https://g1cp.org/issues/226): Der Name in der Gildenzuordnung des Monsters "Ork-Hund" heißt nun korrekt "Orkhund".
 ### Story
 * Fix [#55](https://g1cp.org/issues/55) (aktualisiert): Grim erwähnt In Extremo im zweiten Kapitel nun auch wenn das Konzert noch nicht begonnen hat. Für weitere Informationen zum Fix, siehe v1.1.0.
 
