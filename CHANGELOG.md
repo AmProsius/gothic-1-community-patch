@@ -3,6 +3,7 @@
 ## v1.2.0 (TBA)
 ### General
 * Fix [#58](https://g1cp.org/issues/58): Falling can no longer be interrupted by fight actions mid-air.
+* Fix [#129](https://g1cp.org/issues/129): Drake's body skin color now matches his head.
 * Fix [#194](https://g1cp.org/issues/194): NPCs now correctly pick up the weapon of their defeated opponent.
 * Fix [#226](https://g1cp.org/issues/226): A misplaced mana potion is now correctly inserted in one of the chests in the crypt under the stonehenge.
 ### Story
