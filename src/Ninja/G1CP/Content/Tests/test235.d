@@ -7,5 +7,10 @@ func int G1CP_Test_235() {
     var string name; name = G1CP_Testsuite_GetStringConst("TXT_SPELLS", SPL_TRF_ORCDOG);
     G1CP_Testsuite_CheckPassed();
 
-    return Hlp_StrCmp(name, "Verwandlung Orkhund");
+    if (Hlp_StrCmp(name, "Verwandlung Orkhund")) {
+        return TRUE;
+    } else {
+        G1CP_TestsuiteErrorDetailSSS("Name incorrect: name = '", name, "'");
+        return FALSE;
+    };
 };
