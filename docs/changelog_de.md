@@ -10,6 +10,7 @@
 * Fix [#236](https://g1cp.org/issues/226): Der Name in der Gildenzuordnung des Monsters "Ork-Hund" heißt nun korrekt "Orkhund".
 ### Story
 * Fix [#55](https://g1cp.org/issues/55) (aktualisiert): Grim erwähnt In Extremo im zweiten Kapitel nun auch wenn das Konzert noch nicht begonnen hat. Für weitere Informationen zum Fix, siehe v1.1.0.
+* Fix [#220](https://g1cp.org/issues/220): Gor Na Ran no longer attacks the player character in chapter 6.
 
 ## [v1.1.0](https://g1cp.org/releases/tag/v1.1.0) (01.05.2021)
 ### General
