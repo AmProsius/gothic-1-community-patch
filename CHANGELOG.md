@@ -2,6 +2,7 @@
 
 ## v1.2.0 (TBA)
 ### General
+* Fix [#56](https://g1cp.org/issues/56): The water in the swamp is no longer partially invisible.
 * Fix [#58](https://g1cp.org/issues/58): Falling can no longer be interrupted by fight actions mid-air.
 * Fix [#194](https://g1cp.org/issues/194): NPCs now correctly pick up the weapon of their defeated opponent.
 
