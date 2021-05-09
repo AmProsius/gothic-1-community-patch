@@ -28,5 +28,5 @@ func void G1CP_Test_032() {
     EquipWeapon(hero, weapId);
 
     // Teleport the player to the entrance of the Free Mine
-    G1CP_TeleportToWorld("FREEMINE.ZEN", "FM_02");
+    G1CP_Testsuite_NpcTeleportToWorld(hero, "FREEMINE.ZEN", "FM_02");
 };

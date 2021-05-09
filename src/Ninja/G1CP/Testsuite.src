@@ -5,7 +5,7 @@ Content\Testsuite\get.d
 Content\Testsuite\find.d
 Content\Testsuite\create.d
 Content\Testsuite\call.d
-Content\Testsuite\teleport.d
+Content\Testsuite\npc.d
 
 Content\Tests\test001.d
 Content\Tests\test002.d

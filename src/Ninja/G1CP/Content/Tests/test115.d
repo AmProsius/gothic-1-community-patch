@@ -15,5 +15,5 @@ func void G1CP_Test_115() {
     hero.flags = hero.flags | NPC_FLAG_IMMORTAL;
 
     // Teleport the player to the entrance of the orc graveyard
-    G1CP_TeleportToWorld("ORCGRAVEYARD.ZEN", "GRYD_001");
+    G1CP_Testsuite_NpcTeleportToWorld(hero, "ORCGRAVEYARD.ZEN", "GRYD_001");
 };

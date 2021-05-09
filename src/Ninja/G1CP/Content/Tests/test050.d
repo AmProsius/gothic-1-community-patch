@@ -18,5 +18,5 @@ func void G1CP_Test_050() {
     pillar.bitfield[0] = pillar.bitfield[0] | zCVob_bitfield0_drawBBox3D;
 
     // Teleport PC to the pillar (AI_Teleport not applicable because there is no waypoint nearby)
-    G1CP_NpcBeamTo(hero, pillar._zCObject_objectname);
+    G1CP_Testsuite_NpcBeamTo(hero, pillar._zCObject_objectname);
 };

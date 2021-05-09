@@ -7,5 +7,5 @@
  */
 func void G1CP_Test_129() {
     G1CP_Testsuite_CheckManual();
-    G1CP_TeleportToWorld("OLDMINE.ZEN", "OM_CAVE1_13A");
+    G1CP_Testsuite_NpcTeleportToWorld(hero, "OLDMINE.ZEN", "OM_CAVE1_13A");
 };

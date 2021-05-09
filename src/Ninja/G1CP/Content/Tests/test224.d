@@ -7,5 +7,5 @@
  */
 func void G1CP_Test_224() {
     G1CP_Testsuite_CheckManual();
-    G1CP_TeleportToWorld("ORCTEMPEL.ZEN", "TPL_289");
+    G1CP_Testsuite_NpcTeleportToWorld(hero, "ORCTEMPEL.ZEN", "TPL_289");
 };

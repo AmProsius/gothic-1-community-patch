@@ -7,5 +7,5 @@
  */
 func void G1CP_Test_136() {
     G1CP_Testsuite_CheckManual();
-    G1CP_TeleportToWorld("FREEMINE.ZEN", "FM_20");
+    G1CP_Testsuite_NpcTeleportToWorld(hero, "FREEMINE.ZEN", "FM_20");
 };
