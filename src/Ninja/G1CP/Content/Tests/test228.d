@@ -29,7 +29,8 @@ func int G1CP_Test_228() {
     var int passed; passed = G1CP_NpcGetAiVarI(npc, aiVarId, 0);
 
     // Restore values
-    G1CP_LogRenameTopic(CH1_JoinNC, TEMP_TOPIC_NAME);
+    G1CP_LogRemoveTopic(CH1_JoinNC);
+    G1CP_LogRenameTopic(TEMP_TOPIC_NAME, CH1_JoinNC);
     G1CP_NpcSetAiVarI(npc, aiVarId, aiVarBak);
     G1CP_SetInfoToldI(infoId, toldBak);
 
