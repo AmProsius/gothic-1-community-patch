@@ -3,33 +3,32 @@
 ## v1.2.0 (TBA)
 ### General
 * Fix [#58](https://g1cp.org/issues/58): Falling can no longer be interrupted by fight actions mid-air.
-* Fix [#129](https://g1cp.org/issues/129): Drake's body skin color now matches his head.
 * Fix [#194](https://g1cp.org/issues/194): NPCs now correctly pick up the weapon of their defeated opponent.
-* Fix [#226](https://g1cp.org/issues/226): A misplaced mana potion is now correctly inserted in one of the chests in the crypt under the stonehenge.
+
 ### Story
 * Fix [#55](https://g1cp.org/issues/55) (updated): Grim now correctly mentions In Extremo in the second chapter even if the concert has not yet started playing. For details on the fix, see v1.1.0.
+* Fix [#129](https://g1cp.org/issues/129): Drake's body skin color now matches his head.
 * Fix [#220](https://g1cp.org/issues/220): Gor Na Ran no longer attacks the player character in chapter 6.
+* Fix [#226](https://g1cp.org/issues/226): A misplaced mana potion is now correctly inserted in one of the chests in the crypt under the stonehenge.
 
 ## [v1.1.0](https://g1cp.org/releases/tag/v1.1.0) (2021-05-01)
 ### General
 * Fix [#4](https://g1cp.org/issues/4): NPCs no longer confront the player when he is standing in their way if he has defeated them before.
 * Fix [#14](https://g1cp.org/issues/14): The player can no longer cancel fights by entering and leaving a room. The behavior is unchanged, if trespassing into the room was the reason for the fight.
-* Fix [#45](https://g1cp.org/issues/45): Two snappers outside the Monastery ruins now correctly spawn.
-* Fix [#50](https://g1cp.org/issues/50): The inaccessible chest of the crypt below the stonehenge is now correctly positioned and accessible.
-* Fix [#52](https://g1cp.org/issues/52): The grindstone in the New Camp now correctly requires a sword blade to use.
 * Fix [#110](https://g1cp.org/issues/110): Mouse input is no longer locked when interacting with objects to allow adjusting the camera viewpoint.
 * Fix [#149](https://g1cp.org/issues/149): The armor "Improved ore Armor" is now correctly labelled as "Improved Ore Armor".
 * Fix [#152](https://g1cp.org/issues/152): The description of the ring "Protection of Fire" is corrected to "Ring of Fire Protection".
 * Fix [#176](https://g1cp.org/issues/176): Items with no value no longer show an empty "Value:" in the inventory text.
 * Fix [#192](https://g1cp.org/issues/192): Mages (NPCs fighting only with spells) no longer auto-equip weapons (e.g. after trading). This requires fix #59 to be active.
 * Fix [#193](https://g1cp.org/issues/193): Objects activated by switches/levers/winches are no longer stuck after loading a game.
-* Fix [#212](https://g1cp.org/issues/212): The cauldron near the ore heap in the New Camp now correctly requires a scoop to use.
-* Fix [#213](https://g1cp.org/issues/213): The cauldron near the entrance of the hollow of the New Camp now correctly requires a scoop to use.
 
 ### Story
 * Fix [#23](https://g1cp.org/issues/23): The armor "Novice's Armor" is now available in chapter 2 to make it accessible before receiving the first templar armor.
 * Fix [#36](https://g1cp.org/issues/36) (updated): Fisk's quest "New Fence for Fisk" is now available when the player either knocked out or killed Mordrag.
 * Fix [#37](https://g1cp.org/issues/37): Gravo is now correctly listed as "Merchant in the Old Camp" in the journal.
+* Fix [#45](https://g1cp.org/issues/45): Two snappers outside the Monastery ruins now correctly spawn.
+* Fix [#50](https://g1cp.org/issues/50): The inaccessible chest of the crypt below the stonehenge is now correctly positioned and accessible.
+* Fix [#52](https://g1cp.org/issues/52): The grindstone in the New Camp now correctly requires a sword blade to use.
 * Fix [#55](https://g1cp.org/issues/55): Given all necessary files are present, the In Extremo concert can be enabled in the settings. This fix is disabled by default due to legal ambiguities. See [here](https://g1cp.org/issues/55) on how to enable it. (revisited in v1.2.0)
 * Fix [#115](https://g1cp.org/issues/115): The templars in the orc graveyard are now less likely to survive.
 * Fix [#174](https://g1cp.org/issues/174): The key "Gomez' Bowl" is now correctly labelled as "Gomez' Key".
@@ -44,6 +43,8 @@
 * Fix [#203](https://g1cp.org/issues/203): Graham is now correctly listed as "Merchant in the Old Camp" in the journal.
 * Fix [#204](https://g1cp.org/issues/204): Finger's dialog about Cavalorn will now correctly create the entry in "Tutor outside the camps" in the journal.
 * Fix [#205](https://g1cp.org/issues/205): Wolf is now correctly listed as "Merchant in the New Camp" in the journal.
+* Fix [#212](https://g1cp.org/issues/212): The cauldron near the ore heap in the New Camp now correctly requires a scoop to use.
+* Fix [#213](https://g1cp.org/issues/213): The cauldron near the entrance of the hollow of the New Camp now correctly requires a scoop to use.
 * Fix [#214](https://g1cp.org/issues/214): Graham now correctly sits at the campfire in the evening.
 * Fix [#215](https://g1cp.org/issues/215): Guy now correctly sits at the arena in the evening.
 * Fix [#216](https://g1cp.org/issues/216): One of the diggers in the Old Camp now correctly repairs his hut during daytime.

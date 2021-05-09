@@ -3,22 +3,20 @@
 ## v1.2.0 (TBA)
 ### General
 * Fix [#58](https://g1cp.org/issues/58): Fallen kann nicht mehr durch Kampfaktionen in der Luft unterbrochen werden.
-* Fix [#129](https://g1cp.org/issues/129): Drakes Hautfarbe des Körpers entspricht jetzt der seines Kopfes.
 * Fix [#194](https://g1cp.org/issues/194): NSCs sammeln nun korrekt die Waffe ihres besiegten Gegners auf.
-* Fix [#226](https://g1cp.org/issues/226): Ein falsch platzierter Manatrank ist nun korrekt in einer der Truhen in der Gruft unter dem Stonehenge aufzufinden.
 * Fix [#235](https://g1cp.org/issues/235): Der Name im Magiebuch des Zaubers "Verwandlung Orc-Hund" heißt nun korrekt "Verwandlung Orkhund".
 * Fix [#236](https://g1cp.org/issues/226): Der Name in der Gildenzuordnung des Monsters "Ork-Hund" heißt nun korrekt "Orkhund".
+
 ### Story
 * Fix [#55](https://g1cp.org/issues/55) (aktualisiert): Grim erwähnt In Extremo im zweiten Kapitel nun auch wenn das Konzert noch nicht begonnen hat. Für weitere Informationen zum Fix, siehe v1.1.0.
+* Fix [#129](https://g1cp.org/issues/129): Drakes Hautfarbe des Körpers entspricht jetzt der seines Kopfes.
 * Fix [#220](https://g1cp.org/issues/220): Gor Na Ran no longer attacks the player character in chapter 6.
+* Fix [#226](https://g1cp.org/issues/226): Ein falsch platzierter Manatrank ist nun korrekt in einer der Truhen in der Gruft unter dem Stonehenge aufzufinden.
 
 ## [v1.1.0](https://g1cp.org/releases/tag/v1.1.0) (01.05.2021)
 ### General
 * Fix [#4](https://g1cp.org/issues/4): Zuvor besiegte NSCs fahren den Spieler nun nicht mehr an, wenn er ihnen im Weg steht.
 * Fix [#14](https://g1cp.org/issues/14): Der Spieler kann Kämpfe nicht mehr durch Betreten und Verlassen eines Raumes abbrechen. Falls das unerlaubte Betreten des Raumes der Angriffsgrund war, bleibt das Verhalten unverändert.
-* Fix [#45](https://g1cp.org/issues/45): Zwei Snapper außerhalb der Klosterruine spawnen nun korrekt.
-* Fix [#50](https://g1cp.org/issues/50): Die unerreichbare Truhe in der Gruft unter dem Stonehenge ist nun korrekt positioniert und zugänglich.
-* Fix [#52](https://g1cp.org/issues/52): Der Schleifstein im Neuen Lager setzt zur Benutzung nun korrekt eine Schwertklinge voraus.
 * Fix [#110](https://g1cp.org/issues/110): Die Maus ist während Interaktionen mit Objekten/Gegenständen nicht mehr blockiert und kann die Kameraperspektive beinflussen.
 * Fix [#144](https://g1cp.org/issues/144): Die Rüstung "Gomez'Rüstung" heißt nun korrekt "Gomez' Rüstung".
 * Fix [#145](https://g1cp.org/issues/145): Die Rüstung "leichte Söldnerrüstung" heißt nun korrekt "Leichte Söldnerrüstung".
@@ -32,13 +30,14 @@
 * Fix [#193](https://g1cp.org/issues/193): Objekte, die durch Hebel/Schalter/Winden aktiviert wurden, stecken nach dem Spielladen nicht mehr fest.
 * Fix [#200](https://g1cp.org/issues/200): Die Beschreibung der Rüstung "Verbesserte Erzrüstung" passt nun in die Textbox des Inventars.
 * Fix [#201](https://g1cp.org/issues/201): Die Beschreibung der Rüstung "Antike Erzrüstung" passt nun in die Textbox des Inventars und enthält keinen Rechtschreibfehler mehr.
-* Fix [#212](https://g1cp.org/issues/212): Der Kessel nahe dem Erzhaufen im Neuen Lager setzt zur Benutzung nun korrekt einen Kochlöffel voraus.
-* Fix [#213](https://g1cp.org/issues/213): Der Kessel nahe dem Höhleneingang im Neuen Lager setzt zur Benutzung nun korrekt einen Kochlöffel voraus.
 
 ### Story
 * Fix [#23](https://g1cp.org/issues/23): Die Rüstung "Novizenrüstung" ist nun im zweiten Kapitel erhältlich, damit sie vor der ersten Templerrüstung erlangt werden kann.
 * Fix [#36](https://g1cp.org/issues/36) (aktualisiert): Fisks Quest "Neuer Hehler für Fisk" is nun verfügbar, wenn der Spieler Mordrag entweder KO geschlagen oder getötet hat.
 * Fix [#37](https://g1cp.org/issues/37): Gravo ist nun korrekt als "Händler im Alten Lager" im Tagebuch aufgelistet.
+* Fix [#45](https://g1cp.org/issues/45): Zwei Snapper außerhalb der Klosterruine spawnen nun korrekt.
+* Fix [#50](https://g1cp.org/issues/50): Die unerreichbare Truhe in der Gruft unter dem Stonehenge ist nun korrekt positioniert und zugänglich.
+* Fix [#52](https://g1cp.org/issues/52): Der Schleifstein im Neuen Lager setzt zur Benutzung nun korrekt eine Schwertklinge voraus.
 * Fix [#55](https://g1cp.org/issues/55): Vorausgesetzt alle nötigen Dateien sind vorhanden, kann das In Extremo Konzert in den Einstellungen aktiviert werden. Dieser Fix ist standardmäßig deaktiviert, um rechtliche Unklarheiten zu vermeiden. Siehe [hier](https://g1cp.org/issues/55#de) wie man ihn aktiviert. (überarbeitet in v1.2.0)
 * Fix [#91](https://g1cp.org/issues/91): Die Dialogauswahl mit Horatio: "Ja. Ich will es mit Ricelord und seinen Schlägern aufnehmen können!" lautet nun korrekt "Ja. Ich will es mit dem Reislord und seinen Schlägern aufnehmen können!"
 * Fix [#92](https://g1cp.org/issues/92): Die Dialogauswahl mit Horatio: "Damit ich Reislord und seine Schläger fertigmachen kann!" lautet nun korrekt "Damit ich den Reislord und seine Schläger fertigmachen kann!"
@@ -61,6 +60,8 @@
 * Fix [#203](https://g1cp.org/issues/203): Graham ist nun korrekt als "Händler im Alten Lager" im Tagebuch aufgelistet.
 * Fix [#204](https://g1cp.org/issues/204): Fingers' Dialog über Cavalorn erstellt nun korrekt den Eintrag in "Lehrer ausserhalb der Lager" im Tagebuch.
 * Fix [#205](https://g1cp.org/issues/205): Wolf ist nun korrekt als "Händler im Neuen Lager" im Tagebuch aufgelistet.
+* Fix [#212](https://g1cp.org/issues/212): Der Kessel nahe dem Erzhaufen im Neuen Lager setzt zur Benutzung nun korrekt einen Kochlöffel voraus.
+* Fix [#213](https://g1cp.org/issues/213): Der Kessel nahe dem Höhleneingang im Neuen Lager setzt zur Benutzung nun korrekt einen Kochlöffel voraus.
 * Fix [#214](https://g1cp.org/issues/214): Graham sitzt nun korrekt abends am Lagerfeuer.
 * Fix [#215](https://g1cp.org/issues/215): Guy sitzt nun korrekt abends bei der Arena.
 * Fix [#216](https://g1cp.org/issues/216): Einer der Buddler im Alten Lager repariert jetzt korrekt tagsüber seine Hütte.
