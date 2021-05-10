@@ -4,6 +4,7 @@
 ### General
 * Fix [#58](https://g1cp.org/issues/58): Fallen kann nicht mehr durch Kampfaktionen in der Luft unterbrochen werden.
 * Fix [#194](https://g1cp.org/issues/194): NSCs sammeln nun korrekt die Waffe ihres besiegten Gegners auf.
+* Fix [#232](https://g1cp.org/issues/232): Die Spruchrolle "Verwandlung Bloodfly" heißt nun korrekt "Verwandlung Blutfliege".
 * Fix [#235](https://g1cp.org/issues/235): Der Name im Magiebuch des Zaubers "Verwandlung Orc-Hund" heißt nun korrekt "Verwandlung Orkhund".
 * Fix [#236](https://g1cp.org/issues/226): Der Name in der Gildenzuordnung des Monsters "Ork-Hund" heißt nun korrekt "Orkhund".
 

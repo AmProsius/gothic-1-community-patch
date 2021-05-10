@@ -6,19 +6,19 @@
 func int G1CP_Testsuite_InspectItemVariable(var C_Item itm, var string type, var string expectedVar) {
     var string itmVar;
 
-    if (type == "name") {
+    if (Hlp_StrCmp(type, "name")) {
         itmVar = itm.name;
-    } else if (type == "description") {
+    } else if (Hlp_StrCmp(type, "description")) {
         itmVar = itm.description;
-    } else if (type == "text[0]") {
+    } else if (Hlp_StrCmp(type, "text[0]")) {
         itmVar = itm.text;
-    } else if (type == "text[1]") {
+    } else if (Hlp_StrCmp(type, "text[1]")) {
         itmVar = MEM_ReadStatStringArr(itm.text, 1);
-    } else if (type == "text[2]") {
+    } else if (Hlp_StrCmp(type, "text[2]")) {
         itmVar = MEM_ReadStatStringArr(itm.text, 2);
-    } else if (type == "text[3]") {
+    } else if (Hlp_StrCmp(type, "text[3]")) {
         itmVar = MEM_ReadStatStringArr(itm.text, 3);
-    } else if (type == "text[4]") {
+    } else if (Hlp_StrCmp(type, "text[4]")) {
         itmVar = MEM_ReadStatStringArr(itm.text, 4);
     } else {
         return FALSE;
