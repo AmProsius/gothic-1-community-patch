@@ -6,6 +6,7 @@ Content\Testsuite\find.d
 Content\Testsuite\create.d
 Content\Testsuite\call.d
 Content\Testsuite\npc.d
+Content\Testsuite\inspect.d
 
 Content\Tests\test001.d
 Content\Tests\test002.d
@@ -118,5 +119,6 @@ Content\Tests\test223.d
 Content\Tests\test224.d
 Content\Tests\test226.d
 Content\Tests\test228.d
+Content\Tests\test232.d
 Content\Tests\test235.d
 Content\Tests\test236.d

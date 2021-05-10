@@ -11,13 +11,13 @@ func int G1CP_Test_125() {
     G1CP_Testsuite_CheckPassed();
 
     // Static string arrays cannot be read directly
-    var string itm_text_4; itm_text_4 = MEM_ReadStatStringArr(itm.text, 4);
+    var string itmText; itmText = MEM_ReadStatStringArr(itm.text, 4);
 
-    if (Hlp_StrCmp(itm_text_4, "One-handed Weapon")) // EN
-    || (Hlp_StrCmp(itm_text_4, "Einhandwaffe")) {    // DE
-        return TRUE;
-    } else {
-        G1CP_TestsuiteErrorDetailSSS("Text incorrect: text[4] = '", itm_text_4, "'");
+    if (!Hlp_StrCmp(itmText, "One-handed Weapon")) // EN
+    && (!Hlp_StrCmp(itmText, "Einhandwaffe")) {    // DE
+        G1CP_TestsuiteErrorDetailSSS("Text incorrect: text[4] = '", itmText, "'");
         return FALSE;
     };
+
+    return TRUE;
 };
