@@ -18,10 +18,10 @@ func int G1CP_Test_043() {
     var string output; output = MEM_PopStringResult();
 
     // Test the output
-    if (Hlp_StrCmp(output, "Test 43 (10 ore, 20 skill points)")) {
-        return TRUE;
-    } else {
+    if (!Hlp_StrCmp(output, "Test 43 (10 ore, 20 skill points)")) {
         G1CP_TestsuiteErrorDetail(ConcatStrings("Output incorrect: ", output));
         return FALSE;
     };
+
+    return TRUE;
 };
