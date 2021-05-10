@@ -4,9 +4,10 @@
 ### General
 * Fix [#58](https://g1cp.org/issues/58): Fallen kann nicht mehr durch Kampfaktionen in der Luft unterbrochen werden.
 * Fix [#194](https://g1cp.org/issues/194): NSCs sammeln nun korrekt die Waffe ihres besiegten Gegners auf.
-* Fix [#232](https://g1cp.org/issues/232): Die Spruchrolle "Verwandlung Bloodfly" heißt nun korrekt "Verwandlung Blutfliege".
-* Fix [#235](https://g1cp.org/issues/235): Der Name im Magiebuch des Zaubers "Verwandlung Orc-Hund" heißt nun korrekt "Verwandlung Orkhund".
-* Fix [#236](https://g1cp.org/issues/226): Der Name in der Gildenzuordnung des Monsters "Ork-Hund" heißt nun korrekt "Orkhund".
+* Fix [#231](https://g1cp.org/issues/231): Die Beschreibung der Spruchrolle "Verwandlung Orcdog" lautet nun korrekt "Verwandlung Orkhund".
+* Fix [#232](https://g1cp.org/issues/232): Die Beschreibung der Spruchrolle "Verwandlung Bloodfly" lautet nun korrekt "Verwandlung Blutfliege".
+* Fix [#235](https://g1cp.org/issues/235): Der Name im Magiebuch des Zaubers "Verwandlung Orc-Hund" lautet nun korrekt "Verwandlung Orkhund".
+* Fix [#236](https://g1cp.org/issues/226): Der Name in der Gildenzuordnung des Monsters "Ork-Hund" lautet nun korrekt "Orkhund".
 
 ### Story
 * Fix [#55](https://g1cp.org/issues/55) (aktualisiert): Grim erwähnt In Extremo im zweiten Kapitel nun auch wenn das Konzert noch nicht begonnen hat. Für weitere Informationen zum Fix, siehe [v1.1.0](https://g1cp.org/blob/master/docs/changelog_de.md#v110-01052021).
