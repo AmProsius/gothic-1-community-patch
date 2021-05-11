@@ -10,6 +10,7 @@
 * Fix [#129](https://g1cp.org/issues/129): Drake's body skin color now matches his head.
 * Fix [#220](https://g1cp.org/issues/220): Gor Na Ran no longer attacks the player character in chapter 6.
 * Fix [#224](https://g1cp.org/issues/224): Grash-Varrag-Arushat (the last undead orc priest) can no longer be killed by fall damage.
+* Fix [#225](https://g1cp.org/issues/225): Mordrag can no longer be told to "get out of here" if he guided the player to the New Camp.
 * Fix [#226](https://g1cp.org/issues/226): A misplaced mana potion is now correctly inserted in one of the chests in the crypt under the stonehenge.
 * Fix [#228](https://g1cp.org/issues/228): Gorn can now correctly be asked about in ambient dialogs after the player talked to Lares.
 

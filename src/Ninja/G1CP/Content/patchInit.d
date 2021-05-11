@@ -101,6 +101,7 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
         G1CP_217_MercenaryDailyRoutine();               // #217
         G1CP_220_GorNaRanDialogMad();                   // #220
         G1CP_223_CarKalomSpyQuest();                    // #223
+        G1CP_225_MordragNcGetOut();                     // #225
         G1CP_228_LaresDialogFindGorn();                 // #228
         G1CP_231_DE_TransformOrcDogDescription();       // #231
         G1CP_232_DE_TransformBloodflyDescription();     // #232
