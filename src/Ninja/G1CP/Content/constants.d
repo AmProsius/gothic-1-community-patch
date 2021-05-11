@@ -16,4 +16,4 @@ const int G1CP_FIX_NOT_APPLIED =  0;
 const int G1CP_FIX_APPLIED     =  1;
 
 /* Comma or space separated list of fix IDs for globally deactivated fixes */
-const string G1CP_HotfixDisable = "";
+const string G1CP_HotfixDisable = "233";
