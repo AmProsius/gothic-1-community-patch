@@ -16,6 +16,7 @@ Content\Report\reportFuncToSpy.d
 Content\Symbols\int.d
 Content\Symbols\string.d
 Content\Symbols\func.d
+Content\Symbols\proto.d
 Content\Symbols\inst.d
 Content\Symbols\callable.d
 Content\Symbols\general.d
