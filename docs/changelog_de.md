@@ -13,7 +13,7 @@
 ### Story
 * Fix [#55](https://g1cp.org/issues/55) (aktualisiert): Grim erwähnt In Extremo im zweiten Kapitel nun auch wenn das Konzert noch nicht begonnen hat. Für weitere Informationen zum Fix, siehe [v1.1.0](https://g1cp.org/blob/master/docs/changelog_de.md#v110-01052021).
 * Fix [#129](https://g1cp.org/issues/129): Drakes Hautfarbe des Körpers entspricht jetzt der seines Kopfes.
-* Fix [#220](https://g1cp.org/issues/220): Gor Na Ran no longer attacks the player character in chapter 6.
+* Fix [#220](https://g1cp.org/issues/220): Gor Na Ran greift den Spieler-Charakter nicht länger im 6. Kapitel an.
 * Fix [#224](https://g1cp.org/issues/224): Grash-Varrag-Arushat (der letzte untote Ork-Priester) kann nicht mehr durch Fallschaden getötet werden.
 * Fix [#225](https://g1cp.org/issues/225): Mordrag kann nicht mehr gesagt werden "Mach, dass du wegkommst", wenn er den Spieler-Charakter bereits ins Neue Lager geführt hat.
 * Fix [#226](https://g1cp.org/issues/226): Ein falsch platzierter Manatrank ist nun korrekt in einer der Truhen in der Gruft unter dem Stonehenge aufzufinden.
