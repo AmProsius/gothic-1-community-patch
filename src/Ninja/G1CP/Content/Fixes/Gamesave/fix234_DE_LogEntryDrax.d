@@ -15,9 +15,8 @@ func int G1CP_234_DE_LogEntryDrax() {
         topicName = G1CP_GetStringConstI(topicId, 0, "");
 
         // Replace the push of the old string with the new string (this is never reverted, i.e. session fix)
-        count = G1CP_ReplacePushStr(
-            G1CP_GetFuncId("Org_819_Drax_Creatures_Zahn", "void|none"), 0, curString, newString
-        );
+        var int symbId; symbId = G1CP_GetFuncId("Org_819_Drax_Creatures_Zahn", "void|none");
+        count = G1CP_ReplacePushStr(symbId, 0, curString, newString);
     };
 
     // Check if the log topic constant exists and if the adding of the log entry was successfully replaced
