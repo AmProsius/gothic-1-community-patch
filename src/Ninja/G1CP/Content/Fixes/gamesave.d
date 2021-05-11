@@ -43,6 +43,7 @@ func void G1CP_GamesaveFixes_Apply() {
         G1CP_213_UseWithItemNcCauldron2();              // #213
         G1CP_224_OrcPriestFallDamage();                 // #224
         G1CP_226_PotionStonehengeChest();               // #226
+        G1CP_234_DE_LogEntryDrax();                     // #234
     };
 };
 
@@ -70,5 +71,6 @@ func void G1CP_GamesaveFixes_Revert() {
         G1CP_213_UseWithItemNcCauldron2Revert();        // #213
         G1CP_224_OrcPriestFallDamageRevert();           // #224
         G1CP_226_PotionStonehengeChestRevert();         // #226
+        G1CP_234_DE_LogEntryDraxRevert();               // #234
     };
 };

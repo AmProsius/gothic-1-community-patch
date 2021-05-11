@@ -16,6 +16,7 @@
 * Fix [#224](https://g1cp.org/issues/224): Grash-Varrag-Arushat (der letzte untote Ork-Priester) kann nicht mehr durch Fallschaden getötet werden.
 * Fix [#226](https://g1cp.org/issues/226): Ein falsch platzierter Manatrank ist nun korrekt in einer der Truhen in der Gruft unter dem Stonehenge aufzufinden.
 * Fix [#228](https://g1cp.org/issues/228): Nach Gorn kann nun korrekt in Ambient-Dialogen gefragt werden, nachdem der Spieler mit Lares gesprochen hat.
+* Fix [#234](https://g1cp.org/issues/234): Im Tagebucheintrag für Drax als Lehrer "Wissen über Zähne entfernen - Wolf, Orchund, Snapper, Beisser, Bluthund, Schattenläufer." korrigiert zu "Wissen über Zähne entfernen - Wolf, Orkhund, Snapper, Beißer, Bluthund, Schattenläufer.".
 
 ## [v1.1.0](https://g1cp.org/releases/tag/v1.1.0) (01.05.2021)
 ### General
