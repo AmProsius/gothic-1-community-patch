@@ -30,7 +30,7 @@ func C_Item G1CP_Testsuite_CreateItem(var string name) {
  * Check if NPC instance exists, create an NPC of that instance and return it. The NPC will be created at a non-existent
  * waypoint and made non-persistent, such that it will not be written to a savegame. This way, no clean up is necessary.
  */
-func C_Npc G1CP_Testsuite_CreateItem(var string name) {
+func C_Npc G1CP_Testsuite_CreateNpc(var string name) {
     // Backup global symbol
     var C_Npc slfBak; slfBak = MEM_CpyInst(self);
 
