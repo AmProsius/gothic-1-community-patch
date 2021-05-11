@@ -6,6 +6,7 @@
 * Fix [#194](https://g1cp.org/issues/194): NSCs sammeln nun korrekt die Waffe ihres besiegten Gegners auf.
 * Fix [#231](https://g1cp.org/issues/231): Die Beschreibung der Spruchrolle "Verwandlung Orcdog" lautet nun korrekt "Verwandlung Orkhund".
 * Fix [#232](https://g1cp.org/issues/232): Die Beschreibung der Spruchrolle "Verwandlung Bloodfly" lautet nun korrekt "Verwandlung Blutfliege".
+* Fix [#233](https://g1cp.org/issues/233): Das Monster "Orc-Hund" heißt nun korrekt "Orkhund".
 * Fix [#235](https://g1cp.org/issues/235): Der Name im Magiebuch des Zaubers "Verwandlung Orc-Hund" lautet nun korrekt "Verwandlung Orkhund".
 * Fix [#236](https://g1cp.org/issues/226): Der Name in der Gildenzuordnung des Monsters "Ork-Hund" lautet nun korrekt "Orkhund".
 

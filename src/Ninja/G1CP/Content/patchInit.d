@@ -104,6 +104,7 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
         G1CP_228_LaresDialogFindGorn();                 // #228
         G1CP_231_DE_TransformOrcDogDescription();       // #231
         G1CP_232_DE_TransformBloodflyDescription();     // #232
+        G1CP_233_DE_OrcDogName();                       // #233
         G1CP_235_DE_OrcDogMagBook();                    // #235
         G1CP_236_DE_OrcDogGuild();                      // #236
     };
