@@ -156,6 +156,7 @@ Content\Fixes\Gamesave\fix212_UseWithItemNcCauldron1.d
 Content\Fixes\Gamesave\fix213_UseWithItemNcCauldron2.d
 Content\Fixes\Gamesave\fix224_OrcPriestFallDamage.d
 Content\Fixes\Gamesave\fix226_PotionStonehengeChest.d
+Content\Fixes\Gamesave\fix234_DE_LogEntryDrax.d
 
 // Initialization
 Content\initPre.d
