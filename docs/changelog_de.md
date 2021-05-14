@@ -15,7 +15,7 @@
 * Fix [#129](https://g1cp.org/issues/129): Drakes Hautfarbe des Körpers entspricht jetzt der seines Kopfes.
 * Fix [#220](https://g1cp.org/issues/220): Gor Na Ran greift den Spielercharakter nicht länger im 6. Kapitel an.
 * Fix [#224](https://g1cp.org/issues/224): Grash-Varrag-Arushat (der letzte untote Ork-Priester) kann nicht mehr durch Fallschaden getötet werden.
-* Fix [#225](https://g1cp.org/issues/225): Mordrag kann nicht mehr gesagt werden "Mach, dass du wegkommst", wenn er den Spieler-Charakter bereits ins Neue Lager geführt hat.
+* Fix [#225](https://g1cp.org/issues/225): Mordrag kann nicht mehr gesagt werden "Mach, dass du wegkommst", wenn er den Spieler bereits ins Neue Lager geführt hat.
 * Fix [#226](https://g1cp.org/issues/226): Ein falsch platzierter Manatrank ist nun korrekt in einer der Truhen in der Gruft unter dem Stonehenge aufzufinden.
 * Fix [#228](https://g1cp.org/issues/228): Nach Gorn kann nun korrekt in Ambient-Dialogen gefragt werden, nachdem der Spieler mit Lares gesprochen hat.
 * Fix [#234](https://g1cp.org/issues/234): Im Tagebucheintrag für Drax als Lehrer "Wissen über Zähne entfernen - Wolf, Orchund, Snapper, Beisser, Bluthund, Schattenläufer." korrigiert zu "Wissen über Zähne entfernen - Wolf, Orkhund, Snapper, Beißer, Bluthund, Schattenläufer.".

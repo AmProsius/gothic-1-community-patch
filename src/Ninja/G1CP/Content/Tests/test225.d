@@ -13,6 +13,9 @@ func int G1CP_Test_225() {
     var int varId; varId = G1CP_Testsuite_CheckIntVar("Thorus_MordragKo", 0);
     G1CP_Testsuite_CheckPassed();
 
+    // Define possibly missing symbols locally
+    const int LOG_RUNNING = 1;
+
     // Backup values
     var int toldBak; toldBak = Npc_KnowsInfo(hero, infoId);
     var int aiVarBak; aiVarBak = G1CP_NpcGetAiVarI(npc, aiVarId, FALSE);
@@ -21,7 +24,7 @@ func int G1CP_Test_225() {
     // Set new values
     G1CP_SetInfoToldI(infoId, TRUE);
     G1CP_NpcSetAiVarI(npc, aiVarId, TRUE);
-    G1CP_SetIntVarI(varId, 0, 0);
+    G1CP_SetIntVarI(varId, 0, LOG_RUNNING);
 
     // Call dialog condition function
     G1CP_Testsuite_Call(funcId, npc, hero, FALSE);
