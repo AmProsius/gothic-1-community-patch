@@ -11,9 +11,7 @@ func int G1CP_129_DrakeBodySkin() {
     };
 
     // Find call to "Mdl_SetVisualBody"
-    const int bytes[2] = {zPAR_TOK_CALLEXTERN<<24, -1};
-    bytes[1] = MEM_GetFuncID(Mdl_SetVisualBody);
-    var int matches; matches = G1CP_FindInFunc(symbId, _@(bytes)+3, 5);
+    var int matches; matches = G1CP_FindCall(symbId, 0, MEM_GetFuncID(Mdl_SetVisualBody));
 
     // Check for last occurrence
     if (MEM_ArraySize(matches) > 0) {
