@@ -14,7 +14,7 @@ func int G1CP_Test_033() {
     G1CP_Testsuite_CheckPassed();
 
     // Define possibly missing symbols locally
-    const int LOG_RUNNING = 1;
+    const int LOG_SUCCESS = 2;
 
     // Backup values
     var int toldBak; toldBak = Npc_KnowsInfo(hero, infoId);
@@ -24,7 +24,7 @@ func int G1CP_Test_033() {
     // Set new values
     G1CP_SetInfoToldI(infoId, FALSE);
     G1CP_NpcSetAiVarI(npc, aiVarId, TRUE);
-    G1CP_SetIntVarI(varId, 0, LOG_RUNNING);
+    G1CP_SetIntVarI(varId, 0, LOG_SUCCESS);
 
     // Call dialog condition function
     G1CP_Testsuite_Call(funcId, npc, hero, FALSE);
