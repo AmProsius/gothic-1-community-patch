@@ -117,7 +117,7 @@
 * Fix [#38](https://g1cp.org/issues/38): Snaf spricht nun auch über Nek, wenn die Quest "Snafs Rezept" abgeschlossen wurde. 
 * Fix [#39](https://g1cp.org/issues/39): Fingers lehrt nicht mehr Taschendiebstahl und Schlösserknacken auf Stufe zwei, wenn Stufe eins jeweils noch nicht gelernt wurde.
 * Fix [#40](https://g1cp.org/issues/40): Aleph bietet den Schlüssel nun nicht noch einmal an, wenn der Spieler ihn schon erhalten hat.
-* Fix [#42](https://g1cp.org/issues/42): Zwei Gardisten des Alten Lagers haben nun nicht mehr zwei ENDE Dialogoptionen.
+* Fix [#42](https://g1cp.org/issues/42): Eine der Torwachen vor dem Haus der Erzbarone im Alten Lager hat nun nicht mehr zwei ENDE-Dialogoptionen.
 * Fix [#46](https://g1cp.org/issues/46): Die Tür nahe der Schmiede in der Burg des Alten Lagers ist nun mit dem korrekten Schlüssel begehbar. Dieser kann nun in Stones Zelle im Kerker des Alten Lagers erlangt werden kann.
 * Fix [#49](https://g1cp.org/issues/49): Die Beschreibung des Kerkerschlüssels ist korrigiert zu "öffnet den Kerker des Alten Lagers.".
 * Fix [#50](https://g1cp.org/issues/50): Die Säule in der Klosterruine fällt jetzt in die richtige Richtung und hat Kollision.
@@ -131,3 +131,4 @@
 * Fix [#124](https://g1cp.org/issues/124): Die Wache des Burgtors vom Alten Lager hat nun den korrekten Tagesablauf, um die Winde des Burgtors zu bewachen und zu bedienen.
 * Fix [#126](https://g1cp.org/issues/126): Sharkys Dialog zu Fisks Quest "Neuer Hehler für Fisk" öffnet nicht mehr das Handelsmenü.
 * Fix [#163](https://g1cp.org/issues/163): Das Burgtor des Alten Lagers ist nicht mehr blockiert und lässt sich korrekt schließen.
+* Fix [#244](https://g1cp.org/issues/244): Eine der Torwachen vor dem Haus der Erzbarone im Alten Lager hat nun nicht mehr zwei ENDE-Dialogoptionen.

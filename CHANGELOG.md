@@ -97,7 +97,7 @@
 * Fix [#38](https://g1cp.org/issues/38): Snaf now offers the dialog about Nek even when the quest "Snaf's Recipe" is completed.
 * Fix [#39](https://g1cp.org/issues/39): Fingers no longer offers to teach level two of pickpocketing and lock picking before level one has been learned.
 * Fix [#40](https://g1cp.org/issues/40): Aleph doesn't offer to sell the key anymore when the player already obtained it.
-* Fix [#42](https://g1cp.org/issues/42): The Guards who guard the ore barons' house in the Old Camp no longer have two END dialog options.
+* Fix [#42](https://g1cp.org/issues/42): One of the guards guarding the ore barons' house in the Old Camp no longer has two END dialog options.
 * Fix [#46](https://g1cp.org/issues/46): The door near the smithy in the castle of the Old Camp is now accessible with the correct key. It can now be obtained in Stone's cell in the dungeon of the Old Camp.
 * Fix [#49](https://g1cp.org/issues/49): The description of the dungeon key is corrected to "Opens the dungeons of the old camp.".
 * Fix [#50](https://g1cp.org/issues/50): The pillar in the Monastery Ruins now falls in the right directions and has collision.
@@ -111,3 +111,4 @@
 * Fix [#124](https://g1cp.org/issues/124): The guard of the castle gate in the Old Camp now has the correct daily routine to watch over and operate the winch of the gate.
 * Fix [#126](https://g1cp.org/issues/126): Sharky's dialog option for Fisk's quest "New Fence for Fisk" no longer opens the trading menu.
 * Fix [#163](https://g1cp.org/issues/163): The castle gate of the Old Camp is no longer blocked and can properly be closed.
+* Fix [#244](https://g1cp.org/issues/244): One of the guards guarding the ore barons' house in the Old Camp no longer has two END dialog options.

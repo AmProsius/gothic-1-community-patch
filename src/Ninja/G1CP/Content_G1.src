@@ -140,6 +140,7 @@ Content\Fixes\Session\fix232_DE_TransformBloodflyDescription.d
 Content\Fixes\Session\fix233_DE_OrcDogName.d
 Content\Fixes\Session\fix235_DE_OrcDogMagBook.d
 Content\Fixes\Session\fix236_DE_OrcDogGuild.d
+Content\Fixes\Session\fix244_GuardExitDialog.d
 
 // Game save fixes
 Content\Fixes\Gamesave\fix037_LogEntryGravoMerchant.d
