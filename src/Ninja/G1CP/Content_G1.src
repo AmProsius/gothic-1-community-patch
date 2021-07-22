@@ -29,6 +29,7 @@ Content\Bytecode\string.d
 Content\Bytecode\if.d
 Content\Bytecode\ou.d
 Content\Bytecode\sendToSpy.d
+Content\Bytecode\return.d
 
 Content\Misc\info.d
 Content\Misc\topic.d
