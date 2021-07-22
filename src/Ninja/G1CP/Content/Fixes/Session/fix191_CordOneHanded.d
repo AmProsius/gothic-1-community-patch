@@ -19,7 +19,7 @@ func int G1CP_191_CordOneHanded_Hook() {
 
     // Add the new condition (other conditions remain untouched)
     const int NPC_TALENT_1H = 0; NPC_TALENT_1H = G1CP_GetIntConst("NPC_TALENT_1H", 0, 0);
-    if (Npc_GetTalentSkill(hero, NPC_TALENT_1H) == 0) {
+    if (Npc_GetTalentSkill(hero, NPC_TALENT_1H) != 1) {
         return FALSE;
     };
 
