@@ -12,6 +12,7 @@
 
 ### Story
 * Fix [#55](https://g1cp.org/issues/55) (aktualisiert): Grim erwähnt In Extremo im zweiten Kapitel nun auch wenn das Konzert noch nicht begonnen hat. Für weitere Informationen zum Fix, siehe [v1.1.0](https://g1cp.org/blob/master/docs/changelog_de.md#v110-01052021).
+* Fix [#128](https://g1cp.org/issues/128): Einer der Gardisten der Alten Mine hat nun nicht mehr zwei ENDE Dialogoptionen.
 * Fix [#129](https://g1cp.org/issues/129): Drakes Hautfarbe des Körpers entspricht jetzt der seines Kopfes.
 * Fix [#191](https://g1cp.org/issues/191): Cords Dialogopion zum Erlenen von Einhänder Stufe 2 ist jetzt erst verfügbar, wenn der Spielercharakter vorher Stufe 1 gelernt hat.
 * Fix [#220](https://g1cp.org/issues/220): Gor Na Ran greift den Spielercharakter nicht länger im 6. Kapitel an.

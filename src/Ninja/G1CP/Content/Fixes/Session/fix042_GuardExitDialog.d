@@ -2,7 +2,7 @@
  * #42 Guards have duplicated END dialog
  */
 
-/*
+ /*
  * Check the content of a given function against: { return 1; }
  */
 func int G1CP_042_ConfirmByteCode(var int funcId) {
@@ -79,6 +79,10 @@ func int G1CP_042_NewCondition(var C_Npc slf) {
     // Keep this one, if there is no other exit dialog
     return !hasEnd;
 };
+
+/*
+ * The additional conditions
+ */
 func int G1CP_042_Grd_218_Cond() {
     G1CP_ReportFuncToSpy();
     return G1CP_042_NewCondition(self);
