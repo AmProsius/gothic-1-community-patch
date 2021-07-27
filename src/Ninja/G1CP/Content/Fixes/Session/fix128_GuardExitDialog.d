@@ -11,8 +11,6 @@
  * present) is replaced to check if there is another exit dialog.
  */
 func int G1CP_128_GuardExitDialog() {
-    var int applied; applied = FALSE;
-
     // Find all necessary symbols
     if (!G1CP_IsStringConst("DIALOG_ENDE", 0)) {
         return FALSE;
