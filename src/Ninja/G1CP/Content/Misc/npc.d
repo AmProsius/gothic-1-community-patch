@@ -173,25 +173,3 @@ func void G1CP_NpcIdSetAiVar(var int npcInstance, var string aiVarName, var int 
     var C_Npc slf; slf = Hlp_GetNpc(npcInstance);
     G1CP_NpcSetAiVar(slf, aiVarName, value);
 };
-
-/*
- * Check an NPC's end dialogs and keep only one
- */
-func int G1CP_NpcCheckEndDialog(var C_Npc slf) {
-    // Define possibly missing symbols locally
-    const string DIALOG_ENDE = "END";
-    DIALOG_ENDE = G1CP_GetStringConst("DIALOG_ENDE", 0, DIALOG_ENDE);
-
-    // Avoid recursion, because G1C_HasInfoWithDesc may call this very condition function
-    const int recursion = FALSE;
-    if (recursion) {
-        return FALSE;
-    };
-
-    recursion = TRUE;
-    var int hasEnd; hasEnd = G1CP_HasInfoWithDesc(slf, DIALOG_ENDE);
-    recursion = FALSE;
-
-    // Keep this one, if there is no other exit dialog
-    return !hasEnd;
-};
