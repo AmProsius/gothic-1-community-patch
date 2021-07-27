@@ -2,6 +2,30 @@
  * #42 Guard has duplicated END dialog
  */
 
+ /*
+ * Check the content of a given function against: { return 1; }
+ */
+func int G1CP_042_ConfirmByteCode(var int funcId) {
+    if (!G1CP_IsFuncI(funcId, "int|none")) {
+        return FALSE;
+    };
+    var zCPar_Symbol symb; symb = _^(MEM_GetSymbolByIndex(funcId));
+    var int pos; pos = symb.content + MEM_Parser.stack_stack;
+
+    // Ends with return
+    if (MEM_ReadByte(pos+5) == zPAR_TOK_RET) {
+        // And pushes a non-zero value onto the stack
+        if (MEM_ReadByte(pos) == zPAR_TOK_PUSHINT) && (MEM_ReadInt(pos+1) != 0) {
+            return TRUE;
+        } else if (MEM_ReadByte(pos) == zPAR_TOK_PUSHVAR) && (G1CP_GetIntI(MEM_ReadInt(pos+1), 0, 0) != 0) {
+            return TRUE;
+        };
+    };
+
+    // Not found as expected
+    return FALSE;
+};
+
 /*
  * The fix function called from initialization
  *
@@ -11,20 +35,40 @@
  * present) is replaced to check if there is another exit dialog.
  */
 func int G1CP_042_GuardExitDialog() {
-    var int applied; applied = FALSE;
-
     // Find all necessary symbols
     if (!G1CP_IsStringConst("DIALOG_ENDE", 0)) {
         return FALSE;
     };
     var int funcId; funcId = MEM_GetSymbolIndex("DIA_Grd_218_Exit_Condition");
 
-    if (G1CP_ConfirmByteCode(funcId)) {
+    if (G1CP_042_ConfirmByteCode(funcId)) {
         HookDaedalusFuncI(funcId, MEM_GetFuncId(G1CP_042_EndCond));
-        applied = TRUE;
+        return TRUE;
     };
 
-    return applied;
+    return FALSE;
+};
+
+/*
+ * The replacement functions with additional conditions
+ */
+func int G1CP_042_NewCondition(var C_Npc slf) {
+    // Define possibly missing symbols locally
+    const string DIALOG_ENDE = "END";
+    DIALOG_ENDE = G1CP_GetStringConst("DIALOG_ENDE", 0, DIALOG_ENDE);
+
+    // Avoid recursion, because G1C_HasInfoWithDesc may call this very condition function
+    const int recursion = FALSE;
+    if (recursion) {
+        return FALSE;
+    };
+
+    recursion = TRUE;
+    var int hasEnd; hasEnd = G1CP_HasInfoWithDesc(slf, DIALOG_ENDE);
+    recursion = FALSE;
+
+    // Keep this one, if there is no other exit dialog
+    return !hasEnd;
 };
 
 /*
@@ -32,5 +76,5 @@ func int G1CP_042_GuardExitDialog() {
  */
 func int G1CP_042_EndCond() {
     G1CP_ReportFuncToSpy();
-    return G1CP_NpcCheckEndDialog(self);
+    return G1CP_042_NewCondition(self);
 };

@@ -19,12 +19,12 @@ func int G1CP_244_GuardExitDialog() {
     };
     var int funcId; funcId = MEM_GetSymbolIndex("DIA_Grd_245_Exit_Condition");
 
-    if (G1CP_ConfirmByteCode(funcId)) {
+    if (G1CP_042_ConfirmByteCode(funcId)) {
         HookDaedalusFuncI(funcId, MEM_GetFuncId(G1CP_244_EndCond));
-        applied = TRUE;
+        return TRUE;
     };
 
-    return applied;
+    return FALSE;
 };
 
 /*
@@ -32,5 +32,5 @@ func int G1CP_244_GuardExitDialog() {
  */
 func int G1CP_244_EndCond() {
     G1CP_ReportFuncToSpy();
-    return G1CP_NpcCheckEndDialog(self);
+    return G1CP_042_NewCondition(self);
 };
