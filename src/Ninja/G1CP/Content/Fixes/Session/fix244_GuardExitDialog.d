@@ -1,5 +1,5 @@
 /*
- * #128 Guard has duplicated END dialog
+ * #244 Guard has duplicated END dialog
  */
 
 /*
@@ -10,15 +10,15 @@
  * keep both variants in mind, this fix here works both ways. The condition function of the individual exit dialogs (if
  * present) is replaced to check if there is another exit dialog.
  */
-func int G1CP_128_GuardExitDialog() {
+func int G1CP_244_GuardExitDialog() {
     // Find all necessary symbols
     if (!G1CP_IsStringConst("DIALOG_ENDE", 0)) {
         return FALSE;
     };
-    var int funcId; funcId = MEM_GetSymbolIndex("DIA_Grd_264_Exit_Condition");
+    var int funcId; funcId = MEM_GetSymbolIndex("DIA_Grd_245_Exit_Condition");
 
     if (G1CP_042_ConfirmByteCode(funcId)) {
-        HookDaedalusFuncI(funcId, MEM_GetFuncId(G1CP_128_EndCond));
+        HookDaedalusFuncI(funcId, MEM_GetFuncId(G1CP_244_EndCond));
         return TRUE;
     };
 
@@ -28,7 +28,7 @@ func int G1CP_128_GuardExitDialog() {
 /*
  * The additional condition
  */
-func int G1CP_128_EndCond() {
+func int G1CP_244_EndCond() {
     G1CP_ReportFuncToSpy();
     return G1CP_042_NewCondition(self);
 };

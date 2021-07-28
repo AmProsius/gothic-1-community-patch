@@ -1,5 +1,5 @@
 /*
- * #42 Guards have duplicated END dialog
+ * #42 Guard has duplicated END dialog
  */
 
  /*
@@ -35,27 +35,18 @@ func int G1CP_042_ConfirmByteCode(var int funcId) {
  * present) is replaced to check if there is another exit dialog.
  */
 func int G1CP_042_GuardExitDialog() {
-    var int applied1; applied1 = FALSE;
-    var int applied2; applied2 = FALSE;
-
     // Find all necessary symbols
     if (!G1CP_IsStringConst("DIALOG_ENDE", 0)) {
         return FALSE;
     };
-    var int func1Id; func1Id = MEM_GetSymbolIndex("DIA_Grd_218_Exit_Condition");
-    var int func2Id; func2Id = MEM_GetSymbolIndex("DIA_Grd_245_Exit_Condition");
+    var int funcId; funcId = MEM_GetSymbolIndex("DIA_Grd_218_Exit_Condition");
 
-    if (G1CP_042_ConfirmByteCode(func1Id)) {
-        HookDaedalusFuncI(func1Id, MEM_GetFuncId(G1CP_042_Grd_218_Cond));
-        applied1 = TRUE;
+    if (G1CP_042_ConfirmByteCode(funcId)) {
+        HookDaedalusFuncI(funcId, MEM_GetFuncId(G1CP_042_EndCond));
+        return TRUE;
     };
 
-    if (G1CP_042_ConfirmByteCode(func2Id)) {
-        HookDaedalusFuncI(func2Id, MEM_GetFuncId(G1CP_042_Grd_245_Cond));
-        applied2 = TRUE;
-    };
-
-    return (applied1) && (applied2);
+    return FALSE;
 };
 
 /*
@@ -81,13 +72,9 @@ func int G1CP_042_NewCondition(var C_Npc slf) {
 };
 
 /*
- * The additional conditions
+ * The additional condition
  */
-func int G1CP_042_Grd_218_Cond() {
-    G1CP_ReportFuncToSpy();
-    return G1CP_042_NewCondition(self);
-};
-func int G1CP_042_Grd_245_Cond() {
+func int G1CP_042_EndCond() {
     G1CP_ReportFuncToSpy();
     return G1CP_042_NewCondition(self);
 };
