@@ -11,8 +11,9 @@
 * Fix [#236](https://g1cp.org/issues/226): Der Name in der Gildenzuordnung des Monsters "Ork-Hund" lautet nun korrekt "Orkhund".
 
 ### Story
+* Fix [#42](https://g1cp.org/issues/42) (aktualisiert): Eine der Torwachen vor dem Haus der Erzbarone im Alten Lager hat nun nicht mehr zwei ENDE-Dialogoptionen.
 * Fix [#55](https://g1cp.org/issues/55) (aktualisiert): Grim erwähnt In Extremo im zweiten Kapitel nun auch wenn das Konzert noch nicht begonnen hat. Für weitere Informationen zum Fix, siehe [v1.1.0](https://g1cp.org/blob/master/docs/changelog_de.md#v110-01052021).
-* Fix [#128](https://g1cp.org/issues/128): Einer der Gardisten der Alten Mine hat nun nicht mehr zwei ENDE Dialogoptionen.
+* Fix [#128](https://g1cp.org/issues/128): Einer der Gardisten der Alten Mine hat nun nicht mehr zwei ENDE-Dialogoptionen.
 * Fix [#129](https://g1cp.org/issues/129): Drakes Hautfarbe des Körpers entspricht jetzt der seines Kopfes.
 * Fix [#220](https://g1cp.org/issues/220): Gor Na Ran greift den Spielercharakter nicht länger im 6. Kapitel an.
 * Fix [#224](https://g1cp.org/issues/224): Grash-Varrag-Arushat (der letzte untote Ork-Priester) kann nicht mehr durch Fallschaden getötet werden.
@@ -20,6 +21,7 @@
 * Fix [#226](https://g1cp.org/issues/226): Ein falsch platzierter Manatrank ist nun korrekt in einer der Truhen in der Gruft unter dem Stonehenge aufzufinden.
 * Fix [#228](https://g1cp.org/issues/228): Nach Gorn kann nun korrekt in Ambient-Dialogen gefragt werden, nachdem der Spieler mit Lares gesprochen hat.
 * Fix [#234](https://g1cp.org/issues/234): Im Tagebucheintrag für Drax als Lehrer "Wissen über Zähne entfernen - Wolf, Orchund, Snapper, Beisser, Bluthund, Schattenläufer." korrigiert zu "Wissen über Zähne entfernen - Wolf, Orkhund, Snapper, Beißer, Bluthund, Schattenläufer.".
+* Fix [#244](https://g1cp.org/issues/244): Eine der Torwachen vor dem Haus der Erzbarone im Alten Lager hat nun nicht mehr zwei ENDE-Dialogoptionen.
 
 ## [v1.1.0](https://g1cp.org/releases/tag/v1.1.0) (01.05.2021)
 ### General
@@ -117,7 +119,7 @@
 * Fix [#38](https://g1cp.org/issues/38): Snaf spricht nun auch über Nek, wenn die Quest "Snafs Rezept" abgeschlossen wurde. 
 * Fix [#39](https://g1cp.org/issues/39): Fingers lehrt nicht mehr Taschendiebstahl und Schlösserknacken auf Stufe zwei, wenn Stufe eins jeweils noch nicht gelernt wurde.
 * Fix [#40](https://g1cp.org/issues/40): Aleph bietet den Schlüssel nun nicht noch einmal an, wenn der Spieler ihn schon erhalten hat.
-* Fix [#42](https://g1cp.org/issues/42): Eine der Torwachen vor dem Haus der Erzbarone im Alten Lager hat nun nicht mehr zwei ENDE-Dialogoptionen.
+* Fix [#42](https://g1cp.org/issues/42): Die beiden Torwachen vor dem Haus der Erzbarone im Alten Lager haben nun nicht mehr zwei ENDE-Dialogoptionen.
 * Fix [#46](https://g1cp.org/issues/46): Die Tür nahe der Schmiede in der Burg des Alten Lagers ist nun mit dem korrekten Schlüssel begehbar. Dieser kann nun in Stones Zelle im Kerker des Alten Lagers erlangt werden kann.
 * Fix [#49](https://g1cp.org/issues/49): Die Beschreibung des Kerkerschlüssels ist korrigiert zu "öffnet den Kerker des Alten Lagers.".
 * Fix [#50](https://g1cp.org/issues/50): Die Säule in der Klosterruine fällt jetzt in die richtige Richtung und hat Kollision.
@@ -131,4 +133,3 @@
 * Fix [#124](https://g1cp.org/issues/124): Die Wache des Burgtors vom Alten Lager hat nun den korrekten Tagesablauf, um die Winde des Burgtors zu bewachen und zu bedienen.
 * Fix [#126](https://g1cp.org/issues/126): Sharkys Dialog zu Fisks Quest "Neuer Hehler für Fisk" öffnet nicht mehr das Handelsmenü.
 * Fix [#163](https://g1cp.org/issues/163): Das Burgtor des Alten Lagers ist nicht mehr blockiert und lässt sich korrekt schließen.
-* Fix [#244](https://g1cp.org/issues/244): Eine der Torwachen vor dem Haus der Erzbarone im Alten Lager hat nun nicht mehr zwei ENDE-Dialogoptionen.
