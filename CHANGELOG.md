@@ -16,6 +16,7 @@
 * Fix [#225](https://g1cp.org/issues/225): Mordrag can no longer be told to "get out of here" if he guided the player to the New Camp.
 * Fix [#226](https://g1cp.org/issues/226): A misplaced mana potion is now correctly inserted in one of the chests in the crypt under the stonehenge.
 * Fix [#228](https://g1cp.org/issues/228): Gorn can now correctly be asked about in ambient dialogs after the player talked to Lares.
+* Fix [#241](https://g1cp.org/issues/241): It is no longer possible to become a guard after passing the trial of the Magicians of Fire.
 * Fix [#244](https://g1cp.org/issues/244): One of the guards guarding the ore barons' house in the Old Camp no longer has two END dialog options.
 
 ## [v1.1.0](https://g1cp.org/releases/tag/v1.1.0) (2021-05-01)

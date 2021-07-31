@@ -22,6 +22,7 @@
 * Fix [#226](https://g1cp.org/issues/226): Ein falsch platzierter Manatrank ist nun korrekt in einer der Truhen in der Gruft unter dem Stonehenge aufzufinden.
 * Fix [#228](https://g1cp.org/issues/228): Nach Gorn kann nun korrekt in Ambient-Dialogen gefragt werden, nachdem der Spieler mit Lares gesprochen hat.
 * Fix [#234](https://g1cp.org/issues/234): Im Tagebucheintrag für Drax als Lehrer "Wissen über Zähne entfernen - Wolf, Orchund, Snapper, Beisser, Bluthund, Schattenläufer." korrigiert zu "Wissen über Zähne entfernen - Wolf, Orkhund, Snapper, Beißer, Bluthund, Schattenläufer.".
+* Fix [#241](https://g1cp.org/issues/241): Es ist nicht mehr möglich, Gardist zu werden, wenn man die Prüfung der Feuermagier abgeschlossen hat.
 * Fix [#244](https://g1cp.org/issues/244): Eine der Torwachen vor dem Haus der Erzbarone im Alten Lager hat nun nicht mehr zwei ENDE-Dialogoptionen.
 
 ## [v1.1.0](https://g1cp.org/releases/tag/v1.1.0) (01.05.2021)
