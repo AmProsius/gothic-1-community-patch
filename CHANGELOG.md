@@ -10,6 +10,7 @@
 * Fix [#55](https://g1cp.org/issues/55) (updated): Grim now correctly mentions In Extremo in the second chapter even if the concert has not yet started playing. For details on the fix, see [v1.1.0](https://g1cp.org/blob/master/CHANGELOG.md#v110-2021-05-01).
 * Fix [#128](https://g1cp.org/issues/128): One of the guards who guard the diggers in the Old Mine no longer has two END dialog options.
 * Fix [#129](https://g1cp.org/issues/129): Drake's body skin color now matches his head.
+* Fix [#168](https://g1cp.org/issues/168): Gor Na Bar now tells only novices to speak to Cor Angar about becoming a templar.
 * Fix [#191](https://g1cp.org/issues/191): Cord's dialog option to teach One-handed Sword Level 2 now appears only after the player learned Level 1.
 * Fix [#220](https://g1cp.org/issues/220): Gor Na Ran no longer attacks the player character in chapter 6.
 * Fix [#224](https://g1cp.org/issues/224): Grash-Varrag-Arushat (the last undead orc priest) can no longer be killed by fall damage.
