@@ -20,6 +20,13 @@ func int G1CP_168_GorNaBarBecomeTemplar_Hook() {
     // Define possibly missing symbols locally
     const int GIL_NOV = 12;
 
+    // Update the symbols given they exist (once)
+    const int updated = FALSE;
+    if (!updated) {
+        GIL_NOV = G1CP_GetIntConst("GIL_NOV", 0, GIL_NOV);
+        updated = TRUE;
+    };
+
     // Add the new condition (other conditions remain untouched)
     if (Npc_GetTrueGuild(hero) != GIL_NOV) {
         return FALSE;
