@@ -15,6 +15,7 @@ func void G1CP_Test_127() {
     if (!Npc_HasItems(hero, itemId)) {
         CreateInvItem(hero, itemId);
     };
+    Print("The lockpicking combination is LRL");
 
     // Teleport the player to the hut
     AI_Teleport(hero, wp.name);
