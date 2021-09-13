@@ -8,6 +8,7 @@
 ### Story
 * Fix [#42](https://g1cp.org/issues/42) (updated): One of the guards guarding the ore barons' house in the Old Camp no longer has two END dialog options.
 * Fix [#55](https://g1cp.org/issues/55) (updated): Grim now correctly mentions In Extremo in the second chapter even if the concert has not yet started playing. For details on the fix, see [v1.1.0](https://g1cp.org/blob/master/CHANGELOG.md#v110-2021-05-01).
+* Fix [#116](https://g1cp.org/issues/116): There are no longer lens flares in Jacko's swampweed cave.
 * Fix [#127](https://g1cp.org/issues/127): The locked chest near Buster's hut can now be picked.
 * Fix [#128](https://g1cp.org/issues/128): One of the guards who guard the diggers in the Old Mine no longer has two END dialog options.
 * Fix [#129](https://g1cp.org/issues/129): Drake's body skin color now matches his head.

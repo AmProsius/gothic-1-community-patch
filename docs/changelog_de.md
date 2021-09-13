@@ -13,6 +13,7 @@
 ### Story
 * Fix [#42](https://g1cp.org/issues/42) (aktualisiert): Eine der Torwachen vor dem Haus der Erzbarone im Alten Lager hat nun nicht mehr zwei ENDE-Dialogoptionen.
 * Fix [#55](https://g1cp.org/issues/55) (aktualisiert): Grim erwähnt In Extremo im zweiten Kapitel nun auch wenn das Konzert noch nicht begonnen hat. Für weitere Informationen zum Fix, siehe [v1.1.0](https://g1cp.org/blob/master/docs/changelog_de.md#v110-01052021).
+* Fix [#116](https://g1cp.org/issues/116): Die Lens Flares in der Höhle der Krautmischer sind nun entfernt.
 * Fix [#127](https://g1cp.org/issues/127): Die verschlossene Truhe in der Nähe von Busters Hütte kann nun mit der richtigen Kombination geöffnet werden.
 * Fix [#128](https://g1cp.org/issues/128): Einer der Gardisten der Alten Mine hat nun nicht mehr zwei ENDE-Dialogoptionen.
 * Fix [#129](https://g1cp.org/issues/129): Drakes Hautfarbe des Körpers entspricht jetzt der seines Kopfes.
