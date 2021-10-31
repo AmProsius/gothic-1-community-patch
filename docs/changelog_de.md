@@ -16,6 +16,7 @@
 * Fix [#127](https://g1cp.org/issues/127): Die verschlossene Truhe in der Nähe von Busters Hütte kann nun mit der richtigen Kombination geöffnet werden.
 * Fix [#128](https://g1cp.org/issues/128): Einer der Gardisten der Alten Mine hat nun nicht mehr zwei ENDE-Dialogoptionen.
 * Fix [#129](https://g1cp.org/issues/129): Drakes Hautfarbe des Körpers entspricht jetzt der seines Kopfes.
+* Fix [#166](https://g1cp.org/issues/166): Die Ambient-Dialoge einer Torwache des Neuen Lagers sind nun verfügbar, wenn man ihm Sumpfkraut gegeben hat.
 * Fix [#168](https://g1cp.org/issues/168): Gor Na Bar schickt nun nur noch Novizen zur Cor Angar, um Templer zu werden.
 * Fix [#191](https://g1cp.org/issues/191): Cords Dialogopion zum Erlenen von Einhänder Stufe 2 ist jetzt erst verfügbar, wenn der Spielercharakter vorher Stufe 1 gelernt hat.
 * Fix [#220](https://g1cp.org/issues/220): Gor Na Ran greift den Spielercharakter nicht länger im 6. Kapitel an.
