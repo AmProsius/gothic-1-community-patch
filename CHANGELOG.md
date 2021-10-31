@@ -1,6 +1,6 @@
 # Changelog
 
-## v1.2.0 (TBA)
+## [v1.2.0](https://g1cp.org/releases/tag/v1.2.0) (2021-10-31)
 ### General
 * Fix [#58](https://g1cp.org/issues/58): Falling can no longer be interrupted by fight actions mid-air.
 * Fix [#194](https://g1cp.org/issues/194): NPCs now correctly pick up the weapon of their defeated opponent.
