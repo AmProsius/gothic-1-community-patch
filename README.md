@@ -62,7 +62,7 @@ Please note that this is the first release of the G1CP. Work on the patch contin
 ---
 
 ## Building
-Building the project is fully automated. VDF and NSIS setup are is created in the sub-directory `build` by running Make in the Windows command prompt. The rules `make`, `make all`, and `make remake` invoke `make dev` which builds the development version of the VDF. The development version includes the test suite. To build the release version (including building the NSIS setup) use `make release`.
+Building the project is fully automated. VDF and NSIS setup are created in the sub-directory `build` by running Make in the Windows command prompt. The rules `make`, `make all`, and `make remake` invoke `make dev` which builds the development version of the VDF. The development version includes the test suite. To build the release version (including building the NSIS setup) use `make release`.
 
 To build, the paths to the following software are required to be in the `PATH` environment variable:
 

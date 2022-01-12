@@ -69,7 +69,6 @@ AllowRootDirInstall true
 ; Konfiguration (Installer)
 
 !define MUI_WELCOMEPAGE_TITLE_3LINES
-!define MUI_WELCOMEPAGE_TEXT "This wizard will guide you through the installation of $(^Name).\r\n\r\nBefore installation you may close all other programs.\r\n\r\n$_CLICK"
 !define MUI_COMPONENTSPAGE_NODESC
 !define MUI_FINISHPAGE_NOREBOOTSUPPORT
 !define MUI_FINISHPAGE_TITLE_3LINES
@@ -86,7 +85,6 @@ Page custom PageReinstall PageLeaveReinstall
 ; Konfiguration (Uninstaller)
 
 !define MUI_WELCOMEPAGE_TITLE_3LINES
-!define MUI_WELCOMEPAGE_TEXT "This wizard will guide you through the uninstallation of $(^Name).\r\n\r\nPlease close Gothic and any associated tools,\r\nbefore you proceed with the uninstallation.\r\n\r\n$_CLICK"
 !define MUI_FINISHPAGE_NOREBOOTSUPPORT
 !define MUI_FINISHPAGE_TITLE_3LINES
 
@@ -101,9 +99,13 @@ Page custom PageReinstall PageLeaveReinstall
 
 ; Setup-Sprache
 
+!define MUI_TEXT_WELCOME_INFO_TEXT "This wizard will guide you through the installation of $(^Name).$\r$\n$\r$\nBefore installation you may close all other programs.$\r$\n$\r$\n$_CLICK"
+!define MUI_UNTEXT_WELCOME_INFO_TEXT "This wizard will guide you through the uninstallation of $(^Name).$\r$\n$\r$\nPlease close Gothic and any associated tools,$\r$\nbefore you proceed with the uninstallation.$\r$\n$\r$\n$_CLICK"
 !insertmacro MUI_LANGUAGE "English"
-!insertmacro MUI_LANGUAGE "German"
 
+!define MUI_TEXT_WELCOME_INFO_TEXT "Dieser Assistent wird Sie durch die Installation von $(^Name) führen.$\r$\n$\r$\nEs wird empfohlen, vor der Installation alle anderen Programme zu schließen.$\r$\n$\r$\n$_CLICK"
+!define MUI_UNTEXT_WELCOME_INFO_TEXT "Dieser Assistent wird Sie durch die Deinstallation von $(^Name) führen.$\r$\n$\r$\nBitte beenden Sie Gothic und alle verwandten Programme, bevor Sie mit der Deinstallation fortfahren.$\r$\n$\r$\n$_CLICK"
+!insertmacro MUI_LANGUAGE "German"
 
 ; Reservierte Dateien
 
