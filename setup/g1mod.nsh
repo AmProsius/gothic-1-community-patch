@@ -23,10 +23,20 @@
 ;   Install
 ;
 
+Var VerifyNoteOnce
 
 Function .onVerifyInstDir
-	IfFileExists $INSTDIR\System\GothicMod.exe +2
-		Abort
+  ; Check for player kit installation of Gothic
+  IfFileExists $INSTDIR\System\GothicMod.exe done
+
+    ; Show notification only once
+    StrCmp $VerifyNoteOnce "done" +3
+    MessageBox MB_OK|MB_ICONINFORMATION $(TextVerifyGothic)
+    StrCpy $VerifyNoteOnce "done"
+
+    Abort
+
+  done:
 FunctionEnd
 
 Function g2mod_GetInstallLocation
@@ -187,6 +197,23 @@ Function g2mod_StrStr
   Exch $R1
 FunctionEnd
 
+Function explodeVersion
+  Pop $R0
+  Push $R1
+  Push $R2
+  Push $R3
+  ${WordFind} $R0 "." "+1" $R1
+  ${WordFind} $R0 "." "+2" $R2
+  ${WordFind} $R0 "." "+3" $R3
+  IntOp $R0 $R1 * 1000
+  IntOp $R2 $R2 * 100
+  IntOp $R0 $R0 + $R2
+  IntOp $R0 $R0 + $R3
+  Pop $R3
+  Pop $R2
+  Pop $R1
+  Push $R0
+FunctionEnd
 
 ;===============================================================================
 

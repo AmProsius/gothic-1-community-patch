@@ -48,6 +48,7 @@ CRCCheck force
 !define SRC_BASEDIR "..\build\$%BTYPE%"
 !define OUTDIR "..\build\$%BTYPE%"
 
+!define NINJA_MIN_TEXT $%NINJAMIN%
 
 ;===============================================================================
 ;
@@ -56,6 +57,7 @@ CRCCheck force
 
 
 !include "MUI.nsh"
+!include "WordFunc.nsh"
 
 
 Name "${MOD_NAME} ${VER_TEXT}"
@@ -78,6 +80,7 @@ AllowRootDirInstall true
 !insertmacro MUI_PAGE_WELCOME
 !insertmacro MUI_PAGE_LICENSE "..\LICENSE"
 Page custom PageReinstall PageLeaveReinstall
+!define MUI_PAGE_CUSTOMFUNCTION_LEAVE CheckRequirements
 !insertmacro MUI_PAGE_DIRECTORY
 !insertmacro MUI_PAGE_INSTFILES
 !insertmacro MUI_PAGE_FINISH
@@ -447,5 +450,82 @@ Function PageLeaveReinstall
   Quit
   BringToFront
 
+  done:
+FunctionEnd
+
+
+; Verify install requirements
+
+LangString TextVerifyContinue ${LANG_ENGLISH} "Continue anyway? Note that $(^Name) will not work in this current state."
+LangString TextVerifyGothic ${LANG_ENGLISH} "Choose the installation directory of Gothic."
+LangString TextVerifyGothicVersion ${LANG_ENGLISH} "Gothic version 1.08k is required. Please update your version."
+LangString TextVerifyNinja ${LANG_ENGLISH} "An installation of Ninja is required."
+LangString TextVerifyNinjaInvalid ${LANG_ENGLISH} "The Ninja installation is invalid. Please update your version."
+LangString TextVerifyNinjaVersion ${LANG_ENGLISH} "Ninja version ${NINJA_MIN_TEXT} or higher is required. Please update your version."
+LangString TextVerifySPUnion ${LANG_ENGLISH} "An installation of the SystemPack or of Union is highly recommended. (Optional)"
+LangString TextVerifyDEPisOn ${LANG_ENGLISH} "The system feature Data Execution Prevention (DEP) is enabled for all processes. Please disable it or add exemptions for the Gothic processes."
+LangString TextVerifyDEPexclude ${LANG_ENGLISH} "The system feature Data Execution Prevention (DEP) is enabled for some processes. Make sure the Gothic processes are listed as exemptions."
+
+LangString TextVerifyContinue ${LANG_GERMAN} "Trotzdem fortfahren? Beachten Sie, dass $(^Name) in diesem Zustand nicht funktionieren wird."
+LangString TextVerifyGothic ${LANG_GERMAN} "Wählen Sie das Verzeichnis aus, in welchem sich Gothic befindet."
+LangString TextVerifyGothicVersion ${LANG_GERMAN} "Es wird Version 1.08k von Gothic vorrausgesetzt. Bitte aktualisieren Sie Ihre Installation."
+LangString TextVerifyNinja ${LANG_GERMAN} "Eine Installation von Ninja wird vorrausgesetzt."
+LangString TextVerifyNinjaInvalid ${LANG_GERMAN} "Die Installation von Ninja ist ungültig oder beschädigt. Bitte aktualisieren Sie Ihre Installation."
+LangString TextVerifyNinjaVersion ${LANG_GERMAN} "Es wird mindestens Version ${NINJA_MIN_TEXT} oder höher von Ninja vorrausgesetzt. Bitte aktualisieren Sie Ihre Installation."
+LangString TextVerifySPUnion ${LANG_GERMAN} "Eine Installation vom SystemPack oder von Union wird empfohlen. (Optional)"
+LangString TextVerifyDEPisOn ${LANG_GERMAN} "Die Systemfunktion Data Execution Prevention (DEP) ist für alle Prozesse eingeschaltet. Bitte deaktivieren Sie sie oder fügen Sie die Gothic-Prozesse als Ausnahmen hinzu."
+LangString TextVerifyDEPexclude ${LANG_GERMAN} "Die Systemfunktion Data Execution Prevention (DEP) ist für nur ausgewählte Prozesse deaktiviert. Bitte vergewissern Sie sich, dass die Gothic-Prozesse als Ausnahmen hinzugefügt sind."
+
+
+Function CheckRequirements
+  ; Check Gothic version
+  MoreInfo::GetFileVersion $INSTDIR\System\GothicMod.exe
+  Pop $0
+  StrCmp $0 "1.08k_mod" +3
+    MessageBox MB_YESNO|MB_DEFBUTTON2|MB_ICONINFORMATION $(TextVerifyGothicVersion)$\r$\n$\r$\n$(TextVerifyContinue) IDYES +2
+    Abort
+
+  ; Check for Ninja
+  IfFileExists $INSTDIR\System\Ninja.dll +3
+    MessageBox MB_YESNO|MB_DEFBUTTON2|MB_ICONINFORMATION $(TextVerifyNinja)$\r$\n$\r$\n$(TextVerifyContinue) IDYES spunion
+    Abort
+
+  ; Check if Ninja is valid
+  MoreInfo::GetFileVersion $INSTDIR\System\Ninja.dll
+  Pop $0
+  ${WordFind} $0 "." "E#" $1
+  IfErrors +2 +4
+  IntCmp $1 3 +3
+    MessageBox MB_YESNO|MB_DEFBUTTON2|MB_ICONINFORMATION $(TextVerifyNinjaInvalid)$\r$\n$\r$\n$(TextVerifyContinue) IDYES spunion
+    Abort
+
+  ; Check Ninja version
+  Push $0
+  Call explodeVersion
+  Pop $1
+  Push ${NINJA_MIN_TEXT}
+  Call explodeVersion
+  Pop $0
+  IntCmp $0 $1 +3 +3
+    MessageBox MB_YESNO|MB_DEFBUTTON2|MB_ICONINFORMATION $(TextVerifyNinjaVersion)$\r$\n$\r$\n$(TextVerifyContinue) IDYES +2
+    Abort
+
+  spunion:
+
+  ; Check for SystemPack (optional)
+  IfFileExists $INSTDIR\Data\SystemPack.vdf +3
+  IfFileExists $INSTDIR\System\Union.patc 0 +2
+    MessageBox MB_OK|MB_ICONINFORMATION $(TextVerifySPUnion)
+
+  ; Check DEP
+  System::Call 'kernel32::GetSystemDEPPolicy() i() .r0'
+  IfErrors done
+  IntCmp $0 1 0 +3 +3
+    MessageBox MB_OK|MB_ICONINFORMATION $(TextVerifyDEPisOn)
+    Goto +3
+  IntCmp $0 3 0 +2 +2
+    MessageBox MB_OK|MB_ICONINFORMATION $(TextVerifyDEPexclude)
+
+  ; Installation directory valid
   done:
 FunctionEnd
