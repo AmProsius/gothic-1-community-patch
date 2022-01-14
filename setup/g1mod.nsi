@@ -68,6 +68,12 @@ InstallDirRegKey HKLM "${MOD_RKEY}" "InstallLocation"
 AllowRootDirInstall true
 
 
+; Bitmaps
+
+!define MUI_WELCOMEFINISHPAGE_BITMAP "header.bmp"
+!define MUI_UNWELCOMEFINISHPAGE_BITMAP "header.bmp"
+
+
 ; Konfiguration (Installer)
 
 !define MUI_WELCOMEPAGE_TITLE_3LINES
@@ -113,6 +119,7 @@ Page custom PageReinstall PageLeaveReinstall
 ; Reservierte Dateien
 
 ReserveFile "setup.ini"
+ReserveFile "header.bmp"
 !insertmacro MUI_RESERVEFILE_INSTALLOPTIONS
 
 
