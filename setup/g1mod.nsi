@@ -484,7 +484,7 @@ LangString TextVerifyNinja ${LANG_ENGLISH} "An installation of Ninja is required
 LangString TextVerifyNinjaInvalid ${LANG_ENGLISH} "The Ninja installation is invalid or corrupted."
 LangString TextVerifyNinjaVersion ${LANG_ENGLISH} "Please update your version. Currently"
 LangString TextVerifySPUnion ${LANG_ENGLISH} "Either SystemPack or Union is highly recommended."
-LangString TextVerifyDEPisOn ${LANG_ENGLISH} "Please disable DEP or add exemptions for the Gothic."
+LangString TextVerifyDEPisOn ${LANG_ENGLISH} "Please disable DEP or add exemptions for Gothic."
 LangString TextVerifyDEPexclude ${LANG_ENGLISH} "Make sure Gothic is listed as exemption."
 
 LangString TextVerifyTitle ${LANG_GERMAN} "Installationsvoraussetzungen"
