@@ -23,20 +23,10 @@
 ;   Install
 ;
 
-Var VerifyNoteOnce
 
 Function .onVerifyInstDir
-  ; Check for player kit installation of Gothic
-  IfFileExists $INSTDIR\System\GothicMod.exe done
-
-    ; Show notification only once
-    StrCmp $VerifyNoteOnce "done" +3
-    MessageBox MB_OK|MB_ICONINFORMATION $(TextVerifyGothic)
-    StrCpy $VerifyNoteOnce "done"
-
+  IfFileExists $INSTDIR\System\Gothic.exe +2
     Abort
-
-  done:
 FunctionEnd
 
 Function g2mod_GetInstallLocation

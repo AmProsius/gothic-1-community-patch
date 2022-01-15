@@ -59,6 +59,7 @@ SETUP			:=	$(BUILDSUBDIR)$(PATCHNAME)-$(VERSION).exe
 SETUPSCR		:=	$(SETUPDIR)g1mod.nsi
 SETUPINC		:=	$(SETUPDIR)g1mod.nsh \
 					$(SETUPDIR)setup.ini \
+					$(SETUPDIR)checks.ini \
 					LICENSE
 
 
