@@ -114,6 +114,7 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
         G1CP_236_DE_OrcDogGuild();                      // #236
         G1CP_241_GuardAfterTrial();                     // #241
         G1CP_244_GuardExitDialog();                     // #244
+        G1CP_278_EN_WomanOuMismatch();                  // #278
     };
 };
 
