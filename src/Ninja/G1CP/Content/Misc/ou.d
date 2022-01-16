@@ -45,6 +45,53 @@ func int G1CP_GetOuMsg(var int blockPtr) {
 
 
 /*
+ * Get the text or filename of an output unit (provided by its pointer)
+ * This function is rather internal. Use the functions below.
+ */
+func string G1CP_GetOuMsgStrP(var int ouPtr, var int strOffset) {
+    var int msgPtr; msgPtr = G1CP_GetOuMsg(ouPtr);
+    if (!msgPtr) { // Caution: Expects msgPtr to point to a oCMsgConversation!
+        return "";
+    };
+
+    // Find string address
+    var int msgStrPtr; msgStrPtr = msgPtr + strOffset;
+
+    // Paranoid
+    if (MEM_ReadInt(msgStrPtr) != zString__vtbl) {
+        return "";
+    };
+
+    // Check if matching the needle
+    return MEM_ReadString(msgStrPtr);
+};
+
+
+/*
+ * Get the text of an output unit
+ */
+func string G1CP_GetOuTextP(var int ouPtr) {
+    const int oCMsgConversation_text_offset = 68; //0x44
+    return G1CP_GetOuMsgStrP(ouPtr, oCMsgConversation_text_offset);
+};
+func string G1CP_GetOuText(var string ouName) {
+    return G1CP_GetOuTextP(G1CP_GetOu(ouName));
+};
+
+
+/*
+ * Get the filename of an output unit
+ */
+func string G1CP_GetOuFilenameP(var int ouPtr) {
+    const int oCMsgConversation_name_offset = 88; //0x58
+    return G1CP_GetOuMsgStrP(ouPtr, oCMsgConversation_name_offset);
+};
+func string G1CP_GetOuFilename(var string ouName) {
+    return G1CP_GetOuFilenameP(G1CP_GetOu(ouName));
+};
+
+
+/*
  * Replace the text or filename of an output unit (provided by its pointer). The function returns TRUE if the needle
  * matches the current text/filename, i.e. when the replacement was successful.
  * This function is rather internal. Use the functions below.
