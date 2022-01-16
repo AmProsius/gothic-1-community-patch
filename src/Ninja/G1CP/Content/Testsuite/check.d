@@ -227,3 +227,13 @@ func void G1CP_Testsuite_CheckAiState(var string name) {
     i = G1CP_Testsuite_CheckAiStateLoopFunc(ConcatStrings(name, "_Loop"));
     i = G1CP_Testsuite_CheckAiStateEndFunc(ConcatStrings(name, "_End"));
 };
+
+/*
+ * Check if an output unit exists
+ */
+func void G1CP_Testsuite_CheckOu(var string name) {
+    if (!G1CP_GetOu(name)) {
+        G1CP_TestsuiteErrorDetailSSS("Output unit '", name, "' not found");
+        G1CP_TestsuiteStatusPassed = FALSE;
+    };
+};
