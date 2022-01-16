@@ -6,5 +6,5 @@ func int G1CP_Test_147() {
     var C_Item itm; itm = G1CP_Testsuite_CreateItem("CRW_ARMOR_H");
     G1CP_Testsuite_CheckPassed();
 
-    return G1CP_Testsuite_InspectItemVariable(itm, "name", "Crawlerplatten-Rüstung");
+    return G1CP_Testsuite_InspectItemString(itm, "name", "Crawlerplatten-Rüstung");
 };

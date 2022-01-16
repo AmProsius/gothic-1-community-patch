@@ -6,5 +6,5 @@ func int G1CP_Test_175() {
     var C_Item itm; itm = G1CP_Testsuite_CreateItem("ItKey_RB_01");
     G1CP_Testsuite_CheckPassed();
 
-    return G1CP_Testsuite_InspectItemVariable(itm, "name", "Rice Lord's Key");
+    return G1CP_Testsuite_InspectItemString(itm, "name", "Rice Lord's Key");
 };
