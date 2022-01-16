@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.3.0 (TBA)
+### General
+
+### Story
+
 ## [v1.2.0](https://g1cp.org/releases/tag/v1.2.0) (2021-10-31)
 ### General
 * Fix [#58](https://g1cp.org/issues/58): Falling can no longer be interrupted by fight actions mid-air.

@@ -1,5 +1,10 @@
 # Changelog (DE)
 
+## v1.3.0 (TBA)
+### General
+
+### Story
+
 ## [v1.2.0](https://g1cp.org/releases/tag/v1.2.0) (31.10.2021)
 ### General
 * Fix [#58](https://g1cp.org/issues/58): Fallen kann nicht mehr durch Kampfaktionen in der Luft unterbrochen werden.
