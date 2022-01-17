@@ -756,6 +756,12 @@ Function PageCheckRequirements
   !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 19" "Flags" ""
   !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 20" "Flags" ""
 
+  ; Update the checkbox according to urgency of the issues
+  StrCmp $RequirementsInvalid "" +3
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 2" "State" "0"
+    Goto +2
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 2" "State" "1"
+
   ; Set check box
   !insertmacro MUI_INSTALLOPTIONS_READ $R0 "checks.ini" "Field 2" "State"
   FindWindow $R1 "#32770" "" $HWNDPARENT
