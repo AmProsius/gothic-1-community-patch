@@ -487,8 +487,8 @@ LangString TextVerifySPUnion ${LANG_ENGLISH} "Either SystemPack or Union is high
 LangString TextVerifyNotInProgFiles ${LANG_ENGLISH} "Gothic not in 'Program Files'"
 LangString TextVerifyBadDir ${LANG_ENGLISH} "These directories may cause issues for the game."
 LangString TextVerifyProgFilesGood ${LANG_ENGLISH} "Gothic is installed somewhere else."
-LangString TextVerifyDEPisOn ${LANG_ENGLISH} "Please disable DEP or add exemptions for Gothic."
-LangString TextVerifyDEPexclude ${LANG_ENGLISH} "Make sure Gothic is listed as exemption."
+LangString TextVerifyDEPisOn ${LANG_ENGLISH} "Please disable DEP or add exceptions for Gothic."
+LangString TextVerifyDEPexclude ${LANG_ENGLISH} "Make sure Gothic is listed as exception."
 
 LangString TextVerifyTitle ${LANG_GERMAN} "Installationsvoraussetzungen"
 LangString TextVerifySubtitle ${LANG_GERMAN} "Bitte prüfen Sie die Voraussetzungen."
