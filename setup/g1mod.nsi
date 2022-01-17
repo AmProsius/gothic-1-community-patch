@@ -544,7 +544,7 @@ Function PageCheckRequirements
   StrCpy $InstalledSpUnion ""
 
   ; Check Gothic version
-  MoreInfo::GetFileVersion $INSTDIR\System\Gothic.exe
+  MoreInfo::GetFileVersion $INSTDIR\System\GothicMod.exe
   Pop $R0
   StrCmp $R0 "1.08k_mod" +3
     StrCpy $RequirementsInvalid "invalid"
@@ -643,7 +643,7 @@ Function PageCheckRequirements
 
   ; Links
   !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 6" "Text" $(TextVerifyDownload)
-  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 6" "State" "https://www.worldofgothic.de/dl/download_6.htm"
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 6" "State" "https://www.worldofgothic.de/dl/download_34.htm"
 
   !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 9" "Text" $(TextVerifyDownload)
   !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 9" "State" "https://github.com/szapp/Ninja/releases"
@@ -674,14 +674,14 @@ Function PageCheckRequirements
 
   ; Gothic
   StrCmp $RequirementGothic "" 0 +8
-    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 4" "Text" "${U+2713} Gothic version 1.08k"
-    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 5" "Text" "Version 1.08k $(TextVerifyIsInstalled)."
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 4" "Text" "${U+2713} Gothic version 1.08k_mod"
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 5" "Text" "Version 1.08k_mod $(TextVerifyIsInstalled)."
     !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 4" "Flags" "DISABLED"
     !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 5" "Flags" "DISABLED"
     !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 6" "Flags" "DISABLED"
     !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 6" "Type" "Label"
     Goto +7
-  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 4" "Text" "${U+274C} Gothic version 1.08k"
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 4" "Text" "${U+274C} Gothic version 1.08k_mod"
   !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 5" "Text" $RequirementGothic
   !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 4" "Flags" ""
   !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 5" "Flags" ""
