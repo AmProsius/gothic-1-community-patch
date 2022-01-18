@@ -2,14 +2,15 @@
  * #116 Lens flares in the swampweed cave
  */
 func int G1CP_116_LensFlaresCave() {
-    var int vobPtr; vobPtr = G1CP_FindVobByPosF(-43824.2109, 240.022049, -3729.67432);
-    if (Hlp_Is_zCVobLight(vobPtr)) { // Make sure we found a (the) light
+    var int vobPtr; vobPtr = G1CP_FindVobByPosF(-43824.2109, 240.022049, -3729.67432, G1CP_zCVobLight_classDef);
+    if (vobPtr) {
         var zCVobLight vob; vob  = _^(vobPtr);
-/*        if (Hlp_StrCmp(vob.lensflareFX, "ZSUN_FLARE")) {
-            vob.lensflareFX = "";
-            return TRUE;
-        };*/
-        return FALSE;
+        if (vob.lensflareFX) { // Ensure it has a lens flare object before checking its name
+            var zCObject fx; fx = _^(vob.lensflareFX);
+            if (Hlp_StrCmp(fx.objectname, "ZSUN_FLARE")) {
+                return G1CP_VobLightSetLensflare(vobPtr, "");
+            };
+        };
     };
     return FALSE;
 };
@@ -24,14 +25,12 @@ func int G1CP_116_LensFlaresCaveRevert() {
     };
 
     // Find the VOB again
-    var int vobPtr; vobPtr = G1CP_FindVobByPosF(-43824.2109, 240.022049, -3729.67432);
-    if (Hlp_Is_zCVobLight(vobPtr)) {
+    var int vobPtr; vobPtr = G1CP_FindVobByPosF(-43824.2109, 240.022049, -3729.67432, G1CP_zCVobLight_classDef);
+    if (vobPtr) {
         var zCVobLight vob; vob  = _^(vobPtr);
-/*        if (Hlp_StrCmp(vob.lensflareFX, "")) {
-            vob.lensflareFX = "ZSUN_FLARE";
-            return TRUE;
-        };*/
-        return FALSE;
+        if (!vob.lensflareFX) { // No lens flare effect present
+            return G1CP_VobLightSetLensflare(vobPtr, "ZSUN_FLARE");
+        };
     };
     return FALSE;
 };

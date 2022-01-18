@@ -35,6 +35,7 @@ Content\Misc\topic.d
 Content\Misc\waypoint.d
 Content\Misc\world.d
 Content\Misc\vob.d
+Content\Misc\vobLight.d
 Content\Misc\npc.d
 Content\Misc\ou.d
 
