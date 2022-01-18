@@ -2,7 +2,7 @@
 
 ## v1.3.0 (TBA)
 ### General
-* Fix [#278](https://g1cp.org/issues/278): The subtitles of female NPCs now match the audio.
+* Fix [#278](https://g1cp.org/issues/278): The standard voice subtitles of female NPCs when approaching them now match the audio.
 
 ### Story
 
