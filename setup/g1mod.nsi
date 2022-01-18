@@ -48,14 +48,17 @@ CRCCheck force
 !define SRC_BASEDIR "..\build\$%BTYPE%"
 !define OUTDIR "..\build\$%BTYPE%"
 
+!define NINJA_MIN_TEXT $%NINJAMIN%
 
 ;===============================================================================
 ;
 ;   MUI
 ;
 
+Unicode true
 
 !include "MUI.nsh"
+!include "WordFunc.nsh"
 
 
 Name "${MOD_NAME} ${VER_TEXT}"
@@ -66,10 +69,17 @@ InstallDirRegKey HKLM "${MOD_RKEY}" "InstallLocation"
 AllowRootDirInstall true
 
 
+; Bitmaps
+
+!define MUI_WELCOMEFINISHPAGE_BITMAP "header.bmp"
+!define MUI_UNWELCOMEFINISHPAGE_BITMAP "header.bmp"
+
+
 ; Konfiguration (Installer)
 
 !define MUI_WELCOMEPAGE_TITLE_3LINES
-!define MUI_WELCOMEPAGE_TEXT "This wizard will guide you through the installation of $(^Name).\r\n\r\nBefore installation you may close all other programs.\r\n\r\n$_CLICK"
+!define MUI_WELCOMEPAGE_TEXT $(WelcomeText)
+!define MUI_DIRECTORYPAGE_TEXT_TOP $(DirectoryTextTop)
 !define MUI_COMPONENTSPAGE_NODESC
 !define MUI_FINISHPAGE_NOREBOOTSUPPORT
 !define MUI_FINISHPAGE_TITLE_3LINES
@@ -80,13 +90,14 @@ AllowRootDirInstall true
 !insertmacro MUI_PAGE_LICENSE "..\LICENSE"
 Page custom PageReinstall PageLeaveReinstall
 !insertmacro MUI_PAGE_DIRECTORY
+Page custom PageCheckRequirements PageCheckRequirementsValidate
 !insertmacro MUI_PAGE_INSTFILES
 !insertmacro MUI_PAGE_FINISH
 
 ; Konfiguration (Uninstaller)
 
 !define MUI_WELCOMEPAGE_TITLE_3LINES
-!define MUI_WELCOMEPAGE_TEXT "This wizard will guide you through the uninstallation of $(^Name).\r\n\r\nPlease close Gothic and any associated tools,\r\nbefore you proceed with the uninstallation.\r\n\r\n$_CLICK"
+!define MUI_WELCOMEPAGE_TEXT $(UnWelcomeText)
 !define MUI_FINISHPAGE_NOREBOOTSUPPORT
 !define MUI_FINISHPAGE_TITLE_3LINES
 
@@ -107,7 +118,9 @@ Page custom PageReinstall PageLeaveReinstall
 
 ; Reservierte Dateien
 
+ReserveFile "header.bmp"
 ReserveFile "setup.ini"
+ReserveFile "checks.ini"
 !insertmacro MUI_RESERVEFILE_INSTALLOPTIONS
 
 
@@ -145,7 +158,13 @@ InstType $(NameInstFull)
 ; Installer
 
 LangString TextInsuffRights ${LANG_ENGLISH} "Setting up the uninstalling option failed.$\r$\nMake sure you have sufficient permission (administrator).$\r$\n$\r$\n(HKLM\$R0)"
+LangString WelcomeText ${LANG_ENGLISH} "This wizard will guide you through the installation of $(^Name).\r\n\r\nBefore installation you may close all other programs.\r\n\r\n$_CLICK"
+LangString UnWelcomeText ${LANG_ENGLISH} "This wizard will guide you through the uninstallation of $(^Name).\r\n\r\nPlease close Gothic and any associated tools,\r\nbefore you proceed with the uninstallation.\r\n\r\n$_CLICK"
+
 LangString TextInsuffRights ${LANG_GERMAN} "Beim Schreiben der Werte für die spätere Deinstallation trat ein Fehler auf.$\r$\nStellen Sie sicher, dass Ihr Benutzerkonto über die notwendigen Rechte verfügt.$\r$\n$\r$\n(HKLM\$R0)"
+LangString WelcomeText ${LANG_GERMAN} "Dieser Assistent wird Sie durch die Installation von $(^Name) führen.\r\n\r\nEs wird empfohlen, vor der Installation alle anderen Programme zu schließen.\r\n\r\n$_CLICK"
+LangString UnWelcomeText ${LANG_GERMAN} "Dieser Assistent wird Sie durch die Deinstallation von $(^Name) führen.\r\n\r\nBitte beenden Sie Gothic und alle verwandten Programme, bevor Sie mit der Deinstallation fortfahren.\r\n\r\n$_CLICK"
+
 
 Section -pre
   Push $R0
@@ -276,20 +295,6 @@ SectionEnd
 
 ;===============================================================================
 ;
-;   Player-Kit
-;
-
-
-;Section -g2mpk
-;  SetOverwrite on
-;  SetDetailsPrint none
-;  SetShellVarContext current
-;  !insertmacro g2mod_InstallPlayerKit
-;SectionEnd
-
-
-;===============================================================================
-;
 ;   Callback-Funktionen
 ;
 
@@ -301,6 +306,7 @@ Function .onInit
 
   SetCurInstType 0
 
+  !insertmacro MUI_INSTALLOPTIONS_EXTRACT "checks.ini"
   !insertmacro MUI_INSTALLOPTIONS_EXTRACT "setup.ini"
 
   ; Kein 'unsichtbares' Setup
@@ -446,4 +452,378 @@ Function PageLeaveReinstall
   BringToFront
 
   done:
+FunctionEnd
+
+
+; Add note to directory selection page
+
+LangString DirectoryTextTop ${LANG_ENGLISH} "Setup will install $(^NameDA) in the following folder. To install in a different folder, click Browse and select another folder.$\r$\n$\r$\nChoose the installation directory of Gothic.$\r$\n$\r$\n$_CLICK"
+LangString DirectoryTextTop ${LANG_GERMAN} "$(^NameDA) wird in das unten angegebene Verzeichnis installiert. Falls Sie in ein anderes Verzeichnis installieren möchten, klicken Sie auf Durchsuchen und wählen Sie ein anderes Verzeichnis aus.$\r$\n$\r$\nWählen Sie das Verzeichnis aus, in welchem sich Gothic befindet.$\r$\n$\r$\n$_CLICK"
+
+
+; Verify install requirements
+
+LangString TextVerifyTitle ${LANG_ENGLISH} "Installation Requirements"
+LangString TextVerifySubtitle ${LANG_ENGLISH} "Please review the installation requirements."
+LangString TextVerifyNextButton ${LANG_ENGLISH} "Install"
+LangString TextVerifyNotMet ${LANG_ENGLISH} "Not all installation requirements are met.\r\n\r\nPlease take the necessary actions."
+LangString TextVerifyContinue ${LANG_ENGLISH} "&Continue anyway?"
+LangString TextVerifyWarning ${LANG_ENGLISH} "Note: ${MOD_FILE} will not work in the current configuration."
+LangString TextVerifyDownload ${LANG_ENGLISH} "Download"
+LangString TextVerifyDownloadSp ${LANG_ENGLISH} "Download SystemPack"
+LangString TextVerifyDownloadUnion ${LANG_ENGLISH} "Download Union"
+LangString TextVerifyInstructions ${LANG_ENGLISH} "Instructions"
+LangString TextVerifyOptionalRecom ${LANG_ENGLISH} "recommended"
+LangString TextVerifyOr ${LANG_ENGLISH} "or"
+LangString TextVerifyOrHigher ${LANG_ENGLISH} "or higher"
+LangString TextVerifyDisabled ${LANG_ENGLISH} "disabled"
+LangString TextVerifyIsInstalled ${LANG_ENGLISH} "is installed"
+LangString TextVerifyIsDisabled ${LANG_ENGLISH} "is disabled"
+LangString TextVerifyGothicVersion ${LANG_ENGLISH} "Please update your version."
+LangString TextVerifyNinja ${LANG_ENGLISH} "An installation of Ninja is required."
+LangString TextVerifyNinjaInvalid ${LANG_ENGLISH} "The Ninja installation is invalid or corrupted."
+LangString TextVerifyNinjaVersion ${LANG_ENGLISH} "Please update your version. Currently"
+LangString TextVerifySPUnion ${LANG_ENGLISH} "Either SystemPack or Union is highly recommended."
+LangString TextVerifyNotInProgFiles ${LANG_ENGLISH} "Gothic not in 'Program Files'"
+LangString TextVerifyBadDir ${LANG_ENGLISH} "These directories may cause issues for the game."
+LangString TextVerifyProgFilesGood ${LANG_ENGLISH} "Gothic is installed somewhere else."
+LangString TextVerifyDEPisOn ${LANG_ENGLISH} "Please disable DEP or add exceptions for Gothic."
+LangString TextVerifyDEPexclude ${LANG_ENGLISH} "Make sure Gothic is listed as exception."
+
+LangString TextVerifyTitle ${LANG_GERMAN} "Installationsvoraussetzungen"
+LangString TextVerifySubtitle ${LANG_GERMAN} "Bitte prüfen Sie die Voraussetzungen."
+LangString TextVerifyNextButton ${LANG_GERMAN} "Installieren"
+LangString TextVerifyNotMet ${LANG_GERMAN} "Nicht alle Voraussetzungen sind erfüllt.\r\n\r\nBitte unternehmen Sie die nötigen Schritte."
+LangString TextVerifyContinue ${LANG_GERMAN} "&Trotzdem fortfahren?"
+LangString TextVerifyWarning ${LANG_GERMAN} "Achtung: ${MOD_FILE} wird in dieser Konfiguration nicht funktionieren."
+LangString TextVerifyDownload ${LANG_GERMAN} "Herunterladen"
+LangString TextVerifyDownloadSp ${LANG_GERMAN} "SystemPack herunterladen"
+LangString TextVerifyDownloadUnion ${LANG_GERMAN} "Union herunterladen"
+LangString TextVerifyInstructions ${LANG_GERMAN} "Anleitung"
+LangString TextVerifyOptionalRecom ${LANG_GERMAN} "empfohlen"
+LangString TextVerifyOr ${LANG_GERMAN} "oder"
+LangString TextVerifyOrHigher ${LANG_GERMAN} "oder höher"
+LangString TextVerifyDisabled ${LANG_GERMAN} "deaktiviert"
+LangString TextVerifyIsInstalled ${LANG_GERMAN} "ist installiert"
+LangString TextVerifyIsDisabled ${LANG_GERMAN} "ist deaktiviert"
+LangString TextVerifyGothicVersion ${LANG_GERMAN} "Bitte aktualisieren Sie Ihre Installation."
+LangString TextVerifyNinja ${LANG_GERMAN} "Eine Installation von Ninja wird vorrausgesetzt."
+LangString TextVerifyNinjaInvalid ${LANG_GERMAN} "Die Installation von Ninja ist ungültig oder beschädigt."
+LangString TextVerifyNinjaVersion ${LANG_GERMAN} "Bitte aktualisieren Sie Ihre Installation. Derzeit"
+LangString TextVerifySPUnion ${LANG_GERMAN} "Das SystemPack oder Union wird empfohlen."
+LangString TextVerifyNotInProgFiles ${LANG_GERMAN} "Gothic nicht in 'Progamme' Verzeichnis"
+LangString TextVerifyBadDir ${LANG_GERMAN} "Diese Verzeichnisse können Probleme verursachen."
+LangString TextVerifyProgFilesGood ${LANG_GERMAN} "Gothic ist außerhalb installiert."
+LangString TextVerifyDEPisOn ${LANG_GERMAN} "Deaktivieren Sie DEP oder fügen Sie Ausnahmen hinzu."
+LangString TextVerifyDEPexclude ${LANG_GERMAN} "Prüfen Sie, ob Gothic als Ausnahme hinzugefügt ist."
+
+
+Var HWND
+Var DLGITEM
+Var FONT
+
+Var RequirementsInvalid
+Var RequirementsRecommended
+Var RequirementGothic
+Var RequirementNinja
+Var RequirementDep
+Var RequirementSpUnion
+Var RequirementProgFiles
+Var InstalledNinjaVersion
+Var InstalledSpUnion
+
+Function PageCheckRequirements
+  StrCpy $RequirementsInvalid ""
+  StrCpy $RequirementsRecommended ""
+  StrCpy $RequirementGothic ""
+  StrCpy $RequirementNinja ""
+  StrCpy $RequirementDep ""
+  StrCpy $RequirementSpUnion ""
+  StrCpy $RequirementProgFiles ""
+  StrCpy $InstalledNinjaVersion ""
+  StrCpy $InstalledSpUnion ""
+
+  ; Check Gothic version
+  MoreInfo::GetFileVersion $INSTDIR\System\GothicMod.exe
+  Pop $R0
+  StrCmp $R0 "1.08k_mod" +3
+    StrCpy $RequirementsInvalid "invalid"
+    StrCpy $RequirementGothic $(TextVerifyGothicVersion)
+
+  ; Check for Ninja
+  IfFileExists $INSTDIR\System\Ninja.dll +4
+    StrCpy $RequirementsInvalid "invalid"
+    StrCpy $RequirementNinja $(TextVerifyNinja)
+    Goto dep
+
+  ; Check if Ninja is valid
+  MoreInfo::GetFileVersion $INSTDIR\System\Ninja.dll
+  Pop $R0
+  ${WordFind} $R0 "." "E#" $R1
+  IfErrors +2 +5
+  IntCmp $R1 3 +4
+    StrCpy $RequirementsInvalid "invalid"
+    StrCpy $RequirementNinja $(TextVerifyNinjaInvalid)
+    Goto dep
+
+  ; Check Ninja version
+  StrCpy $InstalledNinjaVersion $R0
+  Push $R0
+  Call explodeVersion
+  Pop $R1
+  Push ${NINJA_MIN_TEXT}
+  Call explodeVersion
+  Pop $R0
+  IntCmp $R0 $R1 +3 +3
+    StrCpy $RequirementsInvalid "invalid"
+    StrCpy $RequirementNinja "$(TextVerifyNinjaVersion) $InstalledNinjaVersion."
+
+  dep:
+
+  ; Check DEP
+  ClearErrors
+  System::Call 'kernel32::GetSystemDEPPolicy() i() .r10'
+  IfErrors spunion
+  IntCmp $R0 1 0 +4 +4 ; AlwaysOn
+    StrCpy $RequirementsInvalid "invalid"
+    StrCpy $RequirementDep $(TextVerifyDEPisOn)
+    Goto spunion
+  IntCmp $R0 3 0 +3 +3 ; OptOut
+    StrCpy $RequirementsRecommended "recommended"
+    StrCpy $RequirementDep $(TextVerifyDEPexclude)
+
+  spunion:
+
+  ; Check for SystemPack (optional)
+  IfFileExists $INSTDIR\Data\SystemPack.vdf 0 +3
+    StrCpy $InstalledSpUnion "SystemPack"
+    Goto progfiles
+  IfFileExists $INSTDIR\System\Union.patch 0 +3
+    StrCpy $InstalledSpUnion "Union"
+    Goto progfiles
+  StrCpy $RequirementsRecommended "recommended"
+  StrCpy $RequirementSpUnion $(TextVerifySPUnion)
+
+  progfiles:
+
+  ; Check if installed in program files
+  ClearErrors
+  Push $INSTDIR
+  Push $PROGRAMFILES64
+  Call g2mod_StrStr
+  Pop $R0
+  IfErrors +2
+  StrCmp $R0 "" 0 +8
+  ClearErrors
+  Push $INSTDIR
+  Push $PROGRAMFILES
+  Call g2mod_StrStr
+  Pop $R0
+  IfErrors +3
+  StrCmp $R0 "" +3
+    StrCpy $RequirementsRecommended "recommended"
+    StrCpy $RequirementProgFiles $(TextVerifyBadDir)
+
+  ; Evaluate verification
+  StrCmp $RequirementsRecommended "" 0 +3
+  StrCmp $RequirementsInvalid "" 0 +2
+    Abort
+
+  ; General text
+  !insertmacro MUI_HEADER_TEXT $(TextVerifyTitle) $(TextVerifySubtitle)
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Settings" "NextButtonText" $(TextVerifyNextButton)
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 1" "Text" $(TextVerifyNotMet)
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 2" "Text" $(TextVerifyContinue)
+  StrCmp $RequirementsInvalid "" +3
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 3" "Text" "${U+26A0} $(TextVerifyWarning)"
+    Goto +2
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 3" "Text" ""
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 14" "Text" $(TextVerifyOptionalRecom)
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 19" "Text" $(TextVerifyOptionalRecom)
+
+  ; Links
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 6" "Text" $(TextVerifyDownload)
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 6" "State" "https://www.worldofgothic.de/dl/download_34.htm"
+
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 9" "Text" $(TextVerifyDownload)
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 9" "State" "https://github.com/szapp/Ninja/releases"
+
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 12" "Text" $(TextVerifyInstructions)
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 12" "State" "https://clockwork-origins.com/spine/#faq-question-1576926774006"
+
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 16" "Text" $(TextVerifyDownloadSp)
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 16" "State" "https://github.com/GothicFixTeam/GothicFix/releases"
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 17" "Text" $(TextVerifyDownloadUnion)
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 17" "State" "https://worldofplayers.ru/threads/40376/"
+
+  ; Language dependent arrangement
+  StrCmp $LANGUAGE "1033" 0 +7
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 13" "Right" 193
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 14" "Left" 196
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 16" "Right" 190
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 17" "Left" 193
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 18" "Right" 220
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 19" "Left" 223
+  StrCmp $LANGUAGE "1031" 0 +7
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 13" "Right" 205
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 14" "Left" 208
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 16" "Right" 202
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 17" "Left" 205
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 18" "Right" 260
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 19" "Left" 263
+
+  ; Gothic
+  StrCmp $RequirementGothic "" 0 +8
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 4" "Text" "${U+2713} Gothic version 1.08k_mod"
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 5" "Text" "Version 1.08k_mod $(TextVerifyIsInstalled)."
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 4" "Flags" "DISABLED"
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 5" "Flags" "DISABLED"
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 6" "Flags" "DISABLED"
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 6" "Type" "Label"
+    Goto +7
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 4" "Text" "${U+274C} Gothic version 1.08k_mod"
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 5" "Text" $RequirementGothic
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 4" "Flags" ""
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 5" "Flags" ""
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 6" "Flags" "NOTABSTOP"
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 6" "Type" "Link"
+
+  ; Ninja
+  StrCmp $RequirementNinja "" 0 +8
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 7" "Text" "${U+2713} Ninja version ${NINJA_MIN_TEXT} $(TextVerifyOrHigher)"
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 8" "Text" "Version $InstalledNinjaVersion $(TextVerifyIsInstalled)."
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 7" "Flags" "DISABLED"
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 8" "Flags" "DISABLED"
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 9" "Flags" "DISABLED"
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 9" "Type" "Label"
+    Goto +7
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 7" "Text" "${U+274C} Ninja version ${NINJA_MIN_TEXT} $(TextVerifyOrHigher)"
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 8" "Text" $RequirementNinja
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 7" "Flags" ""
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 8" "Flags" ""
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 9" "Flags" "NOTABSTOP"
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 9" "Type" "Link"
+
+  ; DEP
+  StrCmp $RequirementDep "" 0 +8
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 10" "Text" "${U+2713} Data Execution Prevention (DEP) $(TextVerifyDisabled)"
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 11" "Text" "DEP $(TextVerifyIsDisabled)."
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 10" "Flags" "DISABLED"
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 11" "Flags" "DISABLED"
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 12" "Flags" "DISABLED"
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 12" "Type" "Label"
+    Goto +7
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 10" "Text" "${U+274C} Data Execution Prevention (DEP) $(TextVerifyDisabled)"
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 11" "Text" $RequirementDep
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 10" "Flags" ""
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 11" "Flags" ""
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 12" "Flags" "NOTABSTOP"
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 12" "Type" "Link"
+
+  ; SystemPack or Union
+  StrCmp $RequirementSpUnion "" 0 +11
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 13" "Text" "${U+2713} SystemPack $(TextVerifyOr) Union"
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 15" "Text" "$InstalledSpUnion $(TextVerifyIsInstalled)."
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 13" "Flags" "DISABLED"
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 14" "Flags" "DISABLED"
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 15" "Flags" "DISABLED"
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 16" "Flags" "DISABLED"
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 17" "Flags" "DISABLED"
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 16" "Type" "Label"
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 17" "Type" "Label"
+    Goto +10
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 13" "Text" "${U+274C} SystemPack $(TextVerifyOr) Union"
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 15" "Text" $RequirementSpUnion
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 13" "Flags" ""
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 14" "Flags" ""
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 15" "Flags" ""
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 16" "Flags" "NOTABSTOP"
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 17" "Flags" "NOTABSTOP"
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 16" "Type" "Link"
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 17" "Type" "Link"
+
+  ; Program Files
+  StrCmp $RequirementProgFiles "" 0 +7
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 18" "Text" "${U+2713} $(TextVerifyNotInProgFiles)"
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 20" "Text" $(TextVerifyProgFilesGood)
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 18" "Flags" "DISABLED"
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 19" "Flags" "DISABLED"
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 20" "Flags" "DISABLED"
+    Goto +6
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 18" "Text" "${U+274C} $(TextVerifyNotInProgFiles)"
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 20" "Text" $RequirementProgFiles
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 18" "Flags" ""
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 19" "Flags" ""
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 20" "Flags" ""
+
+  ; Update the checkbox according to urgency of the issues
+  StrCmp $RequirementsInvalid "" +3
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 2" "State" "0"
+    Goto +2
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 2" "State" "1"
+
+  ; Set check box
+  !insertmacro MUI_INSTALLOPTIONS_READ $R0 "checks.ini" "Field 2" "State"
+  FindWindow $R1 "#32770" "" $HWNDPARENT
+  GetDlgItem $R1 $HWNDPARENT 1
+  EnableWindow $R1 $R0
+
+  ; Generate dialog
+  !insertmacro INSTALLOPTIONS_INITDIALOG "checks.ini"
+  Pop $HWND
+
+  ; Set headers to bold
+  !insertmacro INSTALLOPTIONS_READ $DLGITEM "checks.ini" "Field 4" "HWND"
+  CreateFont $FONT $(^Font) $(^FontSize) 700
+  SendMessage $DLGITEM ${WM_SETFONT} $FONT 0
+
+  !insertmacro INSTALLOPTIONS_READ $DLGITEM "checks.ini" "Field 7" "HWND"
+  CreateFont $FONT $(^Font) $(^FontSize) 700
+  SendMessage $DLGITEM ${WM_SETFONT} $FONT 0
+
+  !insertmacro INSTALLOPTIONS_READ $DLGITEM "checks.ini" "Field 10" "HWND"
+  CreateFont $FONT $(^Font) $(^FontSize) 700
+  SendMessage $DLGITEM ${WM_SETFONT} $FONT 0
+
+  !insertmacro INSTALLOPTIONS_READ $DLGITEM "checks.ini" "Field 13" "HWND"
+  CreateFont $FONT $(^Font) $(^FontSize) 700
+  SendMessage $DLGITEM ${WM_SETFONT} $FONT 0
+
+  !insertmacro INSTALLOPTIONS_READ $DLGITEM "checks.ini" "Field 18" "HWND"
+  CreateFont $FONT $(^Font) $(^FontSize) 700
+  SendMessage $DLGITEM ${WM_SETFONT} $FONT 0
+
+  ; Set optional to italic
+  !insertmacro INSTALLOPTIONS_READ $DLGITEM "checks.ini" "Field 14" "HWND"
+  CreateFont $FONT $(^Font) $(^FontSize) "" /ITALIC
+  SendMessage $DLGITEM ${WM_SETFONT} $FONT 0
+
+  !insertmacro INSTALLOPTIONS_READ $DLGITEM "checks.ini" "Field 19" "HWND"
+  CreateFont $FONT $(^Font) $(^FontSize) "" /ITALIC
+  SendMessage $DLGITEM ${WM_SETFONT} $FONT 0
+
+  ; Set keyboard focus
+  !insertmacro MUI_INSTALLOPTIONS_READ $R0 "checks.ini" "Field 2" "State"
+  GetDlgItem $R1 $HWNDPARENT 3
+  IntCmp $R0 1 +2
+    SendMessage $HWND ${WM_SETFOCUS} $HWNDPARENT 0
+
+  !insertmacro INSTALLOPTIONS_SHOW
+
+FunctionEnd
+
+Function PageCheckRequirementsValidate
+  !insertmacro MUI_INSTALLOPTIONS_READ $R0 "checks.ini" "Field 2" "State"
+  FindWindow $R1 "#32770" "" $HWNDPARENT
+  GetDlgItem $R1 $HWNDPARENT 1
+  EnableWindow $R1 $R0
+
+  !insertmacro MUI_INSTALLOPTIONS_READ $R2 "checks.ini" "Settings" "State"
+  StrCmp $R2 "2" +1 validate
+  Abort
+
+  validate:
+  StrCmp $R0 "0" +1 ok
+  Abort
+  ok:
 FunctionEnd

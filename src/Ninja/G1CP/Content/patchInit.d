@@ -78,6 +78,7 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
         G1CP_157_SpeedPotion2Value();                   // #157
         G1CP_158_SpeedPotion3Value();                   // #158
         G1CP_163_CastleGate();                          // #163
+        G1CP_166_RogueWeedDialog();                     // #166
         G1CP_168_GorNaBarBecomeTemplar();               // #168
         G1CP_172_DE_KalomsRecipeName();                 // #172
         G1CP_173_DE_GomezKeyText();                     // #173
@@ -113,6 +114,7 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
         G1CP_236_DE_OrcDogGuild();                      // #236
         G1CP_241_GuardAfterTrial();                     // #241
         G1CP_244_GuardExitDialog();                     // #244
+        G1CP_278_EN_FemaleSvmOuMismatch();              // #278
     };
 };
 

@@ -12,8 +12,8 @@ func int G1CP_212_UseWithItemNcCauldron1() {
     };
 
     // Search the VOB
-    var int vobPtr; vobPtr = G1CP_FindVobByPosF(-56066.3008, 2590.51416, 2028.71448);
-    if (Hlp_Is_oCMobInter(vobPtr)) {
+    var int vobPtr; vobPtr = G1CP_FindVobByPosF(-56066.3008, 2590.51416, 2028.71448, G1CP_oCMobInter_classDef);
+    if (vobPtr) {
         var oCMobInter mob; mob  = _^(vobPtr);
         if (Hlp_StrCmp(mob.sceme, "CAULDRON"))
         && (Hlp_StrCmp(mob.useWithItem, "")) {
@@ -34,8 +34,8 @@ func int G1CP_212_UseWithItemNcCauldron1Revert() {
     };
 
     // Search the VOB again
-    var int vobPtr; vobPtr = G1CP_FindVobByPosF(-56066.3008, 2590.51416, 2028.71448);
-    if (Hlp_Is_oCMobInter(vobPtr)) {
+    var int vobPtr; vobPtr = G1CP_FindVobByPosF(-56066.3008, 2590.51416, 2028.71448, G1CP_oCMobInter_classDef);
+    if (vobPtr) {
         var oCMobInter mob; mob  = _^(vobPtr);
         if (Hlp_StrCmp(mob.sceme, "CAULDRON"))
         && (Hlp_StrCmp(mob.useWithItem, "ITMISCOOP")) {

@@ -3,8 +3,10 @@
  */
 func void G1CP_InitPre() {
     // Version check
-    if (NINJA_VERSION < 2308) {
-        MEM_SendToSpy(zERR_TYPE_FATAL, "G1CP requires at least Ninja 2.3.08 or higher");
+    if (NINJA_VERSION < G1CP_NinjaMinVer) {
+        var string msg;
+        msg = ConcatStrings(ConcatStrings("The G1CP requires at least Ninja ", G1CP_NinjaMinVerStr), " or higher.");
+        MEM_SendToSpy(zERR_TYPE_FATAL, msg);
     };
 
     // Obtain script language

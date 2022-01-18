@@ -1,6 +1,12 @@
 # Changelog
 
-## v1.2.0 (TBA)
+## v1.3.0 (TBA)
+### General
+* Fix [#278](https://g1cp.org/issues/278): The standard voice subtitles of female NPCs when approaching them now match the audio.
+
+### Story
+
+## [v1.2.0](https://g1cp.org/releases/tag/v1.2.0) (2021-10-31)
 ### General
 * Fix [#58](https://g1cp.org/issues/58): Falling can no longer be interrupted by fight actions mid-air.
 * Fix [#194](https://g1cp.org/issues/194): NPCs now correctly pick up the weapon of their defeated opponent.
@@ -12,6 +18,7 @@
 * Fix [#127](https://g1cp.org/issues/127): The locked chest near Buster's hut can now be picked.
 * Fix [#128](https://g1cp.org/issues/128): One of the guards who guard the diggers in the Old Mine no longer has two END dialog options.
 * Fix [#129](https://g1cp.org/issues/129): Drake's body skin color now matches his head.
+* Fix [#166](https://g1cp.org/issues/166): Ambient dialogs of a gate guard of the New Camp are now available after giving him a joint.
 * Fix [#168](https://g1cp.org/issues/168): Gor Na Bar now tells only novices to speak to Cor Angar about becoming a templar.
 * Fix [#191](https://g1cp.org/issues/191): Cord's dialog option to teach One-handed Sword Level 2 now appears only after the player learned Level 1.
 * Fix [#220](https://g1cp.org/issues/220): Gor Na Ran no longer attacks the player character in chapter 6.

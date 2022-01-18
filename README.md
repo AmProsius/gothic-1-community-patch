@@ -17,6 +17,7 @@ Due to its great compatibility but concise reach of changes, the G1CP offers a s
 Please note that this is the first release of the G1CP. Work on the patch continues as there still remain bugs to be fixed. If you encounter bugs or know of any that aren't addressed already (see [changelog](CHANGELOG.md)), consider contributing to the patch by opening an [issue](../../issues?q=sort:updated-desc) on Github.
 
 ## Requirements 
+* Gothic version [1.08k_mod](https://www.worldofgothic.de/dl/download_34.htm)
 * [Ninja](https://github.com/szapp/Ninja/releases) >= 2.3.08
 
 ## Recommendations 
@@ -31,7 +32,9 @@ Please note that this is the first release of the G1CP. Work on the patch contin
 * [Blubbler](https://forum.worldofplayers.de/forum/members/14043-Blubbler)
 * [catalinstoian](https://github.com/catalinstoian)
 * [i5sue5](https://github.com/i5sue5)
+* [Ilvatar](https://github.com/Ilvatar)
 * [N1kX94](https://github.com/N1kX94)
+* [Quintus24](https://github.com/Quintus24)
 * [pawbuj1981](https://github.com/pawbuj1981)
 
 ## Sources of Inspiration
@@ -50,7 +53,7 @@ Please note that this is the first release of the G1CP. Work on the patch contin
 * **Can I continue the game without the patch after installing it once?** The G1CP leaves no noticeable trace in savegames. The game can be continued without issues after uninstalling the patch. Likewise, the patch can be re-added at any time should you change your mind.
 * **How do you ensure the compatibility with other mods and patches?** The G1CP prioritizes compatibility over bug fixing. A number of safety layers ensure that a fix is only applied if it was not addressed already. This way, if a mod already fixed the bug, the G1CP will not intervene.
 * **How is the G1CP possible? Why did it take 20 years for such a patch?** The G1CP mostly consists of what you would call metaprogramming of the scripts (dynamic analysis and self-modifying code) which was made possible in Gothic around ten years ago. This is essentially what powers the G1CP. The last piece of the puzzle was recent advances that allow modular script patches, but that is just the packaging. For more details, have a look at how the fixes are [implemented in a modular way](docs/modularity.md).
-* **When starting the game I receive an error that says "Access Violation". What now?** Please double check that you have installed the Gothic version [1.08k_mod](https://www.worldofgothic.de/dl/download_6.htm) and have disabled the 
+* **When starting the game I receive an error that says "Access Violation". What now?** Please double check that you have installed the Gothic version [1.08k_mod](https://www.worldofgothic.de/dl/download_34.htm) and have disabled the 
 "Data Execution Prevention" (DEP) for the Gothic executables in your system settings of Microsoft Windows. For instruction on that we kindly refer to the [Spine FAQ](https://clockwork-origins.com/spine/#faq-question-1576926774006).
 * **How do I know the G1CP is active?** On successful installation the version number of the G1CP is displayed at the bottom left of the main menu in the game. If it is not shown, please try [troubleshooting your installation](https://github.com/szapp/Ninja/wiki/Troubleshooting-(EN)#wiki-wrapper) of the patch.
 * **How do I know a certain fix is actually applied in my game?** As mentioned, the G1CP only applies individual fixes if their corresponding bug is detected in the game. (They might have been addressed already by a mod.) Therefore, it may happen that a fix is not applied. To obtain a list of applied and not applied fixes, consult the G1CP [console commands](docs/console.md).
@@ -62,12 +65,12 @@ Please note that this is the first release of the G1CP. Work on the patch contin
 ---
 
 ## Building
-Building the project is fully automated. VDF and NSIS setup are created in the sub-directory `build` by running `make`, `make all`, or `make remake` from Windows command prompt.
+Building the project is fully automated. VDF and NSIS setup are created in the sub-directory `build` by running Make in the Windows command prompt. The rules `make`, `make all`, and `make remake` invoke `make dev` which builds the development version of the VDF. The development version includes the test suite. To build the release version (including building the NSIS setup) use `make release`.
 
 To build, the paths to the following software are required to be in the `PATH` environment variable:
 
  - [Make](http://gnuwin32.sourceforge.net/packages/make.htm)
  - [GothicVDFS](http://www.bendlins.de/nico/gothic2/)
- - [NSIS (Nullsoft Scriptable Install System)](https://nsis.sourceforge.io/)
+ - [NSIS (Nullsoft Scriptable Install System)](https://nsis.sourceforge.io/) including the [MoreInfo plug-in](https://nsis.sourceforge.io/MoreInfo_plug-in)
 
 The Makefile is written and supported for Windows only.

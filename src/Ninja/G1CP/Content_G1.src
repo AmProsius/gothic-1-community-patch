@@ -36,6 +36,7 @@ Content\Misc\waypoint.d
 Content\Misc\world.d
 Content\Misc\vob.d
 Content\Misc\npc.d
+Content\Misc\ou.d
 
 Content\Fixes\record.d
 
@@ -108,6 +109,7 @@ Content\Fixes\Session\fix152_EN_ProtectionOfFireDescription.d
 Content\Fixes\Session\fix157_SpeedPotion2Value.d
 Content\Fixes\Session\fix158_SpeedPotion3Value.d
 Content\Fixes\Session\fix163_CastleGate.d
+Content\Fixes\Session\fix166_RogueWeedDialog.d
 Content\Fixes\Session\fix168_GorNaBarBecomeTemplar.d
 Content\Fixes\Session\fix172_DE_KalomsRecipeName.d
 Content\Fixes\Session\fix173_DE_GomezKeyText.d
@@ -143,6 +145,7 @@ Content\Fixes\Session\fix235_DE_OrcDogMagBook.d
 Content\Fixes\Session\fix236_DE_OrcDogGuild.d
 Content\Fixes\Session\fix241_GuardAfterTrial.d
 Content\Fixes\Session\fix244_GuardExitDialog.d
+Content\Fixes\Session\fix278_EN_FemaleSvmOuMismatch.d
 
 // Game save fixes
 Content\Fixes\Gamesave\fix037_LogEntryGravoMerchant.d
