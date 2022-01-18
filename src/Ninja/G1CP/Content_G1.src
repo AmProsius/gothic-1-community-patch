@@ -145,6 +145,7 @@ Content\Fixes\Session\fix235_DE_OrcDogMagBook.d
 Content\Fixes\Session\fix236_DE_OrcDogGuild.d
 Content\Fixes\Session\fix241_GuardAfterTrial.d
 Content\Fixes\Session\fix244_GuardExitDialog.d
+Content\Fixes\Session\fix278_EN_FemaleSvmOuMismatch.d
 
 // Game save fixes
 Content\Fixes\Gamesave\fix037_LogEntryGravoMerchant.d
