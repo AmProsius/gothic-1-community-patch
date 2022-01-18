@@ -6,5 +6,5 @@ func int G1CP_Test_233() {
     var C_Npc npc; npc = G1CP_Testsuite_CreateNpc("OrcDog");
     G1CP_Testsuite_CheckPassed();
 
-    return G1CP_Testsuite_InspectNpcVariable(npc, "name", "Orkhund");
+    return G1CP_Testsuite_InspectNpcString(npc, "name", "Orkhund");
 };

@@ -11,4 +11,5 @@ Command                | Description
 | | **Not available in release build** |
 `TEST LIST`            | List all tests of G1CP
 `TEST ALL`             | Run complete test suite for G1CP
+`TEST ACTIVE`          | Run test suite for active fixes only
 `TEST `                | Run test from test suite for G1CP by [id]

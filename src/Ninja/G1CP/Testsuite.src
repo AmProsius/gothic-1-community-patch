@@ -90,6 +90,7 @@ Content\Tests\test152.d
 Content\Tests\test157.d
 Content\Tests\test158.d
 Content\Tests\test163.d
+Content\Tests\test166.d
 Content\Tests\test168.d
 Content\Tests\test172.d
 Content\Tests\test173.d
@@ -133,3 +134,4 @@ Content\Tests\test235.d
 Content\Tests\test236.d
 Content\Tests\test241.d
 Content\Tests\test244.d
+Content\Tests\test278.d

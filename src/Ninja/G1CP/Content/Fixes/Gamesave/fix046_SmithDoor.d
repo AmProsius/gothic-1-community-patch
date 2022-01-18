@@ -43,8 +43,8 @@ func int G1CP_046_SmithDoor() {
     };
 
     // Find the door in the world
-    var int vobPtr; vobPtr = G1CP_FindVobByPosF(3659.20801, 267.0802, 970.182068);
-    if (!Hlp_Is_oCMobDoor(vobPtr)) {
+    var int vobPtr; vobPtr = G1CP_FindVobByPosF(3659.20801, 267.0802, 970.182068, G1CP_oCMobDoor_classDef);
+    if (!vobPtr) {
         return FALSE;
     };
     var oCMobDoor mob; mob = _^(vobPtr);
@@ -149,8 +149,8 @@ func int G1CP_046_SmithDoor() {
  */
 func int G1CP_046_SmithDoorRevert() {
     // Find the door in the world
-    var int vobPtr; vobPtr = G1CP_FindVobByPosF(3659.20801, 267.0802, 970.182068);
-    if (!Hlp_Is_oCMobDoor(vobPtr)) {
+    var int vobPtr; vobPtr = G1CP_FindVobByPosF(3659.20801, 267.0802, 970.182068, G1CP_oCMobDoor_classDef);
+    if (!vobPtr) {
         return FALSE;
     };
     var oCMobDoor mob; mob = _^(vobPtr);
