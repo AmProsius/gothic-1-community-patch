@@ -17,7 +17,7 @@ Due to its great compatibility but concise reach of changes, the G1CP offers a s
 Please note that this is the first release of the G1CP. Work on the patch continues as there still remain bugs to be fixed. If you encounter bugs or know of any that aren't addressed already (see [changelog](CHANGELOG.md)), consider contributing to the patch by opening an [issue](../../issues?q=sort:updated-desc) on Github.
 
 ## Requirements 
-* [Playerkit 1.08k](https://www.worldofgothic.de/dl/download_34.htm)
+* Gothic version [1.08k_mod](https://www.worldofgothic.de/dl/download_34.htm)
 * [Ninja](https://github.com/szapp/Ninja/releases) >= 2.3.08
 
 ## Recommendations 
