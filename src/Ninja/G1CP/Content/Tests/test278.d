@@ -1,5 +1,5 @@
 /*
- * #278 Female SVM subtitles don't match the audio (EN) (EN)
+ * #278 Female SVM subtitles don't match the audio (EN)
  */
 func int G1CP_Test_278() {
     G1CP_Testsuite_CheckLang(G1CP_Lang_EN);
