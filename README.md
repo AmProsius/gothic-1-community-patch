@@ -69,6 +69,6 @@ To build, the paths to the following software are required to be in the `PATH` e
 
  - [Make](http://gnuwin32.sourceforge.net/packages/make.htm)
  - [GothicVDFS](http://www.bendlins.de/nico/gothic2/)
- - [NSIS (Nullsoft Scriptable Install System)](https://nsis.sourceforge.io/)
+ - [NSIS (Nullsoft Scriptable Install System)](https://nsis.sourceforge.io/) including the [MoreInfo plug-in](https://nsis.sourceforge.io/MoreInfo_plug-in)
 
 The Makefile is written and supported for Windows only.
