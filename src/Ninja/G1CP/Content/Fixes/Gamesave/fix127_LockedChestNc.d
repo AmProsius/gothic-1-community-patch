@@ -2,7 +2,7 @@
  * #127 One chest in NC cannot be opened
  */
 func int G1CP_127_LockedChestNc() {
-    var int vobPtr; vobPtr = G1CP_FindVobByPosF(-55158.1367, 2919.41309, 1144.36926, G1CP_oCMobContainer_classDef);
+    var int vobPtr; vobPtr = G1CP_FindVobByPosF(-55158.1367, 2919.41309, 1144.36926, Hlp_Is_oCMobContainer);
     if (vobPtr) {
         var oCMobContainer mob; mob  = _^(vobPtr);
         if (Hlp_StrCmp(mob._oCMobLockable_keyInstance, "LRL"))
@@ -26,7 +26,7 @@ func int G1CP_127_LockedChestNcRevert() {
     };
 
     // Find the VOB again
-    var int vobPtr; vobPtr = G1CP_FindVobByPosF(-55158.1367, 2919.41309, 1144.36926, G1CP_oCMobContainer_classDef);
+    var int vobPtr; vobPtr = G1CP_FindVobByPosF(-55158.1367, 2919.41309, 1144.36926, Hlp_Is_oCMobContainer);
     if (vobPtr) {
         var oCMobContainer mob; mob  = _^(vobPtr);
         if (Hlp_StrCmp(mob._oCMobLockable_keyInstance, ""))

@@ -167,3 +167,20 @@ func int G1CP_IsFunc(var string name, var string signature) {
 func int G1CP_GetFuncId(var string name, var string signature) {
     return G1CP_GetFuncSymbId(name, signature, 0);
 };
+
+
+/*
+ * Check if a function argument is valid in a safe way (e.g. when specifying NOFUNC as argument)
+ */
+func int G1CP_IsValidFunc(var func f) {
+    var zCPar_Symbol symb; symb = _^(MEM_GetSymbolByIndex(symb-1));
+
+    while(!(symb.bitfield & zPAR_FLAG_CONST));
+        symb = _^(MEM_GetSymbolByIndex(symb.content));
+        if ((symb.bitfield & zCPar_Symbol_bitfield_type) != zPAR_TYPE_FUNC) || (symb.content == -1)  {
+            return FALSE;
+        };
+    end;
+
+    return TRUE;
+};
