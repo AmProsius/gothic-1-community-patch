@@ -7,6 +7,7 @@
 
 ## [v1.2.0](https://g1cp.org/releases/tag/v1.2.0) (31.10.2021)
 ### General
+* Fix [#56](https://g1cp.org/issues/56): Das Wasser im Sumpf ist nicht mehr teilweise unsichtbar.
 * Fix [#58](https://g1cp.org/issues/58): Fallen kann nicht mehr durch Kampfaktionen in der Luft unterbrochen werden.
 * Fix [#194](https://g1cp.org/issues/194): NSCs sammeln nun korrekt die Waffe ihres besiegten Gegners auf.
 * Fix [#231](https://g1cp.org/issues/231): Die Beschreibung der Spruchrolle "Verwandlung Orcdog" lautet nun korrekt "Verwandlung Orkhund".
