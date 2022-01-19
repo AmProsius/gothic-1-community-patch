@@ -12,7 +12,7 @@ func int G1CP_052_UseWithItemNcGrindstone() {
     };
 
     // Search the VOB
-    var int vobPtr; vobPtr = G1CP_FindVobByPosF(-58212.9141, 3233.08716, 7490.75928, G1CP_oCMobInter_classDef);
+    var int vobPtr; vobPtr = G1CP_FindVobByPosF(-58212.9141, 3233.08716, 7490.75928, Hlp_Is_oCMobInter);
     if (vobPtr) {
         var oCMobInter mob; mob  = _^(vobPtr);
         if (Hlp_StrCmp(mob.sceme, "BSSHARP"))
@@ -34,7 +34,7 @@ func int G1CP_052_UseWithItemNcGrindstoneRevert() {
     };
 
     // Search the VOB again
-    var int vobPtr; vobPtr = G1CP_FindVobByPosF(-58212.9141, 3233.08716, 7490.75928, G1CP_oCMobInter_classDef);
+    var int vobPtr; vobPtr = G1CP_FindVobByPosF(-58212.9141, 3233.08716, 7490.75928, Hlp_Is_oCMobInter);
     if (vobPtr) {
         var oCMobInter mob; mob  = _^(vobPtr);
         if (Hlp_StrCmp(mob.sceme, "BSSHARP"))
