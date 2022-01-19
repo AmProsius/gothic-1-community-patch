@@ -8,7 +8,7 @@
  */
 func int G1CP_226_PotionStonehengeChestFind() {
     // Find the chest by its position
-    var int vobPtr; vobPtr = G1CP_FindVobByPosF(-35412.4219, 2280.677, -15320.7129, G1CP_oCMobContainer_classDef);
+    var int vobPtr; vobPtr = G1CP_FindVobByPosF(-35412.4219, 2280.677, -15320.7129, Hlp_Is_oCMobContainer);
     if (!vobPtr) {
         return 0;
     };
