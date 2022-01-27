@@ -35,6 +35,7 @@ Content\Misc\topic.d
 Content\Misc\waypoint.d
 Content\Misc\world.d
 Content\Misc\vob.d
+Content\Misc\vobLight.d
 Content\Misc\npc.d
 Content\Misc\ou.d
 
@@ -157,6 +158,7 @@ Content\Fixes\Gamesave\fix052_UseWithItemNcGrindstone.d
 Content\Fixes\Gamesave\fix055_ReactivateInExtremo.d
 Content\Fixes\Gamesave\fix057_CastleWallTexture.d
 Content\Fixes\Gamesave\fix093_DE_LogEntryHoratio.d
+Content\Fixes\Gamesave\fix116_LensFlaresCave.d
 Content\Fixes\Gamesave\fix121_DE_LogTopicShrikeHut.d
 Content\Fixes\Gamesave\fix124_GateGuardId.d
 Content\Fixes\Gamesave\fix127_LockedChestNc.d

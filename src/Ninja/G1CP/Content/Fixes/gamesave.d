@@ -33,6 +33,7 @@ func void G1CP_GamesaveFixes_Apply() {
         G1CP_055_ReactivateInExtremo();                 // #55
         G1CP_057_CastleWallTexture();                   // #57
         G1CP_093_DE_LogEntryHoratio();                  // #93
+        G1CP_116_LensFlaresCave();                      // #116
         G1CP_121_DE_LogTopicShrikeHut();                // #121
         G1CP_127_LockedChestNc();                       // #127
         G1CP_124_GateGuardId();                         // #124
@@ -63,6 +64,7 @@ func void G1CP_GamesaveFixes_Revert() {
         G1CP_055_ReactivateInExtremoRevert();           // #55
         G1CP_057_CastleWallTextureRevert();             // #57
         G1CP_093_DE_LogEntryHoratioRevert();            // #93
+        G1CP_116_LensFlaresCaveRevert();                // #116
         G1CP_121_DE_LogTopicShrikeHutRevert();          // #121
         G1CP_124_GateGuardIdRevert();                   // #124
         G1CP_127_LockedChestNcRevert();                 // #127
