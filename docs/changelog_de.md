@@ -4,6 +4,7 @@
 ### General
 
 ### Story
+* Fix [#57](https://g1cp.org/issues/57): Die Mauertextur der Burg des Alten Lagers in der Nähe von Gravo flackert nicht mehr.
 * Fix [#116](https://g1cp.org/issues/116): Die Blendenflecke (Lens Flares) in der Höhle der Krautmischer sind nun entfernt.
 
 ## [v1.2.0](https://g1cp.org/releases/tag/v1.2.0) (31.10.2021)

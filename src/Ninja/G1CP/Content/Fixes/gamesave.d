@@ -31,6 +31,7 @@ func void G1CP_GamesaveFixes_Apply() {
         G1CP_051_StonehengeCryptChest();                // #51
         G1CP_052_UseWithItemNcGrindstone();             // #52
         G1CP_055_ReactivateInExtremo();                 // #55
+        G1CP_057_CastleWallTexture();                   // #57
         G1CP_093_DE_LogEntryHoratio();                  // #93
         G1CP_116_LensFlaresCave();                      // #116
         G1CP_121_DE_LogTopicShrikeHut();                // #121
@@ -61,6 +62,7 @@ func void G1CP_GamesaveFixes_Revert() {
         G1CP_051_StonehengeCryptChestRevert();          // #51
         G1CP_052_UseWithItemNcGrindstoneRevert();       // #52
         G1CP_055_ReactivateInExtremoRevert();           // #55
+        G1CP_057_CastleWallTextureRevert();             // #57
         G1CP_093_DE_LogEntryHoratioRevert();            // #93
         G1CP_116_LensFlaresCaveRevert();                // #116
         G1CP_121_DE_LogTopicShrikeHutRevert();          // #121

@@ -5,6 +5,7 @@
 * Fix [#278](https://g1cp.org/issues/278): The standard voice subtitles of female NPCs when approaching them now match the audio.
 
 ### Story
+* Fix [#57](https://g1cp.org/issues/57): The wall texture of the castle of the Old Camp near Gravo does not flicker anymore.
 * Fix [#116](https://g1cp.org/issues/116): There are no longer lens flares in Jacko's swampweed cave.
 
 ## [v1.2.0](https://g1cp.org/releases/tag/v1.2.0) (2021-10-31)
