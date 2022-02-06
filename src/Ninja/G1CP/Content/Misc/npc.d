@@ -13,6 +13,18 @@ func int G1CP_BodyStateContains(var C_Npc slf, var int bodystate) {
 
 
 /*
+ * A functional version of the external engine function Npc_IsInRoutine
+ */
+func int G1CP_NpcIsInRoutine(var C_Npc slf, var func dailyRoutine) {
+    if (Hlp_IsValidNpc(slf)) {
+        return (MEM_GetFuncId(dailyRoutine) == MEM_ReadInt(_@(slf.bodymass)+4)); // Read daily_routine function as int
+    } else {
+        return FALSE;
+    };
+};
+
+
+/*
  * More versatile version of Npc_CanSee
  */
 func int G1CP_NpcCanSeeVob(var int npcPtr, var int vobPtr, var int withAngles) {
