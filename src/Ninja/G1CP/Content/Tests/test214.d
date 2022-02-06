@@ -2,7 +2,7 @@
  * #214 Graham doesn't sit at campfire
  */
 func int G1CP_Test_214() {
-    const int timeToCheck = 1800;
+    const int timeToCheck = 1830; // Time slightly after start
     const string rtnName = "start";
     var zCWaypoint newWp; newWp = G1CP_Testsuite_FindWaypoint("OCR_OUTSIDE_HUT_77_INSERT");
     var C_Npc npc; npc = G1CP_Testsuite_FindNpc("VLK_573_Graham");
@@ -13,14 +13,14 @@ func int G1CP_Test_214() {
     var int timeBak; timeBak = G1CP_GetWorldTime();
 
     // Set the time and daily routine
-    Wld_SetTime(timeToCheck / 100, timeToCheck % 100);
     Npc_ExchangeRoutine(npc, rtnName);
+    Wld_SetTime(timeToCheck / 100, timeToCheck % 100);
     var int passed; passed = STR_Compare(npc.wp, newWp.name) == STR_EQUAL;
     if (!passed) {
         G1CP_TestsuiteErrorDetailSSS("Incorrect waypoint '", npc.wp, "'");
     };
 
-    // Back up time and daily routine
+    // Restore time and daily routine
     G1CP_NpcExchangeRoutineI(npc, rtnBak);
     Wld_SetTime(timeBak / 100, timeBak % 100);
 
