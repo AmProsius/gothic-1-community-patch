@@ -198,6 +198,13 @@ func int G1CP_Testsuite_CheckDialogConditionFunc(var string name) {
 };
 
 /*
+ * Check if daily routine function exists
+ */
+func int G1CP_Testsuite_CheckRoutineFunc(var string name) {
+    return G1CP_Testsuite_CheckFunc(name, "void|none", "Daily routine");
+};
+
+/*
  * Check if AI state start function exists
  */
 func int G1CP_Testsuite_CheckAiStateStartFunc(var string name) {

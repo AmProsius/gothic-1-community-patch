@@ -1,23 +1,28 @@
 /*
  * #214 Graham doesn't sit at campfire
- *
- * There does not seem an easy way to test this fix programmatically, so this test relies on manual confirmation.
- * Caution: This test will break the game. Save the game beforehand.
- *
- * Expected behavior: Graham will sit down by the campfire shortly (one game minute) after triggering this test.
  */
-func void G1CP_Test_214() {
-    G1CP_Testsuite_CheckManual();
-    var zCWaypoint wp; wp = G1CP_Testsuite_FindWaypoint("OCR_OUTSIDE_HUT_77_MOVEMENT");
-    var int paydayId; paydayId = G1CP_Testsuite_CheckIntVar("Bloodwyn_PayDay", 0);
-    var int infoId; infoId = G1CP_Testsuite_CheckInfo("Info_Bloodwyn_Hello");
+func int G1CP_Test_214() {
+    const int timeToCheck = 1800;
+    const string rtnName = "start";
+    var zCWaypoint newWp; newWp = G1CP_Testsuite_FindWaypoint("OCR_OUTSIDE_HUT_77_INSERT");
+    var C_Npc npc; npc = G1CP_Testsuite_FindNpc("VLK_573_Graham");
     G1CP_Testsuite_CheckPassed();
 
-    // Shut up Bloodwyn
-    G1CP_SetIntVarI(paydayId, 0, Wld_GetDay()+1);
-    G1CP_SetInfoToldI(infoId, TRUE);
+    // Backup daily routine function and current world time
+    var int rtnBak; rtnBak = G1CP_NpcGetRoutine(npc);
+    var int timeBak; timeBak = G1CP_GetWorldTime();
 
-    // Set time and place
-    Wld_SetTime(18, 0);
-    AI_Teleport(hero, wp.name);
+    // Set the time and daily routine
+    Wld_SetTime(timeToCheck / 100, timeToCheck % 100);
+    Npc_ExchangeRoutine(npc, rtnName);
+    var int passed; passed = STR_Compare(npc.wp, newWp.name) == STR_EQUAL;
+    if (!passed) {
+        G1CP_TestsuiteErrorDetailSSS("Incorrect waypoint '", npc.wp, "'");
+    };
+
+    // Back up time and daily routine
+    G1CP_NpcExchangeRoutineI(npc, rtnBak);
+    Wld_SetTime(timeBak / 100, timeBak % 100);
+
+    return passed;
 };

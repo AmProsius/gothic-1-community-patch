@@ -13,7 +13,41 @@ func int G1CP_BodyStateContains(var C_Npc slf, var int bodystate) {
 
 
 /*
- * A functional version of the external engine function Npc_IsInRoutine
+ * Copy of the external engine function Npc_ExchangeRoutine but taking a function symbol index
+ */
+func void G1CP_NpcExchangeRoutineI(var C_Npc slf, var int fncId) {
+    if (!Hlp_IsValidNpc(slf)) {
+        return;
+    };
+
+    const int oCNpc_state_offset = 1136; //0x0470
+    var int npcStatePtr; npcStatePtr = _@(slf)+oCNpc_state_offset;
+
+    const int oCNpc_States__ChangeRoutine = 7105008; //0x6C69F0
+    const int call = 0;
+    if (CALL_Begin(call)) {
+        CALL_PtrParam(_@(fncId));
+        CALL__thiscall(_@(npcStatePtr), oCNpc_States__ChangeRoutine);
+        call = CALL_End();
+    };
+};
+
+
+/*
+ * Get daily routine function symbol index
+ */
+func int G1CP_NpcGetRoutine(var C_Npc slf) {
+    if (!Hlp_IsValidNpc(slf)) {
+        return -1;
+    };
+
+    // Detour to read the function as integer
+    return MEM_ReadInt(_@(slf.bodymass)+4);
+};
+
+
+/*
+ * Functional version of the external engine function Npc_IsInRoutine
  */
 func int G1CP_NpcIsInRoutine(var C_Npc slf, var func dailyRoutine) {
     if (Hlp_IsValidNpc(slf)) {
