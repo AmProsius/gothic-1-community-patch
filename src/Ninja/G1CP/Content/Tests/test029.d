@@ -5,55 +5,31 @@
  *
  * Expected behavior: The condition function will return FALSE.
  */
-func int Ninja_G1CP_Test_029() {
-    // Check status of the test
-    var int passed; passed = TRUE;
-
-    // Check if the dialog exists
-    var int funcId; funcId = MEM_FindParserSymbol("DIA_ORG_833_Buster3_Condition");
-    if (funcId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("Dialog condition 'DIA_ORG_833_Buster3_Condition' not found");
-        passed = FALSE;
-    };
-
-    // Check if symbol exists
-    var int symbPtr; symbPtr = MEM_GetSymbol("NPC_TALENT_ACROBAT");
-    if (!symbPtr) {
-        Ninja_G1CP_TestsuiteErrorDetail("Symbol 'NPC_TALENT_ACROBAT' not found");
-        passed = FALSE;
-    };
-    var int NPC_TALENT_ACROBAT; NPC_TALENT_ACROBAT = MEM_ReadInt(symbPtr + zCParSymbol_content_offset);
-
-    // At the latest now, we need to stop if there are fails already
-    if (!passed) {
-        return FALSE;
-    };
+func int G1CP_Test_029() {
+    var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("DIA_ORG_833_Buster3_Condition");
+    var int infoId; infoId = G1CP_Testsuite_CheckInfo("DIA_ORG_833_Buster");
+    const int NPC_TALENT_ACROBAT = 0; NPC_TALENT_ACROBAT = G1CP_Testsuite_GetIntConst("NPC_TALENT_ACROBAT", 0);
+    G1CP_Testsuite_CheckPassed();
 
     // Backup values
-    var int talentBak; talentBak = Npc_GetTalentSkill(hero, NPC_TALENT_ACROBAT);                // Talent
-    var int toldBak; toldBak = Npc_KnowsInfo(hero, MEM_FindParserSymbol("DIA_ORG_833_Buster")); // Told status
-    var C_Npc slfBak; slfBak = MEM_CpyInst(self);                                               // Self
-    var C_Npc othBak; othBak = MEM_CpyInst(other);                                              // Other
+    var int toldBak; toldBak = Npc_KnowsInfo(hero, infoId);
+    var int talentBak; talentBak = Npc_GetTalentSkill(hero, NPC_TALENT_ACROBAT);
 
     // Set new values
-    Npc_SetTalentSkill(hero, NPC_TALENT_ACROBAT, TRUE);                                         // Talent
-    Ninja_G1CP_SetInfoTold("DIA_ORG_833_Buster", TRUE);                                         // Told status
-    self  = MEM_CpyInst(hero);                                                                  // Self
-    other = MEM_CpyInst(hero);                                                                  // Other
+    G1CP_SetInfoToldI(infoId, TRUE);
+    Npc_SetTalentSkill(hero, NPC_TALENT_ACROBAT, TRUE);
 
     // Call dialog condition function
-    MEM_CallByID(funcId);
+    G1CP_Testsuite_Call(funcId, 0, 0, FALSE);
     var int ret; ret = MEM_PopIntResult();
 
     // Restore values
-    self  = MEM_CpyInst(slfBak);                                                                // Self
-    other = MEM_CpyInst(othBak);                                                                // Other
-    Npc_SetTalentSkill(hero, NPC_TALENT_ACROBAT, talentBak);                                    // Talent
-    Ninja_G1CP_SetInfoTold("DIA_ORG_833_Buster", toldBak);                                      // Told status
+    G1CP_SetInfoToldI(infoId, toldBak);
+    Npc_SetTalentSkill(hero, NPC_TALENT_ACROBAT, talentBak);
 
     // Check return value
     if (ret) {
-        Ninja_G1CP_TestsuiteErrorDetail("Dialog condition failed");
+        G1CP_TestsuiteErrorDetail("Dialog condition failed");
         return FALSE;
     } else {
         return TRUE;

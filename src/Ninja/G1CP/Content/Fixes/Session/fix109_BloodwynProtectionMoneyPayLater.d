@@ -1,10 +1,10 @@
 /*
  * #109 The player doesn't lose ore when paying protection money to Bloodwyn again
  */
-func int Ninja_G1CP_109_BloodwynProtectionMoneyPayLater() {
-    if (MEM_FindParserSymbol("Info_Bloodwyn_PayDay_PayAgain") != -1)
-    && (MEM_FindParserSymbol("ItMiNugget")                    != -1) {
-        HookDaedalusFuncS("Info_Bloodwyn_PayDay_PayAgain", "Ninja_G1CP_109_BloodwynProtectionMoneyPayLater_Hook");
+func int G1CP_109_BloodwynProtectionMoneyPayLater() {
+    if (G1CP_IsFunc("Info_Bloodwyn_PayDay_PayAgain", "void|none"))
+    && (G1CP_IsItemInst("ItMiNugget")) {
+        HookDaedalusFuncS("Info_Bloodwyn_PayDay_PayAgain", "G1CP_109_BloodwynProtectionMoneyPayLater_Hook");
         return TRUE;
     } else {
         return FALSE;
@@ -14,12 +14,12 @@ func int Ninja_G1CP_109_BloodwynProtectionMoneyPayLater() {
 /*
  * This function intercepts the dialog to introduce more actions
  */
-func void Ninja_G1CP_109_BloodwynProtectionMoneyPayLater_Hook() {
-    Ninja_G1CP_ReportFuncToSpy();
+func void G1CP_109_BloodwynProtectionMoneyPayLater_Hook() {
+    G1CP_ReportFuncToSpy();
 
     // Remember how much ore the player has before the dialog
     var int amountOreBefore;
-    var int oreId; oreId = MEM_FindParserSymbol("ItMiNugget");
+    var int oreId; oreId = MEM_GetSymbolIndex("ItMiNugget");
     if (oreId != -1) {
         amountOreBefore = Npc_HasItems(hero, oreId);
     };
@@ -30,7 +30,7 @@ func void Ninja_G1CP_109_BloodwynProtectionMoneyPayLater_Hook() {
     // Check if no ore was deduced
     if (oreId != -1) {
         if (Npc_HasItems(hero, oreId) == amountOreBefore) {
-            var int funcId; funcId = MEM_FindParserSymbol("B_GiveInvItems");
+            var int funcId; funcId = MEM_GetSymbolIndex("B_GiveInvItems");
             if (funcId != -1) {
                 // B_GiveInvItems(hero, self, ItMiNugget, 10)
                 MEM_PushInstParam(hero);

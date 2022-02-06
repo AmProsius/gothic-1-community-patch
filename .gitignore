@@ -1,4 +1,4 @@
-/build/*.vdf
-/build/*.exe
+.idea
+/build/*
 
 /scriptbase/_work/Data/Scripts/_compiled

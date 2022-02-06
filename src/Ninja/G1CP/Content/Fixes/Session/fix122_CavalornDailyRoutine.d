@@ -1,27 +1,27 @@
 /*
  * #122 Cavalorn WPs for his routine are reversed
  */
-func int Ninja_G1CP_122_CavalornDailyRoutine() {
+func int G1CP_122_CavalornDailyRoutine() {
     var int applied; applied = FALSE;
 
     // Get necessary symbol indices
-    var int funcId; funcId = MEM_FindParserSymbol("Rtn_start_336");
-    var int sleepSymbPtr; sleepSymbPtr = MEM_GetSymbol("TA_Sleep");
-    var int standSymbPtr; standSymbPtr = MEM_GetSymbol("TA_StandAround");
-    if (funcId == -1) || (!sleepSymbPtr) || (!standSymbPtr) {
+    var int funcId; funcId = G1CP_GetFuncId("Rtn_start_336", "void|none");
+    var int sleepSymbId; sleepSymbId = G1CP_GetFuncId("TA_Sleep", "void|int|int|int|int|string");
+    var int standSymbId; standSymbId = G1CP_GetFuncId("TA_StandAround", "void|int|int|int|int|string");
+    if (funcId == -1) || (sleepSymbId == -1) || (standSymbId == -1) {
         return FALSE;
     };
 
     // Find function calls in "Rtn_start_336"
-    const int bytes[2] = {zPAR_TOK_CALL<<24, 0};
+    const int bytes[2] = {zPAR_TOK_CALL<<24, -1};
 
-    // Find all calls to TA_Sleep"
-    bytes[1] = MEM_ReadInt(sleepSymbPtr + zCParSymbol_content_offset);
-    var int sleepMatches; sleepMatches = Ninja_G1CP_FindInFunc(funcId, _@(bytes)+3, 5);
+    // Find all calls to "TA_Sleep"
+    bytes[1] = G1CP_GetCallableOffsetI(sleepSymbId);
+    var int sleepMatches; sleepMatches = G1CP_FindInFunc(funcId, _@(bytes)+3, 5);
 
     // Find all calls to "TA_StandAround"
-    bytes[1] = MEM_ReadInt(standSymbPtr + zCParSymbol_content_offset);
-    var int standMatches; standMatches = Ninja_G1CP_FindInFunc(funcId, _@(bytes)+3, 5);
+    bytes[1] = G1CP_GetCallableOffsetI(standSymbId);
+    var int standMatches; standMatches = G1CP_FindInFunc(funcId, _@(bytes)+3, 5);
 
     // Narrow down the context
     var int i; i = 0;
@@ -36,18 +36,9 @@ func int Ninja_G1CP_122_CavalornDailyRoutine() {
         pos = MEM_ArrayRead(sleepMatches, i);
         if (MEM_ReadByte(pos-5) == zPAR_TOK_PUSHVAR) {
             varId = MEM_ReadInt(pos-4);
-            if (varId > 0) && (varId < currSymbolTableLength) {
-                varSymbPtr = MEM_GetSymbolByIndex(varId);
-                if (varSymbPtr) {
-                    symb = _^(varSymbPtr);
-                    if ((symb.bitfield & zCPar_Symbol_bitfield_type) == zPAR_TYPE_STRING) {
-                        str = MEM_ReadString(symb.content);
-                        if (Hlp_StrCmp(str, "OW_CAVALORN_01")) {
-                            i += 1;
-                            continue;
-                        };
-                    };
-                };
+            if (Hlp_StrCmp(G1CP_GetStringI(varId, 0, ""), "OW_CAVALORN_01")) {
+                i += 1;
+                continue;
             };
         };
 
@@ -60,18 +51,9 @@ func int Ninja_G1CP_122_CavalornDailyRoutine() {
         pos = MEM_ArrayRead(standMatches, i);
         if (MEM_ReadByte(pos-5) == zPAR_TOK_PUSHVAR) {
             varId = MEM_ReadInt(pos-4);
-            if (varId > 0) && (varId < currSymbolTableLength) {
-                varSymbPtr = MEM_GetSymbolByIndex(varId);
-                if (varSymbPtr) {
-                    symb = _^(varSymbPtr);
-                    if ((symb.bitfield & zCPar_Symbol_bitfield_type) == zPAR_TYPE_STRING) {
-                        str = MEM_ReadString(symb.content);
-                        if (Hlp_StrCmp(str, "OW_SAWHUT_SLEEP_01")) {
-                            i += 1;
-                            continue;
-                        };
-                    };
-                };
+            if (Hlp_StrCmp(G1CP_GetStringI(varId, 0, ""), "OW_SAWHUT_SLEEP_01")) {
+                i += 1;
+                continue;
             };
         };
 
@@ -82,10 +64,11 @@ func int Ninja_G1CP_122_CavalornDailyRoutine() {
     // Check if any matches are left
     if (MEM_ArraySize(sleepMatches) > 0) && (MEM_ArraySize(standMatches) > 0) {
         // Get symbol indices of the strings
+        var MEMINT_HelperClass ref;
         const string wpSleep = "OW_SAWHUT_SLEEP_01";
         const string wpStand = "OW_CAVALORN_01";
-        var int wpSleepSymbId; wpSleepSymbId = MEM_FindParserSymbol("Ninja_G1CP_122_CavalornDailyRoutine.wpSleep");
-        var int wpStandSymbId; wpStandSymbId = MEM_FindParserSymbol("Ninja_G1CP_122_CavalornDailyRoutine.wpStand");
+        var int wpSleepSymbId; wpSleepSymbId = ref + 1;
+        var int wpStandSymbId; wpStandSymbId = ref + 2;
 
         // Switch the waypoints in all remaining occurrences
         repeat(i, MEM_ArraySize(sleepMatches));

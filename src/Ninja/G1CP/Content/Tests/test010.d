@@ -5,24 +5,18 @@
  *
  * Expected behavior: The NPC will pick up on the hero's walking mode
  */
-func void Ninja_G1CP_Test_010() {
-    if (!Ninja_G1CP_TestsuiteAllowManual) {
-        return;
-    };
+func void G1CP_Test_010() {
+    G1CP_Testsuite_CheckManual();
+    var int symbId; symbId = G1CP_Testsuite_CheckAiStateStartFunc("ZS_FollowPC");
+    G1CP_Testsuite_CheckAiStateStartFunc("ZS_Talk");
+    G1CP_Testsuite_CheckPassed();
 
     // Insert test NPC
-    var string wp; wp = Npc_GetNearestWP(hero);
-    Wld_InsertNpc(Ninja_G1CP_Test_010_Npc, wp);
-    var C_Npc test; test = Hlp_GetNpc(Ninja_G1CP_Test_010_Npc);
+    var string wp; wp = Npc_GetNearestWp(hero);
+    Wld_InsertNpc(G1CP_Test_010_Npc, wp);
+    var C_Npc test; test = Hlp_GetNpc(G1CP_Test_010_Npc);
     if (!Hlp_IsValidNpc(test)) {
-        Ninja_G1CP_TestsuiteErrorDetail("Failed to insert NPC");
-        return;
-    };
-
-    // Check for ZS_FollowPC
-    var int symbId; symbId = MEM_FindParserSymbol("ZS_FollowPC");
-    if (!symbId) {
-        Ninja_G1CP_TestsuiteErrorDetail("AI state 'ZS_FollowPC' not found");
+        G1CP_TestsuiteErrorDetail("Failed to insert NPC");
         return;
     };
 
@@ -34,7 +28,7 @@ func void Ninja_G1CP_Test_010() {
 /*
  * The actual test will run through the NPC's AI state (see below)
  */
-instance Ninja_G1CP_Test_010_Npc(C_Npc) {
+instance G1CP_Test_010_Npc(C_Npc) {
     name          = "Test 10";
     attribute[0]  = 2;
     attribute[1]  = 2;
@@ -47,15 +41,15 @@ instance Ninja_G1CP_Test_010_Npc(C_Npc) {
 /*
  * Add dialog to remove the NPC
  */
-instance Ninja_G1CP_Test_010_Dialog(C_Info) {
-    npc         = Ninja_G1CP_Test_010_Npc;
-    condition   = Ninja_G1CP_Test_010_Dialog_Condition;
-    information = Ninja_G1CP_Test_010_Dialog_Info;
+instance G1CP_Test_010_Dialog(C_Info) {
+    npc         = G1CP_Test_010_Npc;
+    condition   = G1CP_Test_010_Dialog_Condition;
+    information = G1CP_Test_010_Dialog_Info;
     important   = 1;
     permanent   = 1;
 };
-func int Ninja_G1CP_Test_010_Dialog_Condition() {
-    var int symbId; symbId = MEM_FindParserSymbol("ZS_Talk");
+func int G1CP_Test_010_Dialog_Condition() {
+    var int symbId; symbId = MEM_GetSymbolIndex("ZS_Talk");
     if (!symbId) {
         return FALSE;
     };
@@ -67,11 +61,11 @@ func int Ninja_G1CP_Test_010_Dialog_Condition() {
         return TRUE;
     };
 };
-func void Ninja_G1CP_Test_010_Dialog_Info() {
+func void G1CP_Test_010_Dialog_Info() {
     AI_StopProcessInfos(self);
     AI_StopProcessInfos(other);
 
     // Delete the NPC once finished
     MEM_WriteInt(_@(self.bodymass)+8, 0); // Clear start_aistate
-    AI_Function_I(hero, Wld_RemoveNpc, Ninja_G1CP_Test_010_Npc);
+    AI_Function_I(hero, Wld_RemoveNpc, G1CP_Test_010_Npc);
 };

@@ -5,42 +5,35 @@
  *
  * Expected behavior: The condition function will return FALSE.
  */
-func int Ninja_G1CP_Test_040() {
-    // Check if the dialog exists
-    var int funcId; funcId = MEM_FindParserSymbol("VLK_585_Aleph_DIRTY_Condition");
-    if (funcId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("Dialog condition 'VLK_585_Aleph_DIRTY_Condition' not found");
-        return FALSE;
-    };
+func int G1CP_Test_040() {
+    var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("Info_Org_804_FirstWarn_Condition");
+    var int ulbertId; ulbertId = G1CP_Testsuite_CheckInfo("GRD_271_ULBERT_DRUNK");
+    var int brandickId; brandickId = G1CP_Testsuite_CheckInfo("GRD_261_Brandick_ALEPH");
+    var int alephId; alephId = G1CP_Testsuite_CheckInfo("VLK_585_Aleph_SCHUPPEN");
+    G1CP_Testsuite_CheckPassed();
 
     // Backup values
-    var int told1Bak; told1Bak = Npc_KnowsInfo(hero, MEM_FindParserSymbol("GRD_271_ULBERT_DRUNK"));   // Told status
-    var int told2Bak; told2Bak = Npc_KnowsInfo(hero, MEM_FindParserSymbol("GRD_261_Brandick_ALEPH")); // Told status
-    var int told3Bak; told3Bak = Npc_KnowsInfo(hero, MEM_FindParserSymbol("VLK_585_Aleph_SCHUPPEN")); // Told status
-    var C_Npc slfBak; slfBak = MEM_CpyInst(self);                                                     // Self
-    var C_Npc othBak; othBak = MEM_CpyInst(other);                                                    // Other
+    var int ulberBak; ulberBak = Npc_KnowsInfo(hero, ulbertId);
+    var int brandickBak; brandickBak = Npc_KnowsInfo(hero, brandickId);
+    var int alephBak; alephBak = Npc_KnowsInfo(hero, alephId);
 
     // Set new values
-    Ninja_G1CP_SetInfoTold("GRD_271_ULBERT_DRUNK", TRUE);                                             // Told status
-    Ninja_G1CP_SetInfoTold("GRD_261_Brandick_ALEPH", TRUE);                                           // Told status
-    Ninja_G1CP_SetInfoTold("VLK_585_Aleph_SCHUPPEN", TRUE);                                           // Told status
-    self  = MEM_CpyInst(hero);                                                                        // Self
-    other = MEM_CpyInst(hero);                                                                        // Other
+    G1CP_SetInfoToldI(ulbertId, TRUE);
+    G1CP_SetInfoToldI(brandickId, TRUE);
+    G1CP_SetInfoToldI(alephId, TRUE);
 
     // Call dialog condition function
-    MEM_CallByID(funcId);
+    G1CP_Testsuite_Call(funcId, 0, 0, FALSE);
     var int ret; ret = MEM_PopIntResult();
 
     // Restore values
-    self  = MEM_CpyInst(slfBak);                                                                      // Self
-    other = MEM_CpyInst(othBak);                                                                      // Other
-    Ninja_G1CP_SetInfoTold("GRD_271_ULBERT_DRUNK", told1Bak);                                         // Told status
-    Ninja_G1CP_SetInfoTold("GRD_261_Brandick_ALEPH", told2Bak);                                       // Told status
-    Ninja_G1CP_SetInfoTold("VLK_585_Aleph_SCHUPPEN", told3Bak);                                       // Told status
+    G1CP_SetInfoToldI(ulbertId, ulberBak);
+    G1CP_SetInfoToldI(brandickId, brandickBak);
+    G1CP_SetInfoToldI(alephId, alephBak);
 
     // Check return value
     if (ret) {
-        Ninja_G1CP_TestsuiteErrorDetail("Dialog condition failed");
+        G1CP_TestsuiteErrorDetail("Dialog condition failed");
         return FALSE;
     } else {
         return TRUE;

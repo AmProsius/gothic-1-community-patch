@@ -5,16 +5,7 @@
  *
  * Expected behavior: Gorn should be able to climb up the ladder to reach the PC without interruptions.
  */
-func void Ninja_G1CP_Test_136() {
-    if (Ninja_G1CP_TestsuiteAllowManual) {
-        // Teleport the player to the entrance of the Free Mine
-        if (!Hlp_StrCmp(MEM_World.worldFilename, "FREEMINE.ZEN")) {
-            const int oCGame__TriggerChangeLevel = 6542464; //0x63D480
-            CALL_zStringPtrParam("FM_20");
-            CALL_zStringPtrParam("FREEMINE.ZEN");
-            CALL__thiscall(_@(MEM_Game), oCGame__TriggerChangeLevel);
-        } else {
-            AI_Teleport(hero, "FM_20");
-        };
-    };
+func void G1CP_Test_136() {
+    G1CP_Testsuite_CheckManual();
+    G1CP_Testsuite_NpcTeleportToWorld(hero, "FREEMINE.ZEN", "FM_20");
 };

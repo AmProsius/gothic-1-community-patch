@@ -17,67 +17,7 @@
  * only remain in the game as long as its instance exists in the scripts. In other words, as soon as G1CP was to be
  * uninstalled, the key would automatically vanish from the game on loading.
  */
-
-/* Position of the door */
-const int Ninja_G1CP_046_SmithDoor_Pos[3] = {
-     1164227412, 1132825156, 1148357543
-};
-
-/*
- * Identify the door in the world
- */
-func int Ninja_G1CP_046_SmithDoorFind() {
-    // Create VOB array once, clear it on consecutive calls
-    const int arrPtr = 0;
-    if (!arrPtr) {
-        arrPtr = MEM_ArrayCreate();
-    } else {
-        MEM_ArrayClear(arrPtr);
-    };
-
-    // Find all cCMobDoor objects
-    // Source: https://forum.worldofplayers.de/forum/threads/?p=25717007
-    const int zCWorld__SearchVobListByBaseClass = 6250016; //0x5F5E20
-    const int oCMobDoor__classDef               = 9284672; //0x8DAC40
-
-    var int vobTreePtr; vobTreePtr = _@(MEM_Vobtree);
-    var int worldPtr;   worldPtr   = _@(MEM_World);
-
-    const int call = 0;
-    if (CALL_Begin(call)) {
-        CALL_PtrParam(_@(vobTreePtr));
-        CALL_PtrParam(_@(arrPtr));
-        CALL_PtrParam(_@(oCMobDoor__classDef));
-        CALL__thiscall(_@(worldPtr), zCWorld__SearchVobListByBaseClass);
-        call = CALL_End();
-    };
-
-    // Narrow down the search
-    repeat(i, MEM_ArraySize(arrPtr)); var int i;
-        var int vobPtr; vobPtr = MEM_ArrayRead(arrPtr, i);
-        var oCMobDoor mob; mob = _^(vobPtr);
-
-        // Confirm exact position (separate if-conditions for performance)
-        if (mob._zCVob_trafoObjToWorld[ 3] == Ninja_G1CP_046_SmithDoor_Pos[0]) {
-        if (mob._zCVob_trafoObjToWorld[ 7] == Ninja_G1CP_046_SmithDoor_Pos[1]) {
-        if (mob._zCVob_trafoObjToWorld[11] == Ninja_G1CP_046_SmithDoor_Pos[2]) {
-
-            // Make sure no lock picking string was added
-            if (Hlp_StrCmp(mob._oCMobLockable_pickLockStr, "")) {
-                return vobPtr;
-            };
-
-        }; }; };
-    end;
-
-    // Not found
-    return 0;
-};
-
-/*
- * This function applies the changes of #46
- */
-func int Ninja_G1CP_046_SmithDoor() {
+func int G1CP_046_SmithDoor() {
     // First find the symbol indices once
     const int keyIdOld = -2; // -1 is reserved for invalid symbols
     const int keyIdNew = -2;
@@ -85,10 +25,10 @@ func int Ninja_G1CP_046_SmithDoor() {
     const int varId    = -2;
     const int varPtr   =  0;
     if (keyIdOld == -2) {
-        keyIdOld = MEM_FindParserSymbol("ITKEY_OB_SMITH_01");
-        keyIdNew = MEM_FindParserSymbol("ITKE_OB_SMITH_01");
-        funcId = MEM_FindParserSymbol("B_Story_ExploreSunkenTower");
-        varId = MEM_FindParserSymbol("ExploreSunkenTower");
+        keyIdOld = G1CP_GetItemInstId("ITKEY_OB_SMITH_01");
+        keyIdNew = G1CP_GetItemInstId("ITKE_OB_SMITH_01");
+        funcId = G1CP_GetFuncId("B_Story_ExploreSunkenTower", "void|none");
+        varId = G1CP_GetIntVarId("ExploreSunkenTower", 0);
         varPtr = MEM_GetSymbol("ExploreSunkenTower") + zCParSymbol_content_offset;
     };
 
@@ -103,14 +43,19 @@ func int Ninja_G1CP_046_SmithDoor() {
     };
 
     // Find the door in the world
-    var int vobPtr; vobPtr = Ninja_G1CP_046_SmithDoorFind();
+    var int vobPtr; vobPtr = G1CP_FindVobByPosF(3659.20801, 267.0802, 970.182068, Hlp_Is_oCMobDoor);
     if (!vobPtr) {
         return FALSE;
     };
     var oCMobDoor mob; mob = _^(vobPtr);
 
+    // Make sure no lock picking string was added
+    if (!Hlp_StrCmp(mob._oCMobLockable_pickLockStr, "")) {
+        return FALSE;
+    };
+
     // Check if the door is still locked (an unlocked door does not need this fix)
-    if (!(mob._oCMobLockable_bitfield | oCMobLockable_bitfield_locked)) {
+    if (!(mob._oCMobLockable_bitfield & oCMobLockable_bitfield_locked)) {
         return FALSE;
     };
 
@@ -125,14 +70,14 @@ func int Ninja_G1CP_046_SmithDoor() {
     };
 
     // Check if target waypoint exists
-    var int wpPtr; wpPtr = Ninja_G1CP_GetWaypoint("OCC_CELLAR_BACK_LEFT_CELL");
+    var int wpPtr; wpPtr = G1CP_GetWaypoint("OCC_CELLAR_BACK_LEFT_CELL");
     if (!wpPtr) {
         return FALSE;
     };
     var zCWaypoint wp; wp = _^(wpPtr);
 
     // Check if new key item already exists somewhere
-    if (Ninja_G1CP_IsItemInstantiated("N_G1CP_046_SmithDoor_Item")) {
+    if (G1CP_IsItemInstantiated("G1CP_046_SmithDoor_Item")) {
         return FALSE;
     };
 
@@ -149,13 +94,13 @@ func int Ninja_G1CP_046_SmithDoor() {
                 // Find "ExploreSunkenTower = xxxx" within the function
                 const int bytes[3] = {zPAR_TOK_PUSHVAR<<24, -1, zPAR_OP_IS};
                 bytes[1] = varId;
-                var int matches; matches = Ninja_G1CP_FindInFunc(funcId, _@(bytes)+3, 6);
+                var int matches; matches = G1CP_FindInFunc(funcId, _@(bytes)+3, 6);
                 var int funcGood; funcGood = (MEM_ArraySize(matches) > 0);
                 MEM_ArrayFree(matches);
 
                 // Hook the function only if it makes sense
                 if (funcGood == TRUE) {
-                    HookDaedalusFuncI(funcId, MEM_GetFuncID(Ninja_G1CP_046_SmithDoor_HookStory));
+                    HookDaedalusFuncI(funcId, MEM_GetFuncId(G1CP_046_SmithDoor_HookStory));
                 };
             };
         };
@@ -165,7 +110,7 @@ func int Ninja_G1CP_046_SmithDoor() {
     // All checks are true! Insert the key now
 
     // Insert item
-    Wld_InsertItem(N_G1CP_046_SmithDoor_Item, "OCC_CELLAR_BACK_LEFT_CELL");
+    Wld_InsertItem(G1CP_046_SmithDoor_Item, "OCC_CELLAR_BACK_LEFT_CELL");
 
     // Double check that it worked (probably not necessary)
     var zCTree latestNode; latestNode = _^(MEM_World.globalVobTree_firstChild);
@@ -174,13 +119,13 @@ func int Ninja_G1CP_046_SmithDoor() {
         return FALSE;
     };
     var oCItem itm; itm = _^(itmPtr);
-    if (itm.instanz != N_G1CP_046_SmithDoor_Item) {
+    if (itm.instanz != G1CP_046_SmithDoor_Item) {
         return FALSE;
     };
 
     // Correct item inserted, but check if copying of the original item instance worked
     if (!itm._zCVob_visual) {
-        Wld_RemoveItem(N_G1CP_046_SmithDoor_Item);
+        Wld_RemoveItem(G1CP_046_SmithDoor_Item);
         return FALSE;
     };
 
@@ -195,23 +140,28 @@ func int Ninja_G1CP_046_SmithDoor() {
     };
 
     // FINALLY: Replace the key instance
-    mob._oCMobLockable_keyInstance = "N_G1CP_046_SMITHDOOR_ITEM";
+    mob._oCMobLockable_keyInstance = "G1CP_046_SMITHDOOR_ITEM";
     return TRUE;
 };
 
 /*
- * This function reverts the changes of #46
+ * This function reverts the changes
  */
-func int Ninja_G1CP_046_SmithDoorRevert() {
+func int G1CP_046_SmithDoorRevert() {
     // Find the door in the world
-    var int vobPtr; vobPtr = Ninja_G1CP_046_SmithDoorFind();
+    var int vobPtr; vobPtr = G1CP_FindVobByPosF(3659.20801, 267.0802, 970.182068, Hlp_Is_oCMobDoor);
     if (!vobPtr) {
         return FALSE;
     };
     var oCMobDoor mob; mob = _^(vobPtr);
 
+    // Make sure no lock picking string was added
+    if (!Hlp_StrCmp(mob._oCMobLockable_pickLockStr, "")) {
+        return FALSE;
+    };
+
     // Check if the door references the expected key instance
-    if (!Hlp_StrCmp(mob._oCMobLockable_keyInstance, "N_G1CP_046_SmithDoor_Item")) {
+    if (!Hlp_StrCmp(mob._oCMobLockable_keyInstance, "G1CP_046_SmithDoor_Item")) {
         return FALSE;
     };
 
@@ -223,19 +173,18 @@ func int Ninja_G1CP_046_SmithDoorRevert() {
 /*
  * Hook to apply the fix during the running game when the story progresses
  */
-func void Ninja_G1CP_046_SmithDoor_HookStory() {
+func void G1CP_046_SmithDoor_HookStory() {
     // Call original function
     ContinueCall();
 
     // Apply fix (call all to update the lookup table properly)
-    MEM_Call(Ninja_G1CP_GamesaveFixes_Apply);
+    MEM_Call(G1CP_GamesaveFixes_Apply);
 };
 
 /*
  * Unique copy of the item "ItKe_OB_Smith_01"
- * There is no "Ninja" prefix in its name here to not confuse players in case they need the "insert code"
  */
-instance N_G1CP_046_SmithDoor_Item(C_Item) {
+instance G1CP_046_SmithDoor_Item(C_Item) {
     // This is very delicate now!
 
     // Backup the current instance
@@ -250,13 +199,13 @@ instance N_G1CP_046_SmithDoor_Item(C_Item) {
     // Find the start of the instance function of the original key
     var int origOffset; origOffset = MEM_ReadInt(symbPtr+zCParSymbol_content_offset);
 
-    // Find the end of this instance function using "Ninja_G1CP_046_SmithDoor_ItemHlp" for help
-    var int hlpSymbPtr; hlpSymbPtr = MEM_GetSymbol("Ninja_G1CP_046_SmithDoor_ItemHlp");
+    // Find the end of this instance function using "G1CP_046_SmithDoor_ItemHlp" for help
+    var int hlpSymbPtr; hlpSymbPtr = MEM_GetSymbol("G1CP_046_SmithDoor_ItemHlp");
     var int endPos; endPos = MEM_ReadInt(hlpSymbPtr+zCParSymbol_content_offset) - 1; // zPAR_TOK_RET
     endPos -= 5; // Length of zPAR_TOK_JUMP + target
 
     // Overwrite the end of this instance function with a jump to the original key instance function
-    MEMINT_OverrideFunc_Ptr = endPos + currParserStackAddress;
+    MEMINT_OverrideFunc_Ptr = endPos + MEM_Parser.stack_stack;
     MEMINT_OFTokPar(zPAR_TOK_JUMP, origOffset);
 
     // Restore the current instance
@@ -269,6 +218,6 @@ instance N_G1CP_046_SmithDoor_Item(C_Item) {
     return;
     return;
 };
-func void Ninja_G1CP_046_SmithDoor_ItemHlp() {
+func void G1CP_046_SmithDoor_ItemHlp() {
     // This helper functions allows to identify the end of the instance function above
 };

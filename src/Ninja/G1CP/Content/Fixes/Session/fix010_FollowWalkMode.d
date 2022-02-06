@@ -1,22 +1,16 @@
 /*
  * #10 Companions don't adjust their walking speed
  */
-func int Ninja_G1CP_010_FollowWalkMode() {
-    const int AI_SetWalkMode_popped = 6648584; //0x657308
+func int G1CP_010_FollowWalkMode() {
+    var int funcId; funcId = G1CP_GetFuncId("ZS_FollowPC_Loop", "int|none");
+    var int needleId; needleId = MEM_GetFuncId(AI_SetWalkMode);
+    var int replacId; replacId = MEM_GetFuncId(G1CP_010_FollowWalkMode_SetWalkMode);
 
-    if (MEM_FindParserSymbol("ZS_FollowPC_Loop")    != -1)
-    && (MEM_FindParserSymbol("B_FollowPC_AssessSC") != -1)
-    && (Ninja_G1CP_IsMemAvail(AI_SetWalkMode_popped, "8B F8 83 C4 14")) {
-        HookDaedalusFuncS("ZS_FollowPC_Loop", "Ninja_G1CP_010_FollowWalkMode_Hook");
-        HookDaedalusFuncS("B_FollowPC_AssessSC", "Ninja_G1CP_010_FollowWalkMode_AssessSCHook");
-
-        // Create empty hook (if there is a problem, rather fail now than later during the game)
-        if (!IsHooked(AI_SetWalkMode_popped)) {
-            HookEngineF(AI_SetWalkMode_popped, 5, Ninja_G1CP_010_FollowWalkMode_SetModeHook);
-            RemoveHookF(AI_SetWalkMode_popped, 0, Ninja_G1CP_010_FollowWalkMode_SetModeHook);
-        };
-
-        return TRUE;
+    if (funcId != -1) && (needleId != -1) && (G1CP_IsFunc("B_FollowPC_AssessSC", "void|none")) {
+        HookDaedalusFuncS("ZS_FollowPC_Loop", "G1CP_010_FollowWalkMode_Hook");
+        HookDaedalusFuncS("B_FollowPC_AssessSC", "G1CP_010_FollowWalkMode_AssessSCHook");
+        var int count; count = G1CP_ReplaceCall(funcId, 0, needleId, replacId);
+        return (count > 0);
     } else {
         return FALSE;
     };
@@ -25,10 +19,8 @@ func int Ninja_G1CP_010_FollowWalkMode() {
 /*
  * This function intercepts the NPC state to introduce more conditions
  */
-func int Ninja_G1CP_010_FollowWalkMode_Hook() {
-    Ninja_G1CP_ReportFuncToSpy();
-
-    const int AI_SetWalkMode_popped = 6648584; //0x657308
+func int G1CP_010_FollowWalkMode_Hook() {
+    G1CP_ReportFuncToSpy();
 
     // Define possibly missing symbols locally
     const int BS_FLAG_INTERRUPTABLE = 32768;
@@ -36,26 +28,16 @@ func int Ninja_G1CP_010_FollowWalkMode_Hook() {
     const int BS_RUN                = 3;
     const int NPC_WALK              = 1;
 
-    if (Ninja_G1CP_BodyStateContains(hero, BS_WALK)) && (Ninja_G1CP_BodyStateContains(self, BS_RUN)) {
+    if (G1CP_BodyStateContains(hero, BS_WALK)) && (G1CP_BodyStateContains(self, BS_RUN)) {
         AI_SetWalkmode(self, NPC_WALK);
     };
 
-    // Place hook to intercept setting the walk mode
-    HookEngineF(AI_SetWalkMode_popped, 5, Ninja_G1CP_010_FollowWalkMode_SetModeHook);
-
     // Call the original function (There might be other important changes that we do not want to overwrite!)
     ContinueCall();
-    var int ret; ret = MEM_PopIntResult();
-
-    // Remove hook again (only remove function but leave changes in engine for performance)
-    RemoveHookF(AI_SetWalkMode_popped, 0, Ninja_G1CP_010_FollowWalkMode_SetModeHook);
-
-    // Return original return value
-    return ret;
 };
 
-func void Ninja_G1CP_010_FollowWalkMode_SetModeHook() {
-    Ninja_G1CP_ReportFuncToSpy();
+func void G1CP_010_FollowWalkMode_SetWalkMode(var C_Npc slf, var int mode) {
+    G1CP_ReportFuncToSpy();
 
     // Define possibly missing symbols locally
     const int BS_FLAG_INTERRUPTABLE = 32768;
@@ -63,25 +45,18 @@ func void Ninja_G1CP_010_FollowWalkMode_SetModeHook() {
     const int NPC_RUN               = 0;
     const int NPC_WALK              = 1;
 
-    // Check if NPC is valid
-    if (!Hlp_Is_oCNpc(EAX)) {
-        return;
-    };
-    var C_Npc slf; slf = _^(EAX);
-
-    // Get walk mode
-    var int modePtr; modePtr = ESP+28;
-    var int mode; mode = MEM_ReadInt(modePtr);
-
     // Adjust walking mode before calling the original function (gives opportunity for other changes there)
-    if (mode == NPC_RUN) && (Ninja_G1CP_BodyStateContains(hero, BS_WALK)) {
-        MEM_WriteInt(modePtr, NPC_WALK);
+    if (mode == NPC_RUN) && (G1CP_BodyStateContains(hero, BS_WALK)) {
+        mode = NPC_WALK;
     };
+
+    // Proceed
+    AI_SetWalkMode(slf, mode);
 };
 
 
-func void Ninja_G1CP_010_FollowWalkMode_AssessSCHook() {
-    Ninja_G1CP_ReportFuncToSpy();
+func void G1CP_010_FollowWalkMode_AssessSCHook() {
+    G1CP_ReportFuncToSpy();
 
     // Define possibly missing symbols locally
     const int BS_FLAG_INTERRUPTABLE = 32768;
@@ -89,8 +64,8 @@ func void Ninja_G1CP_010_FollowWalkMode_AssessSCHook() {
     const int BS_RUN                = 3;
     const int NPC_RUN               = 0;
 
-    if (Ninja_G1CP_BodyStateContains(hero, BS_RUN)) && (Ninja_G1CP_BodyStateContains(self, BS_WALK)) {
-        Npc_ClearAIQueue(self);
+    if (G1CP_BodyStateContains(hero, BS_RUN)) && (G1CP_BodyStateContains(self, BS_WALK)) {
+        Npc_ClearAiQueue(self);
         AI_StandUpQuick(self);
         AI_SetWalkmode(self, NPC_RUN);
     };

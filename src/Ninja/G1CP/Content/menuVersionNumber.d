@@ -1,17 +1,24 @@
 /*
  * Add G1CP version number in the main menu
  */
-func int Ninja_G1CP_MenuVersionNumber() {
+func int G1CP_MenuVersionNumber() {
     const int zCMenu__ScreenInit_version = 5047863; //0x4D0637
+    const int zCMenu__ScreenInit_modinfo = 5047976; //0x4D06A8
 
-    if (Ninja_G1CP_IsMemAvail(zCMenu__ScreenInit_version, "6A 01 8D 4C 24 20")) {
-        HookEngineF(zCMenu__ScreenInit_version, 6, Ninja_G1CP_MenuVersionNumber_Hook);
+    var string show; show = MEM_GetGothOpt("INTERNAL", "menuShowVersion");
+    if (G1CP_CheckBytes(zCMenu__ScreenInit_version, "6A 01 8D 4C 24 20"))
+    && (G1CP_CheckBytes(zCMenu__ScreenInit_modinfo, "8B F8") == 1)
+    && ((Hlp_StrCmp(show, "TRUE")) || (Hlp_StrCmp(show, "1"))) { // Make sure it will actually be displayed
+        HookEngineF(zCMenu__ScreenInit_version, 6, G1CP_MenuVersionNumber_Hook);
+        MemoryProtectionOverride(zCMenu__ScreenInit_modinfo, 2); // Remove mod info
+        MEM_WriteByte(zCMenu__ScreenInit_modinfo,    49); // xor edi, edi
+        MEM_WriteByte(zCMenu__ScreenInit_modinfo+1, 255);
         return TRUE;
     } else {
         return FALSE;
     };
 };
-func void Ninja_G1CP_MenuVersionNumber_Hook() {
+func void G1CP_MenuVersionNumber_Hook() {
     // Obtain position
     const int versionPosX_addr = 5047846; //0x4D0626
     const int versionPosY_addr = 5047841; //0x4D0621
@@ -25,7 +32,7 @@ func void Ninja_G1CP_MenuVersionNumber_Hook() {
     x = PS_VMax - (x + xDiff);
 
     // Build version string
-    var string version; version = Ninja_G1CP_GetVersionString(TRUE, FALSE, FALSE);
+    var string version; version = G1CP_GetVersionString(TRUE, FALSE, FALSE);
     var int textPtr; textPtr = _@s(version);
 
     // Place it on the menu

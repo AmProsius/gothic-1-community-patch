@@ -5,104 +5,56 @@
  *
  * Expected behavior: The condition function will return TRUE.
  */
-func int Ninja_G1CP_Test_036() {
+func int G1CP_Test_036() {
+    const int GIL_NONE = 0; GIL_NONE = G1CP_Testsuite_GetIntConst("GIL_NONE", 0);
+    var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("Stt_311_Fisk_MordragKO_Condition");
+    var C_Npc npc; npc = G1CP_Testsuite_FindNpc("Org_826_Mordrag");
+    var int varId; varId = G1CP_Testsuite_CheckIntVar("MordragKO_HauAb", 0);
+    G1CP_Testsuite_CheckPassed();
+
     // Define possibly missing symbols locally
-    const int GIL_NONE          = 0;
-    const int ATR_HITPOINTS     = 0;
+    const int ATR_HITPOINTS = 0;
     const int ATR_HITPOINTS_MAX = 1;
 
-    // Check status of the test
-    var int passed; passed = TRUE;
-
-    // Check if the dialog exists
-    var int funcId; funcId = MEM_FindParserSymbol("Stt_311_Fisk_MordragKO_Condition");
-    if (funcId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("Dialog condition 'Stt_311_Fisk_MordragKO_Condition' not found");
-        passed = FALSE;
-    };
-
-    // Find Mordrag
-    var int symbId; symbId = MEM_FindParserSymbol("Org_826_Mordrag");
-    if (symbId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("NPC 'Org_826_Mordrag' not found");
-        passed = FALSE;
-    };
-
-    // Check if Mordrag exists in the world
-    var C_Npc mordrag; mordrag = Hlp_GetNpc(symbId);
-    if (!Hlp_IsValidNpc(mordrag)) {
-        Ninja_G1CP_TestsuiteErrorDetail("NPC 'Org_826_Mordrag' not valid");
-        passed = FALSE;
-    };
-
-    // Check if variable exists
-    var int hauAbPtr; hauAbPtr = MEM_GetSymbol("MordragKO_HauAb");
-    if (!hauAbPtr) {
-        Ninja_G1CP_TestsuiteErrorDetail("Variable 'MordragKO_HauAb' not found");
-        passed = FALSE;
-    };
-    hauAbPtr += zCParSymbol_content_offset;
-
-    // Check if variable exists
-    var int stayAtNcPtr; stayAtNcPtr = MEM_GetSymbol("MordragKO_StayAtNC");
-    if (!stayAtNcPtr) {
-        Ninja_G1CP_TestsuiteErrorDetail("Symbol 'MordragKO_StayAtNC' not found");
-        passed = FALSE;
-    };
-    stayAtNcPtr += zCParSymbol_content_offset;
-
-    // At the latest now, we need to stop if there are fails already
-    if (!passed) {
-        return FALSE;
-    };
-
     // Backup values
-    var int hauAbBak; hauAbBak = MEM_ReadInt(hauAbPtr);          // Variable
-    var int stayAtNCBak; stayAtNCBak = MEM_ReadInt(stayAtNcPtr); // Variable
-    var int guildBak; guildBak = Npc_GetTrueGuild(hero);         // Guild
-    var int hpBak; hpBak = mordrag.attribute[ATR_HITPOINTS];     // Mordrag's HP
-    var C_Npc slfBak; slfBak = MEM_CpyInst(self);                // Self
-    var C_Npc othBak; othBak = MEM_CpyInst(other);               // Other
+    var int varBak; varBak = G1CP_GetIntVarI(varId, 0, 0);
+    var int guildBak; guildBak = Npc_GetTrueGuild(hero);
+    var int hpBak; hpBak = npc.attribute[ATR_HITPOINTS];
 
     // Set new values
-    MEM_WriteInt(hauAbPtr, FALSE);                               // Variable
-    Npc_SetTrueGuild(hero, GIL_NONE);                            // Guild
-    self  = MEM_CpyInst(hero);                                   // Self
-    other = MEM_CpyInst(hero);                                   // Other
+    Npc_SetTrueGuild(hero, GIL_NONE);
 
     // Now do two passes for each OR-condition
-    var int ret; ret = 0;
+    var int pass1;
+    var int pass2;
 
-    // First pass: Mordrag is dead but MordragKO_StayAtNC if false
-    mordrag.attribute[ATR_HITPOINTS] = 0;
-    MEM_WriteInt(stayAtNcPtr, FALSE);
+    // First pass: Mordrag is dead but the variable is false
+    G1CP_SetIntVarI(varId, 0, FALSE);
+    npc.attribute[ATR_HITPOINTS] = 0;
 
     // Call dialog condition function
-    MEM_CallByID(funcId);
-    ret += MEM_PopIntResult();
-    if (!ret) {
-        Ninja_G1CP_TestsuiteErrorDetail("Condition 'Mordrag is dead' failed");
+    G1CP_Testsuite_Call(funcId, 0, 0, FALSE);
+    pass1 = MEM_PopIntResult();
+    if (!pass1) {
+        G1CP_TestsuiteErrorDetailSSS("Condition '", G1CP_GetSymbolName(npc), " is dead' failed");
     };
 
-    // Second pass: MordragKO_StayAtNC is true but Mordrag is alive
-    mordrag.attribute[ATR_HITPOINTS] = mordrag.attribute[ATR_HITPOINTS_MAX];
-    MEM_WriteInt(stayAtNcPtr, TRUE);
+    // Second pass: The variable is true but Mordrag is alive
+    G1CP_SetIntVarI(varId, 0, TRUE);
+    npc.attribute[ATR_HITPOINTS] = npc.attribute[ATR_HITPOINTS_MAX];
 
     // Call dialog condition function
-    MEM_CallByID(funcId);
-    ret += MEM_PopIntResult();
-    if (!ret) {
-        Ninja_G1CP_TestsuiteErrorDetail("Condition 'stay at NC' failed");
+    G1CP_Testsuite_Call(funcId, 0, 0, FALSE);
+    pass2 = MEM_PopIntResult();
+    if (!pass2) {
+        G1CP_TestsuiteErrorDetailSSS("Condition '", G1CP_GetSymbolName(varId), " == FALSE' failed");
     };
 
     // Restore values
-    self  = MEM_CpyInst(slfBak);                                 // Self
-    other = MEM_CpyInst(othBak);                                 // Other
-    mordrag.attribute[ATR_HITPOINTS] = hpBak;                    // Mordrag's HP
-    Npc_SetTrueGuild(hero, guildBak);                            // Guild
-    MEM_WriteInt(stayAtNcPtr, stayAtNCBak);                      // Variable
-    MEM_WriteInt(hauAbPtr, hauAbBak);                            // Variable
+    G1CP_SetIntVarI(varId, 0, varBak);
+    Npc_SetTrueGuild(hero, guildBak);
+    npc.attribute[ATR_HITPOINTS] = hpBak;
 
     // Check return value
-    return (ret == 2);
+    return (pass1) && (pass2);
 };

@@ -11,6 +11,7 @@ Ninja\G1CP\* -r
 
 [EXCLUDE]
 _work\Data\Scripts\* -r
+Ninja\G1CP\TestsuiteDev.src
 *.vm
 *.vdf
 *.bat

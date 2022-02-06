@@ -1,11 +1,11 @@
 /*
  * #24 Cor Kalom closes wrong quest
  */
-func int Ninja_G1CP_024_CorKalomWrongQuest() {
-    if (MEM_FindParserSymbol("Info_Kalom_KrautboteBACK_Info") != -1)
-    && (MEM_FindParserSymbol("Kalom_DrugMonopol")             != -1)
-    && (MEM_FindParserSymbol("Kalom_Krautbote")               != -1) {
-        HookDaedalusFuncS("Info_Kalom_KrautboteBACK_Info", "Ninja_G1CP_024_CorKalomWrongQuest_Hook");
+func int G1CP_024_CorKalomWrongQuest() {
+    if (G1CP_IsFunc("Info_Kalom_KrautboteBACK_Info", "void|none"))
+    && (G1CP_IsIntVar("Kalom_DrugMonopol", 0))
+    && (G1CP_IsIntVar("Kalom_Krautbote", 0)) {
+        HookDaedalusFuncS("Info_Kalom_KrautboteBACK_Info", "G1CP_024_CorKalomWrongQuest_Hook");
         return TRUE;
     } else {
         return FALSE;
@@ -15,8 +15,8 @@ func int Ninja_G1CP_024_CorKalomWrongQuest() {
 /*
 * Intercept the dialog 'Info_Kalom_KrautboteBACK_Info'
 */
-func void Ninja_G1CP_024_CorKalomWrongQuest_Hook() {
-    Ninja_G1CP_ReportFuncToSpy();
+func void G1CP_024_CorKalomWrongQuest_Hook() {
+    G1CP_ReportFuncToSpy();
 
     // Define possibly missing symbols locally
     const int LOG_SUCCESS = 2;
