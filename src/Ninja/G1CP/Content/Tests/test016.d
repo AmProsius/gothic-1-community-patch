@@ -6,76 +6,43 @@
  *
  * Expected behavior: The condition functions will return FALSE.
  */
-func int Ninja_G1CP_Test_016_RunDialog(var string dialogName, var string needsInfo) {
-    var int funcId;
-    var int backupValue;
-    var int backupTold;
+func int G1CP_Test_016_RunDialog(var string dialogConditionName, var string infoName) {
+    var C_Npc npc; npc = G1CP_Testsuite_FindNpc("Grd_212_Torwache");
+    var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc(dialogConditionName);
+    var int infoId; infoId = G1CP_Testsuite_CheckInfo(infoName);
+    var int aiVarId; aiVarId = G1CP_Testsuite_CheckIntConst("AIV_PASSGATE", 0);
+    G1CP_Testsuite_CheckPassed();
 
-    // Check status of the test
-    var int passed; passed = TRUE;
+    // Backup values
+    var int aiVarBak; aiVarBak = G1CP_NpcGetAiVarI(npc, aiVarId, 0);
+    var int toldBak; toldBak = Npc_KnowsInfo(hero, infoId);
 
-    // Check if dialog exists
-    funcId = MEM_FindParserSymbol(dialogName);
-    if (funcId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail(ConcatStrings(ConcatStrings("Dialog condition '", dialogName), "' not found"));
-        passed = FALSE;
-    };
-
-    // Check if NPC and AI-variable exist
-    backupValue = Ninja_G1CP_IdGetAIVar(MEM_FindParserSymbol("Grd_212_Torwache"), "AIV_PASSGATE", -42);
-    if (backupValue == -42) {
-        Ninja_G1CP_TestsuiteErrorDetail("NPC 'Grd_212_Torwache' or variable 'AIV_PASSGATE' not found");
-        passed = FALSE;
-    };
-
-    // At the latest now, we need to stop if there are fails already
-    if (!passed) {
-        return FALSE;
-    };
-
-    // Set the variable to TRUE
-    Ninja_G1CP_IdSetAIVar(MEM_FindParserSymbol("Grd_212_Torwache"), "AIV_PASSGATE", TRUE);
-
-    // Backup told status of required dialog
-    backupTold = Npc_KnowsInfo(hero, MEM_FindParserSymbol(needsInfo));
-    Ninja_G1CP_SetInfoTold(needsInfo, TRUE);
-
-    // Backup self and other
-    var C_Npc slfBak; slfBak = MEM_CpyInst(self);
-    var C_Npc othBak; othBak = MEM_CpyInst(other);
-
-    // Set self and other
-    self  = MEM_CpyInst(hero);
-    other = MEM_CpyInst(hero);
+    // Set new values
+    G1CP_NpcSetAiVarI(npc, aiVarId, TRUE);
+    G1CP_SetInfoTold(infoName, TRUE);
 
     // Call dialog condition function
-    MEM_CallByID(funcId);
+    G1CP_Testsuite_Call(funcId, 0, 0, FALSE);
     var int ret; ret = MEM_PopIntResult();
 
-    // Restore self and other
-    self  = MEM_CpyInst(slfBak);
-    other = MEM_CpyInst(othBak);
-
-    // Restore told status of required dialog
-    Ninja_G1CP_SetInfoTold(needsInfo, backupTold);
-
-    // Restore value
-    Ninja_G1CP_IdSetAIVar(MEM_FindParserSymbol("Grd_212_Torwache"), "AIV_PASSGATE", backupValue);
+    // Restore values
+    G1CP_NpcSetAiVarI(npc, aiVarId, aiVarBak);
+    G1CP_SetInfoTold(infoName, toldBak);
 
     // Check return value
     if (ret) {
-        Ninja_G1CP_TestsuiteErrorDetail(ConcatStrings(ConcatStrings("Dialog condition '", dialogName), "' failed"));
+        G1CP_TestsuiteErrorDetailSSS("Dialog condition '", dialogConditionName, "' failed");
         return FALSE;
     };
 
     return TRUE;
 };
-func int Ninja_G1CP_Test_016() {
-    var int ret; ret = 0;
+func int G1CP_Test_016() {
+    var int passed; passed = FALSE;
 
     // First dialog
-    ret += Ninja_G1CP_Test_016_RunDialog("Info_Thorus_Give1000Ore_Condition",    "Info_Thorus_BribeGuard");
-    ret += Ninja_G1CP_Test_016_RunDialog("Info_Thorus_LetterForMages_Condition", "Info_Thorus_EnterCastle");
+    passed += G1CP_Test_016_RunDialog("Info_Thorus_Give1000Ore_Condition", "Info_Thorus_BribeGuard");
+    passed += G1CP_Test_016_RunDialog("Info_Thorus_LetterForMages_Condition", "Info_Thorus_EnterCastle");
 
-    return (ret == 2);
+    return (passed == 2);
 };

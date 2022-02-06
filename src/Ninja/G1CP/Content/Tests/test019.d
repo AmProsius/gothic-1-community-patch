@@ -5,79 +5,35 @@
  *
  * Expected behavior: The condition function will return FALSE.
  */
-func int Ninja_G1CP_Test_019() {
-    var int funcId;
-    var int symbPtr;
-    var int kapitelBak;
-    var int guildBak;
-    var int backupTold;
+func int G1CP_Test_019() {
+    const int GIL_NONE = 0; GIL_NONE = G1CP_Testsuite_GetIntConst("GIL_NONE", 0);
+    var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("DIA_Scorpio_REFUSETRAIN_Condition");
+    var int infoId; infoId = G1CP_Testsuite_CheckInfo("DIA_Scorpio_Hello");
+    var int chptrId; chptrId = G1CP_Testsuite_CheckIntVar("Kapitel", 0);
+    G1CP_Testsuite_CheckPassed();
 
-    // Check status of the test
-    var int passed; passed = TRUE;
+    // Backup values
+    var int chapterBak; chapterBak = G1CP_GetIntVarI(chptrId, 0, 0);
+    var int guildBak; guildBak = Npc_GetTrueGuild(hero);
+    var int toldBak; toldBak = Npc_KnowsInfo(hero, infoId);
 
-    // Check if dialog exists
-    funcId = MEM_FindParserSymbol("DIA_Scorpio_REFUSETRAIN_Condition");
-    if (funcId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("Dialog condition 'DIA_Scorpio_REFUSETRAIN_Condition' not found");
-        passed = FALSE;
-    };
-
-    // Check if variable exists
-    symbPtr = MEM_GetSymbol("Kapitel");
-    if (!symbPtr) {
-        Ninja_G1CP_TestsuiteErrorDetail("Variable 'Kapitel' not found");
-        passed = FALSE;
-    };
-
-    // At the latest now, we need to stop if there are fails already
-    if (!passed) {
-        return FALSE;
-    };
-
-    // Backup the original Kapitel
-    kapitelBak = MEM_ReadInt(symbPtr + zCParSymbol_content_offset);
-
-    // Set to higher Kapitel
-    MEM_WriteInt(symbPtr + zCParSymbol_content_offset, 4);
-
-    // Backup the original guild
-    guildBak = Npc_GetTrueGuild(hero);
-
-    // Assign a random guild
-    Npc_SetTrueGuild(hero, 0); // Not GRD
-
-    // Backup told status of required dialog
-    backupTold = Npc_KnowsInfo(hero, MEM_FindParserSymbol("DIA_Scorpio_Hello"));
-    Ninja_G1CP_SetInfoTold("DIA_Scorpio_Hello", TRUE);
-
-    // Backup self and other
-    var C_Npc slfBak; slfBak = MEM_CpyInst(self);
-    var C_Npc othBak; othBak = MEM_CpyInst(other);
-
-    // Set self and other
-    self  = MEM_CpyInst(hero);
-    other = MEM_CpyInst(hero);
+    // Set new values
+    G1CP_SetIntVarI(chptrId, 0, 4);
+    Npc_SetTrueGuild(hero, GIL_NONE);
+    G1CP_SetInfoToldI(infoId, TRUE);
 
     // Call dialog condition function
-    MEM_CallByID(funcId);
+    G1CP_Testsuite_Call(funcId, 0, 0, FALSE);
     var int ret; ret = MEM_PopIntResult();
 
-    // Restore self and other
-    self  = MEM_CpyInst(slfBak);
-    other = MEM_CpyInst(othBak);
-
-    // Restore told status of required dialog
-    Ninja_G1CP_SetInfoTold("DIA_Scorpio_Hello", backupTold);
-
-    // Restore guild
+    // Restore values
+    G1CP_SetIntVarI(chptrId, 0, chapterBak);
     Npc_SetTrueGuild(hero, guildBak);
-
-    // Restore kapitel
-    MEM_WriteInt(symbPtr + zCParSymbol_content_offset, kapitelBak);
+    G1CP_SetInfoToldI(infoId, toldBak);
 
     // Check return value
     if (ret) {
-        Ninja_G1CP_TestsuiteErrorDetail("Dialog condition failed");
+        G1CP_TestsuiteErrorDetail("Dialog condition failed");
         return FALSE;
     } else {
         return TRUE;

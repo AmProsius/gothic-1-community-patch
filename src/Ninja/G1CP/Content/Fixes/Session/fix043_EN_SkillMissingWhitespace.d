@@ -1,7 +1,7 @@
 /*
  * #43 Missing whitespace for skill point(s)
  */
-func int Ninja_G1CP_043_EN_SkillMissingWhitespace() {
+func int G1CP_043_EN_SkillMissingWhitespace() {
     var int symb1Ptr; symb1Ptr = MEM_GetSymbol("NAME_LearnPostfixS");
     var int symb2Ptr; symb2Ptr = MEM_GetSymbol("NAME_LearnPostfixP");
 

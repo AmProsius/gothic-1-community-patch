@@ -1,20 +1,20 @@
 /*
  * #49 Dungeon Key description faulty
  */
-func int Ninja_G1CP_049_DungeonKeyText() {
+func int G1CP_049_DungeonKeyText() {
     var int applied; applied = FALSE;
 
     // Get necessary symbol indices
-    var int symbId; symbId = MEM_FindParserSymbol("DungeonKey");
-    var int itemTextSymbId; itemTextSymbId = MEM_FindParserSymbol("C_ITEM.TEXT");
+    var int symbId; symbId = G1CP_GetItemInstId("DungeonKey");
+    var int itemTextSymbId; itemTextSymbId = G1CP_GetStringId("C_ITEM.TEXT", 0);
     if (symbId == -1) || (itemTextSymbId == -1) {
         return FALSE;
     };
 
     // Find "text = xxx" in the instance function
-    const int bytes[3] = {zPAR_TOK_PUSHVAR<<24, 0, zPAR_TOK_ASSIGNSTR};
+    const int bytes[3] = {zPAR_TOK_PUSHVAR<<24, -1, zPAR_TOK_ASSIGNSTR};
     bytes[1] = itemTextSymbId;
-    var int matches; matches = Ninja_G1CP_FindInFunc(symbId, _@(bytes)+3, 6);
+    var int matches; matches = G1CP_FindInFunc(symbId, _@(bytes)+3, 6);
 
     // We are looking for all overwritten text (at least 2 occurrences)
     if (MEM_ArraySize(matches) >= 2) {
@@ -30,7 +30,7 @@ func int Ninja_G1CP_049_DungeonKeyText() {
 
             // Overwrite "text = xxx" with a call to the above bytes
             MEMINT_OverrideFunc_Ptr = MEM_ArrayRead(matches, i);
-            MEMINT_OFTokPar(zPAR_TOK_CALL, ptr - currParserStackAddress);
+            MEMINT_OFTokPar(zPAR_TOK_CALL, ptr - MEM_Parser.stack_stack);
 
             applied += 1;
         end;

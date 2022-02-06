@@ -2,43 +2,28 @@
  * #124 Gate guard doesn't close castle gate in chapter 4
  *
  * The chapter four is started and the hero is teleported in front of castle gate.
- * Caution: The game will no longer be playable when running this test. Save the game beforehand.
+ * Caution: This test will break the game. Save the game beforehand.
  *
  * Expected behavior: The castle gate should be closed (or closing?).
  */
-func void Ninja_G1CP_Test_124() {
-    if (Ninja_G1CP_TestsuiteAllowManual) {
-        // Define possibly missing symbols locally
-        const int GIL_GRD = 2;
+func void G1CP_Test_124() {
+    G1CP_Testsuite_CheckManual();
+    const int GIL_GRD = 0; GIL_GRD = G1CP_Testsuite_GetIntConst("GIL_GRD", 0);
+    const int CHAPTER_NUM = 4;
+    var zCWaypoint wp; wp = G1CP_Testsuite_FindWaypoint("OCR_THORUS");
+    var int fncChptrId; fncChptrId = G1CP_Testsuite_CheckFunc("B_Kapitelwechsel", "void|int", "");
+    var int fncFmTakenId; fncFmTakenId = G1CP_Testsuite_CheckFunc("B_Story_FMTaken", "void|none", "");
+    G1CP_Testsuite_CheckPassed();
 
-        var int passed; passed = TRUE;
+    // Change the chapter
+    MEM_PushIntParam(CHAPTER_NUM);
+    MEM_CallById(fncChptrId);
+    MEM_CallById(fncFmTakenId);
 
-        var int func1Id; func1Id = MEM_FindParserSymbol("B_Kapitelwechsel");
-        if (func1Id == -1) {
-            Ninja_G1CP_TestsuiteErrorDetail("Function 'B_Kapitelwechsel' not found");
-            passed = FALSE;
-        };
+    // Change the player's guild to not be attacked
+    hero.guild = GIL_GRD;
+    Npc_SetTrueGuild(hero, GIL_GRD);
 
-        var int func2Id; func2Id = MEM_FindParserSymbol("B_Story_FMTaken");
-        if (func2Id == -1) {
-            Ninja_G1CP_TestsuiteErrorDetail("Function 'B_Story_FMTaken' not found");
-            passed = FALSE;
-        };
-
-        if (!passed) {
-            return;
-        };
-
-        // Change the chapter
-        MEM_PushIntParam(4);
-        MEM_CallById(func1Id);
-        MEM_CallById(func2Id);
-
-        // Change the player's guild to not be attacked
-        hero.guild = GIL_GRD;
-        Npc_SetTrueGuild(hero, GIL_GRD);
-
-        // Teleport the PC to the castle gate
-        AI_Teleport(hero, "OCR_THORUS");
-    };
+    // Teleport the PC to the castle gate
+    AI_Teleport(hero, wp.name);
 };

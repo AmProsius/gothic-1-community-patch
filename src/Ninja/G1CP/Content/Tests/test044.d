@@ -1,34 +1,22 @@
 /*
  * #44 Bugmeat in the wrong inventory category
  *
- * The mainflag (item category) of the item "ItAt_Meatbug_01" is inspected programmatically
+ * The mainflag (item category) of the item "ItAt_Meatbug_01" is inspected programmatically.
  *
- * Expected behavior: The item will have the correct mainflag
+ * Expected behavior: The item will have the correct mainflag.
  */
-func int Ninja_G1CP_Test_044() {
+func int G1CP_Test_044() {
+    var C_Item itm; itm = G1CP_Testsuite_CreateItem("ItAt_Meatbug_01");
+    G1CP_Testsuite_CheckPassed();
+
     // Define possibly missing symbols locally
     const int ITEM_KAT_FOOD = 1 << 5;
 
-    // Check if item exists
-    var int symbId; symbId = MEM_FindParserSymbol("ItAt_Meatbug_01");
-    if (symbId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("Item 'ItAt_Meatbug_01' not found");
-        return FALSE;
-    };
-
-    // Create the key locally
-    if (Itm_GetPtr(symbId)) {
-        if (item.mainflag == ITEM_KAT_FOOD) {
-            return TRUE;
-        } else {
-            var string msg; msg = "Category incorrect: mainflag = '";
-            msg = ConcatStrings(msg, IntToString(item.mainflag));
-            msg = ConcatStrings(msg, "'");
-            Ninja_G1CP_TestsuiteErrorDetail(msg);
-            return FALSE;
-        };
+    // Create the item locally
+    if (itm.mainflag == ITEM_KAT_FOOD) {
+        return TRUE;
     } else {
-        Ninja_G1CP_TestsuiteErrorDetail("Item 'ItAt_Meatbug_01' could not be created");
+        G1CP_TestsuiteErrorDetailSIS("Category incorrect: mainflag = '", itm.mainflag, "'");
         return FALSE;
     };
 };

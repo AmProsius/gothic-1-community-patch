@@ -1,7 +1,7 @@
 /*
  * Increase or decrease zSpy indentation
  */
-func void Ninja_G1CP_zSpyIndent(var string caller, var int num) {
+func void G1CP_zSpyIndent(var string caller, var int num) {
     const int indent             = 0;
     const int unindent           = 0;
     const int zerr               = 8821208; //0x8699D8

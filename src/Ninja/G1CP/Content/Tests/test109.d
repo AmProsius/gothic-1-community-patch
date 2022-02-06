@@ -5,33 +5,13 @@
  *
  * Expected behavior: The player will lose 10 ore.
  */
-func int Ninja_G1CP_Test_109() {
-    // Check status of the test
-    var int passed; passed = TRUE;
-
-    // Check if the dialog function exists
-    var int funcId; funcId = MEM_FindParserSymbol("Info_Bloodwyn_PayDay_PayAgain");
-    if (funcId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("Dialog function 'Info_Bloodwyn_PayDay_PayAgain' not found");
-        passed = FALSE;
-    };
-
-    // Check if the ore item exists
-    var int oreId; oreId = MEM_FindParserSymbol("ItMiNugget");
-    if (oreId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("Item 'ItMiNugget' not found");
-        passed = FALSE;
-    };
-
-    // At the latest now, we need to stop if there are fails already
-    if (!passed) {
-        return FALSE;
-    };
+func int G1CP_Test_109() {
+    var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc("Info_Bloodwyn_PayDay_PayAgain");
+    var int oreId; oreId = G1CP_Testsuite_CheckItem("ItMiNugget");
+    G1CP_Testsuite_CheckPassed();
 
     // Backup values
     var int amountBefore; amountBefore = Npc_HasItems(hero, oreId);
-    var C_Npc slfBak; slfBak = MEM_CpyInst(self);
-    var C_Npc othBak; othBak = MEM_CpyInst(other);
 
     // Remove all ore and then add 20
     if (amountBefore > 0) {
@@ -39,45 +19,27 @@ func int Ninja_G1CP_Test_109() {
     };
     CreateInvItems(hero, oreId, 20);
 
-    // Set self and other
-    GetItemHelper();
-    self  = MEM_CpyInst(Item_Helper);
-    other = MEM_CpyInst(hero);
-
     // Just run the dialog and see what happens
-    MEM_CallByID(funcId);
+    GetItemHelper();
+    G1CP_Testsuite_Call(funcId, Item_Helper, hero, TRUE);
 
     // Check the amount
     var string msg;
     var int amountAfter; amountAfter = Npc_HasItems(hero, oreId);
     if (amountAfter == 20) {
-        Ninja_G1CP_TestsuiteErrorDetail("The hero wrongfully kept all ore");
+        G1CP_TestsuiteErrorDetail("The hero wrongfully kept all ore");
     } else if (amountAfter < 10) {
-        msg = ConcatStrings("The hero wrongfully payed ", IntToString(10 - amountAfter));
-        msg = ConcatStrings(msg, " ore too much");
-        Ninja_G1CP_TestsuiteErrorDetail(msg);
+        G1CP_TestsuiteErrorDetailSIS("The hero wrongfully payed ", 10 - amountAfter, " ore too much");
     } else if (amountAfter > 20) {
-        msg = ConcatStrings("The hero wrongfully received ", IntToString(amountAfter - 20));
-        msg = ConcatStrings(msg, " ore");
-        Ninja_G1CP_TestsuiteErrorDetail(msg);
+        G1CP_TestsuiteErrorDetailSIS("The hero wrongfully received ", amountAfter - 20, " ore");
     } else if (amountAfter > 10) {
-        msg = ConcatStrings("The hero wrongfully payed ", IntToString(amountAfter - 10));
-        msg = ConcatStrings(msg, " ore too little");
-        Ninja_G1CP_TestsuiteErrorDetail(msg);
+        G1CP_TestsuiteErrorDetailSIS("The hero wrongfully payed ", amountAfter - 10, " ore too little");
     };
 
     // Remove all ore
     if (amountAfter > 0) {
         Npc_RemoveInvItems(hero, oreId, amountAfter);
     };
-
-    // Restore self and other
-    self  = MEM_CpyInst(slfBak);
-    other = MEM_CpyInst(othBak);
-
-    // Stop the output units
-    Npc_ClearAIQueue(hero);
-    AI_StandUpQuick(hero);
 
     // Restore any ore
     if (amountBefore > 0) {

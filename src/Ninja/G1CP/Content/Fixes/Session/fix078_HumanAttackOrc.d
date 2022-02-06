@@ -1,14 +1,13 @@
 /*
  * #78 Humans don't recognise orcs as monsters
  */
-func int Ninja_G1CP_078_HumanAttackOrc() {
-    var int funcId;   funcId   = MEM_FindParserSymbol("C_NpcIsDangerousMonster");
-    var int needleId; needleId = MEM_FindParserSymbol("C_NpcIsMonster");
-    var int isOrcId;  isOrcId  = MEM_FindParserSymbol("C_NpcIsOrc");
-    var int replacId; replacId = MEM_GetFuncId(Ninja_G1CP_078_IsMonsterOrOrc);
+func int G1CP_078_HumanAttackOrc() {
+    var int funcId; funcId = G1CP_GetFuncId("C_NpcIsDangerousMonster", "int|inst|inst");
+    var int needleId; needleId = G1CP_GetFuncId("C_NpcIsMonster", "int|inst");
+    var int replacId; replacId = MEM_GetFuncId(G1CP_078_IsMonsterOrOrc);
 
-    if (funcId != -1) && (needleId != -1) && (isOrcId != -1) {
-        var int count; count = Ninja_G1CP_ReplaceCallInFunc(funcId, needleId, replacId);
+    if (funcId != -1) && (needleId != -1) && (G1CP_IsFunc("C_NpcIsOrc", "int|inst")) {
+        var int count; count = G1CP_ReplaceCall(funcId, 0, needleId, replacId);
         return (count > 0);
     } else {
         return FALSE;
@@ -18,8 +17,8 @@ func int Ninja_G1CP_078_HumanAttackOrc() {
 /*
  * This function intercepts all calls to "C_NpcIsMonster" in "C_NpcIsDangerousMonster"
  */
-func int Ninja_G1CP_078_IsMonsterOrOrc(var C_Npc slf) {
-    Ninja_G1CP_ReportFuncToSpy();
+func int G1CP_078_IsMonsterOrOrc(var C_Npc slf) {
+    G1CP_ReportFuncToSpy();
 
     // These functions are confirmed to exist by the above function
 

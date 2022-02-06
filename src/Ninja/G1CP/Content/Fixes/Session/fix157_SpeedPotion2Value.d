@@ -1,26 +1,22 @@
 /*
  * #157 Potion of Velocity has wrong ore value
  */
-func int Ninja_G1CP_157_SpeedPotion2Value() {
-    var int applied; applied = FALSE;
-
-    // Get necessary symbol indices
-    var int symbId; symbId = MEM_FindParserSymbol("ItFo_Potion_Haste_02");
-    var int itemValueSymbId; itemValueSymbId = MEM_FindParserSymbol("C_ITEM.value");
-    var int value1SymbId; value1SymbId = MEM_FindParserSymbol("Value_Haste1");
-    var int value1SymbPtr; value1SymbPtr = MEM_GetSymbol("Value_Haste1");
-    var int value2SymbPtr; value2SymbPtr = MEM_GetSymbol("Value_Haste2");
-    if (symbId == -1) || (itemValueSymbId == -1) || (!value2SymbPtr) { // Only those three are strictly required
+func int G1CP_157_SpeedPotion2Value() {
+    // Get content of potion values
+    var int Value_Haste2;
+    if (G1CP_IsIntConst("Value_Haste2", 0)) {
+        // Find value from constant
+        Value_Haste2 = G1CP_GetIntConst("Value_Haste2", 0, 0);
+    } else {
+        // This one is strictly required
         return FALSE;
     };
 
-    // Get content of potion values
-    var int Value_Haste2; Value_Haste2 = MEM_ReadInt(value2SymbPtr + zCParSymbol_content_offset);
     var int Value_Haste1;
-    if (value1SymbPtr) {
+    if (G1CP_IsIntConst("Value_Haste1", 0)) {
         // Find value from constant
-        Value_Haste1 = MEM_ReadInt(value1SymbPtr + zCParSymbol_content_offset);
-    } else if (Itm_GetPtr(MEM_FindParserSymbol("ItFo_Potion_Haste_01"))) {
+        Value_Haste1 = G1CP_GetIntConst("Value_Haste1", 0, 0);
+    } else if (Itm_GetPtr(G1CP_GetItemInstId("ItFo_Potion_Haste_01"))) {
         // If not found, determine from level one speed potion
         Value_Haste1 = item.value;
     } else {
@@ -28,47 +24,7 @@ func int Ninja_G1CP_157_SpeedPotion2Value() {
         return FALSE;
     };
 
-    // Find "value = xxx" in the instance function
-    const int bytes[3] = {zPAR_TOK_PUSHVAR<<24, 0, zPAR_OP_IS};
-    bytes[1] = itemValueSymbId;
-    var int matches; matches = Ninja_G1CP_FindInFunc(symbId, _@(bytes)+3, 6);
-
-    // Iterate over all matches
-    repeat(i, MEM_ArraySize(matches)); var int i;
-        var int pos; pos = MEM_ArrayRead(matches, i);
-
-        // Check context: "value = Value_Haste1" (literal) or "value = symbol equal to Value_Haste1"
-        if (MEM_ReadByte(pos-5) == zPAR_TOK_PUSHVAR) {
-            var int varId; varId = MEM_ReadInt(pos-4);
-            if (varId != value1SymbId) {
-                if (varId <= 0) || (varId >= currSymbolTableLength) {
-                    continue;
-                };
-                var int varSymbPtr; varSymbPtr = MEM_GetSymbolByIndex(varId);
-                if (!varSymbPtr) {
-                    continue;
-                };
-                if (MEM_ReadInt(varSymbPtr + zCParSymbol_content_offset) != Value_Haste1) {
-                    continue;
-                };
-            };
-        } else if (MEM_ReadByte(pos-5) == zPAR_TOK_PUSHINT) {
-            if (MEM_ReadInt(pos-4) != Value_Haste1) {
-                continue;
-            };
-        } else {
-            continue;
-        };
-
-        // Overwrite "value = Value_Haste1" with "value = Value_Haste2" (literal)
-        MEMINT_OverrideFunc_Ptr = pos-5;
-        MEMINT_OFTokPar(zPAR_TOK_PUSHINT, Value_Haste2);
-
-        applied += 1;
-    end;
-
-    // Free the array
-    MEM_ArrayFree(matches);
-
-    return applied;
+    // Replace any assignments to value
+    var int itemId; itemId = G1CP_GetItemInstId("ItFo_Potion_Haste_02");
+    return (G1CP_ReplaceAssignInt(itemId, 0, "C_ITEM.value", 0, Value_Haste1, Value_Haste2) > 0);
 };

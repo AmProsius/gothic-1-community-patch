@@ -1,8 +1,8 @@
 export PATCHNAME=G1CP
 export LONGNAME=Gothic 1 Community Patch
-export VBASE=0
-export VMAJOR=0
-export VMINOR=1
-export WEBSITE=https://github.com/AmProsius/gothic-1-community-patch
-export SUPPORT=
-export AUTHOR=
+export VBASE=1
+export VMAJOR=2
+export VMINOR=0
+export NINJAMIN=2.3.08
+export WEBSITE=https://g1cp.org
+export AUTHOR=G1CP Team

@@ -1,19 +1,19 @@
 /*
- * Guess localization (0 = EN, 1 = DE, 2 = PL, 3 = RU)
+ * Guess localization (1 = EN, 2 = DE, 4 = PL, 8 = RU)
  * Source: https://github.com/szapp/Ninja/wiki/Inject-Changes#localization
  */
-func int Ninja_G1CP_GuessLocalization() {
+func int G1CP_GuessLocalization() {
     var int pan; pan = MEM_GetSymbol("MOBNAME_PAN");
     if (pan) {
         var zCPar_Symbol panSymb; panSymb = _^(pan);
         var string panName; panName = MEM_ReadString(panSymb.content);
         if (Hlp_StrCmp(panName, "Pfanne")) { // DE (Windows 1252)
-            return 1;
+            return G1CP_Lang_DE;
         } else if (Hlp_StrCmp(panName, "Patelnia")) { // PL (Windows 1250)
-            return 2;
+            return G1CP_Lang_PL;
         } else if (Hlp_StrCmp(panName, "Сковорода")) { // RU (Windows 1251)
-            return 3;
+            return G1CP_Lang_RU;
         };
     };
-    return 0; // Otherwise EN
+    return G1CP_Lang_EN; // Otherwise EN
 };

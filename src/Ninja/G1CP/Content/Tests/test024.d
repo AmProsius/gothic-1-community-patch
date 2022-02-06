@@ -6,7 +6,14 @@
  *
  * Expected behavior: The variable 'Kalom_DrugMonopol' remains as before and 'Kalom_Krautbote' is set to 'LOG_SUCCESS'
  */
-func int Ninja_G1CP_Test_024() {
+func int G1CP_Test_024() {
+    var C_Npc npc; npc = G1CP_Testsuite_FindNpc("GUR_1201_CorKalom");
+    var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc("Info_Kalom_KrautboteBACK_Info");
+    var int itemId; itemId = G1CP_Testsuite_CheckItem("ItMiNugget");
+    var int drugId; drugId = G1CP_Testsuite_CheckIntVar("Kalom_DrugMonopol", 0);
+    var int krautId; krautId = G1CP_Testsuite_CheckIntVar("Kalom_Krautbote", 0);
+    G1CP_Testsuite_CheckPassed();
+
     // Define possibly missing symbols locally
     const int LOG_RUNNING = 1;
     const int LOG_SUCCESS = 2;
@@ -14,98 +21,33 @@ func int Ninja_G1CP_Test_024() {
     // Check status of the test
     var int passed; passed = TRUE;
 
-    // Find Cor Kalom first
-    var int symbId; symbId = MEM_FindParserSymbol("GUR_1201_CorKalom");
-    if (symbId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("NPC 'GUR_1201_CorKalom' not found");
-        passed = FALSE;
-    };
+    // Backup values
+    var int drugMonopolBak; drugMonopolBak = G1CP_GetIntVarI(drugId, 0, 0);
+    var int krautboteBak; krautboteBak = G1CP_GetIntVarI(krautId, 0, 0);
 
-    // Check if Cor Kalom exists in the world
-    var C_Npc kalom; kalom = Hlp_GetNpc(symbId);
-    if (!Hlp_IsValidNpc(kalom)) {
-        Ninja_G1CP_TestsuiteErrorDetail("NPC 'GUR_1201_CorKalom' not valid");
-        passed = FALSE;
-    };
-
-    // Check if dialog exists
-    var int funcId; funcId = MEM_FindParserSymbol("Info_Kalom_KrautboteBACK_Info");
-    if (funcId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("Dialog function 'Info_Kalom_KrautboteBACK_Info' not found");
-        passed = FALSE;
-    };
-
-    // Check if the ore nugget item exists
-    var int nuggetId; nuggetId = MEM_FindParserSymbol("ItMiNugget");
-    if (nuggetId == -1) {
-        Ninja_G1CP_TestsuiteErrorDetail("Item 'ItMiNugget' not found");
-        passed = FALSE;
-    };
-
-    // Obtain symbols
-    var int drugMonopolPtr; drugMonopolPtr = MEM_GetSymbol("Kalom_DrugMonopol");
-    if (!drugMonopolPtr) {
-        Ninja_G1CP_TestsuiteErrorDetail("Variable 'Kalom_DrugMonopol' not found");
-        passed = FALSE;
-    };
-    drugMonopolPtr += zCParSymbol_content_offset;
-    var int krautbotePtr; krautbotePtr = MEM_GetSymbol("Kalom_Krautbote");
-    if (!krautbotePtr) {
-        Ninja_G1CP_TestsuiteErrorDetail("Variable 'Kalom_Krautbote' not found");
-        passed = FALSE;
-    };
-    krautbotePtr += zCParSymbol_content_offset;
-
-    // At the latest now, we need to stop if there are fails already
-    if (!passed) {
-        return FALSE;
-    };
-
-    // Back up the values
-    var int drugMonopolBak; drugMonopolBak = MEM_ReadInt(drugMonopolPtr);
-    var int krautboteBak;   krautboteBak   = MEM_ReadInt(krautbotePtr);
-
-    // Set the variables
-    MEM_WriteInt(drugMonopolPtr, LOG_RUNNING);
-    MEM_WriteInt(krautbotePtr,   LOG_RUNNING);
-
-    // Add 500 ore for the condition within the dialog
-    CreateInvItems(hero, nuggetId, 500);
-
-    // Backup self and other
-    var C_Npc slfBak; slfBak = MEM_CpyInst(self);
-    var C_Npc othBak; othBak = MEM_CpyInst(other);
-
-    // Set self and other
-    self  = MEM_CpyInst(kalom);
-    other = MEM_CpyInst(hero);
+    // Set new variables
+    G1CP_SetIntVarI(drugId, 0, LOG_RUNNING);
+    G1CP_SetIntVarI(krautId, 0, LOG_RUNNING);
+    CreateInvItems(hero, itemId, 500); // Add 500 ore for the condition within the dialog
 
     // Just run the dialog and see what happens
-    MEM_CallByID(funcId);
-
-    // Restore self and other
-    self  = MEM_CpyInst(slfBak);
-    other = MEM_CpyInst(othBak);
-
-    // Stop the output units
-    Npc_ClearAIQueue(hero);
-    AI_StandUpQuick(hero);
+    G1CP_Testsuite_Call(funcId, npc, hero, TRUE);
 
     // Check the variables now
-    var int drugMonopolAfter; drugMonopolAfter = MEM_ReadInt(drugMonopolPtr);
-    var int krautboteAfter;   krautboteAfter   = MEM_ReadInt(krautbotePtr);
+    var int drugMonopolAfter; drugMonopolAfter = G1CP_GetIntVarI(drugId, 0, 0);
+    var int krautboteAfter; krautboteAfter = G1CP_GetIntVarI(krautId, 0, 0);
 
     // Restore the variables
-    MEM_WriteInt(drugMonopolPtr, drugMonopolBak);
-    MEM_WriteInt(krautbotePtr, krautboteBak);
+    G1CP_SetIntVarI(drugId, 0, drugMonopolBak);
+    G1CP_SetIntVarI(krautId, 0, krautboteBak);
 
     // Confirm the fix
     if (drugMonopolAfter != LOG_RUNNING) {
-        Ninja_G1CP_TestsuiteErrorDetail("Mission 'Kalom_DrugMonopol' was wrongfully closed");
+        G1CP_TestsuiteErrorDetailSSS("Mission '", G1CP_GetSymbolName(drugId), "' was wrongfully closed");
         passed = FALSE;
     };
     if (krautboteAfter != LOG_SUCCESS) {
-        Ninja_G1CP_TestsuiteErrorDetail("Mission 'Kalom_Krautbote' is still open");
+        G1CP_TestsuiteErrorDetailSSS("Mission '", G1CP_GetSymbolName(krautId), "' is still open");
         passed = FALSE;
     };
 
