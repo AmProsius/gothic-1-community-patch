@@ -6,5 +6,5 @@ func int G1CP_Test_231() {
     var C_Item itm; itm = G1CP_Testsuite_CreateItem("ItArScrollTrfOrcdog");
     G1CP_Testsuite_CheckPassed();
 
-    return G1CP_Testsuite_InspectItemVariable(itm, "description", "Verwandlung Orkhund");
+    return G1CP_Testsuite_InspectItemString(itm, "description", "Verwandlung Orkhund");
 };

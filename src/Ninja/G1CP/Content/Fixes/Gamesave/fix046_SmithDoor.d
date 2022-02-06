@@ -43,8 +43,8 @@ func int G1CP_046_SmithDoor() {
     };
 
     // Find the door in the world
-    var int vobPtr; vobPtr = G1CP_FindVobByPosF(3659.20801, 267.0802, 970.182068);
-    if (!Hlp_Is_oCMobDoor(vobPtr)) {
+    var int vobPtr; vobPtr = G1CP_FindVobByPosF(3659.20801, 267.0802, 970.182068, Hlp_Is_oCMobDoor);
+    if (!vobPtr) {
         return FALSE;
     };
     var oCMobDoor mob; mob = _^(vobPtr);
@@ -76,67 +76,66 @@ func int G1CP_046_SmithDoor() {
     };
     var zCWaypoint wp; wp = _^(wpPtr);
 
-    // Check if new key item already exists somewhere
-    if (G1CP_IsItemInstantiated("G1CP_046_SmithDoor_Item")) {
-        return FALSE;
-    };
+    // All checks passed! Make the new key available and finally adjust the door property
 
-    // Check if the story variable is true
-    if (!MEM_ReadInt(varPtr)) { // It follows from above that varPtr is not zero
-        // If the story did not progress that far yet, hook the function to apply this fix during the game
-        if (funcId != -1) {
+    // Check if new key item already exists somewhere (if not, insert key first)
+    if (!G1CP_IsItemInstantiated("G1CP_046_SmithDoor_Item")) {
 
-            // Check if somewhere in that function the story variable is set (check only once)
-            const int funcHooked = 0;
-            if (funcHooked == 0) {
-                funcHooked = TRUE;
+        // Check if the story variable is true
+        if (!MEM_ReadInt(varPtr)) { // It follows from above that varPtr is not zero
+            // If the story did not progress that far yet, hook the function to apply this fix during the game
+            if (funcId != -1) {
 
-                // Find "ExploreSunkenTower = xxxx" within the function
-                const int bytes[3] = {zPAR_TOK_PUSHVAR<<24, -1, zPAR_OP_IS};
-                bytes[1] = varId;
-                var int matches; matches = G1CP_FindInFunc(funcId, _@(bytes)+3, 6);
-                var int funcGood; funcGood = (MEM_ArraySize(matches) > 0);
-                MEM_ArrayFree(matches);
+                // Check if somewhere in that function the story variable is set (check only once)
+                const int funcHooked = 0;
+                if (funcHooked == 0) {
+                    funcHooked = TRUE;
 
-                // Hook the function only if it makes sense
-                if (funcGood == TRUE) {
-                    HookDaedalusFuncI(funcId, MEM_GetFuncId(G1CP_046_SmithDoor_HookStory));
+                    // Find "ExploreSunkenTower = xxxx" within the function
+                    const int bytes[3] = {zPAR_TOK_PUSHVAR<<24, -1, zPAR_OP_IS};
+                    bytes[1] = varId;
+                    var int matches; matches = G1CP_FindInFunc(funcId, _@(bytes)+3, 6);
+                    var int funcGood; funcGood = (MEM_ArraySize(matches) > 0);
+                    MEM_ArrayFree(matches);
+
+                    // Hook the function only if it makes sense
+                    if (funcGood == TRUE) {
+                        HookDaedalusFuncI(funcId, MEM_GetFuncId(G1CP_046_SmithDoor_HookStory));
+                    };
                 };
             };
+            return FALSE;
         };
-        return FALSE;
-    };
 
-    // All checks are true! Insert the key now
+        // Insert item
+        Wld_InsertItem(G1CP_046_SmithDoor_Item, "OCC_CELLAR_BACK_LEFT_CELL");
 
-    // Insert item
-    Wld_InsertItem(G1CP_046_SmithDoor_Item, "OCC_CELLAR_BACK_LEFT_CELL");
+        // Double check that it worked (probably not necessary)
+        var zCTree latestNode; latestNode = _^(MEM_World.globalVobTree_firstChild);
+        var int itmPtr; itmPtr = latestNode.data;
+        if (!Hlp_Is_oCItem(itmPtr)) {
+            return FALSE;
+        };
+        var oCItem itm; itm = _^(itmPtr);
+        if (itm.instanz != G1CP_046_SmithDoor_Item) {
+            return FALSE;
+        };
 
-    // Double check that it worked (probably not necessary)
-    var zCTree latestNode; latestNode = _^(MEM_World.globalVobTree_firstChild);
-    var int itmPtr; itmPtr = latestNode.data;
-    if (!Hlp_Is_oCItem(itmPtr)) {
-        return FALSE;
-    };
-    var oCItem itm; itm = _^(itmPtr);
-    if (itm.instanz != G1CP_046_SmithDoor_Item) {
-        return FALSE;
-    };
+        // Correct item inserted, but check if copying of the original item instance worked
+        if (!itm._zCVob_visual) {
+            Wld_RemoveItem(G1CP_046_SmithDoor_Item);
+            return FALSE;
+        };
 
-    // Correct item inserted, but check if copying of the original item instance worked
-    if (!itm._zCVob_visual) {
-        Wld_RemoveItem(G1CP_046_SmithDoor_Item);
-        return FALSE;
-    };
-
-    // Align the item to the ground (otherwise it would be floating mid-air)
-    var int posPtr; posPtr = _@(wp.pos);
-    const int oCVob__SetOnFloor = 7160768; //0x6D43C0
-    const int call = 0;
-    if (CALL_Begin(call)) {
-        CALL_PtrParam(_@(posPtr));
-        CALL__thiscall(_@(itmPtr), oCVob__SetOnFloor);
-        call = CALL_End();
+        // Align the item to the ground (otherwise it would be floating mid-air)
+        var int posPtr; posPtr = _@(wp.pos);
+        const int oCVob__SetOnFloor = 7160768; //0x6D43C0
+        const int call = 0;
+        if (CALL_Begin(call)) {
+            CALL_PtrParam(_@(posPtr));
+            CALL__thiscall(_@(itmPtr), oCVob__SetOnFloor);
+            call = CALL_End();
+        };
     };
 
     // FINALLY: Replace the key instance
@@ -149,8 +148,8 @@ func int G1CP_046_SmithDoor() {
  */
 func int G1CP_046_SmithDoorRevert() {
     // Find the door in the world
-    var int vobPtr; vobPtr = G1CP_FindVobByPosF(3659.20801, 267.0802, 970.182068);
-    if (!Hlp_Is_oCMobDoor(vobPtr)) {
+    var int vobPtr; vobPtr = G1CP_FindVobByPosF(3659.20801, 267.0802, 970.182068, Hlp_Is_oCMobDoor);
+    if (!vobPtr) {
         return FALSE;
     };
     var oCMobDoor mob; mob = _^(vobPtr);

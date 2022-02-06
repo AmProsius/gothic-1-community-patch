@@ -52,6 +52,7 @@ Content\Tests\test050.d
 Content\Tests\test051.d
 Content\Tests\test052.d
 Content\Tests\test055.d
+Content\Tests\test057.d
 Content\Tests\test058.d
 Content\Tests\test059.d
 Content\Tests\test060.d
@@ -67,6 +68,7 @@ Content\Tests\test110.d
 Content\Tests\test111.d
 Content\Tests\test112.d
 Content\Tests\test115.d
+Content\Tests\test116.d
 Content\Tests\test121.d
 Content\Tests\test122.d
 Content\Tests\test124.d
@@ -133,3 +135,4 @@ Content\Tests\test235.d
 Content\Tests\test236.d
 Content\Tests\test241.d
 Content\Tests\test244.d
+Content\Tests\test278.d

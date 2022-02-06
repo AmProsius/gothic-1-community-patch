@@ -39,9 +39,12 @@ func int G1CP_IsItemInstantiated(var string name) {
 };
 
 /*
- * Find VOB in the world by its exact position
+ * Find VOB in the world by its exact position (and optionally a callback to narrow down the search). The callback, if
+ * provided (i.e. specify NOFUNC to ignore), is a function with the signature
+ *   func int callback(var int vobPtr)
+ * and will be called for each prospective VOB candidate to return TRUE or FALSE.
  */
-func int G1CP_FindVobByPosPtr(var int posPtr) {
+func int G1CP_FindVobByPosPtr(var int posPtr, var func callback) {
     MEM_InitGlobalInst();
 
     if (!posPtr) {
@@ -72,8 +75,14 @@ func int G1CP_FindVobByPosPtr(var int posPtr) {
             if (vob.trafoObjToWorld[3]  == pos[0]) { // Separate if-statements for performance
             if (vob.trafoObjToWorld[7]  == pos[1]) {
             if (vob.trafoObjToWorld[11] == pos[2]) {
-                found = vobPtr;
-                break; // Find only first match
+                MEM_PushIntParam(vobPtr);
+                if (G1CP_IsValidFunc(callback)) {
+                    MEM_Call(callback);
+                };
+                if (MEM_PopIntResult()) {
+                    found = vobPtr;
+                    break; // Find only first match
+                };
             }; }; };
         };
     end;
@@ -82,20 +91,89 @@ func int G1CP_FindVobByPosPtr(var int posPtr) {
     MEM_ArrayFree(arrPtr);
 
     // Return pointer of possibly found VOB or zero
-    return found;
+    return +found;
 };
-func int G1CP_FindVobByPos(var int x, var int y, var int z) { // Integer-floats!
+func int G1CP_FindVobByPos(var int x, var int y, var int z, var func callback) { // Integer-floats!
     var int pos[3];
     pos[0] = x;
     pos[1] = y;
     pos[2] = z;
-    G1CP_FindVobByPosPtr(_@(pos)); // Leave return value on stack
+    G1CP_FindVobByPosPtr(_@(pos), callback); // Leave return value on stack
 };
-func int G1CP_FindVobByPosF(var float x, var float y, var float z) {
+func int G1CP_FindVobByPosF(var float x, var float y, var float z, var func callback) {
     castToIntf(x); // Just to repush
     castToIntf(y);
     castToIntf(z);
+    if (G1CP_IsValidFunc(callback)) {
+        MEM_PushIntParam(MEM_GetFuncId(callback));
+    } else {
+        MEM_PushIntParam(-1);
+    };
     MEM_Call(G1CP_FindVobByPos); // Leave return value on stack
+};
+
+/*
+ * Find light VOB in the world by its exact position (and optionally a callback to narrow down the search). See above
+ * for details.
+ */
+func int G1CP_FindLightVobByPosPtr(var int posPtr, var func callback) {
+    // Prepare some temporary changes to the engine function
+    const int zCBspBase__CollectVobsInBBox3D_I_leafVobList_addr1 = 5368964; //0x51EC84
+    const int zCBspBase__CollectVobsInBBox3D_I_leafVobList_addr2 = 5368994; //0x51ECA2
+    const int zCBspBase__CollectVobsInBBox3D_I_leafVobList_addr3 = 5369000; //0x51ECA8
+    const int zCBspBase__CollectVobsInBBox3D_I_leafVobList_addr4 = 5369360; //0x51EE10
+    const int once = 0;
+    if (!once) {
+        MemoryProtectionOverride(zCBspBase__CollectVobsInBBox3D_I_leafVobList_addr1, 1);
+        MemoryProtectionOverride(zCBspBase__CollectVobsInBBox3D_I_leafVobList_addr2, 1);
+        MemoryProtectionOverride(zCBspBase__CollectVobsInBBox3D_I_leafVobList_addr3, 1);
+        MemoryProtectionOverride(zCBspBase__CollectVobsInBBox3D_I_leafVobList_addr4, 1);
+        once = 1;
+    };
+
+    // Check for expected bytes
+    if (MEM_ReadByte(zCBspBase__CollectVobsInBBox3D_I_leafVobList_addr1) != 52)
+    || (MEM_ReadByte(zCBspBase__CollectVobsInBBox3D_I_leafVobList_addr2) != 44)
+    || (MEM_ReadByte(zCBspBase__CollectVobsInBBox3D_I_leafVobList_addr3) != 44)
+    || (MEM_ReadByte(zCBspBase__CollectVobsInBBox3D_I_leafVobList_addr4) != 52) {
+        MEM_Warn("Failed to modify zCBspBase::CollectVobsInBBox3D_I!");
+        return FALSE;
+    };
+
+    // Collect light VOBs only instead of instead ignoring them
+    MEM_WriteByte(zCBspBase__CollectVobsInBBox3D_I_leafVobList_addr1, 64);
+    MEM_WriteByte(zCBspBase__CollectVobsInBBox3D_I_leafVobList_addr2, 56);
+    MEM_WriteByte(zCBspBase__CollectVobsInBBox3D_I_leafVobList_addr3, 56);
+    MEM_WriteByte(zCBspBase__CollectVobsInBBox3D_I_leafVobList_addr4, 64);
+
+    // Call the function
+    var int ret; ret = G1CP_FindVobByPosPtr(posPtr, callback);
+
+    // Reset changes to default
+    MEM_WriteByte(zCBspBase__CollectVobsInBBox3D_I_leafVobList_addr1, 52);
+    MEM_WriteByte(zCBspBase__CollectVobsInBBox3D_I_leafVobList_addr2, 44);
+    MEM_WriteByte(zCBspBase__CollectVobsInBBox3D_I_leafVobList_addr3, 44);
+    MEM_WriteByte(zCBspBase__CollectVobsInBBox3D_I_leafVobList_addr4, 52);
+
+    return +ret;
+};
+func int G1CP_FindLightVobByPos(var int x, var int y, var int z, var func callback) { // Integer-floats!
+    var int pos[3];
+    pos[0] = x;
+    pos[1] = y;
+    pos[2] = z;
+    G1CP_FindLightVobByPosPtr(_@(pos), callback); // Leave return value on stack
+};
+func int G1CP_FindLightVobByPosF(var float x, var float y, var float z, var func callback) {
+    castToIntf(x); // Just to repush
+    castToIntf(y);
+    castToIntf(z);
+    if (G1CP_IsValidFunc(callback)) {
+        MEM_PushIntParam(MEM_GetFuncId(callback));
+    } else {
+        MEM_PushIntParam(-1);
+    };
+    MEM_Call(G1CP_FindLightVobByPos); // Leave return value on stack
 };
 
 /*
@@ -162,4 +240,20 @@ func void G1CP_TransformVob(var int vobPtr, var int trafoPtr) {
 
     // Restore collision
     v.bitfield[0] = bits;
+};
+
+/*
+ * Get the world time analogous to Wld_SetTime, returned as an integer of the format HHMM where
+ * Hours   = G1CP_GetWorldTime() / 60
+ * Minutes = G1CP_GetWorldTime() % 60
+ * Caution: Only accurate within the nearest few minutes!
+ */
+func int G1CP_GetWorldTime() {
+    MEM_InitGlobalInst();
+
+    var int hour; hour = truncf(divf(MEM_WorldTimer.worldTime, mkf(oCWorldTimer_TicksPerHour)));
+    var int minI; minI = subf(MEM_WorldTimer.worldTime, mkf(hour * oCWorldTimer_TicksPerHour));
+    var int min; min = truncf(divf(minI, mkf(oCWorldTimer_TicksPerMin_approx)));
+
+    return hour * 100 + min;
 };

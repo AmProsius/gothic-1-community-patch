@@ -198,6 +198,13 @@ func int G1CP_Testsuite_CheckDialogConditionFunc(var string name) {
 };
 
 /*
+ * Check if daily routine function exists
+ */
+func int G1CP_Testsuite_CheckRoutineFunc(var string name) {
+    return G1CP_Testsuite_CheckFunc(name, "void|none", "Daily routine");
+};
+
+/*
  * Check if AI state start function exists
  */
 func int G1CP_Testsuite_CheckAiStateStartFunc(var string name) {
@@ -226,4 +233,17 @@ func void G1CP_Testsuite_CheckAiState(var string name) {
     i = G1CP_Testsuite_CheckAiStateStartFunc(name);
     i = G1CP_Testsuite_CheckAiStateLoopFunc(ConcatStrings(name, "_Loop"));
     i = G1CP_Testsuite_CheckAiStateEndFunc(ConcatStrings(name, "_End"));
+};
+
+/*
+ * Check if an output unit exists
+ */
+func int G1CP_Testsuite_CheckOu(var string name) {
+    var int ptr; ptr = G1CP_GetOu(name);
+    if (!ptr) {
+        G1CP_TestsuiteErrorDetailSSS("Output unit '", name, "' not found");
+        G1CP_TestsuiteStatusPassed = FALSE;
+        return 0;
+    };
+    return ptr;
 };
