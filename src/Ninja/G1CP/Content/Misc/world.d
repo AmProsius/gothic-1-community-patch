@@ -241,3 +241,19 @@ func void G1CP_TransformVob(var int vobPtr, var int trafoPtr) {
     // Restore collision
     v.bitfield[0] = bits;
 };
+
+/*
+ * Get the world time analogous to Wld_SetTime, returned as an integer of the format HHMM where
+ * Hours   = G1CP_GetWorldTime() / 60
+ * Minutes = G1CP_GetWorldTime() % 60
+ * Caution: Only accurate within the nearest few minutes!
+ */
+func int G1CP_GetWorldTime() {
+    MEM_InitGlobalInst();
+
+    var int hour; hour = truncf(divf(MEM_WorldTimer.worldTime, mkf(oCWorldTimer_TicksPerHour)));
+    var int minI; minI = subf(MEM_WorldTimer.worldTime, mkf(hour * oCWorldTimer_TicksPerHour));
+    var int min; min = truncf(divf(minI, mkf(oCWorldTimer_TicksPerMin_approx)));
+
+    return hour * 100 + min;
+};
