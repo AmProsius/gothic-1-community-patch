@@ -2,11 +2,9 @@
  * #235 Spelling - Magic book: "Verwandlung Orkhund" (DE)
  */
 func int G1CP_235_DE_OrcDogMagBook() {
-    var int idx; idx = G1CP_FindStringConstArrIdx("TXT_SPELLS", "Verwandlung Orc-Hund");
-    if (idx != -1) {
-        G1CP_SetStringConst("TXT_SPELLS", idx, "Verwandlung Orkhund");
-        return TRUE;
-    } else {
-        return FALSE;
-    };
+    const string strConst = "TXT_SPELLS";
+    const string originalStr = "Verwandlung Orc-Hund";
+    const string correctedStr = "Verwandlung Orkhund";
+
+    return (G1CP_ConstReplaceStr(strConst, originalStr, correctedStr) > 0);
 };

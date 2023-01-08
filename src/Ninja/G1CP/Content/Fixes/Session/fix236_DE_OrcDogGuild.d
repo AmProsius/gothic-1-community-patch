@@ -2,11 +2,9 @@
  * #236 Spelling - Guild: "Orkhund" (DE)
  */
 func int G1CP_236_DE_OrcDogGuild() {
-    var int idx; idx = G1CP_FindStringConstArrIdx("TXT_GUILDS", "Ork-Hund");
-    if (idx != -1) {
-        G1CP_SetStringConst("TXT_GUILDS", idx, "Orkhund");
-        return TRUE;
-    } else {
-        return FALSE;
-    };
+    const string strConst = "TXT_GUILDS";
+    const string originalStr = "Ork-Hund";
+    const string correctedStr = "Orkhund";
+
+    return (G1CP_ConstReplaceStr(strConst, originalStr, correctedStr) > 0);
 };
