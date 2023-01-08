@@ -2,6 +2,9 @@
  * #217 Mercenary doesn't guard the palisade
  */
 func int G1CP_217_MercenaryDailyRoutine() {
-    var int funcId; funcId = G1CP_GetFuncId("Rtn_FMCstart_750", "void|none");
-    return (G1CP_ReplacePushStr(funcId, 0, "FMC_Path19", "FMC_PATH19") > 0);
+    const string rtnName = "Rtn_FMCstart_750";
+    const string originalWpName = "FMC_Path19";
+    const string correctedWpName = "FMC_PATH19";
+
+    return (G1CP_RtnChangeWp(rtnName, originalWpName, correctedWpName) > 0);
 };
