@@ -219,3 +219,12 @@ func void G1CP_NpcIdSetAiVar(var int npcInstance, var string aiVarName, var int 
     var C_Npc slf; slf = Hlp_GetNpc(npcInstance);
     G1CP_NpcSetAiVar(slf, aiVarName, value);
 };
+
+/*
+ * Rename an NPC
+ */
+funt int G1CP_NpcRename(var string npcName, var string originalStr, var string correctedStr) {
+    var int npcId; npcId = G1CP_GetNpcProtoId(npcName);
+
+    return (G1CP_ReplaceAssignStr(npcId, 0, "C_Npc.name", 0, originalStr, correctedStr) > 0);
+}
