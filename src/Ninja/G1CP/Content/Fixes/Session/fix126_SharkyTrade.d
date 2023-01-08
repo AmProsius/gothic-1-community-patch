@@ -2,6 +2,10 @@
  * #126 The trading menu is opened after Sharky is appointed as new fence
  */
 func int G1CP_126_SharkyTrade() {
-    var int infoId; infoId = G1CP_GetInfoInstId("Org_843_Sharky_Fisk");
-    return (G1CP_ReplaceAssignInt(infoId, 0, "C_Info.trade", 0, 1, 0) > 0);
+    const string infoName = "Org_843_Sharky_Fisk";
+    const string infoProp = "trade";
+    const int originalInt = 1;
+    const int correctedInt = 0;
+
+    return (G1CP_ChangeInfoIntVar(infoName, infoProp, originalInt, correctedInt) > 0);
 };
