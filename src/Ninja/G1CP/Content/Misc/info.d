@@ -79,7 +79,7 @@ func int G1CP_HasInfoWithDesc(var C_Npc slf, var string infoDesc) {
 /*
  * Change the description of an info
  */
-funt int G1CP_ChangeInfoDesc(var string infoName, var string originalStr, var string correctedStr) {
+func int G1CP_InfoChangeDesc(var string infoName, var string originalStr, var string correctedStr) {
     var int infoId; infoId = G1CP_GetInfoInstId(infoName);
 
     return (G1CP_ReplaceAssignStr(infoId, 0, "C_Info.description", 0, originalStr, correctedStr) > 0);
