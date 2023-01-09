@@ -88,7 +88,7 @@ funt int G1CP_ChangeInfoDesc(var string infoName, var string originalStr, var st
 /*
  * Change the value of an info's integer variable
  */
-funt int G1CP_ChangeInfoIntVar(var string infoName, var string infoProp, var int originalInt, var int correctedInt) {
+func int G1CP_ChangeInfoIntVar(var string infoName, var string infoProp, var int originalInt, var int correctedInt) {
     var int infoId; infoId = G1CP_GetInfoInstId(infoName);
 
     return (G1CP_ReplaceAssignInt(infoId, 0, ConcatStrings("C_Info.", infoProp), 0, originalInt, correctedInt) > 0);
