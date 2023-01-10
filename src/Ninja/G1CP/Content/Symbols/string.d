@@ -241,3 +241,17 @@ func int G1CP_FindStringConstArrIdxI(var int symbId, var string needle) {
 func int G1CP_FindStringConstArrIdx(var string name, var string needle) {
     return G1CP_FindStringConstArrIdxI(MEM_GetSymbolIndex(name), needle);
 };
+
+/*
+ * Find a string in a constant string array (case-sensitive) and replace it if found. Returns true on success.
+ */
+func int G1CP_ReplaceStringConstArrElem(var string name, var string needle, var string replace) {
+    var int idx; idx = G1CP_FindStringConstArrIdx(name, needle);
+
+    if (idx == -1) {
+        return FALSE;
+    }
+
+    G1CP_SetStringConst(name, idx, replace);
+    return TRUE;
+};
