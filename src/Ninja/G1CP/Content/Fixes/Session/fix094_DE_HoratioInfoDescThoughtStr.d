@@ -5,5 +5,5 @@ func int G1CP_094_DE_HoratioInfoDescThoughtStr() {
     const string originalStr = "Ich hab' nochmal über die Sache nachgedacht...";
     const string correctedStr = "Ich hab' noch einmal über die Sache nachgedacht...";
 
-    return (G1CP_InfoChangeDesc("DIA_Horatio_ThoughtSTR", originalStr, correctedStr) > 0);
+    return G1CP_InfoChangeDesc("DIA_Horatio_ThoughtSTR", originalStr, correctedStr);
 };
