@@ -245,13 +245,13 @@ func int G1CP_FindStringConstArrIdx(var string name, var string needle) {
 /*
  * Find a string in a constant string array (case-sensitive) and replace it if found. Returns true on success.
  */
-func int G1CP_ReplaceStringConstArrElem(var string strConst, var string originalStr, var string correctedStr) {
-    var int idx; idx = G1CP_FindStringConstArrIdx(strConst, originalStr);
+func int G1CP_ReplaceStringConstArrElem(var string name, var string needle, var string replace) {
+    var int idx; idx = G1CP_FindStringConstArrIdx(name, needle);
 
     if (idx == -1) {
         return FALSE;
     }
 
-    G1CP_SetStringConst(strConst, idx, correctedStr);
+    G1CP_SetStringConst(name, idx, replace);
     return TRUE;
 };
