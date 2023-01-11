@@ -93,3 +93,12 @@ func int G1CP_ChangeInfoIntVar(var string infoName, var string infoProp, var int
 
     return (G1CP_ReplaceAssignInt(infoId, 0, ConcatStrings("C_Info.", infoProp), 0, originalInt, correctedInt) > 0);
 }
+
+/*
+ * Change the text of an info's choice
+ */
+func int G1CP_InfoChangeChoiceText(var string infoName, var string originalStr, var string correctedStr) {
+    var int funcId; funcId = G1CP_GetFuncId(infoName, "void|none");
+
+    return (G1CP_ReplacePushStr(funcId, 0, originalStr, correctedStr) > 0);
+}
