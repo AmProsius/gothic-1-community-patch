@@ -24,7 +24,5 @@ func int G1CP_158_SpeedPotion3Value() {
         return FALSE;
     };
 
-    // Replace any assignments to value
-    var int itemId; itemId = G1CP_GetItemInstId("ItFo_Potion_Haste_03");
-    return (G1CP_ReplaceAssignInt(itemId, 0, "C_ITEM.value", 0, Value_Haste1, Value_Haste3) > 0);
+    return G1CP_ItemChangeIntVar("ItFo_Potion_Haste_03", "value", Value_Haste1, Value_Haste2);
 };
