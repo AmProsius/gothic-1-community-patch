@@ -257,3 +257,17 @@ func int G1CP_GetWorldTime() {
 
     return hour * 100 + min;
 };
+
+/*
+ * Find VOB in the world by its exact position and move it to another position. Returns true on success.
+ */
+func int G1CP_ChangeVobLocation(var float originalPos, var float correctedPos, var int callback) {
+    var int vobPtr; vobPtr = G1CP_FindVobByPosPtr(_@(originalPos), callback);
+
+    if (!vobPtr) {
+        return FALSE;
+    };
+
+    G1CP_MoveVobToPosPtr(vobPtr, _@(correctedPos));
+    return TRUE;
+}
