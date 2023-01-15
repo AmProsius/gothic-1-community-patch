@@ -46,19 +46,7 @@ func void G1CP_102_JesseProtectionMoneyPay_Hook() {
         var int topicStatusAfter; topicStatusAfter = MEM_ReadInt(topicPtr);
         if (topicStatusAfter == LOG_SUCCESS) && (topicStatusAfter != topicStatusBefore)
         && (Npc_HasItems(hero, oreId) == amountOreBefore) {
-            var int funcId; funcId = MEM_GetSymbolIndex("B_GiveInvItems");
-            if (funcId != -1) {
-                // B_GiveInvItems(hero, self, ItMiNugget, 10)
-                MEM_PushInstParam(hero);
-                MEM_PushInstParam(self);
-                MEM_PushIntParam(oreId);
-                MEM_PushIntParam(10); // This is a guess!
-                MEM_CallById(funcId);
-            } else {
-                // In case "B_GiveInvItems" does not exist
-                Npc_RemoveInvItems(hero, oreId, 10);
-                CreateInvItems(self, oreId, 10);
-            };
+            G1CP_GiveInvItems(hero, self, oreId, 10);
         };
     };
 };
