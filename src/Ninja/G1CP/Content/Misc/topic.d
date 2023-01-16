@@ -270,3 +270,137 @@ func void G1CP_LogMoveEntryToTop(var string topic, var string entry) {
         end;
     };
 };
+
+/*
+ * Create a log topic in a dialog function. Returns true on success.
+ */
+func int G1CP_LogCreateTopicInDialog(var int topicSection, var string topicName, var string infoName,
+                                     var string funcName, var string hookName, var int apply) {
+    // Retrieve the topic and entry strings once and modify the info function
+    const int infoId = -2; // -1 is reserved for invalid symbols
+    const int topicId = -1;
+    const int entryId = -1;
+    const string topic = "G1CP invalid topic name";
+    const string entry = "G1CP invalid topic entry";
+
+    if (infoId == -2) {
+        infoId = G1CP_GetInfoInstId(infoName);
+        topicId = G1CP_GetStringConstId(topicName, 0);
+        var int funcId; funcId = G1CP_GetFuncId(funcName, "void|none");
+        var int bLogEntryId; bLogEntryId = G1CP_GetFuncId("B_LogEntry", "void|string|string");
+
+        // Do this only once (this is never reverted, i.e. session fix)
+        if (infoId == -1) || (funcId == -1) || (bLogEntryId == -1) || (topicId == -1) {
+            return FALSE;
+        };
+
+        // Find all calls to 'B_LogEntry' within the dialog function
+        const int bytes[2] = {zPAR_TOK_CALL<<24, -1};
+        var zCPar_Symbol needleSymb; needleSymb = _^(MEM_GetSymbolByIndex(bLogEntryId));
+        bytes[1] = needleSymb.content;
+        var int matches; matches = G1CP_FindInFunc(funcId, _@(bytes)+3, 5);
+
+        /* We are looking for:
+            zPAR_TOK_PUSHVAR topic
+            zPAR_TOK_PUSHVAR xxxx
+            zPAR_TOK_CALL    B_LogEntry
+        */
+
+        // Narrow down the search to calls with the correct topic as first argument to find the pushed entry
+        repeat(i, MEM_ArraySize(matches)); var int i;
+            var int pos; pos = MEM_ArrayRead(matches, i);
+            if (MEM_ReadByte(pos-10) == zPAR_TOK_PUSHVAR) && (MEM_ReadInt(pos-9) == topicId)
+            && (MEM_ReadByte(pos-5)  == zPAR_TOK_PUSHVAR) {
+                entryId = MEM_ReadInt(pos-4);
+                break;
+            };
+        end;
+        MEM_ArrayFree(matches);
+
+        // Check if we have found a valid entry
+        if (entryId <= 0) || (entryId >= MEM_Parser.symtab_table_numInArray) {
+            return FALSE;
+        };
+
+        // Get the topic strings
+        topic = G1CP_GetStringConstI(topicId, 0, topic);
+        entry = G1CP_GetStringI(entryId, 0, entry);
+
+        // Now that all is established, let's replace the call to 'B_LogEntry' to squeeze in the creation of the topic
+        i = G1CP_ReplaceCall(funcId, 0, bLogEntryId, MEM_GetSymbolIndex(hookName));
+        if (i <= 0) {
+            return FALSE;
+        };
+    };
+
+    // Now, on to the actual revertible fix
+    if (infoId == -1) || (entryId == -1) || (topicId == -1) {
+        return FALSE;
+    };
+
+    // Apply or revert
+    if (apply) {
+        // Add the log entry silently if it should be there
+        return G1CP_LogCreateTopicInDialogAddEntry(infoId, topic, entry, topicSection);
+    } else {
+        // Revert the fix by removing the entry again
+        return G1CP_LogCreateTopicInDialogRemoveEntry(topic, entry);
+    };
+
+    // Even if the dialog function is fixed, the fix is not marked as applied here!
+    return FALSE;
+}
+func int G1CP_LogCreateTopicInDialogAddEntry(var int infoId, var string topic, var string entry, var int topicSection) {
+    if (!Npc_KnowsInfo(hero, infoId))
+    || (G1CP_LogHasEntry(topic, entry)) {
+        return FALSE;
+    };
+
+    Log_CreateTopic(topic, topicSection);
+    Log_AddEntry(topic, entry);
+    G1CP_LogMoveEntryToTop(topic, entry); // Move entry to the top otherwise it is always the newest entry
+
+    return TRUE;
+}
+func int G1CP_LogCreateTopicInDialogRemoveEntry(var string topic, var string entry) {
+    G1CP_LogRemoveEntry(topic, entry);
+
+    if (G1CP_LogHasEntry(topic, entry)) {
+        return FALSE;
+    };
+
+    return TRUE;
+}
+
+/*
+ * Intercept the call of 'B_LogEntry' within a dialog function
+ */
+func void G1CP_LogInterceptEntry(var string topicName, var string topic, var int topicSection, var string entry,
+                                    var int fixNumber) {
+    // Check if this is the correct topic
+    if (!Hlp_StrCmp(topic, G1CP_GetStringConst(topicName, 0, "G1CP invalid topic string")))
+    || (G1CP_LogGetTopic(topic)) {
+        return;
+    };
+
+    Log_CreateTopic(topic, topicSection);
+    G1CP_SetFixStatus(fixNumber, G1CP_FIX_APPLIED); // If it did not exist before, our fix will have to be reverted
+
+    // Go on with the original call
+    G1CP_LogEntry(topic, entry);
+}
+
+/*
+ * Forward the call to "B_LogEntry"
+ */
+func void G1CP_LogEntry(var string topic, var string entry) {
+    var int funcId; funcId = G1CP_GetFuncId("B_LogEntry", "void|string|string");
+
+    if (funcId == -1) {
+        return;
+    }
+
+    MEM_PushStringParam(topic);
+    MEM_PushStringParam(entry);
+    MEM_CallByString("B_LogEntry");
+}
