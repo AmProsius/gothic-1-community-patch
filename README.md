@@ -1,7 +1,8 @@
 # Gothic 1 Community Patch
 
-![GitHub Release](https://img.shields.io/github/v/release/AmProsius/gothic-1-community-patch)
-![Downloads](https://api.szapp.de/downloads/g1cp/total/badge)
+[![Syntax](https://github.com/AmProsius/gothic-1-community-patch/actions/workflows/syntax.yml/badge.svg)](https://github.com/AmProsius/gothic-1-community-patch/actions/workflows/syntax.yml)
+[![GitHub Release](https://img.shields.io/github/v/release/AmProsius/gothic-1-community-patch)](https://github.com/AmProsius/gothic-1-community-patch/releases)
+[![Downloads](https://api.szapp.de/downloads/g1cp/total/badge)](https://github.com/AmProsius/gothic-1-community-patch/releases)
 
 Gothic is a video game that is still loved by players after 20 years. Despite its success, there remain some bugs in the game. These are addressed by a variety of modifications (mods) that, unfortunately, also introduce other changes and are mutually exclusive. For the first time, the Gothic 1 Community Patch (G1CP) overcomes these shortcomings.
 
