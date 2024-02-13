@@ -1,0 +1,22 @@
+name: syntax
+
+on:
+  push:
+    paths:
+      - '**.src'
+      - '**.d'
+
+permissions:
+  checks: write
+  contents: read
+
+jobs:
+  parsiphae:
+    name: Run syntax check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check syntax
+        uses: szapp/parsiphae-action@v1
+        with:
+          file: src/Ninja/G1CP/Content_G1.src
