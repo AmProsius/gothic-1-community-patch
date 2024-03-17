@@ -1,9 +1,15 @@
+<div align="center">
+
+[![logo](https://github.com/AmProsius/gothic-1-community-patch/assets/20203034/06eb6356-94e6-4dec-bb6f-1ae28ec2692b)](https://github.com/AmProsius/gothic-1-community-patch)  
 # Gothic 1 Community Patch
 
 [![Syntax](https://github.com/AmProsius/gothic-1-community-patch/actions/workflows/syntax.yml/badge.svg)](https://github.com/AmProsius/gothic-1-community-patch/actions/workflows/syntax.yml)
 [![Implemeted fixes](https://img.shields.io/github/directory-file-count/AmProsius/gothic-1-community-patch/src%2FNinja%2FG1CP%2FContent%2FTests?type=file&extension=d&label=fixes&color=yellow)](https://github.com/AmProsius/gothic-1-community-patch/blob/master/CHANGELOG.md)
 [![GitHub Release](https://img.shields.io/github/v/release/AmProsius/gothic-1-community-patch)](https://github.com/AmProsius/gothic-1-community-patch/releases)
-[![Downloads](https://api.szapp.de/downloads/g1cp/total/badge)](https://github.com/AmProsius/gothic-1-community-patch/releases)
+[![Downloads](https://api.szapp.de/downloads/g1cp/total/badge)](https://github.com/AmProsius/gothic-1-community-patch/releases)  
+[![Steam Gothic 1](https://img.shields.io/badge/steam-workshop-2a3f5a?logo=steam&labelColor=1b2838)](https://steamcommunity.com/sharedfiles/filedetails/?id=2789245548)
+
+</div>
 
 Gothic is a video game that is still loved by players after 20 years. Despite its success, there remain some bugs in the game. These are addressed by a variety of modifications (mods) that, unfortunately, also introduce other changes and are mutually exclusive. For the first time, the Gothic 1 Community Patch (G1CP) overcomes these shortcomings.
 
