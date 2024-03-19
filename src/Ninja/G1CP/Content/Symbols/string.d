@@ -250,7 +250,7 @@ func int G1CP_ReplaceStringConstArrElem(var string name, var string needle, var 
 
     if (idx == -1) {
         return FALSE;
-    }
+    };
 
     G1CP_SetStringConst(name, idx, replace);
     return TRUE;
