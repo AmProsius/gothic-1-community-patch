@@ -3,8 +3,8 @@ name: syntax
 on:
   push:
     paths:
-      - '**.src'
-      - '**.d'
+      - 'src/**/*.src'
+      - 'src/**/*.d'
 
 permissions:
   checks: write
