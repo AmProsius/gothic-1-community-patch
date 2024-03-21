@@ -2,24 +2,11 @@
  * #43 Missing whitespace for skill point(s)
  */
 func int G1CP_043_EN_SkillMissingWhitespace() {
-    var int symb1Ptr; symb1Ptr = MEM_GetSymbol("NAME_LearnPostfixS");
-    var int symb2Ptr; symb2Ptr = MEM_GetSymbol("NAME_LearnPostfixP");
+    var int symb1fixed;
+    var int symb2fixed;
 
-    if (symb1Ptr) && (symb2Ptr) {
-        symb1Ptr = MEM_ReadInt(symb1Ptr + zCParSymbol_content_offset);
-        symb2Ptr = MEM_ReadInt(symb2Ptr + zCParSymbol_content_offset);
+    symb1fixed = G1CP_ReplaceStringConst("NAME_LearnPostfixS", "skill point)", " skill point)");
+    symb2fixed = G1CP_ReplaceStringConst("NAME_LearnPostfixP", "skill points)", " skill points)");
 
-        // Check if the strings are as expected
-        if (Hlp_StrCmp(MEM_ReadString(symb1Ptr), "skill point)"))
-        && (Hlp_StrCmp(MEM_ReadString(symb2Ptr), "skill points)")) {
-
-            // Only then, fix them
-            MEM_WriteString(symb1Ptr, " skill point)");
-            MEM_WriteString(symb2Ptr, " skill points)");
-
-            return TRUE;
-        };
-    };
-
-    return FALSE;
+    return (symb1fixed) && (symb2fixed);
 };
