@@ -349,7 +349,7 @@ func int G1CP_LogCreateTopicInDialog(var int topicSection, var string topicName,
 
     // Even if the dialog function is fixed, the fix is not marked as applied here!
     return FALSE;
-}
+};
 func int G1CP_LogCreateTopicInDialogAddEntry(var int infoId, var string topic, var string entry, var int topicSection) {
     if (!Npc_KnowsInfo(hero, infoId))
     || (G1CP_LogHasEntry(topic, entry)) {
@@ -361,7 +361,7 @@ func int G1CP_LogCreateTopicInDialogAddEntry(var int infoId, var string topic, v
     G1CP_LogMoveEntryToTop(topic, entry); // Move entry to the top otherwise it is always the newest entry
 
     return TRUE;
-}
+};
 func int G1CP_LogCreateTopicInDialogRemoveEntry(var string topic, var string entry) {
     G1CP_LogRemoveEntry(topic, entry);
 
@@ -370,7 +370,7 @@ func int G1CP_LogCreateTopicInDialogRemoveEntry(var string topic, var string ent
     };
 
     return TRUE;
-}
+};
 
 /*
  * Intercept the call of 'B_LogEntry' within a dialog function
@@ -388,7 +388,7 @@ func void G1CP_LogInterceptEntry(var string topicName, var string topic, var int
 
     // Go on with the original call
     G1CP_LogEntry(topic, entry);
-}
+};
 
 /*
  * Forward the call to "B_LogEntry"
@@ -403,4 +403,4 @@ func void G1CP_LogEntry(var string topic, var string entry) {
     MEM_PushStringParam(topic);
     MEM_PushStringParam(entry);
     MEM_CallByString("B_LogEntry");
-}
+};
