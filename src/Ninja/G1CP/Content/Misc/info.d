@@ -102,4 +102,4 @@ func int G1CP_InfoChangeChoiceText(var string infoName, var string originalStr, 
 
     // TODO: Reverse engineer symbol ID of `correctedWpName` and call `G1CP_ReplacePushStrId`
     return (G1CP_ReplacePushStr(funcId, 0, originalStr, correctedStr) > 0);
-}
+};
