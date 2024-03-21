@@ -15,4 +15,4 @@ func void G1CP_GiveInvItems(var int senderId, var int receiverId, var int itemId
     MEM_PushIntParam(itemId);
     MEM_PushIntParam(amount);
     MEM_CallById(funcId);
-}
+};
