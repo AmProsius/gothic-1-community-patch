@@ -58,7 +58,7 @@ func void G1CP_TestsuiteErrorDetailSSSISSS(var string s1, var string s2, var str
     G1CP_TestsuiteErrorDetail(
         ConcatStrings(
             ConcatStrings(
-                ConcatStrings(ConcatStrings(ConcatStrings(ConcatStrings(s1, s2), s3), ntToString(i4)), s5),
+                ConcatStrings(ConcatStrings(ConcatStrings(ConcatStrings(s1, s2), s3), IntToString(i4)), s5),
             s6),
         s7)
     );

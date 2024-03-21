@@ -1,4 +1,15 @@
+<div align="center">
+
+[![logo](https://github.com/AmProsius/gothic-1-community-patch/assets/20203034/06eb6356-94e6-4dec-bb6f-1ae28ec2692b)](https://github.com/AmProsius/gothic-1-community-patch)  
 # Gothic 1 Community Patch
+
+[![Syntax](https://github.com/AmProsius/gothic-1-community-patch/actions/workflows/syntax.yml/badge.svg)](https://github.com/AmProsius/gothic-1-community-patch/actions/workflows/syntax.yml)
+[![Implemeted fixes](https://img.shields.io/github/directory-file-count/AmProsius/gothic-1-community-patch/src%2FNinja%2FG1CP%2FContent%2FTests?type=file&extension=d&label=fixes&color=yellow)](https://github.com/AmProsius/gothic-1-community-patch/blob/master/CHANGELOG.md)
+[![GitHub Release](https://img.shields.io/github/v/release/AmProsius/gothic-1-community-patch)](https://github.com/AmProsius/gothic-1-community-patch/releases)
+[![Downloads](https://api.szapp.de/downloads/g1cp/total/badge)](https://github.com/AmProsius/gothic-1-community-patch/releases)  
+[![Steam Gothic 1](https://img.shields.io/badge/steam-workshop-2a3f5a?logo=steam&labelColor=1b2838)](https://steamcommunity.com/sharedfiles/filedetails/?id=2789245548)
+
+</div>
 
 Gothic is a video game that is still loved by players after 20 years. Despite its success, there remain some bugs in the game. These are addressed by a variety of modifications (mods) that, unfortunately, also introduce other changes and are mutually exclusive. For the first time, the Gothic 1 Community Patch (G1CP) overcomes these shortcomings.
 
@@ -25,17 +36,10 @@ Please note that this is the first release of the G1CP. Work on the patch contin
 * [Spine](https://clockwork-origins.com/de/spine/): Spine makes it easy to manage tools, patches and mods. It enables to install the G1CP with just one click. Another useful feature is the auto-updater that always keeps your version of the G1CP up to date.
 
 ## Contributors
-* [AmProsius](https://github.com/AmProsius)
-* [szapp](https://github.com/szapp)
+[![Contributors](https://contrib.rocks/image?repo=AmProsius/gothic-1-community-patch)](https://github.com/AmProsius/gothic-1-community-patch/graphs/contributors)
 
 ## Supporters
-* [Blubbler](https://forum.worldofplayers.de/forum/members/14043-Blubbler)
-* [catalinstoian](https://github.com/catalinstoian)
-* [i5sue5](https://github.com/i5sue5)
-* [Ilvatar](https://github.com/Ilvatar)
-* [N1kX94](https://github.com/N1kX94)
-* [Quintus24](https://github.com/Quintus24)
-* [pawbuj1981](https://github.com/pawbuj1981)
+![Supporters](https://api.szapp.de/participants/g1cp/total/svg?wog=[Blubbler,Spatzendame,rvblacktail,gothicfan0,Homerclon])
 
 ## Sources of Inspiration
 

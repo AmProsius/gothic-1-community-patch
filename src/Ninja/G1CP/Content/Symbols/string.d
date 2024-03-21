@@ -243,6 +243,18 @@ func int G1CP_FindStringConstArrIdx(var string name, var string needle) {
 };
 
 /*
+ * Find a constant string (case-sensitive) and replace it if found. Returns true on success.
+ */
+func int G1CP_ReplaceStringConst(var string name, var string needle, var string replace) {
+    if (STR_Compare(G1CP_GetStringConst(name, 0, "G1CP invalid string"), needle) != STR_EQUAL) {
+        return FALSE;
+    };
+
+    G1CP_SetStringConst(name, 0, replace);
+    return TRUE;
+};
+
+/*
  * Find a string in a constant string array (case-sensitive) and replace it if found. Returns true on success.
  */
 func int G1CP_ReplaceStringConstArrElem(var string name, var string needle, var string replace) {
@@ -250,7 +262,7 @@ func int G1CP_ReplaceStringConstArrElem(var string name, var string needle, var 
 
     if (idx == -1) {
         return FALSE;
-    }
+    };
 
     G1CP_SetStringConst(name, idx, replace);
     return TRUE;
