@@ -270,4 +270,4 @@ func int G1CP_ChangeVobLocation(var float originalPos, var float correctedPos, v
 
     G1CP_MoveVobToPosPtr(vobPtr, _@(correctedPos));
     return TRUE;
-}
+};
