@@ -1,0 +1,72 @@
+name: 🐛 Report a Gothic Bug
+description: Create a bug report to improve the G1CP.
+labels: ["validation: required"]
+body:
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: 📑 Please agree to the following
+      options:
+      - label: I have searched [existing issues](https://github.com/AmProsius/gothic-1-community-patch/issues?q=) for duplicates
+        required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: 🩻 Describe the bug
+      description: |
+        Please give a clear and concise description of what the bug is.  
+        Any detail like NPC names or way point names (if applicable) are useful.
+      placeholder: |
+        In a hut of the old camp close to the way point 'EXAMPLE_WP', there is an inaccessible item. It is stuck in the ceiling and cannot be focused. Only when jumping around, I can manage to pick up the item.
+    validations:
+      required: true
+
+  - type: input
+    id: changelog
+    attributes:
+      label: 🚩 Expected behavior
+      description: |
+        Please give a clear and concise description of what you expected to happen.  
+        Format this sentence as if it was an entry for the changelog.
+      placeholder: The item in a hut in the old camp is now accessible.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: 🔬 Steps to reproduce the issue
+      description: |
+        Please offer precise steps on how we can reproduce the issue ourselves.  
+        This helps us to confirm the issue across Gothic versions and speeds up the fixing process.
+      placeholder: |
+        1. Teleport to waypoint 'EXAMPLE_WP'
+        2. Enter the hut on the right
+        3. Find the inaccessible item on your left stuck in the ceiling
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: 💡 Additional context
+      description: |
+        Feel free to add any other context about the problem here.
+
+        - Screenshots of dialogs or locations
+        - Other tools or patches used
+        - Information about localization
+        - Ideas of how to fix the issue
+      placeholder: |
+        I have the GOG retail version and I am playing with the D3D11 renderer version 17.8.15 and a custom texture pack.
+        Here is a screenshot of the item in the hut ![image](../assets/upload)
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        #### 💪 Thank you for your contribution!
+
+        When you're ready to submit the report, press the button below. We will try to get to this issue as soon as we can!

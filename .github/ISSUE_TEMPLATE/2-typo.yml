@@ -1,0 +1,42 @@
+name: 🇦 Report a Gothic Spelling Typo
+description: Create a typo report to improve the G1CP.
+title: "Spelling - NAME (LANGUAGE_CODE)"
+labels: ["validation: required"]
+body:
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: 📑 Please agree to the following
+      options:
+      - label: I have searched [existing spelling issues](https://github.com/AmProsius/gothic-1-community-patch/issues?q=Spelling) for duplicates
+        required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: 🩻 Describe the typo
+      description: |
+        Please give a clear and concise description of where to find the typo.
+        Include the language that is affected.
+      placeholder: |
+        In the LANGUAGE localization of the game there is a typo in ... The correct spelling should be ...
+    validations:
+      required: true
+
+  - type: input
+    id: changelog
+    attributes:
+      label: 🚩 Expected spelling
+      description: |
+        Please provide the old and the expected spelling.
+        Format this sentence as if it was an entry for the changelog.
+      placeholder: Changed the ... (of ...) from "..." to "...".
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        #### 💪 Thank you for your contribution!
+
+        When you're ready to submit the report, press the button below. We will try to get to this issue as soon as we can!
