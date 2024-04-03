@@ -1,4 +1,4 @@
-name: 🐛 Report a Gothic Bug
+name: Report a Gothic Bug
 description: Create a bug report to improve the G1CP.
 labels: ["validation: required"]
 body:
