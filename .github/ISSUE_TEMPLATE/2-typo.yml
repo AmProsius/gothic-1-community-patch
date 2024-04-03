@@ -6,7 +6,7 @@ body:
   - type: checkboxes
     id: terms
     attributes:
-      label: 📑 Please agree to the following
+      label: Please agree to the following
       options:
       - label: I have searched [existing spelling issues](https://github.com/AmProsius/gothic-1-community-patch/issues?q=Spelling) for duplicates
         required: true
@@ -14,7 +14,7 @@ body:
   - type: textarea
     id: description
     attributes:
-      label: 🩻 Describe the typo
+      label: Describe the typo
       description: |
         Please give a clear and concise description of where to find the typo.
         Include the language that is affected.
@@ -26,7 +26,7 @@ body:
   - type: input
     id: changelog
     attributes:
-      label: 🚩 Expected spelling
+      label: Expected spelling
       description: |
         Please provide the old and the expected spelling.
         Format this sentence as if it was an entry for the changelog.
@@ -37,6 +37,6 @@ body:
   - type: markdown
     attributes:
       value: |
-        #### 💪 Thank you for your contribution!
+        #### Thank you for your contribution!
 
         When you're ready to submit the report, press the button below. We will try to get to this issue as soon as we can!

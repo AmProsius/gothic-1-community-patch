@@ -5,7 +5,7 @@ body:
   - type: checkboxes
     id: terms
     attributes:
-      label: 📑 Please agree to the following
+      label: Please agree to the following
       options:
       - label: I have searched [existing issues](https://github.com/AmProsius/gothic-1-community-patch/issues?q=) for duplicates
         required: true
@@ -13,9 +13,9 @@ body:
   - type: textarea
     id: description
     attributes:
-      label: 🩻 Describe the bug
+      label: Describe the bug
       description: |
-        Please give a clear and concise description of what the bug is.  
+        Please give a clear and concise description of what the bug is.
         Any detail like NPC names or way point names (if applicable) are useful.
       placeholder: |
         In a hut of the old camp close to the way point 'EXAMPLE_WP', there is an inaccessible item. It is stuck in the ceiling and cannot be focused. Only when jumping around, I can manage to pick up the item.
@@ -25,9 +25,9 @@ body:
   - type: input
     id: changelog
     attributes:
-      label: 🚩 Expected behavior
+      label: Expected behavior
       description: |
-        Please give a clear and concise description of what you expected to happen.  
+        Please give a clear and concise description of what you expected to happen.
         Format this sentence as if it was an entry for the changelog.
       placeholder: The item in a hut in the old camp is now accessible.
     validations:
@@ -36,9 +36,9 @@ body:
   - type: textarea
     id: reproduce
     attributes:
-      label: 🔬 Steps to reproduce the issue
+      label: Steps to reproduce the issue
       description: |
-        Please offer precise steps on how we can reproduce the issue ourselves.  
+        Please offer precise steps on how we can reproduce the issue ourselves.
         This helps us to confirm the issue across Gothic versions and speeds up the fixing process.
       placeholder: |
         1. Teleport to waypoint 'EXAMPLE_WP'
@@ -50,7 +50,7 @@ body:
   - type: textarea
     id: additional
     attributes:
-      label: 💡 Additional context
+      label: Additional context
       description: |
         Feel free to add any other context about the problem here.
 
@@ -67,6 +67,6 @@ body:
   - type: markdown
     attributes:
       value: |
-        #### 💪 Thank you for your contribution!
+        #### Thank you for your contribution!
 
         When you're ready to submit the report, press the button below. We will try to get to this issue as soon as we can!
