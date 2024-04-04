@@ -39,7 +39,7 @@ Please note that this is the first release of the G1CP. Work on the patch contin
 [![Contributors](https://contrib.rocks/image?repo=AmProsius/gothic-1-community-patch)](https://github.com/AmProsius/gothic-1-community-patch/graphs/contributors)
 
 ## Supporters
-![Supporters](https://api.szapp.de/participants/g1cp/total/svg?wog=[Blubbler,Spatzendame,rvblacktail,gothicfan0,Homerclon])
+[![Supporters](https://api.szapp.de/participants/g1cp/total/svg?wog=[Blubbler,Spatzendame,rvblacktail,gothicfan0,Homerclon])](https://api.szapp.de/participants/g1cp/total/svg?wog=[Blubbler,Spatzendame,rvblacktail,gothicfan0,Homerclon])
 
 ## Sources of Inspiration
 
