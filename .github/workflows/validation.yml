@@ -1,4 +1,4 @@
-name: syntax
+name: validation
 
 on:
   push:
@@ -13,9 +13,9 @@ permissions:
   actions: write
 
 jobs:
-  parsiphae:
-    name: Run syntax check
-    if: github.event_name != 'check_run' || github.event.check_run.external_id == format('{0}-0', github.workflow)
+  patch-validator:
+    name: Run patch validator
+    if: github.event_name != 'check_run' || github.event.check_run.external_id == github.workflow
     runs-on: ubuntu-latest
     steps:
       - uses: actions/create-github-app-token@v1
@@ -24,8 +24,9 @@ jobs:
           app-id: ${{ vars.BOTWYN_ID }}
           private-key: ${{ secrets.BOTWYN_KEY }}
       - uses: actions/checkout@v4
-      - name: Check syntax
-        uses: szapp/parsiphae-action@v1
+      - name: Check for validity
+        uses: szapp/patch-validator@v1
         with:
-          file: src/Ninja/G1CP/Content_G1.src
+          patchName: G1CP
+          rootPath: src
           token: ${{ steps.app-token.outputs.token }}

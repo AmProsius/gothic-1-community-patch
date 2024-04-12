@@ -4,7 +4,8 @@
 # Gothic 1 Community Patch
 
 [![Syntax](https://github.com/AmProsius/gothic-1-community-patch/actions/workflows/syntax.yml/badge.svg)](https://github.com/AmProsius/gothic-1-community-patch/actions/workflows/syntax.yml)
-[![Implemeted fixes](https://img.shields.io/github/directory-file-count/AmProsius/gothic-1-community-patch/src%2FNinja%2FG1CP%2FContent%2FTests?type=file&extension=d&label=fixes&color=yellow)](https://github.com/AmProsius/gothic-1-community-patch/blob/master/CHANGELOG.md)
+[![Validation](https://github.com/AmProsius/gothic-1-community-patch/actions/workflows/validation.yml/badge.svg)](https://github.com/AmProsius/gothic-1-community-patch/actions/workflows/validation.yml)
+[![Implemented fixes](https://img.shields.io/github/directory-file-count/AmProsius/gothic-1-community-patch/src%2FNinja%2FG1CP%2FContent%2FTests?type=file&extension=d&label=fixes&color=yellow)](https://github.com/AmProsius/gothic-1-community-patch/blob/master/CHANGELOG.md)
 [![GitHub Release](https://img.shields.io/github/v/release/AmProsius/gothic-1-community-patch)](https://github.com/AmProsius/gothic-1-community-patch/releases)
 [![Downloads](https://api.szapp.de/downloads/g1cp/total/badge)](https://github.com/AmProsius/gothic-1-community-patch/releases)  
 [![Steam Gothic 1](https://img.shields.io/badge/steam-workshop-2a3f5a?logo=steam&labelColor=1b2838)](https://steamcommunity.com/sharedfiles/filedetails/?id=2789245548)
