@@ -23,7 +23,7 @@ func int G1CP_CheckBytes(var int addr, var string hex) {
         b = MEM_ReadByte(addr+i);
         if (b != c) {
             if (!i) {
-                // Special case: Third-party hook at start of instruction
+                // Special case: Detect third-party hook at start of instruction
                 if (len >= 5) && ((b == ASMINT_OP_jmp) || (b == ASMINT_OP_call)) {
                     return -2;
                 };
