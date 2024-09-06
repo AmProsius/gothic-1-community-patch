@@ -142,3 +142,20 @@ func int G1CP_ReplaceOuFilenameP(var int ouPtr, var string needle, var string re
 func int G1CP_ReplaceOuFilename(var string ouName, var string needle, var string replace) {
     return G1CP_ReplaceOuFilenameP(G1CP_GetOu(ouName), needle, replace);
 };
+
+
+/*
+ * Switch the speaker of a dialog line. Returns true on success.
+ */
+func int G1CP_OuSwitchSpeaker(var string infoName, var string ouName, var int needle, var int replace) {
+    var int funcId; funcId = G1CP_GetFuncId(infoName, "void|none");
+
+    if ((needle == self) && (replace == other)) {
+        return (G1CP_ReplaceOuInst(funcId, 0, infoName, self, other, other, self) > 0);
+    }
+    if ((needle == other) && (replace == self)) {
+        return (G1CP_ReplaceOuInst(funcId, 0, infoName, other, self, self, other) > 0);
+    }
+
+    return FALSE;
+};
