@@ -142,7 +142,7 @@ func int G1CP_InitStart() {
         if (funcId > 0) && (funcId < MEM_Parser.symtab_table_numInArray) {
             var zCPar_Symbol symb; symb = _^(MEM_GetSymbolByIndex(funcId));
             if (STR_StartsWith(symb.name, "G1CP_"))
-            && (STR_Len(symb.name) >= 8)
+            && (STR_Len(symb.name) >= 9)
             && (symb.offset == (zPAR_TYPE_INT>>12)) {
                 var int id;
                 var int namePtr; namePtr = STR_ToChar(symb.name)+5;
@@ -150,8 +150,8 @@ func int G1CP_InitStart() {
                 // Check if it is a fix initialization function (leading digits)
                 var int chr; chr = MEM_ReadByte(namePtr) - 48;
                 if (0 <= chr) && (chr <= 9) {
-                    id = STR_ToInt(STR_SubStr(symb.name, 5, 3));
-                    namePtr += 4;
+                    id = STR_ToInt(STR_SubStr(symb.name, 5, 4));
+                    namePtr += 5;
                 } else {
                     id = 0;
                 };
@@ -261,10 +261,10 @@ func void G1CP_InitBuildLine(var int revert, var int id, var int namePtr, var in
 
     // Issue number
     if (id) {
-        SB(G1CP_LFill(ConcatStrings("#", IntToString(id)), " ", 4));
+        SB(G1CP_LFill(ConcatStrings("#", IntToString(id)), " ", 5));
         SB(" ");
     } else {
-        SB("     ");
+        SB("      ");
     };
 
     // Function name

@@ -58,7 +58,7 @@ func string G1CP_GetFixShortName(var int id) {
 
     // Build function name prefix
     var string prefix; prefix = "G1CP_";
-    prefix = ConcatStrings(prefix, G1CP_LFill(IntToString(id), "0", 3));
+    prefix = ConcatStrings(prefix, G1CP_LFill(IntToString(id), "0", 4));
     prefix = ConcatStrings(prefix, "_");
 
     // Get function offsets of the called functions within the initialization functions
@@ -238,7 +238,7 @@ func string G1CP_FixNameAll(var string _) {
 
     repeat(i, MEM_ArraySize(G1CP_FixNameAll_Sorted)); var int i;
         var int id; id = MEM_ArrayRead(G1CP_FixNameAll_Sorted, i);
-        SB(G1CP_LFill(ConcatStrings("#", IntToString(id)), " ", 4));
+        SB(G1CP_LFill(ConcatStrings("#", IntToString(id)), " ", 5));
         SB(" ");
         SB(G1CP_GetFixShortName(id));
         SB(G1CP_LFill("", " ", 42-SB_Length()));

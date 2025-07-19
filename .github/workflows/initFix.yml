@@ -10,7 +10,7 @@ on:
         description: Shortname
         type: string
         required: true
-        default: 'alpha-numeric, max. 36 length'
+        default: 'alpha-numeric, max. 35 length'
       changelog_section:
         description: Changelog section
         type: choice

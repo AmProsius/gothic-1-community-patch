@@ -45080,7 +45080,7 @@ async function main() {
   let shortname = core.getInput('shortname');
 
   // Construct variables
-  const issueNumPad = issueNum.toString().padStart(3, '0');
+  const issueNumPad = issueNum.toString().padStart(4, '0');
   const branchName = `bug${issueNumPad}`;
 
   // Construct paths
