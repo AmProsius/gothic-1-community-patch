@@ -1,0 +1,37 @@
+name: Todo
+
+on:
+  pull_request:
+    paths:
+      - '**/*.d'
+      - '**/*.D'
+
+jobs:
+  fail-on-todo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get token
+        uses: actions/create-github-app-token@v2
+        id: app_token
+        with:
+          app-id: ${{ vars.BOTWYN_ID }}
+          private-key: ${{ secrets.BOTWYN_KEY }}
+
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ steps.app_token.outputs.token }}  # Make sure it is Botwyn who performs all actions
+
+      - name: Fetch full history
+        run: git fetch --unshallow || true
+
+      - name: Check for occurrences of "TODO"
+        run: |
+          git fetch origin ${{ github.event.pull_request.base.ref }}
+          diff=$(git diff origin/${{ github.event.pull_request.base.ref }} --unified=0)
+
+          echo "$diff" | grep '^+.*TODO' && {
+            echo "::error::Found instances of 'TODO' in the added lines. Please remove them.";
+            exit 1;
+          }
+

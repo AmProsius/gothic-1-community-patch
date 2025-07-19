@@ -1,0 +1,26 @@
+name: Initialize fix
+description: Make an issue ready for fixing
+inputs:
+  issue_num:
+    description: Issue number
+    type: number
+    required: true
+  token:
+    description: Authentication token
+    required: true
+  shortname:
+    description: Fix shortname
+    type: string
+    required: true
+  changelog_section:
+    description: Changelog section
+    type: string
+  changelog_en:
+    description: English changelog
+    type: string
+  changelog_de:
+    description: German changelog
+    type: string
+runs:
+  using: node20
+  main: 'dist/index.js'
