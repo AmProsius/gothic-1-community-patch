@@ -7,6 +7,8 @@ const gh = require('./gh');
 const io = require('./io');
 const todo = require('./todo');
 
+const G1CP_ID_LENGTH = 4;  // Number of digits making up a valid fix ID
+
 /**
  * Main executive function
  */
