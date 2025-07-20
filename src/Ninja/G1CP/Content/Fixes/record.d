@@ -58,7 +58,7 @@ func string G1CP_GetFixShortName(var int id) {
 
     // Build function name prefix
     var string prefix; prefix = "G1CP_";
-    prefix = ConcatStrings(prefix, G1CP_LFill(IntToString(id), "0", 3));
+    prefix = ConcatStrings(prefix, G1CP_LFill(IntToString(id), "0", G1CP_ID_LENGTH));
     prefix = ConcatStrings(prefix, "_");
 
     // Get function offsets of the called functions within the initialization functions
@@ -83,7 +83,7 @@ func string G1CP_GetFixShortName(var int id) {
 
             // Confirm that the function is called from one of the initialization functions
             if (MEM_ArrayIndexOf(funcCalls, symb.content) != -1) {
-                return STR_SubStr(symb.name, 9, STR_Len(symb.name)-9);
+                return STR_SubStr(symb.name, 5 + G1CP_ID_LENGTH + 1, STR_Len(symb.name) - (5 + G1CP_ID_LENGTH + 1));
             };
         };
     end;
@@ -238,7 +238,7 @@ func string G1CP_FixNameAll(var string _) {
 
     repeat(i, MEM_ArraySize(G1CP_FixNameAll_Sorted)); var int i;
         var int id; id = MEM_ArrayRead(G1CP_FixNameAll_Sorted, i);
-        SB(G1CP_LFill(ConcatStrings("#", IntToString(id)), " ", 4));
+        SB(G1CP_LFill(ConcatStrings("#", IntToString(id)), " ", 1 + G1CP_ID_LENGTH));
         SB(" ");
         SB(G1CP_GetFixShortName(id));
         SB(G1CP_LFill("", " ", 42-SB_Length()));
@@ -297,11 +297,11 @@ func int G1CP_InitLookupTable() {
     repeat(i, G1CP_SymbEnd); var int i; if (!i) { i = G1CP_SymbStart; }; // From SymbStart to SymbEnd
         var zCPar_Symbol symb; symb = _^(MEM_GetSymbolByIndex(i));
         if (STR_StartsWith(symb.name, "G1CP_"))
-        && (STR_Len(symb.name) >= 8)
+        && (STR_Len(symb.name) >= 5 + G1CP_ID_LENGTH)
         && ((symb.bitfield & zCPar_Symbol_bitfield_type) == zPAR_TYPE_FUNC) {
             var int chr; chr = STR_GetCharAt(symb.name, 5) - 48;
             if (0 <= chr) && (chr <= 9) {
-                var int id; id = STR_ToInt(STR_SubStr(symb.name, 5, 3));
+                var int id; id = STR_ToInt(STR_SubStr(symb.name, 5, G1CP_ID_LENGTH));
                 if (G1CP_GetFixStatus(id) == G1CP_FIX_NOT_FOUND) {
                     G1CP_SetFixStatus(id, G1CP_FIX_NOT_APPLIED);
                 };
