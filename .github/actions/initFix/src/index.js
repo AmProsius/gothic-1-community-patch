@@ -22,7 +22,7 @@ async function main() {
   let shortname = core.getInput('shortname');
 
   // Construct variables
-  const issueNumPad = issueNum.toString().padStart(4, '0');
+  const issueNumPad = issueNum.toString().padStart(G1CP_ID_LENGTH, '0');
   const branchName = `bug${issueNumPad}`;
 
   // Construct paths
@@ -150,12 +150,12 @@ async function main() {
 
   // Add fix file to Content_G1.src
   const fixFilePath = cfg.path.fixes.join('\\') + '\\' + fixFileName;
-  const fixFilePattern = '^' + cfg.path.fixes.join('(\\\\|/)') + '(\\\\|/)fix(?<num>[0-9]{4})';
+  const fixFilePattern = '^' + cfg.path.fixes.join('(\\\\|/)') + '(\\\\|/)fix(?<num>[0-9]{G1CP_ID_LENGTH})';
   await io.addLineToFile(contentSrcPath, fixFilePath, fixFilePattern, issueNum);
 
   // Add test file to Testsuite.src
   const testFilePath = cfg.path.tests.join('\\') + '\\' + testFileName;
-  const testFilePattern = '^' + cfg.path.tests.join('(\\\\|/)') + '(\\\\|/)test(?<num>[0-9]{4})';
+  const testFilePattern = '^' + cfg.path.tests.join('(\\\\|/)') + '(\\\\|/)test(?<num>[0-9]{G1CP_ID_LENGTH})';
   await io.addLineToFile(testsuiteSrcPath, testFilePath, testFilePattern, issueNum);
 
   // Fix function call (and revert call)
@@ -166,17 +166,17 @@ async function main() {
 
   if (fixType == 'session') {
     // Add fix function call to initPatch.d
-    await io.addLineToFile(sessionInitPath, fixFuncCall, '^\\s{8}' + cfg.funcPrefix + '(?<num>[0-9]{4})_', issueNum);
+    await io.addLineToFile(sessionInitPath, fixFuncCall, '^\\s{8}' + cfg.funcPrefix + '(?<num>[0-9]{G1CP_ID_LENGTH})_', issueNum);
   } else {
     // Add fix function call to gamesave.d
-    await io.addLineToFile(gamesaveInitPath, fixFuncCall, '^\\s{8}' + cfg.funcPrefix + '(?<num>[0-9]{4})_', issueNum);
+    await io.addLineToFile(gamesaveInitPath, fixFuncCall, '^\\s{8}' + cfg.funcPrefix + '(?<num>[0-9]{G1CP_ID_LENGTH})_', issueNum);
 
     let fixFuncRevCall = fixFuncNameRev + '();';
     fixFuncRevCall = fixFuncRevCall.padEnd(fixFuncCallExtra, ' ');
     fixFuncRevCall = '        ' + fixFuncRevCall + `// #${issueNum}`;
 
     // Add fix function revert call to gamesave.d
-    const pattern = '^\\s{8}' + cfg.funcPrefix + '(?<num>[0-9]{4})_[^\\r\\n]+Revert[^\\r\\n]+$';
+    const pattern = '^\\s{8}' + cfg.funcPrefix + '(?<num>[0-9]{G1CP_ID_LENGTH})_[^\\r\\n]+Revert[^\\r\\n]+$';
     await io.addLineToFile(gamesaveInitPath, fixFuncRevCall, pattern, issueNum);
   }
 

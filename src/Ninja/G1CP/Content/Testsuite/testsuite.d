@@ -2,7 +2,7 @@
  * Test suite
  *
  * Tests are called from the console with 'test ID' or 'test all'.
- * The corresponding functions 'G1CP_Test_0000' (four digits) are called if found.
+ * The corresponding functions 'G1CP_Test_0000' (digits equal to G1CP_ID_LENGTH) are called if found.
  *
  * The test functions should either return TRUE (if passed) or FALSE (if failed). They may also have no
  * return type, then they will be marked as to be manually confirmed.
@@ -45,7 +45,7 @@ func int G1CP_Testsuite() {
  * Run test by id
  */
 func int G1CP_TestsuiteRun(var int id) {
-    var string idName; idName = G1CP_LFill(IntToString(id), "0", 4);
+    var string idName; idName = G1CP_LFill(IntToString(id), "0", G1CP_ID_LENGTH);
 
     // Reset test status
     G1CP_TestsuiteStatusPassed = TRUE;
@@ -92,13 +92,13 @@ func string G1CP_TestsuiteRunMultiple(var int appliedOnly) {
 
         var zCPar_Symbol symb; symb = _^(MEM_GetSymbolByIndex(i));
         if (STR_StartsWith(symb.name, "G1CP_TEST_"))
-        && (STR_Len(symb.name) == 14)
+        && (STR_Len(symb.name) == 10 + G1CP_ID_LENGTH)
         && ((symb.bitfield & zCPar_Symbol_bitfield_type) == zPAR_TYPE_FUNC) {
             // Test name
-            msg = STR_SubStr(symb.name, 5, 9);
+            msg = STR_SubStr(symb.name, 5, G1CP_ID_LENGTH + 5);
 
             // Check if currently applied or not
-            var int id; id = STR_ToInt(STR_SubStr(symb.name, 10, 4));
+            var int id; id = STR_ToInt(STR_SubStr(symb.name, 10, G1CP_ID_LENGTH));
             if (G1CP_IsFixApplied(id)) {
                 msg = ConcatStrings(msg, " .");
             } else if (appliedOnly) {
@@ -213,7 +213,7 @@ func string G1CP_TestsuiteNext(var string _) {
         && (STR_Len(symb.name) == 13)
         && ((symb.bitfield & zCPar_Symbol_bitfield_type) == zPAR_TYPE_FUNC) {
             // Get test ID
-            var int id; id = STR_ToInt(STR_SubStr(symb.name, 10, 4));
+            var int id; id = STR_ToInt(STR_SubStr(symb.name, 10, G1CP_ID_LENGTH));
 
             // Check if manual or automatic
             if (symb.offset == (zPAR_TYPE_VOID >> 12)) {
@@ -255,7 +255,7 @@ func string G1CP_TestsuiteList(var string _) {
             var string msg;
 
             // Get test ID
-            var int id; id = STR_ToInt(STR_SubStr(symb.name, 10, 4));
+            var int id; id = STR_ToInt(STR_SubStr(symb.name, 10, G1CP_ID_LENGTH));
             msg = IntToString(id); // Trim leading zeros
 
             // Check if fix is not applied

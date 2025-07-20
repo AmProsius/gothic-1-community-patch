@@ -18,18 +18,18 @@ func void G1CP_TestsuiteErrorDetail(var string msg) {
         if (popPos > 0) && (popPos < MEM_Parser.stack_stacksize) {
             var int funcId; funcId = MEM_GetFuncIdByOffset(popPos);
             var string funcName; funcName = G1CP_GetSymbolName(funcId);
-            var int prefixLen; prefixLen = STR_Len("G1CP_Test_0000");
+            var int prefixLen; prefixLen = STR_Len("G1CP_Test_0000"); // Digits equal to G1CP_ID_LENGTH
             if (STR_Len(funcName) >= prefixLen) {
-                var int chr; chr = STR_GetCharAt(funcName, prefixLen-4) - 48;
+                var int chr; chr = STR_GetCharAt(funcName, prefixLen - G1CP_ID_LENGTH) - 48;
                 if (0 <= chr) && (chr <= 9) {
-                    id = STR_ToInt(STR_SubStr(funcName, prefixLen-4, 4));
+                    id = STR_ToInt(STR_SubStr(funcName, prefixLen - G1CP_ID_LENGTH, G1CP_ID_LENGTH));
                 };
             };
         };
     end;
 
     G1CP_TestsuiteMsg = ConcatStrings(G1CP_TestsuiteMsg, "  Test ");
-    G1CP_TestsuiteMsg = ConcatStrings(G1CP_TestsuiteMsg, G1CP_LFill(IntToString(id), " ", 4));
+    G1CP_TestsuiteMsg = ConcatStrings(G1CP_TestsuiteMsg, G1CP_LFill(IntToString(id), " ", G1CP_ID_LENGTH));
     G1CP_TestsuiteMsg = ConcatStrings(G1CP_TestsuiteMsg, ": ");
     G1CP_TestsuiteMsg = ConcatStrings(G1CP_TestsuiteMsg, msg);
 };

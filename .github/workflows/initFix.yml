@@ -10,7 +10,7 @@ on:
         description: Shortname
         type: string
         required: true
-        default: 'alpha-numeric, max. 35 length'
+        default: 'alpha-numeric, max. 35 length' # Length equals 39 - G1CP_ID_LENGTH
       changelog_section:
         description: Changelog section
         type: choice
