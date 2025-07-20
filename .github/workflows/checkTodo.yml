@@ -2,9 +2,6 @@ name: Todo
 
 on:
   pull_request:
-    paths:
-      - '**/*.d'
-      - '**/*.D'
 
 jobs:
   fail-on-todo:
@@ -28,10 +25,10 @@ jobs:
       - name: Check for occurrences of "TODO"
         run: |
           git fetch origin ${{ github.event.pull_request.base.ref }}
-          diff=$(git diff origin/${{ github.event.pull_request.base.ref }} --unified=0)
+          diff=$(git diff origin/${{ github.event.pull_request.base.ref }} --unified=0 -- **/*.d)
 
-          echo "$diff" | grep '^+.*TODO' && {
-            echo "::error::Found instances of 'TODO' in the added lines. Please remove them.";
-            exit 1;
-          }
-
+          todo_lines=$(echo "$diff" | grep '^+.*TODO' || true)
+          if [[ "$todo_lines" ]]; then
+            echo "::error::Found instances of 'TODO' in the added lines. Please remove them."
+            exit 1
+          fi
