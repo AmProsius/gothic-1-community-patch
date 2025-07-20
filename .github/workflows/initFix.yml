@@ -35,7 +35,7 @@ jobs:
     steps:
       - name: Get token
         uses: actions/create-github-app-token@v2
-        id: app_token
+        id: app-token
         with:
           app-id: ${{ vars.BOTWYN_ID }}
           private-key: ${{ secrets.BOTWYN_KEY }}
@@ -43,7 +43,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          token: ${{ steps.app_token.outputs.token }}  # Make sure it is Botwyn who performs all actions
+          token: ${{ steps.app-token.outputs.token }}  # Make sure it is Botwyn who performs all actions
 
       - name: Setup git author
         run: |
@@ -54,7 +54,7 @@ jobs:
         uses: ./.github/actions/initFix
         id: initialize
         with:
-          token: ${{ steps.app_token.outputs.token }}
+          token: ${{ steps.app-token.outputs.token }}
           issue_num: ${{ github.event.inputs.issue }}
           shortname: ${{ github.event.inputs.shortname }}
           changelog_section: ${{ github.event.inputs.changelog_section }}

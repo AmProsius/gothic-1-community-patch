@@ -18,7 +18,7 @@ jobs:
     if: github.event_name != 'check_run' || github.event.check_run.external_id == format('{0}-0', github.workflow)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/create-github-app-token@v1
+      - uses: actions/create-github-app-token@v2
         id: app-token
         with:
           app-id: ${{ vars.BOTWYN_ID }}
