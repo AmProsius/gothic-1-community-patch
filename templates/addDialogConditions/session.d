@@ -15,7 +15,7 @@ func int G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}() {
 /*
  * This function intercepts the dialog condition to introduce more conditions
  */
-func void G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}_Hook() {
+func int G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}_Hook() {
     G1CP_ReportFuncToSpy();
 
     /* ### TODO: Write the fix ### */
