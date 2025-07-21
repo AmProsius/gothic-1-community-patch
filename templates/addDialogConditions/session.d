@@ -5,8 +5,8 @@ func int G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}() {
     const string conditionName = "### TODO: Dialog condition name ###";
     /* ### TODO: Optional: Add conditions for the fix to be applied ### */
     if (!G1CP_IsFunc(conditionName, "int|none")) {
-        return FALSE
-    }
+        return FALSE;
+    };
 
     HookDaedalusFuncS(conditionName, "G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}_Hook");
     return TRUE;

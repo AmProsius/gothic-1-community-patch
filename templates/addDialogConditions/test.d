@@ -19,7 +19,7 @@ func int G1CP_Test_{ISSUE_NUM_PAD}() {
     if (ret) {
         G1CP_TestsuiteErrorDetail("Dialog condition failed");
         return FALSE;
-    }
-   
+    };
+
     return TRUE;
-}
+};
