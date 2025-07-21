@@ -3,7 +3,6 @@
  */
 func int G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}() {
     const string conditionFuncName = "### TODO Dialog condition function name ###";
-
     if (!G1CP_IsFunc(conditionFuncName, "int|none"))
     /*### TODO || (!G1CP_IsIntVar("other_requirements")) ###*/{
         return FALSE;
