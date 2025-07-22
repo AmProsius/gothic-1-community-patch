@@ -1,20 +1,21 @@
 /*
  * #{ISSUE_NUM} {LONGNAME}
+ *
+* The dialog function is called (the dialog lines are aborted) and the transaction is checked.
+ *
+ * Expected behavior: The player will give the correct number of items during the dialog function.
  */
 func int G1CP_Test_{ISSUE_NUM_PAD}() {
-    // ### TODO: Replace dialog function name of "Info_Dialog_Function_Name" ###
-    // ### TODO: Replace item name of "ItName" ###
-    var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc("Info_Dialog_Function_Name");
-    var int itemId; itemId = G1CP_Testsuite_CheckItem("ItName");
+    var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc("### TODO Dialog function name ###");
+    var int itemId; itemId = G1CP_Testsuite_CheckItem("### TODO Item instance name ###");
 
-    // ### TODO: Replace desired amount int value of 0 ###
-    const int amountDesired = 0;
+    const int amountDesired = /*### TODO: Replace '0' with the desired integer amount ###*/ 0;
 
     // Backup values
     var int amountBefore; amountBefore = Npc_HasItems(hero, itemId);
 
-    // Remove all of the specific items and then add the desired amount plus and additional ten of the items
-    const int debugAmountAdd = 10;
+    // Remove all of the specific items and then add the desired amount plus an additional amount of the items
+    const int debugAmountAdd = 500;
     const int debugAmount = amountDesired + debugAmountAdd;
     if (amountBefore > 0) {
         Npc_RemoveInvItems(hero, itemId, amountBefore);
