@@ -13,7 +13,8 @@ const float G1CP_0057_CastleWallTexture_CorrectedPos[3] = {-5902.01807, -664.270
  */
 func int G1CP_0057_CastleWallTextureCheck(var int vobPtr) {
     var zCVob vob; vob = _^(vobPtr);
-    const int zCDecal_classDef = 8861528; //0x873758
+    const int zCDecal_classDef = 8861528; // 0x873758
+
     return (MEM_GetClassDef(vob.visual) == zCDecal_classDef);
 };
 
@@ -21,8 +22,8 @@ func int G1CP_0057_CastleWallTextureCheck(var int vobPtr) {
  * Apply the fix
  */
 func int G1CP_0057_CastleWallTexture() {
-    return G1CP_ChangeVobLocation(G1CP_0057_CastleWallTexture_OriginalPos, G1CP_0057_CastleWallTexture_CorrectedPos,
-                                  G1CP_0057_CastleWallTextureCheck);
+    return G1CP_ChangeVobLocation(@(G1CP_0057_CastleWallTexture_OriginalPos),
+                                  @(G1CP_0057_CastleWallTexture_CorrectedPos), G1CP_0057_CastleWallTextureCheck);
 };
 
 /*
@@ -33,6 +34,6 @@ func int G1CP_0057_CastleWallTextureRevert() {
         return FALSE;
     };
 
-    return G1CP_ChangeVobLocation(G1CP_0057_CastleWallTexture_CorrectedPos, G1CP_0057_CastleWallTexture_OriginalPos,
-                                  G1CP_0057_CastleWallTextureCheck);
+    return G1CP_ChangeVobLocation(@(G1CP_0057_CastleWallTexture_CorrectedPos),
+                                  @(G1CP_0057_CastleWallTexture_OriginalPos), G1CP_0057_CastleWallTextureCheck);
 };
