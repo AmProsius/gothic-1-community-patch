@@ -16,8 +16,8 @@ const float G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}_CorrectedPos[3] = {0, 0, 0};
  * Apply the fix
  */
 func int G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}() {
-    return G1CP_ChangeVobLocation(@(G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}_OriginalPos),
-                                  @(G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}_CorrectedPos), Hlp_Is_Todo);
+    return G1CP_ChangeVobLocation(_@(G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}_OriginalPos),
+                                  _@(G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}_CorrectedPos), Hlp_Is_Todo);
 };
 
 /*
@@ -28,6 +28,6 @@ func int G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}Revert() {
         return FALSE;
     };
 
-    return G1CP_ChangeVobLocation(@(G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}_CorrectedPos),
-                                  @(G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}_OriginalPos), Hlp_Is_Todo);
+    return G1CP_ChangeVobLocation(_@(G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}_CorrectedPos),
+                                  _@(G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}_OriginalPos), Hlp_Is_Todo);
 };
