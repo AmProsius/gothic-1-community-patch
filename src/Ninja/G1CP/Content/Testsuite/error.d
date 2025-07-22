@@ -18,18 +18,18 @@ func void G1CP_TestsuiteErrorDetail(var string msg) {
         if (popPos > 0) && (popPos < MEM_Parser.stack_stacksize) {
             var int funcId; funcId = MEM_GetFuncIdByOffset(popPos);
             var string funcName; funcName = G1CP_GetSymbolName(funcId);
-            var int prefixLen; prefixLen = STR_Len("G1CP_Test_000");
+            var int prefixLen; prefixLen = STR_Len("G1CP_Test_0000"); // Digits equal to G1CP_ID_LENGTH
             if (STR_Len(funcName) >= prefixLen) {
-                var int chr; chr = STR_GetCharAt(funcName, prefixLen-3) - 48;
+                var int chr; chr = STR_GetCharAt(funcName, prefixLen - G1CP_ID_LENGTH) - 48;
                 if (0 <= chr) && (chr <= 9) {
-                    id = STR_ToInt(STR_SubStr(funcName, prefixLen-3, 3));
+                    id = STR_ToInt(STR_SubStr(funcName, prefixLen - G1CP_ID_LENGTH, G1CP_ID_LENGTH));
                 };
             };
         };
     end;
 
     G1CP_TestsuiteMsg = ConcatStrings(G1CP_TestsuiteMsg, "  Test ");
-    G1CP_TestsuiteMsg = ConcatStrings(G1CP_TestsuiteMsg, G1CP_LFill(IntToString(id), " ", 3));
+    G1CP_TestsuiteMsg = ConcatStrings(G1CP_TestsuiteMsg, G1CP_LFill(IntToString(id), " ", G1CP_ID_LENGTH));
     G1CP_TestsuiteMsg = ConcatStrings(G1CP_TestsuiteMsg, ": ");
     G1CP_TestsuiteMsg = ConcatStrings(G1CP_TestsuiteMsg, msg);
 };
@@ -45,7 +45,7 @@ func void G1CP_TestsuiteErrorDetailSSSS(var string s1, var string s2, var string
 func void G1CP_TestsuiteErrorDetailSSSSS(var string s1, var string s2, var string s3, var string s4, var string s5) {
     G1CP_TestsuiteErrorDetail(ConcatStrings(ConcatStrings(ConcatStrings(ConcatStrings(s1, s2), s3), s4), s5));
 };
-func void G1CP_TestsuiteErrorDetailSSSSSSS(var string s1, var string s2, var string s3, var string s4, var string s5, 
+func void G1CP_TestsuiteErrorDetailSSSSSSS(var string s1, var string s2, var string s3, var string s4, var string s5,
     var string s6, var string s7) {
     G1CP_TestsuiteErrorDetail(
         ConcatStrings(
@@ -53,12 +53,12 @@ func void G1CP_TestsuiteErrorDetailSSSSSSS(var string s1, var string s2, var str
         s7)
     );
 };
-func void G1CP_TestsuiteErrorDetailSSSISSS(var string s1, var string s2, var string s3, var int i4, var string s5, 
+func void G1CP_TestsuiteErrorDetailSSSISSS(var string s1, var string s2, var string s3, var int i4, var string s5,
     var string s6, var string s7) {
     G1CP_TestsuiteErrorDetail(
         ConcatStrings(
             ConcatStrings(
-                ConcatStrings(ConcatStrings(ConcatStrings(ConcatStrings(s1, s2), s3), ntToString(i4)), s5),
+                ConcatStrings(ConcatStrings(ConcatStrings(ConcatStrings(s1, s2), s3), IntToString(i4)), s5),
             s6),
         s7)
     );
