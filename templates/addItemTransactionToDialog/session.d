@@ -3,10 +3,10 @@
  */
 func int G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}() {
     const string dialogName = "### TODO: Dialog function name ###";
-    // ### TODO: Optional: Add conditions for the fix to be applied ###
-    if (!G1CP_IsFunc(dialogName, "void|none")) {
-        return FALSE
-    }
+    if (!G1CP_IsFunc(dialogName, "void|none"))
+    || (!G1CP_IsItemInst("### TODO: Item name ###")) {
+        return FALSE;
+    };
 
     HookDaedalusFuncS(dialogName, "G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}_Hook");
     return TRUE;
@@ -18,28 +18,17 @@ func int G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}() {
 func void G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}_Hook() {
     G1CP_ReportFuncToSpy();
 
-    // ### TODO: Replace desired amount int value of 0 ###
-    const int itemAmountDesired = 0;
-    // Status before
-    var int itemAmountBefore;
+    // Symbol indices (existence confirmed by function above)
+    const int itemId = -1; itemId = MEM_GetSymbolIndex("### TODO: Item name ###");
 
-    // Remember how much items the player has before the dialog
-    // ### TODO: Replace item name of "ItName" ###
-    var int itemId; itemId = G1CP_GetItemInstId("ItName");
-    if (itemId != -1) {
-        itemAmountBefore = Npc_HasItems(hero, itemId);
-    };
+    // Remember how many items the player has before the dialog
+    const int itemAmountBefore = -1; itemAmountBefore = Npc_HasItems(hero, itemId);
 
     // Continue with the original function
     ContinueCall();
 
     // Check if no items were deduced
-    if (itemId == -1) {
-        return;
+    if (Npc_HasItems(hero, itemId) == itemAmountBefore) {
+        G1CP_GiveInvItems(hero, self, itemId, /* ### TODO: Replace '0' with the desired integer amount ### */ 0);
     };
-    if (Npc_HasItems(hero, itemId) != itemAmountBefore) {
-        return;
-    };
-
-    G1CP_GiveInvItems(hero, self, itemId, itemAmountDesired);
 };
