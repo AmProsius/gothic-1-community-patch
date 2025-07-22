@@ -3,7 +3,7 @@
  */
 
 /*
- * Compare bytes in memory (TRUE/FALSE) or check if hooked (-1)
+ * Compare bytes in memory (TRUE/FALSE) or check if hooked (-1) or hooked by third-party (-2)
  */
 func int G1CP_CheckBytes(var int addr, var string hex) {
     if (IsHooked(addr)) {
@@ -14,13 +14,20 @@ func int G1CP_CheckBytes(var int addr, var string hex) {
         MEM_Error("Malformatted string. Expecting format 'XX XX XX'");
         return FALSE;
     };
-    var int c; var string s;
+    var int c; var int b; var string s;
     var zString zstr; zstr = _^(_@s(s));
     repeat(i, len); var int i;
         s = STR_Split(hex, " ", i);
         c =  MEMINT_HexCharToInt(MEM_ReadByte(zstr.ptr+0))<<4;
         c += MEMINT_HexCharToInt(MEM_ReadByte(zstr.ptr+1));
-        if (MEM_ReadByte(addr+i) != c) {
+        b = MEM_ReadByte(addr+i);
+        if (b != c) {
+            if (!i) {
+                // Special case: Detect third-party hook at start of instruction
+                if (len >= 5) && ((b == ASMINT_OP_jmp) || (b == ASMINT_OP_call)) {
+                    return -2;
+                };
+            };
             return FALSE;
         };
     end;

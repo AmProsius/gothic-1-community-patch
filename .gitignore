@@ -2,3 +2,7 @@
 /build/*
 
 /scriptbase/_work/Data/Scripts/_compiled
+
+# Mac
+.DS_Store
+._*
