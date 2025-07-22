@@ -13,7 +13,7 @@ const float G1CP_0051_StonehengeCryptChest_CorrectedPos[3] = {-35311.8100, 2281.
  */
 func int G1CP_0051_StonehengeCryptChest() {
     return G1CP_ChangeVobLocation(_@(G1CP_0051_StonehengeCryptChest_OriginalPos),
-                                  _@(G1CP_0051_StonehengeCryptChest_CorrectedPos), Hlp_Is_oCMobContainer);
+        _@(G1CP_0051_StonehengeCryptChest_CorrectedPos), Hlp_Is_oCMobContainer);
 };
 
 /*
@@ -26,5 +26,5 @@ func int G1CP_0051_StonehengeCryptChestRevert() {
     };
 
     return G1CP_ChangeVobLocation(_@(G1CP_0051_StonehengeCryptChest_CorrectedPos),
-                                  _@(G1CP_0051_StonehengeCryptChest_OriginalPos), Hlp_Is_oCMobContainer);
+        _@(G1CP_0051_StonehengeCryptChest_OriginalPos), Hlp_Is_oCMobContainer);
 };
