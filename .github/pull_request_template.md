@@ -2,4 +2,4 @@
 Fixes #.
 
 ### Test
-Run manual/automatic test with `test 000`.
+Run manual/automatic test with `test 0000`.

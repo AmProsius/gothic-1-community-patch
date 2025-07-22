@@ -15,6 +15,7 @@ Ninja\G1CP\TestsuiteDev.src
 *.vm
 *.vdf
 *.bat
+.*
 
 [INCLUDE]
 

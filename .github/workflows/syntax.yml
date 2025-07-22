@@ -3,20 +3,29 @@ name: syntax
 on:
   push:
     paths:
-      - '**.src'
-      - '**.d'
+      - 'src/Ninja/G1CP/**/*.src'
+      - 'src/Ninja/G1CP/**/*.d'
+  check_run:
+    types: completed
 
 permissions:
   checks: write
-  contents: read
+  actions: write
 
 jobs:
   parsiphae:
     name: Run syntax check
+    if: github.event_name != 'check_run' || github.event.check_run.external_id == format('{0}-0', github.workflow)
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/create-github-app-token@v2
+        id: app-token
+        with:
+          app-id: ${{ vars.BOTWYN_ID }}
+          private-key: ${{ secrets.BOTWYN_KEY }}
       - uses: actions/checkout@v4
       - name: Check syntax
         uses: szapp/parsiphae-action@v1
         with:
           file: src/Ninja/G1CP/Content_G1.src
+          token: ${{ steps.app-token.outputs.token }}
