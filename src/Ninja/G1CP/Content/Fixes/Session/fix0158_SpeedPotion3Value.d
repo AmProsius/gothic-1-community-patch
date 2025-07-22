@@ -24,5 +24,5 @@ func int G1CP_0158_SpeedPotion3Value() {
         return FALSE;
     };
 
-    return G1CP_ItemChangeIntVar("ItFo_Potion_Haste_03", "value", Value_Haste1, Value_Haste2);
+    return G1CP_ItemChangeIntVar("ItFo_Potion_Haste_03", "value", Value_Haste1, Value_Haste3);
 };

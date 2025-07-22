@@ -5,7 +5,7 @@ func int G1CP_ItemChangeIntVar(var string name, var string prop, var int origina
     var int itemId; itemId = G1CP_GetItemInstId(name);
 
     return (G1CP_ReplaceAssignInt(itemId, 0, ConcatStrings("C_Item.", prop), 0, originalInt, correctedInt) > 0);
-}
+};
 
 /*
  * Forward the call to "B_GiveInvItems"
