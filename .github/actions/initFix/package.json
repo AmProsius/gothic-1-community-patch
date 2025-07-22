@@ -1,0 +1,17 @@
+{
+  "name": "initialize_fix",
+  "version": "1.0.0",
+  "description": "Initialize fixes from Github issues",
+  "main": "src/index.js",
+  "scripts": {
+    "setup": "npm install @actions/core && npm install @actions/github && npm install iconv-lite && npm install shelljs",
+    "build": "ncc build src/index.js --license licenses.txt"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "@actions/core": "^1.11.1",
+    "@actions/github": "^5.1.1",
+    "iconv-lite": "^0.6.3",
+    "shelljs": "^0.8.5"
+  }
+}

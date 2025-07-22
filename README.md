@@ -4,9 +4,12 @@
 # Gothic 1 Community Patch
 
 [![Syntax](https://github.com/AmProsius/gothic-1-community-patch/actions/workflows/syntax.yml/badge.svg)](https://github.com/AmProsius/gothic-1-community-patch/actions/workflows/syntax.yml)
-[![Implemeted fixes](https://img.shields.io/github/directory-file-count/AmProsius/gothic-1-community-patch/src%2FNinja%2FG1CP%2FContent%2FTests?type=file&extension=d&label=fixes&color=yellow)](https://github.com/AmProsius/gothic-1-community-patch/blob/master/CHANGELOG.md)
+[![Validation](https://github.com/AmProsius/gothic-1-community-patch/actions/workflows/validation.yml/badge.svg)](https://github.com/AmProsius/gothic-1-community-patch/actions/workflows/validation.yml)
+[![Implemented fixes](https://img.shields.io/github/directory-file-count/AmProsius/gothic-1-community-patch/src%2FNinja%2FG1CP%2FContent%2FTests?type=file&extension=d&label=fixes&color=yellow)](https://github.com/AmProsius/gothic-1-community-patch/blob/master/CHANGELOG.md)
 [![GitHub Release](https://img.shields.io/github/v/release/AmProsius/gothic-1-community-patch)](https://github.com/AmProsius/gothic-1-community-patch/releases)
 [![Downloads](https://api.szapp.de/downloads/g1cp/total/badge)](https://github.com/AmProsius/gothic-1-community-patch/releases)  
+[![Discord](https://img.shields.io/badge/discord-gmc%23g1cp-5865F2?logo=discord&logoColor=white)](https://discord.com/channels/989316194148433950/1281144797456760895)
+[![Spine](https://raw.githubusercontent.com/szapp/patch-template/main/.github/actions/initialization/badges/spine.svg)](https://clockwork-origins.com/spine)
 [![Steam Gothic 1](https://img.shields.io/badge/steam-workshop-2a3f5a?logo=steam&labelColor=1b2838)](https://steamcommunity.com/sharedfiles/filedetails/?id=2789245548)
 
 </div>
@@ -39,7 +42,7 @@ Please note that this is the first release of the G1CP. Work on the patch contin
 [![Contributors](https://contrib.rocks/image?repo=AmProsius/gothic-1-community-patch)](https://github.com/AmProsius/gothic-1-community-patch/graphs/contributors)
 
 ## Supporters
-![Supporters](https://api.szapp.de/participants/g1cp/total/svg?wog=[Blubbler,Spatzendame,rvblacktail,gothicfan0,Homerclon])
+[![Supporters](https://api.szapp.de/participants/g1cp/total/svg?wog=[Blubbler,Spatzendame,rvblacktail,gothicfan0,Homerclon])](https://api.szapp.de/participants/g1cp/total/svg?wog=[Blubbler,Spatzendame,rvblacktail,gothicfan0,Homerclon])
 
 ## Sources of Inspiration
 

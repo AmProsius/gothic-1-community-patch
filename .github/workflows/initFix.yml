@@ -1,0 +1,62 @@
+name: Initialize bug fix from issue
+on:
+  workflow_dispatch:
+    inputs:
+      issue:
+        type: number
+        description: Issue
+        required: true
+      shortname:
+        description: Shortname
+        type: string
+        required: true
+        default: 'alpha-numeric, max. 36 length'
+      changelog_section:
+        description: Changelog section
+        type: choice
+        options:
+          - General
+          - Story
+        default: General
+      changelog_en:
+        description: English changelog
+        type: string
+        default: leave empty to guess from issue
+      changelog_de:
+        description: German changelog
+        type: string
+        default: leave empty to initialize empty
+
+jobs:
+  init:
+    if: ${{ github.ref_name == 'master' }}  # Only available from master branch
+    runs-on: ubuntu-latest
+    name: Initialize fix files
+    steps:
+      - name: Get token
+        uses: actions/create-github-app-token@v2
+        id: app_token
+        with:
+          app-id: ${{ vars.BOTWYN_ID }}
+          private-key: ${{ secrets.BOTWYN_KEY }}
+
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ steps.app_token.outputs.token }}  # Make sure it is Botwyn who performs all actions
+
+      - name: Setup git author
+        run: |
+          git config --global user.email '98276391+botwyn[bot]@users.noreply.github.com'
+          git config --global user.name 'Botwyn'
+
+      - name: Initialize fix
+        uses: ./.github/actions/initFix
+        id: initialize
+        with:
+          token: ${{ steps.app_token.outputs.token }}
+          issue_num: ${{ github.event.inputs.issue }}
+          shortname: ${{ github.event.inputs.shortname }}
+          changelog_section: ${{ github.event.inputs.changelog_section }}
+          changelog_en: ${{ github.event.inputs.changelog_en }}
+          changelog_de: ${{ github.event.inputs.changelog_de }}

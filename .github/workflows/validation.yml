@@ -1,0 +1,32 @@
+name: validation
+
+on:
+  push:
+    paths:
+      - 'src/Ninja/G1CP/**/*.src'
+      - 'src/Ninja/G1CP/**/*.d'
+  check_run:
+    types: completed
+
+permissions:
+  checks: write
+  actions: write
+
+jobs:
+  patch-validator:
+    name: Run patch validator
+    if: github.event_name != 'check_run' || github.event.check_run.external_id == github.workflow
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/create-github-app-token@v1
+        id: app-token
+        with:
+          app-id: ${{ vars.BOTWYN_ID }}
+          private-key: ${{ secrets.BOTWYN_KEY }}
+      - uses: actions/checkout@v4
+      - name: Check for validity
+        uses: szapp/patch-validator@v1
+        with:
+          patchName: G1CP
+          rootPath: src
+          token: ${{ steps.app-token.outputs.token }}

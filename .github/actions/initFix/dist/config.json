@@ -1,0 +1,22 @@
+{
+  "path": {
+    "changelogEn": ["CHANGELOG.md"],
+    "changelogDe": ["docs", "changelog_de.md"],
+    "template": ["templates"],
+    "script": ["src", "Ninja", "G1CP"],
+    "contentSrc": ["Content_G1.src"],
+    "testsuiteSrc": ["Testsuite.src"],
+    "sessionInit": ["Content", "patchInit.d"],
+    "gamesaveInit": ["Content", "Fixes", "gamesave.d"],
+    "fixes": ["Content", "Fixes"],
+    "tests": ["Content", "Tests"]
+  },
+  "default": {
+    "changelogEn": "leave empty to guess from issue",
+    "changelogDe": "leave empty to initialize empty"
+  },
+  "funcPrefix": "G1CP_",
+  "shortnameMax": 36,
+  "languageLabel": "language dependent",
+  "labelColor": "bfd4f2"
+}
