@@ -7,6 +7,8 @@ const gh = require('./gh');
 const io = require('./io');
 const todo = require('./todo');
 
+const G1CP_ID_LENGTH = 4;  // Number of digits making up a valid fix ID
+
 /**
  * Main executive function
  */
@@ -22,7 +24,7 @@ async function main() {
   let shortname = core.getInput('shortname');
 
   // Construct variables
-  const issueNumPad = issueNum.toString().padStart(3, '0');
+  const issueNumPad = issueNum.toString().padStart(G1CP_ID_LENGTH, '0');
   const branchName = `bug${issueNumPad}`;
 
   // Construct paths
@@ -150,12 +152,12 @@ async function main() {
 
   // Add fix file to Content_G1.src
   const fixFilePath = cfg.path.fixes.join('\\') + '\\' + fixFileName;
-  const fixFilePattern = '^' + cfg.path.fixes.join('(\\\\|/)') + '(\\\\|/)fix(?<num>[0-9]{3})';
+  const fixFilePattern = '^' + cfg.path.fixes.join('(\\\\|/)') + `(\\\\|/)fix(?<num>[0-9]{${G1CP_ID_LENGTH}})`;
   await io.addLineToFile(contentSrcPath, fixFilePath, fixFilePattern, issueNum);
 
   // Add test file to Testsuite.src
   const testFilePath = cfg.path.tests.join('\\') + '\\' + testFileName;
-  const testFilePattern = '^' + cfg.path.tests.join('(\\\\|/)') + '(\\\\|/)test(?<num>[0-9]{3})';
+  const testFilePattern = '^' + cfg.path.tests.join('(\\\\|/)') + `(\\\\|/)test(?<num>[0-9]{${G1CP_ID_LENGTH}})`;
   await io.addLineToFile(testsuiteSrcPath, testFilePath, testFilePattern, issueNum);
 
   // Fix function call (and revert call)
@@ -166,37 +168,45 @@ async function main() {
 
   if (fixType == 'session') {
     // Add fix function call to initPatch.d
-    await io.addLineToFile(sessionInitPath, fixFuncCall, '^\\s{8}' + cfg.funcPrefix + '(?<num>[0-9]{3})_', issueNum);
+    await io.addLineToFile(sessionInitPath, fixFuncCall, '^\\s{8}' + cfg.funcPrefix + `(?<num>[0-9]{${G1CP_ID_LENGTH}})_`, issueNum);
   } else {
     // Add fix function call to gamesave.d
-    await io.addLineToFile(gamesaveInitPath, fixFuncCall, '^\\s{8}' + cfg.funcPrefix + '(?<num>[0-9]{3})_', issueNum);
+    await io.addLineToFile(gamesaveInitPath, fixFuncCall, '^\\s{8}' + cfg.funcPrefix + `(?<num>[0-9]{${G1CP_ID_LENGTH}})_`, issueNum);
 
     let fixFuncRevCall = fixFuncNameRev + '();';
     fixFuncRevCall = fixFuncRevCall.padEnd(fixFuncCallExtra, ' ');
     fixFuncRevCall = '        ' + fixFuncRevCall + `// #${issueNum}`;
 
     // Add fix function revert call to gamesave.d
-    const pattern = '^\\s{8}' + cfg.funcPrefix + '(?<num>[0-9]{3})_[^\\r\\n]+Revert[^\\r\\n]+$';
+    const pattern = '^\\s{8}' + cfg.funcPrefix + `(?<num>[0-9]{${G1CP_ID_LENGTH}})_[^\\r\\n]+Revert[^\\r\\n]+$`;
     await io.addLineToFile(gamesaveInitPath, fixFuncRevCall, pattern, issueNum);
   }
 
   // Attempt to infer changelog from issue body
-  let changelogEnImposed = '';
+  issue_body = issue.body ? issue.body : '';
+  const match = issue_body.match(/[\r\n]###\s(Changelog|Expected behavior|Expected spelling)[\r\n]{2,4}(?<text>[^\r\n]+)/);
+  let changelogFromIssue = match ? match.groups.text : null;
+  inferChgDe = langFlags.length === 1 && langFlags.includes("DE");  // Only assume German if it's an exclusively(!) German language bug
+
+  // Apply changelog depending on language
+  let changelogDeInferred = '';
+  let changelogEnInferred = '';
+  if (changelogDe == '' || changelogDe == cfg.default.changelogDe) {
+    if (changelogFromIssue && inferChgDe) {
+      changelogDe = changelogFromIssue;
+      changelogDeInferred = ' (inferred from issue description)';
+    } else {
+      changelogDe = '### TODO ###';
+    }
+  }
   if (changelogEn == '' || changelogEn == cfg.default.changelogEn) {
-    if (!issue.body) // No body
-      issue.body = '';
-    const match = issue.body.match(/[\r\n]\*\*(Changelog|Expected behavior)\*\*[\r\n]{1,2}(?<text>[^\r\n]+)/);
-    if (match) {
-      changelogEn = match.groups.text;
-      changelogEnImposed = ' (imposed by issue description)';
+    if (changelogFromIssue && !inferChgDe) {
+      changelogEn = changelogFromIssue;
+      changelogEnInferred = ' (inferred from issue description)';
     } else {
       changelogEn = '### TODO ###';
     }
   }
-
-  // Set changelog to empty
-  if (changelogDe == '' || changelogDe == cfg.default.changelogDe)
-    changelogDe = '### TODO ###';
 
   // Construct changelog entry prefix
   const clPrefix = `* Fix [#${issueNum}](https://g1cp.org/issues/${issueNum}): `;
@@ -212,6 +222,9 @@ async function main() {
     const line = await io.addLineToFile(changelogEnPath, clEntry, clMatch, issueNum, clSection);
     if (changelogEn.startsWith('### TODO ###'))
       todo.add(changelogEnPath, 'Add an entry in the English changelog.', line+1);
+  } else {
+    changelogEn = '-'
+    changelogEnInferred = '';
   }
 
   // Add changelog entry DE
@@ -223,6 +236,9 @@ async function main() {
     const line = await io.addLineToFile(changelogDePath, clEntry, clMatch, issueNum, clSection);
     if (changelogDe.startsWith('### TODO ###'))
       todo.add(changelogDePath, 'Add an entry in the German changelog.', line+1);
+  } else {
+    changelogDe = '-'
+    changelogDeInferred = '';
   }
 
   // Template replacements
@@ -310,8 +326,8 @@ async function main() {
     `Fix type            | **${fixType}**\r\n` +
     `Language dependent  | **${isLangDependent ? langFlags.join(', ') : 'no'}**\r\n` +
     `Branch name         | **${branchName}**\r\n` +
-    `Changelog En        | **${changelogEn}**${changelogEnImposed}\r\n` +
-    `Changelog De        | **${changelogDe}**`
+    `Changelog En        | **${changelogEn}**${changelogEnInferred}\r\n` +
+    `Changelog De        | **${changelogDe}**${changelogDeInferred}\r\n`
   );
   await gh.octokit.rest.issues.createComment({
     ...gh.context.repo,

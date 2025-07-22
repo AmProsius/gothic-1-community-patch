@@ -9,6 +9,9 @@ const int G1CP_Lang_RU = 1 << 3;
 const int G1CP_SymbStart = -1;
 const int G1CP_SymbEnd   = -1;
 
+/* Number of digits making up a valid fix ID */
+const int G1CP_ID_LENGTH = 4;
+
 /* Lookup table fix status */
 const int G1CP_FIX_NOT_FOUND   = -2;
 const int G1CP_FIX_DISABLED    = -1;
