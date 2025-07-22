@@ -18,7 +18,12 @@ func int G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}() {
 func int G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}_Hook() {
     G1CP_ReportFuncToSpy();
 
-    /* ### TODO: Write the fix ### */
+    // Add the new conditions (other conditions remain untouched)
+    /* ### TODO: Add if-conditions that prevent the dialog ### */
+    if (FALSE) {
+        return FALSE;
+    };
 
+    // Continue with the original function
     ContinueCall();
 };
