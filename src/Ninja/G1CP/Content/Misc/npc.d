@@ -228,12 +228,3 @@ func int G1CP_NpcChangeIntVar(var string npcName, var string npcProp, var int or
 
     return (G1CP_ReplaceAssignInt(npcId, 0, ConcatStrings("C_Npc.", npcProp), 0, originalInt, correctedInt) > 0);
 };
-
-/*
- * Rename an NPC
- */
-func int G1CP_NpcRename(var string npcName, var string originalStr, var string correctedStr) {
-    var int npcId; npcId = G1CP_GetNpcProtoId(npcName);
-
-    return (G1CP_ReplaceAssignStr(npcId, 0, "C_Npc.name", 0, originalStr, correctedStr) > 0);
-};

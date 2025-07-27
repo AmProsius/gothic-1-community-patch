@@ -40,6 +40,8 @@ Content\Misc\npc.d
 Content\Misc\ou.d
 Content\Misc\item.d
 
+Content\Templates\npc.d
+
 Content\Fixes\record.d
 
 // Session fixes
