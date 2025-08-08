@@ -16,7 +16,7 @@ func int G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}() {
         _@(G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}_PosOld),
         _@(G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}_PosNew),
         callback // ### TODO: Replace callback function ###
-     );
+    );
 };
 
 /*
