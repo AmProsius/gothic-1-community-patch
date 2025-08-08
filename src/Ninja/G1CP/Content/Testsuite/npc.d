@@ -21,23 +21,45 @@ func void G1CP_Testsuite_NpcBeamTo(var C_Npc slf, var string destination) {
 /*
  * Instant teleport (for the testsuite functions) to an exact position (rotation not considered)
  */
-func void G1CP_Testsuite_NpcBeamToPosF(var C_Npc slf, var float x, var float y, var float z) {
+func void G1CP_Testsuite_NpcBeamToPosPtr(var C_Npc slf, var int posPtr) {
+    if (!posPtr) {
+        return;
+    };
+
     // Abuse a random waypoint
     var zCWaypoint wp; wp = _^(MEM_GetAnyWPPtr());
-    var int posBak[3];
-    posBak[0] = wp.pos[0];
-    posBak[1] = wp.pos[1];
-    posBak[2] = wp.pos[2];
+    var int posBak[3]; MEM_CopyWords(_@(wp.pos), _@(posBak), 3);
 
-    wp.pos[0] = castToIntf(x);
-    wp.pos[1] = castToIntf(y);
-    wp.pos[2] = castToIntf(z);
+    MEM_CopyWords(posPtr, _@(wp.pos), 3);
     G1CP_Testsuite_NpcBeamTo(slf, wp.name);
-
-    wp.pos[0] = posBak[0];
-    wp.pos[1] = posBak[1];
-    wp.pos[2] = posBak[2];
+    MEM_CopyWords(_@(posBak), _@(wp.pos), 3);
 };
+func void G1CP_Testsuite_NpcBeamToPos(var C_Npc slf, var int x, var int y, var int z) { // Integer-floats!
+    var int pos[3];
+    pos[0] = x;
+    pos[1] = y;
+    pos[2] = z;
+    G1CP_Testsuite_NpcBeamToPosPtr(slf, _@(pos));
+};
+func void G1CP_Testsuite_NpcBeamToPosF(var C_Npc slf, var float x, var float y, var float z) {
+    MEM_PushInstParam(slf);
+    castToIntf(x); // Just to repush
+    castToIntf(y);
+    castToIntf(z);
+    MEM_Call(G1CP_Testsuite_NpcBeamToPos);
+};
+
+/*
+ * Instant teleport (for the testsuite functions) to the nearest waypoint from a position
+ */
+func void G1CP_Testsuite_NpcBeamToNearestWpPosPtr(var C_Npc slf, var int posPtr) {
+    var string wpName; wpName = G1CP_GetNearestWpPosPtr(posPtr);
+    if (Hlp_StrCmp(wpName, "")) {
+        G1CP_Testsuite_NpcBeamToPosPtr(slf, posPtr); // Fallback to position
+    };
+    G1CP_Testsuite_NpcBeamTo(slf, wpName);
+};
+
 
 /*
  * Teleport the player to a waypoint that is presumably in another level
