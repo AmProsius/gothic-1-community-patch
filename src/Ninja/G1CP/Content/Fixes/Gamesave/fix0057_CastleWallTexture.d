@@ -14,7 +14,6 @@ const float G1CP_0057_CastleWallTexture_PosNew[3] = {-5902.01807, -664.270386, 8
 func int G1CP_0057_CastleWallTextureCheck(var int vobPtr) {
     var zCVob vob; vob = _^(vobPtr);
     const int zCDecal_classDef = 8861528; //0x873758
-
     return (MEM_GetClassDef(vob.visual) == zCDecal_classDef);
 };
 
@@ -23,8 +22,8 @@ func int G1CP_0057_CastleWallTextureCheck(var int vobPtr) {
  */
 func int G1CP_0057_CastleWallTexture() {
     return G1CP_Tpl_ChangeVobLocation(
-        _@(G1CP_0057_CastleWallTexture_PosOld),
-        _@(G1CP_0057_CastleWallTexture_PosNew),
+        _@f(G1CP_0057_CastleWallTexture_PosOld),
+        _@f(G1CP_0057_CastleWallTexture_PosNew),
         G1CP_0057_CastleWallTextureCheck
     );
 };
@@ -38,8 +37,8 @@ func int G1CP_0057_CastleWallTextureRevert() {
     };
 
     return G1CP_Tpl_ChangeVobLocation(
-        _@(G1CP_0057_CastleWallTexture_PosNew),
-        _@(G1CP_0057_CastleWallTexture_PosOld),
+        _@f(G1CP_0057_CastleWallTexture_PosNew),
+        _@f(G1CP_0057_CastleWallTexture_PosOld),
         G1CP_0057_CastleWallTextureCheck
     );
 };

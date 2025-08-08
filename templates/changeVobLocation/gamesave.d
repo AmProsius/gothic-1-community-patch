@@ -13,9 +13,9 @@ const float G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}_PosNew[3] = {0, 0, 0}; // ### TODO 
  */
 func int G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}() {
     return G1CP_Tpl_ChangeVobLocation(
-        _@(G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}_PosOld),
-        _@(G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}_PosNew),
-        callback // ### TODO: Replace callback function ###
+        _@f(G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}_PosOld),
+        _@f(G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}_PosNew),
+        callback // ### TODO Replace callback function ###
     );
 };
 
@@ -28,8 +28,8 @@ func int G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}Revert() {
     };
 
     return G1CP_Tpl_ChangeVobLocation(
-        _@(G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}_PosNew),
-        _@(G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}_PosOld),
-        callback // ### TODO: Replace callback function, same as above ###
+        _@f(G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}_PosNew),
+        _@f(G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}_PosOld),
+        callback // ### TODO Replace callback function, same as above ###
     );
 };
