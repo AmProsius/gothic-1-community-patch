@@ -96,16 +96,8 @@ func int G1CP_ReplaceAssignStrId(var int funcIdOrStartAddr, var int zeroOrEndAdd
  */
 func int G1CP_ReplaceAssignStr(var int funcIdOrStartAddr, var int zeroOrEndAddr, var string assignedSymb,
                                var int arrIdx, var string needle, var string replace) {
-    // Obtain the symbol index of the replacement string
-    var int calledFrom; calledFrom = MEM_GetCallerStackPos()-5+MEM_Parser.stack_stack;
-    if (MEM_ReadByte(calledFrom)   != zPAR_TOK_CALL)
-    || (MEM_ReadInt(calledFrom+1)  != MEM_GetFuncOffset(G1CP_ReplaceAssignStr))
-    || (MEM_ReadByte(calledFrom-5) != zPAR_TOK_PUSHVAR) {
-        MEM_SendToSpy(zERR_TYPE_FAULT, "G1CP_ReplaceAssignStr called from invalid context");
-        return 0;
-    };
-    var int replaceId; replaceId = MEM_ReadInt(calledFrom-4);
-
+    // Find the non-variable, unique source of the replacement string
+    var int replaceId; replaceId = G1CP_GetStringSourceId(replace);
     return G1CP_ReplaceAssignStrId(funcIdOrStartAddr, zeroOrEndAddr, assignedSymb, arrIdx, needle, replaceId);
 };
 
@@ -122,15 +114,7 @@ func int G1CP_ReplacePushStrId(var int funcIdOrStartAddr, var int zeroOrEndAddr,
  * See G1CP_FindInCode for details on the first and second parameter.
  */
 func int G1CP_ReplacePushStr(var int funcIdOrStartAddr, var int zeroOrEndAddr, var string needle, var string replace) {
-    // Obtain the symbol index of the replacement string
-    var int calledFrom; calledFrom = MEM_GetCallerStackPos()-5+MEM_Parser.stack_stack;
-    if (MEM_ReadByte(calledFrom)   != zPAR_TOK_CALL)
-    || (MEM_ReadInt(calledFrom+1)  != MEM_GetFuncOffset(G1CP_ReplacePushStr))
-    || (MEM_ReadByte(calledFrom-5) != zPAR_TOK_PUSHVAR) {
-        MEM_SendToSpy(zERR_TYPE_FAULT, "G1CP_ReplacePushStr called from invalid context");
-        return 0;
-    };
-    var int replaceId; replaceId = MEM_ReadInt(calledFrom-4);
-
+    // Find the non-variable, unique source of the replacement string
+    var int replaceId; replaceId = G1CP_GetStringSourceId(replace);
     return G1CP_ReplaceAssignStrId(funcIdOrStartAddr, zeroOrEndAddr, "", 0, needle, replaceId);
 };
