@@ -1,8 +1,7 @@
 /*
- * Rename an NPC instance
+ * Change the focus name of an NPC.
  */
-func int G1CP_Tpl_RenameNpc(var string npcName, var string originalStr, var string correctedStr) {
-    var int npcId; npcId = G1CP_GetNpcInstId(npcName);
-
-    return (G1CP_ReplaceAssignStr(npcId, 0, "C_Npc.name", 0, originalStr, correctedStr) > 0);
+func int G1CP_Tpl_RenameNpc(var string npcInst, var string originalName, var string correctName) {
+    var int npcId; npcId = G1CP_GetNpcInstId(npcInst);
+    return (G1CP_ReplaceAssignStr(npcId, 0, "C_Npc.name", 0, originalName, correctName) > 0);
 };
