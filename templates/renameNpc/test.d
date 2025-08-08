@@ -3,10 +3,10 @@
  */
 func int G1CP_Test_{ISSUE_NUM_PAD}() {
     {LANGCHECK}
-    const string npcName = "### TODO: NPC name ###";
-    const string correctedString = "### TODO: Corrected string ###";
-    var C_Npc npc; npc = G1CP_Testsuite_CreateNpc(npcName);
+    const string npcInst = "### TODO NPC instance ###";
+    const string correctedName = "### TODO Correct name ###";
+    var C_Npc npc; npc = G1CP_Testsuite_CreateNpc(npcInst);
     G1CP_Testsuite_CheckPassed();
 
-    return G1CP_Testsuite_InspectNpcString(npc, "name", correctedString);
+    return G1CP_Testsuite_InspectNpcString(npc, "name", correctedName);
 };
