@@ -58,7 +58,7 @@ func int G1CP_GetStringAddr(var int symbPtr, var int arrIdx, var int isConst) {
 
 
 /*
- * Check if string symbol exists
+ * Check if string symbol exists.
  */
 func int G1CP_IsStringSymbI(var int symbId, var int arrIdx, var int isConst) {
     if (symbId < 0) || (symbId >= MEM_Parser.symtab_table_numInArray) {
@@ -72,7 +72,7 @@ func int G1CP_IsStringSymb(var string name, var int arrIdx, var int isConst) {
 
 
 /*
- * Check if string symbol exists and return its value
+ * Check if string symbol exists and return its symbol index.
  */
 func int G1CP_GetStringSymbId(var string name, var int arrIdx, var int isConst) {
     if (G1CP_CheckStringSymbol(MEM_GetSymbol(name), arrIdx, isConst)) {
@@ -84,7 +84,7 @@ func int G1CP_GetStringSymbId(var string name, var int arrIdx, var int isConst) 
 
 
 /*
- * Check if string symbol exists and return its value
+ * Check if string symbol exists and return its value, otherwise return a default.
  */
 func string G1CP_GetStringSymbI(var int symbId, var int arrIdx, var int isConst, var string dflt) {
     if (symbId < 0) || (symbId >= MEM_Parser.symtab_table_numInArray) {
@@ -108,7 +108,7 @@ func string G1CP_GetStringSymb(var string name, var int arrIdx, var int isConst,
 
 
 /*
- * Check if string symbol exists and return its value
+ * Check if string symbol exists and set its value. Does not provide feedback if successful!
  */
 func void G1CP_SetStringSymbI(var int symbId, var int arrIdx, var int isConst, var string value) {
     if (symbId < 0) || (symbId >= MEM_Parser.symtab_table_numInArray) {
@@ -128,7 +128,7 @@ func void G1CP_SetStringSymb(var string name, var int arrIdx, var int isConst, v
 
 
 /*
- * Check if any sort of single-element string exists
+ * Check if any sort (variable or constant) of single-element string exists.
  */
 func int G1CP_IsStringI(var int symbId, var int arrIdx) {
     return G1CP_IsStringSymbI(symbId, arrIdx, 0);
@@ -154,7 +154,7 @@ func void G1CP_SetString(var string name, var int arrIdx, var string value) {
 
 
 /*
- * Check if string variable exists
+ * Check if string variable exists.
  */
 func int G1CP_IsStringVarI(var int symbId, var int arrIdx) {
     return G1CP_IsStringSymbI(symbId, arrIdx, -1);
@@ -180,7 +180,7 @@ func void G1CP_SetStringVar(var string name, var int arrIdx, var string value) {
 
 
 /*
- * Check if string constant exists
+ * Check if string constant exists.
  */
 func int G1CP_IsStringConstI(var int symbId, var int arrIdx) {
     return G1CP_IsStringSymbI(symbId, arrIdx, 1);
@@ -206,7 +206,7 @@ func void G1CP_SetStringConst(var string name, var int arrIdx, var string value)
 
 
 /*
- * Find a string in a constant string array (case-sensitive) and return its array index
+ * Find a string in a constant string array (case-sensitive) and return its array index.
  */
 func int G1CP_FindStringConstArrIdxI(var int symbId, var string needle) {
     if (symbId < 0) || (symbId >= MEM_Parser.symtab_table_numInArray) {
@@ -214,7 +214,7 @@ func int G1CP_FindStringConstArrIdxI(var int symbId, var string needle) {
     };
 
     // Find the string constant symbol
-    var int symbPtr; symbPtr = G1CP_CheckStringSymbol(MEM_GetSymbolByIndex(symbId), 0, TRUE);
+    var int symbPtr; symbPtr = G1CP_CheckStringSymbol(MEM_GetSymbolByIndex(symbId), 0, 1);
     if (!symbPtr) {
         return -1;
     };
