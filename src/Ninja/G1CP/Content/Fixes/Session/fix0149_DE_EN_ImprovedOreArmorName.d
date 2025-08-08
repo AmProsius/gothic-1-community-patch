@@ -4,7 +4,7 @@
 func int G1CP_0149_DE_EN_ImprovedOreArmorName() {
     var int itemId; itemId = G1CP_GetItemInstId("ORE_ARMOR_H");
     const string needle = "G1CP invalid string";
-    const string replace = "G1CP invalid string";
+    var string replace; // Use a variable instead of a constant to have a unique string on re-assignment below
     if (G1CP_Lang & G1CP_Lang_DE) {
         needle  = "verbesserte Erzrüstung";
         replace = "Verbesserte Erzrüstung";
