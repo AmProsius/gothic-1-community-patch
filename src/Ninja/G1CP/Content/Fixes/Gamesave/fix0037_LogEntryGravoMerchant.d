@@ -25,7 +25,7 @@ func int G1CP_0037_LogEntryGravoMerchant_Toggle(var int apply) {
     const string entry = "G1CP invalid topic entry";
     if (infoId == -2) {
         infoId = G1CP_GetInfoInstId(infoSymbName);
-        topicId = G1CP_GetStringConstId(topicSymbName, 0);
+        topicId = G1CP_GetStringConstId(topicSymbName);
         var int funcId; funcId = G1CP_GetFuncId(funcSymbName, "void|none");
         var int b_logentry_id; b_logentry_id = G1CP_GetFuncId("B_LogEntry", "void|string|string");
 
@@ -117,7 +117,7 @@ func void G1CP_0037_LogEntryGravoMerchant_Intercept(var string topic, var string
     const int    topicSection  = LOG_NOTE;
 
     // Check if this is the correct topic
-    if (Hlp_StrCmp(topic, G1CP_GetStringConst(topicSymbName, 0, "G1CP invalid topic string")))
+    if (Hlp_StrCmp(topic, G1CP_GetStringConst(topicSymbName, "G1CP invalid topic string")))
     && (!G1CP_LogGetTopic(topic)) {
         Log_CreateTopic(topic, topicSection);
         G1CP_SetFixStatus(37, G1CP_FIX_APPLIED); // If it did not exist before, our fix will have to be reverted

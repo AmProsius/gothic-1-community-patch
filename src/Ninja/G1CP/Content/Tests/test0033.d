@@ -9,8 +9,8 @@ func int G1CP_Test_0033() {
     var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("DIA_Shrike_GetLost_Condition");
     var int infoId; infoId = G1CP_Testsuite_CheckInfo("DIA_Gorn_Hut");
     var C_Npc npc; npc = G1CP_Testsuite_FindNpc("ORG_842_Shrike");
-    var int aiVarId; aiVarId = G1CP_Testsuite_CheckIntConst("AIV_WASDEFEATEDBYSC", 0);
-    var int varId; varId = G1CP_Testsuite_CheckIntVar("Gorn_ShrikesHut", 0);
+    var int aiVarId; aiVarId = G1CP_Testsuite_CheckIntConst("AIV_WASDEFEATEDBYSC");
+    var int varId; varId = G1CP_Testsuite_CheckIntVar("Gorn_ShrikesHut");
     G1CP_Testsuite_CheckPassed();
 
     // Define possibly missing symbols locally

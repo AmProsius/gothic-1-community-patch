@@ -94,7 +94,6 @@ func int G1CP_InitStart() {
     };
 
     // Setup stream
-    var int so; so = SB_Get();
     var int s; s = SB_New();
 
     // Allocate the estimated length of the byte code
@@ -157,6 +156,7 @@ func int G1CP_InitStart() {
                 };
 
                 // Re-write the function call, wrapped
+                SB_Use(s);
                 SBc(zPAR_TOK_PUSHINT); SBw(revert);
                 SBc(zPAR_TOK_PUSHINT); SBw(id);
                 SBc(zPAR_TOK_PUSHINT); SBw(namePtr);
@@ -181,6 +181,7 @@ func int G1CP_InitStart() {
     };
 
     // Un-indent
+    SB_Use(s);
     SBc(zPAR_TOK_PUSHVAR); SBw(indentStr_id);
     SBc(zPAR_TOK_PUSHINT); SBw(-1);
     SBc(zPAR_TOK_CALL);    SBw(G1CP_zSpyIndent_offset);
@@ -197,7 +198,7 @@ func int G1CP_InitStart() {
     // Overwrite the function call to G1CP_InitStart
     MEMINT_OverrideFunc_Ptr = posStart;
     if (!initOnce) {
-        MEMINT_OFTokPar(zPAR_TOK_CALL, SB_GetStream() - MEM_Parser.stack_stack);
+        MEMINT_OFTokPar(zPAR_TOK_CALL, SB_GetStream() - MEM_Parser.stack_stack); // Keep SB-stream alive
     } else {
         // Do not call session initialization again (overwrite the condition in 'Ninja_G1CP_Menu' to FALSE)
         MEMINT_OFTokPar(zPAR_TOK_PUSHINT, FALSE);
@@ -205,15 +206,10 @@ func int G1CP_InitStart() {
         // Call it now
         MEM_CallByPtr(SB_GetStream());
         if (MEM_PopIntResult()) { };
-        SB_Use(s); // Re-activate!
-
-        // Dispose
+        SB_Use(s);
         SB_Clear();
     };
-
-    // Release and restore previous string builder
     SB_Release();
-    SB_Use(so);
 
     // Jump back to before this function call to run the new function
     MEM_SetCallerStackPos(posStart - MEM_Parser.stack_stack);
@@ -294,6 +290,7 @@ func void G1CP_InitBuildLine(var int revert, var int id, var int namePtr, var in
     };
 
     // Append duration
+    SB_Use(s);
     SB(G1CP_LFill(IntToString(time), " ", 6));
     SB(" ms");
 

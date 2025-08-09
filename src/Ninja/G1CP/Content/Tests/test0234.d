@@ -9,9 +9,9 @@
 func int G1CP_Test_0234() {
     G1CP_Testsuite_CheckLang(G1CP_Lang_DE);
     const string TEMP_TOPIC_NAME = "G1CP Test 234"; // Has to be a unique name with absolute certainty
-    const string GE_AnimalTrophies = ""; GE_AnimalTrophies = G1CP_Testsuite_GetStringConst("GE_AnimalTrophies", 0);
+    const string GE_AnimalTrophies = ""; GE_AnimalTrophies = G1CP_Testsuite_GetStringConst("GE_AnimalTrophies");
     var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc("Org_819_Drax_Creatures_Zahn");
-    var int skillId; skillId = G1CP_Testsuite_CheckIntVar("Knows_GetTeeth", 0);
+    var int skillId; skillId = G1CP_Testsuite_CheckIntVar("Knows_GetTeeth");
     var int oreId; oreId = G1CP_Testsuite_CheckItem("ItMinugget");
     G1CP_Testsuite_CheckPassed();
 

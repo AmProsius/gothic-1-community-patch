@@ -8,8 +8,8 @@
  */
 func int G1CP_Test_0185() {
     var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("GRD_205_Scorpio_CROSSBOW_Condition");
-    const int NPC_TALENT_CROSSBOW = 0; NPC_TALENT_CROSSBOW = G1CP_Testsuite_GetIntConst("NPC_TALENT_CROSSBOW", 0);
-    const int GIL_GRD = 0; GIL_GRD = G1CP_Testsuite_GetIntConst("GIL_GRD", 0);
+    const int NPC_TALENT_CROSSBOW = 0; NPC_TALENT_CROSSBOW = G1CP_Testsuite_GetIntConst("NPC_TALENT_CROSSBOW");
+    const int GIL_GRD = 0; GIL_GRD = G1CP_Testsuite_GetIntConst("GIL_GRD");
     G1CP_Testsuite_CheckPassed();
 
     // Backup values

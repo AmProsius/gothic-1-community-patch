@@ -3,7 +3,7 @@
  */
 func int G1CP_0166_RogueWeedDialog() {
     if (!G1CP_IsFunc("Info_ORG_829_SpecialInfo_Condition", "int|none"))
-    || (!G1CP_IsIntVar("Org_829_GotJoint", 0))
+    || (!G1CP_IsIntVar("Org_829_GotJoint"))
     || (!G1CP_IsInfoInst("Info_ORG_829_OfferJoint"))
     || (!G1CP_IsItemInst("ItMiJoint_1"))
     || (!G1CP_IsItemInst("ItMiJoint_2"))

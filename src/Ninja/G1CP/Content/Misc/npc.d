@@ -221,10 +221,9 @@ func void G1CP_NpcIdSetAiVar(var int npcInstance, var string aiVarName, var int 
 };
 
 /*
- * Change the value of an NPC's integer variable
+ * Change the value of an NPC instance integer variable. Returns true on success.
  */
-func int G1CP_NpcChangeIntVar(var string npcName, var string npcProp, var int originalInt, var int correctedInt) {
+func int G1CP_NpcChangeIntVar(var string npcName, var string npcProp, var int originalInt, var int correctInt) {
     var int npcId; npcId = G1CP_GetNpcInstId(npcName);
-
-    return (G1CP_ReplaceAssignInt(npcId, 0, ConcatStrings("C_Npc.", npcProp), 0, originalInt, correctedInt) > 0);
+    return (G1CP_ReplaceAssignInt(npcId, 0, ConcatStrings("C_Npc.", npcProp), originalInt, correctInt) > 0);
 };

@@ -3,7 +3,7 @@
  */
 func int G1CP_0019_ScorpioFightDialog() {
     if (G1CP_IsFunc("DIA_Scorpio_REFUSETRAIN_Condition", "int|none"))
-    && (G1CP_IsIntVar("Kapitel", 0)) {
+    && (G1CP_IsIntVar("Kapitel")) {
         HookDaedalusFuncS("DIA_Scorpio_REFUSETRAIN_Condition", "G1CP_0019_ScorpioFightDialog_Hook");
         return TRUE;
     } else {
@@ -18,7 +18,7 @@ func int G1CP_0019_ScorpioFightDialog_Hook() {
     G1CP_ReportFuncToSpy();
 
     // Add the new condition (other conditions remain untouched)
-    if (G1CP_GetIntVar("Kapitel", 0, 0) > 3) {
+    if (G1CP_GetIntVar("Kapitel", 0) > 3) {
         return FALSE;
     };
 

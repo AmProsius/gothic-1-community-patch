@@ -36,7 +36,7 @@ func int G1CP_0042_ConfirmByteCode(var int funcId) {
  */
 func int G1CP_0042_GuardExitDialog() {
     // Find all necessary symbols
-    if (!G1CP_IsStringConst("DIALOG_ENDE", 0)) {
+    if (!G1CP_IsStringConst("DIALOG_ENDE")) {
         return FALSE;
     };
     var int funcId; funcId = MEM_GetSymbolIndex("DIA_Grd_218_Exit_Condition");
@@ -55,7 +55,7 @@ func int G1CP_0042_GuardExitDialog() {
 func int G1CP_0042_NewCondition(var C_Npc slf) {
     // Define possibly missing symbols locally
     const string DIALOG_ENDE = "END";
-    DIALOG_ENDE = G1CP_GetStringConst("DIALOG_ENDE", 0, DIALOG_ENDE);
+    DIALOG_ENDE = G1CP_GetStringConst("DIALOG_ENDE", DIALOG_ENDE);
 
     // Avoid recursion, because G1C_HasInfoWithDesc may call this very condition function
     const int recursion = FALSE;

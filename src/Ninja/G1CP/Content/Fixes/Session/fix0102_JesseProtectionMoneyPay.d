@@ -3,7 +3,7 @@
  */
 func int G1CP_0102_JesseProtectionMoneyPay() {
     if (G1CP_IsFunc("Info_Bloodwyn_PayForJesse_Info", "void|none"))
-    && (G1CP_IsIntVar("Jesse_PayForMe", 0))
+    && (G1CP_IsIntVar("Jesse_PayForMe"))
     && (G1CP_IsItemInst("ItMiNugget")) {
         HookDaedalusFuncS("Info_Bloodwyn_PayForJesse_Info", "G1CP_0102_JesseProtectionMoneyPay_Hook");
         return TRUE;

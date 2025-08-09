@@ -6,7 +6,7 @@
  * Expected behavior: The condition function will return FALSE.
  */
 func int G1CP_Test_0025() {
-    const int GIL_KDW = 0; GIL_KDW = G1CP_Testsuite_GetIntConst("GIL_KDW", 0);
+    const int GIL_KDW = 0; GIL_KDW = G1CP_Testsuite_GetIntConst("GIL_KDW");
     var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("KDW_600_Saturas_HEAVYARMOR_Condition");
     var int itemId; itemId = G1CP_Testsuite_CheckItem("KDW_ARMOR_H");
     G1CP_Testsuite_CheckPassed();

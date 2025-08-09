@@ -7,7 +7,7 @@
  */
 func int G1CP_Test_0204() {
     const string TEMP_TOPIC_NAME = "G1CP Test 204"; // Has to be a unique name with absolute certainty
-    const string GE_TeacherOW = ""; GE_TeacherOW = G1CP_Testsuite_GetStringConst("GE_TeacherOW", 0);
+    const string GE_TeacherOW = ""; GE_TeacherOW = G1CP_Testsuite_GetStringConst("GE_TeacherOW");
     var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc("DIA_Fingers_WhereCavalorn_Info");
     G1CP_Testsuite_CheckPassed();
 

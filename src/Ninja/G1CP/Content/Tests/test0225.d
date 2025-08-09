@@ -9,8 +9,8 @@ func int G1CP_Test_0225() {
     var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("Org_826_Mordrag_HauAb_Condition");
     var int infoId; infoId = G1CP_Testsuite_CheckInfo("Org_826_Mordrag_GotoNewcamp");
     var C_Npc npc; npc = G1CP_Testsuite_FindNpc("Org_826_Mordrag");
-    var int aiVarId; aiVarId = G1CP_Testsuite_CheckIntConst("AIV_WASDEFEATEDBYSC", 0);
-    var int varId; varId = G1CP_Testsuite_CheckIntVar("Thorus_MordragKo", 0);
+    var int aiVarId; aiVarId = G1CP_Testsuite_CheckIntConst("AIV_WASDEFEATEDBYSC");
+    var int varId; varId = G1CP_Testsuite_CheckIntVar("Thorus_MordragKo");
     G1CP_Testsuite_CheckPassed();
 
     // Define possibly missing symbols locally

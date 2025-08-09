@@ -12,5 +12,5 @@ func int G1CP_0149_DE_EN_ImprovedOreArmorName() {
         needle  = "Improved ore Armor";
         replace = "Improved Ore Armor";
     };
-    return (G1CP_ReplaceAssignStr(itemId, 0, "C_ITEM.NAME", 0, needle, replace) > 0);
+    return (G1CP_ReplaceAssignStr(itemId, 0, "C_Item.name", needle, replace) > 0);
 };

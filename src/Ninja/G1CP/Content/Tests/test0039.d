@@ -9,7 +9,7 @@ func void G1CP_Test_0039() {
     G1CP_Testsuite_CheckManual();
     G1CP_Testsuite_CheckDialogFunc("DIA_Fingers_Lehrer_Info");
     var C_Npc npc; npc = G1CP_Testsuite_FindNpc("STT_331_Fingers");
-    var int varId; varId = G1CP_Testsuite_CheckIntVar("Fingers_CanTeach", 0);
+    var int varId; varId = G1CP_Testsuite_CheckIntVar("Fingers_CanTeach");
     G1CP_Testsuite_CheckPassed();
 
     // Set unlock the dialog

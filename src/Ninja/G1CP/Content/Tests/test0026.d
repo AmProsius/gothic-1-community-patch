@@ -6,10 +6,10 @@
  * Expected behavior: The condition function will return FALSE.
  */
 func int G1CP_Test_0026() {
-    const int GIL_GRD = 0; GIL_GRD = G1CP_Testsuite_GetIntConst("GIL_GRD", 0);
+    const int GIL_GRD = 0; GIL_GRD = G1CP_Testsuite_GetIntConst("GIL_GRD");
     var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("Info_Org_804_FirstWarn_Condition");
     var C_Npc npc; npc = G1CP_Testsuite_FindNpc("Org_804_Organisator");
-    var int aiVarId; aiVarId = G1CP_Testsuite_CheckIntConst("AIV_GUARDPASSAGE_STATUS", 0);
+    var int aiVarId; aiVarId = G1CP_Testsuite_CheckIntConst("AIV_GUARDPASSAGE_STATUS");
     G1CP_Testsuite_CheckPassed();
 
     // Define possibly missing symbols locally

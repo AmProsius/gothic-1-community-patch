@@ -16,7 +16,7 @@ func int G1CP_0192_MagicUserAutoEquip_IsMagicUser(var C_Npc npc) {
     // Define possibly missing symbols locally
     const int FAI_HUMAN_MAGE = -2;
     if (FAI_HUMAN_MAGE == -2) {
-        FAI_HUMAN_MAGE = G1CP_GetIntConst("FAI_HUMAN_MAGE", 0, -1);
+        FAI_HUMAN_MAGE = G1CP_GetIntConst("FAI_HUMAN_MAGE", -1);
     };
 
     // This function is also called if the fix is not applied, so check that first

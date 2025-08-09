@@ -6,7 +6,7 @@ func int G1CP_0049_DungeonKeyText() {
 
     // Get necessary symbol indices
     var int symbId; symbId = G1CP_GetItemInstId("DungeonKey");
-    var int itemTextSymbId; itemTextSymbId = G1CP_GetStringId("C_ITEM.TEXT", 0);
+    var int itemTextSymbId; itemTextSymbId = G1CP_GetStringId("C_Item.text[1]");  // Must be an array, thus check [1]
     if (symbId == -1) || (itemTextSymbId == -1) {
         return FALSE;
     };

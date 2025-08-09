@@ -7,10 +7,10 @@
  */
 func int G1CP_Test_0228() {
     const string TEMP_TOPIC_NAME = "G1CP Test 228"; // Has to be a unique name with absolute certainty
-    const string CH1_JoinNC = ""; CH1_JoinNC = G1CP_Testsuite_GetStringConst("CH1_JoinNC", 0);
+    const string CH1_JoinNC = ""; CH1_JoinNC = G1CP_Testsuite_GetStringConst("CH1_JoinNC");
     var C_Npc npc; npc = G1CP_Testsuite_FindNpc("PC_Fighter");
     var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc("ORG_801_Lares_BringListAnteil_Info");
-    var int aiVarId; aiVarId = G1CP_Testsuite_CheckIntConst("AIV_FINDABLE", 0);
+    var int aiVarId; aiVarId = G1CP_Testsuite_CheckIntConst("AIV_FINDABLE");
     G1CP_Testsuite_CheckPassed();
 
     // Backup values

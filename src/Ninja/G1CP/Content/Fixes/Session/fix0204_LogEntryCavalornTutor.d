@@ -3,7 +3,7 @@
  */
 func int G1CP_0204_LogEntryCavalornTutor() {
     // Check the necessary symbols
-    var int topicId; topicId = G1CP_GetStringConstId("GE_TeacherOW", 0);
+    var int topicId; topicId = G1CP_GetStringConstId("GE_TeacherOW");
     var int funcId; funcId = G1CP_GetFuncId("DIA_Fingers_WhereCavalorn_Info", "void|none");
     var int b_logentry_id; b_logentry_id = G1CP_GetFuncId("B_LogEntry", "void|string|string");
     if (funcId == -1) || (b_logentry_id == -1) || (topicId == -1) {
@@ -57,7 +57,7 @@ func void G1CP_0204_LogEntryCavalornTutor_Intercept(var string topic, var string
     const int LOG_NOTE = 1;
 
     // Check if this is the correct topic
-    if (Hlp_StrCmp(topic, G1CP_GetStringConst("GE_TeacherOW", 0, "G1CP invalid string")))
+    if (Hlp_StrCmp(topic, G1CP_GetStringConst("GE_TeacherOW", "G1CP invalid string")))
     && (!G1CP_LogGetTopic(topic)) {
         Log_CreateTopic(topic, LOG_NOTE);
     };

@@ -3,7 +3,7 @@
  */
 func int G1CP_0168_GorNaBarBecomeTemplar() {
     if (G1CP_IsFunc("Tpl_1400_GorNaBar_VICTORY_Condition", "int|none"))
-    && (G1CP_IsIntConst("GIL_NOV", 0)) {
+    && (G1CP_IsIntConst("GIL_NOV")) {
         HookDaedalusFuncS("Tpl_1400_GorNaBar_VICTORY_Condition", "G1CP_0168_GorNaBarBecomeTemplar_Hook");
         return TRUE;
     } else {
@@ -23,7 +23,7 @@ func int G1CP_0168_GorNaBarBecomeTemplar_Hook() {
     // Update the symbols given they exist (once)
     const int updated = FALSE;
     if (!updated) {
-        GIL_NOV = G1CP_GetIntConst("GIL_NOV", 0, GIL_NOV);
+        GIL_NOV = G1CP_GetIntConst("GIL_NOV", GIL_NOV);
         updated = TRUE;
     };
 

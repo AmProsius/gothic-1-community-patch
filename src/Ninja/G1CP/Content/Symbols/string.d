@@ -67,6 +67,9 @@ func int G1CP_IsStringSymbI(var int symbId, var int arrIdx, var int isConst) {
     return (G1CP_CheckStringSymbol(MEM_GetSymbolByIndex(symbId), arrIdx, isConst) != 0);
 };
 func int G1CP_IsStringSymb(var string name, var int arrIdx, var int isConst) {
+    if (arrIdx <= 0) {
+        arrIdx = G1CP_DecomposeArraySymbolName(_@s(name));
+    };
     return (G1CP_CheckStringSymbol(MEM_GetSymbol(name), arrIdx, isConst) != 0);
 };
 
@@ -75,6 +78,9 @@ func int G1CP_IsStringSymb(var string name, var int arrIdx, var int isConst) {
  * Check if string symbol exists and return its symbol index.
  */
 func int G1CP_GetStringSymbId(var string name, var int arrIdx, var int isConst) {
+    if (arrIdx <= 0) {
+        arrIdx = G1CP_DecomposeArraySymbolName(_@s(name));
+    };
     if (G1CP_CheckStringSymbol(MEM_GetSymbol(name), arrIdx, isConst)) {
         return MEM_GetSymbolIndex(name);
     } else {
@@ -98,6 +104,9 @@ func string G1CP_GetStringSymbI(var int symbId, var int arrIdx, var int isConst,
     };
 };
 func string G1CP_GetStringSymb(var string name, var int arrIdx, var int isConst, var string dflt) {
+    if (arrIdx <= 0) {
+        arrIdx = G1CP_DecomposeArraySymbolName(_@s(name));
+    };
     var int ptr; ptr = G1CP_GetStringAddr(MEM_GetSymbol(name), arrIdx, isConst);
     if (ptr) {
         return MEM_ReadString(ptr);
@@ -120,6 +129,9 @@ func void G1CP_SetStringSymbI(var int symbId, var int arrIdx, var int isConst, v
     };
 };
 func void G1CP_SetStringSymb(var string name, var int arrIdx, var int isConst, var string value) {
+    if (arrIdx <= 0) {
+        arrIdx = G1CP_DecomposeArraySymbolName(_@s(name));
+    };
     var int ptr; ptr = G1CP_GetStringAddr(MEM_GetSymbol(name), arrIdx, isConst);
     if (ptr) {
         MEM_WriteString(ptr, value);
@@ -133,23 +145,23 @@ func void G1CP_SetStringSymb(var string name, var int arrIdx, var int isConst, v
 func int G1CP_IsStringI(var int symbId, var int arrIdx) {
     return G1CP_IsStringSymbI(symbId, arrIdx, 0);
 };
-func int G1CP_IsString(var string name, var int arrIdx) {
-    return G1CP_IsStringSymb(name, arrIdx, 0);
+func int G1CP_IsString(var string name) {
+    return G1CP_IsStringSymb(name, -1, 0);
 };
-func int G1CP_GetStringId(var string name, var int arrIdx) {
-    return G1CP_GetStringSymbId(name, arrIdx, 0);
+func int G1CP_GetStringId(var string name) {
+    return G1CP_GetStringSymbId(name, -1, 0);
 };
 func string G1CP_GetStringI(var int symbId, var int arrIdx, var string dflt) {
     return G1CP_GetStringSymbI(symbId, arrIdx, 0, dflt);
 };
-func string G1CP_GetString(var string name, var int arrIdx, var string dflt) {
-    return G1CP_GetStringSymb(name, arrIdx, 0, dflt);
+func string G1CP_GetString(var string name, var string dflt) {
+    return G1CP_GetStringSymb(name, -1, 0, dflt);
 };
 func void G1CP_SetStringI(var int symbId, var int arrIdx, var string value) {
     G1CP_SetStringSymbI(symbId, arrIdx, 0, value);
 };
-func void G1CP_SetString(var string name, var int arrIdx, var string value) {
-    G1CP_SetStringSymb(name, arrIdx, 0, value);
+func void G1CP_SetString(var string name, var string value) {
+    G1CP_SetStringSymb(name, -1, 0, value);
 };
 
 
@@ -159,23 +171,23 @@ func void G1CP_SetString(var string name, var int arrIdx, var string value) {
 func int G1CP_IsStringVarI(var int symbId, var int arrIdx) {
     return G1CP_IsStringSymbI(symbId, arrIdx, -1);
 };
-func int G1CP_IsStringVar(var string name, var int arrIdx) {
-    return G1CP_IsStringSymb(name, arrIdx, -1);
+func int G1CP_IsStringVar(var string name) {
+    return G1CP_IsStringSymb(name, -1, -1);
 };
-func int G1CP_GetStringVarId(var string name, var int arrIdx) {
-    return G1CP_GetStringSymbId(name, arrIdx, -1);
+func int G1CP_GetStringVarId(var string name) {
+    return G1CP_GetStringSymbId(name, -1, -1);
 };
 func string G1CP_GetStringVarI(var int symbId, var int arrIdx, var string dflt) {
     return G1CP_GetStringSymbI(symbId, arrIdx, -1, dflt);
 };
-func string G1CP_GetStringVar(var string name, var int arrIdx, var string dflt) {
-    return G1CP_GetStringSymb(name, arrIdx, -1, dflt);
+func string G1CP_GetStringVar(var string name, var string dflt) {
+    return G1CP_GetStringSymb(name, -1, -1, dflt);
 };
 func void G1CP_SetStringVarI(var int symbId, var int arrIdx, var string value) {
     G1CP_SetStringSymbI(symbId, arrIdx, -1, value);
 };
-func void G1CP_SetStringVar(var string name, var int arrIdx, var string value) {
-    G1CP_SetStringSymb(name, arrIdx, -1, value);
+func void G1CP_SetStringVar(var string name, var string value) {
+    G1CP_SetStringSymb(name, -1, -1, value);
 };
 
 
@@ -185,23 +197,23 @@ func void G1CP_SetStringVar(var string name, var int arrIdx, var string value) {
 func int G1CP_IsStringConstI(var int symbId, var int arrIdx) {
     return G1CP_IsStringSymbI(symbId, arrIdx, 1);
 };
-func int G1CP_IsStringConst(var string name, var int arrIdx) {
-    return G1CP_IsStringSymb(name, arrIdx, 1);
+func int G1CP_IsStringConst(var string name) {
+    return G1CP_IsStringSymb(name, -1, 1);
 };
-func int G1CP_GetStringConstId(var string name, var int arrIdx) {
-    return G1CP_GetStringSymbId(name, arrIdx, 1);
+func int G1CP_GetStringConstId(var string name) {
+    return G1CP_GetStringSymbId(name, -1, 1);
 };
 func string G1CP_GetStringConstI(var int symbId, var int arrIdx, var string dflt) {
     return G1CP_GetStringSymbI(symbId, arrIdx, 1, dflt);
 };
-func string G1CP_GetStringConst(var string name, var int arrIdx, var string dflt) {
-    return G1CP_GetStringSymb(name, arrIdx, 1, dflt);
+func string G1CP_GetStringConst(var string name, var string dflt) {
+    return G1CP_GetStringSymb(name, -1, 1, dflt);
 };
 func void G1CP_SetStringConstI(var int symbId, var int arrIdx, var string value) {
     G1CP_SetStringSymbI(symbId, arrIdx, 1, value);
 };
-func void G1CP_SetStringConst(var string name, var int arrIdx, var string value) {
-    G1CP_SetStringSymb(name, arrIdx, 1, value);
+func void G1CP_SetStringConst(var string name, var string value) {
+    G1CP_SetStringSymb(name, -1, 1, value);
 };
 
 
@@ -246,11 +258,11 @@ func int G1CP_FindStringConstArrIdx(var string name, var string needle) {
  * Find a constant string (case-sensitive) and replace it if found. Returns true on success.
  */
 func int G1CP_ReplaceStringConst(var string name, var string needle, var string replace) {
-    if (STR_Compare(G1CP_GetStringConst(name, 0, "G1CP invalid string"), needle) != STR_EQUAL) {
+    if (STR_Compare(G1CP_GetStringConst(name, "G1CP invalid string"), needle) != STR_EQUAL) {
         return FALSE;
     };
 
-    G1CP_SetStringConst(name, 0, replace);
+    G1CP_SetStringConst(name, replace);
     return TRUE;
 };
 
@@ -264,7 +276,8 @@ func int G1CP_ReplaceStringConstArrElem(var string name, var string needle, var 
         return FALSE;
     };
 
-    G1CP_SetStringConst(name, idx, replace);
+    G1CP_SetStringSymb(name, idx, 1, replace); // No shorthand function available
+
     return TRUE;
 };
 

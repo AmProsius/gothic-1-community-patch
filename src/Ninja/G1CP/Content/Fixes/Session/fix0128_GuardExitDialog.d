@@ -12,7 +12,7 @@
  */
 func int G1CP_0128_GuardExitDialog() {
     // Find all necessary symbols
-    if (!G1CP_IsStringConst("DIALOG_ENDE", 0)) {
+    if (!G1CP_IsStringConst("DIALOG_ENDE")) {
         return FALSE;
     };
     var int funcId; funcId = MEM_GetSymbolIndex("DIA_Grd_264_Exit_Condition");

@@ -9,8 +9,8 @@ func int G1CP_0039_FingersTeachDialog() {
     || (!G1CP_IsFunc("DIA_Fingers_Lehrer_Pickpocket", "void|none"))
     || (!G1CP_IsFunc("DIA_Fingers_Lehrer_Lockpick2", "void|none"))
     || (!G1CP_IsFunc("DIA_Fingers_Lehrer_Lockpick", "void|none"))
-    || (!G1CP_IsIntConst("NPC_TALENT_PICKPOCKET", 0))
-    || (!G1CP_IsIntConst("NPC_TALENT_PICKLOCK", 0)) {
+    || (!G1CP_IsIntConst("NPC_TALENT_PICKPOCKET"))
+    || (!G1CP_IsIntConst("NPC_TALENT_PICKLOCK")) {
         return FALSE;
     };
 
@@ -42,8 +42,8 @@ func void G1CP_0039_AllowAddChoice(var int dia, var string choice, var int fncId
         pp1Id = MEM_GetSymbolIndex("DIA_Fingers_Lehrer_Pickpocket");
         lp2Id = MEM_GetSymbolIndex("DIA_Fingers_Lehrer_Lockpick2");
         lp1Id = MEM_GetSymbolIndex("DIA_Fingers_Lehrer_Lockpick");
-        NPC_TALENT_PICKPOCKET = G1CP_GetIntConst("NPC_TALENT_PICKPOCKET", 0, 0);
-        NPC_TALENT_PICKLOCK = G1CP_GetIntConst("NPC_TALENT_PICKLOCK", 0, 0);
+        NPC_TALENT_PICKPOCKET = G1CP_GetIntConst("NPC_TALENT_PICKPOCKET", 0);
+        NPC_TALENT_PICKLOCK = G1CP_GetIntConst("NPC_TALENT_PICKLOCK", 0);
     };
 
     // Sanity check

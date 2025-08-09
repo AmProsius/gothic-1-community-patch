@@ -6,11 +6,11 @@
  * Expected behavior: The condition function will return FALSE.
  */
 func int G1CP_Test_0241() {
-    const int GIL_STT = 0; GIL_STT = G1CP_Testsuite_GetIntConst("GIL_STT", 0);
+    const int GIL_STT = 0; GIL_STT = G1CP_Testsuite_GetIntConst("GIL_STT");
     var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("GRD_200_Thorus_GARDIST_Condition");
-    var int logId; logId = G1CP_Testsuite_CheckIntVar("CorKalom_BringMCQBalls", 0);
+    var int logId; logId = G1CP_Testsuite_CheckIntVar("CorKalom_BringMCQBalls");
     var int infoId; infoId = G1CP_Testsuite_CheckInfo("GRD_200_Thorus_WANNABEMAGE");
-    var int kdfId; kdfId = G1CP_Testsuite_CheckIntVar("Corristo_KDFAufnahme", 0);
+    var int kdfId; kdfId = G1CP_Testsuite_CheckIntVar("Corristo_KDFAufnahme");
     G1CP_Testsuite_CheckPassed();
 
     // Define possibly missing symbols locally

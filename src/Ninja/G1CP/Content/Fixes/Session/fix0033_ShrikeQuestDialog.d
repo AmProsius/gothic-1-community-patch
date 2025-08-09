@@ -3,7 +3,7 @@
  */
 func int G1CP_0033_ShrikeQuestDialog() {
     if (G1CP_IsFunc("DIA_Shrike_GetLost_Condition", "int|none"))
-    && ((G1CP_IsInfoInst("DIA_Gorn_Hut")) || (G1CP_IsIntVar("Gorn_ShrikesHut", 0))) { // Either one must exist
+    && ((G1CP_IsInfoInst("DIA_Gorn_Hut")) || (G1CP_IsIntVar("Gorn_ShrikesHut"))) { // Either one must exist
         HookDaedalusFuncS("DIA_Shrike_GetLost_Condition", "G1CP_0033_ShrikeQuestDialog_Hook");
         return TRUE;
     } else {
@@ -33,7 +33,7 @@ func int G1CP_0033_ShrikeQuestDialog_Hook() {
     };
 
     // Check if quest is running (If that variable does not even exist take no chances)
-    cond2 = (G1CP_GetIntVar("Gorn_ShrikesHut", 0, LOG_RUNNING) == LOG_RUNNING);
+    cond2 = (G1CP_GetIntVar("Gorn_ShrikesHut", LOG_RUNNING) == LOG_RUNNING);
 
     // Return false if neither of the conditions is true
     if ((!cond1) && (!cond2)) {

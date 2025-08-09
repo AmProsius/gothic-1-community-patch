@@ -9,10 +9,10 @@
 func int G1CP_Test_0133() {
     G1CP_Testsuite_CheckLang(G1CP_Lang_DE);
     const string TEMP_TOPIC_NAME = "G1CP Test 133"; // Has to be a unique name with absolute certainty
-    const string CH1_JoinOC = ""; CH1_JoinOC = G1CP_Testsuite_GetStringConst("CH1_JoinOC", 0);
+    const string CH1_JoinOC = ""; CH1_JoinOC = G1CP_Testsuite_GetStringConst("CH1_JoinOC");
     var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc("DIA_Scatty_KirgoSuccess_Info");
     var C_Npc npc; npc = G1CP_Testsuite_FindNpc("GRD_251_KIRGO");
-    var int aiVarId; aiVarId = G1CP_Testsuite_CheckIntConst("AIV_HASDEFEATEDSC", 0);
+    var int aiVarId; aiVarId = G1CP_Testsuite_CheckIntConst("AIV_HASDEFEATEDSC");
     G1CP_Testsuite_CheckPassed();
 
     // Define variables for specific test

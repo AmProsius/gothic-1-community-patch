@@ -30,9 +30,9 @@ func int G1CP_0055_ReactivateInExtremo_InitSession() {
     };
 
     // Get/check variables
-    var int varPlyingId; varPlyingId = G1CP_GetIntVarId("InExtremoPlaying", 0);
-    var int varChaptrId; varChaptrId = G1CP_GetIntVarId("Kapitel",          0);
-    var int varOnStgeId; varOnStgeId = G1CP_GetIntVarId("InExtremoOnStage", 0); // Not required
+    var int varPlyingId; varPlyingId = G1CP_GetIntVarId("InExtremoPlaying");
+    var int varChaptrId; varChaptrId = G1CP_GetIntVarId("Kapitel");
+    var int varOnStgeId; varOnStgeId = G1CP_GetIntVarId("InExtremoOnStage"); // Not required
     if (varPlyingId == -1) || (varChaptrId == -1) {
         MEM_Info("Necessary variables not found");
         return FALSE;
@@ -350,12 +350,12 @@ func int G1CP_0055_ReactivateInExtremo_InitSession() {
 func void G1CP_0055_ReactivateInExtremo_PlayTrue(var string vobName) {
     G1CP_ReportFuncToSpy();
     Wld_SendTrigger(vobName);
-    G1CP_SetIntVar("InExtremoPlaying", 0, TRUE);
+    G1CP_SetIntVar("InExtremoPlaying", TRUE);
 };
 func void G1CP_0055_ReactivateInExtremo_PlayFalse(var string vobName) {
     G1CP_ReportFuncToSpy();
     Wld_SendUnTrigger(vobName);
-    G1CP_SetIntVar("InExtremoPlaying", 0, FALSE);
+    G1CP_SetIntVar("InExtremoPlaying", FALSE);
 };
 
 
@@ -374,7 +374,7 @@ func int G1CP_0055_ReactivateInExtremo_InitWorld() {
     if (MEM_ReadInt(soundNameAddr) != zString__vtbl) {
         MEM_Info("Sound VOB 'INEXTREMO_MUSIK' corrupt");
         return FALSE;
-    }
+    };
     if (!Hlp_StrCmp(MEM_ReadString(soundNameAddr), "CS_INEXTREMO")) {
         MEM_Info("Sound VOB 'INEXTREMO_MUSIK' has incorrect sound file");
         return FALSE;
@@ -451,8 +451,8 @@ func int G1CP_0055_ReactivateInExtremo() {
         fncGrimRtId = G1CP_GetFuncId("Rtn_Start_580", "void|none");
         infoGrimsId = G1CP_GetInfoInstId("DIA_Grim_INEXTREMO");
         infoStartId = G1CP_GetInfoInstId("IE_397_Announcer_ANNOUNCE");
-        varChaptrId = G1CP_GetIntVarId("Kapitel", 0);
-        varPlyingId = G1CP_GetIntVarId("InExtremoPlaying", 0);
+        varChaptrId = G1CP_GetIntVarId("Kapitel");
+        varPlyingId = G1CP_GetIntVarId("InExtremoPlaying");
         npc[0]      = G1CP_GetNpcInstId("InExtremo_DrPymonte");
         npc[1]      = G1CP_GetNpcInstId("InExtremo_TheFlail");
         npc[2]      = G1CP_GetNpcInstId("InExtremo_ThomasTheForger");
@@ -564,8 +564,8 @@ func int G1CP_0055_ReactivateInExtremoRevert() {
     if (fncStopMsId == -2) {
         fncStopMsId = G1CP_GetFuncId("B_InExtremoStopMusic", "void|none");
         fncGrimRtId = G1CP_GetFuncId("Rtn_InExtremo_580", "void|none");
-        varChaptrId = G1CP_GetIntVarId("Kapitel", 0);
-        varPlyingId = G1CP_GetIntVarId("InExtremoPlaying", 0);
+        varChaptrId = G1CP_GetIntVarId("Kapitel");
+        varPlyingId = G1CP_GetIntVarId("InExtremoPlaying");
         npc[0]      = G1CP_GetNpcInstId("InExtremo_DrPymonte");
         npc[1]      = G1CP_GetNpcInstId("InExtremo_TheFlail");
         npc[2]      = G1CP_GetNpcInstId("InExtremo_ThomasTheForger");
@@ -683,13 +683,13 @@ func int G1CP_0055_ReactivateInExtremoRevert() {
 func void G1CP_0055_ReactivateInExtremoHook(var int chapterNum) {
     G1CP_ReportFuncToSpy();
 
-    var int chapterBefore; chapterBefore = G1CP_GetIntVar("Kapitel", 0, 0);
+    var int chapterBefore; chapterBefore = G1CP_GetIntVar("Kapitel", 0);
 
     // First call the original function
     PassArgumentI(chapterNum);
     ContinueCall();
 
-    var int chapterNow; chapterNow = G1CP_GetIntVar("Kapitel", 0, 0);
+    var int chapterNow; chapterNow = G1CP_GetIntVar("Kapitel", 0);
 
     // Sanity check
     if (chapterNow == chapterBefore) || (chapterNow != chapterNum) {
@@ -717,7 +717,7 @@ func void G1CP_0055_ReactivateInExtremo_StartMusicDialog() {
     ContinueCall();
 
     // Check if concert was started
-    if (!G1CP_GetIntVar("InExtremoPlaying", 0, FALSE)) {
+    if (!G1CP_GetIntVar("InExtremoPlaying", FALSE)) {
         MEM_CallByString("B_InExtremoStartMusic");
     };
 };

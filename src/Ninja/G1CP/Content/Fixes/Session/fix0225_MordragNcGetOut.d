@@ -4,7 +4,7 @@
 func int G1CP_0225_MordragNcGetOut() {
     if (!G1CP_IsFunc("Org_826_Mordrag_HauAb_Condition", "int|none"))
     || (!G1CP_IsInfoInst("Org_826_Mordrag_GotoNewcamp"))
-    || (!G1CP_IsIntVar("Thorus_MordragKo", 0)) {
+    || (!G1CP_IsIntVar("Thorus_MordragKo")) {
         return FALSE;
     };
 
@@ -29,7 +29,7 @@ func int G1CP_0225_MordragNcGetOut_Hook() {
     cond1 = Npc_KnowsInfo(hero, MEM_GetSymbolIndex("Org_826_Mordrag_GotoNewcamp"));
 
     // Check if quest is running (If that variable does not even exist take no chances)
-    cond2 = (G1CP_GetIntVar("Thorus_MordragKo", 0, LOG_RUNNING) != LOG_RUNNING);
+    cond2 = (G1CP_GetIntVar("Thorus_MordragKo", LOG_RUNNING) != LOG_RUNNING);
 
     // Return false if either of the conditions is true
     if (cond1) || (cond2) {

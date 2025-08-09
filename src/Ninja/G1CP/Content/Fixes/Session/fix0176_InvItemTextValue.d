@@ -5,10 +5,10 @@ func int G1CP_0176_InvItemTextValue() {
     const int oCItemContainer__DrawItemInfo_showText = 6714592; //0x6674E0
 
     if (G1CP_CheckBytes(oCItemContainer__DrawItemInfo_showText, "8D 44 24 34 50") == 1) // Must not be hooked
-    && (G1CP_IsStringConst("NAME_Value", 0)) {
+    && (G1CP_IsStringConst("NAME_Value")) {
 
         // Write new instructions to skip display if count is zero and text corresponds to "NAME_Value"
-        const string str = ""; str = G1CP_GetStringConst("NAME_Value", 0, str);
+        const string str = ""; str = G1CP_GetStringConst("NAME_Value", str);
         const int ds_lstrcmpiA = 8192708; //0x7D02C4
         const int backAddr = oCItemContainer__DrawItemInfo_showText + 5;
         const int addr = 0;

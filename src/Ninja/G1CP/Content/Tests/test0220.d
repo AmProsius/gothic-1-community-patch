@@ -6,7 +6,7 @@
  * Expected behavior: Gor Na Ran no longer talks to and attacks the player.
  */
 func int G1CP_Test_0220() {
-    var int chptId; chptId = G1CP_Testsuite_CheckIntVar("Kapitel", 0);
+    var int chptId; chptId = G1CP_Testsuite_CheckIntVar("Kapitel");
     var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("Info_TPL_1405_GorNaRan_Condition");
     G1CP_Testsuite_CheckPassed();
 

@@ -8,7 +8,7 @@
 func int G1CP_Test_0029() {
     var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("DIA_ORG_833_Buster3_Condition");
     var int infoId; infoId = G1CP_Testsuite_CheckInfo("DIA_ORG_833_Buster");
-    const int NPC_TALENT_ACROBAT = 0; NPC_TALENT_ACROBAT = G1CP_Testsuite_GetIntConst("NPC_TALENT_ACROBAT", 0);
+    const int NPC_TALENT_ACROBAT = 0; NPC_TALENT_ACROBAT = G1CP_Testsuite_GetIntConst("NPC_TALENT_ACROBAT");
     G1CP_Testsuite_CheckPassed();
 
     // Backup values

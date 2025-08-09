@@ -3,7 +3,7 @@
  */
 func int G1CP_0026_LaresGuardAttacks() {
     if (G1CP_IsFunc("Info_Org_804_FirstWarn_Condition", "int|none"))
-    && (G1CP_IsIntConst("AIV_GUARDPASSAGE_STATUS", 0)) {
+    && (G1CP_IsIntConst("AIV_GUARDPASSAGE_STATUS")) {
         HookDaedalusFuncS("Info_Org_804_FirstWarn_Condition", "G1CP_0026_LaresGuardAttacks_Hook");
         return TRUE;
     } else {

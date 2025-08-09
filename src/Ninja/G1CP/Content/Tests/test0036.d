@@ -6,10 +6,10 @@
  * Expected behavior: The condition function will return TRUE.
  */
 func int G1CP_Test_0036() {
-    const int GIL_NONE = 0; GIL_NONE = G1CP_Testsuite_GetIntConst("GIL_NONE", 0);
+    const int GIL_NONE = 0; GIL_NONE = G1CP_Testsuite_GetIntConst("GIL_NONE");
     var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("Stt_311_Fisk_MordragKO_Condition");
     var C_Npc npc; npc = G1CP_Testsuite_FindNpc("Org_826_Mordrag");
-    var int varId; varId = G1CP_Testsuite_CheckIntVar("MordragKO_HauAb", 0);
+    var int varId; varId = G1CP_Testsuite_CheckIntVar("MordragKO_HauAb");
     G1CP_Testsuite_CheckPassed();
 
     // Define possibly missing symbols locally

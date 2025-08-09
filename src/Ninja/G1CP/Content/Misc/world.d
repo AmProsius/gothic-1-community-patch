@@ -11,7 +11,7 @@ func int G1CP_IsItemInstantiated(var string name) {
     };
 
     // Get instance ID
-    var int id; id = MEM_GetSymbolIndex(name);
+    var int id; id = G1CP_GetItemInstId(name);
 
     // Check if in inventory or container
     var int found; found = FALSE;

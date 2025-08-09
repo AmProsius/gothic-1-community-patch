@@ -14,8 +14,8 @@ func int G1CP_0027_DraxTeachingDialog() {
 
     // Get necessary symbol indices
     var int funcId; funcId = G1CP_GetFuncId("Org_819_Drax_Scavenger_Info", "void|none");
-    var int condId; condId = G1CP_GetIntVarId("drax_bierbekommen", 0);
-    var int varSymbId; varSymbId = G1CP_GetIntVarId("drax_Lehrer_frei", 0);
+    var int condId; condId = G1CP_GetIntVarId("drax_bierbekommen");
+    var int varSymbId; varSymbId = G1CP_GetIntVarId("drax_Lehrer_frei");
     if (funcId == -1) || (varSymbId == -1) || (condId == -1) {
         return FALSE;
     };
@@ -66,10 +66,10 @@ func int G1CP_0027_SetVar() {
     G1CP_ReportFuncToSpy();
 
     // Check if the truth value of the variable "drax_bierbekommen"
-    if (G1CP_GetIntVar("drax_bierbekommen", 0, FALSE)) {
+    if (G1CP_GetIntVar("drax_bierbekommen", FALSE)) {
         return TRUE; // Teaching unlocked
     } else {
-        return G1CP_GetIntVar("drax_Lehrer_frei", 0, FALSE); // Variable as before
+        return G1CP_GetIntVar("drax_Lehrer_frei", FALSE); // Variable as before
     };
 };
 
@@ -85,8 +85,8 @@ func void G1CP_0027_CreateTopic(var string topic, var int section) {
 
     // Check if both "drax_bierbekommen" and "drax_Lehrer_frei" are true
     if (section == LOG_NOTE) {
-        if (!G1CP_GetIntVar("drax_bierbekommen", 0, FALSE))
-        || (!G1CP_GetIntVar("drax_Lehrer_frei", 0, FALSE)) {
+        if (!G1CP_GetIntVar("drax_bierbekommen", FALSE))
+        || (!G1CP_GetIntVar("drax_Lehrer_frei", FALSE)) {
             return;
         };
     };

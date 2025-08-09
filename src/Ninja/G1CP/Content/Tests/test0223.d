@@ -56,10 +56,10 @@ func int G1CP_Test_0223_CallFunc(var int funcId, var string topic, var string it
 func int G1CP_Test_0223() {
     const string TMP_TOPIC_NAME = "G1CP Log topic 223"; // Must be unique with all certainty
     var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc("Info_CorKalom_BringMCQBalls_Success_Info");
-    G1CP_Testsuite_CheckStringConst("CH1_GoToPsi", 0);
-    const string CH1_GotoPsiCamp = ""; CH1_GotoPsiCamp = G1CP_Testsuite_GetStringConst("CH1_GotoPsiCamp", 0);
-    var int ncQuestId; ncQuestId = G1CP_Testsuite_CheckIntVar("Mordrag_GotoKalom", 0);
-    var int ocQuestId; ocQuestId = G1CP_Testsuite_CheckIntVar("Raven_SpySect", 0);
+    G1CP_Testsuite_CheckStringConst("CH1_GoToPsi");
+    const string CH1_GotoPsiCamp = ""; CH1_GotoPsiCamp = G1CP_Testsuite_GetStringConst("CH1_GotoPsiCamp");
+    var int ncQuestId; ncQuestId = G1CP_Testsuite_CheckIntVar("Mordrag_GotoKalom");
+    var int ocQuestId; ocQuestId = G1CP_Testsuite_CheckIntVar("Raven_SpySect");
     G1CP_Testsuite_FindNpc("Org_826_Mordrag");
     G1CP_Testsuite_CheckPassed();
 

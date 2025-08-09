@@ -11,7 +11,7 @@ func int G1CP_0133_DE_LogEntryScatty() {
     const int count   = -1;
     if (topicId == -2) {
         // Find and retrieve the topic
-        topicId = G1CP_GetStringConstId("CH1_JoinOC", 0);
+        topicId = G1CP_GetStringConstId("CH1_JoinOC");
         topicName = G1CP_GetStringConstI(topicId, 0, "");
 
         // Replace the push of the old string with the new string (this is never reverted, i.e. session fix)
@@ -47,7 +47,7 @@ func int G1CP_0133_DE_LogEntryScattyRevert() {
     // Retrieve the topic name only once per session for performance on consecutive calls
     const int once = 0;
     if (!once) {
-        topicName = G1CP_GetStringConst("CH1_JoinOC", 0, "");
+        topicName = G1CP_GetStringConst("CH1_JoinOC", "");
         once = 1;
     };
 

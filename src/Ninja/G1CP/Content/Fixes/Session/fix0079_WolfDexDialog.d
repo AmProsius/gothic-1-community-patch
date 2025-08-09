@@ -6,7 +6,7 @@ func int G1CP_0079_WolfDexDialog() {
 
     // Find all necessary symbols
     var int funcId; funcId = G1CP_GetFuncId("ORG_855_Wolf_Teach_Condition", "int|none");
-    var int cond1Id; cond1Id = G1CP_GetIntConstId("GIL_GRD", 0);
+    var int cond1Id; cond1Id = G1CP_GetIntConstId("GIL_GRD");
     var int cond2Start; cond2Start = G1CP_GetFuncStart(G1CP_GetFuncId("C_NpcBelongsToNewCamp", "int|inst"));
     if (funcId == -1) || (cond1Id == -1) || (!cond2Start) {
         return FALSE;

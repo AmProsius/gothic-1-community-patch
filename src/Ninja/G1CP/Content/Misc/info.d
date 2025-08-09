@@ -77,29 +77,26 @@ func int G1CP_HasInfoWithDesc(var C_Npc slf, var string infoDesc) {
 };
 
 /*
- * Change the description of an info
+ * Change the description of a info instance. Returns true on success.
  */
 func int G1CP_InfoChangeDesc(var string infoName, var string originalStr, var string correctedStr) {
     var int infoId; infoId = G1CP_GetInfoInstId(infoName);
-
-    return (G1CP_ReplaceAssignStr(infoId, 0, "C_Info.description", 0, originalStr, correctedStr) > 0);
+    return (G1CP_ReplaceAssignStr(infoId, 0, "C_Info.description", originalStr, correctedStr) > 0);
 };
 
 /*
- * Change the value of an info's integer variable
+ * Change the value of an info instance integer variable. Returns true on success.
  */
-func int G1CP_ChangeInfoIntVar(var string infoName, var string infoProp, var int originalInt, var int correctedInt) {
+func int G1CP_InfoChangeIntVar(var string infoName, var string infoProp, var int originalInt, var int correctedInt) {
     var int infoId; infoId = G1CP_GetInfoInstId(infoName);
-
-    return (G1CP_ReplaceAssignInt(infoId, 0, ConcatStrings("C_Info.", infoProp), 0, originalInt, correctedInt) > 0);
+    return (G1CP_ReplaceAssignInt(infoId, 0, ConcatStrings("C_Info.", infoProp), originalInt, correctedInt) > 0);
 };
 
 /*
- * Change the text of an info's choice
+ * Change the text of an info's choice. Returns true on success.
+ * TODO Refactor names in code and the comment to differentiate between an info/instance/choice... What is a choice here
  */
-func int G1CP_InfoChangeChoiceText(var string infoName, var string originalStr, var string correctedStr) {
+func int G1CP_InfoChangeChoiceText(var string infoName, var string originalStr, var string correctStr) {
     var int funcId; funcId = G1CP_GetFuncId(infoName, "void|none");
-
-    // TODO: Reverse engineer symbol ID of `correctedWpName` and call `G1CP_ReplacePushStrId`
-    return (G1CP_ReplacePushStr(funcId, 0, originalStr, correctedStr) > 0);
+    return (G1CP_ReplacePushStr(funcId, 0, originalStr, correctStr) > 0);
 };
