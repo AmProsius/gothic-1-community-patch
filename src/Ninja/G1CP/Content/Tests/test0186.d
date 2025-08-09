@@ -7,9 +7,9 @@
  */
 func int G1CP_Test_0186() {
     var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("KDF_402_Corristo_WANNBEKDF_Condition");
-    var int joinId; joinId = G1CP_Testsuite_CheckIntVar("Corristo_KDFAufnahme", 0);
+    var int joinId; joinId = G1CP_Testsuite_CheckIntVar("Corristo_KDFAufnahme");
     var int wannaId; wannaId = G1CP_Testsuite_CheckInfo("GRD_200_Thorus_WANNABEMAGE");
-    const int GIL_STT = 0; GIL_STT = G1CP_Testsuite_GetIntConst("GIL_STT", 0);
+    const int GIL_STT = 0; GIL_STT = G1CP_Testsuite_GetIntConst("GIL_STT");
     G1CP_Testsuite_CheckPassed();
 
     // Backup values

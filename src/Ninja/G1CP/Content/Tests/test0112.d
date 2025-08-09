@@ -8,7 +8,7 @@
  */
 func int G1CP_Test_0112() {
     var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc("Info_Jackal_Schutz_Info");
-    var int paidId; paidId = G1CP_Testsuite_CheckIntVar("Jackal_ProtectionPaid", 0);
+    var int paidId; paidId = G1CP_Testsuite_CheckIntVar("Jackal_ProtectionPaid");
     var int oreId; oreId = G1CP_Testsuite_CheckItem("ItMiNugget");
     G1CP_Testsuite_CheckPassed();
 

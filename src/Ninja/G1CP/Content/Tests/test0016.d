@@ -10,7 +10,7 @@ func int G1CP_Test_0016_RunDialog(var string dialogConditionName, var string inf
     var C_Npc npc; npc = G1CP_Testsuite_FindNpc("Grd_212_Torwache");
     var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc(dialogConditionName);
     var int infoId; infoId = G1CP_Testsuite_CheckInfo(infoName);
-    var int aiVarId; aiVarId = G1CP_Testsuite_CheckIntConst("AIV_PASSGATE", 0);
+    var int aiVarId; aiVarId = G1CP_Testsuite_CheckIntConst("AIV_PASSGATE");
     G1CP_Testsuite_CheckPassed();
 
     // Backup values

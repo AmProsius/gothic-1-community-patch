@@ -10,8 +10,8 @@ func int G1CP_Test_0024() {
     var C_Npc npc; npc = G1CP_Testsuite_FindNpc("GUR_1201_CorKalom");
     var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc("Info_Kalom_KrautboteBACK_Info");
     var int itemId; itemId = G1CP_Testsuite_CheckItem("ItMiNugget");
-    var int drugId; drugId = G1CP_Testsuite_CheckIntVar("Kalom_DrugMonopol", 0);
-    var int krautId; krautId = G1CP_Testsuite_CheckIntVar("Kalom_Krautbote", 0);
+    var int drugId; drugId = G1CP_Testsuite_CheckIntVar("Kalom_DrugMonopol");
+    var int krautId; krautId = G1CP_Testsuite_CheckIntVar("Kalom_Krautbote");
     G1CP_Testsuite_CheckPassed();
 
     // Define possibly missing symbols locally

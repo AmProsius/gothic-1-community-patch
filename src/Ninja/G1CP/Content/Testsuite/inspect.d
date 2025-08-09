@@ -4,20 +4,19 @@
 func int G1CP_Testsuite_InspectItemString(var C_Item itm, var string classVar, var string expected) {
     var string itmVar;
 
+    var string baseName; baseName = classVar; // Copy will be modified
+    var int arrIdx; arrIdx = G1CP_DecomposeArraySymbolName(_@s(baseName));
+
     if (Hlp_StrCmp(classVar, "name")) {
         itmVar = itm.name;
     } else if (Hlp_StrCmp(classVar, "description")) {
         itmVar = itm.description;
-    } else if (Hlp_StrCmp(classVar, "text[0]")) {
-        itmVar = itm.text;
-    } else if (Hlp_StrCmp(classVar, "text[1]")) {
-        itmVar = MEM_ReadStatStringArr(itm.text, 1);
-    } else if (Hlp_StrCmp(classVar, "text[2]")) {
-        itmVar = MEM_ReadStatStringArr(itm.text, 2);
-    } else if (Hlp_StrCmp(classVar, "text[3]")) {
-        itmVar = MEM_ReadStatStringArr(itm.text, 3);
-    } else if (Hlp_StrCmp(classVar, "text[4]")) {
-        itmVar = MEM_ReadStatStringArr(itm.text, 4);
+    } else if (Hlp_StrCmp(baseName, "text")) {
+        if (arrIdx <= 0) {
+            itmVar = itm.text;
+        } else {
+            itmVar = MEM_ReadStatStringArr(itm.text, arrIdx);
+        };
     } else {
         G1CP_TestsuiteErrorDetailSSS("Property '", classVar, "' not recognized");
         return FALSE;
@@ -27,7 +26,7 @@ func int G1CP_Testsuite_InspectItemString(var C_Item itm, var string classVar, v
         G1CP_TestsuiteErrorDetailSSSSS("Property incorrect: ", classVar, " = '", itmVar, "'");
         return FALSE;
     };
-    
+
     return TRUE;
 };
 
@@ -49,7 +48,7 @@ func int G1CP_Testsuite_InspectNpcString(var C_Npc npc, var string classVar, var
         G1CP_TestsuiteErrorDetailSSSSS("Property incorrect: ", classVar, " = '", npcVar, "'");
         return FALSE;
     };
-    
+
     return TRUE;
 };
 

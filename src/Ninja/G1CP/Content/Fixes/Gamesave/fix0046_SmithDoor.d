@@ -28,7 +28,7 @@ func int G1CP_0046_SmithDoor() {
         keyIdOld = G1CP_GetItemInstId("ITKEY_OB_SMITH_01");
         keyIdNew = G1CP_GetItemInstId("ITKE_OB_SMITH_01");
         funcId = G1CP_GetFuncId("B_Story_ExploreSunkenTower", "void|none");
-        varId = G1CP_GetIntVarId("ExploreSunkenTower", 0);
+        varId = G1CP_GetIntVarId("ExploreSunkenTower");
         varPtr = MEM_GetSymbol("ExploreSunkenTower") + zCParSymbol_content_offset;
     };
 

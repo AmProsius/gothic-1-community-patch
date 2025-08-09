@@ -11,7 +11,7 @@ func void G1CP_Test_0094() {
     G1CP_Testsuite_CheckLang(G1CP_Lang_DE);
     G1CP_Testsuite_CheckInfo("DIA_Horatio_ThoughtSTR");
     var int funcId; funcId = G1CP_Testsuite_CheckInfo("DIA_Horatio_PleaseTeachSTR");
-    var int varId; varId = G1CP_Testsuite_CheckIntVar("horatio_StrFree", 0);
+    var int varId; varId = G1CP_Testsuite_CheckIntVar("horatio_StrFree");
     var C_Npc npc; npc = G1CP_Testsuite_FindNpc("Bau_901_Horatio");
     G1CP_Testsuite_CheckPassed();
 

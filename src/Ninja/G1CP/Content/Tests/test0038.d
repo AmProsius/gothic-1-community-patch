@@ -7,7 +7,7 @@
  */
 func int G1CP_Test_0038() {
     var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("DIA_Snaf_WhereNek_Condition");
-    var int varId; varId = G1CP_Testsuite_CheckIntVar("Snaf_Zutaten", 0);
+    var int varId; varId = G1CP_Testsuite_CheckIntVar("Snaf_Zutaten");
     G1CP_Testsuite_CheckPassed();
 
     // Define possibly missing symbols locally

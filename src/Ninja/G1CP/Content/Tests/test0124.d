@@ -8,7 +8,7 @@
  */
 func void G1CP_Test_0124() {
     G1CP_Testsuite_CheckManual();
-    const int GIL_GRD = 0; GIL_GRD = G1CP_Testsuite_GetIntConst("GIL_GRD", 0);
+    const int GIL_GRD = 0; GIL_GRD = G1CP_Testsuite_GetIntConst("GIL_GRD");
     const int CHAPTER_NUM = 4;
     var zCWaypoint wp; wp = G1CP_Testsuite_FindWaypoint("OCR_THORUS");
     var int fncChptrId; fncChptrId = G1CP_Testsuite_CheckFunc("B_Kapitelwechsel", "void|int", "");

@@ -75,61 +75,49 @@ func void G1CP_Testsuite_CheckPassed() {
 /*
  * Check if integer variable exists
  */
-func int G1CP_Testsuite_CheckIntVar(var string name, var int arrIdx) {
-    if (!G1CP_IsIntVar(name, arrIdx)) {
-        if (arrIdx > 0) {
-            name = ConcatStrings(ConcatStrings(ConcatStrings(name, "["), IntToString(arrIdx)), "]");
-        };
+func int G1CP_Testsuite_CheckIntVar(var string name) {
+    if (!G1CP_IsIntVar(name)) {
         G1CP_TestsuiteErrorDetailSSS("Integer variable '", name, "' not found");
         G1CP_TestsuiteStatusPassed = FALSE;
         return -1;
     };
-    return MEM_GetSymbolIndex(name);
+    return G1CP_GetIntVarId(name); // Needed to handle array name decomposition "name[x]"
 };
 
 /*
  * Check if integer constant exists
  */
-func int G1CP_Testsuite_CheckIntConst(var string name, var int arrIdx) {
-    if (!G1CP_IsIntConst(name, arrIdx)) {
-        if (arrIdx > 0) {
-            name = ConcatStrings(ConcatStrings(ConcatStrings(name, "["), IntToString(arrIdx)), "]");
-        };
+func int G1CP_Testsuite_CheckIntConst(var string name) {
+    if (!G1CP_IsIntConst(name)) {
         G1CP_TestsuiteErrorDetailSSS("Integer constant '", name, "' not found");
         G1CP_TestsuiteStatusPassed = FALSE;
         return -1;
     };
-    return MEM_GetSymbolIndex(name);
+    return G1CP_GetIntConstId(name);
 };
 
 /*
  * Check if string variable exists
  */
-func int G1CP_Testsuite_CheckStringVar(var string name, var int arrIdx) {
-    if (!G1CP_IsStringVar(name, arrIdx)) {
-        if (arrIdx > 0) {
-            name = ConcatStrings(ConcatStrings(ConcatStrings(name, "["), IntToString(arrIdx)), "]");
-        };
+func int G1CP_Testsuite_CheckStringVar(var string name) {
+    if (!G1CP_IsStringVar(name)) {
         G1CP_TestsuiteErrorDetailSSS("String variable '", name, "' not found");
         G1CP_TestsuiteStatusPassed = FALSE;
         return -1;
     };
-    return MEM_GetSymbolIndex(name);
+    return G1CP_GetStringVarId(name);
 };
 
 /*
  * Check if string constant exists
  */
-func int G1CP_Testsuite_CheckStringConst(var string name, var int arrIdx) {
-    if (!G1CP_IsStringConst(name, arrIdx)) {
-        if (arrIdx > 0) {
-            name = ConcatStrings(ConcatStrings(ConcatStrings(name, "["), IntToString(arrIdx)), "]");
-        };
+func int G1CP_Testsuite_CheckStringConst(var string name) {
+    if (!G1CP_IsStringConst(name)) {
         G1CP_TestsuiteErrorDetailSSS("String constant '", name, "' not found");
         G1CP_TestsuiteStatusPassed = FALSE;
         return -1;
     };
-    return MEM_GetSymbolIndex(name);
+    return G1CP_GetStringConstId(name);
 };
 
 /*

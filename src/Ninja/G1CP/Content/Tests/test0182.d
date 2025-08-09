@@ -7,12 +7,12 @@
  */
 func int G1CP_Test_0182() {
     const string TEMP_TOPIC_NAME = "G1CP invalid topic 182";
-    const string CH1_RecruitDusty = ""; CH1_RecruitDusty = G1CP_Testsuite_GetStringConst("CH1_RecruitDusty", 0);
+    const string CH1_RecruitDusty = ""; CH1_RecruitDusty = G1CP_Testsuite_GetStringConst("CH1_RecruitDusty");
     var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc("DIA_Grd_216_DustyZoll_LittleWalk");
     var int condId; condId = G1CP_Testsuite_CheckDialogConditionFunc("DIA_Grd_216_DustyZoll_Condition");
     var int oreId; oreId = G1CP_Testsuite_CheckItem("ItMiNugget");
     var C_Npc npc; npc = G1CP_Testsuite_FindNpc("Vlk_524_Dusty");
-    var int aiVarId; aiVarId = G1CP_Testsuite_CheckIntConst("AIV_PARTYMEMBER", 0);
+    var int aiVarId; aiVarId = G1CP_Testsuite_CheckIntConst("AIV_PARTYMEMBER");
     G1CP_Testsuite_CheckPassed();
 
     // Define possibly missing symbols locally

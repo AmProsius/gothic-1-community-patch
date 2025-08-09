@@ -3,7 +3,7 @@
  */
 func int G1CP_0241_GuardAfterTrial() {
     if (G1CP_IsFunc("GRD_200_Thorus_GARDIST_Condition", "int|none"))
-    && (G1CP_IsIntVar("Corristo_KDFAufnahme", 0)) {
+    && (G1CP_IsIntVar("Corristo_KDFAufnahme")) {
         HookDaedalusFuncS("GRD_200_Thorus_GARDIST_Condition", "G1CP_0241_GuardAfterTrial_Hook");
         return TRUE;
     } else {
@@ -18,7 +18,7 @@ func int G1CP_0241_GuardAfterTrial_Hook() {
     G1CP_ReportFuncToSpy();
 
     // Add the new condition (other conditions remain untouched)
-    if (G1CP_GetIntVar("Corristo_KDFAufnahme", 0, 0) >= 4) {
+    if (G1CP_GetIntVar("Corristo_KDFAufnahme", 0) >= 4) {
         return FALSE;
     };
 

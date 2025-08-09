@@ -7,7 +7,7 @@
   */
 func void G1CP_Test_0032() {
     G1CP_Testsuite_CheckManual();
-    var int chptrId; chptrId = G1CP_Testsuite_CheckIntVar("Kapitel", 0);
+    var int chptrId; chptrId = G1CP_Testsuite_CheckIntVar("Kapitel");
     var int weapId; weapId = G1CP_Testsuite_CheckItem("ItMw_1H_Sword_Old_01");
     G1CP_Testsuite_CheckPassed();
 

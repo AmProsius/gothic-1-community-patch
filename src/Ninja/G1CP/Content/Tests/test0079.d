@@ -6,8 +6,8 @@
  * Expected behavior: The condition function will return FALSE for the first and TRUE for the second pass.
  */
 func int G1CP_Test_0079() {
-    const int GIL_GRD = 0; GIL_GRD = G1CP_Testsuite_GetIntConst("GIL_GRD", 0);
-    const int GIL_ORG = 0; GIL_ORG = G1CP_Testsuite_GetIntConst("GIL_ORG", 0);
+    const int GIL_GRD = 0; GIL_GRD = G1CP_Testsuite_GetIntConst("GIL_GRD");
+    const int GIL_ORG = 0; GIL_ORG = G1CP_Testsuite_GetIntConst("GIL_ORG");
     var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("ORG_855_Wolf_Teach_Condition");
     G1CP_Testsuite_CheckPassed();
 

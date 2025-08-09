@@ -3,7 +3,7 @@
  */
 func int G1CP_0028_MordragNoEscort() {
     if (G1CP_IsFunc("Org_826_Mordrag_GotoNewcamp_Condition", "int|none"))
-    && (G1CP_IsIntVar("MordragKO_HauAb", 0)) {
+    && (G1CP_IsIntVar("MordragKO_HauAb")) {
         HookDaedalusFuncS("Org_826_Mordrag_GotoNewcamp_Condition", "G1CP_0028_MordragNoEscort_Hook");
         return TRUE;
     } else {
@@ -18,7 +18,7 @@ func int G1CP_0028_MordragNoEscort_Hook() {
     G1CP_ReportFuncToSpy();
 
     // Add the new condition (other conditions remain untouched)
-    if (G1CP_GetIntVar("MordragKO_HauAb", 0, FALSE) == TRUE) {
+    if (G1CP_GetIntVar("MordragKO_HauAb", FALSE) == TRUE) {
         return FALSE;
     };
 
