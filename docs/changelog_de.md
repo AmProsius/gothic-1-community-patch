@@ -4,6 +4,7 @@
 ### General
 
 ### Story
+* Fix [#50](https://g1cp.org/issues/50) (aktualisiert): Die Säule in der Klosterruine lädt zusätzlich im Liegen, wenn sich der Spielercharakter auf der Platform befindet, um dort nicht zu stranden.
 * Fix [#57](https://g1cp.org/issues/57): Die Mauertextur der Burg des Alten Lagers in der Nähe von Gravo flackert nicht mehr.
 * Fix [#116](https://g1cp.org/issues/116): Die Blendenflecke (Lens Flares) in der Höhle der Krautmischer sind nun entfernt.
 
