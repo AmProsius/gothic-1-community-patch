@@ -1,15 +1,26 @@
 # Changelog (DE)
 
-## v1.3.0 (TBA)
+In dieser Datei werden alle relevanten Veränderungen an diesem Projekt dokumentiert.
+
+Das Format basiert auf [Keep a Changelog](https://keepachangelog.com/de/1.0.0/)
+und dieses Projekt hält die [Semantische Versionierung](https://semver.org/spec/v2.0.0.html) ein.
+
+## [Unreleased]
+
 ### General
 
 ### Story
+
 * Fix [#50](https://g1cp.org/issues/50) (aktualisiert): Die Säule in der Klosterruine lädt zusätzlich im Liegen, wenn sich der Spielercharakter auf der Platform befindet, um dort nicht zu stranden.
 * Fix [#57](https://g1cp.org/issues/57): Die Mauertextur der Burg des Alten Lagers in der Nähe von Gravo flackert nicht mehr.
-* Fix [#116](https://g1cp.org/issues/116): Die Blendenflecke (Lens Flares) in der Höhle der Krautmischer sind nun entfernt.
+* Fix [#116](https://g1cp.org/issues/116): Die Blendenflecke (Lens Flares) in der Hähle der Krautmischer sind nun entfernt.
 
-## [v1.2.0](https://g1cp.org/releases/tag/v1.2.0) (31.10.2021)
+<a name="v120-2021-10-31"></a>
+
+## [1.2.0] - 2021-10-31
+
 ### General
+
 * Fix [#58](https://g1cp.org/issues/58): Fallen kann nicht mehr durch Kampfaktionen in der Luft unterbrochen werden.
 * Fix [#194](https://g1cp.org/issues/194): NSCs sammeln nun korrekt die Waffe ihres besiegten Gegners auf.
 * Fix [#231](https://g1cp.org/issues/231): Die Beschreibung der Spruchrolle "Verwandlung Orcdog" lautet nun korrekt "Verwandlung Orkhund".
@@ -19,8 +30,9 @@
 * Fix [#236](https://g1cp.org/issues/226): Der Name in der Gildenzuordnung des Monsters "Ork-Hund" lautet nun korrekt "Orkhund".
 
 ### Story
+
 * Fix [#42](https://g1cp.org/issues/42) (aktualisiert): Eine der Torwachen vor dem Haus der Erzbarone im Alten Lager hat nun nicht mehr zwei ENDE-Dialogoptionen.
-* Fix [#55](https://g1cp.org/issues/55) (aktualisiert): Grim erwähnt In Extremo im zweiten Kapitel nun auch wenn das Konzert noch nicht begonnen hat. Für weitere Informationen zum Fix, siehe [v1.1.0](https://g1cp.org/blob/master/docs/changelog_de.md#v110-01052021).
+* Fix [#55](https://g1cp.org/issues/55) (aktualisiert): Grim erwähnt In Extremo im zweiten Kapitel nun auch wenn das Konzert noch nicht begonnen hat. Für weitere Informationen zum Fix, siehe [v1.1.0](https://g1cp.org/blob/master/docs/changelog_de.md#v110-2021-05-01).
 * Fix [#127](https://g1cp.org/issues/127): Die verschlossene Truhe in der Nähe von Busters Hütte kann nun mit der richtigen Kombination geöffnet werden.
 * Fix [#128](https://g1cp.org/issues/128): Einer der Gardisten der Alten Mine hat nun nicht mehr zwei ENDE-Dialogoptionen.
 * Fix [#129](https://g1cp.org/issues/129): Drakes Hautfarbe des Körpers entspricht jetzt der seines Kopfes.
@@ -36,8 +48,12 @@
 * Fix [#241](https://g1cp.org/issues/241): Es ist nicht mehr möglich, Gardist zu werden, wenn man die Prüfung der Feuermagier abgeschlossen hat.
 * Fix [#244](https://g1cp.org/issues/244): Eine der Torwachen vor dem Haus der Erzbarone im Alten Lager hat nun nicht mehr zwei ENDE-Dialogoptionen.
 
-## [v1.1.0](https://g1cp.org/releases/tag/v1.1.0) (01.05.2021)
+<a name="v110-2021-05-01"></a>
+
+## [1.1.0] - 2021-05-01
+
 ### General
+
 * Fix [#4](https://g1cp.org/issues/4): Zuvor besiegte NSCs fahren den Spieler nun nicht mehr an, wenn er ihnen im Weg steht.
 * Fix [#14](https://g1cp.org/issues/14): Der Spieler kann Kämpfe nicht mehr durch Betreten und Verlassen eines Raumes abbrechen. Falls das unerlaubte Betreten des Raumes der Angriffsgrund war, bleibt das Verhalten unverändert.
 * Fix [#110](https://g1cp.org/issues/110): Die Maus ist während Interaktionen mit Objekten/Gegenständen nicht mehr blockiert und kann die Kameraperspektive beinflussen.
@@ -55,13 +71,14 @@
 * Fix [#201](https://g1cp.org/issues/201): Die Beschreibung der Rüstung "Antike Erzrüstung" passt nun in die Textbox des Inventars und enthält keinen Rechtschreibfehler mehr.
 
 ### Story
+
 * Fix [#23](https://g1cp.org/issues/23): Die Rüstung "Novizenrüstung" ist nun im zweiten Kapitel erhältlich, damit sie vor der ersten Templerrüstung erlangt werden kann.
 * Fix [#36](https://g1cp.org/issues/36) (aktualisiert): Fisks Quest "Neuer Hehler für Fisk" is nun verfügbar, wenn der Spieler Mordrag entweder KO geschlagen oder getötet hat.
 * Fix [#37](https://g1cp.org/issues/37): Gravo ist nun korrekt als "Händler im Alten Lager" im Tagebuch aufgelistet.
 * Fix [#45](https://g1cp.org/issues/45): Zwei Snapper außerhalb der Klosterruine spawnen nun korrekt.
 * Fix [#50](https://g1cp.org/issues/50): Die unerreichbare Truhe in der Gruft unter dem Stonehenge ist nun korrekt positioniert und zugänglich.
 * Fix [#52](https://g1cp.org/issues/52): Der Schleifstein im Neuen Lager setzt zur Benutzung nun korrekt eine Schwertklinge voraus.
-* Fix [#55](https://g1cp.org/issues/55): Vorausgesetzt alle nötigen Dateien sind vorhanden, kann das In Extremo Konzert in den Einstellungen aktiviert werden. Dieser Fix ist standardmäßig deaktiviert, um rechtliche Unklarheiten zu vermeiden. Siehe [hier](https://g1cp.org/issues/55#de) wie man ihn aktiviert. (überarbeitet in v1.2.0)
+* Fix [#55](https://g1cp.org/issues/55): Vorausgesetzt alle nötigen Dateien sind vorhanden, kann das In Extremo Konzert in den Einstellungen aktiviert werden. Dieser Fix ist standardmäßig deaktiviert, um rechtliche Unklarheiten zu vermeiden. Siehe [hier](https://g1cp.org/issues/55#de) wie man ihn aktiviert. (überarbeitet in [v1.2.0](https://g1cp.org/blob/master/docs/changelog_de.md#v120-2021-10-31))
 * Fix [#91](https://g1cp.org/issues/91): Die Dialogauswahl mit Horatio: "Ja. Ich will es mit Ricelord und seinen Schlägern aufnehmen können!" lautet nun korrekt "Ja. Ich will es mit dem Reislord und seinen Schlägern aufnehmen können!"
 * Fix [#92](https://g1cp.org/issues/92): Die Dialogauswahl mit Horatio: "Damit ich Reislord und seine Schläger fertigmachen kann!" lautet nun korrekt "Damit ich den Reislord und seine Schläger fertigmachen kann!"
 * Fix [#93](https://g1cp.org/issues/93): Im Tagebucheintrag zu der Quest "Horatio der Bauer" lautet die Phrase "[...] stärker zuzuschalgen." nun korrekt "[...] stärker zuzuschlagen."
@@ -91,8 +108,12 @@
 * Fix [#217](https://g1cp.org/issues/217): Einer der Söldner passt nun korrekt nachmittags am Talkessel der Freien Mine auf.
 * Fix [#223](https://g1cp.org/issues/223): Das Tagebuch zeigt nicht mehr die Einträge für sowohl das Alte als auch für das Neue Lager für die Quest "Die Große Sache der Bruderschaft" an.
 
-## [v1.0.0](https://g1cp.org/releases/tag/v1.0.0) (15.03.2021)
+<a name="v100-2021-03-15"></a>
+
+## [1.0.0] - 2021-03-15
+
 ### General
+
 * Fix [#1](https://g1cp.org/issues/1): NSCs wachen nicht mehr sofort auf, nachdem sie ins Bett gegangen sind, sondern bleiben liegen.
 * Fix [#2](https://g1cp.org/issues/2): NSCs öffnen nun korrekt geschlossene Türen und gehen hindurch.
 * Fix [#3](https://g1cp.org/issues/3): NSCs heben nun immer ihre Waffen und verlorene Munition nach einem verlorenen Kampf auf.
@@ -110,6 +131,7 @@
 * Fix [#158](https://g1cp.org/issues/158): Der Kaufwert des Tranks "Trank der Eile" ist nun korrekt.
 
 ### Story
+
 * Fix [#15](https://g1cp.org/issues/15): Der Spielercharakter verliert keine Stärke mehr im Zuge der Quest "Horatio der Bauer", wenn er vorher mehr als 100 Stärke hatte.
 * Fix [#16](https://g1cp.org/issues/16): Thorus kann nicht mehr bestochen werden, wenn der Spieler bereits Zugang zur Burg hat. Außerdem verschwindet der Bestechen-Dialog, wenn der Spieler ihn bereits bestochen hat.
 * Fix [#17](https://g1cp.org/issues/17): Jackal verlangt kein Schutzgeld mehr vom Spieler, sobald dieser sich einem Lager angeschlossen hat.
@@ -146,3 +168,8 @@
 * Fix [#124](https://g1cp.org/issues/124): Die Wache des Burgtors vom Alten Lager hat nun den korrekten Tagesablauf, um die Winde des Burgtors zu bewachen und zu bedienen.
 * Fix [#126](https://g1cp.org/issues/126): Sharkys Dialog zu Fisks Quest "Neuer Hehler für Fisk" öffnet nicht mehr das Handelsmenü.
 * Fix [#163](https://g1cp.org/issues/163): Das Burgtor des Alten Lagers ist nicht mehr blockiert und lässt sich korrekt schließen.
+
+[unreleased]: https://g1cp.org/compare/v1.2.0...HEAD
+[1.2.0]: https://g1cp.org/releases/tag/v1.2.0
+[1.1.0]: https://g1cp.org/releases/tag/v1.1.0
+[1.0.0]: https://g1cp.org/releases/tag/v1.0.0

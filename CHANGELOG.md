@@ -1,26 +1,33 @@
 # Changelog
+
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
 ### General
+
 * Fix [#278](https://g1cp.org/issues/278): The standard voice subtitles of female NPCs when approaching them now match the audio.
 
 ### Story
+
 * Fix [#50](https://g1cp.org/issues/50) (updated): The pillar in the Monastery Ruins additionally spawns tipped over when the player character is on the platform to avoid getting stuck there.
 * Fix [#57](https://g1cp.org/issues/57): The wall texture of the castle of the Old Camp near Gravo does not flicker anymore.
 * Fix [#116](https://g1cp.org/issues/116): There are no longer lens flares in Jacko's swampweed cave.
 
 <a name="v120-2021-10-31"></a>
 
-## [1.2.0](https://g1cp.org/releases/tag/v1.2.0) - 2021-10-31
+## [1.2.0] - 2021-10-31
+
 ### General
+
 * Fix [#58](https://g1cp.org/issues/58): Falling can no longer be interrupted by fight actions mid-air.
 * Fix [#194](https://g1cp.org/issues/194): NPCs now correctly pick up the weapon of their defeated opponent.
 
 ### Story
+
 * Fix [#42](https://g1cp.org/issues/42) (updated): One of the guards guarding the ore barons' house in the Old Camp no longer has two END dialog options.
 * Fix [#55](https://g1cp.org/issues/55) (updated): Grim now correctly mentions In Extremo in the second chapter even if the concert has not yet started playing. For details on the fix, see [v1.1.0](https://g1cp.org/blob/master/CHANGELOG.md#v110-2021-05-01).
 * Fix [#127](https://g1cp.org/issues/127): The locked chest near Buster's hut can now be picked.
@@ -39,8 +46,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <a name="v110-2021-05-01"></a>
 
-## [1.1.0](https://g1cp.org/releases/tag/v1.1.0) - 2021-05-01
+## [1.1.0] - 2021-05-01
+
 ### General
+
 * Fix [#4](https://g1cp.org/issues/4): NPCs no longer confront the player when he is standing in their way if he has defeated them before.
 * Fix [#14](https://g1cp.org/issues/14): The player can no longer cancel fights by entering and leaving a room. The behavior is unchanged, if trespassing into the room was the reason for the fight.
 * Fix [#110](https://g1cp.org/issues/110): Mouse input is no longer locked when interacting with objects to allow adjusting the camera viewpoint.
@@ -51,13 +60,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Fix [#193](https://g1cp.org/issues/193): Objects activated by switches/levers/winches are no longer stuck after loading a game.
 
 ### Story
+
 * Fix [#23](https://g1cp.org/issues/23): The armor "Novice's Armor" is now available in chapter 2 to make it accessible before receiving the first templar armor.
 * Fix [#36](https://g1cp.org/issues/36) (updated): Fisk's quest "New Fence for Fisk" is now available when the player either knocked out or killed Mordrag.
 * Fix [#37](https://g1cp.org/issues/37): Gravo is now correctly listed as "Merchant in the Old Camp" in the journal.
 * Fix [#45](https://g1cp.org/issues/45): Two snappers outside the Monastery ruins now correctly spawn.
 * Fix [#50](https://g1cp.org/issues/50): The inaccessible chest of the crypt below the stonehenge is now correctly positioned and accessible.
 * Fix [#52](https://g1cp.org/issues/52): The grindstone in the New Camp now correctly requires a sword blade to use.
-* Fix [#55](https://g1cp.org/issues/55): Given all necessary files are present, the In Extremo concert can be enabled in the settings. This fix is disabled by default due to legal ambiguities. See [here](https://g1cp.org/issues/55) on how to enable it. (revisited in v1.2.0)
+* Fix [#55](https://g1cp.org/issues/55): Given all necessary files are present, the In Extremo concert can be enabled in the settings. This fix is disabled by default due to legal ambiguities. See [here](https://g1cp.org/issues/55) on how to enable it. (revisited in [v1.2.0](https://g1cp.org/blob/master/CHANGELOG.md#v120-2021-10-31))
 * Fix [#115](https://g1cp.org/issues/115): The templars in the orc graveyard are now less likely to survive.
 * Fix [#174](https://g1cp.org/issues/174): The key "Gomez' Bowl" is now correctly labelled as "Gomez' Key".
 * Fix [#175](https://g1cp.org/issues/175): The key "Rice Lord's Bowl" is now correctly labelled as "Rice Lord's Key".
@@ -81,8 +91,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <a name="v100-2021-03-15"></a>
 
-## [1.0.0](https://github.com/AmProsius/gothic-1-community-patch/releases/tag/v1.0.0) - 2021-03-15
+## [1.0.0] - 2021-03-15
+
 ### General
+
 * Fix [#1](https://g1cp.org/issues/1): NPCs no longer wake up immediately after going to bed, but remain sleeping.
 * Fix [#2](https://g1cp.org/issues/2): NPCs now open closed doors properly and walk through them.
 * Fix [#3](https://g1cp.org/issues/3): NPCs now always pick up their weapons and lost ammunition after a lost fight.
@@ -101,6 +113,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Fix [#158](https://g1cp.org/issues/158): The ore value of the potion "Potion of Haste" is now correct.
 
 ### Story
+
 * Fix [#15](https://g1cp.org/issues/15): The player character doesn't lose Strength as part of the quest "Horatio the Peasant" if he had more than 100 Strength.
 * Fix [#16](https://g1cp.org/issues/16): Thorus can't be bribed if the player has already obtained the permit to pass the guards. Also the option to bribe Thorus disappears after the player has bribed him.
 * Fix [#17](https://g1cp.org/issues/17): Jackal doesn't ask for protection money anymore if the player has already joined a camp.
@@ -137,3 +150,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Fix [#124](https://g1cp.org/issues/124): The guard of the castle gate in the Old Camp now has the correct daily routine to watch over and operate the winch of the gate.
 * Fix [#126](https://g1cp.org/issues/126): Sharky's dialog option for Fisk's quest "New Fence for Fisk" no longer opens the trading menu.
 * Fix [#163](https://g1cp.org/issues/163): The castle gate of the Old Camp is no longer blocked and can properly be closed.
+
+[unreleased]: https://g1cp.org/compare/v1.2.0...HEAD
+[1.2.0]: https://g1cp.org/releases/tag/v1.2.0
+[1.1.0]: https://g1cp.org/releases/tag/v1.1.0
+[1.0.0]: https://g1cp.org/releases/tag/v1.0.0
