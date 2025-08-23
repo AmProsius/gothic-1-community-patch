@@ -15,7 +15,7 @@ jobs:
           private-key: ${{ secrets.BOTWYN_KEY }}
 
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           token: ${{ steps.app-token.outputs.token }}  # Make sure it is Botwyn who performs all actions
 
