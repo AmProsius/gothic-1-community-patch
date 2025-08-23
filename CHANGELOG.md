@@ -151,7 +151,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Fix [#126](https://g1cp.org/issues/126): Sharky's dialog option for Fisk's quest "New Fence for Fisk" no longer opens the trading menu.
 * Fix [#163](https://g1cp.org/issues/163): The castle gate of the Old Camp is no longer blocked and can properly be closed.
 
-[unreleased] https://github.com/amprosius/gothic-1-community-patch/compare/v1.2.0...HEAD
-[1.2.0]: https://github.com/amprosius/gothic-1-community-patch/compare/v1.1.0...v1.2.0
-[1.1.0]: https://github.com/amprosius/gothic-1-community-patch/compare/v1.0.0...v1.1.0
-[1.0.0]: https://github.com/amprosius/gothic-1-community-patch/releases/tag/v1.0.0
+[unreleased]: https://g1cp.org/compare/v1.2.0...HEAD
+[1.2.0]: https://g1cp.org/compare/v1.1.0...v1.2.0
+[1.1.0]: https://g1cp.org/compare/v1.0.0...v1.1.0
+[1.0.0]: https://g1cp.org/releases/tag/v1.0.0
