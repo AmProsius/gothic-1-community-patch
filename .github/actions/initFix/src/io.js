@@ -29,13 +29,14 @@ async function getConfig(filePath) {
  * @param     string      regular expression to match neighboring lines
  * @param     integer     number to sort by
  * @param     string      start looking after this match
+ * @param     string      character encoding of the file
  * @returns   boolean     false on error, true otherwise
  */
-async function addLineToFile(filePath, newLine, regexStr, number, matchAfter) {
+async function addLineToFile(filePath, newLine, regexStr, number, matchAfter, encoding='win1252') {
   let lines = [];
   try {
     const data = fs.readFileSync(filePath);
-    const dataDec = iconvlite.decode(data, 'win1252');
+    const dataDec = iconvlite.decode(data, encoding);
     lines = dataDec.split(/\r?\n/);
   } catch (error) {
     throw `Could not read file ${filePath}. ${error.message}`;
@@ -76,7 +77,7 @@ async function addLineToFile(filePath, newLine, regexStr, number, matchAfter) {
     throw `Could not find suitable line in file ${filePath}`;
 
   try {
-    const dataEnc = iconvlite.encode(lines.join('\n'), 'win1252');
+    const dataEnc = iconvlite.encode(lines.join('\n'), encoding);
     fs.writeFileSync(filePath, dataEnc);
   } catch (error) {
     throw `Could not write to file ${filePath}. ${error.message}`;
@@ -91,13 +92,14 @@ async function addLineToFile(filePath, newLine, regexStr, number, matchAfter) {
  * @param     string      path to source text file
  * @param     string      path to destination text file (cannot exit)
  * @param     Map         needle-replacement pairs
+ * @param     string      character encoding of the file
  * @returns   boolean     false on error, true otherwise
  */
-async function replaceInFile(srcPath, dstPath, pairs) {
+async function replaceInFile(srcPath, dstPath, pairs, encoding='win1252') {
   let text = '';
   try {
     const data = fs.readFileSync(srcPath);
-    text = iconvlite.decode(data, 'win1252');
+    text = iconvlite.decode(data, encoding);
   } catch (error) {
     throw `Could not read file ${srcPath}. ${error.message}`;
   }
@@ -106,7 +108,7 @@ async function replaceInFile(srcPath, dstPath, pairs) {
     text = text.replaceAll(needle, replace);
 
   try {
-    const dataEnc = iconvlite.encode(text, 'win1252');
+    const dataEnc = iconvlite.encode(text, encoding);
     fs.writeFileSync(dstPath, dataEnc);
   } catch (error) {
     throw `Could not write to file ${dstPath}. ${error.message}`;

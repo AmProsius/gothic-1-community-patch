@@ -219,7 +219,7 @@ async function main() {
     if (!changelogEn.endsWith('.'))
       changelogEn += '.';
     const clEntry = clPrefix + changelogEn;
-    const line = await io.addLineToFile(changelogEnPath, clEntry, clMatch, issueNum, clSection);
+    const line = await io.addLineToFile(changelogEnPath, clEntry, clMatch, issueNum, clSection, 'utf-8');
     if (changelogEn.startsWith('### TODO ###'))
       todo.add(changelogEnPath, 'Add an entry in the English changelog.', line+1);
   } else {
@@ -233,7 +233,7 @@ async function main() {
     if (!changelogDe.endsWith('.'))
       changelogDe += '.';
     const clEntry = clPrefix + changelogDe;
-    const line = await io.addLineToFile(changelogDePath, clEntry, clMatch, issueNum, clSection);
+    const line = await io.addLineToFile(changelogDePath, clEntry, clMatch, issueNum, clSection, 'utf-8');
     if (changelogDe.startsWith('### TODO ###'))
       todo.add(changelogDePath, 'Add an entry in the German changelog.', line+1);
   } else {

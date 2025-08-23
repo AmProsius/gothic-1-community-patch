@@ -22,5 +22,5 @@ inputs:
     description: German changelog
     type: string
 runs:
-  using: node20
+  using: node22
   main: 'dist/index.js'
