@@ -2,9 +2,9 @@
  * #{ISSUE_NUM} {LONGNAME}
  */
 func int G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}() {
-    // ### TODO: Replace info name of "XXX_Info" ###
-    const string originalStr = "### TODO: Original string ###";
-    const string correctedStr = "### TODO: Corrected string ###";
-
-    return G1CP_InfoChangeDesc("XXX_Info", originalStr, correctedStr);
+    return G1CP_Tpl_ChangeInfoInstDesc(
+        "### TODO Info instance name ###",
+        "### TODO Original string ###",
+        "### TODO Correct string ###"
+    );
 };

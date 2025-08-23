@@ -43,6 +43,7 @@ Content\Misc\item.d
 
 Content\Templates\npc.d
 Content\Templates\item.d
+Content\Templates\info.d
 
 Content\Fixes\record.d
 
