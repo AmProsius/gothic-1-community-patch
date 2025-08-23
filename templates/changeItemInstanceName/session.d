@@ -1,10 +1,11 @@
 /*
- * #144 Spelling - Gomez' Armor (DE)
+ * #{ISSUE_NUM} {LONGNAME}
  */
-func int G1CP_144_DE_GomezArmorName() {
-    // ### TODO: Replace item name of "XXX_ITEM" ###
-    // ### TODO: Replace original string of "Original" ###
-    // ### TODO: Replace corrected string of "Corrected" ###
-
-    return G1CP_ItemChangeName("XXX_ITEM", "Original", "Corrected");
+func int G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}() {
+    return G1CP_Tpl_ChangeItemStrVar(
+        "### TODO Item instance name ###",
+        "name",
+        "### TODO Original name ###",
+        "### TODO Correct name ###"
+    );
 };

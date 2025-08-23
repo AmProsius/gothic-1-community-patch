@@ -18,7 +18,7 @@ func int G1CP_Testsuite_InspectItemString(var C_Item itm, var string classVar, v
             itmVar = MEM_ReadStatStringArr(itm.text, arrIdx);
         };
     } else {
-        G1CP_TestsuiteErrorDetailSSS("Property '", classVar, "' not recognized");
+        G1CP_TestsuiteErrorDetailSSS("Property 'C_Item.", classVar, "' not recognized");
         return FALSE;
     };
 
@@ -40,7 +40,7 @@ func int G1CP_Testsuite_InspectNpcString(var C_Npc npc, var string classVar, var
     if (Hlp_StrCmp(classVar, "name")) {
         npcVar = npc.name;
     } else {
-        G1CP_TestsuiteErrorDetailSSS("Property '", classVar, "' not recognized");
+        G1CP_TestsuiteErrorDetailSSS("Property 'C_Npc.", classVar, "' not recognized");
         return FALSE;
     };
 
