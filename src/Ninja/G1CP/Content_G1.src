@@ -41,6 +41,7 @@ Content\Misc\ou.d
 Content\Misc\item.d
 
 Content\Templates\npc.d
+Content\Templates\world.d
 
 Content\Fixes\record.d
 

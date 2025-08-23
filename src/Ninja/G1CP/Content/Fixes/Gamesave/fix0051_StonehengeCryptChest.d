@@ -1,29 +1,35 @@
 /*
  * #51 Chest in stonehenge crypt behind wall
  */
+
+/*
+ * Make the positions available to the functions below
+ */
+const float G1CP_0051_StonehengeCryptChest_PosOld[3] = {-35498.5625, 2331.01416, -13830.9131};
+const float G1CP_0051_StonehengeCryptChest_PosNew[3] = {-35311.8100, 2281.0100, -14096.8200};
+
+/*
+ * Apply the fix
+ */
 func int G1CP_0051_StonehengeCryptChest() {
-    var int vobPtr; vobPtr = G1CP_FindVobByPosF(-35498.5625, 2331.01416, -13830.9131, Hlp_Is_oCMobContainer);
-    if (vobPtr) {
-        G1CP_MoveVobToPosF(vobPtr, -35311.8100, 2281.0100, -14096.8200);
-        return TRUE;
-    };
-    return FALSE;
+    return G1CP_Tpl_ChangeVobLocation(
+        _@f(G1CP_0051_StonehengeCryptChest_PosOld),
+        _@f(G1CP_0051_StonehengeCryptChest_PosNew),
+        Hlp_Is_oCMobContainer
+    );
 };
 
 /*
  * This function reverts the changes
  */
 func int G1CP_0051_StonehengeCryptChestRevert() {
-    // Only revert if it was applied by the G1CP
     if (!G1CP_IsFixApplied(51)) {
         return FALSE;
     };
 
-    // Search the VOB again
-    var int vobPtr; vobPtr = G1CP_FindVobByPosF(-35311.8100, 2281.0100, -14096.8200, Hlp_Is_oCMobContainer);
-    if (vobPtr) {
-        G1CP_MoveVobToPosF(vobPtr, -35498.5625, 2331.01416, -13830.9131);
-        return TRUE;
-    };
-    return FALSE;
+    return G1CP_Tpl_ChangeVobLocation(
+        _@f(G1CP_0051_StonehengeCryptChest_PosNew),
+        _@f(G1CP_0051_StonehengeCryptChest_PosOld),
+        Hlp_Is_oCMobContainer
+    );
 };
