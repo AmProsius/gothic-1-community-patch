@@ -7,10 +7,10 @@ func int G1CP_0223_CarKalomSpyQuest() {
     // Get all necessary symbols
     var int funcId; funcId = G1CP_GetFuncId("Info_CorKalom_BringMCQBalls_Success_Info", "void|none");
     var int bLogEntryId; bLogEntryId = G1CP_GetFuncId("B_LogEntry", "void|string|string");
-    var int topic1Id; topic1Id = G1CP_GetStringConstId("CH1_GotoPsiCamp", 0);
-    var int topic2Id; topic2Id = G1CP_GetStringConstId("CH1_GotoPsi", 0);
+    var int topic1Id; topic1Id = G1CP_GetStringConstId("CH1_GotoPsiCamp");
+    var int topic2Id; topic2Id = G1CP_GetStringConstId("CH1_GotoPsi");
     if (funcId == -1) || (bLogEntryId == -1) || (topic1Id == -1) || (topic2Id == -1)
-    || (!G1CP_IsIntVar("Mordrag_GotoKalom", 0)) || (!G1CP_IsIntVar("Raven_SpySect", 0))
+    || (!G1CP_IsIntVar("Mordrag_GotoKalom")) || (!G1CP_IsIntVar("Raven_SpySect"))
     || (!G1CP_IsNpcInst("ORG_826_Mordrag")) {
         return FALSE;
     };
@@ -79,7 +79,7 @@ func void G1CP_0223_CarKalomSpyQuest_Topic1(var string topic, var string entry) 
     const int LOG_RUNNING = 1;
 
     var C_Npc npc; npc = Hlp_GetNpc(G1CP_GetNpcInstId("Org_826_Mordrag"));
-    if (G1CP_GetIntVar("Mordrag_GotoKalom", 0, 0) == LOG_RUNNING) && (!Npc_IsDead(npc)) {
+    if (G1CP_GetIntVar("Mordrag_GotoKalom", 0) == LOG_RUNNING) && (!Npc_IsDead(npc)) {
         // B_LogEntry(topic, entry);
         MEM_PushStringParam(topic);
         MEM_PushStringParam(entry);
@@ -96,7 +96,7 @@ func void G1CP_0223_CarKalomSpyQuest_Topic2(var string topic, var string entry) 
     // Define possibly missing symbol locally
     const int LOG_RUNNING = 1;
 
-    if (G1CP_GetIntVar("Raven_SpySect", 0, 0) == LOG_RUNNING) {
+    if (G1CP_GetIntVar("Raven_SpySect", 0) == LOG_RUNNING) {
         // B_LogEntry(topic, entry);
         MEM_PushStringParam(topic);
         MEM_PushStringParam(entry);

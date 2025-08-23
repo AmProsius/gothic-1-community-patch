@@ -2,8 +2,12 @@
  * Find any string assignments. The return value is an array containing the (start) addresses in memory of all matches.
  * See G1CP_FindInCode for details on the first and second parameter.
  */
-func int G1CP_FindAssignStr(var int funcIdOrStartAddr, var int zeroOrEndAddr, var string assignedSymb, var int arrIdx,
-                            var string needle) {
+func int G1CP_FindAssignStr(
+    var int funcIdOrStartAddr,
+    var int zeroOrEndAddr,
+    var string assignedSymb,
+    var string needle
+) {
     var int array; array = MEM_ArrayCreate();
 
     // Check for assignment or only pushed string
@@ -15,9 +19,10 @@ func int G1CP_FindAssignStr(var int funcIdOrStartAddr, var int zeroOrEndAddr, va
         offset = 0;
     } else {
         // Check for string assignments
-        if (!G1CP_IsString(assignedSymb, arrIdx)) {
+        if (!G1CP_IsString(assignedSymb)) {
             return array;
         };
+        var int arrIdx; arrIdx = G1CP_DecomposeArraySymbolName(_@s(assignedSymb));
         const int bytes[3] = {-1, -1, -1};
         if (arrIdx <= 0) {
             bytes[0] = zPAR_TOK_PUSHVAR<<24;
@@ -48,7 +53,6 @@ func int G1CP_FindAssignStr(var int funcIdOrStartAddr, var int zeroOrEndAddr, va
     end;
 
     MEM_ArrayFree(matches);
-
     return array;
 };
 
@@ -57,7 +61,7 @@ func int G1CP_FindAssignStr(var int funcIdOrStartAddr, var int zeroOrEndAddr, va
  * See G1CP_FindInCode for details on the first and second parameter.
  */
 func int G1CP_FindPushStr(var int funcIdOrStartAddr, var int zeroOrEndAddr, var string needle) {
-    return G1CP_FindAssignStr(funcIdOrStartAddr, zeroOrEndAddr, "", 0, needle);
+    return G1CP_FindAssignStr(funcIdOrStartAddr, zeroOrEndAddr, "", needle);
 };
 
 /*
@@ -65,14 +69,19 @@ func int G1CP_FindPushStr(var int funcIdOrStartAddr, var int zeroOrEndAddr, var 
  * replacements.
  * See G1CP_FindInCode for details on the first and second parameter.
  */
-func int G1CP_ReplaceAssignStrId(var int funcIdOrStartAddr, var int zeroOrEndAddr, var string assignedSymb,
-                                 var int arrIdx, var string needle, var int replaceId) {
+func int G1CP_ReplaceAssignStrId(
+    var int funcIdOrStartAddr,
+    var int zeroOrEndAddr,
+    var string assignedSymb,
+    var string needle,
+    var int replaceId
+) {
     // Must be a constant
     if (!G1CP_IsStringConstI(replaceId, 0)) {
         return 0;
     };
 
-    var int matches; matches = G1CP_FindAssignStr(funcIdOrStartAddr, zeroOrEndAddr, assignedSymb, arrIdx, needle);
+    var int matches; matches = G1CP_FindAssignStr(funcIdOrStartAddr, zeroOrEndAddr, assignedSymb, needle);
 
     // Iterate over all matches
     var int count; count = 0;
@@ -94,11 +103,16 @@ func int G1CP_ReplaceAssignStrId(var int funcIdOrStartAddr, var int zeroOrEndAdd
  * Replace any string assignments with another string. The function returns the number of replacements.
  * See G1CP_FindInCode for details on the first and second parameter.
  */
-func int G1CP_ReplaceAssignStr(var int funcIdOrStartAddr, var int zeroOrEndAddr, var string assignedSymb,
-                               var int arrIdx, var string needle, var string replace) {
+func int G1CP_ReplaceAssignStr(
+    var int funcIdOrStartAddr,
+    var int zeroOrEndAddr,
+    var string assignedSymb,
+    var string needle,
+    var string replace
+) {
     // Find the non-variable, unique source of the replacement string
     var int replaceId; replaceId = G1CP_GetStringSourceId(replace);
-    return G1CP_ReplaceAssignStrId(funcIdOrStartAddr, zeroOrEndAddr, assignedSymb, arrIdx, needle, replaceId);
+    return G1CP_ReplaceAssignStrId(funcIdOrStartAddr, zeroOrEndAddr, assignedSymb, needle, replaceId);
 };
 
 /*
@@ -106,7 +120,7 @@ func int G1CP_ReplaceAssignStr(var int funcIdOrStartAddr, var int zeroOrEndAddr,
  * See G1CP_FindInCode for details on the first and second parameter.
  */
 func int G1CP_ReplacePushStrId(var int funcIdOrStartAddr, var int zeroOrEndAddr, var string needle, var int replaceId) {
-    return G1CP_ReplaceAssignStrId(funcIdOrStartAddr, zeroOrEndAddr, "", 0, needle, replaceId);
+    return G1CP_ReplaceAssignStrId(funcIdOrStartAddr, zeroOrEndAddr, "", needle, replaceId);
 };
 
 /*
@@ -116,5 +130,5 @@ func int G1CP_ReplacePushStrId(var int funcIdOrStartAddr, var int zeroOrEndAddr,
 func int G1CP_ReplacePushStr(var int funcIdOrStartAddr, var int zeroOrEndAddr, var string needle, var string replace) {
     // Find the non-variable, unique source of the replacement string
     var int replaceId; replaceId = G1CP_GetStringSourceId(replace);
-    return G1CP_ReplaceAssignStrId(funcIdOrStartAddr, zeroOrEndAddr, "", 0, needle, replaceId);
+    return G1CP_ReplaceAssignStrId(funcIdOrStartAddr, zeroOrEndAddr, "", needle, replaceId);
 };

@@ -6,7 +6,7 @@ func int G1CP_0004_NpcMoveNpcDefeated() {
 
     // Get necessary symbol indices
     var int funcId; funcId = G1CP_GetFuncId("B_MoveNpc", "void|none");
-    if (funcId == -1) || (!G1CP_IsIntConst("AIV_WasDefeatedBySC", 0)) {
+    if (funcId == -1) || (!G1CP_IsIntConst("AIV_WasDefeatedBySC")) {
         return FALSE;
     };
 

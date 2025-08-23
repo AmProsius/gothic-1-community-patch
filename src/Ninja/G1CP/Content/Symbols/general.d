@@ -7,28 +7,25 @@ func string G1CP_GetSymbolName(var int symbId) {
     };
 
     // Resolve instances for NPCs, items and infos
-    var oCInfo info; var int ptr;
     if (G1CP_IsInstI(symbId, "", -1)) {
-        if (G1CP_IsInstI(symbId, "C_Npc",  -1)) || (G1CP_IsInstI(symbId, "oCNpc",  -1))
-        || (G1CP_IsInstI(symbId, "C_Item", -1)) || (G1CP_IsInstI(symbId, "oCItem", -1)) {
+        var zCPar_Symbol symbClass; symbClass = _PM_ToClass(symbId);
+        var string className; className = symbClass.name;
+
+        if (Hlp_StrCmp(className, "C_Npc")) || (Hlp_StrCmp(className, "oCNpc"))
+        || (Hlp_StrCmp(className, "C_Item")) || (Hlp_StrCmp(className, "oCItem")) {
             MEM_PushInstParam(symbId);
             MEM_Call(Hlp_GetInstanceId);
             var int origId; origId = MEM_PopIntResult();
             if (origId != -1) {
                 symbId = origId;
             };
-        } else if (G1CP_IsInstI(symbId, "oCInfo", -1)) {
-            ptr = MEM_ReadInt(MEM_GetSymbolByIndex(symbId) + zCParSymbol_offset_offset);
+        } else if (Hlp_StrCmp(className, "oCInfo")) || (Hlp_StrCmp(className, "C_Info")) {
+            var int ptr; ptr = MEM_ReadInt(MEM_GetSymbolByIndex(symbId) + zCParSymbol_offset_offset);
             if (ptr) {
-                info = _^(ptr);
-                if (info._instance > 0) {
-                    symbId = info._instance;
+                if (Hlp_StrCmp(className, "C_Info")) {
+                    ptr -= oCInfo_C_INFO_Offset;
                 };
-            };
-        } else if (G1CP_IsInstI(symbId, "C_Info", -1)) {
-            ptr = MEM_ReadInt(MEM_GetSymbolByIndex(symbId) + zCParSymbol_offset_offset);
-            if (ptr) {
-                info = _^(ptr - oCInfo_C_INFO_Offset);
+                var oCInfo info; info = _^(ptr);
                 if (info._instance > 0) {
                     symbId = info._instance;
                 };

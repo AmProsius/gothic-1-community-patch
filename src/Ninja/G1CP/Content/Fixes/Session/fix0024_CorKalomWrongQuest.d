@@ -3,8 +3,8 @@
  */
 func int G1CP_0024_CorKalomWrongQuest() {
     if (G1CP_IsFunc("Info_Kalom_KrautboteBACK_Info", "void|none"))
-    && (G1CP_IsIntVar("Kalom_DrugMonopol", 0))
-    && (G1CP_IsIntVar("Kalom_Krautbote", 0)) {
+    && (G1CP_IsIntVar("Kalom_DrugMonopol"))
+    && (G1CP_IsIntVar("Kalom_Krautbote")) {
         HookDaedalusFuncS("Info_Kalom_KrautboteBACK_Info", "G1CP_0024_CorKalomWrongQuest_Hook");
         return TRUE;
     } else {

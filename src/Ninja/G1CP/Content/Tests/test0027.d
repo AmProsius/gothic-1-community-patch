@@ -9,9 +9,9 @@ func int G1CP_Test_0027() {
     const string TEMP_TOPIC_NAME = "G1CP Test 27"; // Has to be a unique name with absolute certainty
     var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc("Org_819_Drax_Scavenger_Info");
     var int itemId; itemId = G1CP_Testsuite_CheckItem("ItFoBeer");
-    var int var1Id; var1Id = G1CP_Testsuite_CheckIntVar("drax_bierbekommen", 0);
-    var int var2Id; var2Id = G1CP_Testsuite_CheckIntVar("drax_Lehrer_frei", 0);
-    var int topicId; topicId = G1CP_Testsuite_CheckStringConst("GE_TeacherOW", 0);
+    var int var1Id; var1Id = G1CP_Testsuite_CheckIntVar("drax_bierbekommen");
+    var int var2Id; var2Id = G1CP_Testsuite_CheckIntVar("drax_Lehrer_frei");
+    var int topicId; topicId = G1CP_Testsuite_CheckStringConst("GE_TeacherOW");
     G1CP_Testsuite_CheckPassed();
 
     // Get constant values

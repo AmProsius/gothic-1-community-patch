@@ -8,14 +8,12 @@
 func int G1CP_Test_{ISSUE_NUM_PAD}() {
     G1CP_Testsuite_CheckManual();
     {LANGCHECK}
-    const string infoName = "### TODO: Info name ###";
-    const string npcName = "### TODO: NPC name ###";
-    G1CP_Testsuite_CheckInfo(infoName);
-    var C_Npc npc; npc = G1CP_Testsuite_FindNpc(npcName);
-    // ### TODO: Add checks to unlock the dialog ###
+    G1CP_Testsuite_CheckInfo("### TODO Info instance name ###");
+    var C_Npc npc; npc = G1CP_Testsuite_FindNpc("### TODO NPC instance name ###");
+    // ### TODO Add checks to unlock the dialog ###
     G1CP_Testsuite_CheckPassed();
 
-    // ### TODO: Unlock the dialog ###
+    // ### TODO Unlock the dialog ###
 
     AI_Teleport(hero, npc.wp);
 };

@@ -11,7 +11,7 @@
  */
 func void G1CP_Test_0046() {
     G1CP_Testsuite_CheckManual();
-    const int GIL_GRD = 0; GIL_GRD = G1CP_Testsuite_GetIntConst("GIL_GRD", 0);
+    const int GIL_GRD = 0; GIL_GRD = G1CP_Testsuite_GetIntConst("GIL_GRD");
     var int funcId; funcId = G1CP_Testsuite_CheckFunc("B_Story_ExploreSunkenTower", "void|none", "");
     var int bartholoId; bartholoId = G1CP_Testsuite_CheckInfo("DIA_EBR_106_Bartholo_Wait4SC");
     var int skipId; skipId = G1CP_Testsuite_CheckInfo("GRD_211_Skip_WELCOME");

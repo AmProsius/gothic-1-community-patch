@@ -4,7 +4,7 @@
 func int G1CP_0127_LockedChestNc() {
     var int vobPtr; vobPtr = G1CP_FindVobByPosF(-55158.1367, 2919.41309, 1144.36926, Hlp_Is_oCMobContainer);
     if (vobPtr) {
-        var oCMobContainer mob; mob  = _^(vobPtr);
+        var oCMobContainer mob; mob = _^(vobPtr);
         if (Hlp_StrCmp(mob._oCMobLockable_keyInstance, "LRL"))
         && (Hlp_StrCmp(mob._oCMobLockable_pickLockStr, "")) {
             mob._oCMobLockable_keyInstance = "";
@@ -28,7 +28,7 @@ func int G1CP_0127_LockedChestNcRevert() {
     // Find the VOB again
     var int vobPtr; vobPtr = G1CP_FindVobByPosF(-55158.1367, 2919.41309, 1144.36926, Hlp_Is_oCMobContainer);
     if (vobPtr) {
-        var oCMobContainer mob; mob  = _^(vobPtr);
+        var oCMobContainer mob; mob = _^(vobPtr);
         if (Hlp_StrCmp(mob._oCMobLockable_keyInstance, ""))
         && (Hlp_StrCmp(mob._oCMobLockable_pickLockStr, "LRL")) {
             mob._oCMobLockable_keyInstance = "LRL";

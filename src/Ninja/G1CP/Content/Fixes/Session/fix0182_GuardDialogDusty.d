@@ -18,7 +18,7 @@ func int G1CP_0182_GuardDialogDusty() {
     var int condId; condId = G1CP_GetFuncId("DIA_Grd_216_DustyZoll_Condition", "int|none");
     var int funcId; funcId = G1CP_GetFuncId("DIA_Grd_216_DustyZoll_LittleWalk", "void|none");
     var int entryFuncId; entryFuncId = G1CP_GetFuncId("B_LogEntry", "void|string|string");
-    var int topicId; topicId = G1CP_GetStringConstId("CH1_RecruitDusty", 0);
+    var int topicId; topicId = G1CP_GetStringConstId("CH1_RecruitDusty");
     if (funcId == -1) || (condId == -1) || (entryFuncId == -1) || (topicId == -1) {
         return FALSE;
     };

@@ -13,7 +13,7 @@ func void G1CP_Test_0091() {
     var int helloId; helloId = G1CP_Testsuite_CheckInfo("DIA_Horatio_Hello");
     var int teachStrId; teachStrId = G1CP_Testsuite_CheckInfo("DIA_Horatio_PleaseTeachSTR");
     var int horatioId; horatioId = G1CP_Testsuite_CheckInfo("DIA_Jeremiah_Horatio");
-    var int varId; varId = G1CP_Testsuite_CheckIntVar("horatio_StrFree", 0);
+    var int varId; varId = G1CP_Testsuite_CheckIntVar("horatio_StrFree");
     var C_Npc npc; npc = G1CP_Testsuite_FindNpc("Bau_901_Horatio");
     G1CP_Testsuite_CheckPassed();
 

@@ -3,7 +3,7 @@
  */
 func int G1CP_0185_ScorpioCrossbow() {
     if (G1CP_IsFunc("GRD_205_Scorpio_CROSSBOW_Condition", "int|none"))
-    && (G1CP_IsIntConst("NPC_TALENT_CROSSBOW", 0)) {
+    && (G1CP_IsIntConst("NPC_TALENT_CROSSBOW")) {
         HookDaedalusFuncS("GRD_205_Scorpio_CROSSBOW_Condition", "G1CP_0185_ScorpioCrossbow_Hook");
         return TRUE;
     } else {
@@ -18,7 +18,7 @@ func int G1CP_0185_ScorpioCrossbow_Hook() {
     G1CP_ReportFuncToSpy();
 
     // Add the new condition (other conditions remain untouched)
-    if (Npc_GetTalentSkill(hero, G1CP_GetIntConst("NPC_TALENT_CROSSBOW", 0, 0)) > 0) {
+    if (Npc_GetTalentSkill(hero, G1CP_GetIntConst("NPC_TALENT_CROSSBOW", 0)) > 0) {
         return FALSE;
     };
 

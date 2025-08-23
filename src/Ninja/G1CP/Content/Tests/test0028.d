@@ -8,7 +8,7 @@
 func int G1CP_Test_0028() {
     var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("Org_826_Mordrag_GotoNewcamp_Condition");
     var int infoId; infoId = G1CP_Testsuite_CheckInfo("Org_826_Mordrag_JoinNewcamp");
-    var int varId; varId = G1CP_Testsuite_CheckIntVar("MordragKO_HauAb", 0);
+    var int varId; varId = G1CP_Testsuite_CheckIntVar("MordragKO_HauAb");
     G1CP_Testsuite_CheckPassed();
 
     // Backup values

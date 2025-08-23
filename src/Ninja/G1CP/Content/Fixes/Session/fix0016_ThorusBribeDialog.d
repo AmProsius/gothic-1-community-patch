@@ -4,7 +4,7 @@
 func int G1CP_0016_ThorusBribeDialog() {
     if (G1CP_IsFunc("Info_Thorus_Give1000Ore_Condition", "int|none"))
     && (G1CP_IsFunc("Info_Thorus_LetterForMages_Condition", "int|none"))
-    && (G1CP_IsIntConst("AIV_PASSGATE", 0))
+    && (G1CP_IsIntConst("AIV_PASSGATE"))
     && ((G1CP_IsNpcInst("Grd_212_Torwache")) || (G1CP_IsNpcInst("Grd_213_Torwache"))) { // Either one has to exist
         HookDaedalusFuncS("Info_Thorus_Give1000Ore_Condition", "G1CP_0016_ThorusBribeDialog_Hook1");
         HookDaedalusFuncS("Info_Thorus_LetterForMages_Condition", "G1CP_0016_ThorusBribeDialog_Hook2");

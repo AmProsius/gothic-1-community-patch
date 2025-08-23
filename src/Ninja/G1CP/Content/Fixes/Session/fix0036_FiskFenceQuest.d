@@ -6,7 +6,7 @@ func int G1CP_0036_FiskFenceQuest() {
 
     // Get all necessary symbols
     var int funcId; funcId = G1CP_GetFuncId("Stt_311_Fisk_MordragKO_Condition", "int|none");
-    var int varId; varId = G1CP_GetIntVarId("MordragKO_HauAb", 0);
+    var int varId; varId = G1CP_GetIntVarId("MordragKO_HauAb");
     if (funcId == -1) || (varId == -1) || (!G1CP_IsNpcInst("Org_826_Mordrag")) {
         return FALSE;
     };
@@ -50,7 +50,7 @@ func int G1CP_0036_FiskFenceQuest_Intercept() {
     G1CP_ReportFuncToSpy();
 
     // Retrieve variable content (exists given the function above)
-    var int hauAb; hauAb = G1CP_GetIntVar("MordragKO_HauAb", 0, 0);
+    var int hauAb; hauAb = G1CP_GetIntVar("MordragKO_HauAb", 0);
 
     // Check for Mordrag
     var C_Npc mordrag; mordrag = Hlp_GetNpc(MEM_GetSymbolIndex("Org_826_Mordrag"));

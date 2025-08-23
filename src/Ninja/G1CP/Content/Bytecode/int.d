@@ -2,15 +2,13 @@
  * Find any integer assignments. The return value is an array containing the (start) addresses in memory of all matches.
  * See G1CP_FindInCode for details on the first and second parameter.
  */
-func int G1CP_FindAssignInt(var int funcIdOrStartAddr, var int zeroOrEndAddr, var string assignedSymb, var int arrIdx,
-                            var int needle) {
-    // Create array from the start
+func int G1CP_FindAssignInt(var int funcIdOrStartAddr, var int zeroOrEndAddr, var string assignedSymb, var int needle) {
     var int array; array = MEM_ArrayCreate();
 
-    // Make sure all exist
-    if (!G1CP_IsInt(assignedSymb, arrIdx)) {
+    if (!G1CP_IsInt(assignedSymb)) {
         return array;
     };
+    var int arrIdx; arrIdx = G1CP_DecomposeArraySymbolName(_@s(assignedSymb));
 
     // Check for integer assignments
     var int matches;
@@ -49,10 +47,7 @@ func int G1CP_FindAssignInt(var int funcIdOrStartAddr, var int zeroOrEndAddr, va
         MEM_ArrayInsert(array, pos);
     end;
 
-    // Free the array
     MEM_ArrayFree(matches);
-
-    // Return the matches
     return array;
 };
 
@@ -60,15 +55,14 @@ func int G1CP_FindAssignInt(var int funcIdOrStartAddr, var int zeroOrEndAddr, va
  * Replace any integer assignments with another integer. The function returns the number of replacements.
  * See G1CP_FindInCode for details on the first and second parameter.
  */
-func int G1CP_ReplaceAssignInt(var int funcIdOrStartAddr, var int zeroOrEndAddr, var string assignedSymb,
-                               var int arrIdx, var int needle, var int replace) {
-    // Make sure all exist
-    if (!G1CP_IsInt(assignedSymb, arrIdx)) {
-        return 0;
-    };
-
-    // Find all string assignments
-    var int matches; matches = G1CP_FindAssignInt(funcIdOrStartAddr, zeroOrEndAddr, assignedSymb, arrIdx, needle);
+func int G1CP_ReplaceAssignInt(
+    var int funcIdOrStartAddr,
+    var int zeroOrEndAddr,
+    var string assignedSymb,
+    var int needle,
+    var int replace
+) {
+    var int matches; matches = G1CP_FindAssignInt(funcIdOrStartAddr, zeroOrEndAddr, assignedSymb, needle);
 
     // Iterate over all matches
     var int count; count = 0;
@@ -81,9 +75,7 @@ func int G1CP_ReplaceAssignInt(var int funcIdOrStartAddr, var int zeroOrEndAddr,
         count += 1;
     end;
 
-    // Free the array
     MEM_Free(matches);
-
     return count;
 };
 
@@ -92,12 +84,16 @@ func int G1CP_ReplaceAssignInt(var int funcIdOrStartAddr, var int zeroOrEndAddr,
  * replacements.
  * See G1CP_FindInCode for details on the first and second parameter.
  */
-func int G1CP_ReplaceAssignIntId(var int funcIdOrStartAddr, var int zeroOrEndAddr, var string assignedSymb,
-                                 var int arrIdx, var int needle, var int replaceId) {
-    // Make sure all exist
+func int G1CP_ReplaceAssignIntId(
+    var int funcIdOrStartAddr,
+    var int zeroOrEndAddr,
+    var string assignedSymb,
+    var int needle,
+    var int replaceId
+) {
     if (!G1CP_IsIntI(replaceId, 0)) {
         return 0;
     };
     var int replace; replace = G1CP_GetIntI(replaceId, 0, 0);
-    return G1CP_ReplaceAssignInt(funcIdOrStartAddr, zeroOrEndAddr, assignedSymb, arrIdx, needle, replace);
+    return G1CP_ReplaceAssignInt(funcIdOrStartAddr, zeroOrEndAddr, assignedSymb, needle, replace);
 };
