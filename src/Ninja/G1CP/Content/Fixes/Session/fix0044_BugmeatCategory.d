@@ -10,5 +10,5 @@ func int G1CP_0044_BugmeatCategory() {
     ITEM_KAT_NONE = G1CP_GetIntConst("ITEM_KAT_NONE", ITEM_KAT_NONE);
     ITEM_KAT_FOOD = G1CP_GetIntConst("ITEM_KAT_FOOD", ITEM_KAT_FOOD);
 
-    return G1CP_ItemChangeIntVar("ItAt_Meatbug_01", "mainflag", ITEM_KAT_NONE, ITEM_KAT_FOOD);
+    return G1CP_Tpl_ChangeItemIntVar("ItAt_Meatbug_01", "mainflag", ITEM_KAT_NONE, ITEM_KAT_FOOD);
 };
