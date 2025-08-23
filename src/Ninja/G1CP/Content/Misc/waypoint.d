@@ -130,24 +130,16 @@ func int G1CP_GetDistToWp(var int vobPtr, var string wp) {
 /*
  * Get nearest waypoint
  */
-func string G1CP_GetNearestWp(var int vobPtr) {
-    if (!vobPtr) {
+func string G1CP_GetNearestWpPosPtr(var int posPtr) {
+    if (!posPtr) {
         return "";
     };
-
-    // Get position of VOB
-    var zCVob vob; vob = _^(vobPtr);
-    var int pos[3];
-    pos[0] = vob.trafoObjToWorld[ 3];
-    pos[1] = vob.trafoObjToWorld[ 7];
-    pos[2] = vob.trafoObjToWorld[11];
 
     var int waynetPtr; waynetPtr = _@(MEM_Waynet);
     const int zCWayNet__GetNearestWaypoint = 7354960; //0x703A50
     const int call = 0;
     const int posPtr = 0;
     if (Call_Begin(call)) {
-        posPtr = _@(pos);
         CALL_PutRetValTo(_@(wpPtr));
         CALL__fastcall(_@(waynetPtr), _@(posPtr), zCWayNet__GetNearestWaypoint);
         call = CALL_End();
@@ -160,4 +152,17 @@ func string G1CP_GetNearestWp(var int vobPtr) {
     } else {
         return "";
     };
+};
+func string G1CP_GetNearestWp(var int vobPtr) {
+    if (!vobPtr) {
+        return "";
+    };
+
+    var zCVob vob; vob = _^(vobPtr);
+    var int pos[3];
+    pos[0] = vob.trafoObjToWorld[ 3];
+    pos[1] = vob.trafoObjToWorld[ 7];
+    pos[2] = vob.trafoObjToWorld[11];
+
+    G1CP_GetNearestWpPosPtr(_@(pos)); // Leave return value on stack
 };
