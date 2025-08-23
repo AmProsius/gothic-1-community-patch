@@ -9,10 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Fix [#278](https://g1cp.org/issues/278): The standard voice subtitles of female NPCs when approaching them now match the audio.
 
 ### Story
+* Fix [#50](https://g1cp.org/issues/50) (updated): The pillar in the Monastery Ruins additionally spawns tipped over when the player character is on the platform to avoid getting stuck there.
 * Fix [#57](https://g1cp.org/issues/57): The wall texture of the castle of the Old Camp near Gravo does not flicker anymore.
 * Fix [#116](https://g1cp.org/issues/116): There are no longer lens flares in Jacko's swampweed cave.
 
 <a name="v120-2021-10-31"></a>
+
 ## [1.2.0](https://g1cp.org/releases/tag/v1.2.0) - 2021-10-31
 ### General
 * Fix [#58](https://g1cp.org/issues/58): Falling can no longer be interrupted by fight actions mid-air.
@@ -20,7 +22,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Story
 * Fix [#42](https://g1cp.org/issues/42) (updated): One of the guards guarding the ore barons' house in the Old Camp no longer has two END dialog options.
-* Fix [#55](https://g1cp.org/issues/55) (updated): Grim now correctly mentions In Extremo in the second chapter even if the concert has not yet started playing. For details on the fix, see [v1.1.0](https://g1cp.org/blob/master/CHANGELOG.md#110-2021-05-01).
+* Fix [#55](https://g1cp.org/issues/55) (updated): Grim now correctly mentions In Extremo in the second chapter even if the concert has not yet started playing. For details on the fix, see [v1.1.0](https://g1cp.org/blob/master/CHANGELOG.md#v110-2021-05-01).
 * Fix [#127](https://g1cp.org/issues/127): The locked chest near Buster's hut can now be picked.
 * Fix [#128](https://g1cp.org/issues/128): One of the guards who guard the diggers in the Old Mine no longer has two END dialog options.
 * Fix [#129](https://g1cp.org/issues/129): Drake's body skin color now matches his head.
@@ -36,6 +38,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Fix [#244](https://g1cp.org/issues/244): One of the guards guarding the ore barons' house in the Old Camp no longer has two END dialog options.
 
 <a name="v110-2021-05-01"></a>
+
 ## [1.1.0](https://g1cp.org/releases/tag/v1.1.0) - 2021-05-01
 ### General
 * Fix [#4](https://g1cp.org/issues/4): NPCs no longer confront the player when he is standing in their way if he has defeated them before.
@@ -77,6 +80,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Fix [#223](https://g1cp.org/issues/223): The quest log no longer shows entries for both Old Camp and New Camp for the quest "The Big Thing of the Brotherhood".
 
 <a name="v100-2021-03-15"></a>
+
 ## [1.0.0](https://github.com/AmProsius/gothic-1-community-patch/releases/tag/v1.0.0) - 2021-03-15
 ### General
 * Fix [#1](https://g1cp.org/issues/1): NPCs no longer wake up immediately after going to bed, but remain sleeping.
