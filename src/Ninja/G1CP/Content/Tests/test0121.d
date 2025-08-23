@@ -9,7 +9,7 @@
 func int G1CP_Test_0121() {
     G1CP_Testsuite_CheckLang(G1CP_Lang_DE);
     const string logTopicRight = "Shrikes Hütte";
-    const string CH1_ShrikesHut = ""; CH1_ShrikesHut = G1CP_Testsuite_GetStringConst("CH1_ShrikesHut", 0);
+    const string CH1_ShrikesHut = ""; CH1_ShrikesHut = G1CP_Testsuite_GetStringConst("CH1_ShrikesHut");
     G1CP_Testsuite_CheckPassed();
 
     // Define possibly missing symbols locally

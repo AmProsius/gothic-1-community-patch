@@ -8,12 +8,12 @@
  */
 func int G1CP_Test_0188() {
     var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("Info_Kalom_KrautboteBACK_Condition");
-    var int deliveredId; deliveredId = G1CP_Testsuite_CheckIntVar("Kalom_DeliveredWeed", 0);
+    var int deliveredId; deliveredId = G1CP_Testsuite_CheckIntVar("Kalom_DeliveredWeed");
     var int questId;
     if (G1CP_IsFixApplied(24)) {
-        questId = G1CP_Testsuite_CheckIntVar("Kalom_Krautbote", 0);
+        questId = G1CP_Testsuite_CheckIntVar("Kalom_Krautbote");
     } else {
-        questId = G1CP_Testsuite_CheckIntVar("Kalom_DrugMonopol", 0);
+        questId = G1CP_Testsuite_CheckIntVar("Kalom_DrugMonopol");
     };
     G1CP_Testsuite_CheckPassed();
 

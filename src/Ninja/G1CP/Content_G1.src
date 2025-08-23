@@ -13,6 +13,7 @@ Content\menuVersionNumber.d
 Content\Report\indent.d
 Content\Report\reportFuncToSpy.d
 
+Content\Symbols\util.d
 Content\Symbols\int.d
 Content\Symbols\string.d
 Content\Symbols\func.d
@@ -41,6 +42,9 @@ Content\Misc\ou.d
 Content\Misc\item.d
 
 Content\Templates\npc.d
+Content\Templates\item.d
+Content\Templates\info.d
+Content\Templates\world.d
 
 Content\Fixes\record.d
 

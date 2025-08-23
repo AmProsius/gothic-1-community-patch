@@ -34,7 +34,7 @@ func int G1CP_Test_0031_RunDialog(var int itemId, var int num, var string dialog
     return TRUE;
 };
 func int G1CP_Test_0031() {
-    var int varId; varId = G1CP_Testsuite_CheckIntVar("Knows_GetMCPlates", 0);
+    var int varId; varId = G1CP_Testsuite_CheckIntVar("Knows_GetMCPlates");
     var int itemId; itemId = G1CP_Testsuite_CheckItem("ItAt_Crawler_02");
     G1CP_Testsuite_CheckPassed();
 

@@ -1,4 +1,29 @@
 /*
+ * Check if a VOB is inside/intersects with a bounding box.
+ */
+func int G1CP_VobIsInBbox(var int vobPtr, var int bboxPtr) {
+    if (!vobPtr) || (!bboxPtr) {
+        return FALSE;
+    };
+
+    const int vobBBoxPtr = 0;
+    vobBBoxPtr = vobPtr + 124; //0x7C zCVob.bbox3D
+
+    if (CALL_Begin(call)) {
+        const int call = 0;
+        const int ret = 0;
+        const int zTBBox3D__IsIntersecting = 6128416; //0x5D8320
+        CALL_PtrParam(_@(vobBBoxPtr));
+        CALL_PutRetValTo(_@(ret));
+        CALL__thiscall(_@(bboxPtr), zTBBox3D__IsIntersecting);
+        call = CALL_End();
+    };
+
+    return +ret;
+};
+
+
+/*
  * This check does not consider perceptions, senses range and angles, but really only uninterrupted line of sight.
  * Due to the simple structure of the engine function, this function can be used for any zCVob (not restricted to NPCs)
  */

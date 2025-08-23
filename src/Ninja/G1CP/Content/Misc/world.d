@@ -11,7 +11,7 @@ func int G1CP_IsItemInstantiated(var string name) {
     };
 
     // Get instance ID
-    var int id; id = MEM_GetSymbolIndex(name);
+    var int id; id = G1CP_GetItemInstId(name);
 
     // Check if in inventory or container
     var int found; found = FALSE;
@@ -201,19 +201,19 @@ func void G1CP_MoveVobToPosPtr(var int vobPtr, var int posPtr) {
     // Restore collision
     v.bitfield[0] = bits;
 };
-func int G1CP_MoveVobToPos(var int vobPtr, var int x, var int y, var int z) { // Integer-floats!
+func void G1CP_MoveVobToPos(var int vobPtr, var int x, var int y, var int z) { // Integer-floats!
     var int pos[3];
     pos[0] = x;
     pos[1] = y;
     pos[2] = z;
-    G1CP_MoveVobToPosPtr(vobPtr, _@(pos)); // Leave return value on stack
+    G1CP_MoveVobToPosPtr(vobPtr, _@(pos));
 };
-func int G1CP_MoveVobToPosF(var int vobPtr, var float x, var float y, var float z) {
+func void G1CP_MoveVobToPosF(var int vobPtr, var float x, var float y, var float z) {
     MEM_PushIntParam(vobPtr);
     castToIntf(x); // Just to repush
     castToIntf(y);
     castToIntf(z);
-    MEM_Call(G1CP_MoveVobToPos); // Leave return value on stack
+    MEM_Call(G1CP_MoveVobToPos);
 };
 
 /*

@@ -3,7 +3,7 @@
  */
 func int G1CP_0112_JackalProtectionMoneyPayLater() {
     if (G1CP_IsFunc("Info_Jackal_Schutz_Info", "void|none"))
-    && (G1CP_IsIntVar("Jackal_ProtectionPaid", 0))
+    && (G1CP_IsIntVar("Jackal_ProtectionPaid"))
     && (G1CP_IsItemInst("ItMiNugget")) {
         HookDaedalusFuncS("Info_Jackal_Schutz_Info", "G1CP_0112_JackalProtectionMoneyPayLater_Hook");
         return TRUE;

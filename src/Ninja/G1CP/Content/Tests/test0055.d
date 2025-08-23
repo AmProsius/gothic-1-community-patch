@@ -11,7 +11,7 @@ func void G1CP_Test_0055() {
     const int CHAPTER_NUM = 2;
     var zCWaypoint wp; wp = G1CP_Testsuite_FindWaypoint("OCR_THORUS");
     var int funcId; funcId = G1CP_Testsuite_CheckFunc("B_Kapitelwechsel", "void|int", "");
-    var int chptrId; chptrId = G1CP_Testsuite_CheckIntVar("Kapitel", 0);
+    var int chptrId; chptrId = G1CP_Testsuite_CheckIntVar("Kapitel");
     G1CP_Testsuite_CheckPassed();
 
     if (G1CP_GetIntVarI(chptrId, 0, 0) >= 2) {

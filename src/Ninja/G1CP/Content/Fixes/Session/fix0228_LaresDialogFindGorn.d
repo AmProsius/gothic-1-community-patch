@@ -3,7 +3,7 @@
  */
 func int G1CP_0228_LaresDialogFindGorn() {
     if (G1CP_IsFunc("ORG_801_Lares_BringListAnteil_Info", "void|none"))
-    && (G1CP_IsIntConst("AIV_FINDABLE", 0))
+    && (G1CP_IsIntConst("AIV_FINDABLE"))
     && (G1CP_IsNpcInst("PC_Fighter")) {
         HookDaedalusFuncS("ORG_801_Lares_BringListAnteil_Info", "G1CP_0228_LaresDialogFindGorn_Hook");
         return TRUE;

@@ -6,7 +6,7 @@
  * Expected behavior: The armor is sold at chapter 2.
  */
 func int G1CP_Test_0023() {
-    var int chptId; chptId = G1CP_Testsuite_CheckIntVar("Kapitel", 0);
+    var int chptId; chptId = G1CP_Testsuite_CheckIntVar("Kapitel");
     var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc("GUR_1204_BaalNamib_ARMOR_Info");
     var int armorId; armorId = G1CP_Testsuite_CheckItem("NOV_ARMOR_H");
     var int oreId; oreId = G1CP_Testsuite_CheckItem("ItMinugget");

@@ -13,10 +13,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Story
 
+* Fix [#50](https://g1cp.org/issues/50) (updated): The pillar in the Monastery Ruins additionally spawns tipped over when the player character is on the platform to avoid getting stuck there.
 * Fix [#57](https://g1cp.org/issues/57): The wall texture of the castle of the Old Camp near Gravo does not flicker anymore.
 * Fix [#116](https://g1cp.org/issues/116): There are no longer lens flares in Jacko's swampweed cave.
 
 <a name="v120-2021-10-31"></a>
+
 ## [1.2.0](https://g1cp.org/releases/tag/v1.2.0) - 2021-10-31
 
 ### General
@@ -43,6 +45,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Fix [#244](https://g1cp.org/issues/244): One of the guards guarding the ore barons' house in the Old Camp no longer has two END dialog options.
 
 <a name="v110-2021-05-01"></a>
+
 ## [1.1.0](https://g1cp.org/releases/tag/v1.1.0) - 2021-05-01
 
 ### General
@@ -87,6 +90,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Fix [#223](https://g1cp.org/issues/223): The quest log no longer shows entries for both Old Camp and New Camp for the quest "The Big Thing of the Brotherhood".
 
 <a name="v100-2021-03-15"></a>
+
 ## [1.0.0](https://github.com/AmProsius/gothic-1-community-patch/releases/tag/v1.0.0) - 2021-03-15
 
 ### General

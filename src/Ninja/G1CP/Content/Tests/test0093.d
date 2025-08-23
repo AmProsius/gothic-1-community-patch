@@ -10,7 +10,7 @@ func int G1CP_Test_0093() {
     G1CP_Testsuite_CheckLang(G1CP_Lang_DE);
     const string TEMP_TOPIC_NAME = "G1CP Test 93"; // Has to be a unique name with absolute certainty
     const string CH1_HoratiosTeachings = "";
-    CH1_HoratiosTeachings = G1CP_Testsuite_GetStringConst("CH1_HoratiosTeachings", 0);
+    CH1_HoratiosTeachings = G1CP_Testsuite_GetStringConst("CH1_HoratiosTeachings");
     var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc("DIA_Horatio_PleaseTeachSTR_Info");
     G1CP_Testsuite_CheckPassed();
 

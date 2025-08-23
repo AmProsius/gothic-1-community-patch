@@ -7,7 +7,7 @@
  */
 func int G1CP_Test_0203() {
     const string TEMP_TOPIC_NAME = "G1CP Test 203"; // Has to be a unique name with absolute certainty
-    const string GE_TraderOC = ""; GE_TraderOC = G1CP_Testsuite_GetStringConst("GE_TraderOC", 0);
+    const string GE_TraderOC = ""; GE_TraderOC = G1CP_Testsuite_GetStringConst("GE_TraderOC");
     var int infoId; infoId = G1CP_Testsuite_CheckInfo("DIA_Graham_Hello");
     var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc("DIA_Graham_Hello_Info");
     G1CP_Testsuite_CheckPassed();

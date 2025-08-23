@@ -35,6 +35,10 @@ func int G1CP_Testsuite() {
     CC_Register(G1CP_TestsuiteActive, "test active", "Run test suite on all active fixes of G1CP");
     CC_Register(G1CP_TestsuiteCmd, "test ", "Run test from test suite for G1CP");
 
+    // Enable debug channel and show debug messages
+    MEM_Game.debugChannels = MEM_Game.debugChannels | 31;
+    MEM_SetShowDebug(TRUE);
+
     // Confirm registration
     return ((CC_Active(G1CP_TestsuiteList))
          && (CC_Active(G1CP_TestsuiteAll))
@@ -72,11 +76,17 @@ func int G1CP_TestsuiteRun(var int id) {
  * Run multiple tests at once
  */
 func string G1CP_TestsuiteRunMultiple(var int appliedOnly) {
+    const int zerrPtr = 8821208; //0x8699D8
     var int passed; passed = 0;
     var int failed; failed = 0;
     var int manual; manual = 0;
     var string msg;
     var string infos; infos = "";
+
+    MEM_Info("Reducing logging level to speed up tests.");
+    var zERROR zerr; zerr = _^(zerrPtr);
+    var int lvlBackup; lvlBackup = zerr.filter_level;
+    zerr.filter_level = 0;
 
     // Do not trigger manual tests
     G1CP_TestsuiteAllowManual = FALSE;
@@ -133,6 +143,9 @@ func string G1CP_TestsuiteRunMultiple(var int appliedOnly) {
             };
         };
     end;
+
+    // Restore logging level
+    zerr.filter_level = lvlBackup;
 
     // Print infos (afterwards all together)
     MEM_Info("");

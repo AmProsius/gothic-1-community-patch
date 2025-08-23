@@ -3,7 +3,7 @@
  */
 func int G1CP_0038_SnafDialogNek() {
     if (G1CP_IsFunc("DIA_Snaf_WhereNek_Condition", "int|none"))
-    && (G1CP_IsIntVar("Snaf_Zutaten", 0)) {
+    && (G1CP_IsIntVar("Snaf_Zutaten")) {
         HookDaedalusFuncS("DIA_Snaf_WhereNek_Condition", "G1CP_0038_SnafDialogNek_Hook");
         return TRUE;
     } else {
