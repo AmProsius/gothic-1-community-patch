@@ -5,8 +5,8 @@
 /*
  * Make the positions available to the functions below
  */
-const float G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}_PosOld[3] = {0, 0, 0}; // ### TODO Add coordinates, e.g. from Spacer
-const float G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}_PosNew[3] = {0, 0, 0}; // ### TODO Add coordinates, e.g. from Spacer
+const float G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}_PosOld[3] = {0, 0, 0}; // ### TODO Add coordinates, e.g. from Spacer ###
+const float G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}_PosNew[3] = {0, 0, 0}; // ### TODO Add coordinates, e.g. from Spacer ###
 
 /*
  * Apply the fix
