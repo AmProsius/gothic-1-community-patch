@@ -76,7 +76,7 @@ FUNC VOID  Org_818_Ratford_WhatGame_Info()
 };
 
 // **************************************************
-//                  Warum gefährlich
+//                  Warum gefÃ¤hrlich
 // **************************************************
 
 instance  Org_818_Ratford_WhyDangerous (C_INFO)
@@ -103,7 +103,7 @@ FUNC VOID  Org_818_Ratford_WhyDangerous_Info()
 };
 
 // **************************************************
-//                  Wo Ausrüstung
+//                  Wo AusrÃ¼stung
 // **************************************************
 
 instance  Org_818_Ratford_WoEquipment (C_INFO)

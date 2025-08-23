@@ -3,8 +3,8 @@
 //##                            KAPITEL 2
 //##                            =========
 //##    Der Spieler hat alle drei Artefakte abgeliefert. Die
-//##    Bruderschaft bereitet sich nun auf die groﬂe Anrufung
-//##    des Schl‰fers vor.
+//##    Bruderschaft bereitet sich nun auf die gro√üe Anrufung
+//##    des Schl√§fers vor.
 //##
 //#####################################################################
 
@@ -100,7 +100,7 @@ func void B_Story_PrepareRitual()
     Templer_1   = Hlp_GetNpc    (TPL_1430_Templer);
     Templer_1.senses =      SENSE_SEE|SENSE_HEAR|SENSE_SMELL;
 
-    // Talas wieder zur¸cksetzen, falls der Spieler ihn hat stehen lassen
+    // Talas wieder zur√ºcksetzen, falls der Spieler ihn hat stehen lassen
     B_ExchangeRoutine   (Nov_1300_Talas,"BackInCamp");
 };
 

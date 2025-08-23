@@ -1,9 +1,9 @@
 func void B_Story_ReturnedFromUrShak()
 {
-    //-------- Missionsgegenst‰nde --------
+    //-------- Missionsgegenst√§nde --------
 
 
-    //-------- Tagebucheintr‰ge --------
+    //-------- Tagebucheintr√§ge --------
     B_LogEntry          (CH4_FindOrcShaman,"Xardas seemed to be happy about what I found out from Ur-Shak. My further path will now lead me into the Free Mine to find Ur-Shak's friend.");
     Log_SetTopicStatus  (CH4_FindOrcShaman, LOG_SUCCESS);
 
@@ -14,7 +14,7 @@ func void B_Story_ReturnedFromUrShak()
     //-------- Erfahrung --------
     B_GiveXP        (XP_ReturnedFromUrShak);
 
-    //-------- Tagesabl‰ufe ‰ndern --------
+    //-------- Tagesabl√§ufe √§ndern --------
     var C_NPC riordian; riordian= Hlp_GetNpc(KDW_605_Riordian); Npc_ExchangeRoutine(riordian,   "FoundUrShak");
 
 

@@ -2,7 +2,7 @@
 //
 //  InExtremo
 //  ---------
-//  Enthält alle Funktionen zum Vor- und Nachbereiten des InExtremo-Auftritts.
+//  EnthÃ¤lt alle Funktionen zum Vor- und Nachbereiten des InExtremo-Auftritts.
 //
 //#############################################################################################
 
@@ -49,10 +49,10 @@ func void B_KillInExtremo()
 
 func void B_InExtremoStartMusic()
 {
-//  Um die Musikzone zu aktivieren (damit die OC-Musik um die Bühne herum nicht zu hören ist, solange IE spielen!)
+//  Um die Musikzone zu aktivieren (damit die OC-Musik um die BÃ¼hne herum nicht zu hÃ¶ren ist, solange IE spielen!)
     Wld_SendTrigger ("INEXTREMO_IE");
 
-// SoundVob zu aktivieren, der das Musikstück spielt
+// SoundVob zu aktivieren, der das MusikstÃ¼ck spielt
     Wld_SendTrigger ("INEXTREMO_MUSIK");
 
     InExtremoPlaying = TRUE;
@@ -60,7 +60,7 @@ func void B_InExtremoStartMusic()
 
 func void B_InExtremoStopMusic()
 {
-// Sound-Vob deaktivieren, der das Musikstück spielt
+// Sound-Vob deaktivieren, der das MusikstÃ¼ck spielt
     Wld_SendUnTrigger ("INEXTREMO_MUSIK");
 
 // Um die Musikzone zu deaktivieren (OC-Musik-Zone wieder aktiv)

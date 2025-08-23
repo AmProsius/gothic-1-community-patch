@@ -47,7 +47,7 @@ instance GRD_219_Stone (Npc_Default)
     CreateInvItem   (self, ItFoApple);
     CreateInvItems  (self, ItMiNugget, 10);
     CreateInvItem   (self, ItLsTorch);
-    //DEN SCHLÜSSEL HAT SKIP
+    //DEN SCHLÃœSSEL HAT SKIP
 
     //-------------Daily Routine-------------
     daily_routine = Rtn_start_219;

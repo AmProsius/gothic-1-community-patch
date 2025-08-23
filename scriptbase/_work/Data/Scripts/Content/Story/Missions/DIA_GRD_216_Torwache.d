@@ -108,7 +108,7 @@ func void DIA_Grd_216_DustyZoll_PissOff()
     B_ExchangeRoutine   (Vlk_524_Dusty,"start");
     var C_NPC dusty;    dusty = Hlp_GetNpc(Vlk_524_Dusty);
     dusty.aivar[AIV_PARTYMEMBER] = FALSE;
-    dusty.flags = 0;    // Immortal löschen
+    dusty.flags = 0;    // Immortal lÃ¶schen
 };
 
 func void DIA_Grd_216_DustyZoll_ToPSI()
@@ -122,7 +122,7 @@ func void DIA_Grd_216_DustyZoll_ToPSI()
     B_ExchangeRoutine   (Vlk_524_Dusty,"start");
     var C_NPC dusty;    dusty = Hlp_GetNpc(Vlk_524_Dusty);
     dusty.aivar[AIV_PARTYMEMBER] = FALSE;
-    dusty.flags = 0;    // Immortal löschen
+    dusty.flags = 0;    // Immortal lÃ¶schen
 };
 
 func void DIA_Grd_216_DustyZoll_LittleWalk()
@@ -149,7 +149,7 @@ func void DIA_Grd_216_DustyZoll_LittleWalk()
         B_ExchangeRoutine   (Vlk_524_Dusty,"start");
         var C_NPC dusty;    dusty = Hlp_GetNpc(Vlk_524_Dusty);
         dusty.aivar[AIV_PARTYMEMBER] = FALSE;
-        dusty.flags = 0;    // Immortal löschen
+        dusty.flags = 0;    // Immortal lÃ¶schen
     };
 };
 

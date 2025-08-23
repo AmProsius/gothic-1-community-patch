@@ -8,7 +8,7 @@
 //  - ZS_ObserveIntruder (Intruder hat Waffe in der Hand)
 //  - B_AssessFightSound (NSC ist Boss)
 //
-//  Die primäre Aufgabe von B_AssessFighter ist es, festzustellen
+//  Die primÃ¤re Aufgabe von B_AssessFighter ist es, festzustellen
 //  ob die gezogene Waffe des anderen eine Bedrohung ist. Dabei
 //  passiert folgendes:
 //
@@ -24,14 +24,14 @@
 //                        und Zauber ein Kampfzauber ist
 //  2.  Fighter ist MONSTER
 //      - Ignorieren von harmlosen Monstern
-//      - Ignorieren von Monstern außerhalb HAI_DIST_ASSESS_MONSTER
+//      - Ignorieren von Monstern auÃŸerhalb HAI_DIST_ASSESS_MONSTER
 //      - sonst in ZS_AssessMonster (dort: Angriff, Abwarten oder Fliehen)
 //////////////////////////////////////////////////////////////////////////
 func void B_AssessFighter()
 {
     PrintDebugNpc           (PD_ZS_FRAME, "B_AssessFighter" );
 
-    //*********** Extra für Raeuberlager ************
+    //*********** Extra fÃ¼r Raeuberlager ************
     if (self.npctype == NPCTYPE_ROGUE)
     {
         B_SetRoguesToHostile();
@@ -47,7 +47,7 @@ func void B_AssessFighter()
         if (Npc_IsInCutscene(other))                                    // Befindet sich der "Waffenzieher" in einer Cutscene?
         {
             PrintDebugNpc   (PD_ZS_CHECK, "...Waffenziehender in Cutscene!" );
-            return;                                                     //... dann verzeihen wir ihm natürlich -> Abbruch des Checks
+            return;                                                     //... dann verzeihen wir ihm natÃ¼rlich -> Abbruch des Checks
         };
 
         //-------- Ignorieren, wenn SC in Magischem Schlaf --------
@@ -71,10 +71,10 @@ func void B_AssessFighter()
             B_CheckForImportantInfo(self,other);
         };
 
-        //-------- Check auf Fäuste! --------
+        //-------- Check auf FÃ¤uste! --------
         if ( Npc_IsInFightMode(other, FMODE_FIST) )
         {
-            PrintDebugNpc   (PD_ZS_CHECK, "...Fighter hat nur Fäuste 'gezogen'!" );
+            PrintDebugNpc   (PD_ZS_CHECK, "...Fighter hat nur FÃ¤uste 'gezogen'!" );
             return;
         };
 
@@ -95,7 +95,7 @@ func void B_AssessFighter()
         //-------- Check auf Nahkampfwaffe! --------
         if ( Npc_IsInFightMode(other, FMODE_MELEE) )
         {
-            PrintDebugNpc   (PD_ZS_CHECK, "...Fighter führt Nahkampfwaffe!" );
+            PrintDebugNpc   (PD_ZS_CHECK, "...Fighter fÃ¼hrt Nahkampfwaffe!" );
 
             if (Npc_GetDistToNpc(self,other) < HAI_DIST_MELEE)
             {
@@ -114,7 +114,7 @@ func void B_AssessFighter()
         //-------- Check auf Fernkampfwaffe! --------
         if ( Npc_IsInFightMode(other, FMODE_FAR) )
         {
-            PrintDebugNpc           (PD_ZS_CHECK, "...Fighter führt Fernkampfwaffe!");
+            PrintDebugNpc           (PD_ZS_CHECK, "...Fighter fÃ¼hrt Fernkampfwaffe!");
 
             if (Npc_GetDistToNpc(self,other) < HAI_DIST_RANGED)
             {
@@ -130,7 +130,7 @@ func void B_AssessFighter()
         //-------- Check auf Zauberspruch! --------
         if ( Npc_IsInFightMode(other, FMODE_MAGIC) )
         {
-            PrintDebugNpc           (PD_ZS_CHECK, "...Fighter führt Zauberspruch!" );
+            PrintDebugNpc           (PD_ZS_CHECK, "...Fighter fÃ¼hrt Zauberspruch!" );
 
             if ((Npc_GetDistToNpc(self,other)<HAI_DIST_RANGED) && (Npc_GetActiveSpellCat(other)==SPELL_BAD) )
             {
@@ -152,14 +152,14 @@ func void B_AssessFighter()
         };
     }
 
-    //######## ...dann muß der Fighter ein MONSTER sein ########
+    //######## ...dann muÃŸ der Fighter ein MONSTER sein ########
     else
     {
         PrintDebugNpc           (PD_ZS_CHECK, "... 'fighter' ist Monster/Orc!" );
 
         if (C_NpcIsDangerousMonster(self,other))
         {
-            PrintDebugNpc       (PD_ZS_CHECK, "... 'fighter' ist gefährliches Monster!" );
+            PrintDebugNpc       (PD_ZS_CHECK, "... 'fighter' ist gefÃ¤hrliches Monster!" );
 
             if (Npc_GetDistToNpc(self, other) < HAI_DIST_ASSESS_MONSTER)
             {

@@ -45,7 +45,7 @@ func void ZS_TestHangAround ()
     test = Hlp_GetNpc   (Sld3_Testmodell);
     if (Npc_IsPlayer    (test))
     {
-        Print (" Söldner 3 ist player");
+        Print (" SÃ¶ldner 3 ist player");
     }
     else
     {

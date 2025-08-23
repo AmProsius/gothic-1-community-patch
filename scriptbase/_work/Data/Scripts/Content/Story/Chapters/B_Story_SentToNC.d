@@ -9,7 +9,7 @@
 
 func void B_Story_SentToNC()
 {
-    //-------- Cor-Angar zurück zum Übungsplatz schicken --------
+    //-------- Cor-Angar zurÃ¼ck zum Ãœbungsplatz schicken --------
     var C_NPC   angar;
     angar = Hlp_GetNpc  (Gur_1202_CorAngar);
     Npc_ExchangeRoutine (angar, "start");
@@ -26,7 +26,7 @@ func void B_Story_SentToNC()
     Npc_ExchangeRoutine (gorn, "NCWAIT");
     AI_ContinueRoutine  (gorn);
 
-    //-------- Tagebucheinträge --------
+    //-------- TagebucheintrÃ¤ge --------
     Log_CreateTopic     (CH3_EscapePlanNC,  LOG_MISSION);
     Log_SetTopicStatus  (CH3_EscapePlanNC,  LOG_RUNNING);
     B_LogEntry          (CH3_EscapePlanNC,"Y'Berion, the spiritual leader of the Brotherhood, is dead! May his soul rest in peace. In his last words he put all his hopes of escape into the hands of the Magicians of the Circle of Water.");

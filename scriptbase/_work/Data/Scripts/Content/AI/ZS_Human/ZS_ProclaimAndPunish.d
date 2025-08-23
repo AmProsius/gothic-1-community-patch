@@ -8,16 +8,16 @@
 //  - ZS_AssessDefeat
 //  - ZS_AssessMurder
 //
-//  Folgende Voraussetzungen müssen erfüllt sein:
+//  Folgende Voraussetzungen mÃ¼ssen erfÃ¼llt sein:
 //
-//  - zu Bestrafender muß der Spiele sein ('hero' wird verwendet!)
-//  - NSC muß bereits eine passende Waffe gezogen haben!
+//  - zu Bestrafender muÃŸ der Spiele sein ('hero' wird verwendet!)
+//  - NSC muÃŸ bereits eine passende Waffe gezogen haben!
 //
 //  Macht folgendes:
 //  1.  Falls eine Wache (kein Todfeind) schon mal vom 'hero' besiegt wurde
 //      ->  ZS_TurnAway
 //  2.  Zum Ziel 'hero' hinlaufen, falls zu weit weg
-//  3.  Den Grund des Angriffs verkünden
+//  3.  Den Grund des Angriffs verkÃ¼nden
 //  4.  Angreifen
 //////////////////////////////////////////////////////////////////////////
 func void ZS_ProclaimAndPunish ()
@@ -79,7 +79,7 @@ func void ZS_ProclaimAndPunish_End ()
 {
     PrintDebugNpc       (PD_ZS_FRAME, "ZS_ProclaimAndPunish_End");
 
-    //-------- SC mittlerweile bewußtlos/tot ? --------
+    //-------- SC mittlerweile bewuÃŸtlos/tot ? --------
     if (C_NpcIsDown(hero))
     {
         PrintDebugNpc   (PD_ZS_CHECK, "...SC mittlerweile am Boden!");
@@ -87,21 +87,21 @@ func void ZS_ProclaimAndPunish_End ()
     };
 
     //-------- Zu sprechenden Satz ermitteln ! --------
-    // Möglichkeiten:
+    // MÃ¶glichkeiten:
     // - ZS_ReactToDamage/ZS_AssessEnemy        -> $NowWait (bei SC-Defeat: $YouStillNotHaveEnough)
     // - ZS_CatchThief/ZS_AssessEnemy           -> $DirtyThief
     // - NEWS_THEFT                             -> $DirtyThief
-    // - hat Schützling/Freund des NSCs getötet -> $YouKilledOneOfUs
-    // - greift Schützling an                   -> $YouAttackedMyCharge
+    // - hat SchÃ¼tzling/Freund des NSCs getÃ¶tet -> $YouKilledOneOfUs
+    // - greift SchÃ¼tzling an                   -> $YouAttackedMyCharge
     // - permHostile durch Gildentabelle        -> $DieMortalEnemy
     if (Npc_WasInState(self, ZS_AssessEnemy))
     {
-        //-------- SC hat Freund getötet ! --------
+        //-------- SC hat Freund getÃ¶tet ! --------
         var int murder_news;
         murder_news = Npc_HasNews(self, NEWS_MURDER, hero, NULL);
         if (murder_news)
         {
-            PrintDebugNpc       (PD_ZS_CHECK,   "...SC hat getötet..." );
+            PrintDebugNpc       (PD_ZS_CHECK,   "...SC hat getÃ¶tet..." );
             var C_Npc murder_victim;
             murder_victim = Npc_GetNewsVictim(self, murder_news);
             if (Npc_GetAttitude (self,murder_victim) == ATT_FRIENDLY)
@@ -148,10 +148,10 @@ func void ZS_ProclaimAndPunish_End ()
             B_SayOverlay        (self,  hero,   "$NowWaitIntruder");
         }
 
-        //-------- SC greift Schützling einer Wache an ! --------
+        //-------- SC greift SchÃ¼tzling einer Wache an ! --------
         else
         {
-            PrintDebugNpc       (PD_ZS_CHECK,   "...SC greift Schützling einer Wache an !");
+            PrintDebugNpc       (PD_ZS_CHECK,   "...SC greift SchÃ¼tzling einer Wache an !");
             B_SayOverlay        (self,  hero,   "$YouAttackedMyCharge");
         };
     };

@@ -133,7 +133,7 @@ INSTANCE Zombie4    (Mst_Default_Zombie)
 INSTANCE ZombieTheKeeper    (Mst_Default_Zombie)
 {
     name    = "The Guardian";
-    level   =   150;        // für XP!
+    level   =   150;        // fÃ¼r XP!
     ID      = MID_THEKEEPER;
 
     Set_Zombie4_Visuals();

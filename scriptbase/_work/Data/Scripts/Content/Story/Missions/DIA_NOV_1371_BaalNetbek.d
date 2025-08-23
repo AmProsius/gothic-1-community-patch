@@ -23,7 +23,7 @@ FUNC VOID  Nov_1371_BaalNetbek_Exit_Info()
     AI_StopProcessInfos ( self );
 };
 /*------------------------------------------------------------------------
-                            GÄRTNER
+                            GÃ„RTNER
 ------------------------------------------------------------------------*/
 
 instance  Nov_1371_BaalNetbek_CRAZY (C_INFO)

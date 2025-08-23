@@ -7,7 +7,7 @@ func void ZS_BodyGuard  ()
     PrintDebugNpc       (PD_TA_FRAME,   "ZS_BodyGuard");
 
     B_SetPerception (self);
-    AI_SetWalkmode (self,NPC_WALK);     // Walkmode für den Zustand
+    AI_SetWalkmode (self,NPC_WALK);     // Walkmode fÃ¼r den Zustand
     if !(Npc_IsOnFP(self,"BODYGUARD"))
     {
         AI_GotoWP(self, self.wp);               // Gehe zum Tagesablaufstart

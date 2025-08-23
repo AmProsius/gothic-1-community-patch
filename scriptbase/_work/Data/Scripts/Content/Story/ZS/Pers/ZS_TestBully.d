@@ -3,7 +3,7 @@ func void ZS_TestBully()
     PrintDebugNpc (PD_TA_FRAME,"ZS_TestBully");
 
     B_SetPerception (self);
-    AI_SetWalkmode (self,NPC_WALK); // Walkmode für den Zustand
+    AI_SetWalkmode (self,NPC_WALK); // Walkmode fÃ¼r den Zustand
     if !(Npc_IsOnFP(self,"BULLY"))
     {
         AI_GotoWP(self, self.wp);               // Gehe zum Tagesablaufstart

@@ -1,8 +1,8 @@
 func void B_Story_UrizielLoaded()
 {
-    //-------- Missionsgegenst‰nde --------
+    //-------- Missionsgegenst√§nde --------
 
-    //-------- Tagebucheintr‰ge --------
+    //-------- Tagebucheintr√§ge --------
     B_LogEntry          (CH5_Uriziel,"It's been accomplished. URIZIEL seems to have been restored to its old powers. Saturas and his Magicians of Water are really fed up with me, and I'd rather not meet them at the moment. But that doesn't matter, the Sleeper is awaiting me!");
 
     if (Npc_GetTrueGuild(hero) != GIL_KDW)

@@ -103,7 +103,7 @@ CONST STRING TXT_GUILDS [GIL_MAX] = {
 // *****************************************************************************************
 // Attribut-Beschreibungen
 // *****************************************************************************************
-/* SN: wird laut Bert nicht mehr benötigt. Ich kommentier es erst mal eine Version lang aus
+/* SN: wird laut Bert nicht mehr benÃ¶tigt. Ich kommentier es erst mal eine Version lang aus
 const string TXT_ATTRIBUTE_DESC [ATR_INDEX_MAX] = {
 
     "HitpointDesc",
@@ -116,16 +116,16 @@ const string TXT_ATTRIBUTE_DESC [ATR_INDEX_MAX] = {
     ""
 };
 
-"TXT_ATTRIBUTE_DESC" - Beschreibung der Attribute für CharScreen.
+"TXT_ATTRIBUTE_DESC" - Beschreibung der Attribute fÃ¼r CharScreen.
 "TXT_FIGHT_TALENTS" - Namen der Kampftalente
-"TXT_FIGHT_TALENTS_DESC" - Beschreibung der Kampftalente für CharScreen.
+"TXT_FIGHT_TALENTS_DESC" - Beschreibung der Kampftalente fÃ¼r CharScreen.
 "TXT_TALENTS" - Namen der sonstigen Talente
-"TXT_TALENTS_DESC" - Beschreibung der Talente für CharScreen
-"TXT_SPELLS_DESC" - Beschreibung der Spells für CharScreen
+"TXT_TALENTS_DESC" - Beschreibung der Talente fÃ¼r CharScreen
+"TXT_SPELLS_DESC" - Beschreibung der Spells fÃ¼r CharScreen
 
-Die Reihenfolge der jeweiligen Texte könnt ihr der Konstantenreihenfolge aus
+Die Reihenfolge der jeweiligen Texte kÃ¶nnt ihr der Konstantenreihenfolge aus
 der "constants.d" entnehmen, die hier auch mit dranhaengt und fuer
-fehlerfreies (Test-)parsen benötigt wird.
+fehlerfreies (Test-)parsen benÃ¶tigt wird.
 */
 
 // *****************************************************************************************
@@ -194,7 +194,7 @@ CONST STRING TXT_SPELLS [MAX_SPELL] = {
     "New5"                      // SPL_NEW5         =   21;
  };
 
-/* SN: wird laut Bert nicht mehr benötigt. Ich kommentier es erst mal eine Version lang aus
+/* SN: wird laut Bert nicht mehr benÃ¶tigt. Ich kommentier es erst mal eine Version lang aus
 CONST STRING TXT_SPELLS_DESC [MAX_SPELL] = {
 // FIXME: wo werden die benutzt?
     "LichtDescr",                       // SPL_LIGHT        =   0;
@@ -203,7 +203,7 @@ CONST STRING TXT_SPELLS_DESC [MAX_SPELL] = {
     "FearDescr",                        // SPL_FEAR         =   3;
     "HeilenDescr",                      // SPL_HEAL         =   4;
     "BlitzDescr",                       // SPL_LIGHTNING    =   5;
-    "Dämon beschw.Descr",               // SPL_SUMMONDEMON  =   6;
+    "DÃ¤mon beschw.Descr",               // SPL_SUMMONDEMON  =   6;
     "Skelette beschw.Descr",            // SPL_SUMMONSKELETON=  7;
     "VergessenDescr",                   // SPL_FORGET       =   8;
     "WindfaustDescr",                   // SPL_WINDFIST     =   9;
@@ -280,7 +280,7 @@ CONST STRING TXT_TALENTS [NPC_TALENT_MAX] =
     "Acrobatics"
 };
 
-/* SN: wird laut Bert nicht mehr benötigt. Ich kommentier es erst mal eine Version lang aus
+/* SN: wird laut Bert nicht mehr benÃ¶tigt. Ich kommentier es erst mal eine Version lang aus
 CONST STRING TXT_TALENTS_DESC [NPC_TALENT_MAX] =
 // FIXME: wo werden die benutzt?
 {
@@ -378,7 +378,7 @@ const string NAME_Spruchrolle   = "Spell Scroll";
 
 
 // *************************************************************
-// TEXTE FÜR ITEM-BESCHREIBUNGEN IM INV.
+// TEXTE FÃœR ITEM-BESCHREIBUNGEN IM INV.
 // *************************************************************
 
 const string NAME_Value         = "Value:";
@@ -423,7 +423,7 @@ const string NAME_Bonus_Str     = "Strength bonus:";
 const string NAME_OneHanded     = "One-handed Weapon";
 const string NAME_TwoHanded     = "Two-handed Weapon";
 
-//----------------- MH: zusätzlich wegen FlexTranslate ---------------------
+//----------------- MH: zusÃ¤tzlich wegen FlexTranslate ---------------------
 
 const string NAME_HealingPerMana = "Healing per Mana";
 
@@ -455,17 +455,17 @@ const string _STR_ATTRIBUTE_STRENGTH        = "Strength"                        
 const string _STR_ATTRIBUTE_DEXTERITY       = "Dexterity"                               ;
 const string _STR_ATTRIBUTE_MAGIC_CIRCLE    = "Magic Spell"                             ;
 
-// Bildschirmausgabe, falls der Spieler eine Waffe anlegen will, für die ihm Attributspunkte fehlen
+// Bildschirmausgabe, falls der Spieler eine Waffe anlegen will, fÃ¼r die ihm Attributspunkte fehlen
 const string _STR_CANNOTUSE_PRE_PLAYER      = "You're short of "                        ;
 const string _STR_CANNOTUSE_POINTS          = " points"                                 ;
 const string _STR_CANNOTUSE_LEVELS          = " levels"                                 ;
 const string _STR_CANNOTUSE_POST            = " to use this item."                      ;
 
-// Bildschirmausgabe, falls ein NSC zu wenig Attributspunkte, für das Anlegen von Waffen hat (nur Debugzwecke!)
+// Bildschirmausgabe, falls ein NSC zu wenig Attributspunkte, fÃ¼r das Anlegen von Waffen hat (nur Debugzwecke!)
 const string _STR_CANNOTUSE_PRE_NPC         = " ("                                              ;
 const string _STR_CANNOTUSE_POST_NPC        = ") are missing "                                  ;
 
-// Bidschrimausgabe zum Thema Schloß öffnen/knacken
+// Bidschrimausgabe zum Thema SchloÃŸ Ã¶ffnen/knacken
 const string _STR_MESSAGE_INTERACT_NO_KEY   = "No picklock or key.";
 const string _STR_MESSAGE_PICKLOCK_SUCCESS  = "That sounds good.";
 const string _STR_MESSAGE_PICKLOCK_UNLOCK   = "The lock has been opened.";
@@ -485,17 +485,17 @@ const string _STR_MESSAGE_ITEM_TAKEN        = " Item received!"                 
 const string _STR_MESSAGE_ITEMS_TAKEN       = " Items received!"                        ;
 const string _STR_MESSAGE_ORE_TAKEN         = " Ore received!"                          ;
 
-// Bidschrimausgabe fürs Tausch-Fenster
+// Bidschrimausgabe fÃ¼rs Tausch-Fenster
 const string _STR_MESSAGE_TRADE_FAILURE     = "The value of your goods is not high enough." ;
 
-// GILDENAUFNAHMEBEDINGUNG (für die Funktion "B_PrintGuildCondition()" )
+// GILDENAUFNAHMEBEDINGUNG (fÃ¼r die Funktion "B_PrintGuildCondition()" )
 const string _STR_MESSAGE_Joincamp          =   "Condition for admission: Level ";
 
 // nicht beklaubare NSCs
 const string _STR_MESSAGE_CANNOTSTEAL       =   "Cannot be stolen from.";
 
 // ***************************************************************************************
-// Relative Y-Koordinaten für die Bildschirmausgabe (in % der aktuellen Bildhöhe)
+// Relative Y-Koordinaten fÃ¼r die Bildschirmausgabe (in % der aktuellen BildhÃ¶he)
 // ***************************************************************************************
 const int   _YPOS_MESSAGE_GIVEN             =   37;
 const int   _YPOS_MESSAGE_TAKEN             =   40;
@@ -580,7 +580,7 @@ const string NAME_RaiseStrDex       =   "Strength and Dexterity +";
 const string NAME_RaiseManaMax      =   "Maximum Mana +";
 const string NAME_RaiseHealthMax    =   "Maximum Life +";
 
-//---------------- MH: für B_BuildBuyArmorString ----------------------------
+//---------------- MH: fÃ¼r B_BuildBuyArmorString ----------------------------
 
 const string NAME_CorristoHighRobe  =   "Master, I'd like to wear the High Robe of Fire.";
 const string NAME_SaturasHighRobe   =   "High Robe";

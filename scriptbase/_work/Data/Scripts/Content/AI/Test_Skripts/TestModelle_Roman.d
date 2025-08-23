@@ -3,7 +3,7 @@
 **      TESTMODELLE_ROMAN.D                                             **
 **      ===================                                             **
 **                                                                      **
-**      Enthält                                                         **
+**      EnthÃ¤lt                                                         **
 **      - Allround-Testmodell                                           **
 **                                                                      **
 *************************************************************************/
@@ -1327,7 +1327,7 @@ func void ZS_TestTalk()
     //
     //  LABER
     //
-    AI_Output( self ,other,"Sit_1_OW_Diego_Gamestart_11_00"); //Ich bin Diego. Ich kümmere mich um die Neuen.
+    AI_Output( self ,other,"Sit_1_OW_Diego_Gamestart_11_00"); //Ich bin Diego. Ich kÃ¼mmere mich um die Neuen.
     AI_Output( other,self ,"Sit_1_OW_Diego_Gamestart_20_01"); //Wo sind all die anderen?
 
     //

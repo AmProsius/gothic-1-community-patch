@@ -61,7 +61,7 @@ func void B_GiveDeathInv ()
     {
         if (self.aivar[AIV_MM_REAL_ID]==ID_FIREWARAN)           {   CreateInvItems(self,ItAt_Waran_01,      1); };  //Zunge eines Feuerwarans
         if (self.aivar[AIV_MM_REAL_ID]==ID_SHADOWBEAST)         {   CreateInvItems(self,ItAt_Shadow_02,     1); };  //Horn eines Shadowbeasts
-        if (self.aivar[AIV_MM_REAL_ID]==ID_SWAMPSHARK)          {   CreateInvItems(self,ItAt_Swampshark_02, 3); };  //Zähne eines Sumpfhais
+        if (self.aivar[AIV_MM_REAL_ID]==ID_SWAMPSHARK)          {   CreateInvItems(self,ItAt_Swampshark_02, 3); };  //ZÃ¤hne eines Sumpfhais
         if (self.aivar[AIV_MM_REAL_ID]==ID_TROLL)               {   CreateInvItems(self,ItAt_Troll_02,      2); };  //Hauer eines Trolls
     };
 

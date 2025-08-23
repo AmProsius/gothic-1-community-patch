@@ -278,7 +278,7 @@ FUNC VOID DIA_Raven_SpySect_Info()
 };
 
 // *********************************************
-//              Ausrüstung
+//              AusrÃ¼stung
 // *********************************************
 
 INSTANCE DIA_Raven_Equipment (C_INFO)

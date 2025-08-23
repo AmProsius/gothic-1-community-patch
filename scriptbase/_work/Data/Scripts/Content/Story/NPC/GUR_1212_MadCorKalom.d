@@ -1,4 +1,4 @@
-// Nur für Kap.6 benutzen
+// Nur fÃ¼r Kap.6 benutzen
 
 instance GUR_1212_MadCorKalom (Npc_Default)
 {

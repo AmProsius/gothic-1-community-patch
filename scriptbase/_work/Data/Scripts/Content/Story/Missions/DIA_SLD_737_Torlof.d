@@ -97,7 +97,7 @@ instance DIA_Torlof_PERM (C_INFO)
     condition   = DIA_Torlof_PERM_Condition;
     information = DIA_Torlof_PERM_Info;
     permanent   = 1;
-    description = "Was kannst du mir über dieses Lager sagen?";
+    description = "Was kannst du mir Ã¼ber dieses Lager sagen?";
 };
 
 FUNC int DIA_Torlof_PERM_Condition()
@@ -107,9 +107,9 @@ FUNC int DIA_Torlof_PERM_Condition()
 
 FUNC VOID  DIA_Torlof_PERM_Info()
 {
-    AI_Output (other, self,"DIA_Torlof_PERM_15_00"); //Was kannst du mir über dieses Lager sagen?
+    AI_Output (other, self,"DIA_Torlof_PERM_15_00"); //Was kannst du mir Ã¼ber dieses Lager sagen?
     AI_Output (self, other,"DIA_Torlof_PERM_04_01"); //Ist wie auf'm Piratenschiff, Junge. Solange ab und zu ein fetter Fischzug gegen Gomez drin ist, sind die Banditen zufrieden.
-    AI_Output (self, other,"DIA_Torlof_PERM_04_02"); //Wenn sie kein Erz mehr haben, um sich in der Kneipe vollaufen zu lassen, gibt's ne Menge Schlägereien.
+    AI_Output (self, other,"DIA_Torlof_PERM_04_02"); //Wenn sie kein Erz mehr haben, um sich in der Kneipe vollaufen zu lassen, gibt's ne Menge SchlÃ¤gereien.
 };
 
 */

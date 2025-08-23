@@ -50,18 +50,18 @@ instance GRD_216_Torwache (Npc_Default)
 
 FUNC VOID Rtn_start_216 ()
 {
-    TA_Guard        (06,00,14,00,"OCR_NORTHGATE_RIGHT_GUARD");// in sp‰teren Kapiteln, wenn SC nicht mehr durchdarf TA_GuardPassage
-    TA_Guard        (14,00,06,00,"OCR_NORTHGATE_RIGHT_GUARD");// in sp‰teren Kapiteln, wenn SC nicht mehr durchdarf TA_GuardPassage
+    TA_Guard        (06,00,14,00,"OCR_NORTHGATE_RIGHT_GUARD");// in sp√§teren Kapiteln, wenn SC nicht mehr durchdarf TA_GuardPassage
+    TA_Guard        (14,00,06,00,"OCR_NORTHGATE_RIGHT_GUARD");// in sp√§teren Kapiteln, wenn SC nicht mehr durchdarf TA_GuardPassage
 };
 
 FUNC VOID Rtn_FMTaken_216 ()
 {
-    TA_StayNeutral  (06,00,14,00,"OCR_NORTHGATE_RIGHT_GUARD");// in sp‰teren Kapiteln, wenn SC nicht mehr durchdarf TA_GuardPassage
-    TA_StayNeutral  (14,00,06,00,"OCR_NORTHGATE_RIGHT_GUARD");// in sp‰teren Kapiteln, wenn SC nicht mehr durchdarf TA_GuardPassage
+    TA_StayNeutral  (06,00,14,00,"OCR_NORTHGATE_RIGHT_GUARD");// in sp√§teren Kapiteln, wenn SC nicht mehr durchdarf TA_GuardPassage
+    TA_StayNeutral  (14,00,06,00,"OCR_NORTHGATE_RIGHT_GUARD");// in sp√§teren Kapiteln, wenn SC nicht mehr durchdarf TA_GuardPassage
 };
 
 FUNC VOID Rtn_FMTaken2_216 ()
 {
-    TA_Guard        (06,00,14,00,"OCR_NORTHGATE_RIGHT_GUARD");// in sp‰teren Kapiteln, wenn SC nicht mehr durchdarf TA_GuardPassage
-    TA_Guard        (14,00,06,00,"OCR_NORTHGATE_RIGHT_GUARD");// in sp‰teren Kapiteln, wenn SC nicht mehr durchdarf TA_GuardPassage
+    TA_Guard        (06,00,14,00,"OCR_NORTHGATE_RIGHT_GUARD");// in sp√§teren Kapiteln, wenn SC nicht mehr durchdarf TA_GuardPassage
+    TA_Guard        (14,00,06,00,"OCR_NORTHGATE_RIGHT_GUARD");// in sp√§teren Kapiteln, wenn SC nicht mehr durchdarf TA_GuardPassage
 };

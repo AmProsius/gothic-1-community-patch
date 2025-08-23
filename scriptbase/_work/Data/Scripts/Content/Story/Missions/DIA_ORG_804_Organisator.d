@@ -26,7 +26,7 @@ FUNC VOID  Org_804_Organisator_Exit_Info()
 };
 
 // **************************************************
-//                  Erste Begrüssung
+//                  Erste BegrÃ¼ssung
 // **************************************************
 
 instance  Org_804_Organisator_Greet (C_INFO)
@@ -250,7 +250,7 @@ func int Info_Org_804_Attack_Info()
     hero.aivar[AIV_GUARDPASSAGE_STATUS] = AIV_GPS_PUNISH;
 
     B_FullStop          (self);
-    AI_StopProcessInfos (self);                 // dem Spieler sofort wieder die Kontrolle zurückgeben
+    AI_StopProcessInfos (self);                 // dem Spieler sofort wieder die Kontrolle zurÃ¼ckgeben
     B_IntruderAlert     (self,  other);
     B_SetAttackReason   (self,  AIV_AR_INTRUDER);
     Npc_SetTarget       (self,  hero);

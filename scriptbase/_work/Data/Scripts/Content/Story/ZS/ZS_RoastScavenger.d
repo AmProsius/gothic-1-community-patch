@@ -10,7 +10,7 @@ FUNC VOID ZS_RoastScavenger ()
 
     if !(C_BodyStateContains(self,BS_MOBINTERACT))
     {
-        AI_SetWalkmode (self,NPC_WALK);     // Walkmode für den Zustand
+        AI_SetWalkmode (self,NPC_WALK);     // Walkmode fÃ¼r den Zustand
         B_StartUseMob(self,"BARBQ");
     };
 };

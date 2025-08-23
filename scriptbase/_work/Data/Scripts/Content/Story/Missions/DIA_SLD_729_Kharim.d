@@ -66,7 +66,7 @@ instance Info_Kharim_Charge(C_INFO)
 
 FUNC INT Info_Kharim_Charge_Condition()
 {
-    if ( Npc_KnowsInfo (hero,DIA_Scatty_JoinOC) && Npc_KnowsInfo(hero,Info_Kharim_What) && (Kharim_Charged != TRUE) && (Kapitel <= 1) ) // Kapitelfix ***Björn***
+    if ( Npc_KnowsInfo (hero,DIA_Scatty_JoinOC) && Npc_KnowsInfo(hero,Info_Kharim_What) && (Kharim_Charged != TRUE) && (Kapitel <= 1) ) // Kapitelfix ***BjÃ¶rn***
     {
         return 1;
     };
@@ -166,7 +166,7 @@ FUNC INT Info_Kharim_InArena_Condition()
 
 func VOID Info_Kharim_InArena_Info()
 {
-    if (Kapitel <= 1)               // Kapitelfix ***Björn***
+    if (Kapitel <= 1)               // Kapitelfix ***BjÃ¶rn***
     {
         AI_Output (self, other,"Info_Kharim_InArena_09_00"); //Pain is a question of willpower!
 
@@ -179,7 +179,7 @@ func VOID Info_Kharim_InArena_Info()
     }
     else
     {
-        AI_Output (self, other,"SVM_9_LetsForgetOurLittleFight"); //Von mir aus können wir unseren Streit vergessen ...
+        AI_Output (self, other,"SVM_9_LetsForgetOurLittleFight"); //Von mir aus kÃ¶nnen wir unseren Streit vergessen ...
         AI_StopProcessInfos ( self );
         Npc_ExchangeRoutine(self,"START");
     };

@@ -79,7 +79,7 @@ instance  DIA_Caine_WaysToKalom (C_INFO)
     condition   = DIA_Caine_WaysToKalom_Condition;
     information = DIA_Caine_WaysToKalom_Info;
     permanent   = 0;
-    description = "Ich würde gerne mit Cor Kalom reden - kannst du mir dabei helfen?";
+    description = "Ich wÃ¼rde gerne mit Cor Kalom reden - kannst du mir dabei helfen?";
 };
 
 FUNC int  DIA_Caine_WaysToKalom_Condition()
@@ -92,8 +92,8 @@ FUNC int  DIA_Caine_WaysToKalom_Condition()
 
 FUNC VOID  DIA_Caine_WaysToKalom_Info()
 {
-    AI_Output (other, self,"DIA_Caine_WaysToKalom_15_00"); //Ich würde gerne mit Cor Kalom reden - kannst du mir dabei helfen?
-    AI_Output (self, other,"DIA_Caine_WaysToKalom_13_01"); //Wenn du zu Cor Kalom willst, mußt du einen guten Grund haben.
+    AI_Output (other, self,"DIA_Caine_WaysToKalom_15_00"); //Ich wÃ¼rde gerne mit Cor Kalom reden - kannst du mir dabei helfen?
+    AI_Output (self, other,"DIA_Caine_WaysToKalom_13_01"); //Wenn du zu Cor Kalom willst, muÃŸt du einen guten Grund haben.
     AI_Output (self, other,"DIA_Caine_WaysToKalom_13_02"); //Die Wache hat Anweisung, nur die vorzulassen, die Alchimistische Substanzen bringen oder von einen der Gurus geschickt wurden.
 };
 
@@ -108,7 +108,7 @@ instance  DIA_Caine_Alchemies (C_INFO)
     condition   = DIA_Caine_Alchemies_Condition;
     information = DIA_Caine_Alchemies_Info;
     permanent   = 0;
-    description = "Was für alchimistische Substanzen kann ich Kalom bringen?";
+    description = "Was fÃ¼r alchimistische Substanzen kann ich Kalom bringen?";
 };
 
 FUNC int  DIA_Caine_Alchemies_Condition()
@@ -121,8 +121,8 @@ FUNC int  DIA_Caine_Alchemies_Condition()
 
 FUNC VOID  DIA_Caine_Alchemies_Info()
 {
-    AI_Output (other, self,"DIA_Caine_Alchemies_15_00"); //Was für alchimistische Substanzen kann ich Kalom bringen?
-    AI_Output (self, other,"DIA_Caine_Alchemies_13_01"); //Kalom benötigt vor allem das Sekret der Minecrawler. Wenn du ihm genug davon beschaffst, wird dich die Wache sicher vorlassen.
+    AI_Output (other, self,"DIA_Caine_Alchemies_15_00"); //Was fÃ¼r alchimistische Substanzen kann ich Kalom bringen?
+    AI_Output (self, other,"DIA_Caine_Alchemies_13_01"); //Kalom benÃ¶tigt vor allem das Sekret der Minecrawler. Wenn du ihm genug davon beschaffst, wird dich die Wache sicher vorlassen.
     AI_Output (self, other,"DIA_Caine_Alchemies_13_02"); //Er braucht zwar auch Pflanzen und Beeren, die man zwischen den Lagern findet, aber die nimmt Fortuno unten an.
 };
 
@@ -242,8 +242,8 @@ FUNC int  DIA_Caine_WieGuruSend_Condition()
 FUNC VOID  DIA_Caine_WieGuruSend_Info()
 {
     AI_Output (other, self,"DIA_Caine_WieGuruSend_15_00"); //Wie bringe ich einen Guru dazu, dass er mich zu Kalom schickt.
-    AI_Output (self, other,"DIA_Caine_WieGuruSend_13_01"); //Darüber kann die Lester mehr erzählen.
-    AI_Output (self, other,"DIA_Caine_WieGuruSend_13_02"); //Bis vor kurzen hat er noch für Cor Kalom gearbeitet, jetzt kümmert er sich zusammen mit den Gurus um die Neuen.
+    AI_Output (self, other,"DIA_Caine_WieGuruSend_13_01"); //DarÃ¼ber kann die Lester mehr erzÃ¤hlen.
+    AI_Output (self, other,"DIA_Caine_WieGuruSend_13_02"); //Bis vor kurzen hat er noch fÃ¼r Cor Kalom gearbeitet, jetzt kÃ¼mmert er sich zusammen mit den Gurus um die Neuen.
 };
 */
 

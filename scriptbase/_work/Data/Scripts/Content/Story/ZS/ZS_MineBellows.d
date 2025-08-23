@@ -10,7 +10,7 @@ FUNC VOID ZS_MineBellows ()
 
     if (!C_BodyStateContains(self, BS_MOBINTERACT_INTERRUPT))
     {
-        AI_SetWalkmode (self,NPC_WALK);     // Walkmode für den Zustand
+        AI_SetWalkmode (self,NPC_WALK);     // Walkmode fÃ¼r den Zustand
         if ((Hlp_StrCmp(Npc_GetNearestWp (self),self.wp)== 0))
         {
             AI_GotoWP   (self, self.wp);

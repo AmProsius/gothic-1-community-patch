@@ -5,7 +5,7 @@ func void ZS_Charlotte_Dance ()  //### Wahrnehmungen?
 {
     PrintDebugNpc       (PD_TA_FRAME,   "ZS_Charlotte_Dance");
 
-// KEINE Perceptions für Charlotte! Sie soll ja nicht kreischend weglaufen, wenn man die Waffe zieht!
+// KEINE Perceptions fÃ¼r Charlotte! Sie soll ja nicht kreischend weglaufen, wenn man die Waffe zieht!
 //  B_SetBabeDefaultPerceptions();
 
     AI_SetWalkMode(self, NPC_RUN);

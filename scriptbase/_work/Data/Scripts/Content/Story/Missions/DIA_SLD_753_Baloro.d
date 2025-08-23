@@ -1,5 +1,5 @@
 //****************************************************
-//  Typ der den SC an der Nase herum führt!
+//  Typ der den SC an der Nase herum fÃ¼hrt!
 //****************************************************
 
 //Variablen:
@@ -132,7 +132,7 @@ FUNC VOID DIA_SLD_753_Baloro_Worumgehts_jaklar()
 
 
 
-// ********************** Ich hab´s noch nicht dabei *****************
+// ********************** Ich habÂ´s noch nicht dabei *****************
 
 
 instance DIA_SLD_753_Baloro_habsnichtdabei (C_INFO)
@@ -165,7 +165,7 @@ FUNC VOID DIA_SLD_753_Baloro_habsnichtdabei_Info()
 };
 
 
-// ********************** Ich hab´s  dabei *****************
+// ********************** Ich habÂ´s  dabei *****************
 
 instance DIA_SLD_753_Baloro_habsdabei (C_INFO)
 {
@@ -201,7 +201,7 @@ FUNC VOID DIA_SLD_753_Baloro_habsdabei_Info()
 
     CreateInvItems(other, ItFoApple, 14);
 
-    B_GiveInvItems(other, self, ItFoApple, 19); //Nötig für die Ausschrift "19 Itmes abgegeben", wird sofort angeglichen.
+    B_GiveInvItems(other, self, ItFoApple, 19); //NÃ¶tig fÃ¼r die Ausschrift "19 Itmes abgegeben", wird sofort angeglichen.
 
     Npc_RemoveInvItems ( other,ItFoBooze,2);
     Npc_RemoveInvItems ( other,ItFoBeer,5);
@@ -272,7 +272,7 @@ FUNC VOID DIA_SLD_753_Baloro_letztes_Wort_Info()
 
 
 
-// **********************   EXIT\ Spieler will´s wissen *****************
+// **********************   EXIT\ Spieler willÂ´s wissen *****************
 
 instance DIA_SLD_753_Baloro_SC_wills_wissen (C_INFO)
 {

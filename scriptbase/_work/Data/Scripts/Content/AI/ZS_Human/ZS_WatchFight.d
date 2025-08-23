@@ -35,18 +35,18 @@ func int ZS_WatchFight_Loop ()
 
     if (Npc_IsDead(other) || Npc_IsDead(victim))
     {
-        PrintDebugNpc           (PD_ZS_LOOP,"...Workaraound für nicht ankommende PERC_ASSESSMURDER!");
+        PrintDebugNpc           (PD_ZS_LOOP,"...Workaraound fÃ¼r nicht ankommende PERC_ASSESSMURDER!");
         return                  LOOP_END;
     };
     if (Npc_IsInState(other, ZS_Unconscious) || Npc_IsInState(victim, ZS_Unconscious))
     {
-        PrintDebugNpc           (PD_ZS_LOOP,"...Workaround für nicht ankommende PERC_ASSESSDEFEAT!");
+        PrintDebugNpc           (PD_ZS_LOOP,"...Workaround fÃ¼r nicht ankommende PERC_ASSESSDEFEAT!");
         return                  LOOP_END;
     };
 
-    if (Npc_IsInState(other,ZS_Attack) || Npc_IsInState (victim,ZS_Attack)) // ...wird noch gekämpft?
+    if (Npc_IsInState(other,ZS_Attack) || Npc_IsInState (victim,ZS_Attack)) // ...wird noch gekÃ¤mpft?
     {
-        PrintDebugNpc           (PD_ZS_CHECK,   "...es wird noch gekämpft!");
+        PrintDebugNpc           (PD_ZS_CHECK,   "...es wird noch gekÃ¤mpft!");
 
         if ( (Npc_GetDistToNpc(self,other)<PERC_DIST_INTERMEDIAT) || (Npc_GetDistToNpc(self,victim)<PERC_DIST_INTERMEDIAT) )
         {
@@ -97,7 +97,7 @@ func int ZS_WatchFight_Loop ()
     }
     else
     {
-        PrintDebugNpc       (PD_ZS_CHECK,   "...es wird nicht mehr gekämpft!");
+        PrintDebugNpc       (PD_ZS_CHECK,   "...es wird nicht mehr gekÃ¤mpft!");
         return              LOOP_END;
     };
 

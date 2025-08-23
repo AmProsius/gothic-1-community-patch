@@ -1,5 +1,5 @@
 /****************************************************
-*          NSC sucht WASH-FP und wäscht sich        *
+*          NSC sucht WASH-FP und wÃ¤scht sich        *
 ****************************************************/
 
 func void ZS_WashSelf ()
@@ -7,7 +7,7 @@ func void ZS_WashSelf ()
     PrintDebugNpc(PD_TA_FRAME,"ZS_WashSelf");
 
     B_SetPerception (self);
-    AI_SetWalkmode (self,NPC_WALK);     // Walkmode für den Zustand
+    AI_SetWalkmode (self,NPC_WALK);     // Walkmode fÃ¼r den Zustand
     if !(Npc_IsOnFP(self,"WASH"))
     {
         AI_GotoWP (self,self.wp);           // Gehe zum Tagesablaufstart

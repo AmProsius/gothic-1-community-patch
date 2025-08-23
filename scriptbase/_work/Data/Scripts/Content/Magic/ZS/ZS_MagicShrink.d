@@ -11,7 +11,7 @@ func int ZS_MagicShrink()
     };
 
     AI_PlayAni          (self, "T_STUMBLEB" );
-    self.aivar[AIV_MM_ShrinkState] = 0;          // WICHTIG: Setzt das Schrumpf-Stadium zurück, auf dem die Loop basiert
+    self.aivar[AIV_MM_ShrinkState] = 0;          // WICHTIG: Setzt das Schrumpf-Stadium zurÃ¼ck, auf dem die Loop basiert
 };
 
 

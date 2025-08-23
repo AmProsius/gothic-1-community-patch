@@ -2,8 +2,8 @@
 //##
 //##                            KAPITEL 4
 //##                            =========
-//##    Söldner, Banditen und Schürfer der Freien Mine werden
-//##    getötet und beraubt.
+//##    SÃ¶ldner, Banditen und SchÃ¼rfer der Freien Mine werden
+//##    getÃ¶tet und beraubt.
 //##    Drei Gardisten bewachen jetzt den Eingang zur Mine.
 //##
 //#####################################################################
@@ -13,7 +13,7 @@ func void B_Story_FMTaken()
     var C_NPC fighter;  fighter = Hlp_GetNpc(PC_FIGHTER);
     Npc_ExchangeRoutine(fighter, "NCREPORT");
 
-    //-------- Besatzung des Kessels töten --------
+    //-------- Besatzung des Kessels tÃ¶ten --------
     B_KillNpc   (SLD_750_Soeldner);
     B_KillNpc   (SLD_751_Soeldner);
     B_KillNpc   (SLD_752_Okyl);
@@ -50,12 +50,12 @@ func void B_Story_FMTaken()
     B_KillNpc   (ORG_891_Organisator);
     B_KillNpc   (ORG_892_Organisator);
 
-    //-------- Gardisten-Eroberer einfügen --------
+    //-------- Gardisten-Eroberer einfÃ¼gen --------
     Wld_InsertNpc       (Grd_283_Gardist,   "FMC_ENTRANCE");    //FMC-Guard(Mineneingang)
     Wld_InsertNpc       (Grd_285_Gardist,   "FMC_ENTRANCE");    //FMC-Guard(Mineneingang)
     B_ExchangeRoutine   (Grd_201_Jackal,    "FMTaken");         //FMC-Guard(Mineneingang)
 
-    //-------- Tor zur Alten Mine im Stundentakt auf Verschluß checken! --------
+    //-------- Tor zur Alten Mine im Stundentakt auf VerschluÃŸ checken! --------
     //B_ExchangeRoutine (Grd_250_Gardist,   "FMTaken");
     Wld_SetObjectRoutine        (0,00,"EVT_AM_LOB_GATE_BIG",1);
     Wld_SetObjectRoutine        (1,00,"EVT_AM_LOB_GATE_BIG",1);
@@ -82,7 +82,7 @@ func void B_Story_FMTaken()
     Wld_SetObjectRoutine        (22,00,"EVT_AM_LOB_GATE_BIG",1);
     Wld_SetObjectRoutine        (23,00,"EVT_AM_LOB_GATE_BIG",1);
 
-    //-------- Tagebucheinträge --------
+    //-------- TagebucheintrÃ¤ge --------
     if (Npc_KnowsInfo(hero, Info_Milten_OCWARN))
     {
         B_LogEntry  (CH4_Firemages,"Diego was actually able to tell me more about the events in the Old Camp.");

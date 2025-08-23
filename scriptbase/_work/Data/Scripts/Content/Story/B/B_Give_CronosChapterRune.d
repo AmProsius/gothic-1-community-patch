@@ -163,6 +163,6 @@ func void B_Give_CronosChapter6Runes ()
     //-------- Scrolls --------
 
 
-    //-------- Bücher --------
+    //-------- BÃ¼cher --------
 
 };

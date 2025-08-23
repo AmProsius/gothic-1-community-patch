@@ -1,4 +1,4 @@
-// Heranrufen der Wachen, von schwächeren NSCs
+// Heranrufen der Wachen, von schwÃ¤cheren NSCs
 func void ZS_CallGuards ()
 {
     PrintDebugNpc       (PD_ZS_FRAME, "ZS_CallGuards" );
@@ -28,5 +28,5 @@ func void ZS_CallGuardsOnEnterRoom ()
     B_SmartTurnToNpc    (self,  hero);
     B_SayOverlay        (self,  hero, "$ALARM");
     Npc_SendPassivePerc (self,  PERC_ASSESSWARN, self, hero);
-    //AI_StartState     (self,  ZS_Flee,    0,  "");    //SN: kommt etwas püntig rüber!
+    //AI_StartState     (self,  ZS_Flee,    0,  "");    //SN: kommt etwas pÃ¼ntig rÃ¼ber!
 };

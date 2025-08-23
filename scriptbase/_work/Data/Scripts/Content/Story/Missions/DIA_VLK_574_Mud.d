@@ -111,7 +111,7 @@ FUNC VOID DIA_Mud_ShutUp_Info()
 };
 
 // **************************************************
-//                  Verpiﬂ dich
+//                  Verpi√ü dich
 // **************************************************
 
 INSTANCE DIA_Mud_GetLost (C_INFO)

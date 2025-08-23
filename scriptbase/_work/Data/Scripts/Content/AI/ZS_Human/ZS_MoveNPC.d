@@ -20,8 +20,8 @@ func void ZS_MoveNpcWait_Loop ()
     if (Npc_GetStateTime ( self) > 2 )
     {
         if  Npc_IsWayBlocked(self)                  // Weg immer noch blockiert?
-        &&  (Npc_GetDistToNpc(self, other)<200)     // könnte ja auch ein anderer NSC sein, also checken, ob SC noch in der Nähe!
-        &&  (other.aivar[AIV_INVINCIBLE] == FALSE)  // SC könnte mittlerweile reden
+        &&  (Npc_GetDistToNpc(self, other)<200)     // kÃ¶nnte ja auch ein anderer NSC sein, also checken, ob SC noch in der NÃ¤he!
+        &&  (other.aivar[AIV_INVINCIBLE] == FALSE)  // SC kÃ¶nnte mittlerweile reden
         {
             B_DrawWeapon    (self,  other);
             B_Say           (self,  other,  "$YOUDEAFORWHAT");
@@ -62,8 +62,8 @@ func void ZS_MoveNpcWait1_Loop ()
     if (Npc_GetStateTime ( self) > 2 )
     {
         if  Npc_IsWayBlocked(self)                  // Weg immer noch blockiert?
-        &&  (Npc_GetDistToNpc(self, other)<200)     // könnte ja auch ein anderer NSC sein, also checken, ob SC noch in der Nähe!
-        &&  (other.aivar[AIV_INVINCIBLE] == FALSE)  // SC könnte mittlerweile reden
+        &&  (Npc_GetDistToNpc(self, other)<200)     // kÃ¶nnte ja auch ein anderer NSC sein, also checken, ob SC noch in der NÃ¤he!
+        &&  (other.aivar[AIV_INVINCIBLE] == FALSE)  // SC kÃ¶nnte mittlerweile reden
         {
             Npc_SetTempAttitude (self,ATT_HOSTILE);
             B_Say           (self,  other, "$YOUASKEDFORIT");

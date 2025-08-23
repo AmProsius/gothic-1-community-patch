@@ -17,7 +17,7 @@
 //      - ATT_FRIENDLY          -> B_AssessSC
 //  5.  Intruder ein Monster
 //      - harmloses Monster     ->  Ignorieren
-//      - gefährliches Monster  ->  ZS_AssessMonster
+//      - gefÃ¤hrliches Monster  ->  ZS_AssessMonster
 //////////////////////////////////////////////////////////////////////////
 func void B_ObserveIntruder ()
 {

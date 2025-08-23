@@ -23,7 +23,7 @@ FUNC VOID  DIA_GorNaDrak_EXIT_Info()
 };
 
 // **************************************************
-//                  Erste Begrüssung
+//                  Erste BegrÃ¼ssung
 // **************************************************
 
 instance  DIA_GorNaDrak_Greet (C_INFO)
@@ -110,7 +110,7 @@ FUNC VOID  DIA_GorNaDrak_TeachMandibles_Info()
 };
 
 // **************************************************
-//              Wofür ist Sekret da?
+//              WofÃ¼r ist Sekret da?
 // **************************************************
 
 instance  DIA_GorNaDrak_WhatFor (C_INFO)

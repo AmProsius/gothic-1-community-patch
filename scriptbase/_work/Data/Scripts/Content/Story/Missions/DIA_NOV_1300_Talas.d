@@ -136,7 +136,7 @@ FUNC void  Nov_1300_Talas_READY_Info()
 
 };
 
-// ***************************** AN DER BRÜCKE ****************************************//
+// ***************************** AN DER BRÃœCKE ****************************************//
 instance  Nov_1300_Talas_BRIDGE (C_INFO)
 {
     npc             = Nov_1300_Talas;
@@ -164,7 +164,7 @@ FUNC void  Nov_1300_Talas_BRIDGE_Info()
     B_LogEntry      (CH2_Book,"Now we're standing in front of a goblin cave. This coward novice really wants me to go in there on my own.");
 };
 
-// ***************************** ZURÜCK INS LAGER ****************************************//
+// ***************************** ZURÃœCK INS LAGER ****************************************//
 instance  Nov_1300_Talas_BACK (C_INFO)
 {
     npc             = Nov_1300_Talas;
@@ -193,7 +193,7 @@ FUNC void  Nov_1300_Talas_BACK_Info()
     AI_StopProcessInfos (self);
 };
 
-// ***************************** Zurück im Lager ****************************************//
+// ***************************** ZurÃ¼ck im Lager ****************************************//
 instance  Nov_1300_Talas_RETURNED (C_INFO)
 {
     npc             = Nov_1300_Talas;

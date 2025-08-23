@@ -23,7 +23,7 @@ FUNC VOID DIA_Cavalorn_Exit_Info()
 };
 
 // **************************************************
-//                  Ich Jäger
+//                  Ich JÃ¤ger
 // **************************************************
 
 INSTANCE DIA_cavalorn_Hunter (C_INFO)

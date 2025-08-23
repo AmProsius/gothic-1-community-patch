@@ -40,7 +40,7 @@ instance  KDW_604_Cronos_Greet (C_INFO)
     condition   =  KDW_604_Cronos_Greet_Condition;
     information =  KDW_604_Cronos_Greet_Info;
     permanent   =  0;
-    description = "Ich grüße dich, Magier.";
+    description = "Ich grÃ¼ÃŸe dich, Magier.";
 };
 
 FUNC int  KDW_604_Cronos_Greet_Condition()
@@ -50,8 +50,8 @@ FUNC int  KDW_604_Cronos_Greet_Condition()
 
 FUNC VOID  KDW_604_Cronos_Greet_Info()
 {
-    AI_Output (other, self,"DIA_Cronos_Greet_15_00"); //Ich grüße dich, Magier.
-    AI_Output (self, other,"DIA_Cronos_Greet_08_01"); //Warum störst du den Hüter des Erzes?
+    AI_Output (other, self,"DIA_Cronos_Greet_15_00"); //Ich grÃ¼ÃŸe dich, Magier.
+    AI_Output (self, other,"DIA_Cronos_Greet_08_01"); //Warum stÃ¶rst du den HÃ¼ter des Erzes?
 };
 */
 
@@ -572,7 +572,7 @@ FUNC void  KDW_604_Cronos_SELLSTUFF_Info()
 
 };
 /*------------------------------------------------------------------------
-                        BEGRÜSSUNG
+                        BEGRÃœSSUNG
 ------------------------------------------------------------------------*/
 
 instance  KDW_604_Cronos_GREET (C_INFO)

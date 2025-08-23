@@ -8,18 +8,18 @@
 //
 //  aufgerufen. Vorraussetzungen:
 //
-//  - 'self' muß eine Wache sein
+//  - 'self' muÃŸ eine Wache sein
 //  - 'other' den SC als Menschen beinhalten (es wird trotzdem 'hero' genommen)
 //
 //  Es passiert folgendes:
 //
 //  1.  NSC dreht sich vom Feind 'other' weg und ignoriert folgende SC-Aktionen:
-//      ->  Angriff eines Schützlings
-//      ->  Sieg über einen Schützling
-//      ->  Mord an einem Schützling
+//      ->  Angriff eines SchÃ¼tzlings
+//      ->  Sieg Ã¼ber einen SchÃ¼tzling
+//      ->  Mord an einem SchÃ¼tzling
 //      ->  Diebstahl
-//      ->  Betreten einer Schützling/eigenen Hütte
-//      ->  Herumhantieren an Gilden-MOBs (z.B. Türen oder Tor-Drehkreuze)
+//      ->  Betreten einer SchÃ¼tzling/eigenen HÃ¼tte
+//      ->  Herumhantieren an Gilden-MOBs (z.B. TÃ¼ren oder Tor-Drehkreuze)
 //////////////////////////////////////////////////////////////////////////
 func void ZS_TurnAway ()
 {

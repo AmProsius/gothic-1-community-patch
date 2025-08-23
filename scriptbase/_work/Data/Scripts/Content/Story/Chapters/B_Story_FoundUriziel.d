@@ -1,6 +1,6 @@
 func void B_Story_FoundUriziel()
 {
-    //-------- Missionsgegenst‰nde --------
+    //-------- Missionsgegenst√§nde --------
     CreateInvItem   (hero,  Weltenspalter);
     CreateInvItem   (hero,  Lichtbringer);
     CreateInvItem   (hero,  Zeitenklinge);

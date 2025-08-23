@@ -4,7 +4,7 @@ instance GRD_230_Gardist (Npc_Default)
 
     name        =   NAME_Gardist;
     npctype     =   npctype_guard;
-    flags       =   NPC_FLAG_IMMORTAL;  // weil Windenwache !!! wird in Kapitel 4 gelöscht!
+    flags       =   NPC_FLAG_IMMORTAL;  // weil Windenwache !!! wird in Kapitel 4 gelÃ¶scht!
     guild       =   GIL_GRD;
     level       =   20;
     voice       =   6;
@@ -53,7 +53,7 @@ FUNC VOID Rtn_start_230 ()
     TA_GuardPassage (21,00,06,00,"OCR_MAINGATE_RIGHT_GUARD");
     TA_Sleep    (06,00,15,00,"OCC_MERCS_UPPER_RIGHT_ROOM_BACK");
     TA_StandAround  (15,00,16,00,"OCC_MERCS_RIGHT_ROOM_FRONT");
-    TA_Smoke    (16,00,18,00,"OCR_WASH_8");//für CS Forgetspell bis 21 Uhr hier gebraucht
+    TA_Smoke    (16,00,18,00,"OCR_WASH_8");//fÃ¼r CS Forgetspell bis 21 Uhr hier gebraucht
     TA_SitAround    (18,00,21,00,"OCR_WASH_8");
 */
 /*
@@ -65,7 +65,7 @@ FUNC VOID Rtn_start_230 ()
     TA_Sleep        (22,00,02,00,"OCR_MAINGATE_GUARDROOM");
 */
     TA_GuardWheelOpen   (07,55,19,55,"OCC_MAINGATE_VWHEEL");
-    TA_GuardWheelOpen   (19,55,07,55,"OCC_MAINGATE_VWHEEL");    //SN 09.01.01: geändert, damit Tore rund um die Uhr offen sind
+    TA_GuardWheelOpen   (19,55,07,55,"OCC_MAINGATE_VWHEEL");    //SN 09.01.01: geÃ¤ndert, damit Tore rund um die Uhr offen sind
 };
 
 FUNC VOID Rtn_Forgetspell_230 () //### eigentlich Overlay-TA

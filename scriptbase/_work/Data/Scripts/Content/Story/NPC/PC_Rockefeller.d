@@ -190,7 +190,7 @@ INSTANCE PC_Rockefeller(NPC_DEFAULT)
 
 
 //----------------------------------------
-//MISC //Schlüssel
+//MISC //SchlÃ¼ssel
 //----------------------------------------
     CreateInvItem(self,ItKeKey1);
     CreateInvItem(self,ItKeKey2);
@@ -420,7 +420,7 @@ INSTANCE PC_Rockefeller(NPC_DEFAULT)
     CreateInvItem(self,Amulett_der_Magie);
     CreateInvItem(self,Amulett_der_Macht);
     CreateInvItem(self,Amulett_der_Erleuchtung);
-    //CreateInvItem(self,Beschwörungsamulett);
+    //CreateInvItem(self,BeschwÃ¶rungsamulett);
 
 //------------------------------------------------------------
 //Ringe

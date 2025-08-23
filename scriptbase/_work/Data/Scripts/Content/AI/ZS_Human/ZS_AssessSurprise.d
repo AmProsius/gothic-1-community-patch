@@ -18,12 +18,12 @@ func void ZS_AssessSurprise ()
 
         if  (Npc_GetAttitude(self, other) == ATT_HOSTILE)
         {
-            PrintDebugNpc   (PD_ZS_CHECK, "...Überrascher ist feindlich!");
+            PrintDebugNpc   (PD_ZS_CHECK, "...Ãœberrascher ist feindlich!");
             B_AssessEnemy   ();
         }
         else
         {
-            PrintDebugNpc   (PD_ZS_CHECK, "...Überrascher ist NICHT feindlich!");
+            PrintDebugNpc   (PD_ZS_CHECK, "...Ãœberrascher ist NICHT feindlich!");
             B_AssessSC      ();
         };
     }

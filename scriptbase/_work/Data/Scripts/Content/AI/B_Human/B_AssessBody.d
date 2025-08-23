@@ -2,13 +2,13 @@
 //  B_AssessBody
 //  ============
 //  NEU: Diese Funktion wird in der Human-AI nicht mehr durch eine
-//  Wahrnehmung, sonder AUSSCHLIEßLICH am Ende eines Kampfes aufgerufen.
-//  Nur der "Defeater"/"Murderer" checkt den bewußtlosen/toten Körper
-//  seines Opfers. Alle anderen ignorieren den Körper. Folgende Elemente
+//  Wahrnehmung, sonder AUSSCHLIEÃŸLICH am Ende eines Kampfes aufgerufen.
+//  Nur der "Defeater"/"Murderer" checkt den bewuÃŸtlosen/toten KÃ¶rper
+//  seines Opfers. Alle anderen ignorieren den KÃ¶rper. Folgende Elemente
 //  die ohnehin nicht sehr transparent waren, wurden entfernt:
-//  - Streit mehrerer NSC um das Plündern des bewußtlosen/toten Körpers
-//  - Checken der "Wichtig-Gilden" auf gestohlene Items im/am Körper
-//  - Erzeugen einer MURDER-News mit Täter "unbekannt" (bei Leichen)
+//  - Streit mehrerer NSC um das PlÃ¼ndern des bewuÃŸtlosen/toten KÃ¶rpers
+//  - Checken der "Wichtig-Gilden" auf gestohlene Items im/am KÃ¶rper
+//  - Erzeugen einer MURDER-News mit TÃ¤ter "unbekannt" (bei Leichen)
 //  - Bedauern von Toten Kameraden (bei Leichen)
 //  - NSCs wecken bewutlose Freunde auf
 //////////////////////////////////////////////////////////////////////////
@@ -19,7 +19,7 @@ func void B_AssessBody ()
 
     if (Npc_GetDistToNpc(self,  other) < 1000)
     {
-        PrintDebugNpc   (PD_ZS_CHECK, "...Körper näher als 10m!");
+        PrintDebugNpc   (PD_ZS_CHECK, "...KÃ¶rper nÃ¤her als 10m!");
         B_FullStop      (self);
         AI_StartState   (self, ZS_AssessBody, 0, "");
     };
@@ -28,10 +28,10 @@ func void B_AssessBody ()
 //////////////////////////////////////////////////////////////////////////
 //  ZS_AssessBody
 //  =============
-//  Diese Funktion wird von B_AssessBody aufgerufen und führt das
-//  Plündern des Körpers 'other' durch.
-//  Dabei versucht der NSC möglichst über das 'sichere' Wegnetz zu gehen
-//  und nur letzte kleine Stückchen mit freier Wegsuche zurückzulegen
+//  Diese Funktion wird von B_AssessBody aufgerufen und fÃ¼hrt das
+//  PlÃ¼ndern des KÃ¶rpers 'other' durch.
+//  Dabei versucht der NSC mÃ¶glichst Ã¼ber das 'sichere' Wegnetz zu gehen
+//  und nur letzte kleine StÃ¼ckchen mit freier Wegsuche zurÃ¼ckzulegen
 //////////////////////////////////////////////////////////////////////////
 func void ZS_AssessBody ()
 {
@@ -49,17 +49,17 @@ func void ZS_AssessBody ()
     Npc_PercEnable      (self,  PERC_ASSESSTALK,        B_RefuseTalk );
 
 
-    //-------- Körper bereits geplündert? --------
+    //-------- KÃ¶rper bereits geplÃ¼ndert? --------
     if (other.aivar[AIV_PLUNDERED] == TRUE)
     {
-        PrintDebugNpc       (PD_ZS_CHECK,   "...Körper bereits geplündert!");
+        PrintDebugNpc       (PD_ZS_CHECK,   "...KÃ¶rper bereits geplÃ¼ndert!");
         AI_ContinueRoutine  (self);
     };
 
-    //-------- Körper nahe genug dran ? --------
-    if (Npc_GetDistToNpc(self,other) > PERC_DIST_INTERMEDIAT)       // liegt der Körper etwas weiter weg...
+    //-------- KÃ¶rper nahe genug dran ? --------
+    if (Npc_GetDistToNpc(self,other) > PERC_DIST_INTERMEDIAT)       // liegt der KÃ¶rper etwas weiter weg...
     {
-        PrintDebugNpc       (PD_ZS_CHECK,   "...Körper zu weit weg!");
+        PrintDebugNpc       (PD_ZS_CHECK,   "...KÃ¶rper zu weit weg!");
         AI_ContinueRoutine  (self);             // ... dann Tagesablauf fortsetzen
     };
 };
@@ -77,20 +77,20 @@ func void ZS_AssessBody_End()
 {
     PrintDebugNpc       (PD_ZS_FRAME,   "ZS_AssessBody_End");
 
-    //-------- Körper bereits geplündert? --------
+    //-------- KÃ¶rper bereits geplÃ¼ndert? --------
     // Wiederholung der Abfrage aus der ZS_AssessBody[_Begin], da der
-    // Körper vorhin noch nicht, jetzt aber schon geplündert sein könnte
+    // KÃ¶rper vorhin noch nicht, jetzt aber schon geplÃ¼ndert sein kÃ¶nnte
     if (other.aivar[AIV_PLUNDERED] == TRUE)
     {
         AI_ContinueRoutine  (self);
     };
 
-    //-------- Plündern --------
-    if  (self.fight_tactic != FAI_HUMAN_RANGED)     //Verhindern, daß Fernkampfwachen ihren Posten verlasen
-    &&  (self.npctype != NPCTYPE_FRIEND)            //NSC-Freunde plündern nicht
+    //-------- PlÃ¼ndern --------
+    if  (self.fight_tactic != FAI_HUMAN_RANGED)     //Verhindern, daÃŸ Fernkampfwachen ihren Posten verlasen
+    &&  (self.npctype != NPCTYPE_FRIEND)            //NSC-Freunde plÃ¼ndern nicht
     &&  (C_NpcIsHuman (self))
     {
-        PrintDebugNpc   (PD_ZS_CHECK, "...kein purer Fernkämpfer und kein NSC-Freund!" );
+        PrintDebugNpc   (PD_ZS_CHECK, "...kein purer FernkÃ¤mpfer und kein NSC-Freund!" );
         AI_PlayAni      (self,  "T_PLUNDER");
         if (B_Plunder())
         {

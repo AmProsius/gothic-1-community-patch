@@ -23,9 +23,9 @@ func int ZS_Berzerk_Loop()
     };
 
     Npc_GetTarget           (self);
-    if (Hlp_IsValidNpc  (other)     // Ziel technisch gültig?
+    if (Hlp_IsValidNpc  (other)     // Ziel technisch gÃ¼ltig?
     &&  !C_NpcIsDown    (other)     // Ziel am Leben?
-    &&  !Npc_IsPlayer   (other) )   // Ziel ein NSC (beim ersten Durchlaufen könnte es der Spieler sein!)
+    &&  !Npc_IsPlayer   (other) )   // Ziel ein NSC (beim ersten Durchlaufen kÃ¶nnte es der Spieler sein!)
     {
         //-------- Ziel angreifen ! --------
         Npc_GetTarget   (self);                                 // ...other initialisieren!
@@ -42,10 +42,10 @@ func int ZS_Berzerk_Loop()
     else
     {
         //-------- neues Ziel suchen ! --------
-        PrintDebugNpc       (PD_ZS_CHECK,   "...kein gültiges Ziel mehr!");
+        PrintDebugNpc       (PD_ZS_CHECK,   "...kein gÃ¼ltiges Ziel mehr!");
 
         Npc_PerceiveAll     (self);                             // sammelt alle NSC im Umkreis ein...
-        if ( Wld_DetectNpcEx( self, -1, NOFUNC, -1, FALSE ) )   // ...und wählt irgendeinen davon aus (aber ignoriert den SC!)
+        if ( Wld_DetectNpcEx( self, -1, NOFUNC, -1, FALSE ) )   // ...und wÃ¤hlt irgendeinen davon aus (aber ignoriert den SC!)
         {
             PrintDebugNpc   (PD_ZS_CHECK,"...Neues Ziel entdeckt!");
             PrintGlobals    (PD_ZS_DETAIL);
@@ -57,10 +57,10 @@ func int ZS_Berzerk_Loop()
             PrintDebugNpc   (PD_ZS_CHECK,"...kein neues Ziel mehr vorhanden!");
             PrintGlobals    (PD_ZS_DETAIL);
 
-            AI_GotoWP       (self,  Npc_GetNearestWP(self));    // zum nächsten...
+            AI_GotoWP       (self,  Npc_GetNearestWP(self));    // zum nÃ¤chsten...
             B_SayOverlay    (self,  NULL,   "$Berzerk");
             AI_PlayAni      (self,  "T_SEARCH");
-            AI_GotoWP       (self,  Npc_GetNextWP   (self));    // dann zum zweitnächsten Waypoint (beide Messungen bei t=0!)
+            AI_GotoWP       (self,  Npc_GetNextWP   (self));    // dann zum zweitnÃ¤chsten Waypoint (beide Messungen bei t=0!)
             B_SayOverlay    (self,  NULL,   "$Berzerk");
             AI_PlayAni      (self,  "T_SEARCH");
         };

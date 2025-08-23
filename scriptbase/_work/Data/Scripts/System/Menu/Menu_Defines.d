@@ -4,15 +4,15 @@
 
     // Menu
     const string MENU_BACK_PIC          = "menu_ingame.tga";        // outgame/ingame
-    const string MENU_ITEM_BACK_PIC     = "";                       // Hintergrund für alle anwählbaren Menüpunkte
-    const string MENU_CHOICE_BACK_PIC   = "menu_choice_back.tga";   // Hintergrund für Choicebox
-    const string MENU_SLIDER_BACK_PIC   = "menu_slider_back.tga";   // Hintergrund für Slider
-    const string MENU_SLIDER_POS_PIC    = "menu_slider_pos.tga";    // Textur für Positionsanzeige eines Sliders
-    const string MENU_INPUT_BACK_PIC    = "";                       // Hintergrund für Eingabefelder
-    const string MENU_KBDINPUT_BACK_PIC = "";                       // Hintergrund fürs Definieren der Controls
-    const string MENU_SAVELOAD_BACK_PIC = "menu_saveload_back.tga"; // menu_kbd_back.tga";      // Hintergrund fürs Definieren der Controls
+    const string MENU_ITEM_BACK_PIC     = "";                       // Hintergrund fÃ¼r alle anwÃ¤hlbaren MenÃ¼punkte
+    const string MENU_CHOICE_BACK_PIC   = "menu_choice_back.tga";   // Hintergrund fÃ¼r Choicebox
+    const string MENU_SLIDER_BACK_PIC   = "menu_slider_back.tga";   // Hintergrund fÃ¼r Slider
+    const string MENU_SLIDER_POS_PIC    = "menu_slider_pos.tga";    // Textur fÃ¼r Positionsanzeige eines Sliders
+    const string MENU_INPUT_BACK_PIC    = "";                       // Hintergrund fÃ¼r Eingabefelder
+    const string MENU_KBDINPUT_BACK_PIC = "";                       // Hintergrund fÃ¼rs Definieren der Controls
+    const string MENU_SAVELOAD_BACK_PIC = "menu_saveload_back.tga"; // menu_kbd_back.tga";      // Hintergrund fÃ¼rs Definieren der Controls
     // Log
-    const string LOG_BACK_PIC           = "log_back.tga";           // Hintergrund für den Log-Screen
+    const string LOG_BACK_PIC           = "log_back.tga";           // Hintergrund fÃ¼r den Log-Screen
     const string LOG_VIEWER_BACK_PIC    = "log_paper.tga";          // Hintergrund des Log-Betrachters
     // StaticScreen
     const string STAT_BACK_PIC          = "status_back.tga";        // Hintergrund

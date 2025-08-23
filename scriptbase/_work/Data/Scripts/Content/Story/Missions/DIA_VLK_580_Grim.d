@@ -92,7 +92,7 @@ func void DIA_Grim_Falle_Accepr()
 };
 
 // **************************************************
-//              Bereit für Falle
+//              Bereit fÃ¼r Falle
 // **************************************************
 
 INSTANCE DIA_Grim_ReadyToGo (C_INFO)

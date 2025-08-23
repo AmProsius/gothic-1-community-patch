@@ -77,7 +77,7 @@ func int DIA_Harlok_FetchHarlok_BACK()
 
 
 // **************************************************
-//              Harlok NOCHMAL überzeugen
+//              Harlok NOCHMAL Ã¼berzeugen
 // **************************************************
 
 instance  DIA_Harlok_HarlokAgain (C_INFO)

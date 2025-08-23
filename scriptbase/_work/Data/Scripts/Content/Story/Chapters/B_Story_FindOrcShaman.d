@@ -3,9 +3,9 @@
 //*****************************************************************************
 func void B_Story_FindOrcShaman()
 {
-    //-------- Missionsgegenst‰nde --------
+    //-------- Missionsgegenst√§nde --------
 
-    //-------- Tagebucheintr‰ge --------
+    //-------- Tagebucheintr√§ge --------
     B_LogEntry          (CH4_FindXardas,"I've met Xardas at long last. But the meeting was very different from what I had expected. He wasn't interested in the ore mound at all but told me the first part of the Sleeper's history. I don't know what to tell Saturas about the course of the conversation.");
 
     Log_CreateTopic     (CH4_FindOrcShaman, LOG_MISSION);

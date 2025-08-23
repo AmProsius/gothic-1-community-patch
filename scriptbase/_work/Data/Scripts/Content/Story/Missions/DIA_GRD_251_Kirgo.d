@@ -94,7 +94,7 @@ instance Info_Kirgo_Charge(C_INFO)
 
 FUNC INT Info_Kirgo_Charge_Condition()
 {
-    if (Npc_KnowsInfo (hero,DIA_Scatty_JoinOC) && Npc_KnowsInfo (hero,Info_Kirgo_What) && (Kapitel <= 1))   // Kapitelfix   ***Björn***
+    if (Npc_KnowsInfo (hero,DIA_Scatty_JoinOC) && Npc_KnowsInfo (hero,Info_Kirgo_What) && (Kapitel <= 1))   // Kapitelfix   ***BjÃ¶rn***
     {
         return 1;
     };
@@ -155,7 +155,7 @@ instance Info_Kirgo_ChargeREAL(C_INFO)
 
 FUNC INT Info_Kirgo_ChargeREAL_Condition()
 {
-    if (Npc_KnowsInfo (hero,Info_Kirgo_Charge) &&  (Kapitel <= 1))  //Kapitelfix    ****Björn****
+    if (Npc_KnowsInfo (hero,Info_Kirgo_Charge) &&  (Kapitel <= 1))  //Kapitelfix    ****BjÃ¶rn****
     {
         return 1;
     };
@@ -197,7 +197,7 @@ FUNC INT Info_Kirgo_InArena_Condition()
 
 func VOID Info_Kirgo_InArena_Info()
 {
-    if (Kapitel <= 1)           //Fix für spätere Kapitel ****Björn****
+    if (Kapitel <= 1)           //Fix fÃ¼r spÃ¤tere Kapitel ****BjÃ¶rn****
     {
         AI_Output (self, other,"Info_Kirgo_InArena_05_00"); //Right, let's get to it. May the best man win!
 

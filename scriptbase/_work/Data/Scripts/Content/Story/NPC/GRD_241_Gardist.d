@@ -50,14 +50,14 @@ instance GRD_241_Gardist (Npc_Default)
     daily_routine = Rtn_start_241;
 };
 
-FUNC VOID Rtn_start_241 ()//### unbesch‰ftigter Gardist!
+FUNC VOID Rtn_start_241 ()//### unbesch√§ftigter Gardist!
 {
     TA_GuardPalisade    (06,00,21,00,"OCR_PALISADE_WALK_14");
     TA_GuardPalisade    (21,00,06,00,"OCR_PALISADE_WALK_14");
 };
 
 
-FUNC VOID Rtn_OMFull_241 ()//### unbesch‰ftigter Gardist!
+FUNC VOID Rtn_OMFull_241 ()//### unbesch√§ftigter Gardist!
 {
     TA_GuardPatrol  (03,00,04,00,"OCR_MAINGATE_SQUARE");
     TA_GuardPatrol  (04,00,05,00,"OCR_TO_HUT_72");

@@ -3,53 +3,53 @@
 // **********************************************
 
 // Diese Klasse kann beliebig von den Skriptern erweitert um
-// "VAR STRING xxxx" erweitert werden, diese können dann in den
+// "VAR STRING xxxx" erweitert werden, diese kÃ¶nnen dann in den
 // einzelnen SVM - Instanzen initialisiert werden.
 
 
 CLASS C_SVM
 {
 // SC hat Waffe oder Magie gezogen oder zielt auf NSC
-    VAR STRING  StopMagic;                  // NSC  sieht wie in seiner Nähe gezaubert wird -> er fordert auf, damit aufzuhören!
+    VAR STRING  StopMagic;                  // NSC  sieht wie in seiner NÃ¤he gezaubert wird -> er fordert auf, damit aufzuhÃ¶ren!
     VAR STRING  ISaidStopMagic;             // NSC hat bereits mit $StopMagic gewarnt und greift nun an (nachdem er diesen Satz gesagt hat; WICHTIG: dies ist KEINE letzte Warnung, sonder sofort Angriff!)
 
-    var string  WeaponDown              ;   //ZS_AssessFighter: SC steht mit gezogener Waffe vor NSC -> NSC ist NEUTRAL zu SC   -> (herausfordernd, bei Pünten-Stimme etwas unsicher, trotzdem kernig)
+    var string  WeaponDown              ;   //ZS_AssessFighter: SC steht mit gezogener Waffe vor NSC -> NSC ist NEUTRAL zu SC   -> (herausfordernd, bei PÃ¼nten-Stimme etwas unsicher, trotzdem kernig)
     var string  ISaidWeaponDown         ;   //Kommt nachdem der SC $WeaponDown ignoriert hat!
 
-    VAR STRING  WatchYourAim;               // ein FRIENDLY-SC zielt mit einer Fernkampfwaffe auf den NSC . 'Paß auf! Ziel woanders hin!' B_Orc_AssessThreat hat das auch noch
-    var string  WatchYourAimAngry       ;   // SC zielt mit einer Fernkampfwaffe auf den Angry-NSC. (genervte Auffordern, damit aufzuhören)
+    VAR STRING  WatchYourAim;               // ein FRIENDLY-SC zielt mit einer Fernkampfwaffe auf den NSC . 'PaÃŸ auf! Ziel woanders hin!' B_Orc_AssessThreat hat das auch noch
+    var string  WatchYourAimAngry       ;   // SC zielt mit einer Fernkampfwaffe auf den Angry-NSC. (genervte Auffordern, damit aufzuhÃ¶ren)
     VAR STRING  WhatAreYouDoing;            // NSC wird von einem FRIENDLY-SC/NSC geschlagen
 
 // SC hat Waffe weggesteckt, NSC beendet Kampf
-    VAR STRING  LetsForgetOurLittleFight;   //Friede, kann direkt kommen ( Wenn freundliche kämpfen und der Spieler die Waffe wegsteckt) oder als Reaction über das news-Gedächtnis, sollte daher Zeitneutral sein (--> nicht wie jetzt lass uns den Streit von letztens vergessen
+    VAR STRING  LetsForgetOurLittleFight;   //Friede, kann direkt kommen ( Wenn freundliche kÃ¤mpfen und der Spieler die Waffe wegsteckt) oder als Reaction Ã¼ber das news-GedÃ¤chtnis, sollte daher Zeitneutral sein (--> nicht wie jetzt lass uns den Streit von letztens vergessen
 
 // NSC hat Gegner aus den Augen verloren
-    VAR STRING  Strange         ;           // 1. NSC wird attackiert -> rennt mit gezogener Waffe zum Angreifer -> kann ihn plötzlich nicht mehr entdecken -> (muttering to himself)
-                                            // 2. NSC sieht einen Mord -> rennt mit gezogener Waffe zum Mörder -> kann ihn plötzlich nicht mehr entdecken
+    VAR STRING  Strange         ;           // 1. NSC wird attackiert -> rennt mit gezogener Waffe zum Angreifer -> kann ihn plÃ¶tzlich nicht mehr entdecken -> (muttering to himself)
+                                            // 2. NSC sieht einen Mord -> rennt mit gezogener Waffe zum MÃ¶rder -> kann ihn plÃ¶tzlich nicht mehr entdecken
 
 // NSC greift an!
     var string  DieMonster              ;   // NSC greift Monster an -> "Aus dir mach ich Gulasch, Drecksvieh!"
     var string  DieMOrtalEnemy;             // Der Nsc greift an, da er durch die Story permanent Hostile ist, d.h. die Lager sind in Blutfehde
 
-    VAR STRING  NowWait;                    // NSC hat den SC früher noch NICHT besiegt -> SC greift den NSC an -> "Na warte!"
-    VAR STRING  YouStillNotHaveEnough   ;   // NSC hat den SC früher besiegt -> SC greift den NSC an -> "Hast du immer noch nicht genug?!"
+    VAR STRING  NowWait;                    // NSC hat den SC frÃ¼her noch NICHT besiegt -> SC greift den NSC an -> "Na warte!"
+    VAR STRING  YouStillNotHaveEnough   ;   // NSC hat den SC frÃ¼her besiegt -> SC greift den NSC an -> "Hast du immer noch nicht genug?!"
 
-    var string  YouAskedForIt           ;   // 1. SC hat eine Aufforderung ignoriert: den Raum zu verlassen, ein Item zurückzugeben, seine Waffe wegzustecken -> "Wer nicht hören will muß fühlen..."
+    var string  YouAskedForIt           ;   // 1. SC hat eine Aufforderung ignoriert: den Raum zu verlassen, ein Item zurÃ¼ckzugeben, seine Waffe wegzustecken -> "Wer nicht hÃ¶ren will muÃŸ fÃ¼hlen..."
     var string  NowWaitIntruder         ;   // SC hat einen bewachten Durchgang durchbrochen...
 
-    var string  IWillTeachYouRespectForForeignProperty; // 1. SC benutzt ein Besitz-Mob(Tür,Fallgitter-Drehkreuz,Kiste,...) und wird ohne Vorwarnung attackiert
-                                            // 2. SC trägt Waffe des NSCs -> NSC ist stärker und holt sie sich mit Gewalt wieder -> vorher dieser Spruch
+    var string  IWillTeachYouRespectForForeignProperty; // 1. SC benutzt ein Besitz-Mob(TÃ¼r,Fallgitter-Drehkreuz,Kiste,...) und wird ohne Vorwarnung attackiert
+                                            // 2. SC trÃ¤gt Waffe des NSCs -> NSC ist stÃ¤rker und holt sie sich mit Gewalt wieder -> vorher dieser Spruch
 
-    VAR STRING  DirtyThief;                 // 1. NSC ertappt den (schwächeren) SC mit den Fingern in den eigenen Taschen
-                                            // 2. NSC sieht wie der (schwächere) SC etwas nimmt, daß ihm gehört (z.B. Waffe auf den Tisch)
-                                            // 3. NSC sieht feindlichen, schwächeren SC, der ihn vorher mal beklaut hat und sagt ihm diesen Spruch, bevor er angreift "Da hab ich Dich also wieder, Du dreckiger Dieb"
+    VAR STRING  DirtyThief;                 // 1. NSC ertappt den (schwÃ¤cheren) SC mit den Fingern in den eigenen Taschen
+                                            // 2. NSC sieht wie der (schwÃ¤chere) SC etwas nimmt, daÃŸ ihm gehÃ¶rt (z.B. Waffe auf den Tisch)
+                                            // 3. NSC sieht feindlichen, schwÃ¤cheren SC, der ihn vorher mal beklaut hat und sagt ihm diesen Spruch, bevor er angreift "Da hab ich Dich also wieder, Du dreckiger Dieb"
                                             // 4. Nsc ist in einen Raum eingedrungen
 
-    var string  YouAttackedMyCharge     ;   // SC/NSC greift einen Schützling einer NSC-Wache an -> Wache attackiert den Angreifer danach
-    var string  YouKilledOneOfUs;           // NSC erblickt feindlichen SC, der einen Freund des NSCs getötet hat -> Angriff!
+    var string  YouAttackedMyCharge     ;   // SC/NSC greift einen SchÃ¼tzling einer NSC-Wache an -> Wache attackiert den Angreifer danach
+    var string  YouKilledOneOfUs;           // NSC erblickt feindlichen SC, der einen Freund des NSCs getÃ¶tet hat -> Angriff!
 
 // im Kampf
-    VAR STRING  Dead            ;           // Tödlich verletzt
+    VAR STRING  Dead            ;           // TÃ¶dlich verletzt
     VAR STRING  Aargh_1         ;           // Treffer kassiert im Kampf
     VAR STRING  Aargh_2         ;           // Treffer kassiert im Kampf
     VAR STRING  Aargh_3         ;           // Treffer kassiert im Kampf
@@ -59,168 +59,168 @@ CLASS C_SVM
 // SC hat NSC niedergeschlagen oder bedroht
     VAR STRING  YoullBeSorryForThis;        // NSC wurde durch SC/aNSC besiegt und wacht aus der Ohnmacht wieder auf: 'Das wird Dir noch leidtun!'
 
-    VAR STRING  YesYes          ;           // 1. NSC wurde im Kampf besiegt -> erwacht wieder ist aber schächer als sein Kontrahent
-                                            // 2. SC zieht Waffe oder nähert sich mit Waffe und NSC ist schwächer als SC
+    VAR STRING  YesYes          ;           // 1. NSC wurde im Kampf besiegt -> erwacht wieder ist aber schÃ¤cher als sein Kontrahent
+                                            // 2. SC zieht Waffe oder nÃ¤hert sich mit Waffe und NSC ist schwÃ¤cher als SC
 // NSC flieht
-    var string  ShitWhatAMonster        ;   // NSC flieht vor zu starkem Monster -> "Scheiße, was ein Höllenvieh. Nichts wie weg!"
+    var string  ShitWhatAMonster        ;   // NSC flieht vor zu starkem Monster -> "ScheiÃŸe, was ein HÃ¶llenvieh. Nichts wie weg!"
     VAR STRING  Help;                       // NSC flieht vor Gegner, Babe Nsc flieht vor Spieler, Orcs haben das auch
-    var STRING  WeWillMeetAgain;            // NSC flieht vor Gegner, ist aber eigentlich Stärker als er, ist aber trotzdem besiegt worden
+    var STRING  WeWillMeetAgain;            // NSC flieht vor Gegner, ist aber eigentlich StÃ¤rker als er, ist aber trotzdem besiegt worden
 
-// SC wurde von NSC besiegt und wird geplündert
+// SC wurde von NSC besiegt und wird geplÃ¼ndert
     VAR STRING  NeverTryThatAgain   ;       // NSC hat Gegner besiegt -> ("Versuch das NIE wieder!!")
-    var string  ITakeYourWeapon;            // NSC plündert bewußtlosen SC/aNSC. Während er sich bückt, um nach der vom Besiegten fallengelassenen Waffe zu greifen sagt er diesen Spruch.
-    VAR STRING  ITookYourOre    ;           // NSC plündert bewußtlosen SC/aNSC. Nachdem er sich einen Teil des Erzes genommen hat, sagt er diesen Spruch.
-    var string  ShitNoOre       ;           // NSC ärgert sich darüber, daß er beim Durchsuchen eines bewußtlosen/toten Körpers kein Erz gefunden hat!
+    var string  ITakeYourWeapon;            // NSC plÃ¼ndert bewuÃŸtlosen SC/aNSC. WÃ¤hrend er sich bÃ¼ckt, um nach der vom Besiegten fallengelassenen Waffe zu greifen sagt er diesen Spruch.
+    VAR STRING  ITookYourOre    ;           // NSC plÃ¼ndert bewuÃŸtlosen SC/aNSC. Nachdem er sich einen Teil des Erzes genommen hat, sagt er diesen Spruch.
+    var string  ShitNoOre       ;           // NSC Ã¤rgert sich darÃ¼ber, daÃŸ er beim Durchsuchen eines bewuÃŸtlosen/toten KÃ¶rpers kein Erz gefunden hat!
 
 // NSC verwarnt SC
-    VAR STRING  HandsOff;                   // SC manipuliert ein MOB (Drehkreuz, Truhe, Tür) und ein befreundeter bzw. gildengleicher NSC sieht das...
-    VAR STRING  GetOutOfHere        ;       // NSC erwischt schwächeren SC in seiner Hütte -> ("Raus hier") (SC soll aus Raum gehen)
+    VAR STRING  HandsOff;                   // SC manipuliert ein MOB (Drehkreuz, Truhe, TÃ¼r) und ein befreundeter bzw. gildengleicher NSC sieht das...
+    VAR STRING  GetOutOfHere        ;       // NSC erwischt schwÃ¤cheren SC in seiner HÃ¼tte -> ("Raus hier") (SC soll aus Raum gehen)
     var string  YouViolatedForbiddenTerritory       ;   // SC wird beim Betreten eines verbotenen Portalraums erwischt -> Warnung!
 
-    var STRING  YouWannaFoolMe;             // SC schnappt NSC ein Item vor der Nase weg und wird mit $GiveItToMe aufgefordert es zurückzugeben -> SC gibt ein falsches Item an den NSC -> 'Willst Du mich verarschen'
+    var STRING  YouWannaFoolMe;             // SC schnappt NSC ein Item vor der Nase weg und wird mit $GiveItToMe aufgefordert es zurÃ¼ckzugeben -> SC gibt ein falsches Item an den NSC -> 'Willst Du mich verarschen'
 
     VAR STRING  WhatsThisSupposedToBe   ;   // 1. SC schleicht vor den Augen des NSCs -> "Was schleichst Du hier rum?" (besser als "Was soll das denn werden", weil besseres Feedback!)
                                             // 2. SC bewegt sich hinter einer Wache -> diese dreht sich um und sagt dann
-    var string  WhyAreYouInHere         ;   //im ZS_ClearRoom / SC steht in verbotenem Portalraum   -> schwächerer NSC fragt
-    var string  WhatDidYouInThere       ;   // Wache sieht Sc aus einer Hütte rauskommen und verwarnt ihn, ohne das ein Angriff folgt
+    var string  WhyAreYouInHere         ;   //im ZS_ClearRoom / SC steht in verbotenem Portalraum   -> schwÃ¤cherer NSC fragt
+    var string  WhatDidYouInThere       ;   // Wache sieht Sc aus einer HÃ¼tte rauskommen und verwarnt ihn, ohne das ein Angriff folgt
 
     VAR STRING  WiseMove;                   // 1. NSC wurde gewarnt, seine Waffe wegzustecken ($RemoveYourWeapon) -> SC befolgt dies und steckt die Waffe weg
                                             // 2. SC steht in verbotenem Raum und wird mit $GetOutOfHere aufgefordert, rauszugehen -> SC befolgt die Aufforderung
-                                            // 3. SC hat NSC ein Item vor der Nase weggeschnappt und wurde mit $GiveItToMe aufgefordert es zurückzugeben -> SC gehorcht
+                                            // 3. SC hat NSC ein Item vor der Nase weggeschnappt und wurde mit $GiveItToMe aufgefordert es zurÃ¼ckzugeben -> SC gehorcht
 
 // NSC alarmiert/warnt andere NSCs vor SC
     VAR STRING  Alarm;                      // Wache alarmiert die Sichtung eines permanent HOSTILE SC/aNSC "Alaaaaaaarm!!!!!"
                                             // Nicht Wache sieht wie ein Portalraum betreten wird, der einer Gilde zugeordnet ist und ruft die Wachen
-                                            // Gemüse (NpcWorker) ruft Wachen nach einem Diebstahl/beobachteten Diebstahl etc.
+                                            // GemÃ¼se (NpcWorker) ruft Wachen nach einem Diebstahl/beobachteten Diebstahl etc.
     var string  IntruderAlert;              // SC hat einen bewachten Durchgang durchbrochen und die Wache alarmiert alle umstehenden
     VAR STRING  BehindYou;                  // NSC sieht, wie ein anderer NSC vom SC bestohlen wird und warnt das Opfer
 
 // NSC beobachtet Kampf
-    var string  TheresAFight    ;           // NSC entdeckt einen Kampf und will zuschauen (ZS_WatchFight) -> vorher ein Spruch wie "Hey da drüben gibt's einen Kampf"
+    var string  TheresAFight    ;           // NSC entdeckt einen Kampf und will zuschauen (ZS_WatchFight) -> vorher ein Spruch wie "Hey da drÃ¼ben gibt's einen Kampf"
     VAR STRING  HeyHeyHey;                  // Hintergrund anfeuern beim Beobachten eines Kampfes: 'Hau ihm aufs Maul!' (kommt alle paar Sekunden!)
-    VAR STRING  CheerFight;                 // NSC ist im Zustand WatchFight: Neutraler Kämpfer schlägt irgendeinen Typen. '5 Erz auf den Dicken'
+    VAR STRING  CheerFight;                 // NSC ist im Zustand WatchFight: Neutraler KÃ¤mpfer schlÃ¤gt irgendeinen Typen. '5 Erz auf den Dicken'
     VAR STRING  CheerFriend;                // NSC ist im Zustand WatchFight: Freund landet einen Treffer. 'Immer in die Fresse!'
     VAR STRING  Ooh;                        // NSC ist im Zustand WatchFight: Freund kriegt aufs Maul. 'Mist - das tat weh.'
-    var STRING  YeahWellDone;               // NSC sieht, wie SC/aNSC, zu dem er ANGRY/HOSTILE ist getötet wird. 'Gut gemacht, das hat sie Sau verdient.'
+    var STRING  YeahWellDone;               // NSC sieht, wie SC/aNSC, zu dem er ANGRY/HOSTILE ist getÃ¶tet wird. 'Gut gemacht, das hat sie Sau verdient.'
 
 // NSC-Gegner flieht
-    VAR STRING  RunCoward;                  // 1. Der NSC befindet sich im Zustand WatchFight -> einer der Kämpfer haut ab
+    VAR STRING  RunCoward;                  // 1. Der NSC befindet sich im Zustand WatchFight -> einer der KÃ¤mpfer haut ab
                                             // 2. Der Gegner des NSCs flieht
     var string  HeDefeatedHim   ;           // NSC sieht wie ein SC/aNSC einen anderen aNSC/SC besiegt  (WICHTIG: dies ist der normale Ausgang!)
     var string  HeDeservedIt    ;           // NSC sieht wie ein SC/aNSC, zu dem er ANGRY/HOSTILE steht, besiegt wird -> ("DAS hat er verdient!")
-    var string  HeKilledHim     ;           // NSC sieht wie ein SC/aNSC einen anderen aNSC/SC tötet    (WICHTIG: dies ist ein Skandal, niemand wird normalerweise  in einer "Schlägerei" getötet)
+    var string  HeKilledHim     ;           // NSC sieht wie ein SC/aNSC einen anderen aNSC/SC tÃ¶tet    (WICHTIG: dies ist ein Skandal, niemand wird normalerweise  in einer "SchlÃ¤gerei" getÃ¶tet)
     var string  ItWasAGoodFight ;           // NSC sieht wie ein FRIENDLY/NEUTRAL-SC/aNSC einen anderen besiegt
 
-    VAR STRING  Awake           ;           // NSC wacht aus dem Zustand Sleep wieder auf (Aufwachen, räkeln)
+    VAR STRING  Awake           ;           // NSC wacht aus dem Zustand Sleep wieder auf (Aufwachen, rÃ¤keln)
 
-// Grüße
+// GrÃ¼ÃŸe
     VAR STRING  FriendlyGreetings;          // 1. Am Anfang eines Dialoges, wenn NSC FRIENDLY/NEUTRAL zum SC,  2. Wenn sie sich unterwegs begegnen.
-    VAR STRING  ALGreetings;                // 1. Am Anfang eines Dialoges, wenn NSC und SC aus Altem Lager und FRIENDLY/NEUTRAL ('Für Gomez'), 2. Wenn sie sich unterwegs begegnen.
+    VAR STRING  ALGreetings;                // 1. Am Anfang eines Dialoges, wenn NSC und SC aus Altem Lager und FRIENDLY/NEUTRAL ('FÃ¼r Gomez'), 2. Wenn sie sich unterwegs begegnen.
     var STRING  MageGreetings;              // 1. Am Anfang eines Dialoges, wenn NSC und SC beide Magier und FRIENDLY/NEUTRAL, 2. Wenn sie sich unterwegs begegnen.
-    VAR STRING  SectGreetings;              // 1. Am Anfang eines Dialoges, wenn NSC aus Psi-Camp und FRIENDLY/NEUTRAL  zum SC ('Erwache. Der Schläfer erwache.') 2. Wenn sie sich unterwegs begegnen.
+    VAR STRING  SectGreetings;              // 1. Am Anfang eines Dialoges, wenn NSC aus Psi-Camp und FRIENDLY/NEUTRAL  zum SC ('Erwache. Der SchlÃ¤fer erwache.') 2. Wenn sie sich unterwegs begegnen.
 
-    var string  ThereHeIs;                  // NSC zeigt SC wo ein anderer NSC steht nach dem der SC gefragt hat: "Da drüben ist er"
+    var string  ThereHeIs;                  // NSC zeigt SC wo ein anderer NSC steht nach dem der SC gefragt hat: "Da drÃ¼ben ist er"
 
 // Lehrer-Kommentare
     var string  NoLearnNoPoints         ;   // NSC-Lehrer verbietet Steigerung - keine Lernpunkte!
-    var string  NoLearnOverMax          ;   // NSC-Lehrer verbietet Attribut-Steigerung über 100
-    var string  NoLearnYouAlreadyKnow   ;   // Du mußt erst Fortgeschritten sein, bevor du ein Meister werden kannst!
+    var string  NoLearnOverMax          ;   // NSC-Lehrer verbietet Attribut-Steigerung Ã¼ber 100
+    var string  NoLearnYouAlreadyKnow   ;   // Du muÃŸt erst Fortgeschritten sein, bevor du ein Meister werden kannst!
     var string  NoLearnYoureBetter      ;   // Du bist jetzt schon besser!
 
 // NSC spricht SC an
-    VAR STRING  HeyYou;                     // z.B. Wache, die den SC im Räumen erwischt, wo er nicht hin darf sagt HeyYou, und geht dann zum SC
+    VAR STRING  HeyYou;                     // z.B. Wache, die den SC im RÃ¤umen erwischt, wo er nicht hin darf sagt HeyYou, und geht dann zum SC
 
 // NSC will nicht reden
-    VAR STRING  NotNow;                     // NSC / Babe wird vom SC angesprochen, lehnt aber ein Gespräch ab.
+    VAR STRING  NotNow;                     // NSC / Babe wird vom SC angesprochen, lehnt aber ein GesprÃ¤ch ab.
 
 // SC zu nah
-    VAR STRING  WhatDoYouWant;              // SC rückt NSC zu dicht auf die Pelle -> "Kann ich was für Dich tun?"
+    VAR STRING  WhatDoYouWant;              // SC rÃ¼ckt NSC zu dicht auf die Pelle -> "Kann ich was fÃ¼r Dich tun?"
     VAR STRING  ISaidWhatDoYouWant;         // NSC hat $WhatDoYouWant gesagt, aber der SC hat nicht reagiert -> "Was willst Du?"
 // SC im Weg
-    VAR STRING  MakeWay;                    // SC steht schwächerem NSC im Weg  -> Aufforderung, Platz zu   machen
-    VAR STRING  OutOfMyWay;                 // SC steht stärkerem NSC (Magier, Erzbaron) im Weg -> aggressive Aufforderung, Platz zu machen
-    VAR STRING  YouDeafOrWhat;              // SC folgt nicht der Aufforderung des stärkeren NSCs   -> letzte Warnung, danach Angriff
+    VAR STRING  MakeWay;                    // SC steht schwÃ¤cherem NSC im Weg  -> Aufforderung, Platz zu   machen
+    VAR STRING  OutOfMyWay;                 // SC steht stÃ¤rkerem NSC (Magier, Erzbaron) im Weg -> aggressive Aufforderung, Platz zu machen
+    VAR STRING  YouDeafOrWhat;              // SC folgt nicht der Aufforderung des stÃ¤rkeren NSCs   -> letzte Warnung, danach Angriff
 
 // SC spricht NSC an, der ihn besiegt hat
-    VAR STRING  LookingForTroubleAgain;     //Erster Satz eines Dialoges, nachdem der NSC und der SC gekämpft haben (entweder wurde der SC besiegt oder es gab keinen klaren Ausgang des Kampfes)
+    VAR STRING  LookingForTroubleAgain;     //Erster Satz eines Dialoges, nachdem der NSC und der SC gekÃ¤mpft haben (entweder wurde der SC besiegt oder es gab keinen klaren Ausgang des Kampfes)
 
-// NSC ist schwächer...
-    var string  LookAway;                   // Eingeschüchterter NSC guckt weg bei bedrohlichen Situationen
-    VAR STRING  OkayKeepIt;                 // SC trägt Waffe des schächeren NSCs -> NSCs verlangt die Waffe zurück ($GiveItToMe) -> SC bedroht NSC -> ("Okay, okay, du kannst das Ding behalten..." zurückweichen)
+// NSC ist schwÃ¤cher...
+    var string  LookAway;                   // EingeschÃ¼chterter NSC guckt weg bei bedrohlichen Situationen
+    VAR STRING  OkayKeepIt;                 // SC trÃ¤gt Waffe des schÃ¤cheren NSCs -> NSCs verlangt die Waffe zurÃ¼ck ($GiveItToMe) -> SC bedroht NSC -> ("Okay, okay, du kannst das Ding behalten..." zurÃ¼ckweichen)
     VAR STRING  WhatsThat;                  // Verwandelter SC wird vor den Augen des NSCs wieder zum Menschen (Erschreckter Ausruf) Nsc wird aus dem MagicSleep wieder wach und wundert sich...
 
-    VAR STRING  ThatsMyWeapon;              // SC trägt eine Waffe, die dem NSC gehört -> Folge: ZS_GetBackBelongings
-    VAR STRING  GiveItToMe;                 // 1. SC trägt Waffe des NSCs -> NSC ist schwächer (also kein Kampf) -> "Gib sie mir wieder"
-    VAR STRING  YouCanKeeptheCrap;          // 1. SC trägt Waffe des schwächeren NSCs ->    NSCs verlangt die Waffe zurück ($GiveItToMe) -> SC geht einfach weg -> ("Behalt das Scheiß-Ding doch!)
-                                            // 2. NSC will ein Item aufheben und wird von einem stärkeren NSC gewarnt, der das auch tun will -> unser NSC weicht zurück
+    VAR STRING  ThatsMyWeapon;              // SC trÃ¤gt eine Waffe, die dem NSC gehÃ¶rt -> Folge: ZS_GetBackBelongings
+    VAR STRING  GiveItToMe;                 // 1. SC trÃ¤gt Waffe des NSCs -> NSC ist schwÃ¤cher (also kein Kampf) -> "Gib sie mir wieder"
+    VAR STRING  YouCanKeeptheCrap;          // 1. SC trÃ¤gt Waffe des schwÃ¤cheren NSCs ->    NSCs verlangt die Waffe zurÃ¼ck ($GiveItToMe) -> SC geht einfach weg -> ("Behalt das ScheiÃŸ-Ding doch!)
+                                            // 2. NSC will ein Item aufheben und wird von einem stÃ¤rkeren NSC gewarnt, der das auch tun will -> unser NSC weicht zurÃ¼ck
 
-    VAR STRING  TheyKilledMyFriend;         // NSC Täter - NSC zu Opfer freundlich, zu Täter freundlich oder neutral
+    VAR STRING  TheyKilledMyFriend;         // NSC TÃ¤ter - NSC zu Opfer freundlich, zu TÃ¤ter freundlich oder neutral
 
     var string  YouDisturbedMySlumber;      // NSC wurde vom SC mittelsanft aus dem Schlaf gerissen (z.B. durch Ansprechen)
 
 // Angry NSCs kommentieren SC-Aktionen
-    VAR STRING  SuckerGotSome;              // Angry NSC hat gehört, daß der SC umgehauen wurde. "Das Dich jemand umgehauen hat, geschieht Dir Recht!"
+    VAR STRING  SuckerGotSome;              // Angry NSC hat gehÃ¶rt, daÃŸ der SC umgehauen wurde. "Das Dich jemand umgehauen hat, geschieht Dir Recht!"
 
     VAR STRING  SuckerDefeatedEBr;          // Du hast einen    EBR besiegt. Er war wirklich beeindruckt!
     VAR STRING  SuckerDefeatedGur;          // Du hast einen    GUR niedergeschlagen,   Du bist ein toter Mann
     VAR STRING  SuckerDefeatedMage;         // (News) - im Stil von SuckerDefeatedXY
 
     var string  SuckerDefeatedNOV_Guard;    // Der Spieler hat einen Novizen umgehauen, Templer spricht den Spieler an, Templer ist ANGRY zu Spieler
-    var string  SuckerDefeatedVLK_Guard;    // Der Spieler hat einen Schützling der Wache niedergeschlagen
-    var string  YouDefeatedMyComrade;       // Wache stellt fest, das sie gesehen/gehört hat, daß ich eine andere Wache umgehauen habe
+    var string  SuckerDefeatedVLK_Guard;    // Der Spieler hat einen SchÃ¼tzling der Wache niedergeschlagen
+    var string  YouDefeatedMyComrade;       // Wache stellt fest, das sie gesehen/gehÃ¶rt hat, daÃŸ ich eine andere Wache umgehauen habe
     var string  YouDefeatedNOV_Guard;       // Der Spieler hat einen Novizen umgehauen, Templer spricht den Spieler an, Templer ist NEUTRAL/FRIENDLY zu Spieler
     var string  YouDefeatedVLK_Guard;       // Der Spieler hat einen Buddler umgehauen, Wache spricht den Spieler an, Wache ist NEUTRAL/FRIENDLY zu Spieler
     VAR STRING  YouStoleFromMe;             // Du Sau hast mich beklaut
 
-//Wichtige Person (Lehrer, Auftraggeber?), hat davon gehört, daß Du Mist gebaut hat...
-// FIXME: damit das so benutzt werden kann müssen noch Anpassungen in der B_ReactToMemory.d gemacht werden
+//Wichtige Person (Lehrer, Auftraggeber?), hat davon gehÃ¶rt, daÃŸ Du Mist gebaut hat...
+// FIXME: damit das so benutzt werden kann mÃ¼ssen noch Anpassungen in der B_ReactToMemory.d gemacht werden
     VAR STRING  YouStoleFromUs;             // eigene oder befreundete Gilde beklaut.
     VAR STRING  YouStoleFromEBr;            // Erzbarone beklaut.
     VAR STRING  YouStoleFromGur;            // Gurus beklaut.
     VAR STRING  StoleFromMage;              // Magier beklaut.
 
-    VAR STRING  YouKilledMyFriend;          // jemand aus eigener oder befreundeter Gilde getötet
-    var STRING  YouKilledEBr;               // Erzbaron getötet
-    VAR STRING  YouKilledGur;               // Guru getötet
-    VAR STRING  YouKilledMage;              // Guru getötet
+    VAR STRING  YouKilledMyFriend;          // jemand aus eigener oder befreundeter Gilde getÃ¶tet
+    var STRING  YouKilledEBr;               // Erzbaron getÃ¶tet
+    VAR STRING  YouKilledGur;               // Guru getÃ¶tet
+    VAR STRING  YouKilledMage;              // Guru getÃ¶tet
 
-    VAR STRING  YouKilledOCfolk;            // Gardist, Schatten oder Buddler getötet.
-    VAR STRING  YouKilledNCfolk;            // Söldner, Organisator, Schürfer oder Bauer getötet
-    VAR STRING  YouKilledPSIfolk;           // Templer oder Novize getötet
+    VAR STRING  YouKilledOCfolk;            // Gardist, Schatten oder Buddler getÃ¶tet.
+    VAR STRING  YouKilledNCfolk;            // SÃ¶ldner, Organisator, SchÃ¼rfer oder Bauer getÃ¶tet
+    VAR STRING  YouKilledPSIfolk;           // Templer oder Novize getÃ¶tet
 
     VAR STRING  GetThingsRight;             //SC hat Mist gebaut. NSC sagt, "Das wieder hinzubiegen wird nicht einfach!"
 
-    VAR STRING  YouDefeatedMeWell;          //Zu SC freundlich/neutral: Du hast mich ganz schön geplättet
+    VAR STRING  YouDefeatedMeWell;          //Zu SC freundlich/neutral: Du hast mich ganz schÃ¶n geplÃ¤ttet
 
-// Ambient-Unterhaltungen zwischen zwei NSCs (gemurmelte Wortfetzen, die zufällig zu "Dialogen" zusammengewürfelt werden...
+// Ambient-Unterhaltungen zwischen zwei NSCs (gemurmelte Wortfetzen, die zufÃ¤llig zu "Dialogen" zusammengewÃ¼rfelt werden...
     VAR STRING  Smalltalk01;                // ...wenn Du meinst...
     VAR STRING  Smalltalk02;                // ...kann schon sein...
     VAR STRING  Smalltalk03;                // ...war nicht besonders schlau....
     VAR STRING  Smalltalk04;                // ...ich halt mich da lieber raus...
     VAR STRING  Smalltalk05;                // ...das ist wirklich nicht mein Problem...
-    VAR STRING  Smalltalk06;                // ...war doch klar, daß das Ärger gibt...
-    VAR STRING  Smalltalk07;                // ...aber behalt's für Dich, muß nicht gleich jeder wissen...
+    VAR STRING  Smalltalk06;                // ...war doch klar, daÃŸ das Ã„rger gibt...
+    VAR STRING  Smalltalk07;                // ...aber behalt's fÃ¼r Dich, muÃŸ nicht gleich jeder wissen...
     VAR STRING  Smalltalk08;                // ...das passiert mir nicht nochmal...
-    VAR STRING  Smalltalk09;                // ...an der Gechichte muß wohl doch was dran sein...
-    VAR STRING  Smalltalk10;                // ...man muß eben aufpassen was man rumerzählt...
+    VAR STRING  Smalltalk09;                // ...an der Gechichte muÃŸ wohl doch was dran sein...
+    VAR STRING  Smalltalk10;                // ...man muÃŸ eben aufpassen was man rumerzÃ¤hlt...
     VAR STRING  Smalltalk11;                // ...solange ich damit nichts zu tun habe...
-    VAR STRING  Smalltalk12;                // ...man darf auch nicht alles glauben, was man hört...
+    VAR STRING  Smalltalk12;                // ...man darf auch nicht alles glauben, was man hÃ¶rt...
     VAR STRING  Smalltalk13;                // ...in seiner Haut will ich trotzdem nicht stecken...
     VAR STRING  Smalltalk14;                // ...immer wieder die selbe Leier...
     VAR STRING  Smalltalk15;                // ...manche lernen eben garnichts dazu...
-    VAR STRING  Smalltalk16;                // ...früher wäre das ganz anders gelaufen...
+    VAR STRING  Smalltalk16;                // ...frÃ¼her wÃ¤re das ganz anders gelaufen...
     VAR STRING  Smalltalk17;                // ...gequatscht wird viel...
-    VAR STRING  Smalltalk18;                // ...ich hör nicht mehr auf das Gefasel...
-    VAR STRING  Smalltalk19;                // ...verlaß Dich auf jemanden und Du bist verlassen, das ist eben so...
-    VAR STRING  Smalltalk20;                // ...ich glaube kaum, daß sich daran was ändern wird...
+    VAR STRING  Smalltalk18;                // ...ich hÃ¶r nicht mehr auf das Gefasel...
+    VAR STRING  Smalltalk19;                // ...verlaÃŸ Dich auf jemanden und Du bist verlassen, das ist eben so...
+    VAR STRING  Smalltalk20;                // ...ich glaube kaum, daÃŸ sich daran was Ã¤ndern wird...
     VAR STRING  Smalltalk21;                // ...wahrscheinlich hast Du recht...
-    VAR STRING  Smalltalk22;                // ...erstmal abwarten. Es wird nichts so heiß gegessen, wie es gekocht wird...
-    VAR STRING  Smalltalk23;                // ...ich dachte, das wäre schon lange geklärt, aber das ist wohl nicht so...
-    VAR STRING  Smalltalk24;                // ...laß uns lieber über was anderes reden...
+    VAR STRING  Smalltalk22;                // ...erstmal abwarten. Es wird nichts so heiÃŸ gegessen, wie es gekocht wird...
+    VAR STRING  Smalltalk23;                // ...ich dachte, das wÃ¤re schon lange geklÃ¤rt, aber das ist wohl nicht so...
+    VAR STRING  Smalltalk24;                // ...laÃŸ uns lieber Ã¼ber was anderes reden...
     VAR STRING  Om;                         // Ommm (Meditation)
 
 // SC Dialog
-    var string  SC_HeyTurnAround;           //SC: Hey du! (Nsc ansprechen, steht mit Rücken zu dir)
+    var string  SC_HeyTurnAround;           //SC: Hey du! (Nsc ansprechen, steht mit RÃ¼cken zu dir)
     var string  SC_HeyWaitASecond;          //SC: Warte mal! (Nsc im vorgeigehen anhalten)
     var string DoesntWork;
     var string PickBroke;
@@ -238,13 +238,13 @@ instance SVM_0 (C_SVM)              // wird nur intern gebraucht...
 
 
 // ********************************
-//      Die SVM-Instanzen       (ToDo: News noch überarbeiten wie in Prototypen)
+//      Die SVM-Instanzen       (ToDo: News noch Ã¼berarbeiten wie in Prototypen)
 // ********************************
 
 // Die einzelnen Instanzen der SVMs
-// Diese müssen immer "SVM_x" heissen, wobei x die VoiceNummer ist.
+// Diese mÃ¼ssen immer "SVM_x" heissen, wobei x die VoiceNummer ist.
 
-instance SVM_1 (C_SVM)  //Malocher (Volk, Schürfer) Nörgler, Alkoholiker, schimpft über alles - zieht Kraft aus seinem Hass
+instance SVM_1 (C_SVM)  //Malocher (Volk, SchÃ¼rfer) NÃ¶rgler, Alkoholiker, schimpft Ã¼ber alles - zieht Kraft aus seinem Hass
 
 {
     StopMagic                   =   "SVM_1_StopMagic"                   ;//Stop that sorcery!
@@ -379,7 +379,7 @@ instance SVM_1 (C_SVM)  //Malocher (Volk, Schürfer) Nörgler, Alkoholiker, schimp
 };
 
 
-//SVM_2 // Misstrauisch (Volk, Bauern, Novizen, MILTEN) Misstrauisch. Defensiv. Angst in was reingezogen zu werden. Klug. Nov: Glauben durch Einschüchterung
+//SVM_2 // Misstrauisch (Volk, Bauern, Novizen, MILTEN) Misstrauisch. Defensiv. Angst in was reingezogen zu werden. Klug. Nov: Glauben durch EinschÃ¼chterung
 
 instance SVM_2 (C_SVM)              // Misstrauisch
 {
@@ -517,7 +517,7 @@ instance SVM_2 (C_SVM)              // Misstrauisch
 
 
 
-instance SVM_3 (C_SVM)               // Depressiv (Resigniert. Menschliches Gemüse. "Ich schau noch´n bisschen an die Decke.." , "Wir sind eh alle verloren..." Nov:Glauben an Drogen
+instance SVM_3 (C_SVM)               // Depressiv (Resigniert. Menschliches GemÃ¼se. "Ich schau nochÂ´n bisschen an die Decke.." , "Wir sind eh alle verloren..." Nov:Glauben an Drogen
 {
     StopMagic                   =   "SVM_3_StopMagic"                   ;//Stop that magic!
     ISaidStopMagic              =   "SVM_3_ISaidStopMagic"              ;//Stop that magic now.
@@ -651,7 +651,7 @@ instance SVM_3 (C_SVM)               // Depressiv (Resigniert. Menschliches Gemü
 };
 
 
-instance SVM_4 (C_SVM)              // Alter Sack,  (Torrez, KDF-Magier, alte Buddler....), alter Hase. Kann Grünschnäbeln noch was zeigen
+instance SVM_4 (C_SVM)              // Alter Sack,  (Torrez, KDF-Magier, alte Buddler....), alter Hase. Kann GrÃ¼nschnÃ¤beln noch was zeigen
 {
     StopMagic                   =   "SVM_4_StopMagic"                   ;//Stop the magic!
     ISaidStopMagic              =   "SVM_4_ISaidStopMagic"              ;//You better listen to my advice and stop your sorcery!
@@ -742,7 +742,7 @@ instance SVM_4 (C_SVM)              // Alter Sack,  (Torrez, KDF-Magier, alte Bu
     SuckerDefeatedVlk_Guard     =   "SVM_4_SuckerDefeatedVlk_Guard"     ;//What did you think you were doing, beating up a digger?
     YouDefeatedMyComrade        =   "SVM_4_YouDefeatedMyComrade"        ;//You got into trouble with a friend of mine! That's very risky!
     YouDefeatedNOV_Guard        =   "SVM_4_YouDefeatedNOV_Guard"        ;//Lay your hands on a novice again and you'll be sorry!
-    YouDefeatedVLK_Guard        =   "SVM_4_YouDefeatedVLK_Guard"        ;//You're too brave, touching one of the protégés could be very dangerous for you.
+    YouDefeatedVLK_Guard        =   "SVM_4_YouDefeatedVLK_Guard"        ;//You're too brave, touching one of the protÃ©gÃ©s could be very dangerous for you.
     YouStoleFromMe              =   "SVM_4_YouStoleFromMe"              ;//Just keep your hands off my stuff, understood?
     YouStoleFromUs              =   "SVM_4_YouStoleFromUs"              ;//You got something which is ours. Give it back to us!
     YouStoleFromEBr             =   "SVM_4_YouStoleFromEBr"             ;//Man! You've stolen from the Ore Barons! They'll be raging!
@@ -785,7 +785,7 @@ instance SVM_4 (C_SVM)              // Alter Sack,  (Torrez, KDF-Magier, alte Bu
 };
 
 
-instance SVM_5 (C_SVM)              //Lebenskünstler, offen, Fröhlich. humorvoller Verarscher. Auch: Fauler Verpisser. Selbstbewußt, wortgewandt, charismatisch. (Lester)
+instance SVM_5 (C_SVM)              //LebenskÃ¼nstler, offen, FrÃ¶hlich. humorvoller Verarscher. Auch: Fauler Verpisser. SelbstbewuÃŸt, wortgewandt, charismatisch. (Lester)
 {
     StopMagic                   =   "SVM_5_StopMagic"                   ;//You better stop that magic!
     ISaidStopMagic              =   "SVM_5_ISaidStopMagic"              ;//When I say 'stop the magic', I mean it!
@@ -876,7 +876,7 @@ instance SVM_5 (C_SVM)              //Lebenskünstler, offen, Fröhlich. humorvoll
     SuckerDefeatedVlk_Guard     =   "SVM_5_SuckerDefeatedVlk_Guard"     ;//What did you think you were doing, beating up a digger?
     YouDefeatedMyComrade        =   "SVM_5_YouDefeatedMyComrade"        ;//You've knocked down my mate, what was that for?
     YouDefeatedNOV_Guard        =   "SVM_5_YouDefeatedNOV_Guard"        ;//Lay your hands on a novice again and you'll be sorry!
-    YouDefeatedVLK_Guard        =   "SVM_5_YouDefeatedVLK_Guard"        ;//You're too brave, touching one of my protégés could be very dangerous for you.
+    YouDefeatedVLK_Guard        =   "SVM_5_YouDefeatedVLK_Guard"        ;//You're too brave, touching one of my protÃ©gÃ©s could be very dangerous for you.
     YouStoleFromMe              =   "SVM_5_YouStoleFromMe"              ;//You dare to turn up here, dirty thief?
     YouStoleFromUs              =   "SVM_5_YouStoleFromUs"              ;//You got some stuff that belongs to us. You better give it back.
     YouStoleFromEBr             =   "SVM_5_YouStoleFromEBr"             ;//Man! You've stolen from the Ore Barons! They'll be raging!
@@ -919,7 +919,7 @@ instance SVM_5 (C_SVM)              //Lebenskünstler, offen, Fröhlich. humorvoll
 };
 
 //////////////////////////////////////////
-instance SVM_6 (C_SVM)              //Raufbold  (Will saufen und raufen (Matrose) Alkoholiker. Grölt viel)
+instance SVM_6 (C_SVM)              //Raufbold  (Will saufen und raufen (Matrose) Alkoholiker. GrÃ¶lt viel)
 {
     StopMagic                   =   "SVM_6_StopMagic"                   ;//Stop that sorcery!
     ISaidStopMagic              =   "SVM_6_ISaidStopMagic"              ;//Stop that magic! At once!!
@@ -1187,7 +1187,7 @@ instance SVM_7 (C_SVM)              //Freak, Aggressiv. Spielt mit seiner Macht.
 };
 
 //////////////////////////////////////////
-instance SVM_8 (C_SVM)              // Elite-Garde. Ultra-cool. Pflichtbewusst, ernst, nüchtern! Klare Stimme
+instance SVM_8 (C_SVM)              // Elite-Garde. Ultra-cool. Pflichtbewusst, ernst, nÃ¼chtern! Klare Stimme
 {
     StopMagic                   =   "SVM_8_StopMagic"                   ;//Don't try any sorcery around me!
     ISaidStopMagic              =   "SVM_8_ISaidStopMagic"              ;//Stop, I say! At once!
@@ -1278,7 +1278,7 @@ instance SVM_8 (C_SVM)              // Elite-Garde. Ultra-cool. Pflichtbewusst, 
     SuckerDefeatedVlk_Guard     =   "SVM_8_SuckerDefeatedVlk_Guard"     ;//If you touch the diggers, you're laying hands on my income!
     YouDefeatedMyComrade        =   "SVM_8_YouDefeatedMyComrade"        ;//You shouldn't get in trouble with my friends.
     YouDefeatedNOV_Guard        =   "SVM_8_YouDefeatedNOV_Guard"        ;//Lay your hands on a novice again and you'll be sorry!
-    YouDefeatedVLK_Guard        =   "SVM_8_YouDefeatedVLK_Guard"        ;//If you attack one of my protégés, it might cost you your head.
+    YouDefeatedVLK_Guard        =   "SVM_8_YouDefeatedVLK_Guard"        ;//If you attack one of my protÃ©gÃ©s, it might cost you your head.
     YouStoleFromMe              =   "SVM_8_YouStoleFromMe"              ;//You dare to turn up here, dirty thief?
     YouStoleFromUs              =   "SVM_8_YouStoleFromUs"              ;//You got some stuff that belongs to us. You better give it back.
     YouStoleFromEBr             =   "SVM_8_YouStoleFromEBr"             ;//Man! You've stolen from the Ore Barons! Boy, they'll be raging!
@@ -1321,7 +1321,7 @@ instance SVM_8 (C_SVM)              // Elite-Garde. Ultra-cool. Pflichtbewusst, 
 };
 
 
-instance SVM_9 (C_SVM)              // brummig         gemütlicher Hüne, Besonnen, Brummiger Bär, Einfacher Mensch
+instance SVM_9 (C_SVM)              // brummig         gemÃ¼tlicher HÃ¼ne, Besonnen, Brummiger BÃ¤r, Einfacher Mensch
 {
     StopMagic                   =   "SVM_9_StopMagic"                   ;//I don't want any magic near me!
     ISaidStopMagic              =   "SVM_9_ISaidStopMagic"              ;//Stop, I say! At once!
@@ -1412,7 +1412,7 @@ instance SVM_9 (C_SVM)              // brummig         gemütlicher Hüne, Besonne
     SuckerDefeatedVlk_Guard     =   "SVM_9_SuckerDefeatedVlk_Guard"     ;//What did you think you were doing, beating up a digger?
     YouDefeatedMyComrade        =   "SVM_9_YouDefeatedMyComrade"        ;//You've knocked down my pal, what was that for?
     YouDefeatedNOV_Guard        =   "SVM_9_YouDefeatedNOV_Guard"        ;//Lay your hands on a novice again and you'll be sorry!
-    YouDefeatedVLK_Guard        =   "SVM_9_YouDefeatedVLK_Guard"        ;//You're too brave, touching one of my protégés could be very dangerous for you.
+    YouDefeatedVLK_Guard        =   "SVM_9_YouDefeatedVLK_Guard"        ;//You're too brave, touching one of my protÃ©gÃ©s could be very dangerous for you.
     YouStoleFromMe              =   "SVM_9_YouStoleFromMe"              ;//You dare to turn up here, you dirty thief?
     YouStoleFromUs              =   "SVM_9_YouStoleFromUs"              ;//To steal from our folks is the worst thing ever! You'll be sorry for it!
     YouStoleFromEBr             =   "SVM_9_YouStoleFromEBr"             ;//Man! You've stolen from the Ore Barons! They'll be raging!
@@ -1547,7 +1547,7 @@ instance SVM_10 (C_SVM)             // Schlau, verschlagen, heimlich, Zwielichti
     SuckerDefeatedVlk_Guard     =   "SVM_10_SuckerDefeatedVlk_Guard"        ;//I need to maintain order here! Leave my people alone!
     YouDefeatedMyComrade        =   "SVM_10_YouDefeatedMyComrade"           ;//You've knocked down my friend.
     YouDefeatedNOV_Guard        =   "SVM_10_YouDefeatedNOV_Guard"           ;//Lay your hands on a novice again and you'll be sorry!
-    YouDefeatedVLK_Guard        =   "SVM_10_YouDefeatedVLK_Guard"           ;//Touching one of my protégés will cost you dearly.
+    YouDefeatedVLK_Guard        =   "SVM_10_YouDefeatedVLK_Guard"           ;//Touching one of my protÃ©gÃ©s will cost you dearly.
     YouStoleFromMe              =   "SVM_10_YouStoleFromMe"                 ;//Don't try that again, thief!
     YouStoleFromUs              =   "SVM_10_YouStoleFromUs"                 ;//You got some stuff that belongs to us. You better give it back.
     YouStoleFromEBr             =   "SVM_10_YouStoleFromEBr"                ;//Man! You've stolen from the Ore Barons! They'll be furious!
@@ -1592,7 +1592,7 @@ instance SVM_10 (C_SVM)             // Schlau, verschlagen, heimlich, Zwielichti
 
 
 //////////////////////////////////////////
-instance SVM_11 (C_SVM)             //Profi             Ruhig, abgezockt, Vernünftig aberknallhart
+instance SVM_11 (C_SVM)             //Profi             Ruhig, abgezockt, VernÃ¼nftig aberknallhart
 {
     StopMagic                   =   "SVM_11_StopMagic"                      ;//Don't try any sorcery around me!
     ISaidStopMagic              =   "SVM_11_ISaidStopMagic"                 ;//Stop, I say! At once!
@@ -1683,7 +1683,7 @@ instance SVM_11 (C_SVM)             //Profi             Ruhig, abgezockt, Vernün
     SuckerDefeatedVlk_Guard     =   "SVM_11_SuckerDefeatedVlk_Guard"        ;//If you touch the diggers, you're laying hands on my income!
     YouDefeatedMyComrade        =   "SVM_11_YouDefeatedMyComrade"           ;//Whoever hurts my pals is hurting me.
     YouDefeatedNOV_Guard        =   "SVM_11_YouDefeatedNOV_Guard"           ;//Lay your hands on a novice again and you'll be sorry!
-    YouDefeatedVLK_Guard        =   "SVM_11_YouDefeatedVLK_Guard"           ;//Attacking my protégés can cost you your head.
+    YouDefeatedVLK_Guard        =   "SVM_11_YouDefeatedVLK_Guard"           ;//Attacking my protÃ©gÃ©s can cost you your head.
     YouStoleFromMe              =   "SVM_11_YouStoleFromMe"                 ;//You dare to turn up here, dirty thief?
     YouStoleFromUs              =   "SVM_11_YouStoleFromUs"                 ;//You got some stuff that belongs to us. You'd better give it back.
     YouStoleFromEBr             =   "SVM_11_YouStoleFromEBr"                ;//Man! You've stolen from the Ore Barons! Boy, they'll be raging!
@@ -1708,10 +1708,10 @@ instance SVM_11 (C_SVM)             //Profi             Ruhig, abgezockt, Vernün
     Smalltalk08                 =   "SVM_11_Smalltalk08"                    ;// ... that won't happen again ...
     Smalltalk09                 =   "SVM_11_Smalltalk09"                    ;// ... there must be something about that story after all because...
     Smalltalk10                 =   "SVM_11_Smalltalk10"                    ;// ... you have to watch what you tell people ...
-    Smalltalk11                 =   "SVM_11_Smalltalk11"                    ;// ... as long as I'm not involved …I
+    Smalltalk11                 =   "SVM_11_Smalltalk11"                    ;// ... as long as I'm not involved â€¦I
     Smalltalk12                 =   "SVM_11_Smalltalk12"                    ;// ... you shouldn't believe everything you hear ...
     Smalltalk13                 =   "SVM_11_Smalltalk13"                    ;// ... I wouldn't like to be in his shoes though because he
-    Smalltalk14                 =   "SVM_11_Smalltalk14"                    ;// ... it's the same story every time …I
+    Smalltalk14                 =   "SVM_11_Smalltalk14"                    ;// ... it's the same story every time â€¦I
     Smalltalk15                 =   "SVM_11_Smalltalk15"                    ;// ... some people never learn ...
     Smalltalk16                 =   "SVM_11_Smalltalk16"                    ;// ... well, there was a time when things would have gone very differently ...
     Smalltalk17                 =   "SVM_11_Smalltalk17"                    ;// ... people always talk ...
@@ -1726,7 +1726,7 @@ instance SVM_11 (C_SVM)             //Profi             Ruhig, abgezockt, Vernün
 };
 
 
-instance SVM_12 (C_SVM)     //Bazaar-Händler        Nach außen freundlich,jovial,Innen hinterhältig, raffgierig
+instance SVM_12 (C_SVM)     //Bazaar-HÃ¤ndler        Nach auÃŸen freundlich,jovial,Innen hinterhÃ¤ltig, raffgierig
 {
     StopMagic                   =   "SVM_12_StopMagic"                      ;//Stop that magic!
     ISaidStopMagic              =   "SVM_12_ISaidStopMagic"                 ;//When I say 'stop the magic', I mean it!
@@ -1817,7 +1817,7 @@ instance SVM_12 (C_SVM)     //Bazaar-Händler        Nach außen freundlich,jovial
     SuckerDefeatedVlk_Guard     =   "SVM_12_SuckerDefeatedVlk_Guard"        ;//What did you think you were doing, beating up a digger?
     YouDefeatedMyComrade        =   "SVM_12_YouDefeatedMyComrade"           ;//You've knocked down my pal, what was that for?
     YouDefeatedNOV_Guard        =   "SVM_12_YouDefeatedNOV_Guard"           ;//Lay your hands on a novice again and you'll be sorry!
-    YouDefeatedVLK_Guard        =   "SVM_12_YouDefeatedVLK_Guard"           ;//You're too brave, touching one of my protégés could be very dangerous for you.
+    YouDefeatedVLK_Guard        =   "SVM_12_YouDefeatedVLK_Guard"           ;//You're too brave, touching one of my protÃ©gÃ©s could be very dangerous for you.
     YouStoleFromMe              =   "SVM_12_YouStoleFromMe"                 ;//You dare turn up here, dirty thief?
     YouStoleFromUs              =   "SVM_12_YouStoleFromUs"                 ;//You got some stuff that belongs to us. You better give it back.
     YouStoleFromEBr             =   "SVM_12_YouStoleFromEBr"                ;//Man! You've stolen from the Ore Barons! They'll be raging!
@@ -1860,7 +1860,7 @@ instance SVM_12 (C_SVM)     //Bazaar-Händler        Nach außen freundlich,jovial
 };
 
 
-instance SVM_13 (C_SVM)                 // Fanatiker    Agressiv, übereifrig, Ähnlich wie Stimme7Freak, aber klarer, Ruhm-und-Ehre-Typ, Nov: Glauben an Y´berion blind, Mitläufer
+instance SVM_13 (C_SVM)                 // Fanatiker    Agressiv, Ã¼bereifrig, Ã„hnlich wie Stimme7Freak, aber klarer, Ruhm-und-Ehre-Typ, Nov: Glauben an YÂ´berion blind, MitlÃ¤ufer
 {
     StopMagic                   =   "SVM_13_StopMagic"                      ;//Stop your sorcery!
     ISaidStopMagic              =   "SVM_13_ISaidStopMagic"                 ;//Take it away, AWAY!!
@@ -1996,7 +1996,7 @@ instance SVM_13 (C_SVM)                 // Fanatiker    Agressiv, übereifrig, Äh
 
 
 //////////////////////////////////////////
-instance SVM_14 (C_SVM)             // Xardas(DMB),Corristo,Erzähler    alt arrogant, gebildet
+instance SVM_14 (C_SVM)             // Xardas(DMB),Corristo,ErzÃ¤hler    alt arrogant, gebildet
 {
     StopMagic                   =   "SVM_14_StopMagic"                      ;//Stop your magic!
     ISaidStopMagic              =   "SVM_14_ISaidStopMagic"                 ;//You heard me: Stop your sorcery!
@@ -2087,7 +2087,7 @@ instance SVM_14 (C_SVM)             // Xardas(DMB),Corristo,Erzähler    alt arro
     SuckerDefeatedVlk_Guard     =   "SVM_14_SuckerDefeatedVlk_Guard"        ;//If you touch the diggers, you're laying hands on my income!
     YouDefeatedMyComrade        =   "SVM_14_YouDefeatedMyComrade"           ;//You shouldn't get in trouble with my friends.
     YouDefeatedNOV_Guard        =   "SVM_14_YouDefeatedNOV_Guard"           ;//Lay your hands on a novice again and you'll be sorry!
-    YouDefeatedVLK_Guard        =   "SVM_14_YouDefeatedVLK_Guard"           ;//If you attack one of my protégés, it might cost you your head.
+    YouDefeatedVLK_Guard        =   "SVM_14_YouDefeatedVLK_Guard"           ;//If you attack one of my protÃ©gÃ©s, it might cost you your head.
     YouStoleFromMe              =   "SVM_14_YouStoleFromMe"                 ;//How dare you turn up here, dirty thief?
     YouStoleFromUs              =   "SVM_14_YouStoleFromUs"                 ;//You've got some stuff that belongs to us. You better give it back.
     YouStoleFromEBr             =   "SVM_14_YouStoleFromEBr"                ;//Man! You've stolen from the Ore Barons! They'll be raging!
@@ -2164,10 +2164,10 @@ INSTANCE SVM_16 (C_SVM)             // Stimmbeschreibung    :       Babes halt!!
 };
 
 //////////////////////////////////////////
-INSTANCE SVM_17 (C_SVM)                         //Ork-Stimme (alle SVMs werden auf wenige guturalen, unverständlichen Laute umgeleitet)
+INSTANCE SVM_17 (C_SVM)                         //Ork-Stimme (alle SVMs werden auf wenige guturalen, unverstÃ¤ndlichen Laute umgeleitet)
                                                 //Die Dialoge mit dem verbannten Ork-Shamanen im Kastell und dem Ork-Sklaven in der Freien Mine laufen auch
-                                                //über Stimme 17, sind aber in halbwegsverständlichem orkisch-deutsch
-                                                //Das hier überall vergebene "SVM_17_OrcSound01" wird noch durch 9 weitere Variationen ergänzt
+                                                //Ã¼ber Stimme 17, sind aber in halbwegsverstÃ¤ndlichem orkisch-deutsch
+                                                //Das hier Ã¼berall vergebene "SVM_17_OrcSound01" wird noch durch 9 weitere Variationen ergÃ¤nzt
 
 // FIXME: mehr Varianten!?
 {

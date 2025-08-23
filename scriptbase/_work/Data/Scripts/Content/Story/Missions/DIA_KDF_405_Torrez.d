@@ -54,7 +54,7 @@ FUNC VOID  DIA_Torrez_Hello_Info()
 };
 
 //***********************************************
-//                  Belohnung WÄHLEN
+//                  Belohnung WÃ„HLEN
 //***********************************************
 
 instance  DIA_Torrez_Belohnung (C_INFO)
@@ -226,7 +226,7 @@ FUNC VOID  DIA_Torrez_PERM_Info()
 ///////////////////////////////////////////
 
 //---------------------------------------------------------
-//                  WÄHREND DER AUFNAHME
+//                  WÃ„HREND DER AUFNAHME
 //---------------------------------------------------------
 instance KDF_405_Torrez_BOOK (C_INFO)
 {
@@ -281,7 +281,7 @@ FUNC void  KDF_405_Torrez_SELLBOOKS_Info()
     AI_Output (other, self,"KDF_405_Torrez_SELLBOOKS_Info_15_01"); //I want to acquire magic writings.
 };
 /*------------------------------------------------------------------------
-                        BEGRÜSSUNG
+                        BEGRÃœSSUNG
 ------------------------------------------------------------------------*/
 
 instance  KDF_405_Torrez_GREET (C_INFO)

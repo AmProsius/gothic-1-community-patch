@@ -8,7 +8,7 @@
 //#####################################################################
 func void B_Story_BringFoci()
 {
-    //-------- Ausrüstung für Spieler --------
+    //-------- AusrÃ¼stung fÃ¼r Spieler --------
     CreateInvItems      (self,          ItWrFocimap,    2);     // 2, damit die Bildschirmausgabe stimmt!
     B_GiveInvItems      (self,  hero,   ItWrFocimap,    2);
     Npc_RemoveInvItem   (hero,          ItWrFocimap);
@@ -59,7 +59,7 @@ func void B_Story_BringFoci()
     var C_NPC sld723;       sld723 = Hlp_GetNpc (SLD_723_Soeldner);     sld723.aivar[AIV_PASSGATE] = TRUE;
     var C_NPC sld732;       sld732 = Hlp_GetNpc (SLD_732_Soeldner);     sld732.aivar[AIV_PASSGATE] = TRUE;
 
-    //-------- Tagebucheinträge --------
+    //-------- TagebucheintrÃ¤ge --------
     B_LogEntry          (CH3_EscapePlanNC,"I've offered Saturas to help with the completion of the escape plan. My next task consists in finding the four remaining focus stones.");
     Log_SetTopicStatus  (CH3_EscapePlanNC,  LOG_SUCCESS);
 

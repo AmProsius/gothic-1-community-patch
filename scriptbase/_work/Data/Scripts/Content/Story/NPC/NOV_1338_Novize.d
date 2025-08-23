@@ -52,7 +52,7 @@ FUNC VOID Rtn_start_1338 ()
     TA_Meditate (10,00,08,00,"PSI_TEMPLE_COURT_2");
 };
 
-FUNC VOID Rtn_Ritual_1338 () //wichtig für Kapitel 2 (ehem 1326)
+FUNC VOID Rtn_Ritual_1338 () //wichtig fÃ¼r Kapitel 2 (ehem 1326)
 {
     TA_Stay (00,00,08,00,"PSI_TEMPLE_NOVIZE_PR6");
     TA_Stay (08,00,24,00,"PSI_TEMPLE_NOVIZE_PR6");

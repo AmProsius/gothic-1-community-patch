@@ -5,7 +5,7 @@
 //  imposant herumstehen und Wache halten sollen.
 //
 //  Es passiert folgendes:
-//  1.  Wie in allen Wachzuständen werden nette Posen und Zufalls-
+//  1.  Wie in allen WachzustÃ¤nden werden nette Posen und Zufalls-
 //      Animationen abgespielt.
 //////////////////////////////////////////////////////////////////////////
 func void ZS_HostileGuard ()
@@ -21,7 +21,7 @@ func void ZS_HostileGuard ()
     self.senses_range   = 2500;
 
     AI_StandUp      (self);
-    AI_SetWalkmode  (self,NPC_WALK);            // Walkmode für den Zustand
+    AI_SetWalkmode  (self,NPC_WALK);            // Walkmode fÃ¼r den Zustand
     AI_GotoWP       (self, self.wp);            // Gehe zum Tagesablaufstart
     AI_AlignToWP        ( self );
 

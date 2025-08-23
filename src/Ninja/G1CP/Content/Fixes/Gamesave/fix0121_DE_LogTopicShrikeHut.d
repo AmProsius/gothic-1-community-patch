@@ -1,11 +1,11 @@
 /*
- * #121 Spelling - Quest: "Shrikes Hütte" (DE)
+ * #121 Spelling - Quest: "Shrikes HÃ¼tte" (DE)
  */
 func int G1CP_0121_DE_LogTopicShrikeHut() {
-    const string newName = "Shrikes Hütte";
+    const string newName = "Shrikes HÃ¼tte";
     var string curName; curName = G1CP_GetStringConst("CH1_ShrikesHut", "");
 
-    if (Hlp_StrCmp(curName, "Shrike's Hütte")) {
+    if (Hlp_StrCmp(curName, "Shrike's HÃ¼tte")) {
         G1CP_SetStringConst("CH1_ShrikesHut", newName);
         G1CP_LogRenameTopic(curName, newName);
         return TRUE;
@@ -23,10 +23,10 @@ func int G1CP_0121_DE_LogTopicShrikeHutRevert() {
         return FALSE;
     };
 
-    const string oldName = "Shrike's Hütte";
+    const string oldName = "Shrike's HÃ¼tte";
     var string curName; curName = G1CP_GetStringConst("CH1_ShrikesHut", "");
 
-    if (Hlp_StrCmp(curName, "Shrikes Hütte")) {
+    if (Hlp_StrCmp(curName, "Shrikes HÃ¼tte")) {
         G1CP_SetStringConst("CH1_ShrikesHut", oldName); // Necessary for re-applying
         G1CP_LogRenameTopic(curName, oldName);
         return TRUE;

@@ -2,7 +2,7 @@
 *   B_AssessTalk                                                                            *
 *   ============                                                                            *
 *   Wird dem ZS_AssessTalk vorgeschaltet, wenn ein NSC aktiv angesprochen wird              *
-*   und löscht die INVINCIBLE-Flags                                                         *
+*   und lÃ¶scht die INVINCIBLE-Flags                                                         *
 ********************************************************************************************/
 func void B_AssessTalk ()
 {
@@ -19,7 +19,7 @@ func void B_AssessTalk ()
         return;
     };
 
-    //-------- Verhindern von Ansprechen durch übernommene NSCs --------
+    //-------- Verhindern von Ansprechen durch Ã¼bernommene NSCs --------
     var C_NPC her;  her = Hlp_GetNpc(PC_Hero);
     var C_NPC rock; rock = Hlp_GetNpc(PC_Rockefeller);
 

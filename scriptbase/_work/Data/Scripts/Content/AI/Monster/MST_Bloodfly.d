@@ -69,12 +69,12 @@ INSTANCE Bloodfly   (Mst_Default_Bloodfly)
     Set_Bloodfly_Visuals();
     Npc_SetToFistMode(self);
 
-    CreateInvItems (self, ItAt_Bloodfly_01, 2); // 2 Flügel
+    CreateInvItems (self, ItAt_Bloodfly_01, 2); // 2 FlÃ¼gel
 };
 
 
 /*************************************************************************
-**  Bloodfly für Mission: Mis_1_Psi_HelpBrothers                        **
+**  Bloodfly fÃ¼r Mission: Mis_1_Psi_HelpBrothers                        **
 *************************************************************************/
 
 INSTANCE HelpBrothers_Bloodfly (Mst_Default_Bloodfly)
@@ -82,7 +82,7 @@ INSTANCE HelpBrothers_Bloodfly (Mst_Default_Bloodfly)
     Set_Bloodfly_Visuals();
     Npc_SetToFistMode(self);
 
-    CreateInvItems (self, ItAt_Bloodfly_01, 2); // 2 Flügel
+    CreateInvItems (self, ItAt_Bloodfly_01, 2); // 2 FlÃ¼gel
 
     name                            =   "Aggressive Bloodfly";
 };

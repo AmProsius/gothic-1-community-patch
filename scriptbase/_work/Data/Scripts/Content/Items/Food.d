@@ -18,7 +18,7 @@ const int   Value_CrawlerSuppe  =   10;     const int   HP_CrawlerSuppe     =   
 
 const int   Value_FleischRoh    =    5;     const int   HP_FleischRoh       =   10;
 const int   Value_Brot          =    8;     const int   HP_Brot             =   12;
-const int   Value_K‰se          =   10;     const int   HP_K‰se             =   15;
+const int   Value_K√§se          =   10;     const int   HP_K√§se             =   15;
 const int   Value_Fleisch       =    8;     const int   HP_Fleisch          =   15; // Rohes Fleisch mit Pfanne benutzt
 const int   Value_Schinken      =   12;     const int   HP_Schinken         =   18;
 
@@ -33,12 +33,12 @@ const int   Value_Mondschatten  =   12;     const int   HP_Mondschatten     =   
 const int   Value_Orkblatt      =   13;     const int   HP_Orkblatt         =   26;
 const int   Value_Eichenblatt   =   14;     const int   HP_Eichenblatt      =   28;
 
-const int   Value_Hˆllenpilz    =    3;     const int   HP_Hˆllenpilz       =    6;
+const int   Value_H√∂llenpilz    =    3;     const int   HP_H√∂llenpilz       =    6;
 const int   Value_Sklavenbrot   =    9;     const int   HP_Sklavenbrot      =   15;
 
-const int   Value_Heilkr‰uter1  =   14;     const int   HP_Heilkr‰uter1     =   30;
-const int   Value_Heilkr‰uter2  =   19;     const int   HP_Heilkr‰uter2     =   39;
-const int   Value_Heilkr‰uter3  =   24;     const int   HP_Heilkr‰uter3     =   49;
+const int   Value_Heilkr√§uter1  =   14;     const int   HP_Heilkr√§uter1     =   30;
+const int   Value_Heilkr√§uter2  =   19;     const int   HP_Heilkr√§uter2     =   39;
+const int   Value_Heilkr√§uter3  =   24;     const int   HP_Heilkr√§uter3     =   49;
 
 // Fixme: Trollkirsche als Handelsware mit Wert?
 const int   Value_Trollkirsche  =   15;     const int   HP_Trollkirsche     =   -20;
@@ -236,20 +236,20 @@ INSTANCE ItFoCheese(C_Item)
     mainflag            =   ITEM_KAT_FOOD;
     flags               =   ITEM_MULTI;
 
-    value               =   Value_K‰se;
+    value               =   Value_K√§se;
 
     visual              =   "ItFo_Cheese_01.3ds";
     scemeName           =   "FOODHUGE";
     on_state[0]         =   UseCheese;
 
     description         = name;
-    TEXT[1]             = NAME_Bonus_HP;                COUNT[1]    = HP_K‰se;
-    TEXT[5]             = NAME_Value;                   COUNT[5]    = Value_K‰se;
+    TEXT[1]             = NAME_Bonus_HP;                COUNT[1]    = HP_K√§se;
+    TEXT[5]             = NAME_Value;                   COUNT[5]    = Value_K√§se;
 };
 
     FUNC VOID UseCheese()
     {
-        Npc_ChangeAttribute (self,  ATR_HITPOINTS,  HP_K‰se);
+        Npc_ChangeAttribute (self,  ATR_HITPOINTS,  HP_K√§se);
     };
 
 /******************************************************************************************/
@@ -381,7 +381,7 @@ INSTANCE ItFo_Potion_Water_01(C_Item)
     };
 
 
-// FIXME: zs_Drunk f¸r SC oder nicht?
+// FIXME: zs_Drunk f√ºr SC oder nicht?
 INSTANCE ItFoBeer(C_Item)
 {
     name                =   "Beer";
@@ -734,7 +734,7 @@ INSTANCE ItFo_Plants_mushroom_01(C_Item)
     mainflag            =   ITEM_KAT_FOOD;
     flags               =   ITEM_MULTI;
 
-    value               =   Value_Hˆllenpilz;
+    value               =   Value_H√∂llenpilz;
 
     visual              =   "ItFo_Plants_mushroom_01.3ds";
     material            =   MAT_WOOD;
@@ -742,14 +742,14 @@ INSTANCE ItFo_Plants_mushroom_01(C_Item)
     scemeName           =   "FOOD";
 
     description         = name;
-    TEXT[1]             = NAME_Bonus_HP;                COUNT[1]    = HP_Hˆllenpilz;
-    TEXT[5]             = NAME_Value;                   COUNT[5]    = Value_Hˆllenpilz;
+    TEXT[1]             = NAME_Bonus_HP;                COUNT[1]    = HP_H√∂llenpilz;
+    TEXT[5]             = NAME_Value;                   COUNT[5]    = Value_H√∂llenpilz;
 };
 
         func void Usemush ()
         {
-            Npc_ChangeAttribute (self,  ATR_HITPOINTS,  HP_Hˆllenpilz);
-            PrintDebugNpc       (PD_ITEM_MOBSI, "Ich esse Hˆllenpilz");
+            Npc_ChangeAttribute (self,  ATR_HITPOINTS,  HP_H√∂llenpilz);
+            PrintDebugNpc       (PD_ITEM_MOBSI, "Ich esse H√∂llenpilz");
         };
 
 /*****************************************************************************************/
@@ -780,7 +780,7 @@ INSTANCE ItFo_Plants_mushroom_02(C_Item)
 
 
 /*****************************************************************************************/
-//                              HEILKRƒUTER
+//                              HEILKR√ÑUTER
 /*****************************************************************************************/
 INSTANCE ItFo_Plants_Herb_01(C_Item)
 {
@@ -789,7 +789,7 @@ INSTANCE ItFo_Plants_Herb_01(C_Item)
     mainflag            =   ITEM_KAT_FOOD;
     flags               =   ITEM_MULTI;
 
-    value               =   Value_Heilkr‰uter1;
+    value               =   Value_Heilkr√§uter1;
 
     visual              =   "ItFo_Plants_Herb_01.3ds";
     material            =   MAT_WOOD;
@@ -797,14 +797,14 @@ INSTANCE ItFo_Plants_Herb_01(C_Item)
     scemeName           =   "FOOD";
 
     description         = name;
-    TEXT[1]             = NAME_Bonus_HP;                COUNT[1]    = HP_Heilkr‰uter1;
-    TEXT[5]             = NAME_Value;                   COUNT[5]    = Value_Heilkr‰uter1;
+    TEXT[1]             = NAME_Bonus_HP;                COUNT[1]    = HP_Heilkr√§uter1;
+    TEXT[5]             = NAME_Value;                   COUNT[5]    = Value_Heilkr√§uter1;
 };
 
     func void UsePlants1 ()
     {
-        Npc_ChangeAttribute (self,  ATR_HITPOINTS,  HP_Heilkr‰uter1);
-        PrintDebugNpc       (PD_ITEM_MOBSI, "Ich esse Heilkr‰uter");
+        Npc_ChangeAttribute (self,  ATR_HITPOINTS,  HP_Heilkr√§uter1);
+        PrintDebugNpc       (PD_ITEM_MOBSI, "Ich esse Heilkr√§uter");
     };
 
 /******************************************************************************************/
@@ -815,7 +815,7 @@ INSTANCE ItFo_Plants_Herb_02(C_Item)
     mainflag            =   ITEM_KAT_FOOD;
     flags               =   ITEM_MULTI;
 
-    value               =   Value_Heilkr‰uter2;
+    value               =   Value_Heilkr√§uter2;
 
     visual              =   "ItFo_Plants_Herb_02.3ds";
     material            =   MAT_WOOD;
@@ -823,13 +823,13 @@ INSTANCE ItFo_Plants_Herb_02(C_Item)
     scemeName           =   "FOOD";
 
     description         = name;
-    TEXT[1]             = NAME_Bonus_HP;                COUNT[1]    = HP_Heilkr‰uter2;
-    TEXT[5]             = NAME_Value;                   COUNT[5]    = Value_Heilkr‰uter2;
+    TEXT[1]             = NAME_Bonus_HP;                COUNT[1]    = HP_Heilkr√§uter2;
+    TEXT[5]             = NAME_Value;                   COUNT[5]    = Value_Heilkr√§uter2;
 };
 
         func void UsePlants2 ()
         {
-        Npc_ChangeAttribute (self,  ATR_HITPOINTS,  HP_Heilkr‰uter2);
+        Npc_ChangeAttribute (self,  ATR_HITPOINTS,  HP_Heilkr√§uter2);
         PrintDebugNpc       (PD_ITEM_MOBSI, "Ich esse Heilpflanzen");
     };
 
@@ -841,7 +841,7 @@ INSTANCE ItFo_Plants_Herb_03(C_Item)
     mainflag            =   ITEM_KAT_FOOD;
     flags               =   ITEM_MULTI;
 
-    value               =   Value_Heilkr‰uter3;
+    value               =   Value_Heilkr√§uter3;
 
     visual              =   "ItFo_Plants_Herb_03.3ds";
     material            =   MAT_WOOD;
@@ -849,13 +849,13 @@ INSTANCE ItFo_Plants_Herb_03(C_Item)
     scemeName           =   "FOOD";
 
     description         = name;
-    TEXT[1]             = NAME_Bonus_HP;                COUNT[1]    = HP_Heilkr‰uter3;
-    TEXT[5]             = NAME_Value;                   COUNT[5]    = Value_Heilkr‰uter3;
+    TEXT[1]             = NAME_Bonus_HP;                COUNT[1]    = HP_Heilkr√§uter3;
+    TEXT[5]             = NAME_Value;                   COUNT[5]    = Value_Heilkr√§uter3;
 };
 
     func void UsePlants3 ()
     {
-            Npc_ChangeAttribute (self,  ATR_HITPOINTS,  HP_Heilkr‰uter3);
+            Npc_ChangeAttribute (self,  ATR_HITPOINTS,  HP_Heilkr√§uter3);
             PrintDebugNpc       (PD_ITEM_MOBSI, "Ich esse Heilpflanzen");
     };
 

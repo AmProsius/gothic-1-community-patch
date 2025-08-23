@@ -313,7 +313,7 @@ func void B_DeliverFocus()
         B_LogEntry      (CH3_BringFoci,"The Magicians of Water Cronos and Riordian have each promised me a reward for retrieving all the focus stones. I should go round to see them.");
 
 
-        // Aufhebung des Log_running_Status, wenn die Foki schon vorher abgegeben wurden, bevor SC die einzelnen Aufträge bekam.    ***Björn***
+        // Aufhebung des Log_running_Status, wenn die Foki schon vorher abgegeben wurden, bevor SC die einzelnen AuftrÃ¤ge bekam.    ***BjÃ¶rn***
 
         Log_SetTopicStatus  (CH3_MonasteryRuin, LOG_SUCCESS);
         Log_SetTopicStatus  (CH3_Stonehenge,    LOG_SUCCESS);
@@ -1042,7 +1042,7 @@ FUNC void  KDW_600_Saturas_KREIS4_Info()
     };
 };
 /*------------------------------------------------------------------------
-                            DER FÜNFTE KREIS
+                            DER FÃœNFTE KREIS
 ------------------------------------------------------------------------*/
 
 instance  KDW_600_Saturas_KREIS5 (C_INFO)
@@ -1180,7 +1180,7 @@ FUNC INT Info_Saturas_XARDAS_Condition()
 {
     if  Npc_KnowsInfo(hero, Info_Saturas_COLLAPSE)
     &&  Npc_KnowsInfo(hero, Info_Saturas_MURDER)
-    {                                               //***Björn***>
+    {                                               //***BjÃ¶rn***>
 
         if( (Npc_GetTrueGuild(hero)!=GIL_GRD)  &&  (Npc_GetTrueGuild(hero)!=GIL_KDF)  )
         {
@@ -1205,7 +1205,7 @@ FUNC INT Info_Saturas_XARDAS_Condition()
         else
         {
             return TRUE;
-        };                                          <***Björn***
+        };                                          <***BjÃ¶rn***
 */
 
     };
@@ -1415,7 +1415,7 @@ FUNC VOID Info_Saturas_XARDASGO_Info()
 };
 
 /*------------------------------------------------------------------------
-//  TIMESUP- Xardas ist die Schlüsselperson, Saturas ist nicht mehr wichtig
+//  TIMESUP- Xardas ist die SchlÃ¼sselperson, Saturas ist nicht mehr wichtig
 ------------------------------------------------------------------------*/
 instance KDW_600_Saturas_TIMESUP (C_INFO)
 {
@@ -1447,8 +1447,8 @@ func void KDW_600_Saturas_TIMESUP_JA1()
 {
     AI_Output           (other, self,"KDW_600_Saturas_TIMESUP_Info_15_01"); //Well...
     AI_Output           (self, other,"KDW_600_Saturas_TIMESUP_Info_14_02"); //Well ..? Well what?
-    //AI_Output         (other, self,"KDW_600_Saturas_TIMESUP_Info_15_03"); //Äh ... noch nicht ... ich bin aber schon unterwegs ...
-    //AI_Output         (self, other,"KDW_600_Saturas_TIMESUP_Info_14_04"); //Beeile dich, wir dürfen keine Zeit mehr verlieren!
+    //AI_Output         (other, self,"KDW_600_Saturas_TIMESUP_Info_15_03"); //Ã„h ... noch nicht ... ich bin aber schon unterwegs ...
+    //AI_Output         (self, other,"KDW_600_Saturas_TIMESUP_Info_14_04"); //Beeile dich, wir dÃ¼rfen keine Zeit mehr verlieren!
     //B_Story_CancelFindXardas();
     //AI_StopProcessInfos(self);
 };

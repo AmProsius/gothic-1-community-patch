@@ -7,7 +7,7 @@ func void ZS_Meditate()
     PrintDebugNpc(PD_TA_FRAME,"ZS_Meditate");
 
     B_SetPerception (self);
-    AI_SetWalkmode (self,NPC_WALK);         // Walkmode für den Zustand
+    AI_SetWalkmode (self,NPC_WALK);         // Walkmode fÃ¼r den Zustand
     if !(Npc_IsOnFP(self,"MEDITATE"))
     {
         AI_GotoWP(self, self.wp);               // Gehe zum Tagesablaufstart

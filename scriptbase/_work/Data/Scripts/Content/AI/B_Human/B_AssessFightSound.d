@@ -2,16 +2,16 @@
 //  B_AssessFightSound
 //  ==================
 //  Wird direkt durch die Wahrnehmung PERC_ASSESSFIGHTSOUND angesprungen,
-//  die jedesmal ausgelöst wird, wenn SC/NSC attackiert werden (Nah-,
+//  die jedesmal ausgelÃ¶st wird, wenn SC/NSC attackiert werden (Nah-,
 //  Fern-, Magiekampf).
 //  Macht im Grunde folgende Fallunterscheidung
-//  1.  Monster kämft gegen Mensch
+//  1.  Monster kÃ¤mft gegen Mensch
 //      -> Monster bewerten in ZS_AssessMonster
 //  2.  NSC ist Wache
-//      -> greift ein, wenn ein Schützling angegriffen wird
+//      -> greift ein, wenn ein SchÃ¼tzling angegriffen wird
 //  3.  NSC ist eine Meister-Gilde
 //      -> greift garnicht ein, ist aber wachsam
-//  4.  NSC ist ein Normalbürger
+//  4.  NSC ist ein NormalbÃ¼rger
 //      -> beobachtet den Kampf (WatchFight)
 //////////////////////////////////////////////////////////////////////////
 func void B_AssessFightSound ()
@@ -31,7 +31,7 @@ func void B_AssessFightSound ()
                 return;
             };
             /********************************************
-            // Der  B wurde nicht abgebrochen, obwohl ein Monster beteiligt war, so daß sich die AI mit dem Monster als other weiter unten vertan hat
+            // Der  B wurde nicht abgebrochen, obwohl ein Monster beteiligt war, so daÃŸ sich die AI mit dem Monster als other weiter unten vertan hat
             /*************************************************/
             return;
         }
@@ -56,7 +56,7 @@ func void B_AssessFightSound ()
                 return;
             };
             /********************************************
-            // Der  B wurde nicht abgebrochen, obwohl ein Monster beteiligt war, so daß sich die AI mit dem Monster als other weiter unten vertan hat
+            // Der  B wurde nicht abgebrochen, obwohl ein Monster beteiligt war, so daÃŸ sich die AI mit dem Monster als other weiter unten vertan hat
             /*************************************************/
             return;
         }
@@ -78,11 +78,11 @@ func void B_AssessFightSound ()
         return;
     };
 
-    //-------- WACHEN checken, ob einer ihrer Schützlinge angegriffen wird --------
+    //-------- WACHEN checken, ob einer ihrer SchÃ¼tzlinge angegriffen wird --------
     if (C_ChargeWasAttacked(self, victim, other))
     {
-        PrintDebugNpc       (PD_ZS_CHECK,   "...NSC ist Wache und ein Schützling wurde attackiert!" );
-        if (Npc_GetPermAttitude(victim,other) == ATT_FRIENDLY)      // HINWEIS: Bedingung für 'friendly fire' aus ZS_ReactToDamage!!!
+        PrintDebugNpc       (PD_ZS_CHECK,   "...NSC ist Wache und ein SchÃ¼tzling wurde attackiert!" );
+        if (Npc_GetPermAttitude(victim,other) == ATT_FRIENDLY)      // HINWEIS: Bedingung fÃ¼r 'friendly fire' aus ZS_ReactToDamage!!!
         {
             PrintDebugNpc   (PD_ZS_CHECK,   "...war nur 'friendly fire'!" );
             return;
@@ -103,7 +103,7 @@ func void B_AssessFightSound ()
     //-------- BOSS-Gilden --------
     else if (C_NpcIsBoss(self)||C_NpcIsGuard(self)||C_NpcIsGuardArcher(self))
     {
-        PrintDebugNpc       (PD_ZS_CHECK,   "...NSC gehört zu BOSS-Gilde!");
+        PrintDebugNpc       (PD_ZS_CHECK,   "...NSC gehÃ¶rt zu BOSS-Gilde!");
         B_SmartTurnToNpc    (self,  victim);
         B_AssessFighter     ();
         return;

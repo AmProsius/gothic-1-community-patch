@@ -21,11 +21,11 @@ prototype Npc_Default (C_NPC)
     attribute   [ATR_HITPOINTS_MAX]     =   30;
     attribute   [ATR_HITPOINTS]         =   30;
 
-    // Hier noch die Spells anmelden , für ausgrauen (CreateSpell)
+    // Hier noch die Spells anmelden , fÃ¼r ausgrauen (CreateSpell)
 
     //-------- senses --------
     senses          =   SENSE_HEAR | SENSE_SEE ;
-    senses_range    =   2000;       //SN: am 30.11.00 von 15m auf 20m erhöht (WICHTIG für Profilings!)
+    senses_range    =   2000;       //SN: am 30.11.00 von 15m auf 20m erhÃ¶ht (WICHTIG fÃ¼r Profilings!)
 
     Npc_SetTalentValue  (self, NPC_TALENT_1H,           0);
     Npc_SetTalentValue  (self, NPC_TALENT_2H,           0);

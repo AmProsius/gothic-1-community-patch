@@ -147,7 +147,7 @@ FUNC VOID DIA_BaalKagan_OrderHelp_Info()
 };
 
 // ************************************************************
-//                  Ich könnte dir helfen
+//                  Ich kÃ¶nnte dir helfen
 // ************************************************************
 
 INSTANCE DIA_BaalKagan_WannaHelp(C_INFO)

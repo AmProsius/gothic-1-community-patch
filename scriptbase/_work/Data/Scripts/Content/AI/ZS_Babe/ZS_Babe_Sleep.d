@@ -6,7 +6,7 @@ func void ZS_Babe_Sleep()
 {
     PrintDebugNpc       (PD_TA_FRAME,   "ZS_BabeSleep");
 
-// falls noch die Nacktrüstung angezogen ist, ausziehen!
+// falls noch die NacktrÃ¼stung angezogen ist, ausziehen!
     AI_UnequipArmor (self);
 
     B_SetBabeDefaultPerceptions();

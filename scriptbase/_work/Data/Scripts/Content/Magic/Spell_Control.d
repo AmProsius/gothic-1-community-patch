@@ -1,9 +1,9 @@
 //-------- Spell Commands --------
-// SPL_DONTINVEST       =   0;      // Es können keine weiteren Manapunkte investiert werden. Erst durch CTRL loslassen geht der Spell ab
-// SPL_RECEIVEINVEST    =   1;      // Wirkung durchgeführt, es können weitere Invest kommen, zB.bei Heal nach jedem Pöppel
+// SPL_DONTINVEST       =   0;      // Es kÃ¶nnen keine weiteren Manapunkte investiert werden. Erst durch CTRL loslassen geht der Spell ab
+// SPL_RECEIVEINVEST    =   1;      // Wirkung durchgefÃ¼hrt, es kÃ¶nnen weitere Invest kommen, zB.bei Heal nach jedem PÃ¶ppel
 // SPL_SENDCAST         =   2;      // Starte den Zauber-Effekt (wie CTRL loslassen), automatischer Abbruch
 // SPL_SENDSTOP         =   3;      // Beende Zauber ohne Effekt
-// SPL_NEXTLEVEL        =   4;      // setze den Spruch auf den nächsten Level
+// SPL_NEXTLEVEL        =   4;      // setze den Spruch auf den nÃ¤chsten Level
 
 func int Spell_Logic_Control(var int manaInvested)
 {
@@ -24,13 +24,13 @@ func int Spell_Logic_Control(var int manaInvested)
         {
             PrintDebugNpc   (PD_MAGIC,  "npc is not immortal, sub mana");
 
-            // überschreiten die investierten manapunkte level*4, so ist sein wille gebrochen
+            // Ã¼berschreiten die investierten manapunkte level*4, so ist sein wille gebrochen
             if ( manaInvested >= other.level*4 )
             {
                 PrintDebugNpc(PD_MAGIC, "controlled success, starting states");
 
                 AI_StartState           ( self  ,ZS_PC_CONTROLLING  ,0,"" );
-                Npc_SetActiveSpellInfo  ( self,1 ); // übernommen
+                Npc_SetActiveSpellInfo  ( self,1 ); // Ã¼bernommen
 
                 return SPL_SENDCAST;
             };

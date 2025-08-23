@@ -1,6 +1,6 @@
 func void B_Story_EncounteredHighPriest ()
 {
-    //-------- unterirdischen Tempel wieder auffüllen --------
+    //-------- unterirdischen Tempel wieder auffÃ¼llen --------
     Wld_InsertNpc   (SkeletonWarrior,   "TPL_017");
     Wld_InsertNpc   (SkeletonWarrior,   "TPL_022");
     Wld_InsertNpc   (SkeletonMage,      "TPL_022");

@@ -209,7 +209,7 @@ FUNC VOID Info_YBerion_BringFocus_Success_Info()
         B_LogEntry      (CH2_Focus,"Y'Berion told me to take the focus to Cor Kalom. What a pleasure to meet this very charming person again.");
     };
 
-    Tpl_1406_Templer.aivar[AIV_PASSGATE] = TRUE;        //Türwache vor dem Labor
+    Tpl_1406_Templer.aivar[AIV_PASSGATE] = TRUE;        //TÃ¼rwache vor dem Labor
 
     YBerion_BringFocus = LOG_SUCCESS;
     B_GiveXP            (XP_BringFocusToYBerion);
@@ -274,7 +274,7 @@ FUNC void  GUR_1200_Yberion_EARN_Info()
 
 
 //############################### KAPITEL 3 ###############################
-//SPIELER HAT DIE HEILKRÄUTER ZU COR ANGAR GEBRACHT
+//SPIELER HAT DIE HEILKRÃ„UTER ZU COR ANGAR GEBRACHT
 //YBERION WACHT AUF UND STIRBT
 /*
 instance GUR_1200_Yberion_LASTWORDS (C_INFO)
@@ -297,15 +297,15 @@ FUNC int GUR_1200_Yberion_LASTWORDS_Condition()
 };
 FUNC void  GUR_1200_Yberion_LASTWORDS_Info()
 {
-    AI_Output (self, other,"GUR_1200_Yberion_LASTWORDS_Info_12_01"); //Das Ende...der Schläfer...ich sah...IHN!
-    AI_Output (self, other,"GUR_1200_Yberion_LASTWORDS_Info_12_02"); //Wer...?...du bist es, gut. Hör mir zu....
-    AI_Output (self, other,"GUR_1200_Yberion_LASTWORDS_Info_12_03"); //Du darfst den Schläfer nicht wecken,... die Wassermagier, ...
+    AI_Output (self, other,"GUR_1200_Yberion_LASTWORDS_Info_12_01"); //Das Ende...der SchlÃ¤fer...ich sah...IHN!
+    AI_Output (self, other,"GUR_1200_Yberion_LASTWORDS_Info_12_02"); //Wer...?...du bist es, gut. HÃ¶r mir zu....
+    AI_Output (self, other,"GUR_1200_Yberion_LASTWORDS_Info_12_03"); //Du darfst den SchlÃ¤fer nicht wecken,... die Wassermagier, ...
     AI_Output (other, self,"GUR_1200_Yberion_LASTWORDS_Info_15_04"); //Was ist mit den Wassermagiern?
     AI_Output (self, other,"GUR_1200_Yberion_LASTWORDS_Info_12_05"); //Du musst zu den Wassermagiern gehen. Sie werden es schaffen, hier rauszukommen.
-    AI_Output (self, other,"GUR_1200_Yberion_LASTWORDS_Info_12_06"); //Der Schläfer...Ich sah ihn. Er ist ein ...ein ....Dämon!
+    AI_Output (self, other,"GUR_1200_Yberion_LASTWORDS_Info_12_06"); //Der SchlÃ¤fer...Ich sah ihn. Er ist ein ...ein ....DÃ¤mon!
     AI_Output (self, other,"GUR_1200_Yberion_LASTWORDS_Info_12_07"); //Wenn du die Barriere noch immer vernichten willst,... geh zum Neuen Lager. Berichte ihnen vom Fokus. Sag ihnen...
-    AI_Output (self, other,"GUR_1200_Yberion_LASTWORDS_Info_12_08"); //...sag ihnen das wir herausgefunden haben, wie sich die Foki aufladen lassen, sie sollen...sollen die Barriere vernichten......ihr müsst ....
-    AI_Output (self, other,"GUR_1200_Yberion_LASTWORDS_Info_12_09"); //...das Böse....darf nicht erwachen ....
+    AI_Output (self, other,"GUR_1200_Yberion_LASTWORDS_Info_12_08"); //...sag ihnen das wir herausgefunden haben, wie sich die Foki aufladen lassen, sie sollen...sollen die Barriere vernichten......ihr mÃ¼sst ....
+    AI_Output (self, other,"GUR_1200_Yberion_LASTWORDS_Info_12_09"); //...das BÃ¶se....darf nicht erwachen ....
 
 
 

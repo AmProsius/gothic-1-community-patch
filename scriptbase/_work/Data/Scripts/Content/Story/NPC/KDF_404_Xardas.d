@@ -36,7 +36,7 @@ instance KDF_404_Xardas (Npc_Default)
     Npc_SetTalentSkill  (self, NPC_TALENT_MAGE,         6);
 
 
-    //SN: Inventory deaktiviert, da Xardas 1. sowieso nicht k‰mpft und 2. sonst diese Dinge auch dem SC zum Verkauf anbietet
+    //SN: Inventory deaktiviert, da Xardas 1. sowieso nicht k√§mpft und 2. sonst diese Dinge auch dem SC zum Verkauf anbietet
     //-------- spells--------
     //CreateInvItems        (self,  ItArScrollSummonDemon,  20);
     //CreateInvItem     (self,  ItArRuneFireball);

@@ -5,7 +5,7 @@ func void ZS_Babe_Dance ()  //### Wahrnehmungen?
 {
     PrintDebugNpc       (PD_TA_FRAME,   "ZS_Babe_Dance");
 
-    AI_UnequipArmor (self); // falls noch die Nacktrüstung angezogen ist, ausziehen!
+    AI_UnequipArmor (self); // falls noch die NacktrÃ¼stung angezogen ist, ausziehen!
 
     B_SetBabeDefaultPerceptions();
     AI_SetWalkMode(self, NPC_RUN);

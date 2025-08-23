@@ -100,7 +100,7 @@ INSTANCE SummonedByNPC_Demon (Mst_Default_Demon)
 
 
 /*************************************************************************
-**  Xardas' zahmer Dämon                                                                **
+**  Xardas' zahmer DÃ¤mon                                                                **
 *************************************************************************/
 
 INSTANCE XardasDemon (Mst_Default_Demon)

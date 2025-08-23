@@ -2,7 +2,7 @@ func void ZS_Hunt ()
 {
     PrintDebugNpc (PD_TA_FRAME,"ZS_Hunt" );
     B_SetPerception (self);
-    AI_SetWalkmode (self,NPC_WALK);     // Walkmode für den Zustand
+    AI_SetWalkmode (self,NPC_WALK);     // Walkmode fÃ¼r den Zustand
     AI_GotoWP (self,self.wp);           // Gehe zum Tagesablaufstart
     AI_AlignToWP (self);                //Richte Dich aus
 };
@@ -16,7 +16,7 @@ func void ZS_Hunt_Loop ()
         Npc_SetTarget   (self,other);
 
         Npc_GetTarget   ( self);
-        AI_StartState   (self,ZS_AssessMonster, 0,"");  // SN: der korrekte Zustand, um Monster zu erkennen ist 'ZS_AssessMonster' -> ich habe das korrigiert! (wenn gelesen, dann Kommentar löschen)
+        AI_StartState   (self,ZS_AssessMonster, 0,"");  // SN: der korrekte Zustand, um Monster zu erkennen ist 'ZS_AssessMonster' -> ich habe das korrigiert! (wenn gelesen, dann Kommentar lÃ¶schen)
     };
 
     AI_Wait(self,1);

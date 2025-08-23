@@ -11,7 +11,7 @@ func void B_Give_XardasChapter4Runes ()
     CreateInvItems (npc,ItArScrollSummonGolem,4);
     CreateInvItems (npc,ItArScrollShrink,2);
 
-    //-------- Bücher --------
+    //-------- BÃ¼cher --------
 
 
 
@@ -30,7 +30,7 @@ func void B_Give_XardasChapter5Runes ()
     CreateInvItems (npc,ItArScrollSummonSkeletons,8);
     CreateInvItems (npc,ItArScrollSummonGolem,4);
 
-    //-------- Bücher --------
+    //-------- BÃ¼cher --------
 };
 
 func void B_Give_XardasChapter6Runes ()
@@ -51,6 +51,6 @@ func void B_Give_XardasChapter6Runes ()
     CreateInvItem (npc,Amulett_der_Macht);
     CreateInvItem (npc,Amulett_der_Erleuchtung);
 
-    //-------- Bücher --------
+    //-------- BÃ¼cher --------
 
 };

@@ -161,7 +161,7 @@ FUNC VOID  DIA_Viran_Running_Info()
     AI_Output (other, self,"DIA_Viran_Running_15_00"); //I don't see any more bloodflies anywhere.
     Npc_PerceiveAll(self);
     if ( Wld_DetectNpc(self,bloodfly,ZS_MM_Rtn_Wusel,-1) && (Npc_GetDistToNpc(self, other)<2000) ) //other = nearest Bloodfly (Instance/ZS/Guild)
-    //wenn keine Bloodfly in 40m, dann other noch unverändert (= hero)
+    //wenn keine Bloodfly in 40m, dann other noch unverÃ¤ndert (= hero)
     {
         AI_Output (self, hero,"DIA_Viran_Running_07_00"); //But there are some more bugs within twenty paces!
         AI_Output (self, hero,"DIA_Viran_Running_07_01"); //You won't get off that easily!

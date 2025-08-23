@@ -23,7 +23,7 @@ FUNC VOID  DIA_Fortuno_EXIT_Info()
 };
 
 // **************************************************
-//                  Erste Begrüssung
+//                  Erste BegrÃ¼ssung
 // **************************************************
 
 instance  DIA_Fortuno_Greet (C_INFO)
@@ -86,7 +86,7 @@ FUNC VOID  DIA_Fortuno_GetGeschenk_Info()
 };
 
 // **************************************************
-//              Tägliche Ration
+//              TÃ¤gliche Ration
 // **************************************************
 
 instance  DIA_Fortuno_DailyRation (C_INFO)

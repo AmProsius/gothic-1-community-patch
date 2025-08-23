@@ -335,7 +335,7 @@ func void ZS_OrcGuard_ObserveIntruder()
         PrintDebugNpc( PD_ORC_FRAME, "B_OrcGuard_ObserveIntruder: Waechter sieht Player" );
     if ( Npc_GetDistToNpc( self, other ) > 900  &&  Npc_GetAttitude( self, other ) != ATT_FRIENDLY )
     {
-        PrintDebugNpc( PD_ORC_FRAME, "B_OrcGuard_ObserveIntruder: Waechter tutet ins Horn -> TORÖÖÖÖ!" );
+        PrintDebugNpc( PD_ORC_FRAME, "B_OrcGuard_ObserveIntruder: Waechter tutet ins Horn -> TORÃ–Ã–Ã–Ã–!" );
         B_Orc_ItemHorn();
     };
     Npc_SendPassivePerc( self, PERC_ASSESSWARN, self, self );

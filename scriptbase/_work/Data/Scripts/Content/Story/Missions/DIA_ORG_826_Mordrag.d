@@ -30,7 +30,7 @@ FUNC VOID  Org_826_Mordrag_Exit_Info()
 };
 
 // **************************************************
-//                  Erste Begrüssung
+//                  Erste BegrÃ¼ssung
 // **************************************************
 
 instance  Org_826_Mordrag_Greet (C_INFO)
@@ -91,7 +91,7 @@ FUNC VOID  Org_826_Mordrag_Trade_Info()
 };
 
 // **************************************************
-//                  KURIER FÜR MAGIER
+//                  KURIER FÃœR MAGIER
 // **************************************************
 
 instance  Org_826_Mordrag_Courier (C_INFO)
@@ -196,7 +196,7 @@ instance  Org_826_Mordrag_JoinNewcamp(C_INFO)
     condition   = Org_826_Mordrag_JoinNewcamp_Condition;
     information = Org_826_Mordrag_JoinNewcamp_Info;
     permanent   = 0;
-    description = "And if I want to join the New Camp...";//könntest du mir dabei helfen... ZU LANG
+    description = "And if I want to join the New Camp...";//kÃ¶nntest du mir dabei helfen... ZU LANG
 };
 
 FUNC int  Org_826_Mordrag_JoinNewcamp_Condition()
@@ -567,6 +567,6 @@ FUNC VOID  Org_826_Mordrag_RUNNING_Info()
     //SN: Werde nicht gebraucht, da sie nicht zur Kapitel 2-6-Story passen!!!
         AI_Output       (other, self,"Org_826_Mordrag_RUNNING_15_08"); //Ich hab' die Eier bei mir.
 
-        AI_Output       (self, other,"Org_826_Mordrag_RUNNING_11_05"); //(sarkastisch) Hab' ich auch gemerkt. Diese verdammten Sektenspinner haben Gomez die alte Mine gekostet. Wird nicht mehr lange dauern, dann stehen seine Gardisten bei UNS vor der Tür, um sich ihr Erz abzuholen...
+        AI_Output       (self, other,"Org_826_Mordrag_RUNNING_11_05"); //(sarkastisch) Hab' ich auch gemerkt. Diese verdammten Sektenspinner haben Gomez die alte Mine gekostet. Wird nicht mehr lange dauern, dann stehen seine Gardisten bei UNS vor der TÃ¼r, um sich ihr Erz abzuholen...
 */
 };

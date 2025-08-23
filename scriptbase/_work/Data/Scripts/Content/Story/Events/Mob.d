@@ -51,7 +51,7 @@ FUNC int MC_MONASTERYRUIN_GATE ()
 
     if (MonasteryRuin_GateOpen == FALSE)
     {
-        PrintDebugNpc   (PD_ITEM_MOBSI, "...noch nie geˆffnet");
+        PrintDebugNpc   (PD_ITEM_MOBSI, "...noch nie ge√∂ffnet");
         AI_UseMob       (hero,"VWHEEL",1);
         AI_UseMob       (hero,"VWHEEL",-1);
 
@@ -61,7 +61,7 @@ FUNC int MC_MONASTERYRUIN_GATE ()
     }
     else
     {
-        PrintDebugNpc   (PD_ITEM_MOBSI, "...schonmal geˆffnet");
+        PrintDebugNpc   (PD_ITEM_MOBSI, "...schonmal ge√∂ffnet");
         return          TRUE;
     };
 };
@@ -175,7 +175,7 @@ FUNC int EVT_TROLLSCHLUCHT_GATE_TRIGGER ()
 };
 
 //***************************************************************************
-//  Ork-Stadt - groﬂes Holztor
+//  Ork-Stadt - gro√ües Holztor
 //***************************************************************************
 var int OrcCity_GateOpen;
 FUNC int MC_OrcCity_Gate ()
@@ -206,9 +206,9 @@ FUNC int MC_OrcCity_Gate ()
 };
 
 //***************************************************************************
-//  Ork-Stadt - ‰uﬂeres Tempeltor
+//  Ork-Stadt - √§u√üeres Tempeltor
 //***************************************************************************
-FUNC int MC_OrcCity_Sunctum_OuterGate ()    // heiﬂt absichtlich "Sunctum"
+FUNC int MC_OrcCity_Sunctum_OuterGate ()    // hei√üt absichtlich "Sunctum"
 {
     PrintDebugNpc       (PD_ITEM_MOBSI, "MC_OrcCity_Sanctum_OuterGate");
 

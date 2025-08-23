@@ -1,5 +1,5 @@
 instance ORG_810_Organisator (Npc_Default)
-// hat den mittleren Organistor-Dress und Bogen3, weil er Attentäter ist
+// hat den mittleren Organistor-Dress und Bogen3, weil er AttentÃ¤ter ist
 {
     //-------- primary data --------
 

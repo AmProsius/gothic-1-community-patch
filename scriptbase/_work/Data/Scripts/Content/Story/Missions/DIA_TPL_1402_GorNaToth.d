@@ -231,7 +231,7 @@ func void TPL_1402_GorNaToth_ARMOR_H ()
 
         B_GiveInvItems      (hero, self, ItMiNugget,VALUE_TPL_ARMOR_H);
 
-        CreateInvItem       (self, ItAmArrow);              //SN: Kronkelgegenstand, damit die Bildschrimausgabe "1 Gegenstand erhalten" stimmt (Rüstung geht nicht, da dann immer Gor Na Toth seine eigene erst auszieht, und eine Sekunde nackt dasteht)
+        CreateInvItem       (self, ItAmArrow);              //SN: Kronkelgegenstand, damit die Bildschrimausgabe "1 Gegenstand erhalten" stimmt (RÃ¼stung geht nicht, da dann immer Gor Na Toth seine eigene erst auszieht, und eine Sekunde nackt dasteht)
         B_GiveInvItems      (self, hero, ItAmArrow, 1);
         Npc_RemoveInvItem   (hero,  ItAmArrow);
 

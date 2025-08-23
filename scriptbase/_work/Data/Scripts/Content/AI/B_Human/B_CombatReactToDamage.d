@@ -30,9 +30,9 @@ func void B_CombatReactToDamage ()
             Npc_SetTarget   (self,  other);
         /*
         }
-        // JP: Ich mach das mal raus, weil der Nsc sich nur aus zwei Gründen im Kampf befinden kann, erstens wenn er Hostile ist oder den Kampf sonst wie beginnt und somit nicht
-        // angefangen hat, oder wenn er Angegriffen wurde und über ZS_ReactToDamage  (NewsEintrag) im ZS_Attack ist
-        // JP: Außerdem kommen Attack_News raus
+        // JP: Ich mach das mal raus, weil der Nsc sich nur aus zwei GrÃ¼nden im Kampf befinden kann, erstens wenn er Hostile ist oder den Kampf sonst wie beginnt und somit nicht
+        // angefangen hat, oder wenn er Angegriffen wurde und Ã¼ber ZS_ReactToDamage  (NewsEintrag) im ZS_Attack ist
+        // JP: AuÃŸerdem kommen Attack_News raus
         else
         {
             B_AssessAndMemorize( NEWS_ATTACK, NEWS_SOURCE_WITNESS, self, other, self );

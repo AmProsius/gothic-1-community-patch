@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////////////////////////
 //  ZS_InterceptMadCorKalom
 //  =======================
-//  Dieser 'start_state' wird dem verrückten Cor Kalom gegeben.
+//  Dieser 'start_state' wird dem verrÃ¼ckten Cor Kalom gegeben.
 //  Er spricht den Spieler ab 30m an, dann Dialog, dann Kampf
 //
 //  Weitere Features:

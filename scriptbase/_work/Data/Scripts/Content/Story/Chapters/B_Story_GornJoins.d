@@ -1,6 +1,6 @@
 func void B_Story_GornJoins()
 {
-    //-------- Missionsgegenst‰nde --------
+    //-------- Missionsgegenst√§nde --------
     CreateInvItem       (hero, ItKe_Freemine);
 
     //-------- Monster platziern --------
@@ -11,13 +11,13 @@ func void B_Story_GornJoins()
     Wld_InsertNpc       (Razor, "OW_PATH_3001_MOVE4");
     //Wld_InsertNpc     (Razor, "OW_PATH_3001_MOVE4");
 
-    //-------- Tagesabl‰ufe ‰ndern --------
+    //-------- Tagesabl√§ufe √§ndern --------
     var C_NPC gorn; gorn = Hlp_GetNpc(PC_Fighter);  Npc_ExchangeRoutine(gorn,   "FollowToFMC");
 
     //-------- Erfahrung --------
     B_GiveXP            (XP_GornJoins);
 
-    //-------- Tagebucheintr‰ge --------
+    //-------- Tagebucheintr√§ge --------
     B_LogEntry          (CH4_UluMulu,"Gorn and I are supposed to regain the Free Mine in a covered operation. The fact that Ur-Shak's Orc friend is there as well is a lucky turn of fate.");
 
     //-------- globale Variable setzen --------

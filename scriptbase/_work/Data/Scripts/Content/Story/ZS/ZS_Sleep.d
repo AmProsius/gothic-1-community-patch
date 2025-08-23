@@ -44,7 +44,7 @@ func int ZS_SleepBed_Loop()
 {
     PrintDebugNpc       (PD_TA_LOOP,"ZS_SleepBed_Loop");
 
-    // SN: Workaround dafür, daß Wld_IsMobAvailable() zwar TRUE geliefert hat, AI_UseMob() aber gescheitert ist!
+    // SN: Workaround dafÃ¼r, daÃŸ Wld_IsMobAvailable() zwar TRUE geliefert hat, AI_UseMob() aber gescheitert ist!
     if  !C_BodyStateContains(self,BS_MOBINTERACT)
     &&  (Npc_GetStateTime(self) > 3)
     {

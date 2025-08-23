@@ -7,7 +7,7 @@ func void ZS_Dead ()
 
     self.aivar[AIV_PLUNDERED] = FALSE;
 
-    //-------- Erfahrungspunkte für den Spieler ? --------
+    //-------- Erfahrungspunkte fÃ¼r den Spieler ? --------
     //SN: VORSICHT, auch in B_MagicHurtNpc() vorhanden!
     if  Npc_IsPlayer   (other)
     ||  (C_NpcIsHuman  (other) && other.aivar[AIV_PARTYMEMBER])
@@ -18,7 +18,7 @@ func void ZS_Dead ()
 
     if  C_NpcIsMonster(self)
     {
-        B_GiveDeathInv ();  // für Monster
+        B_GiveDeathInv ();  // fÃ¼r Monster
     };
     B_CheckDeadMissionNPCs ();
     B_Respawn (self);

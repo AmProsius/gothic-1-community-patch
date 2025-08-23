@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////////////////////////
 //  ZS_RepairHut
 //  ============
-//  - Der NSC sucht sich ein MOB "REPAIR" und hämmert dort an der Hütte.
+//  - Der NSC sucht sich ein MOB "REPAIR" und hÃ¤mmert dort an der HÃ¼tte.
 //  - Ab und zu geht er pinkeln zu einem FP "PEE"
 //////////////////////////////////////////////////////////////////////////
 FUNC VOID ZS_RepairHut ()
@@ -9,7 +9,7 @@ FUNC VOID ZS_RepairHut ()
     PrintDebugNpc       (PD_TA_FRAME,   "ZS_RepairHut");
 
     B_SetPerception     (self);
-    AI_SetWalkmode      (self,  NPC_WALK);      // Walkmode für den Zustand
+    AI_SetWalkmode      (self,  NPC_WALK);      // Walkmode fÃ¼r den Zustand
 
     if !(C_BodyStateContains(self,BS_MOBINTERACT_INTERRUPT))
     {

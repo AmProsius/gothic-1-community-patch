@@ -67,7 +67,7 @@ INSTANCE Info_Bartholo_PERM (C_INFO)
 
 FUNC INT Info_Bartholo_PERM_Condition()
 {
-//SN: Problematisch, da Bartholo auch einen wichtigen Schlüssel hat!
+//SN: Problematisch, da Bartholo auch einen wichtigen SchlÃ¼ssel hat!
 //  if (Npc_KnowsInfo(hero, Info_Bartholo_Hallo))
 //  {
 //      return 1;

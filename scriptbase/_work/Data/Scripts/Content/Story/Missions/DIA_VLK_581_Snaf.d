@@ -146,7 +146,7 @@ FUNC VOID DIA_Snaf_ZutatenSuccess_Info()
     AI_Output (self, other,"DIA_Snaf_ZutatenSuccess_01_01"); //Good, I just have to add them, then the stew will be ready... Wait ...
 
     CreateInvItems(other, ItFo_Plants_Mushroom_01, 3);
-    B_GiveInvItems(other,self,ItFo_Plants_Mushroom_01,8);//Notwendig zur Anzeige 8 Items übergeben, wird sofort angepasst
+    B_GiveInvItems(other,self,ItFo_Plants_Mushroom_01,8);//Notwendig zur Anzeige 8 Items Ã¼bergeben, wird sofort angepasst
 
     Npc_RemoveInvItems(self, ItFo_Plants_Mushroom_01, 8);//Alle Zutaten weg
     Npc_RemoveInvItems(other, ItAt_MeatBug_01, 3);

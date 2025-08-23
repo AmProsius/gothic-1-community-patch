@@ -8,7 +8,7 @@ func void B_Give_BaalCadarChapter1Runes ()
     CreateInvItems (npc,ItArScrollHeal,8);
     CreateInvItems (npc,ItArScrollLight,10);
     CreateInvItems (npc,ItArScrollWindfist,4);
-    //-------- Tr‰nke --------
+    //-------- Tr√§nke --------
     CreateInvItems (npc,ItFo_Potion_Mana_01 ,6);
     CreateInvItems (npc,ItFo_Potion_Health_01 ,8);
     CreateInvItems (npc,ItFo_Potion_Water_01 ,10);
@@ -17,7 +17,7 @@ func void B_Give_BaalCadarChapter1Runes ()
     CreateInvItem (npc,Schutzring_Magie1);
     CreateInvItem (npc,Schutzring_Geschosse1);
     CreateInvItem (npc,Schutzring_Feuer1);
-    //-----B¸cher
+    //-----B√ºcher
     CreateInvItem (npc,ItWr_Bloodfly_01);
     CreateInvItem (npc,ItWrPSImap);
 
@@ -51,7 +51,7 @@ func void B_Give_BaalCadarChapter2Runes ()
     CreateInvItem (npc,Schutzring_Geschosse2);
     CreateInvItem (npc,Schutzring_Magie2);
     CreateInvItem (npc,Schutzring_Waffen1);
-    //-------- Tr‰nke --------
+    //-------- Tr√§nke --------
    CreateInvItems (npc,ItFo_Potion_Mana_01 ,12);
    CreateInvItems (npc,ItFo_Potion_Mana_02 ,8);
 
@@ -97,7 +97,7 @@ func void B_Give_BaalCadarChapter3Runes ()
     CreateInvItem (npc,Schutzring_Total1);
     CreateInvItem (npc,Schutzring_Magie1_Fire1);
 
-    //-------- Tr‰nke --------
+    //-------- Tr√§nke --------
     CreateInvItems (npc,ItFo_Potion_Mana_01 ,24);
    CreateInvItems (npc,ItFo_Potion_Mana_02 ,16);
    CreateInvItems (npc,ItFo_Potion_Mana_03 ,10);
@@ -145,7 +145,7 @@ func void B_Give_BaalCadarChapter4Runes ()
     CreateInvItem (npc,Schutzring_Geschosse2_Waffen2);
     CreateInvItem (npc,Schutzring_Total2);
 
-    //-------- Tr‰nke --------
+    //-------- Tr√§nke --------
      CreateInvItems (npc,ItFo_Potion_Mana_01 ,48);
    CreateInvItems (npc,ItFo_Potion_Mana_02 ,32);
    CreateInvItems (npc,ItFo_Potion_Mana_03 ,20);
@@ -187,8 +187,8 @@ func void B_Give_BaalCadarChapter5Runes ()
     CreateInvItems (npc,ItArScrollCharm,4);
     CreateInvItems (npc,ItArScrollDestroyUndead,16);
 
-    //-------- B¸cher --------
-    //-------- Tr‰nke --------
+    //-------- B√ºcher --------
+    //-------- Tr√§nke --------
     CreateInvItems (npc,ItFo_Potion_Mana_01 ,18);
    CreateInvItems (npc,ItFo_Potion_Mana_02 ,16);
    CreateInvItems (npc,ItFo_Potion_Mana_03 ,10);

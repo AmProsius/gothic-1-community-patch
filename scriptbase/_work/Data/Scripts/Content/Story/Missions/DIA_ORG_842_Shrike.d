@@ -48,7 +48,7 @@ func void  DIA_Shrike_Hello_Info()
     AI_Output (self, other,"DIA_Shrike_Hello_07_01"); //Get lost!
 
 
-    //FMTaken = TRUE;           //******* TEST - Helper für Sld-KdW Aufnahme!!! *********************
+    //FMTaken = TRUE;           //******* TEST - Helper fÃ¼r Sld-KdW Aufnahme!!! *********************
     //Kapitel = 4;
 
 

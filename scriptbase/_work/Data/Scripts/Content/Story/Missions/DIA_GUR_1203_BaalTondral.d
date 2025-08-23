@@ -112,7 +112,7 @@ FUNC VOID DIA_BaalTondral_YouTalked_Info()
 };
 
 // **************************************************
-//              Loyalit‰t beweisen
+//              Loyalit√§t beweisen
 // **************************************************
     var int BaalTondral_GetNewGuy;
 // **************************************************
@@ -244,13 +244,13 @@ FUNC VOID DIA_BaalTondral_DustySuccess_Info()
     AI_TurnToNpc        (dusty,other);
     AI_Output           (self, NULL,"DIA_BaalTondral_DustySuccess_13_04"); //You will come to my hut every day to listen to my words. Your soul can still be saved.
 
-    //AI_Output         (dusty,other,"DIA_BaalTondral_DustySuccess_03_05"); //Heiﬂt das, ich bin dabei - einfach so?
+    //AI_Output         (dusty,other,"DIA_BaalTondral_DustySuccess_03_05"); //Hei√üt das, ich bin dabei - einfach so?
     //AI_TurnToNpc      (other,dusty);
     //AI_Output         (other,NULL,"DIA_BaalTondral_DustySuccess_15_06"); //Sieht so aus. Tu einfach, was der Meister dir sagt.
 
-    //---- Dusty vom SC lˆsen ----
+    //---- Dusty vom SC l√∂sen ----
     dusty.aivar[AIV_PARTYMEMBER] = FALSE;
-    dusty.flags = 0;    // Immortal lˆschen
+    dusty.flags = 0;    // Immortal l√∂schen
     dusty.guild = GIL_NOV;
     Npc_SetTrueGuild    (dusty, GIL_NOV);
     B_ExchangeRoutine   (Vlk_524_Dusty,"PREPARERITUAL");

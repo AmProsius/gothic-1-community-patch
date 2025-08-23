@@ -162,7 +162,7 @@ FUNC VOID  GRD_262_Aaron_PISSED_Info()
     B_LogEntry      (CH2_SnipesDeal,"I've met Aaron again, he actually DIDN'T take it in good humor.");
 };
 
-// ***************** Schlüssel verkaufen *****************************
+// ***************** SchlÃ¼ssel verkaufen *****************************
 instance  GRD_262_Aaron_SELL (C_INFO)
 {
     npc         =  GRD_262_Aaron;
@@ -190,7 +190,7 @@ FUNC VOID  GRD_262_Aaron_SELL_Info()
     B_LogEntry      (CH2_SnipesDeal,"Aaron offered me 20 ore to get the keys to his chest for him!");
 };
 
-// ***************** Schlüssel verkaufen 2*****************************
+// ***************** SchlÃ¼ssel verkaufen 2*****************************
 instance  GRD_262_Aaron_SELLNOW (C_INFO)
 {
     npc         =  GRD_262_Aaron;

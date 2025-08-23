@@ -111,21 +111,21 @@ func void B_SetHeroWeapon()
         CreateInvItem(hero,ItRw_Bow_Small_04);
 
 
-        PrintScreen ("nötig STR 11  DEX 16", -1,-1,"font_old_20_white.tga",10);
+        PrintScreen ("nÃ¶tig STR 11  DEX 16", -1,-1,"font_old_20_white.tga",10);
     }
     else if hero.level <= 10
     {
         CreateInvItem(hero,ItMw_1H_Sword_Long_01);
         CreateInvItem(hero,ItRw_Bow_Long_02);
 
-        PrintScreen ("nötig STR 17  DEX 22", -1,-1,"font_old_20_white.tga",10);
+        PrintScreen ("nÃ¶tig STR 17  DEX 22", -1,-1,"font_old_20_white.tga",10);
     }
     else if hero.level <= 15
     {
         CreateInvItem(hero,ItMw_1H_Sword_Broad_01);
         CreateInvItem(hero,ItRw_Bow_Long_05);
 
-        PrintScreen ("nötig: STR 26  DEX 28", -1,-1,"font_old_20_white.tga",10);
+        PrintScreen ("nÃ¶tig: STR 26  DEX 28", -1,-1,"font_old_20_white.tga",10);
     }
     else if hero.level <= 20
     {
@@ -133,7 +133,7 @@ func void B_SetHeroWeapon()
         CreateInvItem(hero,ItMw_1H_Sword_Broad_04);
         CreateInvItem(hero,ItRw_Bow_Long_08);
 
-        PrintScreen ("nötig STR 52  DEX 34", -1,-1,"font_old_20_white.tga",10);
+        PrintScreen ("nÃ¶tig STR 52  DEX 34", -1,-1,"font_old_20_white.tga",10);
     }
     else if hero.level <= 25
     {
@@ -141,7 +141,7 @@ func void B_SetHeroWeapon()
         CreateInvItem(hero,ItMw_1H_Sword_Broad_04);
         CreateInvItem(hero,ItRw_Bow_War_02);
 
-        PrintScreen ("nötig STR 62  DEX 40", -1,-1,"font_old_20_white.tga",10);
+        PrintScreen ("nÃ¶tig STR 62  DEX 40", -1,-1,"font_old_20_white.tga",10);
     }
     else if hero.level <= 30
     {
@@ -149,7 +149,7 @@ func void B_SetHeroWeapon()
         CreateInvItem(hero,ItMw_1H_Sword_Broad_04);
         CreateInvItem(hero,ItRw_Bow_War_05);
 
-        PrintScreen ("nötig STR 78  DEX 50", -1,-1,"font_old_20_white.tga",10);
+        PrintScreen ("nÃ¶tig STR 78  DEX 50", -1,-1,"font_old_20_white.tga",10);
     };
     AI_EquipBestMeleeWeapon(hero);
     AI_EquipBestRangedWeapon(hero);
@@ -705,7 +705,7 @@ func VOID CH_Guild_Info()
     };
     if ((hero.level >= 10))
     {
-        Info_AddChoice      (CH_Guild, "Söldner"       , CH_Mercenary);
+        Info_AddChoice      (CH_Guild, "SÃ¶ldner"       , CH_Mercenary);
     };
     if ((hero.level >= 16))
     {
@@ -852,7 +852,7 @@ func void CH_Shadow()
 //#####################################################################
 //##
 //##
-//##                    ATTRIBUTE: Stärke
+//##                    ATTRIBUTE: StÃ¤rke
 //##
 //##
 //#####################################################################
@@ -863,7 +863,7 @@ INSTANCE CH_Training_STR (C_INFO)
     information     = CH_Training_STR_Info;
     important       = 0;
     permanent       = 1;
-    description     = "ATTRIBUTE: Stärke";
+    description     = "ATTRIBUTE: StÃ¤rke";
 };
 
 FUNC INT CH_Training_STR_Condition()
@@ -878,9 +878,9 @@ func void CH_Training_STR_Info()
 {
     Info_ClearChoices   (CH_Training_STR);
 
-    Info_AddChoice      (CH_Training_STR, "ZURÜCK"                                  , CH_Training_STR_BACK);
-    Info_AddChoice      (CH_Training_STR, "Stärke (alle restlichen Lernpunkte)"     , CH_Strength_all);
-    Info_AddChoice      (CH_Training_STR, "Stärke (für beste Nahkampfwaffe)"        , CH_Strength_Weapon);
+    Info_AddChoice      (CH_Training_STR, "ZURÃœCK"                                  , CH_Training_STR_BACK);
+    Info_AddChoice      (CH_Training_STR, "StÃ¤rke (alle restlichen Lernpunkte)"     , CH_Strength_all);
+    Info_AddChoice      (CH_Training_STR, "StÃ¤rke (fÃ¼r beste Nahkampfwaffe)"        , CH_Strength_Weapon);
     if  (hero.LP >= 20*LPCOST_ATTRIBUTE_STRENGTH)
     {
         Info_AddChoice  (CH_Training_STR, B_BuildLearnString(NAME_LearnStrength_20,20*LPCOST_ATTRIBUTE_STRENGTH,0)  , CH_Strength20);
@@ -950,7 +950,7 @@ func void CH_Strength_Weapon ()
     }
     else
     {
-        PrintScreen ("nötige STR bereits vorhanden", -1,-1,"font_old_20_white.tga",10);
+        PrintScreen ("nÃ¶tige STR bereits vorhanden", -1,-1,"font_old_20_white.tga",10);
     };
 };
 
@@ -995,9 +995,9 @@ FUNC INT CH_Training_DEX_Condition()
 func void CH_Training_DEX_Info ()
 {
     Info_ClearChoices   (CH_Training_DEX);
-    Info_AddChoice      (CH_Training_DEX, "ZURÜCK"                                  , CH_Training_DEX_BACK);
+    Info_AddChoice      (CH_Training_DEX, "ZURÃœCK"                                  , CH_Training_DEX_BACK);
     Info_AddChoice      (CH_Training_DEX, "Geschick (alle restlichen Lernpunkte)"   , CH_Dexterity_all);
-    Info_AddChoice      (CH_Training_DEX, "Geschick (für beste Fernkampfwaffe)"     , CH_Dexterity_Weapon);
+    Info_AddChoice      (CH_Training_DEX, "Geschick (fÃ¼r beste Fernkampfwaffe)"     , CH_Dexterity_Weapon);
     if  (hero.LP >= 20)
     {
         Info_AddChoice  (CH_Training_DEX, B_BuildLearnString(NAME_LearnDexterity_20,20*LPCOST_ATTRIBUTE_DEXTERITY,0)    , CH_Dexterity20);
@@ -1067,7 +1067,7 @@ func void CH_Dexterity_Weapon ()
     }
     else
     {
-        PrintScreen ("nötige DEX bereits vorhanden", -1,-1,"font_old_20_white.tga",10);
+        PrintScreen ("nÃ¶tige DEX bereits vorhanden", -1,-1,"font_old_20_white.tga",10);
     };
 };
 

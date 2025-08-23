@@ -1,5 +1,5 @@
 /*******************************************************************************************
-**  Rüstungswert-Multiplikator                                                            **
+**  RÃ¼stungswert-Multiplikator                                                            **
 *******************************************************************************************/
 const int   ARMOR_VALUE_MULTIPLIER  = 30;   // wird mit Schutzwert gegen EDGE-Schaden multipliziert
 
@@ -383,7 +383,7 @@ INSTANCE EBR_ARMOR_H2(C_Item)
 *******************************************************************************************/
 
 /******************************************************************************************/
-// Schürferbund
+// SchÃ¼rferbund
 
 instance SFB_ARMOR_L(C_Item)
 {
@@ -1013,7 +1013,7 @@ INSTANCE KDW_ARMOR_H(C_Item)
 };
 
 /******************************************************************************************/
-// Dämonenbeschwörer
+// DÃ¤monenbeschwÃ¶rer
 
 INSTANCE DMB_ARMOR_M(C_Item)
 {
@@ -1051,12 +1051,12 @@ INSTANCE DMB_ARMOR_M(C_Item)
 
 
 /*******************************************************************************************
-**  Spezial-Rüstungen                                                                     **
+**  Spezial-RÃ¼stungen                                                                     **
 *******************************************************************************************/
 
-// FIXME: hier fehlen noch die Visuals für die Erz-Rüstungen und das INV-Item für die CRAWLERPLATTEN-RÜSTUNG
+// FIXME: hier fehlen noch die Visuals fÃ¼r die Erz-RÃ¼stungen und das INV-Item fÃ¼r die CRAWLERPLATTEN-RÃœSTUNG
 
-// Crawler-Plattenrüstung
+// Crawler-PlattenrÃ¼stung
 INSTANCE CRW_ARMOR_H(C_Item)
 {
     name                    =   "Crawler Plate Armor";
@@ -1090,7 +1090,7 @@ INSTANCE CRW_ARMOR_H(C_Item)
 
 
 /******************************************************************************************/
-// Erz-Rüstungen
+// Erz-RÃ¼stungen
 INSTANCE ORE_ARMOR_M(C_Item)
 {
     name                    =   "Ancient Ore Armor";
@@ -1197,7 +1197,7 @@ INSTANCE LAW_ARMOR (C_Item)
 
 
 /*******************************************************************************************
-**  Wache für Intro-Cutscene                                                          **
+**  Wache fÃ¼r Intro-Cutscene                                                          **
 *******************************************************************************************/
 INSTANCE GRD_ARMOR_I(C_Item)
 {

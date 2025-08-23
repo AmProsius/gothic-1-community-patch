@@ -78,7 +78,7 @@ CLASS C_Mission
 
 CLASS C_Item
 {
-    // Für alle Items
+    // FÃ¼r alle Items
     VAR INT     id                              ;
     VAR STRING  name,nameID                     ;
     VAR INT     hp,hp_max                       ;
@@ -86,23 +86,23 @@ CLASS C_Item
     VAR INT     mainflag,flags                  ;       //  Hauptflag und weitere Flags
     VAR INT     weight,value                    ;
 
-    // Für Waffen
+    // FÃ¼r Waffen
     VAR INT     damageType                      ;       //  Welche Schadensarten
     VAR INT     damageTotal                     ;
     VAR INT     damage          [DAM_INDEX_MAX] ;
 
-    // Für Rüstungen
+    // FÃ¼r RÃ¼stungen
     VAR INT     wear                            ;
     VAR INT     protection      [PROT_INDEX_MAX];
 
-    // Für Nahrung
+    // FÃ¼r Nahrung
     VAR INT     nutrition                       ;       //  HP-Steigerung bei Nahrung
 
-    // Benötigte Attribute zum Benutzen des Items
+    // BenÃ¶tigte Attribute zum Benutzen des Items
     VAR INT     cond_atr        [3]             ;
     VAR INT     cond_value      [3]             ;
 
-    // Attribute, die bei anlegen des Items verändert werden
+    // Attribute, die bei anlegen des Items verÃ¤ndert werden
     VAR INT     change_atr      [3]             ;
     VAR INT     change_value    [3]             ;
 
@@ -120,7 +120,7 @@ CLASS C_Item
     // Die 3DS-Datei
     VAR STRING  visual                          ;
 
-    // Veränderung des NSC-Meshes beim Anlegen dieses Gegenstandes
+    // VerÃ¤nderung des NSC-Meshes beim Anlegen dieses Gegenstandes
     VAR STRING  visual_change                   ;       //  ASC - File
     VAR INT     visual_skin                     ;
 
@@ -141,24 +141,24 @@ CLASS C_Item
 
 CLASS C_Focus
 {
-    /// für NSCs
+    /// fÃ¼r NSCs
     VAR FLOAT   npc_longrange                   ;       //  Zurufweite  ( 20 m )
     VAR FLOAT   npc_range1, npc_range2          ;       //  Reichweite
     VAR FLOAT   npc_azi                         ;       //  Azimuth     ( Seitenwinkel )
-    VAR FLOAT   npc_elevdo, npc_elevup          ;       //  Elevation   ( Höhenwinkel  )
-    VAR INT     npc_prio                        ;       //  Priorität
+    VAR FLOAT   npc_elevdo, npc_elevup          ;       //  Elevation   ( HÃ¶henwinkel  )
+    VAR INT     npc_prio                        ;       //  PrioritÃ¤t
 
-    /// für ITEMs
+    /// fÃ¼r ITEMs
     VAR FLOAT   item_range1, item_range2        ;       //  Reichweite
     VAR FLOAT   item_azi                        ;       //  Azimuth     ( Seitenwinkel )
-    VAR FLOAT   item_elevdo, item_elevup        ;       //  Elevation   ( Höhenwinkel  )
-    VAR INT     item_prio                       ;       //  Priorität
+    VAR FLOAT   item_elevdo, item_elevup        ;       //  Elevation   ( HÃ¶henwinkel  )
+    VAR INT     item_prio                       ;       //  PrioritÃ¤t
 
-    /// für MOBs
+    /// fÃ¼r MOBs
     VAR FLOAT   mob_range1, mob_range2          ;       //  Reichweite
     VAR FLOAT   mob_azi                         ;       //  Azimuth     ( Seitenwinkel )
-    VAR FLOAT   mob_elevdo, mob_elevup          ;       //  Elevation   ( Höhenwinkel  )
-    VAR INT     mob_prio                        ;       //  Priorität
+    VAR FLOAT   mob_elevdo, mob_elevup          ;       //  Elevation   ( HÃ¶henwinkel  )
+    VAR INT     mob_prio                        ;       //  PrioritÃ¤t
 };
 
 CLASS C_INFO

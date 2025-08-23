@@ -152,7 +152,7 @@ func int Info_Grd_237_Attack_Info()
     hero.aivar[AIV_GUARDPASSAGE_STATUS] = AIV_GPS_PUNISH;
 
     B_FullStop          (self);
-    AI_StopProcessInfos (self);                 //dem Spieler sofort wieder die Kontrolle zurückgeben
+    AI_StopProcessInfos (self);                 //dem Spieler sofort wieder die Kontrolle zurÃ¼ckgeben
     B_SetAttackReason   (self,  AIV_AR_INTRUDER);
     Npc_SetTarget       (self,  hero);
     AI_StartState       (self,  ZS_Attack,  1,  "");

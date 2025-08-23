@@ -7,16 +7,16 @@
 //  - ZS_Flee
 //  - ZS_Unconscious
 //
-//  Folgende Voraussetzungen müssen erfüllt sein:
+//  Folgende Voraussetzungen mÃ¼ssen erfÃ¼llt sein:
 //
 //  - (keine)
 //
 //  Macht folgendes:
-//  1.  Heilt den NSC so weit wie möglich und nutzt dabei:
-//      - Heiltränke
+//  1.  Heilt den NSC so weit wie mÃ¶glich und nutzt dabei:
+//      - HeiltrÃ¤nke
 //      - Nahrungsmittel
-//  2.  Regeneriert die Mana so weit wie möglich und nutzt dabei:
-//      - Manatränke
+//  2.  Regeneriert die Mana so weit wie mÃ¶glich und nutzt dabei:
+//      - ManatrÃ¤nke
 //////////////////////////////////////////////////////////////////////////
 func void ZS_HealSelf ()
 {
@@ -49,7 +49,7 @@ func int ZS_HealSelf_Loop ()
     if  (self.attribute[ATR_HITPOINTS] == self.attribute[ATR_HITPOINTS_MAX])
     ||  (self.flags == NPC_FLAG_IMMORTAL)
     {
-        PrintDebugNpc   (PD_ZS_CHECK,   "...vollständig geheilt!");
+        PrintDebugNpc   (PD_ZS_CHECK,   "...vollstÃ¤ndig geheilt!");
         return          LOOP_END;
     }
     else if (Npc_HasItems(self,ItFo_Potion_Health_03) >0)

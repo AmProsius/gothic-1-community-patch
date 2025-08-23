@@ -1115,7 +1115,7 @@ FUNC void  PC_Thief_ARMOR_Info()
         CreateInvItem       (hero,          STT_ARMOR_H);
         B_GiveInvItems      (hero, self,    ItMinugget, VALUE_STT_ARMOR_H);
 
-        //hier nur ein Text für die Bildschirmausgabe
+        //hier nur ein Text fÃ¼r die Bildschirmausgabe
         CreateInvItem       (self,          ItAmArrow);
         B_GiveInvItems      (self, hero,    ItAmArrow,  1);
         Npc_RemoveInvItem   (hero,          ItAmArrow);
@@ -1765,8 +1765,8 @@ func void Info_Diego_OCFAVOR_Info()
     AI_Output(self,hero,"Info_Diego_Gamestart_11_01"); //Warum haben sie dich hier reingeworfen?
 
     Info_ClearChoices(Info_Diego_Gamestart );
-    Info_AddChoice   (Info_Diego_Gamestart, "Gewitzter Überfall            (+3 Geschicklichkeit)"   ,Info_Diego_Gamestart_Choice_Dex);
-    Info_AddChoice   (Info_Diego_Gamestart, "Schlägerei mit Folgen         (+3 Stärke)"             ,Info_Diego_Gamestart_Choice_Str);
+    Info_AddChoice   (Info_Diego_Gamestart, "Gewitzter Ãœberfall            (+3 Geschicklichkeit)"   ,Info_Diego_Gamestart_Choice_Dex);
+    Info_AddChoice   (Info_Diego_Gamestart, "SchlÃ¤gerei mit Folgen         (+3 StÃ¤rke)"             ,Info_Diego_Gamestart_Choice_Str);
     Info_AddChoice   (Info_Diego_Gamestart, "Wahre Worte zum falschen Mann (+3 Mana)"               ,Info_Diego_Gamestart_Choice_Man);
     Info_AddChoice   (Info_Diego_Gamestart, "Unschuldig                    (+1 auf alle Attribute)" ,Info_Diego_Gamestart_Choice_All);
 };
@@ -1774,7 +1774,7 @@ func void Info_Diego_OCFAVOR_Info()
 FUNC VOID Info_Diego_Gamestart_Choice_Dex()
 {
     AI_Output(hero,self,"Info_Diego_Gamestart_Choice_Dex_15_00"); //Ich habe ne Ladung Erz verschwinden lassen.
-    AI_Output(hero,self,"Info_Diego_Gamestart_Choice_Dex_15_01"); //Dummerweise hat der Typ bei dem ich sie versteckt habe, lieber die Belohnung für mich kassiert, anstatt mit mir das Erz zu teilen.
+    AI_Output(hero,self,"Info_Diego_Gamestart_Choice_Dex_15_01"); //Dummerweise hat der Typ bei dem ich sie versteckt habe, lieber die Belohnung fÃ¼r mich kassiert, anstatt mit mir das Erz zu teilen.
     PrintScreen ("Geschicklichkeit +3", -1,-1,"FONT_OLD_20_WHITE.TGA",3);
     hero.attribute[ATR_DEXTERITY] = hero.attribute[ATR_DEXTERITY]+3;
     Info_ClearChoices(Info_Diego_Gamestart );
@@ -1782,17 +1782,17 @@ FUNC VOID Info_Diego_Gamestart_Choice_Dex()
 
 FUNC VOID Info_Diego_Gamestart_Choice_Str()
 {
-    AI_Output(hero,self,"Info_Diego_Gamestart_Choice_Str_15_00"); //Eine Herausforderung konnte ich noch nie abschlagen. Auch nicht von des Königs Gardisten. dummerweise hat der König viele Gardisten.
+    AI_Output(hero,self,"Info_Diego_Gamestart_Choice_Str_15_00"); //Eine Herausforderung konnte ich noch nie abschlagen. Auch nicht von des KÃ¶nigs Gardisten. dummerweise hat der KÃ¶nig viele Gardisten.
     AI_Output(hero,self,"Info_Diego_Gamestart_Choice_Str_15_01"); //Zu viele.
-    PrintScreen ("Stärke +3", -1,-1,"FONT_OLD_20_WHITE.TGA",3);
+    PrintScreen ("StÃ¤rke +3", -1,-1,"FONT_OLD_20_WHITE.TGA",3);
     hero.attribute[ATR_STRENGTH] = hero.attribute[ATR_STRENGTH]+3;
     Info_ClearChoices(Info_Diego_Gamestart );
 };
 
 FUNC VOID Info_Diego_Gamestart_Choice_Man()
 {
-    AI_Output(hero,self,"Info_Diego_Gamestart_Choice_Man_15_00"); //Ich saß in der Kneipe und habe meine Meinung über König, Krieg und Steuern gesagt.
-    AI_Output(hero,self,"Info_Diego_Gamestart_Choice_Man_15_01"); //Ich hab' mich nur zu spät daran erinnert, dass der, der die Wahrheit spricht, ein schnelles Pferd braucht.
+    AI_Output(hero,self,"Info_Diego_Gamestart_Choice_Man_15_00"); //Ich saÃŸ in der Kneipe und habe meine Meinung Ã¼ber KÃ¶nig, Krieg und Steuern gesagt.
+    AI_Output(hero,self,"Info_Diego_Gamestart_Choice_Man_15_01"); //Ich hab' mich nur zu spÃ¤t daran erinnert, dass der, der die Wahrheit spricht, ein schnelles Pferd braucht.
     PrintScreen ("Mana +3", -1,-1,"FONT_OLD_20_WHITE.TGA",3);
     hero.attribute[ATR_MANA]        = hero.attribute[ATR_MANA]+3;
     hero.attribute[ATR_MANA_MAX]    = hero.attribute[ATR_MANA_MAX]+3;
@@ -1803,10 +1803,10 @@ FUNC VOID Info_Diego_Gamestart_Choice_All()
 {
     AI_Output(hero,self,"Info_Diego_Gamestart_Choice_All_15_00"); //Ich bin unschuldig!
     AI_Output(self,hero,"Info_Diego_Gamestart_Choice_All_11_01"); //Du solltest eins wissen: Hier drin ist niemand unschuldig.
-    AI_Output(self,hero,"Info_Diego_Gamestart_Choice_All_11_02"); //Hier findest du Männer die so ziemlich jedes mögliche Verbrechen begangen haben. Und einen unschuldigen nehmen die nur zu gerne auseinander.
+    AI_Output(self,hero,"Info_Diego_Gamestart_Choice_All_11_02"); //Hier findest du MÃ¤nner die so ziemlich jedes mÃ¶gliche Verbrechen begangen haben. Und einen unschuldigen nehmen die nur zu gerne auseinander.
     AI_Output(self,hero,"Info_Diego_Gamestart_Choice_All_11_03"); //Ich gebe dir nen Tipp, und der ist ganz umsonst.
     AI_Output(self,hero,"Info_Diego_Gamestart_Choice_All_11_04"); //Wenn dich jemand fragt, warum du hier bist, sag ihm, du hast einen Typen gekillt, der dich gefragt hat, warum du hier bist.
-    PrintScreen ("Stärke, Geschick und Mana +1", -1,-1,"FONT_OLD_20_WHITE.TGA",3);
+    PrintScreen ("StÃ¤rke, Geschick und Mana +1", -1,-1,"FONT_OLD_20_WHITE.TGA",3);
     hero.attribute[ATR_DEXTERITY]   = hero.attribute[ATR_DEXTERITY]+1;
     hero.attribute[ATR_STRENGTH]    = hero.attribute[ATR_STRENGTH]  +1;
     hero.attribute[ATR_MANA]        = hero.attribute[ATR_MANA]      +1;

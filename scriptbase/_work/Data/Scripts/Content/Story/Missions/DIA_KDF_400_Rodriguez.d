@@ -23,7 +23,7 @@ FUNC VOID  DIA_Rodriguez_Exit_Info()
 };
 
 //***********************************************
-//              Hallo und tschüß
+//              Hallo und tschÃ¼ÃŸ
 //***********************************************
 
 instance  DIA_Rodriguez_Hello (C_INFO)

@@ -80,7 +80,7 @@ FUNC VOID DIA_BaalIsidro_TRADE_Info()
 };
 
 // ************************************************************
-//                   Ich verkaufe für dich
+//                   Ich verkaufe fÃ¼r dich
 // ************************************************************
 
 INSTANCE DIA_BaalIsidro_GimmeKraut(C_INFO)
@@ -229,7 +229,7 @@ FUNC VOID DIA_BaalIsidro_Drink_Info()
 };
 
 // ************************************************************
-//                   Übrleg's dir!
+//                   Ãœbrleg's dir!
 // ************************************************************
     var int BaalIsidro_DealerJob;
 // ************************************************************
@@ -268,9 +268,9 @@ FUNC VOID DIA_BaalIsidro_ThinkAgain_Info()
         BaalIsidro_DealerJob = LOG_RUNNING;
         B_LogEntry          (CH1_DealerJob,"Baal Isidro gave me loads of weed stalks. If I sell them he'll give me half of the profit, which would be 200 ore.");
 
-        //Itemübergabe
+        //ItemÃ¼bergabe
         CreateInvItems      (self,          itmijoint_1, 40);
-        B_GiveInvItems      (self, other,   itmijoint_1, 50);//Notwendig zur Textausgabe "50 Items übergeben", wird sofort ausgeglichen
+        B_GiveInvItems      (self, other,   itmijoint_1, 50);//Notwendig zur Textausgabe "50 Items Ã¼bergeben", wird sofort ausgeglichen
         Npc_RemoveInvItems  (self,          itmijoint_2, 20);
         Npc_RemoveInvItems  (self,          itmijoint_3, 20);
         Npc_RemoveInvItems  (other,         itmijoint_1, 40);

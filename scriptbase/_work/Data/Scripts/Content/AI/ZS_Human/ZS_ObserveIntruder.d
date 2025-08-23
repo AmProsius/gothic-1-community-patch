@@ -8,15 +8,15 @@
 //
 //  aufgerufen. Es passiert folgendes:
 //
-//  1.  Eindringling h‰lt Waffe     ->  B_AssessFighter
+//  1.  Eindringling h√§lt Waffe     ->  B_AssessFighter
 //  2.  Eindringling keine Waffe
-//      - NSC ist st‰rker und angry ->  2x aggressive Aufforderung
+//      - NSC ist st√§rker und angry ->  2x aggressive Aufforderung
 //                                      weiterzugehen (bei nicht
 //                                      Befolgung -> Angriff)
 //          WICHTIG: ist zur Zeit auskommentiert!!!
 //
 //      - sonst                     ->  1x normale Bemerkung
-//                                      1x spˆttische Bemerkung
+//                                      1x sp√∂ttische Bemerkung
 //////////////////////////////////////////////////////////////////////////
 func void ZS_ObserveIntruder ()
 {
@@ -58,7 +58,7 @@ func void ZS_ObserveIntruder ()
         return;
     }
 
-    //-------- Eindringling h‰lt weder Waffen noch schleicht er! --------
+    //-------- Eindringling h√§lt weder Waffen noch schleicht er! --------
     else
     {
         PrintDebugNpc       (PD_ZS_CHECK, "...Eindringling ist NICHT im Kampfmodus und schleicht nicht!");
@@ -134,7 +134,7 @@ func void ZS_ObserveIntruderWaitNeutral_End ()
 //  ==============================
 //  Ich stehe FRIENDLY oder NEUTRAL zum Eindringling und er hat auf
 //  meine letzte Frage nicht reagiert. Jetzt sage ich 'Pah' und gehe
-//  wieder meinen Gesch‰ften nach.
+//  wieder meinen Gesch√§ften nach.
 //////////////////////////////////////////////////////////////////////////
 func void ZS_ObserveIntruderWaitNeutral2 ()
 {

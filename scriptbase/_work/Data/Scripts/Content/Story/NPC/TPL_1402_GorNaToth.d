@@ -37,7 +37,7 @@ instance TPL_1402_GorNaToth (Npc_Default)
     //-------- inventory --------
     //EquipItem (self, ItMw_2H_Sword_Light_04);
 
-    CreateInvItem (self, ItMw_2H_Sword_Old_01); // HÄNDLER
+    CreateInvItem (self, ItMw_2H_Sword_Old_01); // HÃ„NDLER
     CreateInvItem (self, ItMw_2H_Sword_Light_01);
     CreateInvItem (self, ItMw_2H_Sword_Light_02);
 

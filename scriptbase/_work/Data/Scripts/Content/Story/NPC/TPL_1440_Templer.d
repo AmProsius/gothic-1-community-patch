@@ -44,7 +44,7 @@ instance TPL_1440_Templer (Npc_Default)
     daily_routine = Rtn_start_1440;
 };
 
-FUNC VOID Rtn_start_1440 () //ST-OM-Pendler (MC-Jäger)
+FUNC VOID Rtn_start_1440 () //ST-OM-Pendler (MC-JÃ¤ger)
 {
     TA_Smalltalk    (06,00,14,00,"PSI_SWAMP_MOVEMENT");
     TA_Smalltalk    (14,00,06,00,"OW_OM_ENTRANCE02");

@@ -1,5 +1,5 @@
 func void ZS_ReactToCall ()
-// 8.5.00 Wie Konzept 22.5. Perception‰nderungen
+// 8.5.00 Wie Konzept 22.5. Perception√§nderungen
 {
     PrintDebugNpc( PD_ZS_FRAME, "ZS_ReactToCall" );
     C_ZSInit();

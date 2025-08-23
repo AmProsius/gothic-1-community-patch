@@ -22,7 +22,7 @@ FUNC void ZS_Talk ()
     };
 
     C_ZSInit();
-    B_SetFaceExpression(self, other); //Attitüde bestimmt Gesichtsausdruck
+    B_SetFaceExpression(self, other); //AttitÃ¼de bestimmt Gesichtsausdruck
 
     self.aivar[AIV_INVINCIBLE]=TRUE;
     other.aivar[AIV_INVINCIBLE]=TRUE;
@@ -55,7 +55,7 @@ FUNC void ZS_Talk ()
     };
 
     // AMBIENT-INFOS werden nur Ambient-NSCs (Nicht-Main-NSCs) zugeordnet,
-    // die KEINE anderen Infos/Aufträge haben
+    // die KEINE anderen Infos/AuftrÃ¤ge haben
     //if ( (self.npctype != npctype_main) && (self.npctype != npctype_friend) && (!NPC_CheckInfo(self,0)) && (!Npc_CheckInfo(self,1)) )
     //{
     //  B_AssignAmbientInfos (self);
@@ -85,7 +85,7 @@ FUNC void ZS_Talk ()
     B_FullStop          (hero);
     AI_TurnToNpc        (hero,  self); // SC dreht sich zum Npc
 
-    // NSC begrüßt dich, wenn der Spieler ihn angesprochen hat
+    // NSC begrÃ¼ÃŸt dich, wenn der Spieler ihn angesprochen hat
     if (!hero.aivar[AIV_IMPORTANT])
     {
         B_GuildGreetings ();
@@ -109,7 +109,7 @@ FUNC void ZS_Talk ()
     //AMBIENT INFOS
     B_AssignAmbientInfos(self);
 
-    // Kenne SC (wird für FindNSC-Infos gebraucht)
+    // Kenne SC (wird fÃ¼r FindNSC-Infos gebraucht)
     self.aivar[AIV_FINDABLE] = TRUE;
 
     // START Multiple Choice Dialog

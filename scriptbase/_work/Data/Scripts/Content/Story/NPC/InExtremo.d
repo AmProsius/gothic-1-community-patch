@@ -389,10 +389,10 @@ FUNC VOID Rtn_off_396 ()
 
 
 /////////////////////////////////////////
-// STEVE GÄTCHEN      ///////////////////
+// STEVE GÃ„TCHEN      ///////////////////
 /////////////////////////////////////////
 
-// Ansager für In Extremo
+// Ansager fÃ¼r In Extremo
 
 instance IE_397_Announcer(Npc_Default)
 {

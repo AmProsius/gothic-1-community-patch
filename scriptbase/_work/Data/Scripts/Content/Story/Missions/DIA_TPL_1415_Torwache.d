@@ -144,7 +144,7 @@ func void  Tpl_1415_Torwache_TEMPLERAUFNAHME_Info()
 
 
 /*------------------------------------------------------------------------
-                        Novizenröckchen
+                        NovizenrÃ¶ckchen
 ------------------------------------------------------------------------*/
 
 instance  Tpl_1415_Templer_ROCK (C_INFO)

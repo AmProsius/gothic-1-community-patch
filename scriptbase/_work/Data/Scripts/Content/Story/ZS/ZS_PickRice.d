@@ -1,6 +1,6 @@
 /****************************************************
-*    NSC nimmt Körbchen, sucht PICKRICE-FP,         *
-*  beginnt Reis zu pflücken, wechselt dabei den FP  *
+*    NSC nimmt KÃ¶rbchen, sucht PICKRICE-FP,         *
+*  beginnt Reis zu pflÃ¼cken, wechselt dabei den FP  *
 ****************************************************/
 
 
@@ -13,7 +13,7 @@ func void ZS_PickRice ()
     PrintDebugNpc(PD_TA_FRAME,"ZS_PickRice");
 
     B_SetPerception (self);
-    AI_SetWalkmode (self,NPC_WALK);     // Walkmode für den Zustand
+    AI_SetWalkmode (self,NPC_WALK);     // Walkmode fÃ¼r den Zustand
 
     if !(Npc_IsOnFP(self,"PICKRICE"))
     {
@@ -34,7 +34,7 @@ func void ZS_PickRice_Loop ()
 
     if ((Npc_GetStateTime(self) >= self.aivar[AIV_ITEMFREQ]) && (Hlp_Random(2)))
     {
-        PrintDebugNpc(PD_TA_DETAIL,"PickRice Bücken mit Platzwechsel");
+        PrintDebugNpc(PD_TA_DETAIL,"PickRice BÃ¼cken mit Platzwechsel");
         if (Npc_IsOnFP(self,"PICKRICE_1")) && (Wld_IsFPAvailable (self, "PICKRICE_1"))
         {
             PrintDebugNpc(PD_TA_DETAIL,"Platzwechsel auf Level 1");
@@ -71,7 +71,7 @@ func void ZS_PickRice_Loop ()
     }
     else if (Npc_GetStateTime(self) >= self.aivar[AIV_ITEMFREQ])
     {
-        PrintDebugNpc(PD_TA_DETAIL,"PickRice Bücken");
+        PrintDebugNpc(PD_TA_DETAIL,"PickRice BÃ¼cken");
         if (Npc_IsOnFP(self,"PICKRICE"))
         {
             AI_PlayAni (self,"T_PLUNDER");

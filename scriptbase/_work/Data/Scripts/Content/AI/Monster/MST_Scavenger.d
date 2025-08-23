@@ -79,7 +79,7 @@ INSTANCE Scavenger  (Mst_Default_Scavenger)
 
 
 /*************************************************************************
-**  junger Scavenger (für Spielstart)                                   **
+**  junger Scavenger (fÃ¼r Spielstart)                                   **
 *************************************************************************/
 
 INSTANCE YScavenger (Mst_Default_Scavenger)

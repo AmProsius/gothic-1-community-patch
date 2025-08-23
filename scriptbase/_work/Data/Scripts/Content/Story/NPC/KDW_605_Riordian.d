@@ -53,7 +53,7 @@ FUNC VOID Rtn_start_605 ()
     TA_PotionAlchemy    (04,00,23,00,"NC_KDW06_IN");
 };
 
-//Nachdem der Spieler UrShak gefunden hat, h‰lt sich Riordian am Pentagramm auf, um den Spieler zu Gorn zu schicken
+//Nachdem der Spieler UrShak gefunden hat, h√§lt sich Riordian am Pentagramm auf, um den Spieler zu Gorn zu schicken
 FUNC VOID Rtn_FoundUrShak_605 ()
 {
     TA_PracticeMagic    (01,00,05,00,"NC_KDW_CAVE_STAIRS_MOVEMENT2");

@@ -174,7 +174,7 @@ FUNC VOID DIA_Guy_AdST_Info()
 };
 
 // **************************************************
-//              Welche Hütte ist meine
+//              Welche HÃ¼tte ist meine
 // **************************************************
 
 INSTANCE DIA_Guy_MyOwnHut (C_INFO)

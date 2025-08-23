@@ -483,8 +483,8 @@ FUNC VOID Rtn_start_3009 ()
     TA_SitAround    (04,00,06,00,"WP_REPAIR");//###Was macht sie da? Da steht Scar
     TA_StandAround  (06,00,08,00,"WP_IDOL");
     TA_WashSelf     (08,00,09,00,"WP_REPAIR");  //Bei Gomez
-    TA_Babe_Sweep   (09,00,20,00,"WP_LAB");     //Luftzuf‰cheln?
-    TA_SitAround    (20,00,23,00,"WP_IDOL");        //Sp‰ter Tanz
+    TA_Babe_Sweep   (09,00,20,00,"WP_LAB");     //Luftzuf√§cheln?
+    TA_SitAround    (20,00,23,00,"WP_IDOL");        //Sp√§ter Tanz
 };
 
 instance JTestmodell (Npc_TestDefault)
@@ -846,7 +846,7 @@ FUNC VOID TestInfo_001_07_700_Info()
 {
     AI_Output(self,other,"Global_001_07_00"); //Hey Frischling.
     AI_Output(self,other,"Global_001_07_01"); //Falls Du es noch nicht kapiert hast:
-    AI_Output(self,other,"Global_001_07_02"); //Es gibt hier im Knast drei groﬂe Lager.
+    AI_Output(self,other,"Global_001_07_02"); //Es gibt hier im Knast drei gro√üe Lager.
     AI_Output(self,other,"Global_001_07_03"); //Das Alte Lager, das Neue Lager und den Sektentempel.
     AI_Output(self,other,"Global_001_07_05"); //Wenn Du nicht den Erzbaronen im Alten Lager den Arsch abwischen willst, kommst Du zu uns.
 };
@@ -894,9 +894,9 @@ FUNC INT GRD1_Testmodell_Trade_01_Info_01_Condition()
 
 FUNC VOID GRD1_Testmodell_Trade_01_Info_01_Info()
 {
-    B_say(self,other,"BAU_900_Ricelord01_Trade_01_Info_01_Satz_01"); //Hey Freundchen hˆr mal:
+    B_say(self,other,"BAU_900_Ricelord01_Trade_01_Info_01_Satz_01"); //Hey Freundchen h√∂r mal:
     Print ("Gardisten Info");
-    B_say(self,other,"BAU_900_Ricelord01_Trade_01_Info_01_Satz_02"); //Ich geb' Dir 10 Portionen Reis, wenn Du mir daf¸r 'ne ordentliche Hammelkeule gibst..
+    B_say(self,other,"BAU_900_Ricelord01_Trade_01_Info_01_Satz_02"); //Ich geb' Dir 10 Portionen Reis, wenn Du mir daf√ºr 'ne ordentliche Hammelkeule gibst..
     B_say(self,other,"BAU_900_Ricelord01_Trade_01_Info_01_Satz_03"); //Oder hast Du vielleicht 'n Bier dabei? Oder Wein?
 
 };

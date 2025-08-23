@@ -3,11 +3,11 @@
 //  ============
 //  Dieser 'start_state' wird Menschen/Monstern gegeben, die an
 //  signifikanten Stellen auf den Spieler warten und ihn unter ALLEN
-//  umständen nochmal mit einer important-Info ansprechen müssen, bevor
+//  umstÃ¤nden nochmal mit einer important-Info ansprechen mÃ¼ssen, bevor
 //  irgendetwas anderes passiert.
 //
-//  Wird derzeit verwendet für:
-//  - die fünf untoten Orc-Priester im Alten Tempel (bevor sie attackieren)
+//  Wird derzeit verwendet fÃ¼r:
+//  - die fÃ¼nf untoten Orc-Priester im Alten Tempel (bevor sie attackieren)
 //  - Xardas im Alten Tempel (bevor er sich wieder wegteleportiert)
 //////////////////////////////////////////////////////////////////////////
 func void ZS_Intercept()

@@ -11,8 +11,8 @@ func void B_Give_TorrezChapter1Runes ()
     CreateInvItems (npc,ItArScrollLight,16);
     CreateInvItems (npc,ItArScrollFirebolt,18);
 
-    //-------- Bücher --------
-    //-------- Tränke --------
+    //-------- BÃ¼cher --------
+    //-------- TrÃ¤nke --------
     CreateInvItems (npc,ItFo_Potion_Mana_01 ,6);
     CreateInvItems (npc,ItFo_Potion_Health_01 ,8);
     CreateInvItems (npc,ItFo_Potion_Water_01 ,10);
@@ -50,11 +50,11 @@ func void B_Give_TorrezChapter2Runes ()
     CreateInvItems (npc,ItArScrollTrfMolerat,6);
     CreateInvItems (npc,ItArScrollTrfCrawler,3);
     CreateInvItems (npc,ItArScrollTrfBloodfly,3);
-    //-------- Bücher --------
+    //-------- BÃ¼cher --------
     CreateInvItem (npc,ItWr_Book_Circle_04);
     CreateInvItem (npc,ItWr_Book_Circle_05);
     CreateInvItem (npc,ItWr_Book_Circle_06);
-    //-------- Tränke --------
+    //-------- TrÃ¤nke --------
     CreateInvItems (npc,ItFo_Potion_Mana_01 ,12);
    CreateInvItems (npc,ItFo_Potion_Mana_02 ,8);
 
@@ -92,8 +92,8 @@ func void B_Give_TorrezChapter3Runes ()
 
     CreateInvItems (npc,ItArScrollFirerain,2);
 
-    //-------- Bücher --------
-    //-------- Tränke --------
+    //-------- BÃ¼cher --------
+    //-------- TrÃ¤nke --------
     CreateInvItems (npc,ItFo_Potion_Mana_01 ,24);
     CreateInvItems (npc,ItFo_Potion_Mana_02 ,16);
     CreateInvItems (npc,ItFo_Potion_Mana_03 ,10);

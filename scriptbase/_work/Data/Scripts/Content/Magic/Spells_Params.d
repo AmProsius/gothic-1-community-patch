@@ -1,8 +1,8 @@
 
 // **************************************************
-// Zaubersprüche
+// ZaubersprÃ¼che
 // Hier stehen die Definitionen der
-// logischen Sprüche
+// logischen SprÃ¼che
 // Autor: Carsten Edenfeld
 // **************************************************
 
@@ -12,16 +12,16 @@ CONST INT SPELL_NEUTRAL     =   1;
 CONST INT SPELL_BAD         =   2;
 
 
-CONST INT SPL_DONTINVEST    =   0;      // Es können keine weiteren Manapunkte investiert werden. Erst durch CTRL loslassen geht der Spell ab
-CONST INT SPL_RECEIVEINVEST =   1;      // Wirkung durchgeführt, es können weitere Invest kommen, zB.bei Heal nach jedem Pöppel
+CONST INT SPL_DONTINVEST    =   0;      // Es kÃ¶nnen keine weiteren Manapunkte investiert werden. Erst durch CTRL loslassen geht der Spell ab
+CONST INT SPL_RECEIVEINVEST =   1;      // Wirkung durchgefÃ¼hrt, es kÃ¶nnen weitere Invest kommen, zB.bei Heal nach jedem PÃ¶ppel
 CONST INT SPL_SENDCAST      =   2;      // Starte den Zauber-Effekt (wie CTRL loslassen), automatischer Abbruch
 CONST INT SPL_SENDSTOP      =   3;      // Beende Zauber ohne Effekt
-CONST INT SPL_NEXTLEVEL     =   4;      // setze den Spruch auf den nächsten Level
+CONST INT SPL_NEXTLEVEL     =   4;      // setze den Spruch auf den nÃ¤chsten Level
 
 
 
 // ************************************************************************************************
-// zum Casten benötigtes, bzw. bei aufladbaren Spells maximal investierbares Mana
+// zum Casten benÃ¶tigtes, bzw. bei aufladbaren Spells maximal investierbares Mana
 // ************************************************************************************************
 
 const int   SPL_SENDCAST_LIGHT          =   1;
@@ -67,7 +67,7 @@ const int   SPL_SENDCAST_SHRINK         =   5;
 
 
 // ************************************************************************************************
-// Schaden der direkten Kampfsprüche
+// Schaden der direkten KampfsprÃ¼che
 // ************************************************************************************************
 const int   SPL_DAMAGE_FIREBOLT         =   30;
 const int   SPL_DAMAGE_FIREBALL         =   30;     //pro Level
@@ -87,7 +87,7 @@ const int   SPL_DAMAGE_STORMFIST        =   15;
 
 
 // ************************************************************************************************
-// HPs, die den Opfern in den Opferzuständen abgezogen werden:
+// HPs, die den Opfern in den OpferzustÃ¤nden abgezogen werden:
 // ************************************************************************************************
 
 const int   SPL_FREEZE_DAMAGE           =   50; // IceCube, IceWave
@@ -101,14 +101,14 @@ const int   SPL_HEALING_HP_PER_MP       =   10; // Heal (HP pro Mana)
 // Zeit, die das Oper im ZS bleibt (in sec.)
 // ************************************************************************************************
 
-// Achtung: wenn bei FREEZE (9) und SHORTZAPPED (2) die Werte geändert werden, muß auch die Lebensdauer der PFX angepasst werden
+// Achtung: wenn bei FREEZE (9) und SHORTZAPPED (2) die Werte geÃ¤ndert werden, muÃŸ auch die Lebensdauer der PFX angepasst werden
 const int   SPL_TIME_SHORTZAPPED        =   2;  // Thunderball
 const int   SPL_TIME_FREEZE             =   9;  // IceCube, IceWave
 const int   SPL_TIME_SLEEP              =   30; // Sleep
 const int   SPL_TIME_BERZERK            =   30; // Berzerk
 
 
-// Ranges für NSC-Magie-Auswahllogik
+// Ranges fÃ¼r NSC-Magie-Auswahllogik
 const int   SPL_RANGE_ICEATTACK         =   300;
 const int   SPL_RANGE_WINDFIST          =   1200;
 const int   SPL_RANGE_STORMFIST         =   1200;
@@ -252,10 +252,10 @@ const STRING spellFXAniLetters[MAX_SPELL] =
 // *****************
 
 // bei allen Spells, in denen die "targetCollectRange" nicht angegeben ist wird der Wert aus der Focus.d benutzt!
-// Dieser Wert ist auch die Obergrenze für die Reichweite der Spells und sollte sinnvollerweise so hoch sein, wie der Wert für Fernkampf
+// Dieser Wert ist auch die Obergrenze fÃ¼r die Reichweite der Spells und sollte sinnvollerweise so hoch sein, wie der Wert fÃ¼r Fernkampf
 
 // FIXME:   Bei allen Spells, bei denen der Schaden im Opfer-Zustand angegeben ist, kann KEIN Schadenstyp angwegeben werden!
-//          Der Abzug von HPs erfolgt dann über den ChangeAttribute-Befehl!
+//          Der Abzug von HPs erfolgt dann Ã¼ber den ChangeAttribute-Befehl!
 
 INSTANCE Spell_Light (C_Spell_Proto)
 {
@@ -268,7 +268,7 @@ INSTANCE Spell_Light (C_Spell_Proto)
 };
 
 
-INSTANCE Spell_Firebolt (C_Spell_Proto)     // heißt jetzt "Magic Missile"
+INSTANCE Spell_Firebolt (C_Spell_Proto)     // heiÃŸt jetzt "Magic Missile"
 {
     time_per_mana           = 500;
     damage_per_level        = SPL_DAMAGE_FIREBOLT;
@@ -305,10 +305,10 @@ INSTANCE Spell_Firestorm (C_Spell_Proto)
 INSTANCE Spell_FireRain (C_Spell_Proto)
 {
     time_per_mana           = 250;
-    damage_per_level        = SPL_DAMAGE_FIRERAIN; // 2 Level nötig für PFX = 200 Feuerschaden!
+    damage_per_level        = SPL_DAMAGE_FIRERAIN; // 2 Level nÃ¶tig fÃ¼r PFX = 200 Feuerschaden!
     spelltype               = SPELL_BAD;
     damageType              = DAM_FIRE;
-    targetCollectAlgo       = TARGET_COLLECT_ALL_FALLBACK_NONE; // Opfer werden aber erst durch Kollision mit dem Effekt "angezündet"
+    targetCollectAlgo       = TARGET_COLLECT_ALL_FALLBACK_NONE; // Opfer werden aber erst durch Kollision mit dem Effekt "angezÃ¼ndet"
     targetCollectRange      = 1000;                 // 10m
     targetCollectAzi        = 360;
     targetCollectElev       = 60;
@@ -420,7 +420,7 @@ INSTANCE Spell_IceWave (C_Spell_Proto)
 
 
 // *****************
-// Dämonenbeschwörer
+// DÃ¤monenbeschwÃ¶rer
 // *****************
 
 
@@ -474,7 +474,7 @@ INSTANCE Spell_MassDeath(C_Spell_Proto)
     damage_per_level        = SPL_DAMAGE_MASSDEATH;
     spelltype               = SPELL_BAD;
     damageType              = DAM_MAGIC;
-    targetCollectAlgo       = TARGET_COLLECT_ALL_FALLBACK_NONE; // Opfer werden aber erst durch Kollision mit dem Effekt getötet
+    targetCollectAlgo       = TARGET_COLLECT_ALL_FALLBACK_NONE; // Opfer werden aber erst durch Kollision mit dem Effekt getÃ¶tet
     targetCollectRange      = 1000;                 // 10m
     targetCollectAzi        = 360;
     targetCollectElev       = 60;

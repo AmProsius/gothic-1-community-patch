@@ -8,7 +8,7 @@ func void ZS_GuardPalisade()
     GuardPerception ();
     PrintDebugNpc   (PD_TA_FRAME,   "ZS_GuardPalisade");
     AI_StandUp      (self);
-    AI_SetWalkmode  (self,  NPC_WALK);  // Walkmode für den Zustand
+    AI_SetWalkmode  (self,  NPC_WALK);  // Walkmode fÃ¼r den Zustand
     AI_GotoWP       (self,  self.wp);   // Gehe zum Tagesablaufstart
 
     B_InitArmor     ();//CS: nur bei nichtgezogener Waffe

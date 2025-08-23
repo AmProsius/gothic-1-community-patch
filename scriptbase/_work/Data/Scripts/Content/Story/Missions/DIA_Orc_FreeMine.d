@@ -4,8 +4,8 @@
 Die Freemine Mission.
 Der SC metzelt sich durch die FM und findet dort einen Orc, welcher schwer
 verletzt ist und einen Orcischen Heiltrank braucht.
-Alls Gegenleistung für den Heiltrank sagt er dir was man alles für Items
-für das Ulu-Mulu braucht.
+Alls Gegenleistung fÃ¼r den Heiltrank sagt er dir was man alles fÃ¼r Items
+fÃ¼r das Ulu-Mulu braucht.
 Wenn man ihm die drei Teile bringt bastelt er dir das Ulumulu.
 
 --------------------------------- Die Items -----------------------------
@@ -13,15 +13,15 @@ OrcHeiltrank:           Orcmedicine         -> OrcGegengift
 
 Teil vom Ulu-Mulu (1)   ItAt_Waran_01       ->  Flammenzunge
 Teil vom Ulu-Mulu (2)   ItAt_Shadow_02      ->  Horn eines Shadowbeast
-Teil vom Ulu-Mulu (3)   ItAt_Swampshark_02  ->  Zähne des Sumpfhais
+Teil vom Ulu-Mulu (3)   ItAt_Swampshark_02  ->  ZÃ¤hne des Sumpfhais
 Teil vom Ulu-Mulu (4)   ItAt_Troll_02       ->  Hauer eines Trolls
 
 Ulu-Mulu                Ulumulu             -> Das Ulumulu
 
 ----------------------------------- ToDo ---------------------------------
--> Monsterhinweise müssen noch rein
+-> Monsterhinweise mÃ¼ssen noch rein
 -> Missionlogs basteln
--> Sprache überarbeiten
+-> Sprache Ã¼berarbeiten
 */
 
 
@@ -659,7 +659,7 @@ FUNC VOID Info_FreemineOrc_EVERYULUMULU_Info()
     AI_Output           (self, hero,"Info_FreemineOrc_EVERYULUMULU_17_03"); //Here! Stranger wear ULU-MULU and proud! Tarrok sleep now!
 
     CreateInvItems      (hero,  ItAt_Waran_01, 3);
-    B_GiveInvItems      (hero, self, ItAt_Waran_01, 4); //Notwendig für Ausschrift "4 Gegenstände übergegen", wird sofort ausgeglichen
+    B_GiveInvItems      (hero, self, ItAt_Waran_01, 4); //Notwendig fÃ¼r Ausschrift "4 GegenstÃ¤nde Ã¼bergegen", wird sofort ausgeglichen
     Npc_RemoveInvItem   (hero, ItAt_Shadow_02       );
     Npc_RemoveInvItem   (hero, ItAt_Swampshark_02   );
     Npc_RemoveInvItem   (hero, ItAt_Troll_02        );

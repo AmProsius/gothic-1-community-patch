@@ -23,7 +23,7 @@ func int ZS_Orc_Attack_Loop ()
 {
     if ( !Hlp_IsValidNpc( other ))
     {
-        PrintDebugNpc   (PD_ORC_CHECK, "Orc_Attack_Loop: ...Ziel ungültig!" );
+        PrintDebugNpc   (PD_ORC_CHECK, "Orc_Attack_Loop: ...Ziel ungÃ¼ltig!" );
         return          LOOP_END;       //Abbruch
     };
 
@@ -38,7 +38,7 @@ func int ZS_Orc_Attack_Loop ()
         PrintDebugNpc   (PD_ORC_LOOP, "...Ziel vorhanden!");
         if (C_BodystateContains(other,BS_RUN))
         {
-            PrintDebugNpc   (PD_ORC_LOOP, "...Ziel läuft!");
+            PrintDebugNpc   (PD_ORC_LOOP, "...Ziel lÃ¤uft!");
             if (Npc_GetStateTime (self) > 10) // x Sekunden verfolgen
             {
                 PrintDebugNpc(PD_ORC_CHECK, "...Ziel schon zu lange verfolgt!");
@@ -62,7 +62,7 @@ func int ZS_Orc_Attack_Loop ()
     }
     else // GetTarget = FALSE
     {
-        Npc_PerceiveAll     (self);     // nötig, da Npc_IsNextTargetAvailable() und Npc_GetNextTarget() auf der Liste der zuletzt Wahrgenommenen VOBs beruht
+        Npc_PerceiveAll     (self);     // nÃ¶tig, da Npc_IsNextTargetAvailable() und Npc_GetNextTarget() auf der Liste der zuletzt Wahrgenommenen VOBs beruht
         if (Npc_IsNextTargetAvailable (self))
         {
             if (C_NpcIsDown(other))

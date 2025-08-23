@@ -23,7 +23,7 @@ FUNC VOID  DIA_BaalParvez_EXIT_Info()
 };
 
 // **************************************************
-//                  Erste Begr¸ssung
+//                  Erste Begr√ºssung
 // **************************************************
 
 instance  DIA_BaalParvez_Greet (C_INFO)
@@ -83,7 +83,7 @@ FUNC VOID  DIA_BaalParvez_RightWay_Info()
 };
 
 // **************************************************
-//                  Vorteile f¸r mich
+//                  Vorteile f√ºr mich
 // **************************************************
 
 instance  DIA_BaalParvez_MyAdvantage (C_INFO)
@@ -115,7 +115,7 @@ FUNC VOID  DIA_BaalParvez_MyAdvantage_Info()
 };
 
 // **************************************************
-//                  Schl‰fer
+//                  Schl√§fer
 // **************************************************
 
 instance  DIA_BaalParvez_Sleeper (C_INFO)
@@ -147,7 +147,7 @@ FUNC VOID  DIA_BaalParvez_Sleeper_Info()
 };
 
 // **************************************************
-//          Was hat Schl‰fer zu euch gesagt?
+//          Was hat Schl√§fer zu euch gesagt?
 // **************************************************
 
 instance  DIA_BaalParvez_SleeperSaid (C_INFO)
@@ -178,7 +178,7 @@ FUNC VOID  DIA_BaalParvez_SleeperSaid_Info()
 };
 
 // **************************************************
-//      Erz‰hl mir von der MAgie des Schl‰fers
+//      Erz√§hl mir von der MAgie des Schl√§fers
 // **************************************************
 
 instance  DIA_BaalParvez_PSIMagic (C_INFO)

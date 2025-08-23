@@ -68,9 +68,9 @@ FUNC VOID DIA_Grd_218_FirstIn_Info()
 //  Uhrzeit:    24h
 //
 //  Es passiert folgendes:
-//  1.  Nähert sich der Spieler dem Durchgang, so wird er in diesen
+//  1.  NÃ¤hert sich der Spieler dem Durchgang, so wird er in diesen
 //      Dialog gezwungen und einmal gewarnt
-//  2.  Nähert er sich trotzdem wieder, wird er angegriffen
+//  2.  NÃ¤hert er sich trotzdem wieder, wird er angegriffen
 //////////////////////////////////////////////////////////////////////////
 const string    Grd_218_CHECKPOINT      = "OCC_BARONS_HALLWAY_FRONT";
 
@@ -144,7 +144,7 @@ func int Info_Grd_218_Attack_Info()
     hero.aivar[AIV_GUARDPASSAGE_STATUS] = AIV_GPS_PUNISH;
 
     B_FullStop          (self);
-    AI_StopProcessInfos (self);                 // dem Spieler sofort wieder die Kontrolle zurückgeben
+    AI_StopProcessInfos (self);                 // dem Spieler sofort wieder die Kontrolle zurÃ¼ckgeben
     B_IntruderAlert     (self,  other);
     B_SetAttackReason   (self,  AIV_AR_INTRUDER);
     Npc_SetTarget       (self,  hero);

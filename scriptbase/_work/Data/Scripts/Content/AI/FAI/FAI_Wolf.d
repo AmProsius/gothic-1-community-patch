@@ -4,8 +4,8 @@
 
 /*
 CONST INT   MOVE_RUN            =    1; // Gegner in meinem Fokus + steht wer dazwischen? (G)
-CONST INT   MOVE_JUMPBACK       =    3; // löst t_ParadeJumpB aus (Attacke wird nur pariert, wenn man schnell genug aus der W-Reichweite kommt!
-CONST INT   MOVE_TURN           =    4; // Immer bis Gegner im Fokus (also nie durch neue Aktion unterbrochen, höchstens durch Gegner-Attacke)
+CONST INT   MOVE_JUMPBACK       =    3; // lÃ¶st t_ParadeJumpB aus (Attacke wird nur pariert, wenn man schnell genug aus der W-Reichweite kommt!
+CONST INT   MOVE_TURN           =    4; // Immer bis Gegner im Fokus (also nie durch neue Aktion unterbrochen, hÃ¶chstens durch Gegner-Attacke)
 CONST INT   MOVE_STRAFE         =    5; // (Richtung wird vom Programm entschieden)
 
 CONST INT   MOVE_ATTACK         =    6; // in ComboZone = Combo / im Rennen = Sturmattacke?
@@ -16,7 +16,7 @@ CONST INT   MOVE_WAIT           =   19; // 200 ms
 
 
 // W  - Waffen-Reichweite (FIGHT_RANGE_FIST * 3)
-// G  - Gehen-Reichweite (3 * W). Puffer für Fernkämpfer in dem sie zur NK-Waffe wechseln sollten
+// G  - Gehen-Reichweite (3 * W). Puffer fÃ¼r FernkÃ¤mpfer in dem sie zur NK-Waffe wechseln sollten
 // FK - Fernkampf-Reichweite (30m)
 
 
@@ -86,7 +86,7 @@ INSTANCE FA_MY_G_RUNTO_22 (C_FightAI)
 };
 
 // was tun, wenn ich gerade Strafe?
-// FIXME: wenn hier ATTACK eingetragen ist, müsste dann nicht nach jedem Strafe eine Attack kommen??
+// FIXME: wenn hier ATTACK eingetragen ist, mÃ¼sste dann nicht nach jedem Strafe eine Attack kommen??
 INSTANCE FA_MY_G_STRAFE_22 (C_FightAI)
 {
     move[0] = MOVE_TURN;
@@ -110,7 +110,7 @@ INSTANCE FA_MY_FK_FOCUS_22 (C_FightAI)
     move[0] = MOVE_RUN;
 };
 
-// was tun, wenn ich den Gegner nicht im Focus habe? (gilt auch für G-Distanz!)
+// was tun, wenn ich den Gegner nicht im Focus habe? (gilt auch fÃ¼r G-Distanz!)
 INSTANCE FA_MY_G_FK_NOFOCUS_22 (C_FightAI)
 {
     move[0] = MOVE_TURN;

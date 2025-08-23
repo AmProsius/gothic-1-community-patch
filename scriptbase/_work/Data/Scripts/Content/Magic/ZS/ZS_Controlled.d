@@ -1,7 +1,7 @@
-// übernommener nsc, den man dann steuert
+// Ã¼bernommener nsc, den man dann steuert
 // zustand wird von programmlogik beendet
 // Befehle, die hier stehen werden ignoriert, da der Spieler entweder nur Tastatur- oder Zustandsgesteuert sein kann
-// andere NSCs können aber den Zustand des Spielers abfragen
+// andere NSCs kÃ¶nnen aber den Zustand des Spielers abfragen
 
 func void ZS_Controlled()
 {
@@ -25,7 +25,7 @@ func void ZS_Controlled_End()
     AI_Wait                 (self,  3.5);
 
     //-------- fallgelassene Waffe aufheben ! --------
-    B_RegainDroppedWeapon   (self);     // Check ob Waffe/Rüstung herumliegt ist leider vom Stand vor der Ani T_PSI_VICTIM und könnte veraltet sein!!!
+    B_RegainDroppedWeapon   (self);     // Check ob Waffe/RÃ¼stung herumliegt ist leider vom Stand vor der Ani T_PSI_VICTIM und kÃ¶nnte veraltet sein!!!
     B_RegainDroppedArmor    (self);     // dito
 
     //-------- Gegner behandeln ! --------

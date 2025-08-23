@@ -6,11 +6,11 @@ func void ZS_Babe_Sweep ()
 {
     PrintDebugNpc       (PD_TA_FRAME,   "ZS_Babe_Sweep");
 
-// falls noch die Nacktrüstung angezogen ist, ausziehen!
+// falls noch die NacktrÃ¼stung angezogen ist, ausziehen!
     AI_UnequipArmor (self);
 
     B_SetBabeDefaultPerceptions();
-    AI_SetWalkmode (self,NPC_WALK); // Walkmode für den Zustand
+    AI_SetWalkmode (self,NPC_WALK); // Walkmode fÃ¼r den Zustand
 
     if (Npc_HasItems    ( self,ItMiBrush) <1)
     {

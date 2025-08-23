@@ -10,14 +10,14 @@
 //  - ZS_CallGuardsOnEnterRoom
 //  - Spell_Logic_Fear
 //
-//  Folgende Voraussetzungen m¸ssen erf¸llt sein:
+//  Folgende Voraussetzungen m√ºssen erf√ºllt sein:
 //
 //  - (keine)
 //
 //  Macht folgendes:
 //  1.  Falls Waffe in Hand         -> fallen lassen
-//  2.  tempAttit¸de auf hostile
-//  3.  weglaufen bis gen¸gend Distanz zum Gegner
+//  2.  tempAttit√ºde auf hostile
+//  3.  weglaufen bis gen√ºgend Distanz zum Gegner
 //  4.  evtl. Selbstheilung
 //////////////////////////////////////////////////////////////////////////
 func void ZS_Flee ()
@@ -28,7 +28,7 @@ func void ZS_Flee ()
     Npc_PercEnable      (self,  PERC_ASSESSMAGIC        ,   B_AssessMagic           );
     C_ZSInit            ();
 
-    //B_DropWeapon      (self);                     // aus Gamedesign-Gr¸nden entfernt
+    //B_DropWeapon      (self);                     // aus Gamedesign-Gr√ºnden entfernt
 
     AI_SetWalkmode      (self,  NPC_RUN);
     Mdl_ApplyOverlayMds (self,  "HUMANS_FLEE.MDS");// Flucht-OverlayMDS einschalten
@@ -43,24 +43,24 @@ func int ZS_Flee_Loop ()
 {
     PrintDebugNpc       (PD_ZS_LOOP,    "ZS_Flee_Loop" );
 
-    //-------- Gegner noch g¸ltig? --------
+    //-------- Gegner noch g√ºltig? --------
     if (!Hlp_IsValidNpc(other))
     {
-        PrintDebugNpc   (PD_ZS_CHECK,   "...Gegner nicht mehr g¸ltig!");
+        PrintDebugNpc   (PD_ZS_CHECK,   "...Gegner nicht mehr g√ºltig!");
         return          LOOP_END;                                   //
     }
 
     //-------- Gegner weit genug weg ? --------
-    else if (Npc_GetDistToNpc(self, other) > HAI_DIST_ABORT_FLEE)       // Gegner noch n‰her als 20m?
+    else if (Npc_GetDistToNpc(self, other) > HAI_DIST_ABORT_FLEE)       // Gegner noch n√§her als 20m?
     {                                                               // ...nein...
         PrintDebugNpc   (PD_ZS_CHECK,   "...Gegner weit genug weg -> Flucht abbrechen!");
         return          LOOP_END;                                   //
     }
 
-    //-------- Gegner noch kampff‰hig? --------
+    //-------- Gegner noch kampff√§hig? --------
     else if (C_NpcIsDown(other))
     {
-        PrintDebugNpc   (PD_ZS_CHECK,   "...Gegner nicht mehr kampff‰hig!");
+        PrintDebugNpc   (PD_ZS_CHECK,   "...Gegner nicht mehr kampff√§hig!");
         return          LOOP_END;                                   //
     }
 

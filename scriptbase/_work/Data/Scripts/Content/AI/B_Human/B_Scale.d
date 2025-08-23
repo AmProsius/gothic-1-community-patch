@@ -5,7 +5,7 @@ func void B_Scale (var C_Npc n)
     {
         if (n.attribute[ATR_HITPOINTS_MAX]  < 19)
         {
-                                    // breite / Höhe / tiefe
+                                    // breite / HÃ¶he / tiefe
             Mdl_SetModelScale       (n,0.9, 1, 1);
         }
         else if (n.attribute[ATR_HITPOINTS_MAX] > 18 && n.attribute[ATR_HITPOINTS_MAX] < 26)
@@ -21,7 +21,7 @@ func void B_Scale (var C_Npc n)
     {
         if (n.attribute[ATR_HITPOINTS_MAX]  < 19)
         {
-                                    // breite / Höhe / tiefe
+                                    // breite / HÃ¶he / tiefe
             Mdl_SetModelScale       (n,1, 1, 1);
         }
         else if (n.attribute[ATR_HITPOINTS_MAX] > 18 && n.attribute[ATR_HITPOINTS_MAX] < 26)
@@ -37,7 +37,7 @@ func void B_Scale (var C_Npc n)
     {
         if (n.attribute[ATR_HITPOINTS_MAX]  < 19)
         {
-                                    // breite / Höhe / tiefe
+                                    // breite / HÃ¶he / tiefe
             Mdl_SetModelScale       (n,1.1, 1, 1);
         }
         else if (n.attribute[ATR_HITPOINTS_MAX] > 18 && n.attribute[ATR_HITPOINTS_MAX] < 26)

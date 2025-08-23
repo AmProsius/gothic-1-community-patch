@@ -43,7 +43,7 @@ instance TPL_1439_GorNaDrak (Npc_Default)
     daily_routine = Rtn_start_1439;
 };
 
-FUNC VOID Rtn_start_1439 () //ST-OM-Pendler (MC-Jäger)
+FUNC VOID Rtn_start_1439 () //ST-OM-Pendler (MC-JÃ¤ger)
 {
     TA_Smalltalk    (06,00,14,00,"PSI_WALK_05");
     TA_Smalltalk    (14,00,06,00,"OW_OM_ENTRANCE02");

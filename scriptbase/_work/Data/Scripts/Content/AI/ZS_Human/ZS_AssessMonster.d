@@ -5,24 +5,24 @@
 //
 //  - B_AssessEnemy         -> NSC entdeckt feindliches Monster
 //  - B_AssessFighter       -> NSC entdeckt Monster im Kampfmodus (trifft auf alle zu!)
-//  - B_AssessFightSound    -> NSC hˆrt Monster k‰mpfen
-//  - B_AssessWarn          -> NSC wird vor Monster gewarnt (VORSICHT: Noch nicht ¸berarbeitet!)
-//  - B_ObserveIntruder     -> NSC wird von Monster ¸berrascht
+//  - B_AssessFightSound    -> NSC h√∂rt Monster k√§mpfen
+//  - B_AssessWarn          -> NSC wird vor Monster gewarnt (VORSICHT: Noch nicht √ºberarbeitet!)
+//  - B_ObserveIntruder     -> NSC wird von Monster √ºberrascht
 //
 //  gestartet. Folgende Bedingungen werden ebenfalls vorausgesetzt:
 //
-//  - Das Monster ist aggressiv und w¸rde den NSC angreifen!
+//  - Das Monster ist aggressiv und w√ºrde den NSC angreifen!
 //  - Das Monster befindet sich innerhalb von 'HAI_DIST_ASSESS_MONSTER'
 //
 //  Es passiert folgendes:
 //  1.  Wenn NSC eine Wache ist, greift er sofort an
-//  1.  Wenn NSC einer Boss-Gilde angehˆrt, greift er sofort an
-//  2.  Wenn NSC einer Arbeiter-Gilde angehˆrt, vergleicht er die St‰rke
+//  1.  Wenn NSC einer Boss-Gilde angeh√∂rt, greift er sofort an
+//  2.  Wenn NSC einer Arbeiter-Gilde angeh√∂rt, vergleicht er die St√§rke
 //      des Monsters mit seiner eigenen
-//      ->  NSC st‰rker: Waffe ziehen und abwarten bis das Monster auf
+//      ->  NSC st√§rker: Waffe ziehen und abwarten bis das Monster auf
 //          Attack-Range 'HAI_DIST_ATTACK_MONSTER' heran ist, dann
 //          angreifen.
-//      ->  Monster st‰rker: NSC flieht sofort!
+//      ->  Monster st√§rker: NSC flieht sofort!
 //////////////////////////////////////////////////////////////////////////
 func void ZS_AssessMonster  ()
 {
@@ -58,14 +58,14 @@ func void ZS_AssessMonster  ()
 
         if (C_AmIStronger   (self,  other))
         {
-            PrintDebugNpc   (PD_ZS_CHECK,   " ...aber trotzdem st‰rker als das Monster!");
+            PrintDebugNpc   (PD_ZS_CHECK,   " ...aber trotzdem st√§rker als das Monster!");
             B_FullStop      (self);
             B_DrawWeapon    (self,  other); // also schon mal in Kampfbereitschaft
             return;                         // ...und Distanz zum Monster checken (ab in die Loop!)
         }
         else
         {
-            PrintDebugNpc   (PD_ZS_CHECK,   " ...und noch dazu schw‰cher als das Monster!");
+            PrintDebugNpc   (PD_ZS_CHECK,   " ...und noch dazu schw√§cher als das Monster!");
             B_FullStop      (self);
             B_WhirlAround   (self,  other);
             Npc_SetTarget   (self,  other);
@@ -115,10 +115,10 @@ func int ZS_AssessMonster_Loop ()
         return              LOOP_END;
     }
 
-    //-------- Monster kampfunf‰hig ? --------
+    //-------- Monster kampfunf√§hig ? --------
     else if (C_NpcIsDown(other))
     {
-        PrintDebugNpc       (PD_ZS_CHECK, "...Monster kampfunf‰hig!");
+        PrintDebugNpc       (PD_ZS_CHECK, "...Monster kampfunf√§hig!");
         return              LOOP_END;
     }
 

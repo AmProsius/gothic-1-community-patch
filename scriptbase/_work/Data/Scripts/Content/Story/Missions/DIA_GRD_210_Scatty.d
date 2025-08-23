@@ -191,7 +191,7 @@ FUNC VOID DIA_Scatty_KHARIMSuccess_Info()
 
 
 // **************************************************
-//               Warum andere Lager Kämpfer
+//               Warum andere Lager KÃ¤mpfer
 // **************************************************
 
 INSTANCE DIA_Scatty_OtherCamps (C_INFO)
@@ -251,7 +251,7 @@ FUNC VOID DIA_Scatty_WannaBet_Info()
 };
 
 // **************************************************
-//                  Will Kämpfen
+//                  Will KÃ¤mpfen
 // **************************************************
 
 INSTANCE DIA_Scatty_WannaFight (C_INFO)

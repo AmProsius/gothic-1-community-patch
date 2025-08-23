@@ -36,7 +36,7 @@ instance VLK_574_Mud (Npc_Default)
     fight_tactic    =   FAI_HUMAN_COWARD;
 
     //-------- Senses --------
-    senses = SENSE_SEE|SENSE_HEAR|SENSE_SMELL;// für DIREKTES ansprechen
+    senses = SENSE_SEE|SENSE_HEAR|SENSE_SMELL;// fÃ¼r DIREKTES ansprechen
 
     //-------- inventory --------
 

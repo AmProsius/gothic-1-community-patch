@@ -8,13 +8,13 @@ func void ZS_Unconscious ()
 
     self.aivar[AIV_PLUNDERED] = FALSE;
 
-    //SN 24.09.00: f¸r die PublisherDemo auskommentiert, da die Animationen noch nicht toll sind (Absprache mit Alex) -> wenn bessere Animationen da sind, wieder einkommentieren!
+    //SN 24.09.00: f√ºr die PublisherDemo auskommentiert, da die Animationen noch nicht toll sind (Absprache mit Alex) -> wenn bessere Animationen da sind, wieder einkommentieren!
     //Mdl_ApplyRandomAni    ( self, "S_WOUNDEDB","T_WOUNDEDB_TRY");
     //Mdl_ApplyRandomAniFreq    ( self, "S_WOUNDEDB", 8);
 
     if (Npc_CanSeeNpc   (self, other)  &&  self.guild < GIL_SEPERATOR_ORC )
     {
-        PrintDebugNpc   (PD_ZS_CHECK, "...NSC kann T‰ter sehen!" );
+        PrintDebugNpc   (PD_ZS_CHECK, "...NSC kann T√§ter sehen!" );
         if (!Npc_IsPlayer   ( self))
         {
             B_AssessAndMemorize(NEWS_DEFEAT, NEWS_SOURCE_WITNESS, self, other, self);
@@ -31,7 +31,7 @@ func void ZS_Unconscious ()
         return;
     };
 
-    //-------- Erfahrungspunkte f¸r den Spieler ? --------
+    //-------- Erfahrungspunkte f√ºr den Spieler ? --------
     if  Npc_IsPlayer   (other)
     ||  (C_NpcIsHuman  (other) && other.aivar[AIV_PARTYMEMBER])
     ||  (C_NpcIsMonster(other) && other.aivar[AIV_MM_PARTYMEMBER])
@@ -64,7 +64,7 @@ func void ZS_Unconscious_End ()
 {
     PrintDebugNpc( PD_ZS_FRAME, "ZS_Unconscious_End" );
 
-    //-------- Bewuﬂtloser ist ein ORK --------
+    //-------- Bewu√ütloser ist ein ORK --------
     if ( C_NpcIsOrc(self) &&  !Npc_IsPlayer(self) )
     {
         PrintDebugNpc(PD_ZS_FRAME, "ZS_Unconscious_End: Me, Orc -> temp-HOSTILE" );
@@ -83,7 +83,7 @@ func void ZS_Unconscious_End ()
         return;
     };
 
-    //-------- Tempor‰re Attit¸de werden wieder zur¸ckgesetzt --------
+    //-------- Tempor√§re Attit√ºde werden wieder zur√ºckgesetzt --------
     if (!Npc_IsPlayer(self))
     {
         B_ResetTempAttitude(self);
@@ -98,7 +98,7 @@ func void ZS_Unconscious_End ()
         !Npc_IsInState  (other, ZS_Unconscious)             &&
         !Npc_IsDead     (other)                                 )
     {
-        PrintDebugNpc( PD_ZS_CHECK, "...NSC kann den Attackierer noch sehen und der ist bei Bewuﬂtsein!" );
+        PrintDebugNpc( PD_ZS_CHECK, "...NSC kann den Attackierer noch sehen und der ist bei Bewu√ütsein!" );
         AI_Quicklook ( self, other);
         if (C_AmIStronger ( self, other))
         {

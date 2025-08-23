@@ -58,7 +58,7 @@ instance ORG_840_Roscoe (Npc_Default)
     daily_routine = Rtn_start_840;
 };
 
-FUNC VOID Rtn_start_840 () //vor Lares Hütte
+FUNC VOID Rtn_start_840 () //vor Lares HÃ¼tte
 {
     TA_GuardPassage (23,00,07,00,"NC_HUT22_OUT_MOVEMENT");
     TA_GuardPassage (07,00,23,00,"NC_HUT22_OUT_MOVEMENT");

@@ -83,11 +83,11 @@ func void TA_SittingDuck        (var int start_h, var int start_m, var int stop_
 // ********************************************
 
 func void TA_HerbShop           (var int start_h, var int start_m, var int stop_h, var int stop_m, VAR string waypoint) {TA_Min     (self,  start_h,start_m, stop_h, stop_m,ZS_HerbShop ,           waypoint);};
-// für Fortuno im ST
+// fÃ¼r Fortuno im ST
 
 
 // ********************************************
-//   TAs von Stefan Nyul für Drehkreuzwachen
+//   TAs von Stefan Nyul fÃ¼r Drehkreuzwachen
 // ********************************************
 func void TA_GuardWheelOpen     (var int start_h, var int start_m, var int stop_h, var int stop_m, VAR string waypoint) {TA_Min     (self,  start_h,start_m, stop_h, stop_m, ZS_GuardWheelOpen,     waypoint);};
 func void TA_GuardWheelClosed   (var int start_h, var int start_m, var int stop_h, var int stop_m, VAR string waypoint) {TA_Min     (self,  start_h,start_m, stop_h, stop_m, ZS_GuardWheelClosed,   waypoint);};
@@ -106,13 +106,13 @@ func void TA_Drained_YBerion    (var int start_h, var int start_m, var int stop_
 
 
 // *********************************************
-//      SK: Neuer TA für den Orc in der FM
+//      SK: Neuer TA fÃ¼r den Orc in der FM
 // *********************************************
 func void TA_WaitForRescue  (var int start_h, var int start_m, var int stop_h, var int stop_m, VAR string waypoint) {TA_Min     (self,  start_h,start_m, stop_h, stop_m, ZS_WaitForRescue,  waypoint);};
 
 
 // *********************************************
-//  TF: Neue TAs für Orctempel
+//  TF: Neue TAs fÃ¼r Orctempel
 // *********************************************
 func void TA_HostileGuard               (var int start_h, var int start_m, var int stop_h, var int stop_m, VAR string waypoint) {TA_Min     (self,  start_h,start_m, stop_h, stop_m, ZS_HostileGuard,           waypoint);};
 func void TA_AlignGuard                 (var int start_h, var int start_m, var int stop_h, var int stop_m, VAR string waypoint) {TA_Min     (self,  start_h,start_m, stop_h, stop_m, ZS_AlignGuard,             waypoint);};

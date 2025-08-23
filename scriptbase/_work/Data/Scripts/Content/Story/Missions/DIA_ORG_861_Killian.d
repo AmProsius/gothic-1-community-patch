@@ -20,7 +20,7 @@ FUNC VOID  ORG_861_Killian_Exit_Info()
 };
 
 //*****************************************************************
-//                      Verpiﬂ dich
+//                      Verpi√ü dich
 //*****************************************************************
 
 instance  ORG_861_Killian_GetLost (C_INFO)
@@ -63,7 +63,7 @@ instance  ORG_861_Killian_WORK (C_INFO)
     information     = ORG_861_Killian_WORK_Info;
     important       = 0;
     permanent       = 0;
-    description     = " Wie l‰ufts?";
+    description     = " Wie l√§ufts?";
 };
 
 FUNC int  ORG_861_Killian_WORK_Condition()
@@ -74,8 +74,8 @@ FUNC int  ORG_861_Killian_WORK_Condition()
 
 FUNC void  ORG_861_Killian_WORK_Info()
 {
-    AI_Output (other, self,"Org_861_Killian_WORK_Info_15_01"); //Wie l‰ufts?
-    AI_Output (self, other,"Org_861_Killian_WORK_Info_13_02"); //Lass mich in Ruhe! Ich bin besch‰ftigt!
+    AI_Output (other, self,"Org_861_Killian_WORK_Info_15_01"); //Wie l√§ufts?
+    AI_Output (self, other,"Org_861_Killian_WORK_Info_13_02"); //Lass mich in Ruhe! Ich bin besch√§ftigt!
 };
 
 //*****************************************************************
@@ -89,7 +89,7 @@ instance  ORG_861_Killian_DEAL (C_INFO)
     information     = ORG_861_Killian_DEAL_Info;
     important       = 0;
     permanent       = 0;
-    description     = "Wie l‰ufts Kumpel?";
+    description     = "Wie l√§ufts Kumpel?";
 };
 
 FUNC int  ORG_861_Killian_DEAL_Condition()
@@ -103,7 +103,7 @@ FUNC int  ORG_861_Killian_DEAL_Condition()
 };
 FUNC void  ORG_861_Killian_DEAL_Info()
 {
-    AI_Output (other, self,"Org_861_Killian_DEAL_Info_15_01"); //Wie l‰ufts Kumpel?
+    AI_Output (other, self,"Org_861_Killian_DEAL_Info_15_01"); //Wie l√§ufts Kumpel?
     AI_Output (self, other,"Org_861_Killian_DEAL_Info_13_02"); //Wir haben zwar eine Abmachung, aber ich bin nicht dein Kumpel, Penner!
 };
 
@@ -118,7 +118,7 @@ instance  ORG_861_Killian_LOST (C_INFO)
     information     = ORG_861_Killian_LOST_Info;
     important       = 0;
     permanent       = 0;
-    description     = "Und du penner? H‰ltst du jetzt die F¸ﬂe still?";
+    description     = "Und du penner? H√§ltst du jetzt die F√º√üe still?";
 };
 
 FUNC int  ORG_861_Killian_LOST_Condition()
@@ -137,7 +137,7 @@ FUNC int  ORG_861_Killian_LOST_Condition()
 };
 FUNC void  ORG_861_Killian_LOST_Info()
 {
-    AI_Output (other, self,"Org_861_Killian_LOST_Info_15_01"); //Und du penner? H‰ltst du jetzt die F¸ﬂe still?
+    AI_Output (other, self,"Org_861_Killian_LOST_Info_15_01"); //Und du penner? H√§ltst du jetzt die F√º√üe still?
     AI_Output (self, other,"Org_861_Killian_LOST_Info_13_02"); //Hey KUMPEL, ich wusste ja nicht, das die Brudeschaft da soviel Wert darauf legt!
     AI_Output (other, self,"Org_861_Killian_LOST_Info_15_03"); //Ich bin nicht dein Kumpel, Penner!
     Kalom_DrugMonopol = LOG_SUCCESS;

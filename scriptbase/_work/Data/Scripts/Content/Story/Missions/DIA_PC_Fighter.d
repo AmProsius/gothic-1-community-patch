@@ -33,7 +33,7 @@ func VOID Info_Gorn_EXIT_Info()
 };
 
 //*************************************
-//          1. Begrüßung
+//          1. BegrÃ¼ÃŸung
 //*************************************
 
 instance DIA_Gorn_First (C_INFO)
@@ -92,7 +92,7 @@ func void DIA_Gorn_Leben_Info()
 };
 
 //*************************************
-//          Hütte (Shrike)
+//          HÃ¼tte (Shrike)
 //*************************************
     var int Gorn_ShrikesHut;
 //*************************************
@@ -131,7 +131,7 @@ func void DIA_Gorn_Hut_Info()
 };
 
 //*************************************
-//          Hütte LEER (Shrike)
+//          HÃ¼tte LEER (Shrike)
 //*************************************
 
 instance DIA_Gorn_HutFree (C_INFO)
@@ -164,7 +164,7 @@ func void DIA_Gorn_HutFree_Info()
 };
 
 //*************************************
-//          Söldner werden
+//          SÃ¶ldner werden
 //*************************************
 
 instance DIA_Gorn_BecomeSLD (C_INFO)
@@ -285,7 +285,7 @@ func void DIA_Gorn_DuHehler_Info()
     AI_Output (other, self,"DIA_Gorn_DuHehler_15_06"); //I see.
 
     CreateInvItems(self, ItFoApple, 21);
-    B_GiveInvItems  (self,other, ItFoApple,21); //Notwendig für Screenausgabe
+    B_GiveInvItems  (self,other, ItFoApple,21); //Notwendig fÃ¼r Screenausgabe
     Npc_RemoveInvItems (other, ItFoApple,21);
 
     CreateInvItems(other, ItMw_1H_LightGuardsSword_03, 1);
@@ -1535,7 +1535,7 @@ func VOID Info_Gorn_AFTERFM_Info()
 
     B_Story_LeftFM      ();
 
-    Lee_freeminereport = 1;  //jetzt kann der SC Lee über die befreite Mine informieren.     ***Björn***
+    Lee_freeminereport = 1;  //jetzt kann der SC Lee Ã¼ber die befreite Mine informieren.     ***BjÃ¶rn***
 
     AI_StopProcessInfos (self);
 };

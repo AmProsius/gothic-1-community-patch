@@ -1,21 +1,21 @@
 //////////////////////////////////////////////////////////////////////////
 //  ZS_AssessFighter
 //  ================
-//  Wird ausschlieﬂlich aus:
+//  Wird ausschlie√ülich aus:
 //
 //  - B_AssessFighter
 //
-//  heraus aufgerufen. Dort wurde festgestellt, daﬂ die gezogene
-//  Waffe des SCs eine Bedrohung darstellt!  Diese Funktion muﬂ also
+//  heraus aufgerufen. Dort wurde festgestellt, da√ü die gezogene
+//  Waffe des SCs eine Bedrohung darstellt!  Diese Funktion mu√ü also
 //  auf diese echte Bedrohung reagieren. Was passiert:
 //
-//  1.  schon mal vom SC besiegt    ->  Zur¸ckweichen
+//  1.  schon mal vom SC besiegt    ->  Zur√ºckweichen
 //  2.  NSC ist WACHE oder BOSS     ->  Aufforderung Waffe/Magie
 //                                      wegzustecken
 //  3.  NSC ist ARBEITER
-//      - st‰rker als SC            ->  Aufforderung Waffe/Magie
+//      - st√§rker als SC            ->  Aufforderung Waffe/Magie
 //                                      wegzustecken
-//      - schw‰cher als SC          ->  Zur¸ckweichen
+//      - schw√§cher als SC          ->  Zur√ºckweichen
 //
 //  Bei Aufforderung, Waffe/Zauber wegzustecken, passiert folgendes:
 //
@@ -51,11 +51,11 @@ func void ZS_AssessFighter ()
     B_FullStop          (self);
     B_WhirlAround       (self,  other);
 
-    //-------- Wird der NSC zur¸ckweichen ? --------
+    //-------- Wird der NSC zur√ºckweichen ? --------
     if (    self.aivar[AIV_WASDEFEATEDBYSC]                     ||      // Wurde NSC schon mal besiegt, oder...
-            (C_NpcIsWorker(self) && C_AmIWeaker(self, other))       )   // ...ist NSC ein schw‰cherer WORKER ?
+            (C_NpcIsWorker(self) && C_AmIWeaker(self, other))       )   // ...ist NSC ein schw√§cherer WORKER ?
     {
-        PrintDebugNpc   (PD_ZS_CHECK,   "...NSC wird zur¸ckweichen!");
+        PrintDebugNpc   (PD_ZS_CHECK,   "...NSC wird zur√ºckweichen!");
 
         if (Npc_GetPermAttitude(self,other)!=ATT_HOSTILE)
         {
@@ -75,10 +75,10 @@ func void ZS_AssessFighter ()
         AI_ContinueRoutine(self);
     }
 
-    //-------- ...KEIN Zur¸ckweichen ! --------
+    //-------- ...KEIN Zur√ºckweichen ! --------
     else
     {
-        Npc_PercEnable  (self,  PERC_ASSESSREMOVEWEAPON ,   B_AssessRemoveWeapon);  // Wahrnehmung erst hier einschalten, damit ein zur¸ckweichender NSC nicht auf ein schnelles Waffenwegstecken des SCs reagiert!
+        Npc_PercEnable  (self,  PERC_ASSESSREMOVEWEAPON ,   B_AssessRemoveWeapon);  // Wahrnehmung erst hier einschalten, damit ein zur√ºckweichender NSC nicht auf ein schnelles Waffenwegstecken des SCs reagiert!
         Npc_PercEnable  (self,  PERC_ASSESSTHREAT       ,   B_AssessThreat      );  // dito
         B_DrawWeapon    (self,  other);
     };
@@ -128,7 +128,7 @@ func int ZS_AssessFighter_Loop ()
     //######## SC ist ganz weit weg ! ########
     else
     {
-        PrintDebugNpc       (PD_ZS_CHECK,   "...SC ist auﬂerhalb Fernkampfdistanz!");
+        PrintDebugNpc       (PD_ZS_CHECK,   "...SC ist au√üerhalb Fernkampfdistanz!");
         return              LOOP_END;
     };
 
@@ -189,7 +189,7 @@ func int ZS_AssessFighterWait_Loop  ()
     //-------- Hat sich der SC mittlerweile entfernt ? --------
     if (Npc_GetDistToNpc(self,other) > HAI_DIST_ABORT_MELEE)
     {
-        PrintDebugNpc       (PD_ZS_CHECK, "...SC ist auﬂerhalb Nahkampfreichweite!");
+        PrintDebugNpc       (PD_ZS_CHECK, "...SC ist au√üerhalb Nahkampfreichweite!");
         B_AssessRemoveWeapon();
     };
 

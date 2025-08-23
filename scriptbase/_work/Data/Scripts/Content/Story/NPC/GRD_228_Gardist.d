@@ -4,7 +4,7 @@ instance GRD_228_Gardist (Npc_Default)
 
     name        =   NAME_Gardist;
     npctype     =   npctype_guard;
-    flags       =   NPC_FLAG_IMMORTAL;  // weil Windenwache !!! wird in Kapitel 4 gelöscht!
+    flags       =   NPC_FLAG_IMMORTAL;  // weil Windenwache !!! wird in Kapitel 4 gelÃ¶scht!
     guild       =   GIL_GRD;
     level       =   15;
     voice       =   7;
@@ -75,14 +75,14 @@ FUNC VOID Rtn_start_228 ()
     TA_Sleep        (20,00,24,00,"OCR_MAINGATE_GUARDROOM");
 */
 
-//---- SN 05.10.00: Für Drehkreuzwachen-Prototyp ----
+//---- SN 05.10.00: FÃ¼r Drehkreuzwachen-Prototyp ----
 /*
     TA_StandAround  (08,00,23,00,"OCR_MAINGATE_GUARDROOM");
     TA_Sleep                (23,00,08,00,"OCR_MAINGATE_GUARDROOM");
 */
 
     TA_GuardWheelOpen       (07,55,19,55, "OCR_NORTHGATE_VWHEEL");
-    TA_GuardWheelOpen       (19,55,07,55, "OCR_NORTHGATE_VWHEEL");      //SN 09.01.01: geändert, damit Tore rund um die Uhr offen sind
+    TA_GuardWheelOpen       (19,55,07,55, "OCR_NORTHGATE_VWHEEL");      //SN 09.01.01: geÃ¤ndert, damit Tore rund um die Uhr offen sind
 //-------------------------------------------------------------------
 };
 

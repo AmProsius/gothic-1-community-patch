@@ -3,7 +3,7 @@
 **      B_Functions.D                                                   **
 **      =============                                                   **
 **                                                                      **
-**      Enthält kleinere, universell verwendbare Befehle für die        **
+**      EnthÃ¤lt kleinere, universell verwendbare Befehle fÃ¼r die        **
 **      Master-AI                                                       **
 **                                                                      **
 *************************************************************************/
@@ -11,8 +11,8 @@
 //////////////////////////////////////////////////////////////////////////
 //  B_GotoWPNextToNpc
 //  =================
-//  Überfrüft, ob der SC/NSC eine Waffe bzw. einen aggresiven Zauber
-//  in der Hand hält.
+//  ÃœberfrÃ¼ft, ob der SC/NSC eine Waffe bzw. einen aggresiven Zauber
+//  in der Hand hÃ¤lt.
 //////////////////////////////////////////////////////////////////////////
 func void B_GotoWPNextToNpc (var C_NPC slf, var C_NPC oth)
 {
@@ -43,14 +43,14 @@ func void B_CantSeeTurn ()
 // ---- Ruft AI_LookAtNpc auf wenn der slf nicht in AIV_ISLOOKING ---- //
 // ------------------------------------------------------------------- //
 
-//19.09.00 (SN): VORSICHT, ich habe die Abfrage auf AI-Variable herausgenommen, da das a) Probleme bereitete, und b) nach einem Bugfix auch nicht mehr nötig ist! -> getestet und funktioniert!!!
+//19.09.00 (SN): VORSICHT, ich habe die Abfrage auf AI-Variable herausgenommen, da das a) Probleme bereitete, und b) nach einem Bugfix auch nicht mehr nÃ¶tig ist! -> getestet und funktioniert!!!
 func int C_LookAtNpc( var C_NPC slf, var C_NPC oth )
 {
 //  if ( ! slf.aivar[ AIV_ISLOOKING ] )
 //  {
         AI_LookAtNpc( slf, oth );
         PrintDebugNpc(PD_ZS_DETAIL,"C_LookAtNpc");                                  // ...dann, glotzen lassen...
-//      slf.aivar[AIV_ISLOOKING] = 1;                               // ...und merken, daß es glotzt
+//      slf.aivar[AIV_ISLOOKING] = 1;                               // ...und merken, daÃŸ es glotzt
         return 1;
 //  };
 //  return 0;
@@ -63,11 +63,11 @@ func int C_LookAtNpc( var C_NPC slf, var C_NPC oth )
 
 func int C_StopLookAt( var C_NPC slf )
 {
-//  if ( slf.aivar[ AIV_ISLOOKING ] )                               // schaut das Monster überhaupt?
+//  if ( slf.aivar[ AIV_ISLOOKING ] )                               // schaut das Monster Ã¼berhaupt?
 //  {                                                               // ...ja!
         AI_StopLookAt( slf );
-        PrintDebugNpc(PD_ZS_DETAIL,"C_StopLookAt");                                     // ...dann aufhören lassen...
-//      slf.aivar[ AIV_ISLOOKING ] = 0;                             // ...und merken, daß es aufgehört hat!
+        PrintDebugNpc(PD_ZS_DETAIL,"C_StopLookAt");                                     // ...dann aufhÃ¶ren lassen...
+//      slf.aivar[ AIV_ISLOOKING ] = 0;                             // ...und merken, daÃŸ es aufgehÃ¶rt hat!
         return 1;
 //  };
 //  return 0;
@@ -104,9 +104,9 @@ func void B_SmartTurnToNpc (var C_NPC slf, var C_NPC oth)
 //////////////////////////////////////////////////////////////////////////
 //  B_Say
 //  =====
-//  Läßt den Nsc 'slf' einen SVM-Satz 'text' zum Nsc 'oth' sagen. Der
-//  Sprecher sieht den Gesprächspartner dabei an, bzw. dreht sich, falls
-//  er den Hals zu sehr verrenken müsste.
+//  LÃ¤ÃŸt den Nsc 'slf' einen SVM-Satz 'text' zum Nsc 'oth' sagen. Der
+//  Sprecher sieht den GesprÃ¤chspartner dabei an, bzw. dreht sich, falls
+//  er den Hals zu sehr verrenken mÃ¼sste.
 //////////////////////////////////////////////////////////////////////////
 func void B_Say(var C_NPC slf, var C_Npc oth, var string text)
 {
@@ -123,7 +123,7 @@ func void B_Say(var C_NPC slf, var C_Npc oth, var string text)
 //  B_SayOverlay
 //  ===========
 //  Wie B_Say() benutzt allerdings AI_OutputSVMOverlay(), welches mit
-//  der Ausführung der folgenden AI-Befehle NICHT wartet, bis der Satz
+//  der AusfÃ¼hrung der folgenden AI-Befehle NICHT wartet, bis der Satz
 //  zu Ende gesprochen wurde.
 //////////////////////////////////////////////////////////////////////////
 func void B_SayOverlay(var C_NPC slf, var C_Npc oth, var string text)
@@ -135,14 +135,14 @@ func void B_SayOverlay(var C_NPC slf, var C_Npc oth, var string text)
 
     B_SmartTurnToNpc    (slf, oth);
 
-    //SN: VORSICHT: Bug #3046, würgt das SVM-Sample beim Zustandswechsel ab. Soll in v1.01 behoben sein.
+    //SN: VORSICHT: Bug #3046, wÃ¼rgt das SVM-Sample beim Zustandswechsel ab. Soll in v1.01 behoben sein.
     AI_OutputSVM_Overlay    (slf, oth , text);
 };
 
 //////////////////////////////////////////////////////////////////////////
 //  B_StandUp
 //  =========
-//  Beendet alle möglichen Sitzstellungen.
+//  Beendet alle mÃ¶glichen Sitzstellungen.
 //////////////////////////////////////////////////////////////////////////
 func void B_StandUp (var C_NPC slf)
 {
@@ -176,7 +176,7 @@ func void B_StandUp (var C_NPC slf)
 //////////////////////////////////////////////////////////////////////////
 //  B_CallComrades
 //  ==============
-//  Ruft die in der Nähe befindlichen Kameraden heran.
+//  Ruft die in der NÃ¤he befindlichen Kameraden heran.
 //////////////////////////////////////////////////////////////////////////
 func void B_CallComrades()
 {
@@ -189,7 +189,7 @@ func void B_CallComrades()
 //////////////////////////////////////////////////////////////////////////
 //  B_CallGuards
 //  ============
-//  Ruft die in der Nähe befindlichen Wachen heran.
+//  Ruft die in der NÃ¤he befindlichen Wachen heran.
 //////////////////////////////////////////////////////////////////////////
 func void B_CallGuards()
 {
@@ -202,7 +202,7 @@ func void B_CallGuards()
 //////////////////////////////////////////////////////////////////////////
 //  B_IntruderAlert
 //  ===============
-//  Warnt vor Eindringling und ruft die in der Nähe befindlichen
+//  Warnt vor Eindringling und ruft die in der NÃ¤he befindlichen
 //  Kameraden heran.
 //////////////////////////////////////////////////////////////////////////
 func void B_IntruderAlert(var C_NPC slf, var C_NPC oth)
@@ -216,8 +216,8 @@ func void B_IntruderAlert(var C_NPC slf, var C_NPC oth)
 //////////////////////////////////////////////////////////////////////////
 //  B_FullStop
 //  ==========
-//  Unterbricht jegliche Animation des NSCs. Hier wurde früher AI_Standup()
-//  verwendet. Dieser Befehl ist in einigen Situationen jedoch zu träge
+//  Unterbricht jegliche Animation des NSCs. Hier wurde frÃ¼her AI_Standup()
+//  verwendet. Dieser Befehl ist in einigen Situationen jedoch zu trÃ¤ge
 //  und wurde durch AI_StandUpQuick() ersetzt
 //////////////////////////////////////////////////////////////////////////
 func void   B_FullStop(var C_NPC npc)
@@ -231,11 +231,11 @@ func void   B_FullStop(var C_NPC npc)
 //////////////////////////////////////////////////////////////////////////
 //  B_ResetTempAttitude
 //  ===================
-//  Setzt den Wert der Temporären Attitüde auf den der Permanenten!
+//  Setzt den Wert der TemporÃ¤ren AttitÃ¼de auf den der Permanenten!
 //  Symbolisiert die Beruhigung des NSCs.
 //
 //  Voraussetzungen:
-//  - 'slf' muß ein NSC sein
+//  - 'slf' muÃŸ ein NSC sein
 //////////////////////////////////////////////////////////////////////////
 func void   B_ResetTempAttitude(var C_NPC slf)
 {
@@ -248,7 +248,7 @@ func void   B_ResetTempAttitude(var C_NPC slf)
 //  B_WhirlAround
 //  =============
 //  Wirbelt nur herum, wenn der NSC 'slf' das Ziel 'oth' nicht sehen kann.
-//  Wenn er das Ziel sehen kann, wird nur ein einfacher AI_TurnTo ausgeführt.
+//  Wenn er das Ziel sehen kann, wird nur ein einfacher AI_TurnTo ausgefÃ¼hrt.
 //////////////////////////////////////////////////////////////////////////
 func void   B_WhirlAround(var C_NPC slf, var C_NPC oth)
 {
@@ -269,7 +269,7 @@ func void   B_WhirlAround(var C_NPC slf, var C_NPC oth)
 //////////////////////////////////////////////////////////////////////////
 //  B_DropWeapon
 //  =============
-//  Läßt die derzeit gezogene Waffe fallen. Wenn keine gezogen ist,
+//  LÃ¤ÃŸt die derzeit gezogene Waffe fallen. Wenn keine gezogen ist,
 //  passiert nichts.
 //////////////////////////////////////////////////////////////////////////
 func void B_DropWeapon(var C_NPC slf)
@@ -291,8 +291,8 @@ func void B_DropWeapon(var C_NPC slf)
 //////////////////////////////////////////////////////////////////////////
 //  B_RegainDroppedWeapon
 //  =====================
-//  Guckt sich um und sammelt die Waffe, die am nächsten liegt wieder auf.
-//  VORSICHT: Löscht die globale Variable 'item' !
+//  Guckt sich um und sammelt die Waffe, die am nÃ¤chsten liegt wieder auf.
+//  VORSICHT: LÃ¶scht die globale Variable 'item' !
 //////////////////////////////////////////////////////////////////////////
 func void B_RegainDroppedWeapon(var C_NPC slf)
 {
@@ -314,8 +314,8 @@ func void B_RegainDroppedWeapon(var C_NPC slf)
 //////////////////////////////////////////////////////////////////////////
 //  B_RegainDroppedArmor
 //  =====================
-//  Guckt sich um und sammelt die Rüstung, die am nächsten liegt wieder auf.
-//  VORSICHT: Löscht die globale Variable 'item' !
+//  Guckt sich um und sammelt die RÃ¼stung, die am nÃ¤chsten liegt wieder auf.
+//  VORSICHT: LÃ¶scht die globale Variable 'item' !
 //////////////////////////////////////////////////////////////////////////
 func void B_RegainDroppedArmor(var C_NPC slf)
 {
@@ -325,7 +325,7 @@ func void B_RegainDroppedArmor(var C_NPC slf)
     {
         if (!Npc_IsPlayer(slf))
         {
-            PrintDebugNpc(PD_ZS_CHECK, "...NSC hebt seine Rüstung wieder auf!" );
+            PrintDebugNpc(PD_ZS_CHECK, "...NSC hebt seine RÃ¼stung wieder auf!" );
             AI_TakeItem (slf, item);
             AI_EquipBestArmor(slf);
         };
@@ -335,7 +335,7 @@ func void B_RegainDroppedArmor(var C_NPC slf)
 //////////////////////////////////////////////////////////////////////////
 //  B_GotoFP
 //  ========
-//  Geht zum nächsten freien Freepoint. Checkt, ob der NSC nicht schon
+//  Geht zum nÃ¤chsten freien Freepoint. Checkt, ob der NSC nicht schon
 //  dort steht!
 //////////////////////////////////////////////////////////////////////////
 func void   B_GotoFP (var C_NPC slf, var string fp)
@@ -360,7 +360,7 @@ func void   B_GotoFP (var C_NPC slf, var string fp)
 //  ==============
 //  Diese Funktion kann benutzt werden um durch ein PERC_MOVENPC ein
 //  AI_GotoNpc(self, hero) vorzeitig abzubrechen, bevor der NSC in den SC
-//  hineinläuft!
+//  hineinlÃ¤uft!
 //  - benutzt 'self' und 'hero'
 //////////////////////////////////////////////////////////////////////////
 func void   B_StopGotoHero ()
@@ -378,7 +378,7 @@ func void   B_StopGotoHero ()
 //////////////////////////////////////////////////////////////////////////
 //  B_SetAttackReason
 //  =================
-//  Setzt den Grund des Angriffs eines NSCs, damit später darauf
+//  Setzt den Grund des Angriffs eines NSCs, damit spÃ¤ter darauf
 //  abgefragt werden kann.
 //  Konstanten sind in AI_CONSTANTS.D zu finden
 //////////////////////////////////////////////////////////////////////////
@@ -404,7 +404,7 @@ func void B_KillNpc(var int npcInstance)
 
     npc.flags = 0;
 
-    CreateInvItem       (npc,ItMi_Stuff_OldCoin_02);        // Mission-Item, das verhindert, daß die Toten entfernt werden
+    CreateInvItem       (npc,ItMi_Stuff_OldCoin_02);        // Mission-Item, das verhindert, daÃŸ die Toten entfernt werden
 
     Npc_ChangeAttribute (npc, ATR_HITPOINTS, -npc.attribute[ATR_HITPOINTS_MAX]);
 
@@ -423,7 +423,7 @@ func void B_KillNpc(var int npcInstance)
     };
 };
 
-// Visualisierung: Schriftstück lesen -> 'self' zieht ein Stück Pergament aus der Tasche und wirft einen Blick drauf
+// Visualisierung: SchriftstÃ¼ck lesen -> 'self' zieht ein StÃ¼ck Pergament aus der Tasche und wirft einen Blick drauf
 func void B_UseFakeScroll ()
 {
     if ( C_BodystateContains(self, BS_SIT) )
@@ -440,7 +440,7 @@ func void B_UseFakeScroll ()
 //////////////////////////////////////////////////////////////////////////
 //  B_ChangeGuild
 //  =============
-//  Ändert die Gilde des angegebenen NSCs
+//  Ã„ndert die Gilde des angegebenen NSCs
 //////////////////////////////////////////////////////////////////////////
 func void B_ChangeGuild(var int npcInstance, var int newGuild)
 {
@@ -456,9 +456,9 @@ func void B_ChangeGuild(var int npcInstance, var int newGuild)
 //////////////////////////////////////////////////////////////////////////
 //  B_ExchangeRoutine
 //  =================
-//  Ändert den Tagesablauf des angegebenen NSCs
+//  Ã„ndert den Tagesablauf des angegebenen NSCs
 //
-//  VORSICHT:   Auf KEINEN Fall für 'self' innerhalb eines Dialoges
+//  VORSICHT:   Auf KEINEN Fall fÃ¼r 'self' innerhalb eines Dialoges
 //              benutzen, da AI_ContinueRoutine() den Dialog freezed!!!
 //////////////////////////////////////////////////////////////////////////
 func void B_ExchangeRoutine(var int npcInstance, var string newRoutine)
@@ -475,7 +475,7 @@ func void B_ExchangeRoutine(var int npcInstance, var string newRoutine)
 //////////////////////////////////////////////////////////////////////////
 //  B_SetPermAttitude
 //  =================
-//  Ändert die permamente Attitüde des angegebenen NSCs zum SC
+//  Ã„ndert die permamente AttitÃ¼de des angegebenen NSCs zum SC
 //////////////////////////////////////////////////////////////////////////
 func void B_SetPermAttitude(var int npcInstance, var int newAttitude)
 {
@@ -507,7 +507,7 @@ func void B_LogEntry(var string topic, var string entry)
 //////////////////////////////////////////////////////////////////////////
 //  B_ClearImmortal
 //  ===============
-//  Löscht sas Immortal-Flag eines NPCs
+//  LÃ¶scht sas Immortal-Flag eines NPCs
 //////////////////////////////////////////////////////////////////////////
 func void B_ClearImmortal(var int npcInstance)
 {
@@ -537,14 +537,14 @@ func void B_SetNpcType(var int npcInstance, var int newNpctype)
 //////////////////////////////////////////////////////////////////////////
 //  B_GiveInvItems
 //  ==============
-//  Übergibt ein Item von 'giver' an 'taker' und gibt eine Meldung
+//  Ãœbergibt ein Item von 'giver' an 'taker' und gibt eine Meldung
 //  auf dem Bildschirm aus.
 //////////////////////////////////////////////////////////////////////////
 func void B_GiveInvItems(var C_NPC giver, var C_NPC taker, var int itemInstance, var int amount)
 {
     PrintDebugNpc   (PD_ZS_DETAIL,  "B_GiveInvItems");
 
-    //-------- Gegenstand übertragen --------
+    //-------- Gegenstand Ã¼bertragen --------
     Npc_RemoveInvItems  (giver, itemInstance,   amount);
     CreateInvItems      (taker, itemInstance,   amount);
 
@@ -601,7 +601,7 @@ func void B_GiveInvItems(var C_NPC giver, var C_NPC taker, var int itemInstance,
 //  =======================
 //  Startet eine Important-Info wenn:
 //  - der NSC eine solche Info parat hat
-//  - der SC in keinem unpäßlichen Bodystate ist
+//  - der SC in keinem unpÃ¤ÃŸlichen Bodystate ist
 //  - der SC gerade ein Mensch ist
 //  - der SC nicht gerade spricht
 //////////////////////////////////////////////////////////////////////////
@@ -611,7 +611,7 @@ func int B_CheckForImportantInfo (var C_NPC slf, var C_NPC oth)
 
     //-------- Auf Vergabe von Infos & Missionen checken --------
     if  (   (oth.aivar[AIV_INVINCIBLE] == FALSE)
-    &&      C_NpcIsHuman(oth)   )   //SC könnte verwandelt sein
+    &&      C_NpcIsHuman(oth)   )   //SC kÃ¶nnte verwandelt sein
     {
         PrintDebugNpc   (PD_ZS_CHECK,   "...SC spricht nicht!");
 
@@ -634,7 +634,7 @@ func int B_CheckForImportantInfo (var C_NPC slf, var C_NPC oth)
                 PrintDebugNpc   (PD_ZS_CHECK,   "...SC springt nicht oder NSC ist Durchgangswache!");
                 if  (!C_BodyStateContains(oth,BS_FALL))
                 {
-                    PrintDebugNpc   (PD_ZS_CHECK,   "...fällt nicht!");
+                    PrintDebugNpc   (PD_ZS_CHECK,   "...fÃ¤llt nicht!");
                     if  (!C_BodyStateContains(oth,BS_SWIM))
                     {
                         PrintDebugNpc   (PD_ZS_CHECK,   "...schwimmt nicht!");
@@ -670,8 +670,8 @@ func int B_CheckForImportantInfo (var C_NPC slf, var C_NPC oth)
 //////////////////////////////////////////////////////////////////////////
 //  B_InitGuildAttitudes
 //  ====================
-//  Setzt bzw. resettet die Attitüde unter den Menschengilden
-//  und berücksichtigt dabei den Storyverlauf
+//  Setzt bzw. resettet die AttitÃ¼de unter den Menschengilden
+//  und berÃ¼cksichtigt dabei den Storyverlauf
 //////////////////////////////////////////////////////////////////////////
 func void B_InitGuildAttitudes ()
 {

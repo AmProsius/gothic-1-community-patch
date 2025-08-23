@@ -70,6 +70,6 @@ INSTANCE OrcShaman (Mst_Default_OrcShaman)
 {
     Set_OrcShaman_Visuals();
     CreateInvItem           (self,  ItArRuneFireball);
-    EquipItem               (self,  ItRwOrcstaff);      // für Magiemodus
+    EquipItem               (self,  ItRwOrcstaff);      // fÃ¼r Magiemodus
 
 };

@@ -16,8 +16,8 @@ func int G1CP_Test_0093() {
 
     // Define variables for specific test
     // I'm sorry for not breaking the line at 120 characters
-    const string logEntryWrong = "Horatio, ein Bauer auf den Reisfeldern des Neuen Lagers will mir beibringen, st‰rker zuzuschalgen. Doch irgendwie habe ich noch nicht die richtige Antwort auf seine Frage WOZU gefunden.";
-    const string logEntryRight = "Horatio, ein Bauer auf den Reisfeldern des Neuen Lagers will mir beibringen, st‰rker zuzuschlagen. Doch irgendwie habe ich noch nicht die richtige Antwort auf seine Frage WOZU gefunden.";
+    const string logEntryWrong = "Horatio, ein Bauer auf den Reisfeldern des Neuen Lagers will mir beibringen, st√§rker zuzuschalgen. Doch irgendwie habe ich noch nicht die richtige Antwort auf seine Frage WOZU gefunden.";
+    const string logEntryRight = "Horatio, ein Bauer auf den Reisfeldern des Neuen Lagers will mir beibringen, st√§rker zuzuschlagen. Doch irgendwie habe ich noch nicht die richtige Antwort auf seine Frage WOZU gefunden.";
 
     // Define possibly missing symbols locally
     const int LOG_MISSION = 0;

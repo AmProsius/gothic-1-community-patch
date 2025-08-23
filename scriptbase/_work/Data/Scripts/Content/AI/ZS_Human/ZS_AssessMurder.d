@@ -1,11 +1,11 @@
 //////////////////////////////////////////////////////////////////////////
 //  ZS_AssessMurder
 //  ===============
-//  Wird ausschließlich durch
+//  Wird ausschlieÃŸlich durch
 //
 //  - PERC_ASSESSMURDER
 //
-//  angesprungen. Folgende Voraussetzungen müssen erfüllt sein:
+//  angesprungen. Folgende Voraussetzungen mÃ¼ssen erfÃ¼llt sein:
 //
 //  - keine!
 //
@@ -16,9 +16,9 @@
 //      ->  ignorieren
 //  3.  Mord ohne Monsterbeteiligung
 //      ->  News-Eintrag generieren
-//      ->  Wachen, deren Schützlinge besiegt wurden    -> ZS_ProclaimAndPunish
+//      ->  Wachen, deren SchÃ¼tzlinge besiegt wurden    -> ZS_ProclaimAndPunish
 //      ->  war das Opfer ein Freund                    -> B_AssessEnemy
-//      ->  Wenn ANGRY/HOSTILE zum Mordopfer            -> spöttischer Kommentar
+//      ->  Wenn ANGRY/HOSTILE zum Mordopfer            -> spÃ¶ttischer Kommentar
 //////////////////////////////////////////////////////////////////////////
 FUNC VOID ZS_AssessMurder ()
 {
@@ -62,19 +62,19 @@ FUNC VOID ZS_AssessMurder ()
         B_WhirlAround       (self,  other);
         B_AssessAndMemorize (NEWS_MURDER,   NEWS_SOURCE_WITNESS,    self,   other,  victim);
 
-        //-------- Schützling einer Wache wurde umgehauen ! --------
+        //-------- SchÃ¼tzling einer Wache wurde umgehauen ! --------
         if (C_ChargeWasAttacked(self, victim, other))
         {
-            PrintDebugNpc   (PD_ZS_CHECK,   "...NSC ist Wache und ein Schützling wurde gemordet!");
+            PrintDebugNpc   (PD_ZS_CHECK,   "...NSC ist Wache und ein SchÃ¼tzling wurde gemordet!");
             B_DrawWeapon    (self,  other);
             AI_StartState   (self,  ZS_ProclaimAndPunish, 0, "");
             return;
         };
 
-        //-------- führte Mordbewertung in B_AssessAndMemorize zu HOSTILE ? --------
+        //-------- fÃ¼hrte Mordbewertung in B_AssessAndMemorize zu HOSTILE ? --------
         if (Npc_GetAttitude(self,other)==ATT_HOSTILE)
         {
-            PrintDebugNpc   (PD_ZS_CHECK,   "...hostile zum Mörder!");
+            PrintDebugNpc   (PD_ZS_CHECK,   "...hostile zum MÃ¶rder!");
             B_Say           (self,  other,  "$HEKILLEDHIM");    //MH: von B_AssessAndMemorize hierhin kopiert, weil sonst IMMER der Spruch kam!
             B_AssessEnemy   ();
         }

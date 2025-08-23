@@ -12,7 +12,7 @@ func int G1CP_Test_0149() {
 
     // Case-sensitive comparison!
     if (STR_Compare(itm.name, "Improved Ore Armor") != STR_EQUAL)       // EN
-    && (STR_Compare(itm.name, "Verbesserte Erzrüstung") != STR_EQUAL) { // DE
+    && (STR_Compare(itm.name, "Verbesserte ErzrÃ¼stung") != STR_EQUAL) { // DE
         G1CP_TestsuiteErrorDetailSSS("Name incorrect: name = '", itm.name, "'");
         return FALSE;
     };

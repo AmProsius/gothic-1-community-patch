@@ -601,7 +601,7 @@ FUNC VOID STARTUP_WORLD_Orcs ()
 
 
 
-B_InitOrcAttitudes(3);      //Param ist Attitüdenvariabel
+B_InitOrcAttitudes(3);      //Param ist AttitÃ¼denvariabel
 
 /*
     Wld_InsertNpc       (Orc01,"OW_ORC_PATH_04");

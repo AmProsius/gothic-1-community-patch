@@ -24,7 +24,7 @@ FUNC VOID  DIA_BaalOrun_Exit_Info()
 };
 
 // ************************************************************
-//                  NICHT ansprechbar (Ungl‰ubiger)
+//                  NICHT ansprechbar (Ungl√§ubiger)
 // ************************************************************
     var int BaalOrun_Ansprechbar;
     var int BaalOrun_Sakrileg;

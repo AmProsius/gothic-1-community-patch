@@ -52,7 +52,7 @@ FUNC VOID DIA_Jarvis_First_Info()
 };
 
 // ************************************************************
-//                      Söldner
+//                      SÃ¶ldner
 // ************************************************************
 
 INSTANCE DIA_Jarvis_SldInfo (C_INFO)
@@ -228,7 +228,7 @@ FUNC VOID DIA_Jarvis_PERM_Info()
 };
 
 /*------------------------------------------------------------------------
-//                          SÖLDNERAUFNAHME                                 //
+//                          SÃ–LDNERAUFNAHME                                 //
 ------------------------------------------------------------------------*/
 instance Sld_728_Jarvis_AUFNAHMESOLDIER (C_INFO)
 {
@@ -254,7 +254,7 @@ func void  Sld_728_Jarvis_AUFNAHMESOLDIER_Info()
     AI_Output (self, other,"Sld_728_Jarvis_AUFNAHMESOLDIER_Info_08_01"); //Hey, I heard you'd been giving the crawlers in the mine a hard time.
     AI_Output (self, other,"Sld_728_Jarvis_AUFNAHMESOLDIER_Info_08_02"); //Lee should be quite willing to accept you as a mercenary. Just speak to him.
 
-    self.flags = 0;     // Immortal-Flag löschen
+    self.flags = 0;     // Immortal-Flag lÃ¶schen
 
     Log_CreateTopic (GE_BecomeMercenary,LOG_NOTE);
     B_LogEntry (GE_BecomeMercenary,"I should speak to Lee. Maybe he'll let me join the mercenaries.");

@@ -7,7 +7,7 @@
 //#####################################################################
 
 //---------------------------------------------------------------------
-//  Karte für 1. Fokus
+//  Karte fÃ¼r 1. Fokus
 //---------------------------------------------------------------------
 INSTANCE ItWrFocusmapPsi(C_Item)
 {
@@ -65,7 +65,7 @@ INSTANCE Focus_1(C_Item)
 };
 
 //---------------------------------------------------------------------
-//  Zahnrad für Ian
+//  Zahnrad fÃ¼r Ian
 //---------------------------------------------------------------------
 INSTANCE ItMi_Stuff_Gearwheel_01(C_Item)
 {
@@ -160,7 +160,7 @@ INSTANCE ItWrFokusbuch(C_Item)
                     Doc_PrintLines  ( nDocID,  0,"But once unleashed, the focus becomes devoid of power, remaining but an empty shell.");
 
                     //2.Seite
-                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1        );  //  0 -> margins are in pixels (Position des Textes von den Ränder des TGAs aus, links,oben,rechts,unten)
+                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1        );  //  0 -> margins are in pixels (Position des Textes von den RÃ¤nder des TGAs aus, links,oben,rechts,unten)
                     Doc_PrintLine   ( nDocID,  1,  "");
                     Doc_PrintLines  ( nDocID,  1,"The words that must be spoken to unleash the power of a focus are accessible to many artists of arcane power. Even the knowledge of endowing a new artifact with magic powers has become more of a magical custom than a secret of the knowing.");
                     Doc_PrintLine   ( nDocID,  1,  "");

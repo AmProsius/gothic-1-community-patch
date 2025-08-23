@@ -15,14 +15,14 @@ func void ZS_OTMeditate()
     self.senses         = SENSE_SEE|SENSE_HEAR|SENSE_SMELL;
     self.senses_range   = 3500;
 
-    //-------- Attitüden checken --------
+    //-------- AttitÃ¼den checken --------
     if (Npc_GetPermAttitude(self,hero) != ATT_HOSTILE)
     {
         Npc_SetPermAttitude     (self, ATT_ANGRY);
     };
 
     //-------- in Meditier-haltung --------
-    AI_SetWalkmode (self,NPC_WALK);         // Walkmode für den Zustand
+    AI_SetWalkmode (self,NPC_WALK);         // Walkmode fÃ¼r den Zustand
     if !(Npc_IsOnFP(self,"MEDITATE"))
     {
         AI_GotoWP(self, self.wp);               // Gehe zum Tagesablaufstart

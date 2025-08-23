@@ -1,4 +1,4 @@
-//-------- Startup für die Pressetour im Januar 2001 --------
+//-------- Startup fÃ¼r die Pressetour im Januar 2001 --------
 FUNC VOID STARTUP_WORLD_DEMO ()
 {
     STARTUP_WORLD ();

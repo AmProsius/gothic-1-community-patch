@@ -4,7 +4,7 @@
 //  Der NSC steht bei diesem Tagesablauf-Zustand FEST auf seinem WP
 //  und reagiert auf nichts. Wird verwendet, damit der NSC beim
 //  herannahen des Spielers von einem nahen Monster sofort mit einem
-//  getötet werden kann.
+//  getÃ¶tet werden kann.
 //////////////////////////////////////////////////////////////////////////
 func void ZS_SittingDuck ()
 {

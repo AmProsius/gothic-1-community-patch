@@ -3,8 +3,8 @@
  */
 func int G1CP_0093_DE_LogEntryHoratio() {
     // I'm sorry for not breaking the line at 120 characters
-    const string curString = "Horatio, ein Bauer auf den Reisfeldern des Neuen Lagers will mir beibringen, st‰rker zuzuschalgen. Doch irgendwie habe ich noch nicht die richtige Antwort auf seine Frage WOZU gefunden.";
-    const string newString = "Horatio, ein Bauer auf den Reisfeldern des Neuen Lagers will mir beibringen, st‰rker zuzuschlagen. Doch irgendwie habe ich noch nicht die richtige Antwort auf seine Frage WOZU gefunden.";
+    const string curString = "Horatio, ein Bauer auf den Reisfeldern des Neuen Lagers will mir beibringen, st√§rker zuzuschalgen. Doch irgendwie habe ich noch nicht die richtige Antwort auf seine Frage WOZU gefunden.";
+    const string newString = "Horatio, ein Bauer auf den Reisfeldern des Neuen Lagers will mir beibringen, st√§rker zuzuschlagen. Doch irgendwie habe ich noch nicht die richtige Antwort auf seine Frage WOZU gefunden.";
     const string topicName = "";
 
     // Do only once per session for performance on consecutive calls
@@ -37,8 +37,8 @@ func int G1CP_0093_DE_LogEntryHoratio() {
  */
 func int G1CP_0093_DE_LogEntryHoratioRevert() {
     // I'm sorry for not breaking the line at 120 characters
-    const string oldString = "Horatio, ein Bauer auf den Reisfeldern des Neuen Lagers will mir beibringen, st‰rker zuzuschalgen. Doch irgendwie habe ich noch nicht die richtige Antwort auf seine Frage WOZU gefunden.";
-    const string curString = "Horatio, ein Bauer auf den Reisfeldern des Neuen Lagers will mir beibringen, st‰rker zuzuschlagen. Doch irgendwie habe ich noch nicht die richtige Antwort auf seine Frage WOZU gefunden.";
+    const string oldString = "Horatio, ein Bauer auf den Reisfeldern des Neuen Lagers will mir beibringen, st√§rker zuzuschalgen. Doch irgendwie habe ich noch nicht die richtige Antwort auf seine Frage WOZU gefunden.";
+    const string curString = "Horatio, ein Bauer auf den Reisfeldern des Neuen Lagers will mir beibringen, st√§rker zuzuschlagen. Doch irgendwie habe ich noch nicht die richtige Antwort auf seine Frage WOZU gefunden.";
     const string topicName = "";
 
     // Only revert if it was applied by the G1CP

@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////////////////////////
 //  B_AssessCaster
 //  ==============
-//  Wird auschließlich aufgerufen durch:
+//  Wird auschlieÃŸlich aufgerufen durch:
 //
 //  - PERC_ASSESSCASTER
 //
@@ -35,7 +35,7 @@ func void B_AssessCaster()
     //-------- Zauberkategorie untersuchen ! --------
     if  (Npc_GetActiveSpellCat(other) == SPELL_BAD  )
     {
-        PrintDebugNpc   (PD_ZS_CHECK,   "...böser Zauber!");
+        PrintDebugNpc   (PD_ZS_CHECK,   "...bÃ¶ser Zauber!");
 
         B_FullStop      (self);
         Npc_PercDisable (self,  PERC_ASSESSCASTER);
@@ -43,7 +43,7 @@ func void B_AssessCaster()
     }
     else if (Npc_GetAttitude(self, other) == ATT_HOSTILE)
     {
-        PrintDebugNpc   (PD_ZS_CHECK,   "...böser Zauberer!");
+        PrintDebugNpc   (PD_ZS_CHECK,   "...bÃ¶ser Zauberer!");
 
         B_FullStop      (self);
         AI_StartState   (self,  ZS_AssessEnemy, 0, "");         //WICHTIG: kein B_AssessEnemy !!!

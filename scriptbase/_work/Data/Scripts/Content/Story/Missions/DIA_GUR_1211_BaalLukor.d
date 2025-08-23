@@ -166,7 +166,7 @@ FUNC VOID Info_BaalLukor_FOUNDNONE_Info()
     AI_Output       (self, other,"Info_BaalLukor_FOUNDNONE_13_02"); //We'll need to search the three tunnels.
 
 
-    Npc_ExchangeRoutine (self, "Follow"); //Björn: Patch2
+    Npc_ExchangeRoutine (self, "Follow"); //BjÃ¶rn: Patch2
 };
 
 //**************************************************************************
@@ -196,7 +196,7 @@ FUNC VOID Info_BaalLukor_FOUNDONE_Info()
     AI_Output       (other, self,"Info_BaalLukor_FOUNDONE_15_01"); //Apparently there is no other half to the parchment!
     AI_Output       (self, other,"Info_BaalLukor_FOUNDONE_13_02"); //There must be a second half. We should search all three tunnels!
 
-    Npc_ExchangeRoutine (self, "Follow"); //Björn: Patch2
+    Npc_ExchangeRoutine (self, "Follow"); //BjÃ¶rn: Patch2
 };
 
 //**************************************************************************
@@ -256,7 +256,7 @@ FUNC INT Info_BaalLukor_FIRSTSCROLL_Condition()
 FUNC VOID Info_BaalLukor_FIRSTSCROLL_Info()
 {
     AI_Output       (other, self,"Info_BaalLukor_FIRSTSCROLL_15_01"); //I've found a piece of parchment!
-    B_GiveInvItems  (hero, self, OrkParchmentOne,1); //Pergament1 übergeben
+    B_GiveInvItems  (hero, self, OrkParchmentOne,1); //Pergament1 Ã¼bergeben
     if (BaalLukor_BringParchment == 2)
     {
         AI_Output   (self, other,"Info_BaalLukor_FIRSTSCROLL_13_02"); //Very good! It's the other half of the Orcish spell scroll.
@@ -335,7 +335,7 @@ FUNC VOID Info_BaalLukor_SECONDSCROLL_Info()
     AI_GotoNpc      (self,  hero);
 
     AI_Output       (other, self,"Info_BaalLukor_SECONDSCROLL_15_01"); //There is a torn piece of parchment here!
-    B_GiveInvItems  (hero, self, OrkParchmentTwo,1); //Pergament2 übergeben
+    B_GiveInvItems  (hero, self, OrkParchmentTwo,1); //Pergament2 Ã¼bergeben
     if (BaalLukor_BringParchment == 1)
     {
         AI_Output   (self, other,"Info_BaalLukor_SECONDSCROLL_13_02"); //Very good! It's the other half of the Orcish spell scroll.
@@ -381,7 +381,7 @@ FUNC VOID Info_BaalLukor_BOTHSCROLLS_Info()
 
     B_LogEntry      (CH3_OrcGraveyard,"We've found two halves of an Orcish spell scroll, but Baal Lukor can't translate it. We'll carry on searching.");
 
-    Npc_ExchangeRoutine (self, "Follow"); //Björn: Patch2
+    Npc_ExchangeRoutine (self, "Follow"); //BjÃ¶rn: Patch2
 };
 
 //**************************************************************************
@@ -421,12 +421,12 @@ FUNC VOID Info_BaalLukor_RUNES_Info()
 
     Npc_RemoveInvItems  (self,          OrkParchmentOne, 1); //Pergament 1 entfernen
     Npc_RemoveInvItems  (self,          OrkParchmentTwo, 1); //Pergament 2 entfernen
-    //Hier Teleport-Übergabe entfernt --> erst wenn vor wand!
+    //Hier Teleport-Ãœbergabe entfernt --> erst wenn vor wand!
 
     B_LogEntry          (CH3_OrcGraveyard,"With the aid of wall inscriptions in one of the halls, Baal Lukor was able to translate the scroll. Seems it's a teleportation spell for a very short distance.");
 
 
-    Npc_ExchangeRoutine (self, "Follow"); //Björn: Patch2
+    Npc_ExchangeRoutine (self, "Follow"); //BjÃ¶rn: Patch2
 
 };
 
@@ -458,7 +458,7 @@ FUNC VOID Info_BaalLukor_WHATNOW_Info()
     AI_Output       (other, self,"Info_BaalLukor_WHATNOW_15_01"); //What 'certain' place?
     AI_Output       (self, other,"Info_BaalLukor_WHATNOW_13_02"); //The big hall we passed through earlier seemed a very... strange... place. Let's just go back there!
 
-    Npc_ExchangeRoutine (self, "Follow"); //Björn: Patch2
+    Npc_ExchangeRoutine (self, "Follow"); //BjÃ¶rn: Patch2
 
 };
 
@@ -495,7 +495,7 @@ FUNC VOID Info_BaalLukor_HALLWITHOUT_Info()
 
     B_LogEntry  (CH3_OrcGraveyard,"When we entered the big rectangular column hall, the Guru felt something. He wasn't so sure what it was, though.");
 
-    Npc_ExchangeRoutine (self, "Follow"); //Björn: Patch2
+    Npc_ExchangeRoutine (self, "Follow"); //BjÃ¶rn: Patch2
 };
 
 //**************************************************************************
@@ -567,7 +567,7 @@ FUNC VOID Info_BaalLukor_DOOR_Info()
     AI_Output           (self, other,"Info_BaalLukor_DOOR_13_03"); //Use the Orcish teleportation spell here, in front of this wall.
 
     CreateInvItem       (self,          ItArScrollTeleport4); //Teleport erschaffen
-    B_GiveInvItems      (self, hero,    ItArScrollTeleport4, 1); //Teleport übergeben
+    B_GiveInvItems      (self, hero,    ItArScrollTeleport4, 1); //Teleport Ã¼bergeben
 
     AI_StopProcessInfos (self);
 };

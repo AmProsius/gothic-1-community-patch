@@ -50,7 +50,7 @@ instance GRD_229_Gardist (Npc_Default)
     daily_routine = Rtn_start_229;
 };
 
-FUNC VOID Rtn_start_229 ()//### unbesch‰ftigter Gardist!
+FUNC VOID Rtn_start_229 ()//### unbesch√§ftigter Gardist!
 {
     TA_GuardPalisade(08,00,22,00,"OCR_PALISADE_ABOVE_MARKETPLACE_01");
     TA_Sleep        (22,00,08,00,"OCC_MERCS_UPPER_RIGHT_ROOM_FRONT");

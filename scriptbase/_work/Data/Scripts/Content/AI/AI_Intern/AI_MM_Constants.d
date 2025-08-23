@@ -31,8 +31,8 @@ const int AIV_MM_WuselEnd           = 18;
 const int   OnlyRoutine         = -1;
 // ----------------------------------------
 const int AIV_MM_ShrinkState        = 19;           // merkt sich das Schrumpf-Stadium des Monsters, wenn es von einem Shrink-Zauber getroffen wird
-const int AIV_MM_DistToMaster       = 20;           // die Distanz, die vom SC beschwörte Monster versuchen, zu ihrem Meister einzuhalten
-const int AIV_MM_TimeLooseHP        = 21;           // Zeit in Sekunden, die das vom SC beschwörte Monster aushält, bevor es einen Lebenspunkt verliert
+const int AIV_MM_DistToMaster       = 20;           // die Distanz, die vom SC beschwÃ¶rte Monster versuchen, zu ihrem Meister einzuhalten
+const int AIV_MM_TimeLooseHP        = 21;           // Zeit in Sekunden, die das vom SC beschwÃ¶rte Monster aushÃ¤lt, bevor es einen Lebenspunkt verliert
 // ----------------------------------------
 const int AIV_MM_REAL_ID            = 22;
 const int   ID_NONE             = 0;
@@ -72,8 +72,8 @@ const int   ID_ICEGOLEM         = 33;
 const int   ID_MEATBUG          = 34;
 const int   ID_ZOMBIE           = 35;
 // ----------------------------------------
-const int AIV_MM_PARTYMEMBER        = 23;   // SN:  (begleitet den Spieler - für XP-Vergabe)
-const int AIV_MM_DEATHINVGIVEN      = 24;   // SN:  da ZS_Dead auch nach jedem Load Game ausgeführt wird!
+const int AIV_MM_PARTYMEMBER        = 23;   // SN:  (begleitet den Spieler - fÃ¼r XP-Vergabe)
+const int AIV_MM_DEATHINVGIVEN      = 24;   // SN:  da ZS_Dead auch nach jedem Load Game ausgefÃ¼hrt wird!
 
 
 
@@ -83,7 +83,7 @@ const int AIV_MM_DEATHINVGIVEN      = 24;   // SN:  da ZS_Dead auch nach jedem L
 
 
 
-// IDs für Sezial-Monster
+// IDs fÃ¼r Sezial-Monster
 const int MID_CANYONTROLL       = 5000;
 const int MID_THEKEEPER         = 5001;
 const int MID_DAMLURKER         = 5002;

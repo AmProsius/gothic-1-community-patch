@@ -111,5 +111,5 @@ func void  Grd_214_Torwache_NODUSTY_Info()
     B_ExchangeRoutine   (Vlk_524_Dusty,"start");
     var C_NPC dusty;    dusty = Hlp_GetNpc(Vlk_524_Dusty);
     dusty.aivar[AIV_PARTYMEMBER] = FALSE;
-    dusty.flags = 0;    // Immortal löschen
+    dusty.flags = 0;    // Immortal lÃ¶schen
 };

@@ -1,15 +1,15 @@
-// gibt einen String zurück, der in die Info_AddChoice-Befehle eingespeist werden kann
+// gibt einen String zurÃ¼ck, der in die Info_AddChoice-Befehle eingespeist werden kann
 // Beispiel:
 //  - text: "Einhandkampf Stufe 2"
 //  - lp: 20
-//  - Rückgabestring: "Einhandkampf Stufe 2 (20 Lernpunkte)"
+//  - RÃ¼ckgabestring: "Einhandkampf Stufe 2 (20 Lernpunkte)"
 //
 // oder
 //
 //  - text: "Zweihandkampf Stufe 1"
 //  - lp: 30
 //  - ore: 200
-//  - Rückgabestring: "Zweihandkampf Stufe 1 (200 Erz, 20 Lernpunkte)"
+//  - RÃ¼ckgabestring: "Zweihandkampf Stufe 1 (200 Erz, 20 Lernpunkte)"
 func string B_BuildLearnString (var string text, var int lp, var int ore)
 {
     var string msg;

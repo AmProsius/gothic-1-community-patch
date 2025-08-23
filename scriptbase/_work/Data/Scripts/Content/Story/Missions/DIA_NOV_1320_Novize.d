@@ -1,4 +1,4 @@
-// ------------------------------ Groﬂe Beschwˆrung starten ----------------------------------
+// ------------------------------ Gro√üe Beschw√∂rung starten ----------------------------------
 instance  NOV_1320_Novize_CALLSLEEPER (C_INFO)
 {
     npc             = NOV_1320_Novize;

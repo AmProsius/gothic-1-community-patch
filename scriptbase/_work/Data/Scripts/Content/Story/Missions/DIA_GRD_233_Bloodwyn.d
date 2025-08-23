@@ -421,11 +421,11 @@ FUNC VOID Info_Bloodwyn_DIE_Info()
         AI_Output       (self,hero,"Info_Bloodwyn_DIE_08_20"); //So have I! KILL HIM!
     };
 
-    Npc_ExchangeRoutine (self,              "FMTaken2");    // Verst‰rkung vor das Hinterem Tor (Anf¸hrer)
-    B_ExchangeRoutine   (GRD_232_Gardist,   "FMTaken2");    // Verst‰rkung vor das Hinterem Tor
-    B_ExchangeRoutine   (GRD_229_Gardist,   "FMTaken2");    // Verst‰rkung vor das Hinterem Tor (Fernk‰mpfer)
-    B_ExchangeRoutine   (GRD_216_Torwache,  "FMTaken2");    // regul‰re Wache am Hinteren Tor
-    B_ExchangeRoutine   (GRD_217_Torwache,  "FMTaken2");    // regul‰re Wache am Hinteren Tor
+    Npc_ExchangeRoutine (self,              "FMTaken2");    // Verst√§rkung vor das Hinterem Tor (Anf√ºhrer)
+    B_ExchangeRoutine   (GRD_232_Gardist,   "FMTaken2");    // Verst√§rkung vor das Hinterem Tor
+    B_ExchangeRoutine   (GRD_229_Gardist,   "FMTaken2");    // Verst√§rkung vor das Hinterem Tor (Fernk√§mpfer)
+    B_ExchangeRoutine   (GRD_216_Torwache,  "FMTaken2");    // regul√§re Wache am Hinteren Tor
+    B_ExchangeRoutine   (GRD_217_Torwache,  "FMTaken2");    // regul√§re Wache am Hinteren Tor
 
     B_SetPermAttitude   (GRD_233_Bloodwyn,  ATT_HOSTILE);
     B_SetPermAttitude   (GRD_232_Gardist,   ATT_HOSTILE);

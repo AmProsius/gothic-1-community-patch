@@ -37,7 +37,7 @@ INSTANCE PC_Hero(NPC_DEFAULT)
 
 
 // ***************************************************************************
-// PlayerInstanz ANFANG LEVEL2!!! Mit Buddlerrüstung +10, Waffe +13, Waffe +20
+// PlayerInstanz ANFANG LEVEL2!!! Mit BuddlerrÃ¼stung +10, Waffe +13, Waffe +20
 // ***************************************************************************
 
 INSTANCE PC_Hero_L2(NPC_DEFAULT)
@@ -387,7 +387,7 @@ INSTANCE HeroBow13 (C_Item)
 
 
 
-// *********** NICHT LÖSCHEN - SONST STERBEN **************
+// *********** NICHT LÃ–SCHEN - SONST STERBEN **************
 
 
 INSTANCE XP_Map(C_Item)

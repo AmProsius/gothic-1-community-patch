@@ -1,5 +1,5 @@
 /*****************************************
-* NSC läuft immer zwischen FP-WALK_A und *
+* NSC lÃ¤uft immer zwischen FP-WALK_A und *
 *         FP-WALK_B hin und her          *
 *****************************************/
 
@@ -9,7 +9,7 @@ FUNC VOID ZS_Walk ()
 
     B_SetPerception (self);
 
-    AI_SetWalkmode (self,NPC_WALK);     // Walkmode für den Zustand
+    AI_SetWalkmode (self,NPC_WALK);     // Walkmode fÃ¼r den Zustand
     if !(Npc_IsOnFP(self,"WALK"))
     {
         AI_GotoWP(self, self.wp);               // Gehe zum Tagesablaufstart

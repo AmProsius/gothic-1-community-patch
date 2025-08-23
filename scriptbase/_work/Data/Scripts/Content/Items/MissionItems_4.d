@@ -7,7 +7,7 @@
 //#####################################################################
 
 //---------------------------------------------------------------------
-//  Buch über Golems
+//  Buch Ã¼ber Golems
 //---------------------------------------------------------------------
 INSTANCE ItWr_GolemBook1(C_Item)
 {
@@ -46,7 +46,7 @@ INSTANCE ItWr_GolemBook1(C_Item)
         Doc_PrintLine   ( nDocID,  0, "");
 
         //2.Seite
-        Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1);  //  0 -> margins are in pixels (Position des Textes von den Ränder des TGAs aus, links,oben,rechts,unten)
+        Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1);  //  0 -> margins are in pixels (Position des Textes von den RÃ¤nder des TGAs aus, links,oben,rechts,unten)
         Doc_PrintLine   ( nDocID,  1,"Stone Golem");
         Doc_PrintLine   ( nDocID,  1,"------------");
         Doc_PrintLines  ( nDocID,  1,"These colossuses of stone are nearly invulnerable in battle. Swords, axes and bows do not seem to do any damage to these monsters.");
@@ -95,7 +95,7 @@ INSTANCE ItWr_GolemBook2(C_Item)
         Doc_PrintLines  ( nDocID,  0,"Adventurous wanderers be warned of this creature's icy breath as well, because it surrounds the unsuspecting with a pillar of ice.");
 
         //2.Seite
-        Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1);  //  0 -> margins are in pixels (Position des Textes von den Ränder des TGAs aus, links,oben,rechts,unten)
+        Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1);  //  0 -> margins are in pixels (Position des Textes von den RÃ¤nder des TGAs aus, links,oben,rechts,unten)
         Doc_PrintLines  ( nDocID,  1,"A Magician of Fire reported an encounter with such a creature, but apparently he didn't see much of a threat in it.");
         Doc_PrintLine   ( nDocID,  1, "");
         Doc_PrintLine   ( nDocID,  1,"Fire Golem");
@@ -141,7 +141,7 @@ INSTANCE ItWrWorldmap_Orc(C_Item)
                     Doc_Show        ( nDocID    );
     };
 //---------------------------------------------------------------------
-//  Schlüssel zur Freien Mine
+//  SchlÃ¼ssel zur Freien Mine
 //---------------------------------------------------------------------
 INSTANCE ItKe_Freemine(C_Item)
 {
@@ -170,7 +170,7 @@ INSTANCE ItKe_Freemine(C_Item)
 };
 
 //---------------------------------------------------------------------
-//  Medizin für den verwundeten Orc in der Freien Mine
+//  Medizin fÃ¼r den verwundeten Orc in der Freien Mine
 //---------------------------------------------------------------------
 INSTANCE    OrcMedicine(C_ITEM)
 {

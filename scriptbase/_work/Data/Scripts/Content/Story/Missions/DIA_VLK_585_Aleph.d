@@ -46,7 +46,7 @@ func void  VLK_585_Aleph_CLEVER_Info()
 {
     AI_Output (self,other,"VLK_585_Aleph_CLEVER_Info_05_01"); //Hehehe, the guards will never get me!
 };
-// ***************** ALEPH ERKLÄRT SEINE ARBEITSHALTUNG *****************************
+// ***************** ALEPH ERKLÃ„RT SEINE ARBEITSHALTUNG *****************************
 
 instance  VLK_585_Aleph_GUARDS (C_INFO)
 {
@@ -111,7 +111,7 @@ func void  VLK_585_Aleph_INFO_Info()
 
     B_GiveInvItems (hero, other, ItMiNugget,10);
 };
-// ***************** WIRD ALEPH ANGESCHWÄRZT IST ER SAUER*****************************
+// ***************** WIRD ALEPH ANGESCHWÃ„RZT IST ER SAUER*****************************
 instance VLK_585_Aleph_ANGRY (C_INFO)
 {
     npc             = VLK_585_Aleph;
@@ -187,7 +187,7 @@ func void  VLK_585_Aleph_GLEN_Info()
 
     B_GiveInvItems (hero, self, ItMinugget,10);
 };
-//***************** LAGERSCHUPPENSCHLÜSSEL*****************************
+//***************** LAGERSCHUPPENSCHLÃœSSEL*****************************
 func void B_Aleph_StorageShedKey()
 {
     B_LogEntry      (CH2_StorageShed,"Aleph sold me the key to the chests in the store shed!");
@@ -235,7 +235,7 @@ func void VLK_585_Aleph_SCHUPPEN_50 ()
         AI_Output           (other,self,"VLK_585_Aleph_SCHUPPEN_50_15_01"); //50 ore should be more than enough for you!
         AI_Output           (self,other,"VLK_585_Aleph_SCHUPPEN_50_05_02"); //Very generous! Here's the key. And take this ring as well. It's always brought good luck to me.
 
-        CreateInvItems      (self, ItKe_OM_03,  1);         // nur für die korrekte Textausgaben!!!
+        CreateInvItems      (self, ItKe_OM_03,  1);         // nur fÃ¼r die korrekte Textausgaben!!!
         B_GiveInvItems      (self, hero, ItKe_OM_03, 2);
         Npc_RemoveInvItem   (hero, ItKe_OM_03);
 
@@ -289,7 +289,7 @@ func void VLK_585_Aleph_SCHUPPEN_Back ()
     VLK_585_Aleph_SCHUPPEN.permanent = 1;
 };
 
-// WENN DER SPIELER ALEPH BEI BRANDICK ANGESCHWÄRZT HAT
+// WENN DER SPIELER ALEPH BEI BRANDICK ANGESCHWÃ„RZT HAT
 instance  VLK_585_Aleph_DIRTY (C_INFO)
 {
     npc             = VLK_585_Aleph;

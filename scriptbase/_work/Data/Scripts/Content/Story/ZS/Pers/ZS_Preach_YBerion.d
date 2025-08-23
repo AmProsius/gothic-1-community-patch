@@ -1,7 +1,7 @@
 /****************************************************
 *               personalisierter TA                 *
-*   Y´Berion sucht PREACH-FP: beginnt Ansprache     *
-*   Übernahme in Predigt-Sizuation von Y´Berion?    *
+*   YÂ´Berion sucht PREACH-FP: beginnt Ansprache     *
+*   Ãœbernahme in Predigt-Sizuation von YÂ´Berion?    *
 ****************************************************/
 
 
@@ -10,7 +10,7 @@ func void ZS_Preach_YBerion ()  //### Freepoint in der Welt fehlt noch
     PrintDebugNpc(PD_TA_FRAME,"ZS_Preach_YBerion");
 
     B_SetPerception (self);
-    AI_SetWalkmode (self,NPC_WALK);     // Walkmode für den Zustand
+    AI_SetWalkmode (self,NPC_WALK);     // Walkmode fÃ¼r den Zustand
     if !(Npc_IsOnFP(self,"PREACH"))
     {
         AI_GotoWP(self, self.wp);               // Gehe zum Tagesablaufstart
@@ -31,15 +31,15 @@ func void ZS_Preach_YBerion_Loop ()
     preachtime = Hlp_Random (100);
     if (preachtime <= 3)
     {
-        AI_Output(self, NULL,"ZS_Preach_YBerion01");    //Der Schläfer hat zu mir gesprochen.
+        AI_Output(self, NULL,"ZS_Preach_YBerion01");    //Der SchlÃ¤fer hat zu mir gesprochen.
     }
     else if (preachtime >= 98)
     {
-        AI_Output(self, NULL,"ZS_Preach_YBerion02");    //Der Schläfer wird uns alle befreien.
+        AI_Output(self, NULL,"ZS_Preach_YBerion02");    //Der SchlÃ¤fer wird uns alle befreien.
     }
     else if (preachtime >= 95)
     {
-        AI_Output(self, NULL,"ZS_Preach_YBerion03");    //Der Schläfer erwache!
+        AI_Output(self, NULL,"ZS_Preach_YBerion03");    //Der SchlÃ¤fer erwache!
     };
     AI_Wait(self,1);
 };

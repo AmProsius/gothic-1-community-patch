@@ -391,7 +391,7 @@ FUNC VOID  DIA_Lester_GuideOffer_Info()
 };
 
 // **************************************************
-//              FÜHRUNG DURCHS PSI-CAMP
+//              FÃœHRUNG DURCHS PSI-CAMP
 // **************************************************
 
 
@@ -421,7 +421,7 @@ FUNC VOID  PC_Psionic_SOON_Info()
     AI_Output (self, other,"PC_Psionic_SOON_Info_05_02"); //If you stopped asking me, we'd get there much faster.
     AI_StopProcessInfos ( self );
 };
-//------ UNTERWEGS IM SUMPFLAGER UND ROUTE ÄNDERN ----------------
+//------ UNTERWEGS IM SUMPFLAGER UND ROUTE Ã„NDERN ----------------
 instance  PC_Psionic_CHANGE (C_INFO)
 {
     npc         =  PC_Psionic;
@@ -451,7 +451,7 @@ FUNC VOID  PC_Psionic_CHANGE_Info()
 
 };
 
-//------------------FÜHRUNG DURCH DAS LAGER
+//------------------FÃœHRUNG DURCH DAS LAGER
 instance  PC_Psionic_GUIDEFIRST (C_INFO)
 {
     npc             = PC_Psionic;
@@ -641,7 +641,7 @@ FUNC void  PC_Psionic_SMITH_Info()
 
 
 };
-// ***************************** Beim Krauthändler ****************************************//
+// ***************************** Beim KrauthÃ¤ndler ****************************************//
 instance  PC_Psionic_HERB (C_INFO)
 {
     npc             = PC_Psionic;
@@ -701,7 +701,7 @@ instance  PC_Psionic_SEND (C_INFO)// PC muss im ersten Kapitel schon mal mit Les
 
 FUNC int  PC_Psionic_SEND_Condition()
 {
-    //SN: NICHT auf Kapitel 2 abfragen, Kapitelwechel geschieht erst unten zentral für alle SC-Gilden!!!
+    //SN: NICHT auf Kapitel 2 abfragen, Kapitelwechel geschieht erst unten zentral fÃ¼r alle SC-Gilden!!!
     if  (Npc_GetTrueGuild(hero) != GIL_NONE)
     &&  (YBerion_BringFocus != LOG_RUNNING)
     &&  (YBerion_BringFocus != LOG_SUCCESS)
@@ -930,7 +930,7 @@ func void  PC_Psionic_FOKUSPLACE_Info()
     Wld_InsertNpc       (Harpie,"LOCATION_19_03_ENTRANCE_HARPYE3");
 };
 
-// ---------SPIELER WILL ÜBER DIE BRÜCKE OHNE DEN AUFTRAG ERFÜLLT ZU HABEN--------
+// ---------SPIELER WILL ÃœBER DIE BRÃœCKE OHNE DEN AUFTRAG ERFÃœLLT ZU HABEN--------
 instance PC_Psionic_COMEBACK (C_INFO)
 {
     npc             = PC_Psionic;
@@ -988,7 +988,7 @@ FUNC void  PC_Psionic_IAMHURT_Info()
     B_GiveInvItems  (self, hero,ItFo_Potion_Health_02, 1);
 };
 
-//------------- SPIELER HAT DIE URKUNDE FÜR LESTER GEFUNDEN-----------------------
+//------------- SPIELER HAT DIE URKUNDE FÃœR LESTER GEFUNDEN-----------------------
 instance  PC_Psionic_URKUNDE (C_INFO)
 {
     npc             = PC_Psionic;
@@ -1205,7 +1205,7 @@ FUNC void  PC_Psionic_COMEAGAIN_Info()
 };
 
 //---------------------------------------------------------------------
-//  Info DIEGOMILTEN      ******Björn****** Patch2
+//  Info DIEGOMILTEN      ******BjÃ¶rn****** Patch2
 //---------------------------------------------------------------------
 INSTANCE Info_Lester_DIEGOMILTEN (C_INFO)
 {

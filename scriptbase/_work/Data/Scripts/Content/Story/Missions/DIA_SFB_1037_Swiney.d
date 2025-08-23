@@ -49,7 +49,7 @@ FUNC VOID Info_Swiney_Hello_Info()
 };
 
 // ************************************************************
-//                      Schürfer
+//                      SchÃ¼rfer
 // ************************************************************
 
 INSTANCE Info_Swiney_Schuerfer(C_INFO)

@@ -339,7 +339,7 @@ func void DIA_Horatio_ThoughtSTR_Ricelord()
 };
 
 // ************************************************************
-//                  Will Ricelord köpfen
+//                  Will Ricelord kÃ¶pfen
 // ************************************************************
 
 func void DIA_Horatio_HelpSTR_LEARN_NOW()

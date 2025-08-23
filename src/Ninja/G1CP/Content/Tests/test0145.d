@@ -6,5 +6,5 @@ func int G1CP_Test_0145() {
     var C_Item itm; itm = G1CP_Testsuite_CreateItem("SLD_ARMOR_L");
     G1CP_Testsuite_CheckPassed();
 
-    return G1CP_Testsuite_InspectItemString(itm, "name", "Leichte Söldnerrüstung");
+    return G1CP_Testsuite_InspectItemString(itm, "name", "Leichte SÃ¶ldnerrÃ¼stung");
 };

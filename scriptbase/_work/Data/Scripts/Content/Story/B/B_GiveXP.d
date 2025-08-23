@@ -1,7 +1,7 @@
 const int   LP_PER_LEVEL                = 10;   // Lernpunkte pro Spieler-Stufe
 const int   HP_PER_LEVEL                = 12;   // Lebenspunkte pro Spieler-Stufe
-const int   XP_PER_LEVEL_UNCONSCIOUS    = 5;    // Erfahrungspunkte für das Besiegen eines Gegners (pro Level Gegners)
-const int   XP_PER_LEVEL_DEAD           = 10;   // Erfahrungspunkte für das Töten eines Gegners (pro Level Gegners)
+const int   XP_PER_LEVEL_UNCONSCIOUS    = 5;    // Erfahrungspunkte fÃ¼r das Besiegen eines Gegners (pro Level Gegners)
+const int   XP_PER_LEVEL_DEAD           = 10;   // Erfahrungspunkte fÃ¼r das TÃ¶ten eines Gegners (pro Level Gegners)
 
 func void B_GiveXP (var int add_xp)
 {
@@ -41,12 +41,12 @@ func void B_DeathXP()
     if  C_NpcIsHuman(self)
     &&  Npc_WasInState(self, ZS_Unconscious)
     {
-        PrintDebugNpc   (PD_ZS_CHECK,   "...Opfer ist bewußtloser Mensch!");
-        // SN: keine XP für Finishing-Move!!!
+        PrintDebugNpc   (PD_ZS_CHECK,   "...Opfer ist bewuÃŸtloser Mensch!");
+        // SN: keine XP fÃ¼r Finishing-Move!!!
     }
     else
     {
-        PrintDebugNpc   (PD_ZS_CHECK,   "...Opfer ist entweder nicht bewußtlos oder kein Mensch!");
+        PrintDebugNpc   (PD_ZS_CHECK,   "...Opfer ist entweder nicht bewuÃŸtlos oder kein Mensch!");
         B_GiveXP (self.level * XP_PER_LEVEL_DEAD);
     };
 };
@@ -56,7 +56,7 @@ func void B_UnconciousXP()
     PrintDebugNpc   (PD_ZS_FRAME,   "B_UnconciousXP");
     PrintGlobals    (PD_ZS_CHECK);
 
-    //-------- Erfahrung nur beim ersten Sieg über Menschen --------
+    //-------- Erfahrung nur beim ersten Sieg Ã¼ber Menschen --------
     if  !C_NpcIsHuman(self)
     ||  !self.aivar[AIV_WASDEFEATEDBYSC]
     {

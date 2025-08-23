@@ -3,13 +3,13 @@
 ***************************************/
 
 
-//### Skriptmethode noch einbauen, wenn sie für VoBs geht
+//### Skriptmethode noch einbauen, wenn sie fÃ¼r VoBs geht
 func void ZS_PracticeBow ()
 {
     PrintDebugNpc(PD_TA_FRAME,"ZS_PracticeBow");
 
     B_SetPerception (self);
-    AI_SetWalkmode (self,NPC_WALK);     // Walkmode für den Zustand
+    AI_SetWalkmode (self,NPC_WALK);     // Walkmode fÃ¼r den Zustand
     if !(Hlp_StrCmp(self.wp,Npc_GetNearestWP(self)))
     {
         AI_GotoWP(self, self.wp);               // Gehe zum Tagesablaufstart

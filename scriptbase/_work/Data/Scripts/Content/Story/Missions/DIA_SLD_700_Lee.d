@@ -170,7 +170,7 @@ FUNC VOID  Sld_700_Lee_NowReady_Info()
 };
 
 /*------------------------------------------------------------------------
-                            SÖLDNER WERDEN  2
+                            SÃ–LDNER WERDEN  2
 ------------------------------------------------------------------------*/
 
 instance  Sld_700_Lee_BECOMESLDNOW (C_INFO)
@@ -321,7 +321,7 @@ FUNC VOID  Sld_700_Lee_FMTaken_Info()
 {
     AI_Output (other, self,"DIA_Lee_FMTaken_15_00"); //What do you think about the mine?
 
-    if (Lee_freeminereport == 0)                    //SC hat jetzt die Möglichkeit, Lee über die freie Mine zu informieren! ***Björn***
+    if (Lee_freeminereport == 0)                    //SC hat jetzt die MÃ¶glichkeit, Lee Ã¼ber die freie Mine zu informieren! ***BjÃ¶rn***
     {
 
         AI_Output (self, other,"DIA_Lee_FMTaken_08_01"); //They've gone too far, they'll be sorry for it.
@@ -577,7 +577,7 @@ FUNC int  Sld_700_Lee_ZWEIHAND1_Condition()
 {
     if  (
             (Npc_GetTalentSkill  (hero,NPC_TALENT_2H) < 1)
-            && ((Npc_GetTrueGuild    (hero) == GIL_SLD) || ((Npc_GetTrueGuild(hero)==GIL_KDW) && (Kapitel >= 4))  ) //jetzt auch als Wassermagier im 4. Kapitel möglich ***BJÖRN***
+            && ((Npc_GetTrueGuild    (hero) == GIL_SLD) || ((Npc_GetTrueGuild(hero)==GIL_KDW) && (Kapitel >= 4))  ) //jetzt auch als Wassermagier im 4. Kapitel mÃ¶glich ***BJÃ–RN***
         )
     {
         return TRUE;
@@ -618,7 +618,7 @@ FUNC int  Sld_700_Lee_ZWEIHAND2_Condition()
     if
         (
             (Npc_GetTalentSkill  (hero,NPC_TALENT_2H) == 1)
-            && ( (Npc_GetTrueGuild    (hero) == GIL_SLD) ||  ((Npc_GetTrueGuild(hero)==GIL_KDW) && (Kapitel >= 4))  )   //jetzt auch als Wassermagier im 4. Kapitel möglich ***BJÖRN***
+            && ( (Npc_GetTrueGuild    (hero) == GIL_SLD) ||  ((Npc_GetTrueGuild(hero)==GIL_KDW) && (Kapitel >= 4))  )   //jetzt auch als Wassermagier im 4. Kapitel mÃ¶glich ***BJÃ–RN***
         )
     {
         return TRUE;

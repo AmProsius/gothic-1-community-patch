@@ -67,7 +67,7 @@ func void Set_UndeadOrcShaman_Visuals()
 INSTANCE UndeadOrcShaman    (Mst_Default_UndeadOrcShaman)
 {
     Set_UndeadOrcShaman_Visuals();
-    EquipItem       (self,  ItRwUdOrcstaff);        // für Magiemodus
+    EquipItem       (self,  ItRwUdOrcstaff);        // fÃ¼r Magiemodus
     CreateInvItem   (self,  ItArRuneBreathOfDeath);
     CreateInvItems  (self,  ItArScrollSummonGolem,  20);
 

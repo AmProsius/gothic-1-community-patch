@@ -7,7 +7,7 @@
 //#####################################################################
 
 //---------------------------------------------------------------------
-//  1. Pergamenthälfte der Ork-Schriftrolle
+//  1. PergamenthÃ¤lfte der Ork-Schriftrolle
 //---------------------------------------------------------------------
 INSTANCE OrkParchmentOne(C_Item)
 {
@@ -33,7 +33,7 @@ INSTANCE OrkParchmentOne(C_Item)
 };
 
 //---------------------------------------------------------------------
-//  2. Pergamenthälfte der Ork-Schriftrolle
+//  2. PergamenthÃ¤lfte der Ork-Schriftrolle
 //---------------------------------------------------------------------
 INSTANCE OrkParchmentTwo(C_Item)
 {
@@ -59,7 +59,7 @@ INSTANCE OrkParchmentTwo(C_Item)
 };
 
 //---------------------------------------------------------------------
-//  Schlüssel zu Kaloms Truhe
+//  SchlÃ¼ssel zu Kaloms Truhe
 //---------------------------------------------------------------------
 INSTANCE ITKE_PSI_KALOM_01(C_Item)
 {
@@ -189,7 +189,7 @@ INSTANCE Focus_2(C_Item)
 };
 
 //---------------------------------------------------------------------
-//  Truhenschlüssel in der Bergfestung
+//  TruhenschlÃ¼ssel in der Bergfestung
 //---------------------------------------------------------------------
 INSTANCE ItKe_BERG_01(C_Item)
 {
@@ -205,7 +205,7 @@ INSTANCE ItKe_BERG_01(C_Item)
     description         = name;
     TEXT[0]             = "Old mountain fort.";
     TEXT[1]             = "An old rusty key to a chest.";
-//  TEXT[2]             = "der zu einer Truhe gehört";
+//  TEXT[2]             = "der zu einer Truhe gehÃ¶rt";
     TEXT[5]             = NAME_Value;
     COUNT[5]            = value;
 };
@@ -300,7 +300,7 @@ INSTANCE Focus_3(C_Item)
 };
 
 //---------------------------------------------------------------------
-//  Schlüssel zum Bonusraum in der Klosterruine
+//  SchlÃ¼ssel zum Bonusraum in der Klosterruine
 //---------------------------------------------------------------------
 INSTANCE ItKe_Focus4(C_Item)
 {
@@ -381,7 +381,7 @@ FUNC VOID UnEquip_OrcTalisman()
 
 
 //---------------------------------------------------------------------
-//  Schlüssel unter dem Steinkreis
+//  SchlÃ¼ssel unter dem Steinkreis
 //---------------------------------------------------------------------
 INSTANCE ItKe_Focus5(C_Item)
 {

@@ -105,7 +105,7 @@ FUNC VOID DIA_Pock_Hello_Info()
 };
 
 // ************************************************************
-//                      Weiﬂt ne Menge
+//                      Wei√üt ne Menge
 // ************************************************************
 
 INSTANCE DIA_Pock_KnowMuch (C_INFO)

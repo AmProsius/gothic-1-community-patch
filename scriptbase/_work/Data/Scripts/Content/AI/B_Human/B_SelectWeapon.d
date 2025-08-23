@@ -1,8 +1,8 @@
 //////////////////////////////////////////////////////////////////////////
 //  B_FillQuiver
 //  ============
-//  F¸llt den Kˆcher des NSCs 'slf' auf 20 auf. Diese Funktion geht davon
-//  aus, daﬂ der NSC die entsprechende Fernkampfwaffe in der Hand h‰lt.
+//  F√ºllt den K√∂cher des NSCs 'slf' auf 20 auf. Diese Funktion geht davon
+//  aus, da√ü der NSC die entsprechende Fernkampfwaffe in der Hand h√§lt.
 //////////////////////////////////////////////////////////////////////////
 func void B_FillQuiver(var C_NPC slf)
 {
@@ -17,18 +17,18 @@ func void B_FillQuiver(var C_NPC slf)
         PrintDebugNpc   (PD_ZS_DETAIL,  "...aktive Waffe benutzt Pfeile!");
         addedAmmo = 20 - C_NpcHasAmmo(slf, ItAmArrow);
         CreateInvItems(slf, ItAmArrow, addedAmmo);
-        PrintDebugInt   (PD_ZS_DETAIL,  "...hinzugef¸gte Pfeile: ", addedAmmo);
+        PrintDebugInt   (PD_ZS_DETAIL,  "...hinzugef√ºgte Pfeile: ", addedAmmo);
     }
     else if (readiedWeapon.munition == ItAmBolt)
     {
         PrintDebugNpc   (PD_ZS_DETAIL,  "...aktive Waffe benutzt Bolzen!");
         addedAmmo = 20 - C_NpcHasAmmo(slf, ItAmBolt);
         CreateInvItems(slf, ItAmBolt, addedAmmo);
-        PrintDebugInt   (PD_ZS_DETAIL,  "...hinzugef¸gte Bolzen: ", addedAmmo);
+        PrintDebugInt   (PD_ZS_DETAIL,  "...hinzugef√ºgte Bolzen: ", addedAmmo);
     }
     else
     {
-        PrintDebugNpc   (PD_ZS_DETAIL,  "...ERROR: aktive Waffe hat KEINE g¸ltige Munitionsart!!!");
+        PrintDebugNpc   (PD_ZS_DETAIL,  "...ERROR: aktive Waffe hat KEINE g√ºltige Munitionsart!!!");
     };
 };
 
@@ -37,7 +37,7 @@ func void B_FillQuiver(var C_NPC slf)
 //  =============================
 //  Legt die beste Nahkampfwaffe an, die sich im Inventory befindet
 //  und zieht sie auch gleich.
-//  -> gibt TRUE zur¸ck, wenn Waffe angelegt werden konnte, sonst FALSE
+//  -> gibt TRUE zur√ºck, wenn Waffe angelegt werden konnte, sonst FALSE
 //////////////////////////////////////////////////////////////////////////
 func int B_EquipAndDrawBestMeleeWeapon(var C_NPC slf)
 {
@@ -74,7 +74,7 @@ func int B_EquipAndDrawBestMeleeWeapon(var C_NPC slf)
 //  ==============================
 //  Legt die beste Fernkampfwaffe an, die sich im Inventory befindet
 //  und zieht sie auch gleich.
-//  -> gibt TRUE zur¸ck, wenn Waffe angelegt werden konnte, sonst FALSE
+//  -> gibt TRUE zur√ºck, wenn Waffe angelegt werden konnte, sonst FALSE
 //////////////////////////////////////////////////////////////////////////
 func int B_EquipAndDrawBestRangedWeapon(var C_NPC slf)
 {
@@ -118,8 +118,8 @@ func int B_EquipAndDrawBestRangedWeapon(var C_NPC slf)
 //////////////////////////////////////////////////////////////////////////
 //  B_DrawSpell
 //  ===========
-//  Zieht den angegebenen Spruch unter Ber¸cksichtigung, daﬂ eventuell
-//  vorher ein AI_UnreadySpell durchgef¸hrt werden muﬂ.
+//  Zieht den angegebenen Spruch unter Ber√ºcksichtigung, da√ü eventuell
+//  vorher ein AI_UnreadySpell durchgef√ºhrt werden mu√ü.
 //////////////////////////////////////////////////////////////////////////
 func void B_DrawSpell(var C_NPC slf, var int spell, var int mana)
 {
@@ -135,8 +135,8 @@ func void B_DrawSpell(var C_NPC slf, var int spell, var int mana)
 // Das folgende AI_ReadySpell() verursacht den Kollisionsbug
 // "only one moving vob without collision..." wenn die Funktion
 // zweimal hintereinander aufgerufen wird, ohne ein
-// AI_UnreadySpell dawzischen. Genau das ist aber nˆtig
-// wenn der NSC die St‰rke des Zaubers ‰ndern will ohne
+// AI_UnreadySpell dawzischen. Genau das ist aber n√∂tig
+// wenn der NSC die St√§rke des Zaubers √§ndern will ohne
 // den Zauber wegzustecken und wieder hervorzuholen!
         };
         AI_ReadySpell           (slf, spell, mana);
@@ -167,10 +167,10 @@ func void B_DrawSpell(var C_NPC slf, var int spell, var int mana)
         var int manaRefill;
         if ( manaLeft < (manaMax/2) )
         {
-            PrintDebugInt       (PD_ZS_CHECK,   "...Mana ¸brig: ", manaLeft);
+            PrintDebugInt       (PD_ZS_CHECK,   "...Mana √ºbrig: ", manaLeft);
             manaRefill =        (manaMax/2) - manaLeft;
             Npc_ChangeAttribute (slf,   ATR_MANA,   manaRefill);
-            PrintDebugInt       (PD_ZS_CHECK,   "...Mana hinzugef¸gt: ", manaRefill);
+            PrintDebugInt       (PD_ZS_CHECK,   "...Mana hinzugef√ºgt: ", manaRefill);
         };
     };
 
@@ -180,9 +180,9 @@ func void B_DrawSpell(var C_NPC slf, var int spell, var int mana)
 //////////////////////////////////////////////////////////////////////////
 //  B_SelectWeapon
 //  ==============
-//  W‰hlt f¸r den NSC 'slf' unter Ber¸cksichtigung der Kampfsitution
+//  W√§hlt f√ºr den NSC 'slf' unter Ber√ºcksichtigung der Kampfsitution
 //  die jeweils passende Waffe aus.
-//  Diese Funktion wird w‰hrend der ZS_Attack alle 3 Sekunden
+//  Diese Funktion wird w√§hrend der ZS_Attack alle 3 Sekunden
 //  aufgerufen und interpretiert den NSC 'oth' als das anzugreifende
 //  Ziel.
 //////////////////////////////////////////////////////////////////////////
@@ -191,9 +191,9 @@ func void B_SelectWeapon(var C_NPC slf, var C_NPC oth)
     PrintDebugNpc       (PD_ZS_FRAME,   "B_SelectWeapon");
 
     //######## magiebasierte Kampftaktik ? ########
-    //folgende Zauber sind f¸r NSCs mˆglich:
-    // - Firebolt/Thunderbolt/BreathOfDeath schnelles Geschoﬂ
-    // - Fireball/Thunderball               Aufblas-Geschoﬂ
+    //folgende Zauber sind f√ºr NSCs m√∂glich:
+    // - Firebolt/Thunderbolt/BreathOfDeath schnelles Gescho√ü
+    // - Fireball/Thunderball               Aufblas-Gescho√ü
     // - Windfist                           Abstand schaffen
     // - ChainLightning/Pyrokinesis/IceCube Festhalten mit Schaden
     // - Summon Demon/Skeleton?
@@ -290,7 +290,7 @@ func void B_SelectWeapon(var C_NPC slf, var C_NPC oth)
             PrintDebugNpc       (PD_ZS_CHECK,   "...Windfist!");
             if      ( (Npc_GetDistToNpc(slf,oth)>SPL_RANGE_WINDFIST) && (slf.attribute[ATR_MANA]>=SPL_SENDCAST_WINDFIST) )
             {
-                PrintDebugNpc   (PD_ZS_CHECK,   "...groﬂer!");
+                PrintDebugNpc   (PD_ZS_CHECK,   "...gro√üer!");
                 B_DrawSpell     (slf,   SPL_WINDFIST,   SPL_SENDCAST_WINDFIST);
             }
             else if ( (Npc_GetDistToNpc(slf,oth)>(SPL_RANGE_WINDFIST/2)) && (slf.attribute[ATR_MANA]>=SPL_SENDCAST_WINDFIST/2) )
@@ -312,7 +312,7 @@ func void B_SelectWeapon(var C_NPC slf, var C_NPC oth)
             PrintDebugNpc       (PD_ZS_CHECK,   "...Fireball!");
             if      ( (Npc_GetDistToNpc(slf,oth)>1500) && (slf.attribute[ATR_MANA]>=SPL_SENDCAST_FIREBALL) )
             {
-                PrintDebugNpc   (PD_ZS_CHECK,   "...groﬂer!");
+                PrintDebugNpc   (PD_ZS_CHECK,   "...gro√üer!");
                 B_DrawSpell     (slf,   SPL_FIREBALL,   SPL_SENDCAST_FIREBALL);
             }
             else if ( (Npc_GetDistToNpc(slf,oth)>800) && (slf.attribute[ATR_MANA]>=SPL_SENDCAST_FIREBALL/2) )
@@ -334,7 +334,7 @@ func void B_SelectWeapon(var C_NPC slf, var C_NPC oth)
             PrintDebugNpc       (PD_ZS_CHECK,   "...Fireball!");
             if      ( (Npc_GetDistToNpc(slf,oth)>1500) && (slf.attribute[ATR_MANA]>=SPL_SENDCAST_FIRESTORM) )
             {
-                PrintDebugNpc   (PD_ZS_CHECK,   "...groﬂer!");
+                PrintDebugNpc   (PD_ZS_CHECK,   "...gro√üer!");
                 B_DrawSpell     (slf,   SPL_FIRESTORM,  SPL_SENDCAST_FIREBALL);
             }
             else if ( (Npc_GetDistToNpc(slf,oth)>800) && (slf.attribute[ATR_MANA]>=SPL_SENDCAST_FIRESTORM/2) )
@@ -364,7 +364,7 @@ func void B_SelectWeapon(var C_NPC slf, var C_NPC oth)
             PrintDebugNpc       (PD_ZS_CHECK,   "...Thunderball!");
             if      ( (Npc_GetDistToNpc(slf,oth)>1500) && (slf.attribute[ATR_MANA]>=SPL_SENDCAST_THUNDERBALL) )
             {
-                PrintDebugNpc   (PD_ZS_CHECK,   "...groﬂer!");
+                PrintDebugNpc   (PD_ZS_CHECK,   "...gro√üer!");
                 B_DrawSpell     (slf,   SPL_THUNDERBALL,    SPL_SENDCAST_THUNDERBALL);
             }
             else if ( (Npc_GetDistToNpc(slf,oth)>800) && (slf.attribute[ATR_MANA]>=SPL_SENDCAST_THUNDERBALL/2) )
@@ -411,7 +411,7 @@ func void B_SelectWeapon(var C_NPC slf, var C_NPC oth)
     //-------- Gegner in Nahkampfdistanz ? --------
     if ( (Npc_GetDistToNpc(slf,oth)<HAI_DIST_MELEE) && (slf.fight_tactic!=FAI_HUMAN_RANGED) )
     {
-        PrintDebugNpc           (PD_ZS_CHECK,   "...Gegner in Nahkampfreichweite & kein purer Fernk‰mpfer!");
+        PrintDebugNpc           (PD_ZS_CHECK,   "...Gegner in Nahkampfreichweite & kein purer Fernk√§mpfer!");
 
         // ---- Erst Nahkampfwaffe probieren... ----
         if (B_EquipAndDrawBestMeleeWeapon(slf))
@@ -419,14 +419,14 @@ func void B_SelectWeapon(var C_NPC slf, var C_NPC oth)
             return;
         };
 
-        // ---- ...sonst mit den F‰usten k‰mpfen ----
+        // ---- ...sonst mit den F√§usten k√§mpfen ----
         PrintDebugNpc           (PD_ZS_CHECK, "...keine Nahkampfwaffe im Inv -> Faustkampf!");
-        AI_ReadyMeleeWeapon     (slf);  // VORSICHT: in v0.96c werden hier nicht die F‰uste, sondern die letzte Waffe gezogen !!! -> wird in v0.97 behoben sein (Kommentar dann lˆschen)
+        AI_ReadyMeleeWeapon     (slf);  // VORSICHT: in v0.96c werden hier nicht die F√§uste, sondern die letzte Waffe gezogen !!! -> wird in v0.97 behoben sein (Kommentar dann l√∂schen)
         return;
     }
     else
     {
-        PrintDebugNpc           (PD_ZS_CHECK,   "...Gegner in Fernkampfreichweite oder NSC ist ein purer Fernk‰mpfer!");
+        PrintDebugNpc           (PD_ZS_CHECK,   "...Gegner in Fernkampfreichweite oder NSC ist ein purer Fernk√§mpfer!");
 
         // ---- Erst Fernkampfwaffe probieren... ----
         if (B_EquipAndDrawBestRangedWeapon(slf))
@@ -440,7 +440,7 @@ func void B_SelectWeapon(var C_NPC slf, var C_NPC oth)
             return;
         };
 
-        // ---- ...herumliegende Waffe suchen, sonst mit den F‰usten k‰mpfen ----
+        // ---- ...herumliegende Waffe suchen, sonst mit den F√§usten k√§mpfen ----
         if (!B_FetchWeapon())
         {
             PrintDebugNpc       (PD_ZS_CHECK, "...keine Waffe gefunden -> Faustkampf!");

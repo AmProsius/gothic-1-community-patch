@@ -74,7 +74,7 @@ INSTANCE ItMiAlarmhorn (C_Item)
 };
 
 //---------------------------------------------------------------------
-//  Statuette für Tür zum Alten Tempel
+//  Statuette fÃ¼r TÃ¼r zum Alten Tempel
 //---------------------------------------------------------------------
 INSTANCE ItMi_Stuff_Idol_Sleeper_01 (C_Item)
 {
@@ -95,7 +95,7 @@ INSTANCE ItMi_Stuff_Idol_Sleeper_01 (C_Item)
 };
 
 //---------------------------------------------------------------------
-//  Schläferschwert 1
+//  SchlÃ¤ferschwert 1
 //---------------------------------------------------------------------
 INSTANCE Weltenspalter (C_Item)
 {
@@ -123,7 +123,7 @@ INSTANCE Weltenspalter (C_Item)
 };
 
 //---------------------------------------------------------------------
-//  Schläferschwert 2
+//  SchlÃ¤ferschwert 2
 //---------------------------------------------------------------------
 INSTANCE Lichtbringer (C_Item)
 {
@@ -151,7 +151,7 @@ INSTANCE Lichtbringer (C_Item)
 };
 
 //---------------------------------------------------------------------
-//  Schläferschwert 3
+//  SchlÃ¤ferschwert 3
 //---------------------------------------------------------------------
 INSTANCE Zeitenklinge (C_Item)
 {
@@ -179,7 +179,7 @@ INSTANCE Zeitenklinge (C_Item)
 };
 
 //---------------------------------------------------------------------
-//  Schläferschwert 4
+//  SchlÃ¤ferschwert 4
 //---------------------------------------------------------------------
 INSTANCE Daemonenstreich (C_Item)
 {
@@ -207,7 +207,7 @@ INSTANCE Daemonenstreich (C_Item)
 };
 
 //---------------------------------------------------------------------
-//  Schläferschwert 5
+//  SchlÃ¤ferschwert 5
 //---------------------------------------------------------------------
 INSTANCE Bannklinge (C_Item)
 {
@@ -235,7 +235,7 @@ INSTANCE Bannklinge (C_Item)
 };
 
 //---------------------------------------------------------------------
-//  Schwert für den Untoten Ork-Hohepriester (unidentifiziert)
+//  Schwert fÃ¼r den Untoten Ork-Hohepriester (unidentifiziert)
 //---------------------------------------------------------------------
 INSTANCE Mythrilklinge (C_Item)
 {
@@ -262,7 +262,7 @@ INSTANCE Mythrilklinge (C_Item)
 };
 
 //---------------------------------------------------------------------
-//  Schwert für den Untoten Ork-Hohepriester (identifiziert)
+//  Schwert fÃ¼r den Untoten Ork-Hohepriester (identifiziert)
 //---------------------------------------------------------------------
 instance Mythrilklinge01 (C_Item)
 {
@@ -292,7 +292,7 @@ instance Mythrilklinge01 (C_Item)
 };
 
 //---------------------------------------------------------------------
-//  Schwert für den Untoten Ork-Hohepriester (aufgeladen)
+//  Schwert fÃ¼r den Untoten Ork-Hohepriester (aufgeladen)
 //---------------------------------------------------------------------
 instance Mythrilklinge02 (C_Item)
 {
@@ -355,7 +355,7 @@ instance Mythrilklinge03 (C_Item)
 };
 
 //---------------------------------------------------------------------
-//  Schriftrolle, um Schwert für den untoten Ork-Hohepriester zu laden
+//  Schriftrolle, um Schwert fÃ¼r den untoten Ork-Hohepriester zu laden
 //---------------------------------------------------------------------
 INSTANCE Scroll4Milten (C_Item)
 {
@@ -377,7 +377,7 @@ INSTANCE Scroll4Milten (C_Item)
 };
 
 //---------------------------------------------------------------------
-//  Schlüssel zum Versunkenen Turm
+//  SchlÃ¼ssel zum Versunkenen Turm
 //---------------------------------------------------------------------
 INSTANCE ItKe_SunkenTower(C_Item)
 {
@@ -397,7 +397,7 @@ INSTANCE ItKe_SunkenTower(C_Item)
 };
 
 //---------------------------------------------------------------------
-//  Kerkerschlüssel
+//  KerkerschlÃ¼ssel
 //---------------------------------------------------------------------
 INSTANCE DungeonKey(C_Item)
 {

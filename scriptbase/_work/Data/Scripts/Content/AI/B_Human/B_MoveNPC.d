@@ -7,16 +7,16 @@ func void B_MoveNpc ()
         if (Npc_IsInCutscene(self) || Npc_IsInCutscene(other))                                  // Befindet sich der Blockierer in einer Cutscene?
         {
             PrintDebugNpc   (PD_ZS_DETAIL, "...Blockierender oder Blockierter in Cutscene!!!" );
-            return;                                                     //... dann verzeihen wir ihm nat¸rlich -> Abbruch des Checks
+            return;                                                     //... dann verzeihen wir ihm nat√ºrlich -> Abbruch des Checks
         };
 
-        if (C_NpcIsDown(other)) // ist der Blockierende kampfunf‰hig!
+        if (C_NpcIsDown(other)) // ist der Blockierende kampfunf√§hig!
         {
-            PrintDebugNpc   (PD_ZS_DETAIL, "...Blockierender ist kampfunf‰hig!" );
+            PrintDebugNpc   (PD_ZS_DETAIL, "...Blockierender ist kampfunf√§hig!" );
             return;                                                     //... dann verzeihen wir ihm ebenfalls -> Abbruch des Checks
         };
 
-        if (C_NpcTypeIsFriend(self, other))                             // Entsch‰rfung von story-kritischen NSCs
+        if (C_NpcTypeIsFriend(self, other))                             // Entsch√§rfung von story-kritischen NSCs
         {
             PrintDebugNpc   (PD_ZS_DETAIL, "...Blockierender ist Freund!" );
             return;

@@ -27,7 +27,7 @@ func VOID EVT_TPL_08_FUNC_01 ()
 
 
 // *****************************************************************
-// *                 RAUM ZU BESTER WAFFE ÖFFNET SICH              *
+// *                 RAUM ZU BESTER WAFFE Ã–FFNET SICH              *
 // *****************************************************************
 FUNC VOID EVT_TPL_13_FUNC_01 ()
 {

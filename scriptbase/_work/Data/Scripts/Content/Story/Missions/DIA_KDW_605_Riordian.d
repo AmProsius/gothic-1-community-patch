@@ -38,7 +38,7 @@ FUNC VOID  Info_Riordian_EXIT_Info()
 
 //***************************************************************************
 //  Info NEWS
-//***************************************************************************//Bist du der Wassermagier, der die Tränke braut?
+//***************************************************************************//Bist du der Wassermagier, der die TrÃ¤nke braut?
 instance Info_Riordian_NEWS (C_INFO)
 {
     npc         = KDW_605_Riordian;
@@ -65,7 +65,7 @@ FUNC VOID Info_Riordian_NEWS_Info()
     AI_Output (self, other,"Info_Riordian_NEWS_14_04"); //Now go and bring us the focus stones. These artefacts are our only hope.
 
     CreateInvItems (self, ItFo_Potion_Health_01,    20);
-    B_GiveInvItems (self,hero, ItFo_Potion_Health_01,   20); //Notwendig für die Ausschrift "20 Items übergeben", wird sofort ausgeglichen
+    B_GiveInvItems (self,hero, ItFo_Potion_Health_01,   20); //Notwendig fÃ¼r die Ausschrift "20 Items Ã¼bergeben", wird sofort ausgeglichen
     Npc_RemoveInvItems(hero, ItFo_Potion_Health_01, 15);
 
     CreateInvItems (hero, ItFo_Potion_Mana_01,      5);
@@ -108,7 +108,7 @@ FUNC VOID Info_Riordian_REWARD_Info()
     AI_Output           (self, other,"Info_Riordian_REWARD_14_05"); //Take this as a modest reward for all your efforts.
 
     CreateInvItems      (self, ItFo_Potion_Health_02,       20);
-    B_GiveInvItems      (self, hero, ItFo_Potion_Health_02, 20);//Notwenidg für Ausschrift "20 Items übergeben", wird sofort ausgeglichen
+    B_GiveInvItems      (self, hero, ItFo_Potion_Health_02, 20);//Notwenidg fÃ¼r Ausschrift "20 Items Ã¼bergeben", wird sofort ausgeglichen
     Npc_RemoveInvItems  (hero, ItFo_Potion_Health_02,       15);
 
     CreateInvItems      (hero, ItFo_Potion_Mana_02,         5);

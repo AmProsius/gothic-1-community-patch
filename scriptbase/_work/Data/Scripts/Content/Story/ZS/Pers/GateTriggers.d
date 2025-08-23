@@ -76,7 +76,7 @@ func int ON_NC_MAGERAMP_TRIGGER ()
 {
     PrintDebugNpc (PD_TA_CHECK,"ON_NC_MAGERAMP_TRIGGER");
 
-//### Wachwechsel berücksichtigen!
+//### Wachwechsel berÃ¼cksichtigen!
     var C_Npc wache;
     wache = Hlp_GetNpc (SLD_702_Soeldner);
     wache.aivar[AIV_Trigger3] = 1;

@@ -7,7 +7,7 @@ func void ZS_PracticeMagic  ()
     PrintDebugNpc(PD_TA_FRAME,"ZS_PracticeMagic");
 
     B_SetPerception (self);
-    AI_SetWalkmode (self,NPC_WALK);     // Walkmode für den Zustand
+    AI_SetWalkmode (self,NPC_WALK);     // Walkmode fÃ¼r den Zustand
     if !(Hlp_StrCmp(self.wp,Npc_GetNearestWP(self)))
     {
         AI_GotoWP(self, self.wp);               // Gehe zum Tagesablaufstart

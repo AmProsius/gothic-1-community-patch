@@ -716,7 +716,7 @@ FUNC int  Info_OrcShaman_IDOL_Condition()
 FUNC void  Info_OrcShaman_IDOL_Info()
 {
     //SN: fliegt raus, da der Hinweis jetzt sofort nach dem Hinweis mit der Scroll gegeben wird.
-    //AI_Output     (hero, self,"Info_OrcShaman_IDOL_15_01"); //Ich habe den Teleportzauber verbraucht und das Gitter zur Tempelvorhalle lässt sich nicht öffnen!
+    //AI_Output     (hero, self,"Info_OrcShaman_IDOL_15_01"); //Ich habe den Teleportzauber verbraucht und das Gitter zur Tempelvorhalle lÃ¤sst sich nicht Ã¶ffnen!
     //AI_Output     (hero, self,"Info_OrcShaman_IDOL_15_02"); //Wie komme ich jetzt wieder in den Tempel?
 
     if  Npc_HasItems(hero,ItMi_Stuff_Idol_Sleeper_01)

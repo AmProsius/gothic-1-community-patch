@@ -14,7 +14,7 @@ func int G1CP_Test_0049() {
     var string itm_text_1; itm_text_1 = MEM_ReadStatStringArr(itm.text, 1);
 
     if ((Hlp_StrCmp(itm.text, "Opens the dungeons")) && (Hlp_StrCmp(itm_text_1, "of the old camp.")))    // EN
-    || ((Hlp_StrCmp(itm.text, "öffnet den Kerker"))  && (Hlp_StrCmp(itm_text_1, "des Alten Lagers."))) { // DE
+    || ((Hlp_StrCmp(itm.text, "Ã¶ffnet den Kerker"))  && (Hlp_StrCmp(itm_text_1, "des Alten Lagers."))) { // DE
         return TRUE;
     } else {
         G1CP_TestsuiteErrorDetailSSSSS("Text incorrect: text[0] = '", itm.text, "' and text[1] = '", itm_text_1, "'");

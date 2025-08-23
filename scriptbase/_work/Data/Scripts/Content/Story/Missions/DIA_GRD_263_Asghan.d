@@ -155,7 +155,7 @@ FUNC void  Grd_263_Asghan_LAIRFOUND_Info()
 };
 
 /*------------------------------------------------------------------------
-                        MCQ Hatz l‰uft noch nicht
+                        MCQ Hatz l√§uft noch nicht
 ------------------------------------------------------------------------*/
 
 instance  Grd_263_Asghan_SMALLTALK (C_INFO)

@@ -3,7 +3,7 @@
 //*****************************************************************************
 func void B_Story_FriendOfUrShak()
 {
-    //-------- Missionsgegenst‰nde --------
+    //-------- Missionsgegenst√§nde --------
     CreateInvItem   (hero, ItMi_OrcTalisman);
 
     //-------- NSCs --------

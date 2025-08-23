@@ -1,5 +1,5 @@
 
-//******************Der tote Riddler****************************Björn****
+//******************Der tote Riddler****************************BjÃ¶rn****
 
 instance Bau_940_Riddler (Npc_Default)
 {

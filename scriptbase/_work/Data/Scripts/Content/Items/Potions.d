@@ -1,5 +1,5 @@
 // ************************************************************************************************
-// Wirkung und Kosten von Tränken
+// Wirkung und Kosten von TrÃ¤nken
 // ************************************************************************************************
 
 // Heilung
@@ -16,8 +16,8 @@ const int   Value_ManaElixier       =   65;     const int   Mana_Elixier        
 const int   Value_Elixier1          =   95;     const int   Mana_Elixier1       =   100;
 
 // Permanente Attribut-Steigerungen
-// FIXME: sind die zu kaufen (müüsen dann teuer sein) oder zu fnden (dann evtl. billiger)
-// FIXME: Textanzeige der Attribut-Änderung bei Benutzung möglich?
+// FIXME: sind die zu kaufen (mÃ¼Ã¼sen dann teuer sein) oder zu fnden (dann evtl. billiger)
+// FIXME: Textanzeige der Attribut-Ã„nderung bei Benutzung mÃ¶glich?
 const int   Value_ElixierEgg        =   1;      const int   ManaMax_ElixierEgg  =   10; // FIXME: was wenn der SC das selbst benutzt??
 
 const int   Value_StrEssenz         =   300;    const int   STR_Essenz          =   3;
@@ -48,7 +48,7 @@ const int   Value_Haste3            =   200;    const int   Time_Haste3         
 
 
 /******************************************************************************************/
-//  MANATRÄNKE                                                                          //
+//  MANATRÃ„NKE                                                                          //
 /******************************************************************************************/
 INSTANCE ItFo_Potion_Mana_01(C_Item)
 {
@@ -159,7 +159,7 @@ INSTANCE ItFo_Potion_Elixier(C_Item)
 
 
 /******************************************************************************************/
-//  HEILTRÄNKE                                                                          //
+//  HEILTRÃ„NKE                                                                          //
 /******************************************************************************************/
 INSTANCE ItFo_Potion_Health_01(C_Item)
 {
@@ -241,7 +241,7 @@ INSTANCE ItFo_Potion_Health_03(C_Item)
 
 
 /******************************************************************************************/
-// TRÄNKE FÜR PERMANENTE ATTRIBUT-ÄNDERUNGEN!
+// TRÃ„NKE FÃœR PERMANENTE ATTRIBUT-Ã„NDERUNGEN!
 /******************************************************************************************/
 
 /******************************************************************************************/

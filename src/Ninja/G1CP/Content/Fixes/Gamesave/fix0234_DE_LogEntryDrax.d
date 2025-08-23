@@ -2,8 +2,8 @@
  * #234 Spelling - Drax: "Orkhund" (DE)
  */
 func int G1CP_0234_DE_LogEntryDrax() {
-    const string curString = "Wissen über Zähne entfernen - Wolf, Orchund, Snapper, Beisser, Bluthund, Schattenläufer.";
-    const string newString = "Wissen über Zähne entfernen - Wolf, Orkhund, Snapper, Beißer, Bluthund, Schattenläufer.";
+    const string curString = "Wissen Ã¼ber ZÃ¤hne entfernen - Wolf, Orchund, Snapper, Beisser, Bluthund, SchattenlÃ¤ufer.";
+    const string newString = "Wissen Ã¼ber ZÃ¤hne entfernen - Wolf, Orkhund, Snapper, BeiÃŸer, Bluthund, SchattenlÃ¤ufer.";
     const string topicName = "";
 
     // Do only once per session for performance on consecutive calls
@@ -40,8 +40,8 @@ func int G1CP_0234_DE_LogEntryDraxRevert() {
         return FALSE;
     };
 
-    const string oldString = "Wissen über Zähne entfernen - Wolf, Orchund, Snapper, Beisser, Bluthund, Schattenläufer.";
-    const string curString = "Wissen über Zähne entfernen - Wolf, Orkhund, Snapper, Beißer, Bluthund, Schattenläufer.";
+    const string oldString = "Wissen Ã¼ber ZÃ¤hne entfernen - Wolf, Orchund, Snapper, Beisser, Bluthund, SchattenlÃ¤ufer.";
+    const string curString = "Wissen Ã¼ber ZÃ¤hne entfernen - Wolf, Orkhund, Snapper, BeiÃŸer, Bluthund, SchattenlÃ¤ufer.";
     const string topicName = "";
 
     // Retrieve the topic name only once per session for performance on consecutive calls

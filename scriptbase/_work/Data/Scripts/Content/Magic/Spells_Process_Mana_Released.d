@@ -1,7 +1,7 @@
 // wird aufgerufen, NACHDEM die Action Taste losgelassen wurde, und in Spell_ProcessMana der Spruch NOCH NICHT GECASTED und NOCH NICHT GESTOPPT wurde
-// wieviele Mana bereits investiert wurden wird mit manaInvested übergeben.
+// wieviele Mana bereits investiert wurden wird mit manaInvested Ã¼bergeben.
 // voher wurde pro investiertem Punkt die Skript Funktion Spell_ProcessMana aufgerufen
-// es macht keinen Sinn, diese Funktion was anderes als SPL_SENDSTOP oder SPL_SENDCAST zurückliefern zu lassen
+// es macht keinen Sinn, diese Funktion was anderes als SPL_SENDSTOP oder SPL_SENDCAST zurÃ¼ckliefern zu lassen
 
 // SELF     = Der Caster
 // OTHER    = Das Opfer // kann auch leer sein
@@ -28,11 +28,11 @@ func int Spell_ProcessMana_Release(var int manainvested)
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////
-// Spells, die gecastet werden solange man die Tasten gedrückt hält
+// Spells, die gecastet werden solange man die Tasten gedrÃ¼ckt hÃ¤lt
 
 // Auf Programm-Seite ist das Aufrechterhalten des Spells aber die INVEST-Phase!!
-// Das bedeutet, daß die Damage_per_Level Angabe in der Spells_Params.d erst beim stoppen (eigentlich CASTEN)
-// des Spells aufgerufen wird! Der Abzug von Schaden beim Opfer muß also im zs_"Victim"-Script des Opfers erfolgen...
+// Das bedeutet, daÃŸ die Damage_per_Level Angabe in der Spells_Params.d erst beim stoppen (eigentlich CASTEN)
+// des Spells aufgerufen wird! Der Abzug von Schaden beim Opfer muÃŸ also im zs_"Victim"-Script des Opfers erfolgen...
 
     if (Npc_GetActiveSpell  (self) == SPL_TELEKINESIS   )   {   return  SPL_SENDSTOP;   };
     if (Npc_GetActiveSpell  (self) == SPL_HEAL          )   {   return  SPL_SENDSTOP;   };
@@ -54,7 +54,7 @@ func int Spell_ProcessMana_Release(var int manainvested)
 ////////////////////////////////////////////////////////////////////////////////////////////
 // Spells, die abgebrochen werden, wenn beim loslassen der Taste noch nicht gecastet
 
-    // FIXME: soll man bei abgebrochenen Spells das investierte Mana zurückbekommen?
+    // FIXME: soll man bei abgebrochenen Spells das investierte Mana zurÃ¼ckbekommen?
     //  Npc_ChangeAttribute (self,ATR_MANA,self.attribute[ATR_MANA]+manainvested);
 
     if (Npc_GetActiveSpell(self) == SPL_LIGHT           )   {   return  SPL_SENDSTOP;   };

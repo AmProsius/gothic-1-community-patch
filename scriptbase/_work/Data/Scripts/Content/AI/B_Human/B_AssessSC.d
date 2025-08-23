@@ -4,7 +4,7 @@
 *                                                                                           *
 ********************************************************************************************/
 
-// C_Cantalk to kann evtl. raus, wurde ursprünglich nur wegen B_AssessSC-Aufruf aus ZS_Talk implementiert.
+// C_Cantalk to kann evtl. raus, wurde ursprÃ¼nglich nur wegen B_AssessSC-Aufruf aus ZS_Talk implementiert.
 // ZS_Talk ruft aber B_AssessSC NICHT mehr auf
 
 // ***********************
@@ -23,7 +23,7 @@ FUNC VOID B_CheckStolenEquipment ()
 
     if (Npc_OwnedByNpc (melee, self))
     {
-        PrintDebugNpc (PD_ZS_CHECK, "...SC trägt Nahkampf-Waffe des NSCs offen!");
+        PrintDebugNpc (PD_ZS_CHECK, "...SC trÃ¤gt Nahkampf-Waffe des NSCs offen!");
         self.aivar[AIV_WANTEDITEM] = Hlp_GetInstanceId (melee);
         if (!Npc_HasNews (self, NEWS_DEFEAT, other, self) && self.aivar [AIV_PCISSTRONGER] == 0)
         {
@@ -39,7 +39,7 @@ FUNC VOID B_CheckStolenEquipment ()
     }
     else if (Npc_OwnedByNpc ( ranged, self))
     {
-        PrintDebugNpc (PD_ZS_CHECK, "...SC trägt Fernkampf-Waffe des NSCs offen!");
+        PrintDebugNpc (PD_ZS_CHECK, "...SC trÃ¤gt Fernkampf-Waffe des NSCs offen!");
         self.aivar[AIV_WANTEDITEM] = Hlp_GetInstanceId (ranged);
         if (!Npc_HasNews (self, NEWS_DEFEAT, other, self) && self.aivar [AIV_PCISSTRONGER] == 0)
         {
@@ -61,7 +61,7 @@ func void B_AssessSc ()
 {
     PrintDebugNpc (PD_ZS_FRAME, "B_AssessSc");
 
-    //*********** Extra für Raeuberlager ************
+    //*********** Extra fÃ¼r Raeuberlager ************
     if (self.npctype == NPCTYPE_ROGUE)
     {
         B_SetRoguesToHostile();
@@ -73,7 +73,7 @@ func void B_AssessSc ()
     {
         PrintDebugNpc           (PD_ZS_CHECK,   "...SC sichtbar und in Dialogreichweite!");
 
-        //----------- Übernommene NSCs werden von GateGuards geplättet!------------------
+        //----------- Ãœbernommene NSCs werden von GateGuards geplÃ¤ttet!------------------
         var C_NPC her;  her = Hlp_GetNpc(PC_Hero);
         var C_NPC rock; rock = Hlp_GetNpc(PC_Rockefeller);
 
@@ -117,7 +117,7 @@ func void B_AssessSc ()
             }
             else
             {
-                PrintDebugNpc       (PD_ZS_CHECK,   "...SC außerhalb ObserveIntruder-Reichweite!");
+                PrintDebugNpc       (PD_ZS_CHECK,   "...SC auÃŸerhalb ObserveIntruder-Reichweite!");
             };
         };
 
@@ -135,7 +135,7 @@ func void B_AssessSc ()
 
         if (Npc_IsInState(self,ZS_GuardPassage) && (Npc_GetDistToNpc(self,hero) > HAI_DIST_GUARDPASSAGE_RESET) )
         {
-            PrintDebugNpc   (PD_ZS_CHECK,   "...Status für Durchgangswachen zurücksetzen!");
+            PrintDebugNpc   (PD_ZS_CHECK,   "...Status fÃ¼r Durchgangswachen zurÃ¼cksetzen!");
             hero.aivar[AIV_GUARDPASSAGE_STATUS] = AIV_GPS_BEGIN;
         };
     };

@@ -4,7 +4,7 @@ instance GRD_280_Gardist (Npc_Default)
 
     name        =   NAME_Gardist;
     npctype     =   npctype_guard;
-    flags       =   NPC_FLAG_IMMORTAL;  // weil Windenwache !!! wird in Kapitel 4 gelöscht!
+    flags       =   NPC_FLAG_IMMORTAL;  // weil Windenwache !!! wird in Kapitel 4 gelÃ¶scht!
     guild       =   GIL_GRD;
     level       =   20;
     voice       =   6;

@@ -674,8 +674,8 @@ INSTANCE  Schutzamulett_Feuer(C_Item)
 
 /******************************************************************************************/
 /*
-// FIXME: was soll das machen? Dämon beschwören???
-    INSTANCE  Beschwörungsamulett(C_Item)
+// FIXME: was soll das machen? DÃ¤mon beschwÃ¶ren???
+    INSTANCE  BeschwÃ¶rungsamulett(C_Item)
 {
     name            =   "Amulett der Erleuchtung";
 
@@ -688,13 +688,13 @@ INSTANCE  Schutzamulett_Feuer(C_Item)
 
     visual_skin         =   0;
     material        =   MAT_METAL;
-    on_equip        =   Equip_Beschwörungsamulett;
-    on_unequip      =   UnEquip_Beschwörungsamulett;
-    description     = "Dämonenbeschwörung";
+    on_equip        =   Equip_BeschwÃ¶rungsamulett;
+    on_unequip      =   UnEquip_BeschwÃ¶rungsamulett;
+    description     = "DÃ¤monenbeschwÃ¶rung";
     TEXT[0]         = "Schwarz wie die Seele";
     TEXT[1]         = "Schwarz wie die Nacht";
     ////COUNT[1]        = ;
-    TEXT[2]         = "Schwarz wie das Böse";
+    TEXT[2]         = "Schwarz wie das BÃ¶se";
     ////COUNT[2]        = ;
     TEXT[3]         = "Schwarz verheisst Macht";
     ////COUNT[3]        = ;
@@ -704,14 +704,14 @@ INSTANCE  Schutzamulett_Feuer(C_Item)
     COUNT[5]        = value;
 };
 
-    FUNC VOID Equip_Beschwörungsamulett()
+    FUNC VOID Equip_BeschwÃ¶rungsamulett()
     {
 
 
     };
 
 
-    FUNC VOID UnEquip_Beschwörungsamulett ()
+    FUNC VOID UnEquip_BeschwÃ¶rungsamulett ()
     {
 
 

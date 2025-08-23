@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////////////////////////
 //  ZS_MM_SummonedByPC
 //  ==================
-//  Zustand f¸r die zustandsgesteuerten Monster, die vom SC beschwˆrt
+//  Zustand f√ºr die zustandsgesteuerten Monster, die vom SC beschw√∂rt
 //  werden.
 //
 //
@@ -31,7 +31,7 @@ func int ZS_MM_SummonedByPC_Loop()
 
     if (Npc_GetStateTime(self) > self.aivar[AIV_MM_TimeLooseHP])
     {
-        //-------- Kreatur wird nach einiger Zeit schw‰cher !--------
+        //-------- Kreatur wird nach einiger Zeit schw√§cher !--------
         Npc_ChangeAttribute (self, ATR_HITPOINTS, -1);
         Npc_SetStateTime    (self,  0);
     };

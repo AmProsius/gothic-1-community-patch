@@ -55,7 +55,7 @@ FUNC VOID Rtn_Start_2 ()
 //##################################################################
 //  Kapitel 3
 //##################################################################
-// SN: bitte ab hier keine TAs ändern, da Storyrelevant
+// SN: bitte ab hier keine TAs Ã¤ndern, da Storyrelevant
 
 FUNC VOID Rtn_SHWait_2 ()
 {

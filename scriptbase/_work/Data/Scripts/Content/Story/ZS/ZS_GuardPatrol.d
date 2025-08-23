@@ -1,5 +1,5 @@
 /************************************
-*     Wächter läuft ein bisschen    *
+*     WÃ¤chter lÃ¤uft ein bisschen    *
 *     um Bezugs-WP rum und guckt    *
 ************************************/
 
@@ -9,7 +9,7 @@ func void ZS_GuardPatrol ()
 
     GuardPerception ();
     AI_StandUp      (self);
-    AI_SetWalkmode  (self,NPC_WALK);        // Walkmode für den Zustand
+    AI_SetWalkmode  (self,NPC_WALK);        // Walkmode fÃ¼r den Zustand
     if !(Hlp_StrCmp (self.wp,Npc_GetNearestWP(self)))
     {
         AI_GotoWP   (self, self.wp);               // Gehe zum Tagesablaufstart
@@ -17,9 +17,9 @@ func void ZS_GuardPatrol ()
 };
 
 func void ZS_GuardPatrol_Loop ()
-/*  in die Funktionen soll noch ein Zählglied, daß aber von der Funktionsweise der
-    Begin-Loop-End-Struktur abhängig, wo das Zählglied eingeführt und verwendet wird;
-    mit diesem Glied wird nach einer Anzahl "rumlaufen" Vorgängen der Nsc wieder zu seinem self.wp
+/*  in die Funktionen soll noch ein ZÃ¤hlglied, daÃŸ aber von der Funktionsweise der
+    Begin-Loop-End-Struktur abhÃ¤ngig, wo das ZÃ¤hlglied eingefÃ¼hrt und verwendet wird;
+    mit diesem Glied wird nach einer Anzahl "rumlaufen" VorgÃ¤ngen der Nsc wieder zu seinem self.wp
     geschickt, damit er nicht irgendwann am Ende des Levels ankommt */
 {
     PrintDebugNpc (PD_TA_LOOP,"ZS_GuardPatrol_Loop");
@@ -41,10 +41,10 @@ func void ZS_GuardPatrol_Loop ()
         PrintDebugNpc (PD_TA_DETAIL,hlpwp2);
         AI_GotoWP (self,hlpwp1);            // Begib Dich zur ersten zugewiesenen Hilfsvariable
         AI_GotoWP (self,hlpwp2);            // Begib Dich zur zweiten zugewiesenen Hilfsvariable
-        var int hlprand;                    // Hilfsvariblendeklaration für einen Randomwert
+        var int hlprand;                    // Hilfsvariblendeklaration fÃ¼r einen Randomwert
         hlprand = Hlp_Random (10000);       // Definition des Hilfsrandomwertes
         if (!(Hlp_StrCmp (Npc_GetNearestWP (self) ,hlpwp1)) && (!( Hlp_StrCmp (Npc_GetNearestWP (self) , hlpwp2))))
-        /* Ist der nächste ermittelte Wegpunkt von den schon angesteuerten Verschieden ?-->ja*/
+        /* Ist der nÃ¤chste ermittelte Wegpunkt von den schon angesteuerten Verschieden ?-->ja*/
         {
             PrintDebugNpc (PD_TA_DETAIL,"Gehe zum dritten WP");
             AI_GotoWP (self,Npc_GetNearestWP (self)); // da er verschieden istr begib Dich dorthin
@@ -59,7 +59,7 @@ func void ZS_GuardPatrol_Loop ()
             PrintDebugNpc (PD_TA_DETAIL,"Gehe zum zweiten WP");
             AI_GotoWP (self,Npc_GetNextWP (other)); //Begib zum dritten Wegpunkt
             AI_PlayAni (self,"T_SEARCH");           // Umsehen Ani
-            AI_Wait (self,10);                      // Warten für 10 Sekunden
+            AI_Wait (self,10);                      // Warten fÃ¼r 10 Sekunden
             AI_PlayAni (self,"T_SEARCH");           // Nochmal umsehen
             AI_GotoWP (self,Npc_GetNearestWP (self));
         };

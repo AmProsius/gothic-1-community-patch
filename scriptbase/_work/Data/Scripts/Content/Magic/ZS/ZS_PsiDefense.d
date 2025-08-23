@@ -18,7 +18,7 @@ func void ZS_PsiDefense_Loop()
     PrintDebugNpc       (PD_ZS_LOOP,    "ZS_PsiDefense Loop");
     if ( !Npc_IsDead(self) && !Npc_IsInState(self, ZS_Unconscious) && !C_BodystateContains(self,BS_SWIM) &&  !C_BodystateContains(self,BS_DIVE) )
     {
-        PrintDebugNpc       (PD_MAGIC,  "...NSC ist nicht bewuﬂtlos / tot / schwimmend / tauchend");
+        PrintDebugNpc       (PD_MAGIC,  "...NSC ist nicht bewu√ütlos / tot / schwimmend / tauchend");
         AI_PlayAni      (other, "S_CON_VICTIM");
     };
 };

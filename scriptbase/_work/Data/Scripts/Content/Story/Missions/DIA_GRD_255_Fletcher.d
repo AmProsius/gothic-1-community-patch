@@ -387,12 +387,12 @@ FUNC VOID Info_Fletcher_DIE_Info()
         AI_Output       (self,hero,"Info_Fletcher_DIE_06_20"); //Go, boys, let's get him!
     };
 
-    Npc_ExchangeRoutine (self,  "FMTaken2");                // Verst‰rkung vor das Haupttor (Anf¸hrer)
-    B_ExchangeRoutine   (GRD_252_Gardist,   "FMTaken2");    // Verst‰rkung vor das Haupttor
-    B_ExchangeRoutine   (GRD_253_Gardist,   "FMTaken2");    // Verst‰rkung vor das Haupttor
-    B_ExchangeRoutine   (GRD_244_Gardist,   "FMTaken2");    // Verst‰rkung vor das Haupttor (Fernk‰mpfer)
-    B_ExchangeRoutine   (GRD_214_Torwache,  "FMTaken2");    // regul‰re Wache am Haupttor
-    B_ExchangeRoutine   (GRD_215_Torwache,  "FMTaken2");    // regul‰re Wache am Haupttor
+    Npc_ExchangeRoutine (self,  "FMTaken2");                // Verst√§rkung vor das Haupttor (Anf√ºhrer)
+    B_ExchangeRoutine   (GRD_252_Gardist,   "FMTaken2");    // Verst√§rkung vor das Haupttor
+    B_ExchangeRoutine   (GRD_253_Gardist,   "FMTaken2");    // Verst√§rkung vor das Haupttor
+    B_ExchangeRoutine   (GRD_244_Gardist,   "FMTaken2");    // Verst√§rkung vor das Haupttor (Fernk√§mpfer)
+    B_ExchangeRoutine   (GRD_214_Torwache,  "FMTaken2");    // regul√§re Wache am Haupttor
+    B_ExchangeRoutine   (GRD_215_Torwache,  "FMTaken2");    // regul√§re Wache am Haupttor
 
     B_SetPermAttitude   (GRD_255_Fletcher,  ATT_HOSTILE);
     B_SetPermAttitude   (GRD_252_Gardist,   ATT_HOSTILE);

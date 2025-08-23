@@ -138,7 +138,7 @@ INSTANCE ItWrOMMap(C_Item)
 
 
 /************************************************
-**  Missionsitems für Introparcours in der VM  **
+**  Missionsitems fÃ¼r Introparcours in der VM  **
 ************************************************/
 
 INSTANCE AltesSchwertVM (C_Item)
@@ -300,7 +300,7 @@ func void UseCronosBrief ()
                     Doc_PrintLine   ( nDocID,  0,"            Cronos, Keeper of the Ore");
                     Doc_PrintLine   ( nDocID,  0, ""                    );
                     Doc_PrintLine   ( nDocID,  0, ""                    );
-                    Doc_SetMargins  ( nDocID, -1, 200, 50, 50, 50, 1        );  //  0 -> margins are in pixels (Position des Textes von den Ränder des TGAs aus
+                    Doc_SetMargins  ( nDocID, -1, 200, 50, 50, 50, 1        );  //  0 -> margins are in pixels (Position des Textes von den RÃ¤nder des TGAs aus
 
                     Doc_Show        ( nDocID );
 
@@ -350,7 +350,7 @@ instance  Neks_Amulett(C_Item)
     };
 
 /*************************************************
-**  Missionsitems für Mis_1_Psi_RecruitBuddler  **
+**  Missionsitems fÃ¼r Mis_1_Psi_RecruitBuddler  **
 *************************************************/
 INSTANCE RecruitJoint(C_Item)
 {
@@ -384,7 +384,7 @@ INSTANCE RecruitJoint(C_Item)
 };
 
 /**************************************************
-**    Missionsitems für Mis_3_Psi_BringMedicine  **
+**    Missionsitems fÃ¼r Mis_3_Psi_BringMedicine  **
 **************************************************/
 
 INSTANCE HealthWater(C_Item)
@@ -422,7 +422,7 @@ INSTANCE HealthWater(C_Item)
 };
 
 /************************************************
-**    Missionsitems für Mis_1_OC_BringList     **
+**    Missionsitems fÃ¼r Mis_1_OC_BringList     **
 ************************************************/
 INSTANCE TheList(C_Item)
 {
@@ -469,7 +469,7 @@ func void UseTheList ()
                     Doc_PrintLine   ( nDocID,  0, ""                    );
                     Doc_PrintLine   ( nDocID,  0,"IAN");
                     Doc_PrintLine   ( nDocID,  0, ""                    );
-                    Doc_SetMargins  ( nDocID, -1, 200, 50, 50, 50, 1        );  //  0 -> margins are in pixels (Position des Textes von den Ränder des TGAs aus
+                    Doc_SetMargins  ( nDocID, -1, 200, 50, 50, 50, 1        );  //  0 -> margins are in pixels (Position des Textes von den RÃ¤nder des TGAs aus
 
                     Doc_Show        ( nDocID );
 
@@ -527,7 +527,7 @@ func void UseTheListNC ()
                     Doc_PrintLine   ( nDocID,  0,"5 bottles of wine");
                     Doc_PrintLine   ( nDocID,  0,"25 grilled scavenger drumsticks");
                     Doc_PrintLine   ( nDocID,  0,"half a dozen replacement weapons");
-                    Doc_SetMargins  ( nDocID, -1, 200, 50, 50, 50, 1        );  //  0 -> margins are in pixels (Position des Textes von den Ränder des TGAs aus
+                    Doc_SetMargins  ( nDocID, -1, 200, 50, 50, 50, 1        );  //  0 -> margins are in pixels (Position des Textes von den RÃ¤nder des TGAs aus
 
                     Doc_Show        ( nDocID );
 
@@ -535,7 +535,7 @@ func void UseTheListNC ()
 
 
 /*********************************************
-**   Missionsitems für Lares Find Ring    **
+**   Missionsitems fÃ¼r Lares Find Ring    **
 *********************************************/
 
 INSTANCE Lares_Ring(C_Item)
@@ -580,7 +580,7 @@ INSTANCE Lares_Ring(C_Item)
         Npc_ChangeAttribute(self,ATR_STRENGTH,-3 );
     };
 /*********************************************
-**   Missionsitems für Lares Get Potion   **
+**   Missionsitems fÃ¼r Lares Get Potion   **
 *********************************************/
 INSTANCE  Heiltrank(C_Item)
 {
@@ -614,7 +614,7 @@ FUNC VOID UseHeiltrank()
 };
 
 /*********************************************
-**   Missionsitems für Mordrag    **
+**   Missionsitems fÃ¼r Mordrag    **
 *********************************************/
 
 INSTANCE SpecialWater(C_Item)
@@ -650,7 +650,7 @@ INSTANCE SpecialWater(C_Item)
 };
 
 /*********************************************
-**   Missionsitems für Dexter / Kalom       **
+**   Missionsitems fÃ¼r Dexter / Kalom       **
 *********************************************/
 INSTANCE KalomsRecipe(C_Item)
 {
@@ -702,7 +702,7 @@ func VOID Use_KalomsRecipe()
 
                 //2.Seite
 
-                Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1        );  //  0 -> margins are in pixels (Position des Textes von den Ränder des TGAs aus, links,oben,rechts,unten)
+                Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1        );  //  0 -> margins are in pixels (Position des Textes von den RÃ¤nder des TGAs aus, links,oben,rechts,unten)
                 Doc_PrintLine   ( nDocID,  1, ""                    );
                 Doc_PrintLine   ( nDocID,  1, ""                    );
                 Doc_PrintLines  ( nDocID,  1,"It seems to make sense if you read it backwards.");
@@ -717,7 +717,7 @@ func VOID Use_KalomsRecipe()
 
 
 /*********************************************
-** Missionsitems für Mis_1_PSI_DrugMonopol  **
+** Missionsitems fÃ¼r Mis_1_PSI_DrugMonopol  **
 *********************************************/
 /*
 INSTANCE SalmAmulett (C_Item)
@@ -776,11 +776,11 @@ INSTANCE ItWrWorldmap(C_Item)
                     Doc_SetPage     ( nDocID, 0, "Map_World.tga",   1   );  //  1 -> DO NOT SCALE
 
 /*                  Doc_SetFont     ( nDocID, 0, "font_15_book.TGA"     );  // -1 -> all pages
-                    Doc_SetMargins  ( nDocID, 0, 120, 80, 10, 10,   1   );  //  0 -> Textrahmen (von den Ränder des TGAs aus, links-oben,rechts-unten)
+                    Doc_SetMargins  ( nDocID, 0, 120, 80, 10, 10,   1   );  //  0 -> Textrahmen (von den RÃ¤nder des TGAs aus, links-oben,rechts-unten)
                     Doc_PrintLine   ( nDocID, 0, "Karte der"    );
                     Doc_PrintLine   ( nDocID, 0, "Kolonie"  );
 
-// FIXME: mehrere Texte an verschiedenen Stellen für Location-Beschriftung funzen nicht.
+// FIXME: mehrere Texte an verschiedenen Stellen fÃ¼r Location-Beschriftung funzen nicht.
                     Doc_SetFont     ( nDocID, 0, "font_10_book.TGA"         );
                     Doc_SetMargins  ( nDocID, 0, 110, 300, 10, 10, 1    );
                     Doc_PrintLine   ( nDocID, 0, "Neues Lager");
@@ -789,7 +789,7 @@ INSTANCE ItWrWorldmap(C_Item)
                     Doc_PrintLine   ( nDocID, 0, "Altes Lager");
 
                     Doc_SetMargins  ( nDocID, 0, 200, 420, 10, 10, 1    );
-                    Doc_PrintLine   ( nDocID, 0, "Dämonenbeschwörer");
+                    Doc_PrintLine   ( nDocID, 0, "DÃ¤monenbeschwÃ¶rer");
 
                     Doc_SetMargins  ( nDocID, 0, 510, 340, 10, 10, 1    );
                     Doc_PrintLine   ( nDocID, 0, "Sekten-Lager");
@@ -827,7 +827,7 @@ INSTANCE ItWrOCmap(C_Item)
         var int nDocID;
 
         nDocID =    Doc_CreateMap   ()            ;                         // DocManager
-//                  Doc_SetLevel    ( nDocID,   "WORLD.ZEN" ); Kein Positionsanzeiger möglich!
+//                  Doc_SetLevel    ( nDocID,   "WORLD.ZEN" ); Kein Positionsanzeiger mÃ¶glich!
                     Doc_SetPages    ( nDocID, 1 );
                     Doc_SetPage     ( nDocID, 0, "Map_OldCamp.tga",     1   );  //  1 -> DO NOT SCALE
                     Doc_Show        ( nDocID    );
@@ -862,7 +862,7 @@ INSTANCE ItWrNCmap(C_Item)
         var int nDocID;
 
         nDocID =    Doc_CreateMap   ()            ;                         // DocManager
-//                  Doc_SetLevel    ( nDocID,   "WORLD.ZEN" ); Kein Positionsanzeiger möglich!
+//                  Doc_SetLevel    ( nDocID,   "WORLD.ZEN" ); Kein Positionsanzeiger mÃ¶glich!
                     Doc_SetPages    ( nDocID, 1 );
                     Doc_SetPage     ( nDocID, 0, "Map_NewCamp.tga",     1   );  //  1 -> DO NOT SCALE
                     Doc_Show        ( nDocID    );
@@ -897,7 +897,7 @@ INSTANCE ItWrPSImap(C_Item)
         var int nDocID;
 
         nDocID =    Doc_CreateMap   ()            ;                         // DocManager
-//                  Doc_SetLevel    ( nDocID,   "WORLD.ZEN" ); Kein Positionsanzeiger möglich!
+//                  Doc_SetLevel    ( nDocID,   "WORLD.ZEN" ); Kein Positionsanzeiger mÃ¶glich!
                     Doc_SetPages    ( nDocID, 1 );
                     Doc_SetPage     ( nDocID, 0, "Map_PSICamp.tga",     1   );  //  1 -> DO NOT SCALE
                     Doc_Show        ( nDocID    );
@@ -932,7 +932,7 @@ INSTANCE ItWrPinup(C_Item)
         var int nDocID;
 
         nDocID =    Doc_CreateMap   ()            ;                         // DocManager
-//                  Doc_SetLevel    ( nDocID,   "WORLD.ZEN" ); Kein Positionsanzeiger möglich!
+//                  Doc_SetLevel    ( nDocID,   "WORLD.ZEN" ); Kein Positionsanzeiger mÃ¶glich!
                     Doc_SetPages    ( nDocID, 1 );
                     Doc_SetPage     ( nDocID, 0, "Map_PinUp.tga",   1   );  //  1 -> DO NOT SCALE
                     Doc_Show        ( nDocID    );
@@ -1021,8 +1021,8 @@ func void Usefireletter ()
                     Doc_PrintLine   ( nDocID,  0, ""                    );
                     Doc_PrintLine   ( nDocID,  0, ""                    );
                     Doc_PrintLine   ( nDocID,  0, ""                    );
-                    Doc_SetMargins  ( nDocID, -1, 200, 50, 50, 50, 1        );  //  0 -> margins are in pixels (Position des Textes von den Ränder des TGAs aus
-                    //Doc_PrintLine ( nDocID,  0, "Rigaldo Marschall des Königs"                    );
+                    Doc_SetMargins  ( nDocID, -1, 200, 50, 50, 50, 1        );  //  0 -> margins are in pixels (Position des Textes von den RÃ¤nder des TGAs aus
+                    //Doc_PrintLine ( nDocID,  0, "Rigaldo Marschall des KÃ¶nigs"                    );
                     Doc_Show        ( nDocID );
 
 
@@ -1073,19 +1073,19 @@ func void Usefireletter2 ()
                     Doc_PrintLine   ( nDocID,  0, ""                    );
                     Doc_PrintLine   ( nDocID,  0,"May Innos protect us all");
                     Doc_PrintLine   ( nDocID,  0, ""                    );
-                    //Doc_PrintLine ( nDocID,  0, "            Rigaldo, Marschall des Königs");
+                    //Doc_PrintLine ( nDocID,  0, "            Rigaldo, Marschall des KÃ¶nigs");
                     Doc_PrintLine   ( nDocID,  0, ""                    );
                     Doc_PrintLine   ( nDocID,  0, ""                    );
-                    Doc_SetMargins  ( nDocID, -1, 200, 50, 50, 50, 1        );  //  0 -> margins are in pixels (Position des Textes von den Ränder des TGAs aus
+                    Doc_SetMargins  ( nDocID, -1, 200, 50, 50, 50, 1        );  //  0 -> margins are in pixels (Position des Textes von den RÃ¤nder des TGAs aus
 
                     Doc_Show        ( nDocID );
 
 };
 
 /********************************************************************************/
-//SCHLÜSSEL
+//SCHLÃœSSEL
 /*********************************************************************************/
-//GOMEZ SCHLÜSSEL
+//GOMEZ SCHLÃœSSEL
 INSTANCE ItKe_Gomez_01(C_Item)
 {
     name                    =   "Gomez' Bowl";
@@ -1113,7 +1113,7 @@ INSTANCE ItKe_Gomez_01(C_Item)
 };
 
 /*********************************************************************************/
-//RICELORDS SCHLÜSSEL
+//RICELORDS SCHLÃœSSEL
 INSTANCE ItKey_RB_01(C_Item)
 {
     name                =   "Rice Lord's Bowl";
@@ -1129,7 +1129,7 @@ INSTANCE ItKey_RB_01(C_Item)
     TEXT[0]             =   "Opens Rice Lord's chest.";
 };
 /*********************************************************************************/
-//SCHMIEDESCHLÜSSEL ERZBARONE
+//SCHMIEDESCHLÃœSSEL ERZBARONE
 INSTANCE ItKe_OB_Smith_01(C_Item)
 {
     name                    =   "Iron Key";
@@ -1184,7 +1184,7 @@ INSTANCE ItKe_Storage_01(C_Item)
 };
 
 /********************************************************/
-//          SCHLÜSSEL IN DER ALTEN MINE
+//          SCHLÃœSSEL IN DER ALTEN MINE
 /********************************************************/
 
 /********************************************************/
@@ -1293,7 +1293,7 @@ INSTANCE ItFo_OM_Beer_01(C_Item)
 
 
 //***********************************************************************************************************
-//**                                Das Rätsel des Nebelturms           Björn                              **
+//**                                Das RÃ¤tsel des Nebelturms           BjÃ¶rn                              **
 //***********************************************************************************************************
 
 //*******Effekt nur beim ersten benutzen des Buches
@@ -1347,7 +1347,7 @@ INSTANCE theriddle1(C_Item)
 
 
                     //2.Seite
-                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1        );  //  0 -> margins are in pixels (Position des Textes von den Ränder des TGAs aus, links,oben,rechts,unten)
+                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1        );  //  0 -> margins are in pixels (Position des Textes von den RÃ¤nder des TGAs aus, links,oben,rechts,unten)
                     Doc_PrintLine   ( nDocID,  1, "");
                     Doc_PrintLine   ( nDocID,  1, "");
                     Doc_PrintLine   ( nDocID,  1, "");
@@ -1415,7 +1415,7 @@ INSTANCE theriddle2(C_Item)
 
 
                     //2.Seite
-                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1        );  //  0 -> margins are in pixels (Position des Textes von den Ränder des TGAs aus, links,oben,rechts,unten)
+                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1        );  //  0 -> margins are in pixels (Position des Textes von den RÃ¤nder des TGAs aus, links,oben,rechts,unten)
                     Doc_PrintLine   ( nDocID,  1, "");
                     Doc_PrintLine   ( nDocID,  1, "");
                     Doc_PrintLine   ( nDocID,  1, "");
@@ -1483,7 +1483,7 @@ INSTANCE theriddle3(C_Item)
 
 
                     //2.Seite
-                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1        );  //  0 -> margins are in pixels (Position des Textes von den Ränder des TGAs aus, links,oben,rechts,unten)
+                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1        );  //  0 -> margins are in pixels (Position des Textes von den RÃ¤nder des TGAs aus, links,oben,rechts,unten)
                     Doc_PrintLine   ( nDocID,  1, "");
                     Doc_PrintLine   ( nDocID,  1, "");
                     Doc_PrintLine   ( nDocID,  1, "");
@@ -1556,7 +1556,7 @@ INSTANCE theriddle4(C_Item)
 
 
                     //2.Seite
-                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1        );  //  0 -> margins are in pixels (Position des Textes von den Ränder des TGAs aus, links,oben,rechts,unten)
+                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1        );  //  0 -> margins are in pixels (Position des Textes von den RÃ¤nder des TGAs aus, links,oben,rechts,unten)
                     Doc_PrintLine   ( nDocID,  1, "");
                     Doc_PrintLine   ( nDocID,  1, "");
                     Doc_PrintLine   ( nDocID,  1, "");
@@ -1629,7 +1629,7 @@ INSTANCE theriddle5(C_Item)
 
 
                     //2.Seite
-                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1        );  //  0 -> margins are in pixels (Position des Textes von den Ränder des TGAs aus, links,oben,rechts,unten)
+                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1        );  //  0 -> margins are in pixels (Position des Textes von den RÃ¤nder des TGAs aus, links,oben,rechts,unten)
                     Doc_PrintLine   ( nDocID,  1, "");
                     Doc_PrintLine   ( nDocID,  1, "");
                     Doc_PrintLine   ( nDocID,  1, "");
@@ -1702,7 +1702,7 @@ INSTANCE theriddle6(C_Item)
 
 
                     //2.Seite
-                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1        );  //  0 -> margins are in pixels (Position des Textes von den Ränder des TGAs aus, links,oben,rechts,unten)
+                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1        );  //  0 -> margins are in pixels (Position des Textes von den RÃ¤nder des TGAs aus, links,oben,rechts,unten)
                     Doc_PrintLine   ( nDocID,  1, "");
                     Doc_PrintLine   ( nDocID,  1, "");
                     Doc_PrintLine   ( nDocID,  1, "");

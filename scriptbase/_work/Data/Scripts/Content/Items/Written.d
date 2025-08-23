@@ -48,7 +48,7 @@ INSTANCE ItWr_Book_Circle_01(C_Item)
 
 
                     //2.Seite
-                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1        );  //  0 -> margins are in pixels (Position des Textes von den Ränder des TGAs aus, links,oben,rechts,unten)
+                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1        );  //  0 -> margins are in pixels (Position des Textes von den RÃ¤nder des TGAs aus, links,oben,rechts,unten)
                     Doc_PrintLine   ( nDocID,  1, "");
                     Doc_PrintLine   ( nDocID,  1,"Light");
                     Doc_PrintLine   ( nDocID,  1,"---------------");
@@ -121,7 +121,7 @@ INSTANCE ItWr_Book_Circle_02(C_Item)
 
 
                     //2.Seite
-                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1        );  //  0 -> margins are in pixels (Position des Textes von den Ränder des TGAs aus, links,oben,rechts,unten)
+                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1        );  //  0 -> margins are in pixels (Position des Textes von den RÃ¤nder des TGAs aus, links,oben,rechts,unten)
                     Doc_PrintLine   ( nDocID,  1, "");
                     Doc_PrintLine   ( nDocID,  1,"Healing");
                     Doc_PrintLine   ( nDocID,  1,"---------------");
@@ -190,7 +190,7 @@ INSTANCE ItWr_Book_Circle_03 (C_Item)
 
 
                     //2.Seite
-                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1        );  //  0 -> margins are in pixels (Position des Textes von den Ränder des TGAs aus, links,oben,rechts,unten)
+                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1        );  //  0 -> margins are in pixels (Position des Textes von den RÃ¤nder des TGAs aus, links,oben,rechts,unten)
                     Doc_PrintLine   ( nDocID,  1, "");
                     Doc_PrintLine   ( nDocID,  1,"Fireball");
                     Doc_PrintLine   ( nDocID,  1,"---------------");
@@ -267,7 +267,7 @@ INSTANCE ItWr_Book_Circle_04 (C_Item)
 
 
                     //2.Seite
-                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1        );  //  0 -> margins are in pixels (Position des Textes von den Ränder des TGAs aus, links,oben,rechts,unten)
+                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1        );  //  0 -> margins are in pixels (Position des Textes von den RÃ¤nder des TGAs aus, links,oben,rechts,unten)
 
 
                     Doc_PrintLine   ( nDocID,  1,"Storm of Fire");
@@ -340,7 +340,7 @@ INSTANCE  ItWr_Book_Circle_05(C_Item)
 
 
                     //2.Seite
-                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1        );  //  0 -> margins are in pixels (Position des Textes von den Ränder des TGAs aus, links,oben,rechts,unten)
+                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1        );  //  0 -> margins are in pixels (Position des Textes von den RÃ¤nder des TGAs aus, links,oben,rechts,unten)
                     Doc_PrintLine   ( nDocID,  1, "");
                     Doc_PrintLine   ( nDocID,  1,"Wave of Ice");
                     Doc_PrintLine   ( nDocID,  1,"---------------");
@@ -402,7 +402,7 @@ INSTANCE  ItWr_Book_Circle_06(C_Item)
 
 
                     //2.Seite
-                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1        );  //  0 -> margins are in pixels (Position des Textes von den Ränder des TGAs aus, links,oben,rechts,unten)
+                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1        );  //  0 -> margins are in pixels (Position des Textes von den RÃ¤nder des TGAs aus, links,oben,rechts,unten)
                     Doc_PrintLine   ( nDocID,  1, "");
                     Doc_PrintLine   ( nDocID,  1, "");
                     Doc_PrintLine   ( nDocID,  1,"Ring of Death");
@@ -471,7 +471,7 @@ INSTANCE Goettergabe(C_Item)
 
 
                     //2.Seite
-                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1        );  //  0 -> margins are in pixels (Position des Textes von den Ränder des TGAs aus, links,oben,rechts,unten)
+                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1        );  //  0 -> margins are in pixels (Position des Textes von den RÃ¤nder des TGAs aus, links,oben,rechts,unten)
                     Doc_PrintLine   ( nDocID,  1, "");
                     Doc_PrintLine   ( nDocID,  1, "");
                     Doc_PrintLine   ( nDocID,  1, "");
@@ -534,7 +534,7 @@ INSTANCE Geheimnisse_der_Zauberei(C_Item)
                     Doc_PrintLines  ( nDocID,  0,"The magic is not inherent in the magus himself, he is far more able to work it. The only skill he possesses is the ability to influence and guide magic. A disciple of the art of magic must be able to use his spirit as a tool.");
 
                     //2.Seite
-                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1);  //  0 -> margins are in pixels (Position des Textes von den Ränder des TGAs aus, links,oben,rechts,unten)
+                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1);  //  0 -> margins are in pixels (Position des Textes von den RÃ¤nder des TGAs aus, links,oben,rechts,unten)
                     Doc_PrintLine   ( nDocID,  1, "");
                     Doc_PrintLine   ( nDocID,  1, "");
                     Doc_PrintLine   ( nDocID,  1, "");
@@ -603,7 +603,7 @@ INSTANCE Machtvolle_Kunst (C_Item)
 
 
                     //2.Seite
-                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1);  //  0 -> margins are in pixels (Position des Textes von den Ränder des TGAs aus, links,oben,rechts,unten)
+                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1);  //  0 -> margins are in pixels (Position des Textes von den RÃ¤nder des TGAs aus, links,oben,rechts,unten)
                     Doc_PrintLine   ( nDocID,  1, "");
                     Doc_PrintLine   ( nDocID,  1, "");
                     Doc_PrintLine   ( nDocID,  1, "");
@@ -670,7 +670,7 @@ INSTANCE Elementare_Arcanei (C_Item)
 
 
                     //2.Seite
-                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1);  //  0 -> margins are in pixels (Position des Textes von den Ränder des TGAs aus, links,oben,rechts,unten)
+                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1);  //  0 -> margins are in pixels (Position des Textes von den RÃ¤nder des TGAs aus, links,oben,rechts,unten)
                     Doc_PrintLine   ( nDocID,  1, "");
                     Doc_PrintLine   ( nDocID,  1, "");
                     Doc_PrintLine   ( nDocID,  1, "");
@@ -695,7 +695,7 @@ INSTANCE  Wahre_Macht(C_Item)
 
     scemeName               =   "MAP";
     description         = "True Power";
-    //TEXT[0]               = "Fünfter Kreis";
+    //TEXT[0]               = "FÃ¼nfter Kreis";
     ////COUNT[0]            = ;
     //TEXT[1]               = "";
     ////COUNT[1]            = ;
@@ -738,7 +738,7 @@ INSTANCE  Wahre_Macht(C_Item)
 
 
                     //2.Seite
-                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1);  //  0 -> margins are in pixels (Position des Textes von den Ränder des TGAs aus, links,oben,rechts,unten)
+                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1);  //  0 -> margins are in pixels (Position des Textes von den RÃ¤nder des TGAs aus, links,oben,rechts,unten)
                     Doc_PrintLine   ( nDocID,  1, "");
                     Doc_PrintLine   ( nDocID,  1, "");
                     Doc_PrintLine   ( nDocID,  1, "");
@@ -804,7 +804,7 @@ INSTANCE  Das_magische_Erz(C_Item)
 
 
                     //2.Seite
-                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1);  //  0 -> margins are in pixels (Position des Textes von den Ränder des TGAs aus, links,oben,rechts,unten)
+                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1);  //  0 -> margins are in pixels (Position des Textes von den RÃ¤nder des TGAs aus, links,oben,rechts,unten)
                     Doc_PrintLine   ( nDocID,  1,"");
                     Doc_PrintLine   ( nDocID,  1,"");
                     Doc_PrintLines  ( nDocID,  1,"It will break any shield and pierce any armor. Kings and heroes of old wielded weapons forged from the finest steel of Khorinis, and high prices are still paid for such weapons throughout Myrtana. But the ore itself demands a high price. Much effort is required to break it from the rock. It is almost as though the ore were fighting to remain within the womb of the earth.");
@@ -865,7 +865,7 @@ INSTANCE Schlacht_um_Varant1(C_Item)
 
                     //2.Seite
 
-                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1        );  //  0 -> margins are in pixels (Position des Textes von den Ränder des TGAs aus, links,oben,rechts,unten)
+                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1        );  //  0 -> margins are in pixels (Position des Textes von den RÃ¤nder des TGAs aus, links,oben,rechts,unten)
                     Doc_PrintLine   ( nDocID,  1,"");
                     Doc_PrintLines  ( nDocID,  1,"uniting and dealing him a crushing blow. He would have to sever their supply lines to secure the victory ...");
                     Doc_PrintLine   ( nDocID,  1,"");
@@ -923,7 +923,7 @@ INSTANCE Schlacht_um_Varant2(C_Item)
 
                     //2.Seite
 
-                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1        );  //  0 -> margins are in pixels (Position des Textes von den Ränder des TGAs aus, links,oben,rechts,unten)
+                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1        );  //  0 -> margins are in pixels (Position des Textes von den RÃ¤nder des TGAs aus, links,oben,rechts,unten)
                     Doc_PrintLine   ( nDocID,  1,"");
                     Doc_PrintLines  ( nDocID,  1,"But now his army was trapped. The situation was hopeless, even though his army greatly outnumbered the enemy. Lee, a war hero from Myrtana, had lured him into this trap. The heavy cavalry had been unable to fight on the thick, swamped ground of the narrow valley. Lee's soldiers had occupied the range of hills surrounding the swamp, and they had struck repeatedly, decimating the army. The desperate sallies his troops had launched had been cut short in pools of blood. He was beaten.");
 
@@ -986,7 +986,7 @@ INSTANCE Myrtanas_Lyrik(C_Item)
 
                     //2.Seite
 
-                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1        );  //  0 -> margins are in pixels (Position des Textes von den Ränder des TGAs aus, links,oben,rechts,unten)
+                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1        );  //  0 -> margins are in pixels (Position des Textes von den RÃ¤nder des TGAs aus, links,oben,rechts,unten)
                     Doc_PrintLine   ( nDocID,  1,"");
                     Doc_PrintLines  ( nDocID,  1,"In the beginning was the power, pure and white,");
                     Doc_PrintLine   ( nDocID,  1,"");
@@ -1048,7 +1048,7 @@ INSTANCE Lehren_der_Goetter1 (C_ITEM)
                     Doc_PrintLines  ( nDocID,  0,"The word of Innos: And if it shall happen that you do not understand, do not despair at the words of the priests, for they are just and wise. For I am the rising sun, the light, and the life. And all that is contrary to the sun is contrary to me, and shall be banished to the shadows forever more.");
 
                     //2.Seite
-                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1        );  //  0 -> margins are in pixels (Position des Textes von den Ränder des TGAs aus, links,oben,rechts,unten)
+                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1        );  //  0 -> margins are in pixels (Position des Textes von den RÃ¤nder des TGAs aus, links,oben,rechts,unten)
                     Doc_PrintLine   ( nDocID,  1,"");
                     Doc_PrintLines  ( nDocID,  1,"The word of Adanos: Work and live, for the day was created so that man may work. Seek learning and knowledge so that you may pass it on, for it is for that purpose that you were created. But whosoever shall be listless and idle, he shall be banished to the shadows forever more.");
                     Doc_PrintLine   ( nDocID,  1,"");
@@ -1097,7 +1097,7 @@ INSTANCE Lehren_der_Goetter2 (C_ITEM)
 
                     //2.Seite
 
-                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1        );  //  0 -> margins are in pixels (Position des Textes von den Ränder des TGAs aus, links,oben,rechts,unten)
+                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1        );  //  0 -> margins are in pixels (Position des Textes von den RÃ¤nder des TGAs aus, links,oben,rechts,unten)
                     Doc_PrintLine   ( nDocID,  1,"");
                     Doc_PrintLines  ( nDocID,  1,"And he decided to leave mankind in the care of Adanos, and he rested. But Beliar was consumed by envy, for the people did not pray to him, but slept at night. He grew angry and created a man. A man to pray to him alone. But the man he created was like all other men. Beliar became so furious that he killed the man and spoke: If they will not worship me, then at least they shall fear me. And he created death and ended the lives of men.");
                     Doc_Show        ( nDocID );
@@ -1143,7 +1143,7 @@ INSTANCE Lehren_der_Goetter3 (C_ITEM)
                     Doc_PrintLines  ( nDocID,  0,"Innos gave mankind the power to hear him and speak to him. He gave mankind the power to perform great miracles, and he called them magic. With this power, the people were able to design the world after their will. Innos gave them no limits. And thus man received a portion of the divine power of creation. But not all the people were equal, and this dissatisfied them. So he took the power from the discontented. Innos raised the few who had shown him gratitude above the others.");
 
                     //2.Seite
-                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1        );  //  0 -> margins are in pixels (Position des Textes von den Ränder des TGAs aus, links,oben,rechts,unten)
+                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1        );  //  0 -> margins are in pixels (Position des Textes von den RÃ¤nder des TGAs aus, links,oben,rechts,unten)
                     Doc_PrintLine   ( nDocID,  1,"");
                     Doc_PrintLines  ( nDocID,  1,"These few were soon revered and feared, and the people  called them priests. But among them were many who soon became dissatisfied. And so it happened that they prayed to Adanos and forgot their origins. The league of priests was divided. Wars ensued and the faith in divine omnipotence soon became a myth. And so the priests were separated. Those who followed Adanos were called Magicians of the Circle of Water, while the priests of Innos became known as the Magicians of the Circle of Fire.");
                     Doc_Show        ( nDocID );
@@ -1197,7 +1197,7 @@ INSTANCE Jagd_und_Beute (C_ITEM)
 
                     //2.Seite
 
-                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1        );  //  0 -> margins are in pixels (Position des Textes von den Ränder des TGAs aus, links,oben,rechts,unten)
+                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1        );  //  0 -> margins are in pixels (Position des Textes von den RÃ¤nder des TGAs aus, links,oben,rechts,unten)
                     Doc_PrintLine   ( nDocID,  1,"");
                     Doc_PrintLines  ( nDocID,  1,"The art of hunting with a bow is not merely ancient tradition, but the most common form of hunting. The techniques employed in this traditional method of hunting have hardly altered in the course of the millennia, and it is unlikely that they will change in the future. What circumstances really determine a hunt with a bow and arrow? To recognize these laws is the true art of bow hunting.");
                     Doc_Show        ( nDocID );
@@ -1255,7 +1255,7 @@ INSTANCE Kampfkunst (C_ITEM)
                     Doc_PrintLines  ( nDocID,  0,"Dexterity, composure, speed, observation and reactions are the skills which must be trained. Your movements must be well-coordinated and your posture correct if you want your powers to blossom.");
 
                     //2.Seite
-                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1        );  //  0 -> margins are in pixels (Position des Textes von den Ränder des TGAs aus, links,oben,rechts,unten)
+                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1        );  //  0 -> margins are in pixels (Position des Textes von den RÃ¤nder des TGAs aus, links,oben,rechts,unten)
                     Doc_PrintLine   ( nDocID,  1,"");
                     Doc_PrintLine   ( nDocID,  1,"");
                     Doc_PrintLine   ( nDocID,  1,"");
@@ -1339,7 +1339,7 @@ INSTANCE Astronomie (C_ITEM)
                     Doc_PrintLines  ( nDocID,  0,"In the hierarchy of the universe, man is a receiver. His soul allows him to take part in the highest plane of existence, the divine spirit. Yet man's body is made from the substance of the Morgrad. He is a reflection of the world itself.");
 
                     //2.Seite
-                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1        );  //  0 -> margins are in pixels (Position des Textes von den Ränder des TGAs aus, links,oben,rechts,unten)
+                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1        );  //  0 -> margins are in pixels (Position des Textes von den RÃ¤nder des TGAs aus, links,oben,rechts,unten)
                     Doc_PrintLine   ( nDocID,  1,"");
                     Doc_PrintLines  ( nDocID,  1,"The synodic orbit of the planets, that is the course they take between two identical positions in relation to the Morgrad of our world, varies by just a few degrees every century. We therefore conclude that we are constantly moving with the rest of the universe.");
                     Doc_PrintLine   ( nDocID,  1,"");
@@ -1400,7 +1400,7 @@ INSTANCE Rezepturen (C_ITEM)
                     Doc_PrintLines  ( nDocID,  0,"Cover the patient's eyes with bile. This secretion has a bitter taste. Placing this bitterness on the eye forces the patient to regard it, which makes him wise. He learns to see! Bitterness and wisdom are mutually exclusive opposites. They are each other's counterparts!");
 
                     //2.Seite
-                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1        );  //  0 -> margins are in pixels (Position des Textes von den Ränder des TGAs aus, links,oben,rechts,unten)
+                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1        );  //  0 -> margins are in pixels (Position des Textes von den RÃ¤nder des TGAs aus, links,oben,rechts,unten)
                     Doc_PrintLine   ( nDocID,  1,"");
                     Doc_PrintLines  ( nDocID,  1,"");
                     Doc_PrintLine   ( nDocID,  1,"");
@@ -1459,7 +1459,7 @@ INSTANCE Rezepturen2 (C_ITEM)
                     Doc_PrintLines  ( nDocID,  0,"The best grapes for this wine are found high up on the slopes of Archolos. The art of allowing this wine to ripen to perfection lies in not disturbing it through any kind of movement. The grapes are blended with the common syos herb in front of the wine cellars.");
 
                     //2.Seite
-                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1        );  //  0 -> margins are in pixels (Position des Textes von den Ränder des TGAs aus, links,oben,rechts,unten)
+                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1        );  //  0 -> margins are in pixels (Position des Textes von den RÃ¤nder des TGAs aus, links,oben,rechts,unten)
                     Doc_PrintLine   ( nDocID,  1,"");
                     Doc_PrintLines  ( nDocID,  1,"");
                     Doc_PrintLine   ( nDocID,  1,"");
@@ -1591,7 +1591,7 @@ INSTANCE ItWr_Bloodfly_01(C_Item)
 
 
                     //2.Seite
-                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1        );  //  0 -> margins are in pixels (Position des Textes von den Ränder des TGAs aus, links,oben,rechts,unten)
+                    Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1        );  //  0 -> margins are in pixels (Position des Textes von den RÃ¤nder des TGAs aus, links,oben,rechts,unten)
                     Doc_PrintLine   ( nDocID,  1,"");
                     Doc_PrintLine   ( nDocID,  1,"");
                     Doc_PrintLine   ( nDocID,  1,"");

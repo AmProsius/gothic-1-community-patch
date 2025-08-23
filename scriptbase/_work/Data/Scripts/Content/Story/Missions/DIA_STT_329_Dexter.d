@@ -23,7 +23,7 @@ FUNC VOID DIA_Dexter_Exit_Info()
 };
 
 // **************************************************
-//                  Erste Begr¸ssung
+//                  Erste Begr√ºssung
 // **************************************************
 
 INSTANCE DIA_Dexter_First (C_INFO)
@@ -247,10 +247,10 @@ FUNC VOID DIA_Dexter_WhereST_Info()
     AI_Output (other,self,"DIA_Dexter_WhereST_15_00"); //Where is the Sect Camp?
     AI_Output (self,other,"DIA_Dexter_WhereST_10_01"); //Leave the Camp through the south exit, then head eastwards. You'd better take a map -
 
-    if (Npc_HasItems(self,ItWrWorldmap) >0)                                                     //Bjˆrn
-        {                                                                                       //Bjˆrn
+    if (Npc_HasItems(self,ItWrWorldmap) >0)                                                     //Bj√∂rn
+        {                                                                                       //Bj√∂rn
             AI_Output (self,other,"DIA_Dexter_WhereST_10_02"); //I've got one here for 50 ore...
-        };                                                                                      //Bjˆrn
+        };                                                                                      //Bj√∂rn
 
     AI_Output (other,self,"DIA_Dexter_WhereST_15_02"); //The south exit is the collapsed tower, isn't it?
     AI_Output (self,other,"DIA_Dexter_WhereST_10_03"); //Exactly.

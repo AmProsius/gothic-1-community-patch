@@ -1,6 +1,6 @@
 func void B_Story_LeftFM()
 {
-    //-------- TA's ändern --------
+    //-------- TA's Ã¤ndern --------
     var C_NPC gorn;
     gorn = Hlp_GetNpc(PC_FIGHTER);
     Npc_ExchangeRoutine(gorn, "WaitFM");

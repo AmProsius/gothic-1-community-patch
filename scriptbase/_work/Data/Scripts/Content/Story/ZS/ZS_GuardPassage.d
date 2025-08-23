@@ -5,15 +5,15 @@
 //  bewachen sollen.
 //
 //  Es passiert folgendes:
-//  1.  Nähert sich der Spieler dem Durchgang, so wird er in einen
+//  1.  NÃ¤hert sich der Spieler dem Durchgang, so wird er in einen
 //      Dialog gezwungen und ein personalisiertes Skript aufgerufen
 //  2.  In diesem Skript wird gecheckt, ob der Spieler passieren darf:
-//      ->  falls er der gleichen Gilde angehört
+//      ->  falls er der gleichen Gilde angehÃ¶rt
 //      ->  falls er missionsbedingt eine Erlaubnis hat
 //      ->  Darf er passieren, passiert nichts weiter
 //      ->  Darf er NICHT passieren und tut es trotzdem, wird er
-//          angegriffen und getötet.
-//  3.  Wie in allen Wachzuständen werden nette Posen und Zufalls-
+//          angegriffen und getÃ¶tet.
+//  3.  Wie in allen WachzustÃ¤nden werden nette Posen und Zufalls-
 //      Animationen abgespielt.
 //////////////////////////////////////////////////////////////////////////
 func void ZS_GuardPassage ()
@@ -27,7 +27,7 @@ func void ZS_GuardPassage ()
     Npc_PercDisable (self,  PERC_OBSERVEINTRUDER);
 
     AI_StandUp      (self);
-    AI_SetWalkmode  (self,NPC_WALK);            // Walkmode für den Zustand
+    AI_SetWalkmode  (self,NPC_WALK);            // Walkmode fÃ¼r den Zustand
     AI_GotoWP       (self, self.wp);            // Gehe zum Tagesablaufstart
     AI_AlignToWP    (self);
 

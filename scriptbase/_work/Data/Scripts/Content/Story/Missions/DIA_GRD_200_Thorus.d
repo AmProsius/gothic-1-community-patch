@@ -51,7 +51,7 @@ FUNC VOID Info_Thorus_EnterCastle_Info()
 };
 
 // ************************************************************
-//                  Ich will für Gomez arbeiten
+//                  Ich will fÃ¼r Gomez arbeiten
 // ************************************************************
 
 INSTANCE Info_Thorus_WorkForGomez(C_INFO) //E2
@@ -468,7 +468,7 @@ FUNC VOID Info_Thorus_Give1000Ore_Info()
 };
 
 // ************************************************************
-//                  Brief für Magier
+//                  Brief fÃ¼r Magier
 // ************************************************************
 
 INSTANCE Info_Thorus_LetterForMages (C_INFO)
@@ -501,7 +501,7 @@ FUNC VOID Info_Thorus_LetterForMages_Info()
 };
 
 // ************************************************************
-//                  Bereit für Gomez !!!
+//                  Bereit fÃ¼r Gomez !!!
 // ************************************************************
 
 INSTANCE Info_Thorus_ReadyForGomez (C_INFO)

@@ -38,7 +38,7 @@ instance ORC_2200_Shaman (Mst_Default_OrcShaman)
     Npc_SetTalentSkill      ( self, NPC_TALENT_MAGE,        6);
 
     //-------- inventory --------
-    EquipItem           (self,  ItRwOrcstaff);      // für Magiemodus
+    EquipItem           (self,  ItRwOrcstaff);      // fÃ¼r Magiemodus
     CreateInvItem       (self,  ItArRuneFireball);
 
     //------------- ai -------------

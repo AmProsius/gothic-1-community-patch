@@ -4,11 +4,11 @@
 //  =============
 //  Der (menschliche) NSC wird von einem anderen (menschlichen) NSC vor einem Dritten
 //  gewarnt.
-//  - self:     Empfänger der Warnung
+//  - self:     EmpfÃ¤nger der Warnung
 //  - victim:   Sender der Warnung
 //  - other:    der Dritte, vor dem gewarnt wird
 //
-//  Folgende Fälle können zu einer Warnung zwischen Menschen führen:
+//  Folgende FÃ¤lle kÃ¶nnen zu einer Warnung zwischen Menschen fÃ¼hren:
 //  1.  B_AssessFighter()   ->  der Spieler wird mit gezogener Waffe entdeckt
 //  2.  B_AssessTheft()     ->  ein NSC wird vom Spieler beklaut (Taschendiebstahl)
 //  3.  ZS_AlarmAll()       ->  nach AssessEnemy/Murder eines Freundes/Kameraden
@@ -41,7 +41,7 @@ func void ZS_AssessWarn ()
     Npc_PercEnable      (self,  PERC_ASSESSENTERROOM    ,   B_AssessEnterRoom   );
     Npc_SetPercTime     (self,  1);
 
-    // ----------------- MH: für ItemSchweine (EBR-Haus. Lares, etc) ------------------
+    // ----------------- MH: fÃ¼r ItemSchweine (EBR-Haus. Lares, etc) ------------------
     if (victim.aivar[AIV_ITEMSCHWEIN]==TRUE)
     && (Npc_GetAttitude(self,victim) == ATT_FRIENDLY)
     {
@@ -56,7 +56,7 @@ func void ZS_AssessWarn ()
     &&  (Npc_GetAttitude(self,victim) == ATT_FRIENDLY)
     {
 
-        PrintDebugNpc       (PD_ZS_CHECK,   "...verlassener Portalraum gehört Schützling-Gilde!");
+        PrintDebugNpc       (PD_ZS_CHECK,   "...verlassener Portalraum gehÃ¶rt SchÃ¼tzling-Gilde!");
         Npc_PercEnable      (self,  PERC_ASSESSENTERROOM    ,   B_ClearRoomEnterRoom);
         B_WhirlAround       (self,  other);
         AI_PointAtNpc       (self,  other);
@@ -71,7 +71,7 @@ func void ZS_AssessWarn ()
     &&      Npc_IsInState(victim,ZS_CallGuardsOnEnterRoom)
     &&      (Npc_GetAttitude(self,victim) == ATT_FRIENDLY)
     {
-        PrintDebugNpc       (PD_ZS_CHECK,   "...Warnung von Schützling, dessen Raum betreten/verlassen wurde!");
+        PrintDebugNpc       (PD_ZS_CHECK,   "...Warnung von SchÃ¼tzling, dessen Raum betreten/verlassen wurde!");
         if (other.aivar[AIV_HASBEENDEFEATEDINPORTALROOM] == FALSE)
         {
             B_WhirlAround       (self,  hero);
@@ -160,8 +160,8 @@ func void ZS_AssessWarn_End ()
         }
         else if (Npc_HasNews(self, NEWS_MURDER, other, victim) && Npc_GetGuildAttitude  ( self, victim) == ATT_FRIENDLY)
         {
-            PrintDebugNpc   (PD_ZS_CHECK, "ZS_AssessWarn End // Free Los //Not HOSTILE Kumpel getötet");
-            // JP: Hier gab es kein Svm, ich habe da mal noch eins eingefügt, damit wenigstens klar ist, da wird der Sc angegriffen
+            PrintDebugNpc   (PD_ZS_CHECK, "ZS_AssessWarn End // Free Los //Not HOSTILE Kumpel getÃ¶tet");
+            // JP: Hier gab es kein Svm, ich habe da mal noch eins eingefÃ¼gt, damit wenigstens klar ist, da wird der Sc angegriffen
             Npc_GetTarget   (self);
             AI_StartState   (self, ZS_AssessEnemy, 0, "");
         }
@@ -175,7 +175,7 @@ func void ZS_AssessWarn_End ()
     }
     else
     {
-        PrintDebugNpc       (PD_ZS_CHECK, "ZS_AssessWarn  End// Can´T See");
+        PrintDebugNpc       (PD_ZS_CHECK, "ZS_AssessWarn  End// CanÂ´T See");
         return;
     };
 };

@@ -87,7 +87,7 @@ INSTANCE ItMw_1H_Sickle_01 (C_Item)
 };
 
 /******************************************************************************************/
-// Auch f¸r Mobsi-Benutzung (PickOre)
+// Auch f√ºr Mobsi-Benutzung (PickOre)
 // VLK, SFB
 INSTANCE ItMwPickaxe (C_Item)
 {
@@ -115,7 +115,7 @@ INSTANCE ItMwPickaxe (C_Item)
 };
 
 /********************************************************************************/
-// Auch f¸r Mobsi-Benutzung (Schmieden)
+// Auch f√ºr Mobsi-Benutzung (Schmieden)
 INSTANCE ItMw_1H_Sledgehammer_01 (C_Item)
 {
     name                =   "Smith's Hammer";
@@ -1131,7 +1131,7 @@ INSTANCE ItMw_1H_Warhammer_03 (C_Item)
 
 
 /*********************************************************************************
-** ƒxte                                     **
+** √Ñxte                                     **
 *********************************************************************************/
 // keine NPCs
 INSTANCE ItMw_1H_Axe_01 (C_Item)
@@ -1324,7 +1324,7 @@ INSTANCE ItMw_1H_Sword_Broad_04 (C_Item)
 };
 
 /*********************************************************************************
-** Alte Zweih‰nder                              **
+** Alte Zweih√§nder                              **
 *********************************************************************************/
 // keine NPCs
 INSTANCE ItMw_2H_Sword_Old_01 (C_Item)
@@ -1463,7 +1463,7 @@ INSTANCE ItMw_1H_Sword_Bastard_04 (C_Item)
 };
 
 /*********************************************************************************
-** Alte Streit‰xte                              **
+** Alte Streit√§xte                              **
 *********************************************************************************/
 // keine NPCs
 INSTANCE ItMw_2H_Axe_Old_01 (C_Item)
@@ -1546,7 +1546,7 @@ INSTANCE ItMw_2H_Axe_Old_03 (C_Item)
 };
 
 /*********************************************************************************
-** Leichte Zweih‰nder                               **
+** Leichte Zweih√§nder                               **
 *********************************************************************************/
 // TPL
 INSTANCE ItMw_2H_Sword_Light_01 (C_Item)
@@ -1766,7 +1766,7 @@ INSTANCE ItMw_2H_Axe_light_03 (C_Item)
 };
 
 /*********************************************************************************
-** Zweih‰nder                                   **
+** Zweih√§nder                                   **
 *********************************************************************************/
 // keine NPCs
 INSTANCE ItMw_2H_Sword_01 (C_Item)
@@ -1849,7 +1849,7 @@ INSTANCE ItMw_2H_Sword_03 (C_Item)
 };
 
 /*********************************************************************************
-** Schwere Zweih‰nder                               **
+** Schwere Zweih√§nder                               **
 *********************************************************************************/
 // keine NPCs
 INSTANCE ItMw_2H_Sword_Heavy_01 (C_Item)
@@ -1958,7 +1958,7 @@ INSTANCE ItMw_2H_Sword_Heavy_04 (C_Item)
 };
 
 /*********************************************************************************
-** Streit‰xte                                   **
+** Streit√§xte                                   **
 *********************************************************************************/
 // keine NPCs
 INSTANCE ItMw_2H_Axe_Heavy_01 (C_Item)

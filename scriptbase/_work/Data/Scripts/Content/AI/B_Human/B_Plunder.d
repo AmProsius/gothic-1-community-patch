@@ -1,8 +1,8 @@
 //////////////////////////////////////////////////////////////////////////
 //  B_TransferItems
 //  ===============
-//  Überträgt das 'item' von 'other' zu 'self'. In 'amount' muß die
-//  Anzahl der zu übertragenden Items übergeben werden.
+//  ÃœbertrÃ¤gt das 'item' von 'other' zu 'self'. In 'amount' muÃŸ die
+//  Anzahl der zu Ã¼bertragenden Items Ã¼bergeben werden.
 //////////////////////////////////////////////////////////////////////////
 func void B_TransferItems (var int amount)
 {
@@ -27,9 +27,9 @@ func void B_TransferItems (var int amount)
 //////////////////////////////////////////////////////////////////////////
 //  B_CheckItem
 //  ===========
-//  Überprüft den Inventoryslot 'slot' in der 'category' und ruft
+//  ÃœberprÃ¼ft den Inventoryslot 'slot' in der 'category' und ruft
 //  bei Bedarf B_TransferItem() auf.
-//  -> benötigt 'self' und 'other'
+//  -> benÃ¶tigt 'self' und 'other'
 //  -> initialisiert 'item' selbst
 //  -> return:  - FALSE, wenn kein item genommen wurde
 //              - TRUE, wenn item genommen wurde
@@ -51,14 +51,14 @@ func int B_CheckItem (var int category, var int slot)
     else                                {   printText = ConcatStrings("...found unknown category #",printText); };
 
     var int count;
-    count = Npc_GetInvItemBySlot(other, category,slot);             // initialisiert 'item' und gibt Anzahl zurück
+    count = Npc_GetInvItemBySlot(other, category,slot);             // initialisiert 'item' und gibt Anzahl zurÃ¼ck
     PrintDebugNpc(PD_ZS_DETAIL, IntToString(count));
 
     if (count > 0)
     {
         PrintDebugNpc(PD_ZS_CHECK, printText);
 
-        // NEU: Nimmt nur Erz und davon nur die Hälfte!
+        // NEU: Nimmt nur Erz und davon nur die HÃ¤lfte!
         if (Hlp_IsItem(item, ItMiNugget))
         {
             B_TransferItems(count/2);
@@ -80,13 +80,13 @@ func int B_CheckItem (var int category, var int slot)
 //////////////////////////////////////////////////////////////////////////
 //  B_Plunder
 //  =========
-//  Durchsucht alle Inventoryslots, überprüft, welche Gegenstände er
+//  Durchsucht alle Inventoryslots, Ã¼berprÃ¼ft, welche GegenstÃ¤nde er
 //  haben will, und nimmt sie sich. Durchsucht werden:
 //
 //  alt:
 //  ----
 //  -  6 Slots Waffen
-//  -  2 Slots Rüstungen
+//  -  2 Slots RÃ¼stungen
 //  -  ? Slots Runen & Scrolls
 //  -  ? Slots Artefakte
 //  - 15 Slots Nahrung
@@ -94,9 +94,9 @@ func int B_CheckItem (var int category, var int slot)
 //
 //  neu:
 //  ----
-//  - Dem Opfer wird die Hälfte des vorhandenen Erzes abgenommen.
+//  - Dem Opfer wird die HÃ¤lfte des vorhandenen Erzes abgenommen.
 //
-//  -> Gibt Anzahl der geplünderten Gegenstände zurück.
+//  -> Gibt Anzahl der geplÃ¼nderten GegenstÃ¤nde zurÃ¼ck.
 //////////////////////////////////////////////////////////////////////////
 func int B_Plunder  ()
 {
@@ -106,7 +106,7 @@ func int B_Plunder  ()
     amountPlundered = 0;
 
     //-------- Durchsuchen der WEAPONS ---------
-    // Zurückgenommene Waffen werden nicht mitangegeben bei amountPlundered, da sich die SVMs dabei nur auf Erz beziehen.
+    // ZurÃ¼ckgenommene Waffen werden nicht mitangegeben bei amountPlundered, da sich die SVMs dabei nur auf Erz beziehen.
     // Z.Zt. ist INV_MAX_WEAPONS noch auf 6
 
     B_CheckItem(INV_WEAPON, 1   );
@@ -147,9 +147,9 @@ func int B_Plunder  ()
     if( B_CheckItem(INV_MISC,   28  ) ) { amountPlundered = amountPlundered + 1; };
     if( B_CheckItem(INV_MISC,   29  ) ) { amountPlundered = amountPlundered + 1; };
 
-    //-------- Anzahl geplünderter Items ausgeben ---------
-    PrintDebugInt(PD_ZS_CHECK, "...Anzahl geplünderter Items: ", amountPlundered);
+    //-------- Anzahl geplÃ¼nderter Items ausgeben ---------
+    PrintDebugInt(PD_ZS_CHECK, "...Anzahl geplÃ¼nderter Items: ", amountPlundered);
 
-    //-------- Rückgabewert ---------
+    //-------- RÃ¼ckgabewert ---------
     return amountPlundered;
 };

@@ -5,7 +5,7 @@ INSTANCE PC_Psionic(NPC_DEFAULT)
     name            = "Lester";
     Npctype         = NPCTYPE_FRIEND;
     guild           = GIL_NOV;
-    level           = 999;          // real 15, aber 999 damit er nicht vor dem Brückegolem flieht!
+    level           = 999;          // real 15, aber 999 damit er nicht vor dem BrÃ¼ckegolem flieht!
     voice           = 5;
     id              = 4;
     flags           = NPC_FLAG_IMMORTAL;
@@ -46,7 +46,7 @@ INSTANCE PC_Psionic(NPC_DEFAULT)
     senses_range    =   1500;
 };
 
-// SN: Wichtig für Kapitel 2, daß Lester dort steht und auf den Spieler wartet !!!
+// SN: Wichtig fÃ¼r Kapitel 2, daÃŸ Lester dort steht und auf den Spieler wartet !!!
 // MH: Hab ihn nen Tick nach hinten versetzt
 FUNC VOID Rtn_start_4 ()
 {
@@ -54,7 +54,7 @@ FUNC VOID Rtn_start_4 ()
     TA_Smalltalk    (23,00, 08,00,"PSI_GUARD_TREE_EX");
 };
 
-// SN: Wichtig für Kapitel 3: Lester wartet vor Bergfestung auf den Spieler
+// SN: Wichtig fÃ¼r Kapitel 3: Lester wartet vor Bergfestung auf den Spieler
 FUNC VOID Rtn_FortressWait_4 ()
 {
     TA_Stay         (00,00, 23,00,"LOCATION_19_01");
@@ -85,7 +85,7 @@ FUNC VOID Rtn_BOOK_4 ()
     TA_ReadBook         (23,00, 24,00,"LOCATION_19_03_ROOM6_BARRELCHAMBER");
 };
 
-// LESTER FÜHRT DEN SPIELER DURCH DAS SUMPFLAGER NUR IN DEN ERSTEN ZWEI KAPITELN
+// LESTER FÃœHRT DEN SPIELER DURCH DAS SUMPFLAGER NUR IN DEN ERSTEN ZWEI KAPITELN
 // AB DEM DRITTEN KAPITEL WIRD ER ANDERWEITIG (BERGFESTUNG) GEBRAUCHT
 FUNC VOID Rtn_GuideToSmith_4 ()
 {

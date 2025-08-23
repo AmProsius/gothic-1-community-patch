@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////////////////////////
 //  B_GuidePC_AssessPlayer
 //  ======================
-//  Checkt während dem Laufen die Distanz zum Spieler.
+//  Checkt wÃ¤hrend dem Laufen die Distanz zum Spieler.
 //////////////////////////////////////////////////////////////////////////
 func void B_GuidePC_AssessPlayer ()
 {
@@ -37,7 +37,7 @@ func void B_GuidePC_AssessCall ()
 //  ZS_GuidePC
 //  ==========
 //  Ein TA-Zustand, der zum angegebenen Waypoint geht, aber auf den SC
-//  wartet, falls dieser zu weit zurückfällt.
+//  wartet, falls dieser zu weit zurÃ¼ckfÃ¤llt.
 //////////////////////////////////////////////////////////////////////////
 func void ZS_GuidePC ()
 {
@@ -97,7 +97,7 @@ func int ZS_GuidePC_End ()
 {
     PrintDebugNpc       (PD_TA_FRAME,   "ZS_GuidePC_End");
 
-    //-------- aktive Wahrnehmungen wieder auf Default zurückstellen -------
+    //-------- aktive Wahrnehmungen wieder auf Default zurÃ¼ckstellen -------
     self.senses_range    = hero.senses_range;
     self.senses          = hero.senses;
 };

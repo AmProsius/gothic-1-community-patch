@@ -123,7 +123,7 @@ func void B_Gravo_HelpAttitude(var C_NPC prob)
         else
         {
             AI_Output (other, self,"B_Gravo_HelpAttitude_NoOre_15_01"); //Soviel hab' ich nicht.
-            AI_Output (self, other,"B_Gravo_HelpAttitude_NoOre_04_02"); //Dann kann ich nichts für dich tun - tut mit leid, Junge.
+            AI_Output (self, other,"B_Gravo_HelpAttitude_NoOre_04_02"); //Dann kann ich nichts fÃ¼r dich tun - tut mit leid, Junge.
         };
     }
     else

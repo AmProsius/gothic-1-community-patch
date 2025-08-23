@@ -60,14 +60,14 @@ func void ZS_ClearRoom_End ()
     AI_TurnToNpc        (self,  other);
     if (C_AmIStronger   (self,  other))
     {
-        PrintDebugNpc   (PD_ZS_CHECK, "...Nsc ist st‰rker!");
+        PrintDebugNpc   (PD_ZS_CHECK, "...Nsc ist st√§rker!");
         B_DrawWeapon    (self,  other);
         B_Say           (self,  other, "$GETOUTOFHERE");
         AI_StartState   (self,  ZS_ClearRoomWait, 0, "");
     }
     else
     {
-        PrintDebugNpc   (PD_ZS_CHECK, "...Nsc ist schw‰cher!");
+        PrintDebugNpc   (PD_ZS_CHECK, "...Nsc ist schw√§cher!");
         B_Say           (self,  other, "$WHYAREYOUINHERE ");
         AI_StartState   (self,  ZS_ClearRoomWait, 0, "");
     };
@@ -172,7 +172,7 @@ func void B_ClearRoomUseMob()
     if  Npc_IsDetectedMobOwnedByNpc(other,  self)
     ||  Npc_IsDetectedMobOwnedByGuild(other, self.guild)
     {
-        PrintDebugNpc       (PD_ZS_CHECK,   "...MOB gehˆrt NSC oder seiner Gilde!");
+        PrintDebugNpc       (PD_ZS_CHECK,   "...MOB geh√∂rt NSC oder seiner Gilde!");
 
         B_FullStop          (self);
         Npc_PercDisable     (self,  PERC_ASSESSUSEMOB);

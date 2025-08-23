@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////////////////////////
 //  B_AssessThreat
 //  ==============
-//  Wird ausschlieﬂlich angesprungen durch
+//  Wird ausschlie√ülich angesprungen durch
 //
 //  - PERC_ASSESSTHREAT     (nur aus ZS_AssessFighter/Wait heraus)
 //

@@ -21,7 +21,7 @@ func void B_Story_GotoOrcGraveyard()
     Wld_InsertNpc       (OrcBiter,          "OW_PATH_198_ORCGRAVEYARD4");
     Wld_InsertNpc       (OrcBiter,          "OW_PATH_198_ORCGRAVEYARD4");
 
-    // vor dem Höhleneingang
+    // vor dem HÃ¶hleneingang
     Wld_InsertNpc       (OrcScout,          "OW_PATH_198_ORCGRAVEYARD5");
     Wld_InsertNpc       (OrcScout,          "OW_PATH_198_ORCGRAVEYARD6");
     Wld_InsertNpc       (OrcScout,          "OW_PATH_198_ORCGRAVEYARD7");

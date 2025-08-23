@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////////////////////////
 //  B_MagicHurtNpc
 //  ==============
-//  Verwundet den NSC und berücksichtigt dabei den magischen Rüstschutz
+//  Verwundet den NSC und berÃ¼cksichtigt dabei den magischen RÃ¼stschutz
 //  'self' ist der zu verwundende NSC
 //////////////////////////////////////////////////////////////////////////
 func void B_MagicHurtNpc (var C_NPC attacker, var int damage)

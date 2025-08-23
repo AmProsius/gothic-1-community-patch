@@ -1,8 +1,8 @@
 //////////////////////////////////////////////////////////////////////////
 //  B_InitMonsterAttitudes
 //  ======================
-//  Initialisiert die Attitüde aller Monsterrassen zu allen anderen
-//  Wesen im Spiel. für Menschen und Orks werden die Sammelbezeichner
+//  Initialisiert die AttitÃ¼de aller Monsterrassen zu allen anderen
+//  Wesen im Spiel. fÃ¼r Menschen und Orks werden die Sammelbezeichner
 //  GIL_SEPERATOR_HUM bzw. GIL_SEPERATOR_ORC verwendet.
 //
 //////////////////////////////////////////////////////////////////////////
@@ -457,8 +457,8 @@ func void B_InitMonsterAttitudes ()
     B_SetGuildAttitude  (GIL_SKELETON,      ATT_HOSTILE,    GIL_ORCSCOUT        );
 
     //-------- HUMAN --------
-    // SN:  alle Menschen auf ATT_HOSTILE gegenüber allen Monstern gesetzt, um die Reaktionszeit
-    //      nach dem Besiegen des einen und dem Bekämpfen des nächsten Monsters zu
+    // SN:  alle Menschen auf ATT_HOSTILE gegenÃ¼ber allen Monstern gesetzt, um die Reaktionszeit
+    //      nach dem Besiegen des einen und dem BekÃ¤mpfen des nÃ¤chsten Monsters zu
     //      beschleunigen. (Npc_IsNextTargetAvailable springt bei ATT_ANGRY nicht an!)
     //
     B_SetGuildAttitude  (GIL_SEPERATOR_HUM, ATT_HOSTILE,    GIL_WARAN           );

@@ -273,9 +273,9 @@ FUNC int  ORG_862_Jacko_ANGEBOT_Condition()
 FUNC void  ORG_862_Jacko_ANGEBOT_Info()
 {
     AI_Output (other, self,"ORG_862_Jacko_ANGEBOT_Info_15_01"); //Ich will euch ein Angebot machen!
-    AI_Output (self, other,"ORG_862_Jacko_ANGEBOT_Info_06_02"); //Was für ein Angebot?
+    AI_Output (self, other,"ORG_862_Jacko_ANGEBOT_Info_06_02"); //Was fÃ¼r ein Angebot?
     AI_Output (other, self,"ORG_862_Jacko_ANGEBOT_Info_15_03"); //Das werde ich mit demjenigen bereden,der hier das Sagen hat.
-    AI_Output (self, other,"ORG_862_Jacko_ANGEBOT_Info_06_04"); //Na schön,dann rede mit Renyu. Aber keine faulen Tricks, sonst zerschlage ich jeden deiner Knochen einzeln!
+    AI_Output (self, other,"ORG_862_Jacko_ANGEBOT_Info_06_04"); //Na schÃ¶n,dann rede mit Renyu. Aber keine faulen Tricks, sonst zerschlage ich jeden deiner Knochen einzeln!
     AI_StopProcessInfos (self);
 };
 

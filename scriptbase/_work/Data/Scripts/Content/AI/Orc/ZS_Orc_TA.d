@@ -2,7 +2,7 @@
 //
 //      ZS_Orc-TA-Funktionen
 //
-//      Diese Datei enthält ca. 1 Millionen lustiger Orc-Ta Zustände
+//      Diese Datei enthÃ¤lt ca. 1 Millionen lustiger Orc-Ta ZustÃ¤nde
 //      von Orc_DrinkAlcohol bis Orc_Drum.
 //
 //  ######################################################################
@@ -83,7 +83,7 @@ func void ZS_Orc_Stonemill()
 
     if ( Npc_GetBodyState( self ) != BS_MOBINTERACT )
     {
-        AI_SetWalkmode( self, NPC_WALK );       // Walkmode für den Zustand
+        AI_SetWalkmode( self, NPC_WALK );       // Walkmode fÃ¼r den Zustand
         if ( Hlp_StrCmp( Npc_GetNearestWp(self), self.wp) == 0 )
         {
             AI_GotoWP( self, self.wp );
@@ -122,7 +122,7 @@ func void ZS_Orc_Stomper()
 
     if ( Npc_GetBodyState( self) != BS_MOBINTERACT )
     {
-        AI_SetWalkmode( self, NPC_WALK );       // Walkmode für den Zustand
+        AI_SetWalkmode( self, NPC_WALK );       // Walkmode fÃ¼r den Zustand
         if ( Hlp_StrCmp( Npc_GetNearestWp(self), self.wp) == 0 )
         {
             AI_GotoWP( self, self.wp );
@@ -158,7 +158,7 @@ func void ZS_Orc_Eat ()
 {
     PrintDebugNpc( PD_ZS_FRAME, "ZS_Orc_Eat" );
 
-    AI_SetWalkmode (self,NPC_WALK); // Walkmode für den Zustand
+    AI_SetWalkmode (self,NPC_WALK); // Walkmode fÃ¼r den Zustand
     if ( !Npc_IsOnFP( self, "STAND" ) )
     {
         AI_GotoWP(self, self.wp);               // Gehe zum Tagesablaufstart
@@ -216,11 +216,11 @@ func int ZS_Orc_Sleep_Loop ()
 {
     PrintDebugNpc( PD_ZS_LOOP, "ZS_ORC_Sleep_Loop" );
 
-    //  Wir dürfen an dieser Stelle weder davon ausgehen, das der NPC seinen wegpunkt schon erreicht
+    //  Wir dÃ¼rfen an dieser Stelle weder davon ausgehen, das der NPC seinen wegpunkt schon erreicht
     //  hat und im Bett liegt. Deshalb warten wir bis er den BodyState BS_MOBINTERACT erreicht hat!
     if ( C_BodyStateContains( self, BS_MOBINTERACT ) )
     {
-        //  Hier könnte man Zufallsanimationen abspielen wenn sie existieren würden.
+        //  Hier kÃ¶nnte man Zufallsanimationen abspielen wenn sie existieren wÃ¼rden.
 
     };
     return 0;
@@ -234,7 +234,7 @@ func void ZS_Orc_Sleep_End ()
     //  Mobbenutzung beenden
     AI_UseMob( self, "BEDLOW", -1 );
 
-    //  Aufwachgeräusche von sich geben
+    //  AufwachgerÃ¤usche von sich geben
     B_Say( self, NULL, "$AWAKE" );
 
     //  Waffen anlegen
@@ -252,7 +252,7 @@ func void ZS_Orc_Pray ()
 
     OrcDefaultPercDoing();
 
-    AI_SetWalkmode( self, NPC_WALK );       // Walkmode für den Zustand
+    AI_SetWalkmode( self, NPC_WALK );       // Walkmode fÃ¼r den Zustand
     if ( !Npc_IsOnFP( self, "PREY" ) )
     {
         AI_GotoWP(self, self.wp);               // Gehe zum Tagesablaufstart
@@ -347,7 +347,7 @@ func void ZS_Orc_Speech ()
 {
     PrintDebugNpc( PD_ZS_FRAME, "ZS_Orc_Speech" );
 
-    AI_SetWalkmode (self,NPC_WALK);     // Walkmode für den Zustand
+    AI_SetWalkmode (self,NPC_WALK);     // Walkmode fÃ¼r den Zustand
     if ( !Npc_IsOnFP( self, "STAND" ) )
     {
         AI_GotoWP(self, self.wp);               // Gehe zum Tagesablaufstart
@@ -451,7 +451,7 @@ func void ZS_Orc_WalkAround()
 
     OrcDefaultPerc();
 
-    AI_SetWalkmode( self, NPC_WALK );   // Walkmode für den Zustand
+    AI_SetWalkmode( self, NPC_WALK );   // Walkmode fÃ¼r den Zustand
     if ( !Npc_IsOnFP( self, "FP_ORC_STAND" ) )
     {
         AI_GotoWP(self, self.wp);               // Gehe zum Tagesablaufstart
@@ -528,7 +528,7 @@ func void ZS_Orc_DrinkAlcohol ()
 
     OrcDefaultPerc();
 
-    AI_SetWalkmode (self,NPC_WALK); // Walkmode für den Zustand
+    AI_SetWalkmode (self,NPC_WALK); // Walkmode fÃ¼r den Zustand
     if ( !Npc_IsOnFP( self, "STAND" ) )
     {
         AI_GotoWP(self, self.wp);               // Gehe zum Tagesablaufstart
@@ -612,7 +612,7 @@ func void ZS_Orc_EatAndDrink()
     PrintDebugNpc(PD_ZS_FRAME,"ZS_Orc_EatAndDrink");
 
     //gehe zum WP
-    AI_SetWalkmode( self, NPC_WALK );   // Walkmode für den Zustand
+    AI_SetWalkmode( self, NPC_WALK );   // Walkmode fÃ¼r den Zustand
     if ( !Npc_IsOnFP( self, "STAND" ) )
     {
         AI_GotoWP(self, self.wp);               // Gehe zum Tagesablaufstart
@@ -654,7 +654,7 @@ func void ZS_Orc_EatAndDrink_End()
 func void ZS_Orc_GuardSleepy()
 {
     PrintDebugNpc( PD_TA_FRAME, "ZS_Orc_GuardSleepy" );
-    AI_SetWalkmode( self, NPC_WALK );   // Walkmode für den Zustand
+    AI_SetWalkmode( self, NPC_WALK );   // Walkmode fÃ¼r den Zustand
     if ( !Npc_IsOnFP( self, "SIT" ) )
     {
         AI_GotoWP(self, self.wp);               // Gehe zum Tagesablaufstart
@@ -756,7 +756,7 @@ func void ZS_Orc_SitOnFloor()
     if ( Npc_GetBodyState( self ) != BS_SIT )
     {
         PrintDebugNpc(PD_ZS_FRAME,"ZS_Orc_SitOnFloor: sitzt nicht....");
-        AI_SetWalkmode( self, NPC_WALK);        // Walkmode für den Zustand
+        AI_SetWalkmode( self, NPC_WALK);        // Walkmode fÃ¼r den Zustand
         if ( !Npc_IsOnFP( self, "FP_ORC_SIT" ) )
         {
             AI_GotoWP( self, self.wp );     // Gehe zum Tagesablaufstart

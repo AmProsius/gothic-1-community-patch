@@ -275,7 +275,7 @@ FUNC VOID  Stt_311_Fisk_HehlerSuccess_Info()
     B_LogEntry( CH1_FiskNewDealer,"Fisk is content, because Sharky will take over Mordrag's business.");
 };
 /*------------------------------------------------------------------------
-                            RÜSTUNG
+                            RÃœSTUNG
 ------------------------------------------------------------------------*/
 
 instance  Stt_311_Fisk_ARMOR (C_INFO)

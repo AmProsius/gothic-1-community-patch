@@ -1,7 +1,7 @@
 //************************************************************************************************
-// JP: Die Wahrnehmung ObsereveSuspect könnte raus und der schleichende über ObserveIntruder
-// und AssessSc identizifiert werden, wenn wir bei 0,5 sec für die aktiven Wahrnehmungen bleiben
-// können
+// JP: Die Wahrnehmung ObsereveSuspect kÃ¶nnte raus und der schleichende Ã¼ber ObserveIntruder
+// und AssessSc identizifiert werden, wenn wir bei 0,5 sec fÃ¼r die aktiven Wahrnehmungen bleiben
+// kÃ¶nnen
 //************************************************************************************************
 func void ZS_ObserveSuspect ()
 {
@@ -16,8 +16,8 @@ func void ZS_ObserveSuspect ()
     Npc_PercEnable      ( self, PERC_DRAWWEAPON         ,   B_AssessFighter     );
     Npc_PercEnable      ( self, PERC_OBSERVEINTRUDER    ,   B_ObserveIntruder   );
     Npc_PercEnable      ( self, PERC_ASSESSFIGHTSOUND   ,   B_AssessFightSound  );
-    // JP : Weil der Warn meistens von einer zweiten Person kommt, die direkt in der Nähe steht und so den Beobachtenden wieder rausreißt
-    // JP: außerdem ist der Spieler sowieso der einzige, der Warns verursacht, ide für die AI wichtig sind
+    // JP : Weil der Warn meistens von einer zweiten Person kommt, die direkt in der NÃ¤he steht und so den Beobachtenden wieder rausreiÃŸt
+    // JP: auÃŸerdem ist der Spieler sowieso der einzige, der Warns verursacht, ide fÃ¼r die AI wichtig sind
     //Npc_PercEnable        (self,  PERC_ASSESSWARN         ,   B_AssessWarn        );
     Npc_PercEnable      ( self, PERC_CATCHTHIEF         ,   ZS_CatchThief       );
     Npc_PercEnable      ( self, PERC_ASSESSTALK         ,   B_AssessTalk            );
@@ -31,7 +31,7 @@ func void ZS_ObserveSuspect ()
     AI_PointAtNpc       ( self, other);
     B_Say               ( self,     other,  "$WHATSTHISSUPPOSEDTOBE");
     Npc_SendPassivePerc ( self,     PERC_ASSESSWARN, self, other);
-    // Jp: AUf beide Hostile Typen geändert
+    // Jp: AUf beide Hostile Typen geÃ¤ndert
     if ((Npc_GetTempAttitude ( self,other) == ATT_HOSTILE) || ( Npc_GetPermAttitude (self,other) == ATT_HOSTILE))
     {
         B_AssessEnemy   ();

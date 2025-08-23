@@ -16,7 +16,7 @@ func VOID STARTUP_SUB_PSICAMP ()
     Wld_InsertNpc               (Gur_1209_BaalOrun,"PSI_START");    //Kraut-Supervisor, Hut PSI_TREE_IN
     Wld_InsertNpc               (Gur_1210_BaalTyon,"PSI_START");
 
-    //-----------TEMPEL-Novizen-------------(auch für Große Beschwörung)------------------
+    //-----------TEMPEL-Novizen-------------(auch fÃ¼r GroÃŸe BeschwÃ¶rung)------------------
     Wld_InsertNpc               (Nov_1319_Novize,"PSI_START"); //wichtiger Trigger, Beter
     Wld_InsertNpc               (Nov_1320_Novize,"PSI_START"); //wichtiger Trigger, Beter
     Wld_InsertNpc               (Nov_1337_Novize,"PSI_START"); //  Beter
@@ -30,10 +30,10 @@ func VOID STARTUP_SUB_PSICAMP ()
     Wld_InsertNpc               (Nov_1348_Novize,"PSI_START"); //L Beter
     Wld_InsertNpc               (Nov_1349_Novize,"PSI_START"); //  Beter
     //-------------CAMP-Novizen--------------------------------------------
-    Wld_InsertNpc               (Nov_1300_Talas,"PSI_START");   //hängt auf Tempelplatz rum (goobo-cave-heini)
+    Wld_InsertNpc               (Nov_1300_Talas,"PSI_START");   //hÃ¤ngt auf Tempelplatz rum (goobo-cave-heini)
     Wld_InsertNpc               (Nov_1301_Caine,"PSI_START");   //Hut 21, bei Labor oben / Im Labor
     Wld_InsertNpc               (NOV_1303_Nyras,"PSI_START");   //Smalltalker m.1320 vor Stampfplatz, Hut 3/
-    Wld_InsertNpc               (Nov_1305_Joru,"PSI_START");    //Lehrer-Anwärter. Lehrplatz 1
+    Wld_InsertNpc               (Nov_1305_Joru,"PSI_START");    //Lehrer-AnwÃ¤rter. Lehrplatz 1
     Wld_InsertNpc               (Nov_1306_Novize,"PSI_START");  //Hut 1
     Wld_InsertNpc               (Nov_1307_Novize,"PSI_START");  //Hut 2
     Wld_InsertNpc               (Nov_1308_Novize,"PSI_START");  //Krautstampfer, Hut6 Bed1
@@ -41,9 +41,9 @@ func VOID STARTUP_SUB_PSICAMP ()
     Wld_InsertNpc               (Nov_1310_Ghorim,"PSI_START");  //Krautstampfer, Hut6 Bed3
     Wld_InsertNpc               (Nov_1311_Novize,"PSI_START");  //Hut 10 Smalltalk
     Wld_InsertNpc               (Nov_1312_Darrion,"PSI_START"); //Ober-Schmied, 24h
-    Wld_InsertNpc               (Nov_1313_Novize,"PSI_START");  //Schüler, Joru-Platz, Hut 12
+    Wld_InsertNpc               (Nov_1313_Novize,"PSI_START");  //SchÃ¼ler, Joru-Platz, Hut 12
     Wld_InsertNpc               (Nov_1314_Novize,"PSI_START");  //Hut 13
-    Wld_InsertNpc               (Nov_1315_Novize,"PSI_START");  //Schüler, Joru-Platz, Hut 12
+    Wld_InsertNpc               (Nov_1315_Novize,"PSI_START");  //SchÃ¼ler, Joru-Platz, Hut 12
     Wld_InsertNpc               (Nov_1316_Novize,"PSI_START");  //Schmiede 24h
     Wld_InsertNpc               (Nov_1317_Novize,"PSI_START");  //Smalltalker m.1303 vor Stampfplatz, Hut 4
     Wld_InsertNpc               (Nov_1318_Novize,"PSI_START");  //Hut 10 Smalltalk
@@ -52,15 +52,15 @@ func VOID STARTUP_SUB_PSICAMP ()
     Wld_InsertNpc               (Nov_1323_Novize,"PSI_START");  //Hut 29
     Wld_InsertNpc               (Nov_1324_Novize,"PSI_START");  //Hut 30
     Wld_InsertNpc               (Nov_1325_Novize,"PSI_START");  //Hut 8
-    Wld_InsertNpc               (Nov_1326_Novize,"PSI_START");  //Schüler Baal Tondral (Platz 2)
+    Wld_InsertNpc               (Nov_1326_Novize,"PSI_START");  //SchÃ¼ler Baal Tondral (Platz 2)
     Wld_InsertNpc               (Nov_1327_Novize,"PSI_START"); //Hut 31, Fortuno-Platz
-    Wld_InsertNpc               (Nov_1336_Novize,"PSI_START"); //Schüler 2, Baal Cadar
-    Wld_InsertNpc               (Nov_1340_Novize,"PSI_START"); //Schüler 2, Baal Cadar
-    Wld_InsertNpc               (Nov_1342_Novize,"PSI_START"); //Schüler Baal Tondral (Platz 2)
-    Wld_InsertNpc               (Nov_1345_Novize,"PSI_START"); //Schüler 2, Baal Cadar
+    Wld_InsertNpc               (Nov_1336_Novize,"PSI_START"); //SchÃ¼ler 2, Baal Cadar
+    Wld_InsertNpc               (Nov_1340_Novize,"PSI_START"); //SchÃ¼ler 2, Baal Cadar
+    Wld_InsertNpc               (Nov_1342_Novize,"PSI_START"); //SchÃ¼ler Baal Tondral (Platz 2)
+    Wld_InsertNpc               (Nov_1345_Novize,"PSI_START"); //SchÃ¼ler 2, Baal Cadar
     Wld_InsertNpc               (Nov_1350_Novize,"PSI_START"); //KALOM PRIVATHAUS-WACHE
     Wld_InsertNpc               (Nov_1351_Novize,"PSI_START"); //Schmiede 24h
-    Wld_InsertNpc               (Nov_1353_Novize,"PSI_START"); //Schüler Baal Tondral (Platz 2)
+    Wld_InsertNpc               (Nov_1353_Novize,"PSI_START"); //SchÃ¼ler Baal Tondral (Platz 2)
     Wld_InsertNpc               (Nov_1354_Novize,"PSI_START"); //Hut 19, oben vor Templern **
     Wld_InsertNpc               (Nov_1355_Novize,"PSI_START"); //Hut 19, oben vor Templern **
     Wld_InsertNpc               (Nov_1357_Fortuno,"PSI_START"); //Hut 32, Fortuno-Platz
@@ -74,13 +74,13 @@ func VOID STARTUP_SUB_PSICAMP ()
     Wld_InsertNpc               (Nov_1335_Novize,"PSI_START"); //Krautsammler
 
     Wld_InsertNpc               (Nov_1371_BaalNetbek,"PSI_START"); //Sumpfpromi
-    //--------------Sumpfhütte----------------------------------------------
+    //--------------SumpfhÃ¼tte----------------------------------------------
     Wld_InsertNpc               (Nov_1356_Shrat,"PSI_START"); //ST-Verpisser
     //---------------Templer-------------------------------------------------
     Wld_InsertNpc               (Tpl_1402_GorNaToth,"PSI_START");   //Hut 33, hinter Trainingsplatz
     Wld_InsertNpc               (Tpl_1403_Templer,"PSI_START");     //Stegwache 2 Baumstamm
     Wld_InsertNpc               (Tpl_1404_Templer,"PSI_START");     //Stegwache 1
-    Wld_InsertNpc               (Tpl_1405_GorNaRan,"PSI_START");    //Stegwache 3, wahnsinner Sumpfhai-Jäger,
+    Wld_InsertNpc               (Tpl_1405_GorNaRan,"PSI_START");    //Stegwache 3, wahnsinner Sumpfhai-JÃ¤ger,
     Wld_InsertNpc               (Tpl_1406_Templer,"PSI_START"); //Kaloms Wache (Labor)
     Wld_InsertNpc               (Tpl_1408_Templer,"PSI_START"); //24h auf Klotz bei Tempelplatz
     Wld_InsertNpc               (Tpl_1409_Templer,"PSI_START"); //Schmiede-Smalltalker, 24h
@@ -98,8 +98,8 @@ func VOID STARTUP_SUB_PSICAMP ()
     Wld_InsertNpc               (Tpl_1430_Templer,"PSI_START");     //TEMPELTOR unten
     Wld_InsertNpc               (Tpl_1431_Templer,"PSI_START");     //TEMPELTOR unten
     Wld_InsertNpc               (Tpl_1432_Templer,"PSI_START");     //TEMPELTOR unten
-    Wld_InsertNpc               (Tpl_1439_GorNaDrak,"PSI_START");   //MC-Jäger, Fortuno-Platz
-    Wld_InsertNpc               (Tpl_1440_Templer,"PSI_START");     //MC-Jäger, Fortuno-Platz
+    Wld_InsertNpc               (Tpl_1439_GorNaDrak,"PSI_START");   //MC-JÃ¤ger, Fortuno-Platz
+    Wld_InsertNpc               (Tpl_1440_Templer,"PSI_START");     //MC-JÃ¤ger, Fortuno-Platz
     Wld_InsertNpc               (Tpl_1441_Templer,"PSI_START");     //TEMPELTOR
     Wld_InsertNpc               (Tpl_1442_Templer,"PSI_START");     //TEMPELTOR
     //---------------Patrol----------------------------------------------------------------
@@ -110,7 +110,7 @@ func VOID STARTUP_SUB_PSICAMP ()
     //---------------Lester---------------------------------------------------------------
     Wld_InsertNpc               (PC_Psionic,"PSI_START");           //Am Start: Haupttorplatz, Smalltalk mit BaalNamib.
     //-------------Lagerfremde-----------------------------------
-    Wld_InsertNpc               (VLK_582_Melvin,"PSI_START");       //Joru-Schüler, Hut 12
+    Wld_InsertNpc               (VLK_582_Melvin,"PSI_START");       //Joru-SchÃ¼ler, Hut 12
 };
 
 func VOID INIT_SUB_PSICAMP ()
@@ -363,9 +363,9 @@ func VOID INIT_SUB_PSICAMP ()
     Wld_AssignRoomToGuild("PSIH20",GIL_NOV);
     Wld_AssignRoomToGuild("PSIH21",GIL_NOV);
     Wld_AssignRoomToGuild("PSIH22",GIL_NOV);
-    //Wld_AssignRoomToGuild("PSIH23",GIL_NOV); //Harloks Hütte, Hut 31
+    //Wld_AssignRoomToGuild("PSIH23",GIL_NOV); //Harloks HÃ¼tte, Hut 31
     Wld_AssignRoomToGuild("PSIH24",GIL_NOV);
-    //Wld_AssignRoomToGuild("PSIH25",GIL_NOV); Alchemielabor soll frei zugänglich sein!
+    //Wld_AssignRoomToGuild("PSIH25",GIL_NOV); Alchemielabor soll frei zugÃ¤nglich sein!
     Wld_AssignRoomToGuild("PSIH26",GIL_NOV);
     Wld_AssignRoomToGuild("PSIH27",GIL_NOV);
     Wld_AssignRoomToGuild("PSIH28",GIL_NOV);
@@ -447,16 +447,16 @@ func VOID STARTUP_SUB_NEWCAMP ()
     Wld_InsertNpc               (ORG_841_Silas,"NC_DAM");       //Wirt, 24h in Kneipe
     Wld_InsertNpc               (ORG_842_Shrike,"NC_DAM");      //Hut 01, dann Hut 18
     Wld_InsertNpc               (ORG_843_Sharky,"NC_DAM");      //Hut 25
-    Wld_InsertNpc               (ORG_844_Lefty,"NC_DAM");       //Ricelords Schläger, CF
-    Wld_InsertNpc               (ORG_845_Schlaeger,"NC_DAM");   //Ricelords Schläger, CF
-    Wld_InsertNpc               (ORG_846_Schlaeger,"NC_DAM");   //Ricelords Schläger, CF
+    Wld_InsertNpc               (ORG_844_Lefty,"NC_DAM");       //Ricelords SchlÃ¤ger, CF
+    Wld_InsertNpc               (ORG_845_Schlaeger,"NC_DAM");   //Ricelords SchlÃ¤ger, CF
+    Wld_InsertNpc               (ORG_846_Schlaeger,"NC_DAM");   //Ricelords SchlÃ¤ger, CF
     Wld_InsertNpc               (ORG_850_Wedge,"NC_DAM");       //Hut 17
     Wld_InsertNpc               (ORG_851_Butch,"NC_DAM");       //Hut 15
     Wld_InsertNpc               (ORG_855_Wolf,"NC_DAM");        //Hut 11
     Wld_InsertNpc               (ORG_873_Cipher,"NC_DAM");      //Hut 24
     Wld_InsertNpc               (ORG_875_Tuersteher,"NC_DAM");  //Kneipen-Tuersteher
     Wld_InsertNpc               (ORG_876_Tuersteher,"NC_DAM");  //Kneipen-Tuersteher
-    //----------------Söldner---------------------------------
+    //----------------SÃ¶ldner---------------------------------
     Wld_InsertNpc               (SLD_700_Lee,"NC_DAM");      //NC_Small_Cave_Center
     Wld_InsertNpc               (SLD_701_Orik,"NC_DAM");     //Hut 05
     Wld_InsertNpc               (SLD_702_Soeldner,"NC_DAM");     //24h Wache vor Lee (Ex-Grunt)
@@ -483,7 +483,7 @@ func VOID STARTUP_SUB_NEWCAMP ()
     Wld_InsertNpc               (SLD_737_Torlof,"NC_DAM");   //Hut 04
     Wld_InsertNpc               (SLD_738_Soeldner,"NC_DAM"); //Drehradwache Haupttor
     Wld_InsertNpc               (PC_Fighter,"NC_DAM");       //Hut 6
-    //-----------Schürfer in Bar--------------------------------
+    //-----------SchÃ¼rfer in Bar--------------------------------
     Wld_InsertNpc               (SFB_1000_Senyan,"NC_DAM");
     Wld_InsertNpc               (SFB_1001_Schuerfer,"NC_DAM");
     //-------------Lagerfremde---------------------------------
@@ -511,8 +511,8 @@ func VOID INIT_SUB_NEWCAMP ()
     /**************************************************************
     **        PORTALRAUMZUWEISUNG IM NEUEN LAGER                **
     **************************************************************/
-    Wld_AssignRoomToGuild("NLHU25",GIL_ORG);    // Waypoint NC_HUT01 (SC-Hütte)
-    //Wld_AssignRoomToGuild("NLOBERM",GIL_BAU); // Lee's Höhle
+    Wld_AssignRoomToGuild("NLHU25",GIL_ORG);    // Waypoint NC_HUT01 (SC-HÃ¼tte)
+    //Wld_AssignRoomToGuild("NLOBERM",GIL_BAU); // Lee's HÃ¶hle
 
     Wld_AssignRoomToGuild("NLHU26",GIL_SLD);    // Waypoint NC_HUT02
     Wld_AssignRoomToGuild("NLHU27",GIL_SLD);    // Waypoint NC_HUT03
@@ -535,7 +535,7 @@ func VOID INIT_SUB_NEWCAMP ()
     Wld_AssignRoomToGuild("NLHU17",GIL_ORG);    // Waypoint NC_HUT19
     Wld_AssignRoomToGuild("NLHU16",GIL_ORG);    // Waypoint NC_HUT20
     Wld_AssignRoomToGuild("NLHU15",GIL_ORG);    // Waypoint NC_HUT21
-    //Wld_AssignRoomToGuild("NLHU14",GIL_BAU);  // Waypoint NC_HUT22 (Lares' Hütte)
+    //Wld_AssignRoomToGuild("NLHU14",GIL_BAU);  // Waypoint NC_HUT22 (Lares' HÃ¼tte)
     Wld_AssignRoomToGuild("NLHU13",GIL_ORG);    // Waypoint NC_HUT23
     Wld_AssignRoomToGuild("NLHU12",GIL_ORG);    // Waypoint NC_HUT24
     Wld_AssignRoomToGuild("NLHU11",GIL_ORG);    // Waypoint NC_HUT25
@@ -548,18 +548,18 @@ func VOID INIT_SUB_NEWCAMP ()
     Wld_AssignRoomToGuild("NLHU01",GIL_ORG);    // Waypoint NC_HUT32
 
     Wld_AssignRoomToGuild("MAGE01",GIL_KDW);    //NC_KDW01_IN
-    //Wld_AssignRoomToGuild("MAGE02",GIL_KDW);  //Alchemielabor frei zugänglich!
+    //Wld_AssignRoomToGuild("MAGE02",GIL_KDW);  //Alchemielabor frei zugÃ¤nglich!
     Wld_AssignRoomToGuild("MAGE03",GIL_KDW);    //NC_KDW05_IN
-    //Wld_AssignRoomToGuild("MAGE04",GIL_KDW);  //Bibliothek frei zugänglich!
+    //Wld_AssignRoomToGuild("MAGE04",GIL_KDW);  //Bibliothek frei zugÃ¤nglich!
     Wld_AssignRoomToGuild("MAGE05",GIL_KDW);    //NC_KDW03_IN
     Wld_AssignRoomToGuild("MAGE06",GIL_KDW);    //NC_KDW02_IN
-    //Wld_AssignRoomToGuild("MAGHO4",GIL_KDW);  //Pentagrammhöhle frei zugänglich
+    //Wld_AssignRoomToGuild("MAGHO4",GIL_KDW);  //PentagrammhÃ¶hle frei zugÃ¤nglich
 
 };
 
 FUNC VOID STARTUP_SUB_OLDCAMP ()
 {
-    Wld_InsertNpc               (VLK_501_Buddler,"OC1"); //Hut 79, oben neben Südtor
+    Wld_InsertNpc               (VLK_501_Buddler,"OC1"); //Hut 79, oben neben SÃ¼dtor
     Wld_InsertNpc               (VLK_502_Buddler,"OC1"); //Hut 10, MarusPlatz (Ex-Marus)
     Wld_InsertNpc               (VLK_503_Buddler,"OC1"); //Hut 53, oberer Platz am Markt
     Wld_InsertNpc               (VLK_504_Buddler,"OC1");     //Hut 12 (Burgtor unten) (Ex-Ryan)
@@ -570,13 +570,13 @@ FUNC VOID STARTUP_SUB_OLDCAMP ()
     Wld_InsertNpc               (VLK_509_Buddler,"OC1"); //Hut 56. MPlatz OBEN
     Wld_InsertNpc               (VLK_510_Buddler,"OC1"); //Hut 28, Huno Platz
     Wld_InsertNpc               (VLK_511_Herek,"OC1");   //Hut 62, Bloodwyn-Platz
-    Wld_InsertNpc               (VLK_512_Buddler,"OC1"); //Hut 64, Durchgangshütte Bloodwyn/Markt
+    Wld_InsertNpc               (VLK_512_Buddler,"OC1"); //Hut 64, DurchgangshÃ¼tte Bloodwyn/Markt
     Wld_InsertNpc               (VLK_513_Buddler,"OC1"); //Hut 24, Arenaplatz
     Wld_InsertNpc               (VLK_514_Buddler,"OC1"); //Hut 25, Arenaplatz
     Wld_InsertNpc               (VLK_515_Buddler,"OC1"); //Hut 23, ArenaPlatz
     Wld_InsertNpc               (VLK_516_Buddler,"OC1"); //Hut 48, Marktplatz
     Wld_InsertNpc               (VLK_517_Buddler,"OC1"); //Hut 46, Marktplatz (Ex-Canthar)
-    Wld_InsertNpc               (VLK_519_Buddler,"OC1"); //Hut 43, Südturm-Tor
+    Wld_InsertNpc               (VLK_519_Buddler,"OC1"); //Hut 43, SÃ¼dturm-Tor
     Wld_InsertNpc               (VLK_521_Buddler,"OC1"); //Hut 45, Marktplatz
     Wld_InsertNpc               (VLK_522_Buddler,"OC1"); //Hut 55, Roaster Marktplatz
     Wld_InsertNpc               (VLK_523_Buddler,"OC1"); //Hut 57, MPlatz OBEN
@@ -586,16 +586,16 @@ FUNC VOID STARTUP_SUB_OLDCAMP ()
     Wld_InsertNpc               (VLK_528_Buddler,"OC1"); //Neben Sly, Hut 74
     Wld_InsertNpc               (VLK_529_Buddler,"OC1"); //Kyle-Platz, Hut 69
     Wld_InsertNpc               (VLK_530_Guy,"OC1");     //Hut 17
-    Wld_InsertNpc               (VLK_531_Buddler,"OC1"); //Hut 42, Neben SüdTurm-Ausgang
+    Wld_InsertNpc               (VLK_531_Buddler,"OC1"); //Hut 42, Neben SÃ¼dTurm-Ausgang
     Wld_InsertNpc               (VLK_532_Buddler,"OC1"); //Hut 39, Fox Platz
     Wld_InsertNpc               (VLK_533_Buddler,"OC1"); //Hut 61, Marktplatz oben (zu Bloodwyn)
     Wld_InsertNpc               (VLK_535_Buddler,"OC1"); //Kyle UNTEN, Hut 71
     Wld_InsertNpc               (VLK_536_Kyle,"OC1");    //Hut 70. Kyle-Platz
     Wld_InsertNpc               (VLK_538_Huno,"OC1");    //Hut 35
-    Wld_InsertNpc               (VLK_553_Buddler,"OC1"); //Hut 51, Neben SüdTurm-Ausgang
+    Wld_InsertNpc               (VLK_553_Buddler,"OC1"); //Hut 51, Neben SÃ¼dTurm-Ausgang
     Wld_InsertNpc               (VLK_554_Buddler,"OC1"); //Kyle UNTEN, Hut 72
     Wld_InsertNpc               (VLK_555_Buddler,"OC1"); //Hut 29, Huno Platz
-    Wld_InsertNpc               (VLK_556_Buddler,"OC1"); //Hut 78, oben neben Südtor
+    Wld_InsertNpc               (VLK_556_Buddler,"OC1"); //Hut 78, oben neben SÃ¼dtor
     Wld_InsertNpc               (VLK_557_Buddler,"OC1"); //Hut 75, Graham Platz
     Wld_InsertNpc               (VLK_560_Buddler,"OC1"); //Hut 16, SnafPlatz
     Wld_InsertNpc               (VLK_561_Buddler,"OC1"); //Hut 33, Huno Platz
@@ -607,7 +607,7 @@ FUNC VOID STARTUP_SUB_OLDCAMP ()
     Wld_InsertNpc               (VLK_575_Buddler,"OC1"); //Bloodwyn-Platz, Hut 66
     Wld_InsertNpc               (VLK_576_Buddler,"OC1"); //Hunos Gehilfe, Hut 30
     Wld_InsertNpc               (VLK_577_Buddler,"OC1"); //Hut 11, MarusPlatz
-    Wld_InsertNpc               (VLK_578_Buddler,"OC1"); //Kyle-Platz, Hut 68 (2 Türen)
+    Wld_InsertNpc               (VLK_578_Buddler,"OC1"); //Kyle-Platz, Hut 68 (2 TÃ¼ren)
     Wld_InsertNpc               (VLK_580_Grim,"OC1");    //Torplatz bei Diego, Hut2
     Wld_InsertNpc               (Vlk_581_Snaf,"OC1");    //Hut 14,SnafPlatz
     //--------------Erzbarone-------------------------
@@ -632,14 +632,14 @@ FUNC VOID STARTUP_SUB_OLDCAMP ()
     Wld_InsertNpc               (Grd_208_Cutter,"OC1");  //vorm Grd-Haus, OCC_MERCS_UPPER_RIGHT_ROOM_BED6
     Wld_InsertNpc               (Grd_209_Gardist,"OC1"); //OCC_MERCS_UPPER_LEFT_ROOM_BED1, Smalltalk vorne
     Wld_InsertNpc               (Grd_210_Scatty,"OC1");  //Hut 19, Arena
-    Wld_InsertNpc               (Grd_211_Skip,"OC1");    //Händler, Scheune, OCC_MERCS_UPPER_LEFT_ROOM_BED4
+    Wld_InsertNpc               (Grd_211_Skip,"OC1");    //HÃ¤ndler, Scheune, OCC_MERCS_UPPER_LEFT_ROOM_BED4
     Wld_InsertNpc               (Grd_212_Torwache,"OC1");//Burgtor
     Wld_InsertNpc               (Grd_213_Torwache,"OC1");//Burgtor
     Wld_InsertNpc               (Grd_214_Torwache,"OC1");//Nordtor
     Wld_InsertNpc               (Grd_215_Torwache,"OC1");//Nordtor
-    Wld_InsertNpc               (Grd_216_Torwache,"OC1");//Südtor
-    Wld_InsertNpc               (Grd_217_Torwache,"OC1");//Südtor
-    Wld_InsertNpc               (Grd_218_Gardist,"OC1"); //EBR-Haustür, 24h
+    Wld_InsertNpc               (Grd_216_Torwache,"OC1");//SÃ¼dtor
+    Wld_InsertNpc               (Grd_217_Torwache,"OC1");//SÃ¼dtor
+    Wld_InsertNpc               (Grd_218_Gardist,"OC1"); //EBR-HaustÃ¼r, 24h
     Wld_InsertNpc               (Grd_219_Stone,"OC1");   //Burg Schmied, OCC_MERCS_LEFT_ROOM_BED3
     Wld_InsertNpc               (Grd_220_Gardist,"OC1"); //Trainee, OCC_MERCS_UPPER_RIGHT_ROOM_BED2
     Wld_InsertNpc               (Grd_221_Gardist,"OC1"); //Trainee, OCC_MERCS_UPPER_RIGHT_ROOM_BED3
@@ -648,7 +648,7 @@ FUNC VOID STARTUP_SUB_OLDCAMP ()
     Wld_InsertNpc               (Grd_225_Gardist,"OC1"); //BurgWehrgang L
     Wld_InsertNpc               (Grd_226_Gardist,"OC1"); //OCC_MERCS_UPPER_LEFT_ROOM_BED2, Smalltalk vorne
     Wld_InsertNpc               (Grd_227_Gardist,"OC1"); //Smalltalk ganz hinten, OCC_MERCS_UPPER_LEFT_ROOM_BED5
-    Wld_InsertNpc               (Grd_228_Gardist,"OC1"); //Südtor DrehKreuz
+    Wld_InsertNpc               (Grd_228_Gardist,"OC1"); //SÃ¼dtor DrehKreuz
     Wld_InsertNpc               (Grd_229_Gardist,"OC1"); //Ballustradenwache
     Wld_InsertNpc               (Grd_230_Gardist,"OC1"); //Nordtor Drehkreuz
     Wld_InsertNpc               (Grd_231_Gardist,"OC1"); //Smalltalk ganz hinten, OCC_MERCS_UPPER_LEFT_ROOM_BED7
@@ -660,7 +660,7 @@ FUNC VOID STARTUP_SUB_OLDCAMP ()
     Wld_InsertNpc               (Grd_242_Gardist,"OC1"); //Ballustradenwache
     Wld_InsertNpc               (Grd_243_Gardist,"OC1"); //Ballustradenwache
     Wld_InsertNpc               (Grd_244_Gardist,"OC1"); //Ballustradenwache
-    Wld_InsertNpc               (Grd_245_Gardist,"OC1"); //EBR-Haustür, 24h
+    Wld_InsertNpc               (Grd_245_Gardist,"OC1"); //EBR-HaustÃ¼r, 24h
     Wld_InsertNpc               (GRD_251_Kirgo,"OC1");   //Hut 21,Arena
     Wld_InsertNpc               (Grd_252_Gardist,"OC1"); //Torplatz, OCC_MERCS_LEFT_ROOM_BED2
     Wld_InsertNpc               (Grd_253_Gardist,"OC1"); //Torplatz, Wachhaus OCC_MERCS_TO_GANGWAY
@@ -680,7 +680,7 @@ FUNC VOID STARTUP_SUB_OLDCAMP ()
     Wld_InsertNpc               (Stt_306_Schatten,"OC1"); //Hut 27, Arenaplatz
     Wld_InsertNpc               (Stt_309_Whistler,"OC1"); //Hut 65, vor Marktplatz unten
     Wld_InsertNpc               (Stt_310_Schatten,"OC1"); //Hut 8
-    Wld_InsertNpc               (Stt_311_Fisk,"OC1");     //Hut 49 und 50, Marktplatz Händler
+    Wld_InsertNpc               (Stt_311_Fisk,"OC1");     //Hut 49 und 50, Marktplatz HÃ¤ndler
     Wld_InsertNpc               (Stt_313_Schatten,"OC1"); //Hut 36
     Wld_InsertNpc               (Stt_314_Schatten,"OC1"); //Hut 38, Fox Platz
     Wld_InsertNpc               (Stt_315_Sly,"OC1");      //hut 73
@@ -692,13 +692,13 @@ FUNC VOID STARTUP_SUB_OLDCAMP ()
     Wld_InsertNpc               (Stt_325_Omid,"OC1");     //Burg Koch
     Wld_InsertNpc               (Stt_328_Schatten,"OC1"); //Hut 22, Arenaplatz
     Wld_InsertNpc               (STT_329_Dexter,"OC1");   //Marktplatz, Hut 47
-    Wld_InsertNpc               (STT_330_Schatten,"OC1"); //Hut 44, Südturm-Tor
+    Wld_InsertNpc               (STT_330_Schatten,"OC1"); //Hut 44, SÃ¼dturm-Tor
     Wld_InsertNpc               (STT_331_Fingers,"OC1");  //Hut ??. bei Arena
 
     Wld_InsertNpc               (NOV_1330_BaalParvez,"OC1");
     Wld_InsertNpc               (NOV_1331_BaalTaran,"OC1");
     Wld_InsertNpc               (ORG_826_Mordrag,"OC1");
-    Wld_InsertNpc               (Grd_265_Gardist,"OC1");//OC Südtor (Ex-Fox)
+    Wld_InsertNpc               (Grd_265_Gardist,"OC1");//OC SÃ¼dtor (Ex-Fox)
     Wld_InsertNpc               (SLD_729_Kharim,"OC1");     //Hut 31, Arena
     Wld_InsertNpc               (TPL_1422_GorHanis,"OC1");  //Hut 32, Arena
 
@@ -876,7 +876,7 @@ FUNC VOID INIT_SUB_OLDCAMP ()
 
     /**************************************************************
     **        PORTALRAUMZUWEISUNG IN OLDCAMP-AUSSENRING          **
-    **   CS: Bei den Buddlerhütten Kleinbuchstaben lassen,       **
+    **   CS: Bei den BuddlerhÃ¼tten Kleinbuchstaben lassen,       **
     **                  sonst gehts nicht                        **
     **************************************************************/
 
@@ -887,90 +887,90 @@ FUNC VOID INIT_SUB_OLDCAMP ()
     Wld_AssignRoomToGuild("HH7",GIL_GRD);   // Portalraum EBR-Bedroom
 
     Wld_AssignRoomToGuild("ocgateb",GIL_GRD);   //Wachraum am Haupteingang
-    // Wld_AssignRoomToGuild("hütte1",GIL_VLK); //Diegos Hütte
-    Wld_AssignRoomToGuild("hütte2",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte3",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte4",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte5",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte6",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte7",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte8",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte9",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte10",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte11",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte12",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte13",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte14",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte15",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte16",GIL_VLK);
-    //Wld_AssignRoomToGuild("hütte17",GIL_VLK); Durchgangshütte, wird nicht auf jedes Betreten überwacht
-    Wld_AssignRoomToGuild("hütte18",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte19",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte20",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte21",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte22",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte23",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte24",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte25",GIL_VLK);
-    //Wld_AssignRoomToGuild("hütte26",GIL_VLK); //PLAYER Hütte
-    Wld_AssignRoomToGuild("hütte27",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte28",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte29",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte30",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte31",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte32",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte33",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte34",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte35",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte36",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte37",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte38",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte39",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte40",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte41",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte42",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte43",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte44",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte45",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte46",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte47",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte48",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte49",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte50",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte51",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte52",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte53",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte54",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte55",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte56",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte57",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte58",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte59",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte60",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte61",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte62",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte63",GIL_VLK);
-    //Wld_AssignRoomToGuild("hütte64",GIL_VLK); Durchgangshütte, wird nicht auf jedes Betreten überwacht
-    Wld_AssignRoomToGuild("hütte65",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte66",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte67",GIL_VLK);
-    //Wld_AssignRoomToGuild("hütte68",GIL_VLK); Durchgangshütte, wird nicht auf jedes Betreten überwacht
-    Wld_AssignRoomToGuild("hütte69",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte70",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte71",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte72",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte73",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte74",GIL_VLK);
-    Wld_AssignRoomToGuild("hütte75",GIL_VLK);
-//  Wld_AssignRoomToGuild("hütte76",GIL_VLK);   Grahams Hütte, abgesprochen mit Mike
-    Wld_AssignRoomToGuild("hütte77",GIL_VLK);
+    // Wld_AssignRoomToGuild("hÃ¼tte1",GIL_VLK); //Diegos HÃ¼tte
+    Wld_AssignRoomToGuild("hÃ¼tte2",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte3",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte4",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte5",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte6",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte7",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte8",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte9",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte10",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte11",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte12",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte13",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte14",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte15",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte16",GIL_VLK);
+    //Wld_AssignRoomToGuild("hÃ¼tte17",GIL_VLK); DurchgangshÃ¼tte, wird nicht auf jedes Betreten Ã¼berwacht
+    Wld_AssignRoomToGuild("hÃ¼tte18",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte19",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte20",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte21",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte22",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte23",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte24",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte25",GIL_VLK);
+    //Wld_AssignRoomToGuild("hÃ¼tte26",GIL_VLK); //PLAYER HÃ¼tte
+    Wld_AssignRoomToGuild("hÃ¼tte27",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte28",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte29",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte30",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte31",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte32",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte33",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte34",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte35",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte36",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte37",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte38",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte39",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte40",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte41",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte42",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte43",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte44",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte45",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte46",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte47",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte48",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte49",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte50",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte51",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte52",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte53",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte54",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte55",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte56",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte57",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte58",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte59",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte60",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte61",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte62",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte63",GIL_VLK);
+    //Wld_AssignRoomToGuild("hÃ¼tte64",GIL_VLK); DurchgangshÃ¼tte, wird nicht auf jedes Betreten Ã¼berwacht
+    Wld_AssignRoomToGuild("hÃ¼tte65",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte66",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte67",GIL_VLK);
+    //Wld_AssignRoomToGuild("hÃ¼tte68",GIL_VLK); DurchgangshÃ¼tte, wird nicht auf jedes Betreten Ã¼berwacht
+    Wld_AssignRoomToGuild("hÃ¼tte69",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte70",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte71",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte72",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte73",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte74",GIL_VLK);
+    Wld_AssignRoomToGuild("hÃ¼tte75",GIL_VLK);
+//  Wld_AssignRoomToGuild("hÃ¼tte76",GIL_VLK);   Grahams HÃ¼tte, abgesprochen mit Mike
+    Wld_AssignRoomToGuild("hÃ¼tte77",GIL_VLK);
 
 };
 
 func VOID STARTUP_SUB_DEMONTOWER ()
 {
     //**************************************************************************************
-    //*                               Dämonenbeschwörer                                    *
+    //*                               DÃ¤monenbeschwÃ¶rer                                    *
     //**************************************************************************************
 
     Wld_InsertNpc               (KdF_404_Xardas,"LOCATION_03_IN");
@@ -1003,9 +1003,9 @@ FUNC VOID STARTUP_SUB_FREEMINECAMP ()
     Wld_InsertNpc               ( SLD_756_Soeldner, "FMC_ENTRANCE" );//FMC-Guard
     Wld_InsertNpc               ( SLD_757_Soeldner, "FMC_ENTRANCE" );//FMC-GuardPalisade
     Wld_InsertNpc               ( SLD_758_Soeldner, "FMC_ENTRANCE" );//FMC-GuardPalisade
-    Wld_InsertNpc               ( SLD_759_Soeldner, "FMC_ENTRANCE" );//FMC-Guard(Tür zum Drehradhaus)
+    Wld_InsertNpc               ( SLD_759_Soeldner, "FMC_ENTRANCE" );//FMC-Guard(TÃ¼r zum Drehradhaus)
 
-    Wld_InsertNpc               ( SLD_760_Soeldner, "FMC_ENTRANCE" );//FMC-Guard(Tür zum Drehradhaus)
+    Wld_InsertNpc               ( SLD_760_Soeldner, "FMC_ENTRANCE" );//FMC-Guard(TÃ¼r zum Drehradhaus)
     Wld_InsertNpc               ( SLD_761_Soeldner, "FMC_ENTRANCE" );//FMC-Guard(Mineneingang)
     Wld_InsertNpc               ( SLD_762_Soeldner, "FMC_ENTRANCE" );//FMC-Guard(Mineneingang
     Wld_InsertNpc               ( SLD_763_Soeldner, "FMC_ENTRANCE" );//FMC-Guard
@@ -1022,7 +1022,7 @@ FUNC VOID STARTUP_SUB_FREEMINECAMP ()
 
     Wld_InsertNpc               ( SFB_1035_Schuerfer, "FMC_ENTRANCE" );//FMC-Pickore
     Wld_InsertNpc               ( SFB_1036_Schuerfer, "FMC_ENTRANCE" );//FMC-Pickore
-    Wld_InsertNpc               ( SFB_1037_Swiney,    "FMC_ENTRANCE" );//               OBER_SCHÜRFER
+    Wld_InsertNpc               ( SFB_1037_Swiney,    "FMC_ENTRANCE" );//               OBER_SCHÃœRFER
     Wld_InsertNpc               ( SFB_1038_Schuerfer, "FMC_ENTRANCE" );//FMC-PickOre
     Wld_InsertNpc               ( SFB_1039_Schuerfer, "FMC_ENTRANCE" );//FMC-PickOre
 
@@ -1067,7 +1067,7 @@ FUNC VOID STARTUP_SUB_SURFACE ()
     Wld_InsertNpc               (GRD_254_Orry,"OC1");
     Wld_InsertNpc               (GRD_281_Gardist,"OC1");//Orry-Wache
 
-    //--------Brückenwachen vorm OC--------------------------------------
+    //--------BrÃ¼ckenwachen vorm OC--------------------------------------
     Wld_InsertNpc               (GRD_275_Brueckenwache,"OC1");
     Wld_InsertNpc               (GRD_276_Brueckenwache,"OC1");
 
@@ -1076,11 +1076,11 @@ FUNC VOID STARTUP_SUB_SURFACE ()
     Wld_InsertNpc               (GRD_237_Gardist,"OC1");
     Wld_InsertNpc               (GRD_238_Gardist,"OC1");
 
-    //--------Jäger zum Austauschplatz------------------------------------------
+    //--------JÃ¤ger zum Austauschplatz------------------------------------------
     Wld_InsertNpc               (ORG_818_Ratford,"OC1");
     Wld_InsertNpc               (ORG_819_Drax,"OC1");
 
-    //----------Jäger auf Weg zu NC---------------------------------------------
+    //----------JÃ¤ger auf Weg zu NC---------------------------------------------
     Wld_InsertNpc               (STT_336_Cavalorn,"OW_SAWHUT_GREENGOBBO_SPAWN");
 
     //------------Toter Gardist---------------------------------------------
@@ -1097,7 +1097,7 @@ FUNC VOID STARTUP_SUB_SURFACE ()
     Wld_InsertNpc               (ORG_861_Killian,"LOCATION_11_08");
     Wld_InsertNpc               (ORG_862_Jacko,"LOCATION_11_08");
 
-    //--------------NC-Jäger---------------------------------------
+    //--------------NC-JÃ¤ger---------------------------------------
     Wld_InsertNpc               (ORG_859_Aidan,"OW_PATH_02");
 
     //------------Banditenlager-----------------------------------
@@ -1122,21 +1122,21 @@ FUNC VOID STARTUP_SUB_SURFACE ()
     //Wld_SetObjectRoutine      (0,00,"EVT_AM_LOB_GATE_BIG",1);
 
 
-    // --------ITEMS in den vergessenen Höhlen/Locations -----------------
-    Wld_InsertItem          (ItArScrollIcecube,"FP_SLEEP_OW_SNAPPER_HERD1_02"); // Snapperhöhle richtung Orkarena
+    // --------ITEMS in den vergessenen HÃ¶hlen/Locations -----------------
+    Wld_InsertItem          (ItArScrollIcecube,"FP_SLEEP_OW_SNAPPER_HERD1_02"); // SnapperhÃ¶hle richtung Orkarena
     Wld_InsertItem          (ItFo_Potion_Health_02,"FP_SLEEP_OW_SNAPPER_HERD1_02");
 
-    Wld_InsertItem          (ItFo_Potion_Mana_02,"FP_ROAM_OW_SNAPPER_WOOD05_02");// Snapper Höhle im Wald
+    Wld_InsertItem          (ItFo_Potion_Mana_02,"FP_ROAM_OW_SNAPPER_WOOD05_02");// Snapper HÃ¶hle im Wald
 
-    Wld_InsertItem          (ItFo_POTION_HEALTH_02,"FP_SLEEP_OW_MOLERAT_CAVE4");// Nähe bei Cavalorn
+    Wld_InsertItem          (ItFo_POTION_HEALTH_02,"FP_SLEEP_OW_MOLERAT_CAVE4");// NÃ¤he bei Cavalorn
 
-    Wld_InsertItem          (ItFo_POTION_HEALTH_01,"FP_ROAM_OW_MOLERAT_06_CAVE_GUARD2");//NÄHE OC
+    Wld_InsertItem          (ItFo_POTION_HEALTH_01,"FP_ROAM_OW_MOLERAT_06_CAVE_GUARD2");//NÃ„HE OC
 
-    Wld_InsertItem          (ItFo_POTION_HEALTH_01,"LOCATION_24_IN");//NÄHE NC
+    Wld_InsertItem          (ItFo_POTION_HEALTH_01,"LOCATION_24_IN");//NÃ„HE NC
 
     Wld_InsertItem          (ItFo_POTION_HEALTH_02,"LOCATION_23_CAVE_1_02");// DRUGMONOPOL
 
-    Wld_InsertItem          (ItFo_POTION_HEALTH_03,"OW_PATH_07_15_CAVE3"); // BLOODHOUNDLOCATIOn NÄHE NC
+    Wld_InsertItem          (ItFo_POTION_HEALTH_03,"OW_PATH_07_15_CAVE3"); // BLOODHOUNDLOCATIOn NÃ„HE NC
     Wld_InsertItem          (Ring_des_Lebens,"FP_ROAM_OW_BLOODHOUND_CANYONCAVE3");
 
     Wld_InsertItem          (ItFo_POTION_HEALTH_02,"FP_ROAM_OW_LURKER_BEACH_01");//LURKERLOCATION RICHTUNG ORKS
@@ -1373,9 +1373,9 @@ FUNC VOID STARTUP_SUB_SURFACE ()
     Wld_InsertNpc       (Molerat,"SPAWN_OW_MOLERATL__PSIWOOD_01");
     Wld_InsertNpc       (Molerat,"SPAWN_OW_MOLERATL__PSIWOOD_01");
     Wld_InsertNpc       (Scavenger,"SPAWN_OW_SCAVENGER_NEARSHADOW_PSIWOOD_01");
-    //Wld_InsertNpc       (Shadowbeast,"SPAWN_OW_SHADOWBEAST1_PSIWOOD_02");     //wird erst später in B_Story_LeftFM() gespawnt (Ulu-Mulu-Jagd)
+    //Wld_InsertNpc       (Shadowbeast,"SPAWN_OW_SHADOWBEAST1_PSIWOOD_02");     //wird erst spÃ¤ter in B_Story_LeftFM() gespawnt (Ulu-Mulu-Jagd)
     Wld_InsertNpc       (Shadowbeast,"SPAWN_OW_SHADOWBEAST2_PSIWOOD_02");
-    //Wld_InsertNpc       (Shadowbeast,"OW_PATH_033_TO_CAVE5");                 //wird erst später in B_Story_LeftFM() gespawnt (Ulu-Mulu-Jagd)
+    //Wld_InsertNpc       (Shadowbeast,"OW_PATH_033_TO_CAVE5");                 //wird erst spÃ¤ter in B_Story_LeftFM() gespawnt (Ulu-Mulu-Jagd)
     Wld_InsertNpc       (Shadowbeast,"SPAWN_OW_SHADOWBEAST_10_03");
     Wld_InsertNpc       (Razor,"SPAWN_OW_BLOCKGOBBO_CAVE_DM6");
     Wld_InsertNpc       (Razor,"SPAWN_OW_BLOCKGOBBO_CAVE_DM6");
@@ -1417,13 +1417,13 @@ FUNC VOID STARTUP_SUB_SURFACE ()
     Wld_InsertNpc       (Snapper,"SPAWN_OW_SNAPPER_OCWOOD1_05_02");
 
     //######################################################################
-    //  Gobbohöhle
+    //  GobbohÃ¶hle
     //######################################################################
     Wld_InsertNpc       (Waran,"SPAWN_OW_WARAN_OC_PSI_GOBBOCAVE_01");
     Wld_InsertNpc       (Waran,"SPAWN_OW_WARAN_OC_PSI_GOBBOCAVE_01");
     Wld_InsertNpc       (Waran,"SPAWN_OW_WARAN_OC_PSI_GOBBOCAVE_01");
 
-    // hinter der Brücke
+    // hinter der BrÃ¼cke
     Wld_InsertNpc       (BlackGobboMace,"SPAWN_GOBBO_LOCATION_29_03");
     Wld_InsertNpc       (BlackGobboMace,"SPAWN_GOBBO_LOCATION_29_03");
     Wld_InsertNpc       (BlackGobboMace,"SPAWN_GOBBO_LOCATION_29_03");
@@ -1431,7 +1431,7 @@ FUNC VOID STARTUP_SUB_SURFACE ()
     Wld_InsertNpc       (BlackGobboMace,"SPAWN_GOBBO_LOCATION_29_03");
     Wld_InsertNpc       (BlackGobboMace,"SPAWN_GOBBO_LOCATION_29_03");
 
-    // in den Höhlen
+    // in den HÃ¶hlen
     Wld_InsertNpc       (BlackGobboMace,"SPAWN_OW_GOBBO_CAVE03INDOOR_05");
     Wld_InsertNpc       (BlackGobboMace,"SPAWN_OW_GOBBO_CAVE03INDOOR_05");
     Wld_InsertNpc       (BlackGobboMace,"SPAWN_OW_GOBBO_CAVE03INDOOR_02");
@@ -1488,14 +1488,14 @@ FUNC VOID STARTUP_SUB_SURFACE ()
     Wld_InsertNpc       (Waran,"SPAWN_OW_WARAN_EBENE_02_05");
     Wld_InsertNpc       (Waran,"SPAWN_OW_WARAN_EBENE_02_05");
 
-    Wld_InsertNpc       (Snapper,"SPAWN_OW_WARAN_01_BADITS6"); // WEG ZUR TROLLSCHLUCHT,DA MÜSSEN STÄRKERE MONSTER HIN
+    Wld_InsertNpc       (Snapper,"SPAWN_OW_WARAN_01_BADITS6"); // WEG ZUR TROLLSCHLUCHT,DA MÃœSSEN STÃ„RKERE MONSTER HIN
     Wld_InsertNpc       (Snapper,"SPAWN_OW_WARAN_01_BADITS6");
 
     Wld_InsertNpc       (Lurker,"SPAWN_OW_LURKER_RIVER2_BEACH3");
     Wld_InsertNpc       (Lurker,"SPAWN_OW_LURKER_RIVER2_BEACH3_2");
     Wld_InsertNpc       (Lurker,"SPAWN_OW_LURKER_BEACH_02");
 
-    Wld_InsertNpc       (Snapper,"SPAWN_OW_SCA_01_BADITS7");// WEG ZUR TROLLSCHLUCHT,DA MÜSSEN STÄRKERE MONSTER HIN
+    Wld_InsertNpc       (Snapper,"SPAWN_OW_SCA_01_BADITS7");// WEG ZUR TROLLSCHLUCHT,DA MÃœSSEN STÃ„RKERE MONSTER HIN
     Wld_InsertNpc       (Snapper,"SPAWN_OW_SCA_01_BADITS7");
     Wld_InsertNpc       (Snapper,"SPAWN_OW_SCA_01_BADITS2");
     Wld_InsertNpc       (Snapper,"SPAWN_OW_SCA_01_BADITS2");
@@ -1521,10 +1521,10 @@ FUNC VOID STARTUP_SUB_SURFACE ()
     Wld_InsertNpc       (Meatbug,"SPAWN_OW_MEATBUG_01_01");
     Wld_InsertNpc       (Meatbug,"SPAWN_OW_MEATBUG_01_01");
 
-    // hinter der Brücke gegenüber der verlassenen Mine
+    // hinter der BrÃ¼cke gegenÃ¼ber der verlassenen Mine
     Wld_InsertNpc       (YMolerat,"SPAWN_MOLERAT02_SPAWN01");
 
-    // Plateau über der verlassenen Mine
+    // Plateau Ã¼ber der verlassenen Mine
     Wld_InsertNpc       (YScavenger,"SPAWN_SCAVENGER_TOTU_LEFT_PLAT");
     Wld_InsertNpc       (YScavenger,"SPAWN_SCAVENGER2_TOTU_LEFT_PLAT2");
 
@@ -1536,7 +1536,7 @@ FUNC VOID STARTUP_SUB_SURFACE ()
     Wld_InsertNpc       (YScavenger,"SPAWN_TOTURIAL_CHICKEN_2_2");
     Wld_InsertNpc       (YScavenger, "OW_PATH_1_5_4");
 
-    // Sandbank im Fluß
+    // Sandbank im FluÃŸ
     Wld_InsertNpc       (YScavenger,"SPAWN_OW_BLOODFLY_E_3");
     Wld_InsertNpc       (YScavenger,"SPAWN_OW_BLOODFLY_E_3");
 
@@ -1545,7 +1545,7 @@ FUNC VOID STARTUP_SUB_SURFACE ()
     Wld_InsertNpc       (YScavenger,"SPAWN_GOBBO_OW_PATH_1_6");
     Wld_InsertNpc       (YScavenger,"SPAWN_GOBBO_OW_PATH_1_6");
 
-    // zwischen Jägern und Brücke zum OC
+    // zwischen JÃ¤gern und BrÃ¼cke zum OC
     Wld_InsertNpc       (YScavenger,"SPAWN_OW_STARTSCAVNGERBO_01_02");
     Wld_InsertNpc       (YScavenger,"SPAWN_OW_STARTSCAVENGER_02_01");
 
@@ -1573,7 +1573,7 @@ FUNC VOID STARTUP_SUB_SURFACE ()
     Wld_InsertNpc       (Molerat,"OW_PATH_3001_MOVE5");
 
 
-    //-------------Camp im Lager über Cavalorns Hütte---------------------------
+    //-------------Camp im Lager Ã¼ber Cavalorns HÃ¼tte---------------------------
 // Alex: NSCs sollten Hostile sein und bei Sichtung angreifen. Das funzt aber nicht, deshalb wieder rausgenommen
 //  Wld_InsertNpc               (NON_1501_WEGELAGERER,"SPAWN_TALL_PATH_BANDITOS2_03");
 //  Wld_InsertNpc               (NON_1502_WEGELAGERER,"SPAWN_TALL_PATH_BANDITOS2_03");
@@ -1605,7 +1605,7 @@ FUNC VOID STARTUP_SUB_SURFACE ()
     Wld_InsertNpc       (Snapper,"OW_PATH_179");
     Wld_InsertNpc       (Snapper,"OW_PATH_179");
 
-    // in der Grabenhöhle unter dem Baumstamm
+    // in der GrabenhÃ¶hle unter dem Baumstamm
     Wld_InsertNpc       (Snapper,"OW_ABYSS_SPAWN_WARAN");
     Wld_InsertNpc       (Snapper,"OW_ABYSS_SPAWN_WARAN");
     Wld_InsertNpc       (Snapper,"SPAWN_ABYSS_TO_CAVE_MOVE");
@@ -1624,7 +1624,7 @@ FUNC VOID STARTUP_SUB_SURFACE ()
     Wld_InsertNpc       (Snapper,"OW_PATH_SNAPPER04_SPAWN01");
     Wld_InsertNpc       (Snapper,"OW_PATH_SNAPPER04_SPAWN01");
 
-    // Höhle vor dem Bonusraum
+    // HÃ¶hle vor dem Bonusraum
     Wld_InsertNpc       (Snapper,"OW_PATH_SNAPPER04_SPAWN02");
     Wld_InsertNpc       (Snapper,"OW_PATH_SNAPPER04_SPAWN02");
     Wld_InsertNpc       (Snapper,"OW_PATH_SNAPPER04_SPAWN02");
@@ -1633,11 +1633,11 @@ FUNC VOID STARTUP_SUB_SURFACE ()
     Wld_InsertNpc       (Shadowbeast,"OW_PATH_TEMPELRUIN06");
 
     // Auf hinterer Plattform
-    //Wld_InsertNpc     (Troll,"OW_RUIN_TROLL");    //wird erst später in B_Story_LeftFM() gespawnt!
+    //Wld_InsertNpc     (Troll,"OW_RUIN_TROLL");    //wird erst spÃ¤ter in B_Story_LeftFM() gespawnt!
 
 
     //-----------------------STEINKREIS---------------------------------//
-    // Höhle auf Bergweg vor Milten
+    // HÃ¶hle auf Bergweg vor Milten
     Wld_InsertNpc       (Bloodhound,"OW_PATH_07_15_CAVE3");
     Wld_InsertNpc       (Snapper,   "OW_PATH_07_15");
     Wld_InsertNpc       (Snapper,   "OW_PATH_07_15");
@@ -1687,7 +1687,7 @@ FUNC VOID STARTUP_SUB_SURFACE ()
 
 
     //-------------------------FELSENFESTUNG------------------------
-    // Berggebiet vor Brücke
+    // Berggebiet vor BrÃ¼cke
     Wld_InsertNpc       (Bloodhound,"PLATEAU_ROUND01");
     Wld_InsertNpc       (Bloodhound,"PLATEAU_ROUND02");
     Wld_InsertNpc       (Bloodhound,"PLATEAU_ROUND02_CAVE");
@@ -1697,7 +1697,7 @@ FUNC VOID STARTUP_SUB_SURFACE ()
     Wld_InsertNpc       (Bloodhound,"PATH_TO_PLATEAU04_RIGHT");
     Wld_InsertNpc       (Bloodhound,"PATH_TO_PLATEAU04_SMALLPATH");
 
-    //Brücke
+    //BrÃ¼cke
     Wld_InsertNpc       (Bridgegolem,"PATH_TO_PLATEAU04_BRIDGE2");
 
     //Platz vor Fokusplattform & Eingang
@@ -1789,7 +1789,7 @@ FUNC VOID STARTUP_SUB_SURFACE ()
 
 
 
-    // östlicher Zugang vom AL
+    // Ã¶stlicher Zugang vom AL
     Wld_InsertNpc   (OrcDog,"FP_ROAM_OW_SNAPPER_OW_ORC");
     Wld_InsertNpc   (OrcDog,"FP_ROAM_OW_SNAPPER_OW_ORC");
     Wld_InsertNpc   (OrcDog,"FP_ROAM_OW_SNAPPER_OW_ORC");
@@ -1862,7 +1862,7 @@ FUNC VOID STARTUP_SUB_SURFACE ()
     Wld_InsertNpc   (OrcWarrior1,"OW_PATH_3_05");
     Wld_InsertNpc   (OrcWarrior2,"OW_PATH_3_05");
 
-    // Ork-Stadt: Brücke
+    // Ork-Stadt: BrÃ¼cke
     Wld_InsertNpc   (OrcWarrior2,"OW_ORCBRIDGE_END");
     Wld_InsertNpc   (OrcWarrior2,"OW_ORCBRIDGE_END");
     Wld_InsertNpc   (OrcWarrior2,"OW_ORC_BRIDGE_GUARD");
@@ -1910,17 +1910,17 @@ FUNC VOID STARTUP_SUB_SURFACE ()
     Wld_InsertNpc   (OrcWarrior2,           "OW_ORC_PATH_06_4");
     Wld_InsertNpc   (OrcWarrior2,           "OW_ORC_PATH_06_4");
 
-    // Ork-Stadt: Schamanenhöhle
+    // Ork-Stadt: SchamanenhÃ¶hle
     Wld_InsertNpc   (OrcWarrior4,"OW_ORC_SHAMAN_PATH1");
     Wld_InsertNpc   (OrcWarrior4,"OW_ORC_SHAMAN_PATH1");
 
-    // Ork-Stadt: Zugang zum Säulenplatz
+    // Ork-Stadt: Zugang zum SÃ¤ulenplatz
     Wld_InsertNpc   (OrcWarrior3,"OW_PATH_06_13_GUARD");
     Wld_InsertNpc   (OrcWarrior4,"OW_PATH_06_13_GUARD1");
     Wld_InsertNpc   (OrcWarrior4,"OW_PATH_06_13_GUARD1");
     Wld_InsertNpc   (OrcWarrior4,"OW_PATH_06_13_GUARD2");
 
-    // Ork-Stadt: Zugang zum Säulenplatz
+    // Ork-Stadt: Zugang zum SÃ¤ulenplatz
     Wld_InsertNpc   (OrcShaman,"OW_PATH_06_14_HEILIGTUM");
     Wld_InsertNpc   (OrcShaman,"OW_PATH_06_14_HEILIGTUM2");
     Wld_InsertNpc   (OrcShaman,"OW_PATH_06_14_HEILIGTUM3");
@@ -1928,7 +1928,7 @@ FUNC VOID STARTUP_SUB_SURFACE ()
 
 
 
-    //-----------------------Dämonenbeschwörer---------------------------------//
+    //-----------------------DÃ¤monenbeschwÃ¶rer---------------------------------//
     Wld_InsertNpc   (StoneGolem,    "OW_PATH_123");
     Wld_InsertNpc   (IceGolem,      "OW_PATH_125");
     Wld_InsertNpc   (FireGolem,     "OW_PATH_127");
@@ -1958,7 +1958,7 @@ FUNC VOID STARTUP_SUB_SURFACE ()
     Wld_InsertNpc   (SkeletonScout,     "OW_FOGDUNGEON_19");
     Wld_InsertNpc   (Skeleton,          "OW_FOGDUNGEON_20");
 
-    //Große Höhle nach Stollensystem
+    //GroÃŸe HÃ¶hle nach Stollensystem
     Wld_InsertNpc   (Skeleton,          "OW_FOGDUNGEON_36");
     Wld_InsertNpc   (Skeleton,          "OW_FOGDUNGEON_36_MOVEMENT");
     Wld_InsertNpc   (SkeletonWarrior,   "OW_FOGDUNGEON_36_MOVEMENT");
@@ -1967,7 +1967,7 @@ FUNC VOID STARTUP_SUB_SURFACE ()
     Wld_InsertNpc   (SkeletonWarrior,   "OW_FOGDUNGEON_37");
     Wld_InsertNpc   (SkeletonMage_fogtower,     "OW_FOGDUNGEON_37");
 
-    //2. Stollensystem hinter großer Höhle
+    //2. Stollensystem hinter groÃŸer HÃ¶hle
     Wld_InsertNpc   (Skeleton,          "OW_FOGDUNGEON_40");
     Wld_InsertNpc   (SkeletonScout,     "OW_FOGDUNGEON_40");
     Wld_InsertNpc   (Skeleton,          "OW_FOGDUNGEON_43");
@@ -2286,7 +2286,7 @@ FUNC VOID STARTUP_WORLD ()
     Startup_Sub_Freeminecamp    ();
     Startup_Sub_Surface         ();
 
-    //die folgende Zeile gilt nur, bis die INIT_...-Funktionen von Ulf unterstützt werden.
+    //die folgende Zeile gilt nur, bis die INIT_...-Funktionen von Ulf unterstÃ¼tzt werden.
     INIT_WORLD                  ();
     PlayVideo ("INTRO.BIK");
 };
@@ -2317,18 +2317,18 @@ FUNC VOID STARTUP_WORLD ()
 
 FUNC VOID STARTUP_ORCGRAVEYARD ()
 {
-    //-------- 1. Höhle --------
+    //-------- 1. HÃ¶hle --------
     Wld_InsertNpc       (OrcScoutGYD,       "GRYD_006");
     Wld_InsertNpc       (OrcScoutGYD,       "GRYD_015");
     Wld_InsertNpc       (Tpl_1445_Templer,  "GRYD_016");
 
-    //-------- 2. Höhle --------
+    //-------- 2. HÃ¶hle --------
     Wld_InsertNpc       (OrcScoutGYD,       "GRYD_019B");
     Wld_InsertNpc       (OrcScoutGYD,       "GRYD_019D");
     Wld_InsertNpc       (OrcScoutGYD,       "GRYD_020B");
     Wld_InsertNpc       (Tpl_1446_Templer,  "GRYD_020");
 
-    //-------- 3. Höhle --------
+    //-------- 3. HÃ¶hle --------
     Wld_InsertNpc       (Gur_1211_BaalLukor,"GRYD_025");
     Wld_InsertNpc       (Tpl_1443_Templer,  "GRYD_025");
     Wld_InsertNpc       (Tpl_1444_Templer,  "GRYD_025");
@@ -2349,7 +2349,7 @@ FUNC VOID STARTUP_ORCGRAVEYARD ()
     Wld_InsertNpc       (OrcScoutGYD,       "GRYD_047");
     Wld_InsertNpc       (OrcScoutGYD,       "GRYD_047");
 
-    //-------- Große Halle --------
+    //-------- GroÃŸe Halle --------
     Wld_InsertNpc       (OrcScoutGYD,       "GRYD_061");
     Wld_InsertNpc       (OrcScoutGYD,       "GRYD_062");
     Wld_InsertNpc       (OrcScoutGYD,       "GRYD_058");
@@ -2361,7 +2361,7 @@ FUNC VOID INIT_ORCGRAVEYARD ()
 {
     Wld_SetMobRoutine   (00,00, "FIREPLACE", 1);
 
-    //-------- Attitüden initialisieren --------
+    //-------- AttitÃ¼den initialisieren --------
     B_InitMonsterAttitudes ();
     B_InitGuildAttitudes();
 };
@@ -2451,7 +2451,7 @@ FUNC VOID STARTUP_ORCTEMPEL ()
     // ---------------------------------------------------------------
 
 
-    // TPL - Vorstufe (Rüstung 150)
+    // TPL - Vorstufe (RÃ¼stung 150)
     Wld_InsertNpc               ( TPL_1455_GorBoba, "TPL_408" ); // Spricht den SC an
     Wld_InsertNpc               ( TPL_1447_Templer, "TPL_408" );
     Wld_InsertNpc               ( TPL_1448_Templer, "TPL_408" );
@@ -2461,7 +2461,7 @@ FUNC VOID STARTUP_ORCTEMPEL ()
     Wld_InsertNpc               ( TPL_1459_Templer, "TPL_408" );
     Wld_InsertNpc               ( TPL_1460_Templer, "TPL_408" );
 
-    // TPL - Endstufe (Rüstung 1000)
+    // TPL - Endstufe (RÃ¼stung 1000)
     Wld_InsertNpc               ( TPL_1449_Templer, "TPL_408" );
     Wld_InsertNpc               ( TPL_1450_Templer, "TPL_408" );
     Wld_InsertNpc               ( TPL_1451_Templer, "TPL_408" );
@@ -2473,12 +2473,12 @@ FUNC VOID STARTUP_ORCTEMPEL ()
     Wld_InsertNpc               ( GUR_1212_MadCorKalom,     "TPL_408" );
 
     //NOV
-    Wld_InsertNpc               ( NOV_1359_Novize,  "TPL_408" ); // Betet zum Schläfer in der Schläferhalle
-    Wld_InsertNpc               ( NOV_1360_Novize,  "TPL_408" ); // Betet zum Schläfer in der Schläferhalle
-    Wld_InsertNpc               ( NOV_1361_Novize,  "TPL_408" ); // Betet zum Schläfer in der Schläferhalle
-    Wld_InsertNpc               ( NOV_1362_Novize,  "TPL_408" ); // Betet zum Schläfer in der Schläferhalle
-    Wld_InsertNpc               ( NOV_1363_Novize,  "TPL_408" ); // Betet zum Schläfer in der Schläferhalle
-    Wld_InsertNpc               ( NOV_1364_Novize,  "TPL_408" ); // Betet zum Schläfer in der Schläferhalle
+    Wld_InsertNpc               ( NOV_1359_Novize,  "TPL_408" ); // Betet zum SchlÃ¤fer in der SchlÃ¤ferhalle
+    Wld_InsertNpc               ( NOV_1360_Novize,  "TPL_408" ); // Betet zum SchlÃ¤fer in der SchlÃ¤ferhalle
+    Wld_InsertNpc               ( NOV_1361_Novize,  "TPL_408" ); // Betet zum SchlÃ¤fer in der SchlÃ¤ferhalle
+    Wld_InsertNpc               ( NOV_1362_Novize,  "TPL_408" ); // Betet zum SchlÃ¤fer in der SchlÃ¤ferhalle
+    Wld_InsertNpc               ( NOV_1363_Novize,  "TPL_408" ); // Betet zum SchlÃ¤fer in der SchlÃ¤ferhalle
+    Wld_InsertNpc               ( NOV_1364_Novize,  "TPL_408" ); // Betet zum SchlÃ¤fer in der SchlÃ¤ferhalle
 
     Wld_InsertNpc               ( NOV_1365_Novize,  "TPL_408" ); // Betet im Tempel
     Wld_InsertNpc               ( NOV_1366_Novize,  "TPL_408" ); // Betet im Tempel
@@ -2497,7 +2497,7 @@ FUNC VOID STARTUP_ORCTEMPEL ()
 
 
     // ----------------- Sleeper ---------------------------------------
-    Wld_InsertNpc               ( SLEEPER, "TPL_395" ); // Schläft die ganze Zeit :)
+    Wld_InsertNpc               ( SLEEPER, "TPL_395" ); // SchlÃ¤ft die ganze Zeit :)
 };
 
 FUNC VOID INIT_ORCTEMPEL ()
@@ -2505,7 +2505,7 @@ FUNC VOID INIT_ORCTEMPEL ()
     //-------- Objekt-TAs --------
     Wld_SetMobRoutine (00,00, "FIREPLACE", 1);
 
-    //-------- Attitüden initialisieren --------
+    //-------- AttitÃ¼den initialisieren --------
     B_InitMonsterAttitudes ();
     B_InitGuildAttitudes();
 };
@@ -2622,7 +2622,7 @@ FUNC VOID STARTUP_OLDMINE ()
     Wld_InsertNpc               (Minecrawler, "OM_189");
     Wld_InsertNpc               (Minecrawler, "OM_190");
 
-    //-------- Höhle der Köngin --------
+    //-------- HÃ¶hle der KÃ¶ngin --------
     Wld_InsertNpc               (Minecrawler, "OM_084_QUEEN_04");
     Wld_InsertNpc               (Minecrawler, "OM_084_QUEEN_04");
     Wld_InsertNpc               (Minecrawler, "OM_084_QUEEN_04");
@@ -2636,7 +2636,7 @@ FUNC VOID INIT_OLDMINE ()
 {
     Wld_SetMobRoutine (00,00, "FIREPLACE", 1);
 
-    //-------- Attitüden initialisieren --------
+    //-------- AttitÃ¼den initialisieren --------
     B_InitMonsterAttitudes ();
     B_InitGuildAttitudes();
 };
@@ -2717,7 +2717,7 @@ FUNC VOID INIT_FREEMINE ()
     //-------------------Fackeln-----------------------------
     Wld_SetMobRoutine           (00,00, "FIREPLACE", 1);
 
-    //-------- Attitüden initialisieren --------
+    //-------- AttitÃ¼den initialisieren --------
     B_InitMonsterAttitudes ();
     B_InitGuildAttitudes();
 };

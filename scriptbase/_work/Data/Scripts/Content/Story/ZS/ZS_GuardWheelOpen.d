@@ -1,5 +1,5 @@
 /************************************
-*    Wächter soll Drehrad bewachen  *
+*    WÃ¤chter soll Drehrad bewachen  *
 *            dass es auf bleibt     *
 ************************************/
 
@@ -10,7 +10,7 @@ func void ZS_GuardWheelOpen()
     GuardPerception     ();
 
     AI_StandUp          (self);
-    AI_SetWalkmode      (self,NPC_WALK);                            // Walkmode für den Zustand
+    AI_SetWalkmode      (self,NPC_WALK);                            // Walkmode fÃ¼r den Zustand
     AI_GotoWP           (self,  self.wp);                           // Gehe zum Tagesablaufstart
 
     if (Wld_GetMobState (self,  "VWHEEL") == 1)                     // Tor geschlossen?

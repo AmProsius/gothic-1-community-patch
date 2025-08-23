@@ -15,7 +15,7 @@ func int ZS_Upset_Loop ()
 
     if (C_NpcIsDown(other))
     {
-        PrintDebugNpc           (PD_ZS_LOOP,"...other kampfunf‰hig!");
+        PrintDebugNpc           (PD_ZS_LOOP,"...other kampfunf√§hig!");
         return                  LOOP_END;
     };
 

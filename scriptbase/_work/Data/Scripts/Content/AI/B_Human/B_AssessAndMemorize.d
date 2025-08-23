@@ -1,7 +1,7 @@
 const int NEWS_SOURCE_WITNESS   = 0;
 const int NEWS_SOURCE_GOSSIP    = 1;
 
-// Je höher die ID, desto wichtiger ist die News ( Priorisierung ! )
+// Je hÃ¶her die ID, desto wichtiger ist die News ( Priorisierung ! )
 const int NEWS_MURDER       = 200;
 const int NEWS_ATTACK       = 195;
 const int NEWS_THEFT        = 190;
@@ -11,15 +11,15 @@ const int NEWS_INTERFERE    = 175;
 const int NEWS_HASDEFEATED  = 170;
 
 FUNC VOID B_AssessAndMemorize(VAR INT newsid, VAR INT source, var C_NPC witness, var C_NPC offender, var C_NPC vict)
-// -> Einspeisen der News ins Gedächtnis
-// -> Reaktion auf News ( Attitüdenänderung )
-// Für alle Zeugen und News-Adressaten
+// -> Einspeisen der News ins GedÃ¤chtnis
+// -> Reaktion auf News ( AttitÃ¼denÃ¤nderung )
+// FÃ¼r alle Zeugen und News-Adressaten
 // Geht davon aus, dass SC erkannt wurde
 // *** Parameter ***
 // newsid       :   News ID
 // source > 0   :   "gossip", ansonsten "witness"
 // witness      :   NSC, bei dem News eingespeist werden soll
-// offender     :   Täter
+// offender     :   TÃ¤ter
 // vict         :   Opfer
 {
     PrintDebugNpc( PD_ZS_CHECK,"B_AssessAndMemorize");
@@ -29,7 +29,7 @@ FUNC VOID B_AssessAndMemorize(VAR INT newsid, VAR INT source, var C_NPC witness,
     || !C_NpcIsHuman(vict)
     || !C_NpcIsHuman(offender)
     {
-        PrintDebugNpc   (PD_ZS_CHECK,"...Täter, Zeuge oder Opfer KEIN Mensch!");
+        PrintDebugNpc   (PD_ZS_CHECK,"...TÃ¤ter, Zeuge oder Opfer KEIN Mensch!");
         PrintGlobals    (PD_ZS_CHECK);
         return;
     };
@@ -41,16 +41,16 @@ FUNC VOID B_AssessAndMemorize(VAR INT newsid, VAR INT source, var C_NPC witness,
     var int witnessguild;                               // Initialisierung der witnessguild Var
     var int offenderguild;                              // Initialisierung der offenderguild Var
 
-    victimguild         = Npc_GetTrueGuild ( vict);             // Zuweisung der Gilde des Übergebenen Vict
-    offenderTrueGuild   = Npc_GetTrueGuild ( offender);         // Zuweisung der Gilde des Übergebenen Offender
-    witnessguild        = Npc_GetTrueGuild ( witness);          // Zuweisung der Gilde des Übergebenen witness
+    victimguild         = Npc_GetTrueGuild ( vict);             // Zuweisung der Gilde des Ãœbergebenen Vict
+    offenderTrueGuild   = Npc_GetTrueGuild ( offender);         // Zuweisung der Gilde des Ãœbergebenen Offender
+    witnessguild        = Npc_GetTrueGuild ( witness);          // Zuweisung der Gilde des Ãœbergebenen witness
     offenderguild       = offender.guild;
     //------------------------------------------------------------------------------------------
     if (newsid == NEWS_MURDER)
     {
         PrintDebugNpc( PD_ZS_CHECK,"...AssessAndMemMurder");
         Npc_MemoryEntry (witness,source,offender,newsid,vict ); // Und News merken hier sollte eigentlich Gilde als Opfer, es ist aber
-                                                             // möglich, in anderen Zuständen als member von C_Npc auf die Gilde
+                                                             // mÃ¶glich, in anderen ZustÃ¤nden als member von C_Npc auf die Gilde
                                                              // des Nsc zuzugreifen
         if (Wld_GetGuildAttitude (witnessguild, victimguild) == ATT_FRIENDLY)
         {
@@ -178,7 +178,7 @@ FUNC VOID B_AssessAndMemorize(VAR INT newsid, VAR INT source, var C_NPC witness,
                 };
             };
         }
-        // JP: kein defeat mehr als Wiedergutmachung, aber wenn nur Temp Hostile wird die runtergesetzt, da man sonst nach dem Aufwachen direkt wieder niedergeknüppelt wird
+        // JP: kein defeat mehr als Wiedergutmachung, aber wenn nur Temp Hostile wird die runtergesetzt, da man sonst nach dem Aufwachen direkt wieder niedergeknÃ¼ppelt wird
 
         else if (Npc_IsPlayer   ( vict))
         {

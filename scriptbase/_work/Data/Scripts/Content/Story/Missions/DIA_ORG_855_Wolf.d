@@ -106,7 +106,7 @@ FUNC void  Org_855_Wolf_TRADE_Info()
 };
 
 //****************************************
-//              Wo Jäger
+//              Wo JÃ¤ger
 //****************************************
 
 instance  Org_855_Wolf_WhereHunter (C_INFO)

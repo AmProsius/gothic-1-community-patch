@@ -103,7 +103,7 @@ FUNC void  Tpl_1438_Templer_KALOM_Info()
     AI_Output           (self, other,"Tpl_1438_Templer_KALOM_Info_13_03"); //Apart from that, he's an alchemist. He brews potions so we can make spiritual contact with the Sleeper. Just go down to the Camp. We're always looking for people!
     AI_Output           (other, self,"Tpl_1438_Templer_KALOM_Info_15_04"); //I'll think about it.
 };
-//---------------------WENN DIE EIERSUCHE LÄUFT-------------------------------
+//---------------------WENN DIE EIERSUCHE LÃ„UFT-------------------------------
 instance  Tpl_1438_Templer_EGGSEARCH (C_INFO)
 {
     npc             = Tpl_1438_Templer;

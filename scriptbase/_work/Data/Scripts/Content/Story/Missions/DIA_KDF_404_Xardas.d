@@ -824,7 +824,7 @@ FUNC void  Info_Xardas_SWORDLOADED_Info()
     AI_Output       (other, self,"Info_Xardas_SWORDLOADED_15_01"); //I've reactivated URIZIEL!
     AI_Output       (self, other,"Info_Xardas_SWORDLOADED_14_02"); //It's incredible, the sword has regained its former powers. Now you have a really powerful weapon!
 
-    Wld_InsertItem          (ItArScrollTeleport4,"OW_ORC_SHAMAN_ROOM2");    //Unblutige Lösung für´s Ich-brauch-Orc-Statue-Massaker ***Björn***
+    Wld_InsertItem          (ItArScrollTeleport4,"OW_ORC_SHAMAN_ROOM2");    //Unblutige LÃ¶sung fÃ¼rÂ´s Ich-brauch-Orc-Statue-Massaker ***BjÃ¶rn***
 
 };
 
@@ -905,7 +905,7 @@ func void Info_Xardas_MAKERUNE_YES ()
 
     Npc_RemoveInvItem   (hero, Mythrilklinge02);
     CreateInvItems      (self, UrizielRune, 2);
-    B_GiveInvItems      (self, hero, UrizielRune, 2);// Wegen Ausgabe "2 Items übergeben", wird direkt angeglichen
+    B_GiveInvItems      (self, hero, UrizielRune, 2);// Wegen Ausgabe "2 Items Ã¼bergeben", wird direkt angeglichen
     Npc_RemoveInvItem   (hero, UrizielRune);
     CreateInvItem       (hero, Mythrilklinge03);
     B_LogEntry          (CH5_Uriziel,"Xardas removed the magic gem from the sword URIZIEL. The power of this blade now rests in a magic rune of incomparable powers.");
@@ -956,10 +956,10 @@ func void  Info_Xardas_LOADSWORD09_Info()
             AI_Output (self, other,"Info_Xardas_LOADSWORD09_14_05"); //The Sixth Circle enables you to use the magic of any rune.
             AI_Output (self, other,"Info_Xardas_LOADSWORD09_14_06"); //And don't forget: Do not claim the power, but serve it.
 
-            CreateInvItem       (hero, DMB_ARMOR_M);        // SN: kann nicht mit B_GiveInvItem() übergeben werden, da Xardas sonst nackt dasteht!
+            CreateInvItem       (hero, DMB_ARMOR_M);        // SN: kann nicht mit B_GiveInvItem() Ã¼bergeben werden, da Xardas sonst nackt dasteht!
             AI_EquipBestArmor   (hero);
 
-            //Fakeitem für Bildschirmausgabe
+            //Fakeitem fÃ¼r Bildschirmausgabe
             CreateInvItem       (self,          ItAmArrow);
             B_GiveInvItems      (self, hero,    ItAmArrow, 1);
             Npc_RemoveInvItem   (hero,          ItAmArrow);

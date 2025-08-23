@@ -15,9 +15,9 @@
 //
 //  Es passiert folgendes:
 //
-//  1.  Ist der NSC st‰rkere Wache/Boss/Arbeiter        -> Angriff
-//  2.  Ist der NSC schw‰chere/besiegte Wache/Boss      -> Wachen rufen -> Angriff
-//  3.  Ist der NSC ein schw‰cherer/besiegter Arbeiter  -> Wachen rufen -> Flucht
+//  1.  Ist der NSC st√§rkere Wache/Boss/Arbeiter        -> Angriff
+//  2.  Ist der NSC schw√§chere/besiegte Wache/Boss      -> Wachen rufen -> Angriff
+//  3.  Ist der NSC ein schw√§cherer/besiegter Arbeiter  -> Wachen rufen -> Flucht
 //
 //////////////////////////////////////////////////////////////////////////
 //  ToDo
@@ -44,9 +44,9 @@ func void ZS_AssessEnemy ()
     if  C_NpcIsGuard(self)
     ||  C_NpcIsGuardArcher(self)
     ||  C_NpcIsBoss(self)
-    ||  (self.npctype==NPCTYPE_FRIEND)  //solche d¸rfen niemals fliehen!
+    ||  (self.npctype==NPCTYPE_FRIEND)  //solche d√ºrfen niemals fliehen!
     {
-        //---- NSC ruft zus‰tzlich Hilfe ! ----
+        //---- NSC ruft zus√§tzlich Hilfe ! ----
         if (C_AmIWeaker(self,other) || (Npc_IsPlayer(other) && self.aivar[AIV_WASDEFEATEDBYSC]) )
         {
             B_CallComrades  ();
@@ -78,7 +78,7 @@ func void ZS_AssessEnemy ()
             return;
         }
 
-        //---- NSC k‰mpft ! ----
+        //---- NSC k√§mpft ! ----
         else
         {
             if (Npc_IsPlayer(other))

@@ -11,7 +11,7 @@ func void B_AssessUseMob ()
         if (Npc_IsDetectedMobOwnedByNpc(other,  self)
         ||  Npc_IsDetectedMobOwnedByGuild(other, self.guild))
         {
-            PrintDebugNpc           (PD_ZS_CHECK,   "...MOB gehört NSC oder seiner Gilde!");
+            PrintDebugNpc           (PD_ZS_CHECK,   "...MOB gehÃ¶rt NSC oder seiner Gilde!");
             if (Npc_GetPermAttitude (self, other)==ATT_FRIENDLY || self.guild==other.guild)
             {
                 PrintDebugNpc       (PD_ZS_CHECK,   "...Manipulator ist FRIENDLY oder in gleicher Gilde!");
@@ -21,12 +21,12 @@ func void B_AssessUseMob ()
             {
                 PrintGlobals(PD_ZS_CHECK);
 
-                //---- Täter vermöbeln ----
+                //---- TÃ¤ter vermÃ¶beln ----
                 Npc_SetTempAttitude ( self, ATT_HOSTILE);
                 Npc_ClearAIQueue    ( self);
                 B_WhirlAround       ( self, other);
                 B_SayOverlay        ( self, other,  "$IWillTeachYouRespectForForeignProperty");
-                // JP: Ist ein heikler Fall, eigentlich sollten die Nsc´s nah genug sein, evtl. aber noch auf ZS_WarnAndPunish umbauen
+                // JP: Ist ein heikler Fall, eigentlich sollten die NscÂ´s nah genug sein, evtl. aber noch auf ZS_WarnAndPunish umbauen
                 AI_SetWalkmode      ( self, NPC_RUN);
                 Npc_SetTarget       ( self, other);
                 AI_StartState       ( self, ZS_Attack,  0,  "");

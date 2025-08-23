@@ -1,5 +1,5 @@
 //*****************************************************************************
-//***           Diese Funktion tötet alle Bewohner des FMC                  ***
+//***           Diese Funktion tÃ¶tet alle Bewohner des FMC                  ***
 //*****************************************************************************
 func void B_ClearFMC()
 {

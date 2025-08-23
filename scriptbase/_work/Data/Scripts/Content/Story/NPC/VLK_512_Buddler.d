@@ -48,7 +48,7 @@ instance VLK_512_Buddler (Npc_Default)
     daily_routine = Rtn_start_512;
     };
 
-FUNC VOID Rtn_start_512 () //Durchgangshütte Bloodwyn/Markt
+FUNC VOID Rtn_start_512 () //DurchgangshÃ¼tte Bloodwyn/Markt
 {
     TA_Sleep        (23,00,08,00,"OCR_HUT_64");
     TA_Smalltalk    (08,00,12,00,"OCR_OUTSIDE_HUT_63_SMALLTALK");

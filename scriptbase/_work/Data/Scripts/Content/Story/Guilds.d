@@ -6,14 +6,14 @@
 ///////////////////////////////////////////////////////////////////////////////////////////
 
 // ********************************************************************************************************************
-// Gruppenattit¸den
+// Gruppenattit√ºden
 // ********************************************************************************************************************
 
 CONST INT TAB_ANZAHL = 16 * 16;
 
-CONST INT GIL_ATTITUDES [TAB_ANZAHL] =  // AL und  NL ver‰rgert (Magier zueinander freundlich) ST neutral zu AL und NL (Magier ver‰rgert zu ST)
+CONST INT GIL_ATTITUDES [TAB_ANZAHL] =  // AL und  NL ver√§rgert (Magier zueinander freundlich) ST neutral zu AL und NL (Magier ver√§rgert zu ST)
 {
-//      None            EBr             Grd             Stt             KdF             Vlk                     KdW             Sld             Org             Bau             SfB                     Gur             Nov             Tpl                     D‰m             Bab
+//      None            EBr             Grd             Stt             KdF             Vlk                     KdW             Sld             Org             Bau             SfB                     Gur             Nov             Tpl                     D√§m             Bab
 /*Non*/ ATT_NEUTRAL,    ATT_NEUTRAL,    ATT_NEUTRAL,    ATT_NEUTRAL,    ATT_NEUTRAL,    ATT_NEUTRAL,    /*Non*/ ATT_NEUTRAL,    ATT_NEUTRAL,    ATT_NEUTRAL,    ATT_NEUTRAL,    ATT_NEUTRAL,    /*Non*/ ATT_NEUTRAL,    ATT_NEUTRAL,    ATT_NEUTRAL,    /*Non*/ ATT_NEUTRAL,    ATT_NEUTRAL,
 
 /*Ebr*/ ATT_NEUTRAL,    ATT_FRIENDLY,   ATT_FRIENDLY,   ATT_FRIENDLY,   ATT_FRIENDLY,   ATT_FRIENDLY,   /*Ebr*/ ATT_ANGRY,      ATT_ANGRY,      ATT_ANGRY,      ATT_ANGRY,      ATT_ANGRY,      /*Ebr*/ ATT_NEUTRAL,    ATT_NEUTRAL,    ATT_NEUTRAL,    /*Ebr*/ ATT_NEUTRAL,    ATT_NEUTRAL,
@@ -39,7 +39,7 @@ CONST INT GIL_ATTITUDES [TAB_ANZAHL] =  // AL und  NL ver‰rgert (Magier zueinand
 
 CONST INT GIL_ATTITUDES_FMTAKEN [TAB_ANZAHL] =  // AL und NL feindlich
 {
-//      None            EBr             Grd             Stt             KdF             Vlk                     KdW             Sld             Org             Bau             SfB                     Gur             Nov             Tpl                     D‰m             Bab
+//      None            EBr             Grd             Stt             KdF             Vlk                     KdW             Sld             Org             Bau             SfB                     Gur             Nov             Tpl                     D√§m             Bab
 /*Non*/ ATT_NEUTRAL,    ATT_NEUTRAL,    ATT_NEUTRAL,    ATT_NEUTRAL,    ATT_NEUTRAL,    ATT_NEUTRAL,    /*Non*/ ATT_NEUTRAL,    ATT_NEUTRAL,    ATT_NEUTRAL,    ATT_NEUTRAL,    ATT_NEUTRAL,    /*Non*/ ATT_NEUTRAL,    ATT_NEUTRAL,    ATT_NEUTRAL,    /*Non*/ ATT_NEUTRAL,    ATT_NEUTRAL,
 /*Ebr*/ ATT_HOSTILE,    ATT_FRIENDLY,   ATT_FRIENDLY,   ATT_FRIENDLY,   ATT_HOSTILE,    ATT_FRIENDLY,   /*Ebr*/ ATT_HOSTILE,    ATT_HOSTILE,    ATT_HOSTILE,    ATT_HOSTILE,    ATT_HOSTILE,    /*Ebr*/ ATT_HOSTILE,    ATT_HOSTILE,    ATT_HOSTILE,    /*Ebr*/ ATT_HOSTILE,    ATT_NEUTRAL,
 /*Grd*/ ATT_HOSTILE,    ATT_FRIENDLY,   ATT_FRIENDLY,   ATT_FRIENDLY,   ATT_HOSTILE,    ATT_FRIENDLY,   /*Grd*/ ATT_HOSTILE,    ATT_HOSTILE,    ATT_HOSTILE,    ATT_HOSTILE,    ATT_HOSTILE,    /*Grd*/ ATT_HOSTILE,    ATT_HOSTILE,    ATT_HOSTILE,    /*Grd*/ ATT_HOSTILE,    ATT_NEUTRAL,
@@ -86,7 +86,7 @@ CONST INT GIL_ATTITUDES_FMTAKEN [TAB_ANZAHL] =  // AL und NL feindlich
 
 CONST INT GIL_ATTITUDES_ORCASSAULT [TAB_ANZAHL] =           // von Steffen (so gelassen)
 {
-//  None        EBr     Grd     Stt     KdF     Vlk             KdW         Sld     Org         Bau         SfB             Gur         Nov         Tpl             D‰m         Mst
+//  None        EBr     Grd     Stt     KdF     Vlk             KdW         Sld     Org         Bau         SfB             Gur         Nov         Tpl             D√§m         Mst
 /*Non*/ ATT_NEUTRAL,    ATT_NEUTRAL,    ATT_NEUTRAL,    ATT_NEUTRAL,    ATT_NEUTRAL,    ATT_NEUTRAL,    /*Non*/ ATT_NEUTRAL,    ATT_NEUTRAL,    ATT_NEUTRAL,    ATT_NEUTRAL,    ATT_NEUTRAL,    /*Non*/ ATT_NEUTRAL,    ATT_NEUTRAL,    ATT_NEUTRAL,    /*Non*/ ATT_NEUTRAL,    ATT_NEUTRAL,
 /*Ebr*/ ATT_NEUTRAL,    ATT_FRIENDLY,   ATT_NEUTRAL,    ATT_NEUTRAL,    ATT_NEUTRAL,    ATT_NEUTRAL,    /*Ebr*/ ATT_ANGRY,  ATT_ANGRY,  ATT_ANGRY,  ATT_ANGRY,  ATT_ANGRY,  /*Ebr*/ ATT_NEUTRAL,    ATT_NEUTRAL,    ATT_NEUTRAL,    /*Ebr*/ ATT_NEUTRAL,    ATT_NEUTRAL,
 /*Grd*/ ATT_NEUTRAL,    ATT_NEUTRAL,    ATT_FRIENDLY,   ATT_NEUTRAL,    ATT_NEUTRAL,    ATT_NEUTRAL,    /*Grd*/ ATT_ANGRY,  ATT_ANGRY,  ATT_ANGRY,  ATT_ANGRY,  ATT_ANGRY,  /*Grd*/ ATT_NEUTRAL,    ATT_NEUTRAL,    ATT_NEUTRAL,    /*Grd*/ ATT_NEUTRAL,    ATT_NEUTRAL,
@@ -110,7 +110,7 @@ CONST INT GIL_ATTITUDES_ORCASSAULT [TAB_ANZAHL] =           // von Steffen (so g
 
 CONST INT GIL_ATTITUDES_NEMESIS [TAB_ANZAHL] =              // von Steffen (so gelassen)
 {
-//  None        EBr     Grd     Stt     KdF     Vlk             KdW         Sld     Org         Bau         SfB             Gur         Nov         Tpl             D‰m         Mst
+//  None        EBr     Grd     Stt     KdF     Vlk             KdW         Sld     Org         Bau         SfB             Gur         Nov         Tpl             D√§m         Mst
 /*Non*/ ATT_ANGRY,  ATT_ANGRY,  ATT_ANGRY,  ATT_ANGRY,  ATT_ANGRY,  ATT_ANGRY,  /*Non*/ ATT_ANGRY,  ATT_ANGRY,  ATT_ANGRY,  ATT_ANGRY,  ATT_ANGRY,  /*Non*/ ATT_ANGRY,  ATT_ANGRY,  ATT_ANGRY,  /*Non*/ ATT_NEUTRAL,    ATT_NEUTRAL,
 /*Ebr*/ ATT_ANGRY,  ATT_NEUTRAL,    ATT_NEUTRAL,    ATT_ANGRY,  ATT_NEUTRAL,    ATT_ANGRY,  /*Ebr*/ ATT_ANGRY,  ATT_ANGRY,  ATT_ANGRY,  ATT_ANGRY,  ATT_ANGRY,  /*Ebr*/ ATT_ANGRY,  ATT_ANGRY,  ATT_ANGRY,  /*Ebr*/ ATT_NEUTRAL,    ATT_NEUTRAL,
 /*Grd*/ ATT_ANGRY,  ATT_NEUTRAL,    ATT_NEUTRAL,    ATT_ANGRY,  ATT_NEUTRAL,    ATT_ANGRY,  /*Grd*/ ATT_ANGRY,  ATT_ANGRY,  ATT_ANGRY,  ATT_ANGRY,  ATT_ANGRY,  /*Grd*/ ATT_ANGRY,  ATT_ANGRY,  ATT_ANGRY,  /*Grd*/ ATT_NEUTRAL,    ATT_NEUTRAL,

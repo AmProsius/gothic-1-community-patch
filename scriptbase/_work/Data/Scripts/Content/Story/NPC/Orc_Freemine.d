@@ -30,7 +30,7 @@ func void ZS_WaitForRescue()
     {
         PrintDebugNpc(PD_ZS_FRAME,"ZS_WaitForRescue: sitzt nicht....");
         Npc_ClearAIQueue( self );
-        AI_SetWalkmode( self, NPC_WALK);        // Walkmode für den Zustand
+        AI_SetWalkmode( self, NPC_WALK);        // Walkmode fÃ¼r den Zustand
         AI_GotoWP( self, self.wp );     // Gehe zum Tagesablaufstart
         AI_AlignToWP    (self);
         AI_PlayAniBS( self, "T_STAND_2_GUARDSIT", BS_SIT );
@@ -87,7 +87,7 @@ instance FreemineOrc(C_NPC)
 
 
     //-------- ai --------
-//  start_aistate               =       ZS_Orc_Stomper;//SN: wegen Überarbeitung Ork-AI entfernt
+//  start_aistate               =       ZS_Orc_Stomper;//SN: wegen Ãœberarbeitung Ork-AI entfernt
     fight_tactic                =       FAI_ORC;
     senses_range                =       2000;
 

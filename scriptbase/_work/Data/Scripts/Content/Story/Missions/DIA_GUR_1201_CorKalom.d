@@ -248,7 +248,7 @@ FUNC int  GUR_1201_CorKalom_JoinPSI_Condition()
 func void  GUR_1201_CorKalom_JoinPSI_Info()
 {
     var int counter;
-    counter = 0;    //Counter löschen, da er noch den Stand der letzten Analyse hat!
+    counter = 0;    //Counter lÃ¶schen, da er noch den Stand der letzten Analyse hat!
 
     AI_Output (other, self,"GUR_1201_CorKalom_JoinPSI_15_00"); //I think I have convinced the Baals!
 
@@ -469,7 +469,7 @@ FUNC VOID Info_Kalom_Success_Info()
 };
 
 // ****************************************************************
-//                          KRAUTBOTE ZURÜCK
+//                          KRAUTBOTE ZURÃœCK
 // ****************************************************************
 
 INSTANCE Info_Kalom_KrautboteBACK(C_INFO)
@@ -562,7 +562,7 @@ FUNC VOID Info_CorKalom_BringFocus_Info()
     B_GiveXP            (XP_BringFocusToCorKalom);
 };
 
-// ------------------------------ 2. Belohnung für Fokus ergaunern ----------------------------------
+// ------------------------------ 2. Belohnung fÃ¼r Fokus ergaunern ----------------------------------
 instance Info_CorKalom_BLUFF (C_INFO)
 {
     npc         = GUR_1201_CorKalom;

@@ -1,8 +1,8 @@
 func void B_Story_ShowedUrizielToXardas()
 {
-    //-------- Missionsgegenst‰nde --------
+    //-------- Missionsgegenst√§nde --------
 
-    //-------- Tagebucheintr‰ge --------
+    //-------- Tagebucheintr√§ge --------
     B_LogEntry          (CH4_EnterTemple,"Xardas was quite surprised that I had managed to get into the underground temple. Looks like he thinks I'm the icon from an old Orcish prophecy.");
     Log_SetTopicStatus  (CH4_EnterTemple,   LOG_SUCCESS);
 

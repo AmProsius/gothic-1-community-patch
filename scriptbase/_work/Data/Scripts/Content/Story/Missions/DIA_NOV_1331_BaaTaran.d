@@ -23,7 +23,7 @@ FUNC VOID  DIA_BaalTaran_EXIT_Info()
 };
 
 // **************************************************
-//                  Erste Begr¸ssung
+//                  Erste Begr√ºssung
 // **************************************************
 
 instance  DIA_BaalTaran_Greet (C_INFO)
@@ -77,7 +77,7 @@ FUNC VOID  DIA_BaalTaran_Bruderschaft_Info()
 };
 
 // **************************************************
-//                  Wer ist der Schl‰fer
+//                  Wer ist der Schl√§fer
 // **************************************************
 
 instance  DIA_BaalTaran_Sleeper (C_INFO)
@@ -107,7 +107,7 @@ FUNC VOID  DIA_BaalTaran_Sleeper_Info()
 };
 
 // **************************************************
-//                  Lehre des Schl‰fers
+//                  Lehre des Schl√§fers
 // **************************************************
 
 instance  DIA_BaalTaran_Lehre (C_INFO)

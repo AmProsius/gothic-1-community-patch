@@ -13,10 +13,10 @@ func void B_AssessQuietSound ()
 
     if (Npc_CanSeeSource        (self))
     {
-        PrintDebugNpc           (PD_ZS_CHECK, "...kann Ger‰uschquelle sehen!" );
+        PrintDebugNpc           (PD_ZS_CHECK, "...kann Ger√§uschquelle sehen!" );
         if (Snd_IsSourceNpc     (self))
         {
-            PrintDebugNpc       (PD_ZS_CHECK, "...Ger‰uschquelle ist SC!" );
+            PrintDebugNpc       (PD_ZS_CHECK, "...Ger√§uschquelle ist SC!" );
             if (Npc_GetTempAttitude (self, other) == ATT_HOSTILE)
             {
                 PrintDebugNpc   (PD_ZS_CHECK, "...SC ist HOSTILE!" );
@@ -27,7 +27,7 @@ func void B_AssessQuietSound ()
     }
     else
     {
-        PrintDebugNpc           (PD_ZS_CHECK, "...kann NICHT Ger‰uschquelle sehen!" );
+        PrintDebugNpc           (PD_ZS_CHECK, "...kann NICHT Ger√§uschquelle sehen!" );
         if (Snd_IsSourceNpc     (self))
         {
             Npc_ClearAIQueue    (self);

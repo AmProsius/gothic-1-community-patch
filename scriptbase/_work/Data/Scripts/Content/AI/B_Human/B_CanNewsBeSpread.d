@@ -3,7 +3,7 @@
 // ***********************************************************************************
 
 FUNC INT B_CanNewsBeSpread()
-// Beachte : Name der Funktion darf nicht ge‰ndert werden
+// Beachte : Name der Funktion darf nicht ge√§ndert werden
 // News ist auf jeden Fall "Witness" !
 // Und ich bin das Opfer..."self" / "victim"
 {

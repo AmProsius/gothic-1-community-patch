@@ -5,7 +5,7 @@
 //  Wird durch:
 //
 //  - PERC_ASSESSDAMAGE
-//  - einige Magiezust‰nde  (nachtragen, welche)
+//  - einige Magiezust√§nde  (nachtragen, welche)
 //
 //  aufgerufen. Vorraussetzungen:
 //

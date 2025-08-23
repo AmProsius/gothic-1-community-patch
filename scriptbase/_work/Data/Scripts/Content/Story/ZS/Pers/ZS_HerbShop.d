@@ -1,4 +1,4 @@
-// von Mike für Frotuno (im ST hinter Drogenstand)
+// von Mike fÃ¼r Frotuno (im ST hinter Drogenstand)
 
 func void ZS_HerbShop ()
 {
@@ -6,7 +6,7 @@ func void ZS_HerbShop ()
 
     B_SetPerception (self);
 
-    AI_SetWalkmode (self,NPC_WALK); // Walkmode für den Zustand
+    AI_SetWalkmode (self,NPC_WALK); // Walkmode fÃ¼r den Zustand
     if !(Npc_IsOnFP(self,"STAND"))
     {
         AI_GotoWP(self, self.wp);               // Gehe zum Tagesablaufstart

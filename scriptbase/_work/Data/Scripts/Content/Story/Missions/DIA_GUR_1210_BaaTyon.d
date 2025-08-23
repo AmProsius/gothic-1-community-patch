@@ -24,7 +24,7 @@ FUNC VOID  DIA_BaalTyon_Exit_Info()
 };
 
 // ************************************************************
-//                  NICHT ansprechbar (Ungläubiger)
+//                  NICHT ansprechbar (UnglÃ¤ubiger)
 // ************************************************************
     var int BaalTyon_Ansprechbar;
     var int BaalTyon_Sakrileg;
@@ -104,7 +104,7 @@ func void DIA_BaalTyon_SpecialJoint()
 
     BaalTyon_Ansprechbar = TRUE;
     Npc_SetRefuseTalk   (self,5);
-    hero.aivar[AIV_INVINCIBLE] = FALSE; //SN: Workaround, da in diese Situation das INVINCIBLE-Flag nicht automatisch gelöscht wird!
+    hero.aivar[AIV_INVINCIBLE] = FALSE; //SN: Workaround, da in diese Situation das INVINCIBLE-Flag nicht automatisch gelÃ¶scht wird!
 };
 
 // **************************************************

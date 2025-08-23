@@ -61,7 +61,7 @@ INSTANCE PC_Fighter(NPC_DEFAULT)
     daily_routine = Rtn_Start_3;
 };
 
-FUNC VOID Rtn_Start_3 () //Vor Gorns Hütte
+FUNC VOID Rtn_Start_3 () //Vor Gorns HÃ¼tte
 {
     TA_StandAround  (08,00,01,00,"NC_PLACE03_MOVEMENT2");
     TA_Sleep        (01,00,08,00,"NC_HUT06_IN");
@@ -70,7 +70,7 @@ FUNC VOID Rtn_Start_3 () //Vor Gorns Hütte
 //##################################################################
 //  Kapitel 3
 //##################################################################
-// SN: bitte ab hier keine TAs ändern, da Storyrelevant
+// SN: bitte ab hier keine TAs Ã¤ndern, da Storyrelevant
 
 FUNC VOID Rtn_NCWait_3 ()
 {
@@ -85,7 +85,7 @@ FUNC VOID Rtn_RuinWait_3 ()
     TA_Stay         (23,00, 24,00,"OW_PATH_ABYSS_4");
 };
 
-// Gorn führt den Spieler in die erste Höhle
+// Gorn fÃ¼hrt den Spieler in die erste HÃ¶hle
 FUNC VOID Rtn_RuinAbyss_3 ()
 {
     TA_GuidePC      (00,00, 23,00,"OW_ABYSS_TO_CAVE_MOVE6");
@@ -134,7 +134,7 @@ FUNC VOID Rtn_RuinYard_3 ()
 //  Kapitel 4
 //##################################################################
 
-// Gorn berichtet vom Überfall auf die Freie Mine
+// Gorn berichtet vom Ãœberfall auf die Freie Mine
 FUNC VOID Rtn_NCReport_3 ()
 {
     TA_Stay     (00,00, 23,00,"NC_KDW_CAVE_CENTER");
@@ -162,7 +162,7 @@ FUNC VOID Rtn_WaitFMC_3 ()
     TA_Stay     (23,00, 24,00,"FMC_ENTRANCE");
 };
 
-// Gorn bewacht den Eingang zur Freien Mine während der Spieler das Tor öffnet
+// Gorn bewacht den Eingang zur Freien Mine wÃ¤hrend der Spieler das Tor Ã¶ffnet
 FUNC VOID Rtn_WaitFM_3 ()
 {
     TA_Stay     (00,00, 23,00,"FMC_FM_ENTRANCE");
@@ -235,7 +235,7 @@ FUNC VOID Rtn_Follow_5 ()
     TA_FollowPC (23,00, 24,00,"FM_02");
 };
 
-// Der Spieler hat Gorn zurückgelassen und zieht auf eigene Faust los.
+// Der Spieler hat Gorn zurÃ¼ckgelassen und zieht auf eigene Faust los.
 FUNC VOID Rtn_Wait_5 ()
 {
     TA_Stay (00,00, 23,00,"FM_02");

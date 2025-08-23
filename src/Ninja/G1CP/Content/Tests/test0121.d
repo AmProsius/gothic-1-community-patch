@@ -1,5 +1,5 @@
 /*
- * #121 Spelling - Quest: "Shrikes Hütte" (DE)
+ * #121 Spelling - Quest: "Shrikes HÃ¼tte" (DE)
  *
  * The content of the string constant will be checked and a log topic will be temporarily created with the original
  * topic name. After applying the fix, its name should be updated correctly.
@@ -8,7 +8,7 @@
  */
 func int G1CP_Test_0121() {
     G1CP_Testsuite_CheckLang(G1CP_Lang_DE);
-    const string logTopicRight = "Shrikes Hütte";
+    const string logTopicRight = "Shrikes HÃ¼tte";
     const string CH1_ShrikesHut = ""; CH1_ShrikesHut = G1CP_Testsuite_GetStringConst("CH1_ShrikesHut");
     G1CP_Testsuite_CheckPassed();
 

@@ -8,7 +8,7 @@
 //#####################################################################
 func void B_Story_JackalFight()
 {
-    //-------- Tagesabl‰ufe austauschen --------
+    //-------- Tagesabl√§ufe austauschen --------
     B_ExchangeRoutine   (Grd_283_Gardist,   "FMTaken2");    //FMC-Guard(Mineneingang)
     B_ExchangeRoutine   (Grd_285_Gardist,   "FMTaken2");    //FMC-Guard(Mineneingang)
     var C_NPC jackal;

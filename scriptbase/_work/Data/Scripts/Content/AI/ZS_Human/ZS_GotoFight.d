@@ -7,7 +7,7 @@ func void B_Stop    ()
         PrintDebugNpc   (PD_ZS_FRAME, "B_Stop To close");
         Npc_ClearAIQueue( self);
         AI_StandUp      ( self);
-        //AI_SetWalkmode( self, NPC_WALK); --> falls sie doch mal rennen sollten, muﬂ es nat¸rlich auch wieder abgeschaltet werden
+        //AI_SetWalkmode( self, NPC_WALK); --> falls sie doch mal rennen sollten, mu√ü es nat√ºrlich auch wieder abgeschaltet werden
         AI_StartState   ( self, ZS_WatchFight, 0, "");
     };
 };
@@ -29,7 +29,7 @@ func void ZS_GotoFight  ()
 
     PrintGlobals        (PD_ZS_CHECK);
 
-    //AI_SetWalkmode    (self, NPC_RUN); --> w‰re zwar schˆner, die Nsc¥s zum Kampf rennen zu lassen, aber dann rennen sie zu weit rein
+    //AI_SetWalkmode    (self, NPC_RUN); --> w√§re zwar sch√∂ner, die Nsc¬¥s zum Kampf rennen zu lassen, aber dann rennen sie zu weit rein
     AI_GotoNpc          (self, victim);
 };
 
@@ -39,7 +39,7 @@ func int ZS_GotoFight_Loop ()
 
     if (!Hlp_IsValidNpc(other) || !Hlp_IsValidNpc(victim))
     {
-        PrintDebugNpc( PD_ZS_CHECK,"...Angreifer oder Opfer ung¸ltig!");
+        PrintDebugNpc( PD_ZS_CHECK,"...Angreifer oder Opfer ung√ºltig!");
         return 1;
     };
     if (Npc_IsDead  (other) || Npc_IsDead   ( victim))
@@ -49,7 +49,7 @@ func int ZS_GotoFight_Loop ()
     };
     if (Npc_IsInState(other, ZS_Unconscious) || Npc_IsInState   (victim, ZS_Unconscious))
     {
-        PrintDebugNpc( PD_ZS_CHECK,"...Angreifer oder Opfer bewuﬂtlos!");
+        PrintDebugNpc( PD_ZS_CHECK,"...Angreifer oder Opfer bewu√ütlos!");
         return 1;
     };
     if (    Npc_IsInState( other , ZS_Flee )        ||

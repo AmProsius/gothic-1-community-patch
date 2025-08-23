@@ -116,7 +116,7 @@ func VOID DIA_Milten_GotoCorristo_Info()
         AI_Output (other, self,"DIA_Milten_Hello_15_00"); //I'm looking for the High Magician of the Circle of Fire.
         AI_Output (self, other,"DIA_Milten_Hello_02_01"); //That is Corristo. What do you want with him?
         AI_Output (other, self,"DIA_Milten_Letter_15_00"); //I have a letter for the High Magician of the Circle of Fire.
-        //AI_Output (self, other,"DIA_Milten_Letter_02_01"); //Bist du ein Bote aus der Auﬂenwelt?
+        //AI_Output (self, other,"DIA_Milten_Letter_02_01"); //Bist du ein Bote aus der Au√üenwelt?
         //AI_Output (other, self,"DIA_Milten_Letter_15_02"); //Ja. Ein Magier gab mir den Brief, kurz bevor sie mich in die Kolonie geworfen haben.
         AI_Output (self, other,"DIA_Milten_Letter_02_03"); //Show me the letter.
         AI_Output (other, self,"DIA_Milten_Letter_Give_15_00"); //Here it is.
@@ -874,7 +874,7 @@ FUNC int Info_Milten_SHRUNNING_Condition()
     keeperFound = Wld_DetectNpc(self, ZombieTheKeeper, NOFUNC, -1);
 
     if  Npc_KnowsInfo(hero,Info_Milten_SHACCEPT)
-    &&  (keeperFound && !Npc_IsDead(other))                         // W‰chter noch nicht besiegt...
+    &&  (keeperFound && !Npc_IsDead(other))                         // W√§chter noch nicht besiegt...
     {
         return TRUE;
     };
@@ -904,7 +904,7 @@ FUNC int Info_Milten_SHSCROLL_Condition()
     var int keeperFound;
     Npc_PerceiveAll(self);
     keeperFound = Wld_DetectNpc(self, ZombieTheKeeper, NOFUNC, -1);
-    if (    (keeperFound && !Npc_IsDead(other))                         // W‰chter noch nicht besiegt...
+    if (    (keeperFound && !Npc_IsDead(other))                         // W√§chter noch nicht besiegt...
     &&      Npc_KnowsInfo(hero, Info_Milten_SHACCEPT)
     &&      (Npc_HasItems(hero, ItArScrollDestroyUndead)==0)
     &&      (Npc_HasItems(hero, ItArRuneDestroyUndead)==0)  )

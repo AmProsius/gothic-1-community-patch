@@ -1,5 +1,5 @@
 // *************************
-// Globalvariablen für Story
+// Globalvariablen fÃ¼r Story
 // *************************
 
 const int ZivilAnquatschDist = 300;
@@ -102,10 +102,10 @@ var int CorAngar_FindHerb;
 var int Fortuno_HasYBerionHerbs;    // TRUE oder FALSE
 var int Yberion_dead;
 var int BaalLukor_BringParchment;
-        // 0:   keine Hälfte gefunden
-        // 1:   die erste Hälfte gefunden
-        // 2:   die zweite Hälfte gefunden
-        // 3:   beide Hälften gefunden
+        // 0:   keine HÃ¤lfte gefunden
+        // 1:   die erste HÃ¤lfte gefunden
+        // 2:   die zweite HÃ¤lfte gefunden
+        // 3:   beide HÃ¤lften gefunden
         // 4:   Kampf gegen BaalLukor
 var int CorAngar_SendToNC;
         // FALSE oder TRUE
@@ -120,11 +120,11 @@ var int MonasteryRuin_GateOpen;
         // TRUE oder FALSE
 
 var int Troll_Wheel;
-        //für Wheel in der Trollschlucht
+        //fÃ¼r Wheel in der Trollschlucht
         // 0:   Auftrag nicht vergeben
         // 1:   1x vom Spieler angepackt
         // 2:   Winde von Diego repariert
-        // 3:   Winde geöffnet
+        // 3:   Winde geÃ¶ffnet
 //---------------------------------------------------------------------
 //  KAPITEL 4
 //---------------------------------------------------------------------
@@ -156,7 +156,7 @@ var int MCPlatesDelivered;              //TRUE oder FALSE
 var int OrcCity_Sanctum_OuterGateOpen;
 var int OrcCity_Sanctum_OuterGateTried; //TRUE oder FALSE
 var int EnteredTemple;                  //TRUE oder FALSE
-const int HighPriest_MaxHit = 3;        //Anzahl der Schläge auf den fünften Ork-Priester, bis der "SC-hats-kapiert-Dialog" kommt
+const int HighPriest_MaxHit = 3;        //Anzahl der SchlÃ¤ge auf den fÃ¼nften Ork-Priester, bis der "SC-hats-kapiert-Dialog" kommt
 var int EncounteredHighPriest;          //TRUE oder FALSE
 var int ExploreSunkenTower;             //TRUE oder FALSE
 var int LoadSword;                      //TRUE oder FALSE
@@ -264,7 +264,7 @@ const int   XP_ReportToRaven            = 500;
 //---------------------------------------------------------------------
 //  KAPITEL 3
 //---------------------------------------------------------------------
-const int   XP_SaveBaalLukor            =   750;        //22.01.01: Ork-Graveyard enthält 4620 XP
+const int   XP_SaveBaalLukor            =   750;        //22.01.01: Ork-Graveyard enthÃ¤lt 4620 XP
 const int   XP_ReportToCorAngar         =   2000;
 const int   XP_FindHerbs                =   1500;
 const int   XP_GetCronosPermission      =   250;
@@ -350,7 +350,7 @@ const int   LPCOST_TALENT_PICKPOCKET_2  =   20;
 /*-------------------------------------------------------------------------
 
                         LOG EINTRAGS VARIABLEN
-( da die Logeinträge nicht einfach so in permanenten Infos stehen dürfen!)
+( da die LogeintrÃ¤ge nicht einfach so in permanenten Infos stehen dÃ¼rfen!)
 
 --------------------------------------------------------------------------*/
 var int log_gornatothfight;

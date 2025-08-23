@@ -13,10 +13,10 @@ func int ZS_MM_AttackMage_Loop()
     PrintDebugNpc       (PD_ZS_LOOP,    "ZS_MM_AttackMage_Loop");
     Npc_GetTarget       (self);
 
-    /* -------- Wenn Gegner Bewuﬂtlos oder Tod... -------- */
-    if ( Npc_IsInState  (other, ZS_Unconscious) || Npc_IsDead(other) || Npc_IsInState(other, ZS_Dead)) // WORKAROUND: es kann vorkommen, daﬂ der SC in Zustand ZS_Dead landet, aber noch bewuﬂtlos ist!!!
+    /* -------- Wenn Gegner Bewu√ütlos oder Tod... -------- */
+    if ( Npc_IsInState  (other, ZS_Unconscious) || Npc_IsDead(other) || Npc_IsInState(other, ZS_Dead)) // WORKAROUND: es kann vorkommen, da√ü der SC in Zustand ZS_Dead landet, aber noch bewu√ütlos ist!!!
     {
-        PrintDebugNpc   (PD_ZS_CHECK,   "...Ziel bewuﬂtlos oder tot!");
+        PrintDebugNpc   (PD_ZS_CHECK,   "...Ziel bewu√ütlos oder tot!");
 
         if ( Npc_IsNextTargetAvailable(self) )
         {
@@ -34,7 +34,7 @@ func int ZS_MM_AttackMage_Loop()
     {
         PrintGlobals    (PD_MST_DETAIL);
         /* -------- Auswahl/Wechsel der richtigen Waffe -------- */
-        Npc_ClearAIQueue(self);                 // falls sich FAI-Moves schneller ansammeln, als sie abgearbeitet werden kˆnnen.
+        Npc_ClearAIQueue(self);                 // falls sich FAI-Moves schneller ansammeln, als sie abgearbeitet werden k√∂nnen.
         B_SelectWeapon  (self,  other);
         Npc_SetStateTime(self,  0);
     };

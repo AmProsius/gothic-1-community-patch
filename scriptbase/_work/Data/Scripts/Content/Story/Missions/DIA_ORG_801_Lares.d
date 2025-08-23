@@ -130,7 +130,7 @@ FUNC VOID ORG_801_Lares_BringList_Info()
     B_UseFakeScroll();
     AI_Output (self, other,"ORG_801_Lares_BringList_11_04"); //Indeed! D'you know what we're going to do with it? We'll add to it and you'll take the list back to the Old Camp!
     AI_Output (self, other,"ORG_801_Lares_BringList_11_05"); //Then, when they deliver the stuff to the mine, we'll mug 'em and take the lot! It won't take a minute... Hah! Here's the list. You know what to do.
-    //AI_Output (self, other,"ORG_801_Lares_BringList_11_06"); //Das haben wir gleich ... So! Hier ist die Liste. Du weiﬂt, was du zu tun hast.
+    //AI_Output (self, other,"ORG_801_Lares_BringList_11_06"); //Das haben wir gleich ... So! Hier ist die Liste. Du wei√üt, was du zu tun hast.
 
     Points_NC = Points_NC + 10;
 

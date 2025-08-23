@@ -5,7 +5,7 @@
 //  imposant herumstehen und Wache halten sollen.
 //
 //  Es passiert folgendes:
-//  1.  Wie in allen Wachzuständen werden nette Posen und Zufalls-
+//  1.  Wie in allen WachzustÃ¤nden werden nette Posen und Zufalls-
 //      Animationen abgespielt.
 //////////////////////////////////////////////////////////////////////////
 func void ZS_AlignGuard ()
@@ -16,7 +16,7 @@ func void ZS_AlignGuard ()
     Npc_PercEnable  (self,  PERC_ASSESSPLAYER,  B_AssessSC);
 
     AI_StandUp      (self);
-    AI_SetWalkmode  (self,NPC_WALK);            // Walkmode für den Zustand
+    AI_SetWalkmode  (self,NPC_WALK);            // Walkmode fÃ¼r den Zustand
     AI_GotoWP       ( self, self.wp );          // Gehe zum Tagesablaufstart
     AI_AlignToWP        ( self );
     B_InitArmor();

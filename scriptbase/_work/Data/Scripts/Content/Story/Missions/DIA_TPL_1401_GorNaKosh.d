@@ -89,7 +89,7 @@ FUNC void  Tpl_1401_GorNaKosh_INFO_Info()
     AI_Output           (self, other,"Tpl_1401_GorNaKosh_INFO_Info_13_04"); //There's just a single rule to remember when hunting crawlers: When you see them, run at them and kill them as fast as you can.
     AI_Output           (self, other,"Tpl_1401_GorNaKosh_INFO_Info_13_05"); //Fight without fear and kill without mercy.
 
-    AI_StopProcessInfos(self);      // SN:nur für die Vermeidung des Bugs, dass der letzte Satz in roter Schrift erscheint, und der InfoManager danach defekt ist
+    AI_StopProcessInfos(self);      // SN:nur fÃ¼r die Vermeidung des Bugs, dass der letzte Satz in roter Schrift erscheint, und der InfoManager danach defekt ist
 };
 
 // ***************** Infos *****************************
@@ -119,7 +119,7 @@ FUNC void  Tpl_1401_GorNaKosh_CRAWLER_Info()
     AI_Output           (self, other,"Tpl_1401_GorNaKosh_CRAWLER_Info_13_03"); //Use this knowledge in your fight against them.
 };
 
-// ***************************** Die Königin ist tot, lang lebe die Königin ****************************************//
+// ***************************** Die KÃ¶nigin ist tot, lang lebe die KÃ¶nigin ****************************************//
 
 instance  Tpl_1401_GorNaKosh_VICTORY (C_INFO)
 {

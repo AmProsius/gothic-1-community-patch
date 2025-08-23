@@ -1,9 +1,9 @@
 // ************************************************************************************************
-// Wert von Tiertrophäen
+// Wert von TiertrophÃ¤en
 // ************************************************************************************************
 
-// FIXME: welche Trophäe wann freigeschaltet? Wert tunen!
-const int   Value_Zähne             =   10;
+// FIXME: welche TrophÃ¤e wann freigeschaltet? Wert tunen!
+const int   Value_ZÃ¤hne             =   10;
 const int   Value_Krallen           =   15;
 
 const int   Value_Wolfsfell         =   10;
@@ -22,17 +22,17 @@ const int   Value_Sumpfhaihaut      =   200;
 const int   Value_Trollfell         =   300;
 
 // Bloodfly
-const int   Value_Flügel            =   15;
+const int   Value_FlÃ¼gel            =   15;
 const int   Value_Stachel           =   25;
 
 // Durch Ulu-Mulu freigeschaltet
 // bei Auftragsvergabe werden je 3 neue Monster gespawnt
 const int   Value_Feuerzunge        =   500;
-const int   Value_Sumpfhaizähne     =   500;
+const int   Value_SumpfhaizÃ¤hne     =   500;
 const int   Value_Shadowbeasthorn   =   500;
 const int   Value_Trollhauer        =   500;
 
-// Golems beim Dämonenbeschwörer
+// Golems beim DÃ¤monenbeschwÃ¶rer
 const int   Value_Steinherz         =   1000;
 const int   Value_Feuerherz         =   1000;
 const int   Value_Eisherz           =   1000;
@@ -42,21 +42,21 @@ const int   Value_Eistueck          =   100;
 /*
 So in der Tasche
 ----------------
-ItAt_Meatbug_01     //Meatbug           Körper (Essen)      (Item-Instanz in Food.d)
+ItAt_Meatbug_01     //Meatbug           KÃ¶rper (Essen)      (Item-Instanz in Food.d)
 ItFoMuttonRaw       //Scavenger         2 Bollen            OK
                     //Molerats          2 Bollen            OK
                     //Shadowbeast       4 Bollen            OK
 
-ItAt_Bloodfly_01    //Bloodfly          Flügel              OK
+ItAt_Bloodfly_01    //Bloodfly          FlÃ¼gel              OK
 
-Durch Jäger freigeschaltet (noch nicht verteilt)
+Durch JÃ¤ger freigeschaltet (noch nicht verteilt)
 --------------------------
-ItAt_Teeth_01       //Wolf              2 Zähne             OK
-                    //Schwarzer Wolf    2 Zähne             OK
-                    //Snapper           10 Zähne            OK
-                    //Orcbiter          2 Zähne             OK
-                    //Shadowbeast       4 Zähne             OK
-                    //Bloodhound        4 Zähne             OK
+ItAt_Teeth_01       //Wolf              2 ZÃ¤hne             OK
+                    //Schwarzer Wolf    2 ZÃ¤hne             OK
+                    //Snapper           10 ZÃ¤hne            OK
+                    //Orcbiter          2 ZÃ¤hne             OK
+                    //Shadowbeast       4 ZÃ¤hne             OK
+                    //Bloodhound        4 ZÃ¤hne             OK
 //--------------------------------------------------------------
 ItAt_Claws_01       //Waran             4 Klauen            OK
                     //Feuerechse        4 Klauen            OK
@@ -85,7 +85,7 @@ ItAt_Crawler_02     //Crawler           Panzerplatten       OK
 Durch Ulu-Mulu freigeschaltet
 -----------------------------
 ItAt_Waran_01       //Feuerechse        Flammenzunge        OK
-ItAt_Swampshark_02  //Sumpfhai          Zähne des Sumpfhais OK
+ItAt_Swampshark_02  //Sumpfhai          ZÃ¤hne des Sumpfhais OK
 ItAt_Shadow_02      //Shadowbeast       Horn                OK
 ItAt_Troll_02       //Troll             Hauer               OK
 */
@@ -98,13 +98,13 @@ INSTANCE ItAt_Teeth_01 (C_Item)
     mainflag            =   ITEM_KAT_NONE;
     flags               =   ITEM_MULTI;
 
-    value               =   Value_Zähne;
+    value               =   Value_ZÃ¤hne;
 
     visual              =   "ItAt_Teeth_01.3DS";
     material            =   MAT_LEATHER;
 
     description         = name;
-    TEXT[4]             = NAME_Value;                   COUNT[4]    = Value_Zähne;
+    TEXT[4]             = NAME_Value;                   COUNT[4]    = Value_ZÃ¤hne;
 };
 
 /******************************************************************************************/
@@ -330,13 +330,13 @@ INSTANCE ItAt_Swampshark_02 (C_Item)
     mainflag            =   ITEM_KAT_NONE;
     flags               =   ITEM_MULTI;
 
-    value               =   Value_Sumpfhaizähne;
+    value               =   Value_SumpfhaizÃ¤hne;
 
     visual              =   "ItAt_Swampshark_02.3DS";
     material            =   MAT_LEATHER;
 
     description         = name;
-    TEXT[4]             = NAME_Value;                   COUNT[4]    = Value_Sumpfhaizähne;
+    TEXT[4]             = NAME_Value;                   COUNT[4]    = Value_SumpfhaizÃ¤hne;
 };
 /******************************************************************************************/
 INSTANCE ItAt_Bloodfly_01 (C_Item)
@@ -346,13 +346,13 @@ INSTANCE ItAt_Bloodfly_01 (C_Item)
     mainflag            =   ITEM_KAT_NONE;
     flags               =   ITEM_MULTI;
 
-    value               =   Value_Flügel;
+    value               =   Value_FlÃ¼gel;
 
     visual              =   "ItAt_Bloodfly_01.3DS";
     material            =   MAT_LEATHER;
 
     description         = name;
-    TEXT[4]             = NAME_Value;                   COUNT[4]    = Value_Flügel;
+    TEXT[4]             = NAME_Value;                   COUNT[4]    = Value_FlÃ¼gel;
 };
 /******************************************************************************************/
 INSTANCE ItAt_Bloodfly_02 (C_Item)

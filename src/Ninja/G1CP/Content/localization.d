@@ -11,7 +11,7 @@ func int G1CP_GuessLocalization() {
             return G1CP_Lang_DE;
         } else if (Hlp_StrCmp(panName, "Patelnia")) { // PL (Windows 1250)
             return G1CP_Lang_PL;
-        } else if (Hlp_StrCmp(panName, "Сковорода")) { // RU (Windows 1251)
+        } else if (Hlp_StrCmp(panName, "Г‘ГЄГ®ГўГ®Г°Г®Г¤Г ")) { // RU (Windows 1251)
             return G1CP_Lang_RU;
         };
     };

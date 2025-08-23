@@ -1,8 +1,8 @@
 
 // **************************************************
-// Zaubersprüche
+// ZaubersprÃ¼che
 // Hier stehen die Deklarationen/Definitionen der
-// logischen Sprüche
+// logischen SprÃ¼che
 // Autor: Carsten Edenfeld
 // **************************************************
 
@@ -26,7 +26,7 @@ CONST INT TARGET_TYPE_UNDEAD                    = 32;
 CONST INT MAX_SPELL         =   59;
 
 
-// Magie-Sprüche
+// Magie-SprÃ¼che
 const int SPL_LIGHT         =   0;
 const int SPL_FIREBALL      =   1;
 const int SPL_TRANSFORM     =   2;

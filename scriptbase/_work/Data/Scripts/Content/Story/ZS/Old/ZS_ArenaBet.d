@@ -3,7 +3,7 @@ func void ZS_ArenaBet ()
     PrintDebugNpc (PD_TA_FRAME,"ZS_ArenaBet");
 
     B_SetPerception (self);
-    AI_SetWalkmode (self,NPC_WALK);     // Walkmode für den Zustand
+    AI_SetWalkmode (self,NPC_WALK);     // Walkmode fÃ¼r den Zustand
     AI_GotoWP (self,self.wp);           // Gehe zum Tagesablaufstart
     AI_AlignToWP (self);                //Richte Dich aus
 };

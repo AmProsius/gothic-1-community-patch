@@ -4,7 +4,7 @@
 
 func void PC_Sleep (var int t)
 {
-    AI_StopProcessInfos(self);      // [SK] ->muss hier stehen um das update zu gewährleisten
+    AI_StopProcessInfos(self);      // [SK] ->muss hier stehen um das update zu gewÃ¤hrleisten
     self.aivar[AIV_INVINCIBLE]=FALSE;
     if  (Wld_IsTime(00,00,t,00))
     {
@@ -22,7 +22,7 @@ func void PC_Sleep (var int t)
 
     //-------- AssessEnterRoom-Wahrnehmung versenden --------
     PrintGlobals        (PD_ITEM_MOBSI);
-    Npc_SendPassivePerc (hero,  PERC_ASSESSENTERROOM, NULL, hero);      //...damit der Spieler dieses Feature nicht zum Hütteplündern ausnutzt!
+    Npc_SendPassivePerc (hero,  PERC_ASSESSENTERROOM, NULL, hero);      //...damit der Spieler dieses Feature nicht zum HÃ¼tteplÃ¼ndern ausnutzt!
 };
 
 
@@ -32,7 +32,7 @@ func void SLEEPABIT_S1 ()
     var C_NPC her;  her = Hlp_GetNpc(PC_Hero);
     var C_NPC rock; rock = Hlp_GetNpc(PC_Rockefeller);
 
-    //***ALT** if   (Hlp_GetInstanceID (self)== Hlp_GetInstanceID (Hero)) // MH: geändert, damit kontrollierte NSCs nicht schlafen können!
+    //***ALT** if   (Hlp_GetInstanceID (self)== Hlp_GetInstanceID (Hero)) // MH: geÃ¤ndert, damit kontrollierte NSCs nicht schlafen kÃ¶nnen!
     if ( (Hlp_GetInstanceID(self)==Hlp_GetInstanceID(her))||(Hlp_GetInstanceID(self)==Hlp_GetInstanceID(rock)) )
     {
         self.aivar[AIV_INVINCIBLE]=TRUE;
@@ -90,7 +90,7 @@ FUNC INT PC_SleepTime_Morning_Condition()
 
 func void PC_SleepTime_Morning_Info ()
 {
-    PC_Sleep (8);   // SN: geändert, da um 7 Uhr noch keiner der NSCs wach ist!
+    PC_Sleep (8);   // SN: geÃ¤ndert, da um 7 Uhr noch keiner der NSCs wach ist!
 };
 
 //--------------------- mittags -----------------------------------------

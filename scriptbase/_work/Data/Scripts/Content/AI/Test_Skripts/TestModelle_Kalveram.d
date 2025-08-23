@@ -1,4 +1,4 @@
-// Fonttestbuch für Französische und was weiß ich für Zeichen!
+// Fonttestbuch fÃ¼r FranzÃ¶sische und was weiÃŸ ich fÃ¼r Zeichen!
 
 INSTANCE Fonttestbook(C_Item)
 {
@@ -31,33 +31,33 @@ INSTANCE Fonttestbook(C_Item)
         //1.Seite
         Doc_SetMargins  ( nDocID,  0,  275, 20, 30, 20, 1);  //  0 -> margins are in pixels
         Doc_SetFont     ( nDocID,  0, "font_10_book.tga");  // -1 -> all pages
-        Doc_PrintLine   ( nDocID,  0, "aáàâAÁÀÂ");
+        Doc_PrintLine   ( nDocID,  0, "aÃ¡Ã Ã¢AÃÃ€Ã‚");
         Doc_SetFont     ( nDocID,  0, "font_15_book.tga");  // -1 -> all pages
-        Doc_PrintLine   ( nDocID,  0, "aáàâAÁÀÂ");
+        Doc_PrintLine   ( nDocID,  0, "aÃ¡Ã Ã¢AÃÃ€Ã‚");
         Doc_SetFont     ( nDocID,  0, "font_15_white.tga");     // -1 -> all pages
-        Doc_PrintLine   ( nDocID,  0, "aáàâAÁÀÂ");
+        Doc_PrintLine   ( nDocID,  0, "aÃ¡Ã Ã¢AÃÃ€Ã‚");
         Doc_SetFont     ( nDocID,  0, "font_default.tga");  // -1 -> all pages
-        Doc_PrintLine   ( nDocID,  0, "aáàâAÁÀÂ");
+        Doc_PrintLine   ( nDocID,  0, "aÃ¡Ã Ã¢AÃÃ€Ã‚");
         Doc_SetFont     ( nDocID,  0, "font_old_10_white.tga");     // -1 -> all pages
-        Doc_PrintLine   ( nDocID,  0, "aáàâAÁÀÂ");
+        Doc_PrintLine   ( nDocID,  0, "aÃ¡Ã Ã¢AÃÃ€Ã‚");
         Doc_SetFont     ( nDocID,  0, "font_old_20_white.tga");     // -1 -> all pages
-        Doc_PrintLine   ( nDocID,  0, "aáàâAÁÀÂ");
+        Doc_PrintLine   ( nDocID,  0, "aÃ¡Ã Ã¢AÃÃ€Ã‚");
 
         //2.Seite
-        Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1);  //  0 -> margins are in pixels (Position des Textes von den Ränder des TGAs aus, links,oben,rechts,unten)
+        Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1);  //  0 -> margins are in pixels (Position des Textes von den RÃ¤nder des TGAs aus, links,oben,rechts,unten)
         Doc_SetFont     ( nDocID,  1, "font_10_book.tga");  // -1 -> all pages
-        Doc_PrintLine   ( nDocID,  1, "ÝÞßàáâ");
-        Doc_PrintLine   ( nDocID,  1, "ãäåæçè");
-        Doc_PrintLine   ( nDocID,  1, "éêëìíî");
-        Doc_PrintLine   ( nDocID,  1, "ïðñòóô");
-        Doc_PrintLine   ( nDocID,  1, "õö÷øùú");
-        Doc_PrintLine   ( nDocID,  1, "ûüýþÿ");
+        Doc_PrintLine   ( nDocID,  1, "ÃÃžÃŸÃ Ã¡Ã¢");
+        Doc_PrintLine   ( nDocID,  1, "Ã£Ã¤Ã¥Ã¦Ã§Ã¨");
+        Doc_PrintLine   ( nDocID,  1, "Ã©ÃªÃ«Ã¬Ã­Ã®");
+        Doc_PrintLine   ( nDocID,  1, "Ã¯Ã°Ã±Ã²Ã³Ã´");
+        Doc_PrintLine   ( nDocID,  1, "ÃµÃ¶Ã·Ã¸Ã¹Ãº");
+        Doc_PrintLine   ( nDocID,  1, "Ã»Ã¼Ã½Ã¾Ã¿");
 
         Doc_Show        ( nDocID );
 
         };
 
-//Savegame Bugfixbooks   ****Björn****
+//Savegame Bugfixbooks   ****BjÃ¶rn****
 
 
 INSTANCE Lukor_Bugfixbook(C_Item)
@@ -97,7 +97,7 @@ INSTANCE Lukor_Bugfixbook(C_Item)
         Doc_PrintLine   ( nDocID,  0, "");
 
         //2.Seite
-        Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1);  //  0 -> margins are in pixels (Position des Textes von den Ränder des TGAs aus, links,oben,rechts,unten)
+        Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1);  //  0 -> margins are in pixels (Position des Textes von den RÃ¤nder des TGAs aus, links,oben,rechts,unten)
         Doc_PrintLine   ( nDocID,  1, "");
         Doc_PrintLine   ( nDocID,  1, "");
         Doc_PrintLines  ( nDocID,  1, "");
@@ -150,7 +150,7 @@ INSTANCE Lester_Bugfixbook(C_Item)
         Doc_PrintLine   ( nDocID,  0, "");
 
         //2.Seite
-        Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1);  //  0 -> margins are in pixels (Position des Textes von den Ränder des TGAs aus, links,oben,rechts,unten)
+        Doc_SetMargins  ( nDocID, -1, 30, 20, 275, 20, 1);  //  0 -> margins are in pixels (Position des Textes von den RÃ¤nder des TGAs aus, links,oben,rechts,unten)
         Doc_PrintLine   ( nDocID,  1, "");
         Doc_PrintLine   ( nDocID,  1, "");
         Doc_PrintLines  ( nDocID,  1, "");
@@ -183,9 +183,9 @@ Wld_InsertNpc               ( SLD_754_Soeldner, "FMC_ENTRANCE" );//Guard    (am 
 Wld_InsertNpc               ( SLD_756_Soeldner, "FMC_ENTRANCE" );//Guard
 //Wld_InsertNpc             ( SLD_757_Soeldner, "FMC_ENTRANCE" );//GuardPalisade
 //Wld_InsertNpc             ( SLD_758_Soeldner, "FMC_ENTRANCE" );//GuardPalisade
-Wld_InsertNpc               ( SLD_759_Soeldner, "FMC_ENTRANCE" );//Guard(Tür zum Drehradhaus)       (evtl Pers)
+Wld_InsertNpc               ( SLD_759_Soeldner, "FMC_ENTRANCE" );//Guard(TÃ¼r zum Drehradhaus)       (evtl Pers)
 
-Wld_InsertNpc               ( SLD_760_Soeldner, "FMC_ENTRANCE" );//Guard(Tür zum Drehradhaus)       (evtl Pers)
+Wld_InsertNpc               ( SLD_760_Soeldner, "FMC_ENTRANCE" );//Guard(TÃ¼r zum Drehradhaus)       (evtl Pers)
 Wld_InsertNpc               ( SLD_761_Soeldner, "FMC_ENTRANCE" );//Guard(Mineneingang)          (gleiche wie Tor zum OCC)
 Wld_InsertNpc               ( SLD_762_Soeldner, "FMC_ENTRANCE" );//Guard(Mineneingang               (gleiche wie Tor zum OCC)
 Wld_InsertNpc               ( SLD_763_Soeldner, "FMC_ENTRANCE" );//Guard

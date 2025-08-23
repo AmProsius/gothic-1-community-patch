@@ -44,8 +44,8 @@ func void OrcDefaultPercDoing()
 //////////////////////////////////////////////////////////////////////////
 //  DeepSleepPerception
 //  ===================
-//  Minimalste Wahrnehmungen während eines tiefen Schlafes. Diese Jungs
-//  wachen wirklich nur bei Schaden am eigenen Körper auf.
+//  Minimalste Wahrnehmungen wÃ¤hrend eines tiefen Schlafes. Diese Jungs
+//  wachen wirklich nur bei Schaden am eigenen KÃ¶rper auf.
 //////////////////////////////////////////////////////////////////////////
 func void OrcDeepSleepPerc()
 {
@@ -65,7 +65,7 @@ func void OrcDeepSleepPerc()
 //////////////////////////////////////////////////////////////////////////
 //  LightSleepPerception
 //  ====================
-//  Unruhiger Schlaf, der von der geringsten Störung unterbrochen wird.
+//  Unruhiger Schlaf, der von der geringsten StÃ¶rung unterbrochen wird.
 //////////////////////////////////////////////////////////////////////////
 
 func void OrcLightSleepPerc()

@@ -59,7 +59,7 @@ func void   B_GetBackItem_Given ()
     PrintDebugNpc( PD_ZS_FRAME, "ZS_GetBackItem_Given" );
     if (self.aivar[AIV_WANTEDITEM] == Hlp_GetInstanceID (item))
     {
-        PrintDebugNpc( PD_ZS_FRAME, "ZS_GetBackItem_Given // want this item cause it´s mine" );
+        PrintDebugNpc( PD_ZS_FRAME, "ZS_GetBackItem_Given // want this item cause itÂ´s mine" );
         Npc_ClearAIQueue    ( self);
         Npc_GiveItem        ( other, item, self);
         B_Say               ( self, other, "$WISEMOVE");
@@ -69,18 +69,18 @@ func void   B_GetBackItem_Given ()
     {
         if (C_WantItem ())
         {
-            PrintDebugNpc( PD_ZS_FRAME, "ZS_GetBackItem_Given // want this cause it´s worthy" );
+            PrintDebugNpc( PD_ZS_FRAME, "ZS_GetBackItem_Given // want this cause itÂ´s worthy" );
             Npc_ClearAIQueue( self);
             Npc_GiveItem    ( other, item, self);
             B_Say           ( self, other, "$OKAYTOO");
         }
         else
         {
-            PrintDebugNpc( PD_ZS_FRAME, "ZS_GetBackItem_Given don´t want this crap" );
+            PrintDebugNpc( PD_ZS_FRAME, "ZS_GetBackItem_Given donÂ´t want this crap" );
             B_Say   ( self, other, "$YOUWANNAFOOLME");
             if (C_AmIStronger ( self, other))
             {
-                PrintDebugNpc( PD_ZS_FRAME, "ZS_GetBackItem_Given don´t want this crap // stronger" );
+                PrintDebugNpc( PD_ZS_FRAME, "ZS_GetBackItem_Given donÂ´t want this crap // stronger" );
                 Npc_ClearAIQueue    ( self);
                 Npc_SetTarget       ( self, other);
                 AI_StartState       ( self, ZS_Attack, 0, "");

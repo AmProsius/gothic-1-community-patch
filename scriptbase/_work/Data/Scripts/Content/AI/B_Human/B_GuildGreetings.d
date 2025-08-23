@@ -1,5 +1,5 @@
 func void B_GuildGreetings ()
-// 24.05. Läuft
+// 24.05. LÃ¤uft
 {
     PrintDebugNpc( PD_ZS_FRAME, "B_GuilGreetings" );
     if (  C_NpcIsHuman(other) && ( self.guild == GIL_GUR  ||  self.guild == GIL_NOV  ||  self.guild == GIL_TPL ) && (Npc_GetTempAttitude (self,other) == ATT_FRIENDLY))
@@ -28,7 +28,7 @@ func void B_GuildGreetings ()
 };
 
 
-// Sicherheitskopie für Abfragen auf Nsc´s
+// Sicherheitskopie fÃ¼r Abfragen auf NscÂ´s
 
 /*func void B_GuildGreetings ()
 {
@@ -52,7 +52,7 @@ func void B_GuildGreetings ()
         }
         else
         {
-            Print ("Keine Grüße vorhanden");
+            Print ("Keine GrÃ¼ÃŸe vorhanden");
         };
     };
 };*/

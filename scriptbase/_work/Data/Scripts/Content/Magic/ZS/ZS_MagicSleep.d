@@ -13,7 +13,7 @@ func int B_StopMagicSleep()
     //-------- und wieder dem Zauberer zuwenden... --------
     if  Hlp_IsValidNpc(other)
     {
-        PrintDebugNpc       (PD_ZS_CHECK,   "...'other' gültig!");
+        PrintDebugNpc       (PD_ZS_CHECK,   "...'other' gÃ¼ltig!");
         if  (Npc_GetAttitude(self,other) == ATT_HOSTILE)
         {
             PrintDebugNpc   (PD_ZS_CHECK,   "...'other' hostile!");
@@ -30,7 +30,7 @@ func void ZS_MagicSleep()
 {
     PrintDebugNpc       (PD_ZS_FRAME,   "ZS_MagicSleep");
 
-    // der ZS_MagicSleep beendet sich selbst im loop, daher ist keine perception PERC_ASSESSSTOPMAGIC nötig, und darf
+    // der ZS_MagicSleep beendet sich selbst im loop, daher ist keine perception PERC_ASSESSSTOPMAGIC nÃ¶tig, und darf
     // auch nicht gesetzt werden, ansonsten wird der diesen zustand aktivierende effekt wenn er beendet ist (z.B. weil
     // der partikeleffekt stirbt) ein assessstopmagic senden, und dadurch illegalerweise vorzeitig den zustand beenden
     // mit anderen worten: der pfx triggert diesen zustand, und der zustand beendet sich selbst

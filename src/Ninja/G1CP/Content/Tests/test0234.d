@@ -17,8 +17,8 @@ func int G1CP_Test_0234() {
 
     // Define variables for specific test
     // I'm sorry for not breaking the line at 120 characters
-    const string logEntryWrong = "Wissen über Zähne entfernen - Wolf, Orchund, Snapper, Beisser, Bluthund, Schattenläufer.";
-    const string logEntryRight = "Wissen über Zähne entfernen - Wolf, Orkhund, Snapper, Beißer, Bluthund, Schattenläufer.";
+    const string logEntryWrong = "Wissen Ã¼ber ZÃ¤hne entfernen - Wolf, Orchund, Snapper, Beisser, Bluthund, SchattenlÃ¤ufer.";
+    const string logEntryRight = "Wissen Ã¼ber ZÃ¤hne entfernen - Wolf, Orkhund, Snapper, BeiÃŸer, Bluthund, SchattenlÃ¤ufer.";
 
     // Define possibly missing symbols locally
     const int LOG_MISSION = 0;

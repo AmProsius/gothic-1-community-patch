@@ -541,7 +541,7 @@ INSTANCE L25(NPC_DEFAULT)
 
 
 /*************************************************************************
-**  junge Molerat   (für Spielstart)                                    **
+**  junge Molerat   (fÃ¼r Spielstart)                                    **
 *************************************************************************/
 
 INSTANCE Testratte  (Mst_Default_Molerat)

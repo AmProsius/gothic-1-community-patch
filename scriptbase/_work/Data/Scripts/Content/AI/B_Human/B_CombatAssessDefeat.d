@@ -2,7 +2,7 @@ func void B_CombatAssessDefeat ()
 // 9.5.00 fertig
 {
     PrintDebugNpc               (PD_ZS_FRAME,   "B_CombatAssessDefeat" );
-    // JP : Ich habe das mal auf FreeLOS geändert, weil es zwar logisch nicht ganz richtig ist, dem Spieler vom Feedback her aber verständlicher, als wenn er grade aus dem Augenwinkel nicht mehr gesehen wird
+    // JP : Ich habe das mal auf FreeLOS geÃ¤ndert, weil es zwar logisch nicht ganz richtig ist, dem Spieler vom Feedback her aber verstÃ¤ndlicher, als wenn er grade aus dem Augenwinkel nicht mehr gesehen wird
     if (Npc_CanSeeNpcFreeLOS (self,other))
     {
         if (C_NpcIsHuman(other) && C_NpcIsHuman(victim))
@@ -24,8 +24,8 @@ func void B_CombatAssessDefeat ()
         };
     };
 
-    //-------- Temporäre Attitüde werden wieder zurückgesetzt --------
-    // JP: Nö wird in B_AssessAndMemorize schon gemacht, aber auch nur wenn die TempAttitude hostile ist
+    //-------- TemporÃ¤re AttitÃ¼de werden wieder zurÃ¼ckgesetzt --------
+    // JP: NÃ¶ wird in B_AssessAndMemorize schon gemacht, aber auch nur wenn die TempAttitude hostile ist
     /*
     if (Npc_IsPlayer(victim))
     {

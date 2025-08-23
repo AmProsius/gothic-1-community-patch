@@ -170,7 +170,7 @@ func void DIA_Gomez_Hello_Kontakte_Lee()
 {
     AI_Output (other, self,"DIA_Gomez_Hello_Kontakte_Lee_15_00"); //Zu Lee.
     AI_Output (self, other,"DIA_Gomez_Hello_Kontakte_Lee_11_01"); //Lee ist also ein guter Freund von dir, ja?
-    AI_Output (self, other,"DIA_Gomez_Hello_Kontakte_Lee_11_02"); //Dann sieht die Sache natürlich ANDERS AUS (zornig am ENDE)
+    AI_Output (self, other,"DIA_Gomez_Hello_Kontakte_Lee_11_02"); //Dann sieht die Sache natÃ¼rlich ANDERS AUS (zornig am ENDE)
 
     AI_StopProcessInfos (self);
     Npc_SetPermAttitude (self, ATT_HOSTILE);

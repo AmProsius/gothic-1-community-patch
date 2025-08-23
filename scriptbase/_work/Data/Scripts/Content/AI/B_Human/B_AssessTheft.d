@@ -1,4 +1,4 @@
-// ******************** f¸r AIV_ITEMSCHWEIN *********************
+// ******************** f√ºr AIV_ITEMSCHWEIN *********************
 
 func void B_GuardItemsAssessTheft ()
 {
@@ -49,7 +49,7 @@ func void B_AssessTheft ()
 
     other_guild         =   other.guild;
     self_guild          =   self.guild ;
-    // JP: Es gibt keinen Diebstahl von Nsc¥s, nur das Aufheben von Items verursacht eine Theft-Wn, die hierdurch abgefangen wird und auﬂerdem verhindert, daﬂ zwei Leute ein Item aufheben
+    // JP: Es gibt keinen Diebstahl von Nsc¬¥s, nur das Aufheben von Items verursacht eine Theft-Wn, die hierdurch abgefangen wird und au√üerdem verhindert, da√ü zwei Leute ein Item aufheben
 
     if (!Npc_IsPlayer   ( other))
     {
@@ -66,7 +66,7 @@ func void B_AssessTheft ()
             item_ownerguild     =   item.ownerguild;
             if (Npc_OwnedByNpc ( item, self))
             {
-                PrintDebugNpc       (PD_ZS_CHECK, "...Item gehˆrt NSC!");
+                PrintDebugNpc       (PD_ZS_CHECK, "...Item geh√∂rt NSC!");
                 Npc_ClearAIQueue    (self);
                 C_LookAtNpc         (self, other);
                 AI_StartState       (self, ZS_CatchThief, 0, "");

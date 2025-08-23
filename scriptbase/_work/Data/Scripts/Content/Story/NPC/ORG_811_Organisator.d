@@ -1,4 +1,4 @@
-//### Trademodul checken, wenn die Stärke der Armbrust und Rüstungen feststeht
+//### Trademodul checken, wenn die StÃ¤rke der Armbrust und RÃ¼stungen feststeht
 //### Eintrag in das Journal wegen Tauschhandel
 
 instance ORG_811_Organisator (Npc_Default)

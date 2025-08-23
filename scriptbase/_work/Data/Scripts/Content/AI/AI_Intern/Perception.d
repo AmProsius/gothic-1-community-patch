@@ -1,7 +1,7 @@
 // *************************************
 // NSC - Wahrnehmungsreichweiten
 // *************************************
-// SN: Demnächst wird diese Tabelle mit der HAI_...-Tabelle aus AI_CONSTANTS.D zusammengefaßt!
+// SN: DemnÃ¤chst wird diese Tabelle mit der HAI_...-Tabelle aus AI_CONSTANTS.D zusammengefaÃŸt!
 CONST INT PERC_DIST_CLOSE       =   100;
 CONST INT PERC_DIST_FLEE        =   300;
 CONST INT PERC_DIST_DIALOG      =   500;
@@ -40,7 +40,7 @@ FUNC VOID InitPerceptions()
     Perc_SetRange       (PERC_ASSESSREMOVEWEAPON, PERC_DIST_MAX                 );
     Perc_SetRange       (PERC_OBSERVEINTRUDER   , HAI_DIST_OBSERVEINTRUDER      );
     Perc_SetRange       (PERC_ASSESSFIGHTSOUND  , HAI_DIST_HELPATTACKEDCHARGES  );  //SN: siehe AI_CONSTANTS.D
-    Perc_SetRange       (PERC_ASSESSQUIETSOUND  , PERC_DIST_INTERMEDIAT         );  //MH: geändert, 500 macht NSCs/Monster zu schwach
+    Perc_SetRange       (PERC_ASSESSQUIETSOUND  , PERC_DIST_INTERMEDIAT         );  //MH: geÃ¤ndert, 500 macht NSCs/Monster zu schwach
     Perc_SetRange       (PERC_ASSESSWARN        , 3000                          );
     Perc_SetRange       (PERC_CATCHTHIEF        , HAI_DIST_CATCHTHIEF           );
     Perc_SetRange       (PERC_ASSESSTHEFT       , HAI_DIST_ASSESSTHEFT          );
@@ -62,10 +62,10 @@ FUNC VOID InitPerceptions()
 //////////////////////////////////////////////////////////////////////////
 //  GuardPerception
 //  ===================
-//  NSCs mit diesem Set haben erhöhte Aufmerksamkeit da sie aktive
-//  Wahrnehmungen aktiviert haben. Sie müssen als "Warner" für die
+//  NSCs mit diesem Set haben erhÃ¶hte Aufmerksamkeit da sie aktive
+//  Wahrnehmungen aktiviert haben. Sie mÃ¼ssen als "Warner" fÃ¼r die
 //  passiv wahrnehmenden 'OccupiedPerception'-NSCs fungieren. Da es Wachen sind
-//  werden sie für den Watchfight nicht Ihre Posten verlassen
+//  werden sie fÃ¼r den Watchfight nicht Ihre Posten verlassen
 //////////////////////////////////////////////////////////////////////////
 func void GuardPerception ()
 {
@@ -107,8 +107,8 @@ func void GuardPerception ()
 //////////////////////////////////////////////////////////////////////////
 //  ObservingPerception
 //  ===================
-//  NSCs mit diesem Set haben erhöhte Aufmerksamkeit da sie aktive
-//  Wahrnehmungen aktiviert haben. Sie müssen als "Warner" für die
+//  NSCs mit diesem Set haben erhÃ¶hte Aufmerksamkeit da sie aktive
+//  Wahrnehmungen aktiviert haben. Sie mÃ¼ssen als "Warner" fÃ¼r die
 //  passiv wahrnehmenden 'OccupiedPerception'-NSCs fungieren.
 //////////////////////////////////////////////////////////////////////////
 func void ObservingPerception ()
@@ -130,7 +130,7 @@ func void ObservingPerception ()
     Npc_PercEnable      (self,  PERC_ASSESSDEFEAT       ,   ZS_AssessDefeat             );
     Npc_PercEnable      (self,  PERC_DRAWWEAPON         ,   B_AssessFighter             );
     Npc_PercEnable      (self,  PERC_ASSESSFIGHTSOUND   ,   B_AssessFightSound          );
-    Npc_PercEnable      (self,  PERC_ASSESSQUIETSOUND   ,   B_AssessQuietSound          ); // erst mal raus, weil beklauen sonst unmöglich wird
+    Npc_PercEnable      (self,  PERC_ASSESSQUIETSOUND   ,   B_AssessQuietSound          ); // erst mal raus, weil beklauen sonst unmÃ¶glich wird
     Npc_PercEnable      (self,  PERC_CATCHTHIEF         ,   ZS_CatchThief               );
     Npc_PercEnable      (self,  PERC_ASSESSTHEFT        ,   B_AssessTheft               );
     Npc_PercEnable      (self,  PERC_ASSESSSURPRISE     ,   ZS_AssessSurprise           );
@@ -149,9 +149,9 @@ func void ObservingPerception ()
 //////////////////////////////////////////////////////////////////////////
 //  OccupiedPerception
 //  ==================
-//  Dieses Set beschränkt sich auf passive Wahrnehmungen. Gedacht für
-//  normale Charaktere, die mit etwas beschäftigt sind.
-//  WICHTIG: occupied-NSCs verlassen sich darauf, daß sie von anderen
+//  Dieses Set beschrÃ¤nkt sich auf passive Wahrnehmungen. Gedacht fÃ¼r
+//  normale Charaktere, die mit etwas beschÃ¤ftigt sind.
+//  WICHTIG: occupied-NSCs verlassen sich darauf, daÃŸ sie von anderen
 //  Charakteren mit 'ObservingPerception' gewarnt werden!!!
 //////////////////////////////////////////////////////////////////////////
 func void OccupiedPerception ()
@@ -184,8 +184,8 @@ func void OccupiedPerception ()
 //////////////////////////////////////////////////////////////////////////
 //  DeepSleepPerception
 //  ===================
-//  Minimalste Wahrnehmungen während eines tiefen Schlafes. Diese Jungs
-//  wachen wirklich nur Schaden am eigenen Körper auf.
+//  Minimalste Wahrnehmungen wÃ¤hrend eines tiefen Schlafes. Diese Jungs
+//  wachen wirklich nur Schaden am eigenen KÃ¶rper auf.
 //////////////////////////////////////////////////////////////////////////
 func void DeepSleepPerception ()
 {
@@ -202,7 +202,7 @@ func void DeepSleepPerception ()
 //////////////////////////////////////////////////////////////////////////
 //  LightSleepPerception
 //  ====================
-//  Unruhiger Schlaf, der von der geringsten Störung unterbrochen wird.
+//  Unruhiger Schlaf, der von der geringsten StÃ¶rung unterbrochen wird.
 //////////////////////////////////////////////////////////////////////////
 
 func void LightSleepPerception ()

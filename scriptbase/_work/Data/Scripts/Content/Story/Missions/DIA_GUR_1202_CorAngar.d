@@ -29,7 +29,7 @@ FUNC VOID DIA_GUR_1202_CorAngar_Exit_Info()
 };
 
 // ************************
-//      Sp‰ter Trainer
+//      Sp√§ter Trainer
 // ************************
 
 instance DIA_CorAngar_LaterTrainer (C_INFO)
@@ -92,7 +92,7 @@ FUNC VOID DIA_CorAngar_WieTempler_Info()
 /////////////////////////////////
 
 //-------------------------------------------------------------------------
-//                          STƒRKE UND DEX STEIGERN
+//                          ST√ÑRKE UND DEX STEIGERN
 //-------------------------------------------------------------------------
 INSTANCE GUR_1202_CorAngar_Teach(C_INFO)
 {
@@ -321,7 +321,7 @@ FUNC void  GUR_1202_CorAngar_ZWEIHAND2_Info()
 //#####################################################################
 
 // **************************************************************************
-//              nach der groﬂen Beschwˆrung
+//              nach der gro√üen Beschw√∂rung
 // **************************************************************************
 instance  GUR_1202_CorAngar_SENDS (C_INFO)
 {
@@ -577,7 +577,7 @@ FUNC VOID Info_CorAngar_FindHerb_Running_Info()
     AI_Output           (self, other,"Info_CorAngar_FindHerb_Running_08_03");//Hurry. I need five of them. Y'Berion doesn't have much time left.
     AI_StopProcessInfos (self);
 
-    //-------- Fortuno die Kr‰uter "unterschieben" --------
+    //-------- Fortuno die Kr√§uter "unterschieben" --------
     if  !Fortuno_HasYBerionHerbs
     {
         var C_NPC   fortuno;

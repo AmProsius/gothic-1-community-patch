@@ -7,11 +7,11 @@
 //  Uhrzeit:
 //
 //  Es passiert folgendes:
-//  1.  Nähert sich der Spieler dem Durchgang, so wird er in diesen
+//  1.  NÃ¤hert sich der Spieler dem Durchgang, so wird er in diesen
 //      Dialog gezwungen und einmal gewarnt
-//  2.  Nähert sich der SC trotzdem weiter, so wird er ein ZWEITES Mal
+//  2.  NÃ¤hert sich der SC trotzdem weiter, so wird er ein ZWEITES Mal
 //      gewarnt (aggressiver mit Waffe ziehen)
-//  3.  Nähert er sich trotzdem wieder, wird er angegriffen
+//  3.  NÃ¤hert er sich trotzdem wieder, wird er angegriffen
 //////////////////////////////////////////////////////////////////////////
 const string    TPL_1442_CHECKPOINT     = "PSI_TEMPLE_IN";
 
@@ -144,7 +144,7 @@ func int Info_TPL_1442_Attack_Info()
     hero.aivar[AIV_GUARDPASSAGE_STATUS] = AIV_GPS_PUNISH;
 
     B_FullStop          (self);
-    AI_StopProcessInfos (self);                 // dem Spieler sofort wieder die Kontrolle zurückgeben
+    AI_StopProcessInfos (self);                 // dem Spieler sofort wieder die Kontrolle zurÃ¼ckgeben
     B_IntruderAlert     (self,  other);
     B_SetAttackReason   (self,  AIV_AR_INTRUDER);
     Npc_SetTarget       (self,  hero);

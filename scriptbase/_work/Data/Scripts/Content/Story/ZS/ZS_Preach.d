@@ -1,6 +1,6 @@
 /****************************************************
 *               NSC sucht PREACH-FP                 *
-*          (Basis für personalisierte TAs)          *
+*          (Basis fÃ¼r personalisierte TAs)          *
 ****************************************************/
 
 func void ZS_Preach ()
@@ -8,7 +8,7 @@ func void ZS_Preach ()
     PrintDebugNpc(PD_TA_FRAME,"ZS_Preach");
 
     B_SetPerception (self);
-    AI_SetWalkmode (self,NPC_WALK);     // Walkmode für den Zustand
+    AI_SetWalkmode (self,NPC_WALK);     // Walkmode fÃ¼r den Zustand
     if !(Npc_IsOnFP(self,"PREACH"))
     {
         AI_GotoWP(self, self.wp);               // Gehe zum Tagesablaufstart

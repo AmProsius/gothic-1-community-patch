@@ -1,4 +1,4 @@
-// wird pro investiertem Mana aufgerufen // wieviele Mana bisher investiert wurden kann über Parameter manaInvested abgefragt werden
+// wird pro investiertem Mana aufgerufen // wieviele Mana bisher investiert wurden kann Ã¼ber Parameter manaInvested abgefragt werden
 // diese Methode wird immer vom Caster aufgerufen
 // SELF     = Der Caster
 // OTHER    = Das Opfer // kann auch leer sein

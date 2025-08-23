@@ -39,7 +39,7 @@ instance ORC_Priest_1 (Npc_Default)
     Npc_SetTalentSkill  (self, NPC_TALENT_MAGE, 6);
 
     //-------- inventory --------
-    CreateInvItem       (self,  ItRwOrcstaff);      // für Magiemodus
+    CreateInvItem       (self,  ItRwOrcstaff);      // fÃ¼r Magiemodus
     CreateInvItem       (self,  Weltenspalter);
     CreateInvItem       (self,  ItArRunePyrokinesis);
 
@@ -100,7 +100,7 @@ instance ORC_Priest_2 (Npc_Default)
 
 
     //-------- inventory --------
-    CreateInvItem       (self,  ItRwUdOrcstaff);        // für Magiemodus
+    CreateInvItem       (self,  ItRwUdOrcstaff);        // fÃ¼r Magiemodus
     CreateInvItem       (self,  Lichtbringer);
     CreateInvItem       (self,  ItArRuneThunderball);
 
@@ -158,7 +158,7 @@ instance ORC_Priest_3 (Npc_Default)
     Npc_SetTalentSkill  (self, NPC_TALENT_MAGE, 6);
 
     //-------- inventory --------
-    CreateInvItem       (self,  ItRwUdOrcstaff);        // für Magiemodus
+    CreateInvItem       (self,  ItRwUdOrcstaff);        // fÃ¼r Magiemodus
     CreateInvItem       (self,  Zeitenklinge);
     CreateInvItem       (self,  ItArRuneChainLightning);
 
@@ -219,7 +219,7 @@ instance ORC_Priest_4 (Npc_Default)
 
 
     //-------- inventory --------
-    CreateInvItem           (self,  ItRwUdOrcstaff);        // für Magiemodus
+    CreateInvItem           (self,  ItRwUdOrcstaff);        // fÃ¼r Magiemodus
     CreateInvItem           (self,  Daemonenstreich);
     CreateInvItem           (self,  ItArRuneFirestorm);
 
@@ -281,7 +281,7 @@ instance ORC_Priest_5 (Npc_Default)
 
 
     //-------- inventory --------
-    CreateInvItem       (self,  ItRwUdOrcstaff);        // für Magiemodus
+    CreateInvItem       (self,  ItRwUdOrcstaff);        // fÃ¼r Magiemodus
     CreateInvItem       (self,  Bannklinge);
     CreateInvItem       (self,  ItArRuneBreathOfDeath);
 

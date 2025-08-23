@@ -71,7 +71,7 @@ func void  DIA_Stone_NotSelling_Info()
 
 
 //-----------------------------------------------------
-// RÜSTUNG UND SCHWERT ABHOLEN WENN DER SPIELER GARDIST IST
+// RÃœSTUNG UND SCHWERT ABHOLEN WENN DER SPIELER GARDIST IST
 //-----------------------------------------------------
 instance  GRD_219_Stone_GETSTUFF (C_INFO)
 {
@@ -111,7 +111,7 @@ FUNC void  GRD_219_Stone_GETSTUFF_Info()
 };
 
 //-----------------------------------------------------
-// BESSERE RÜSTUNG
+// BESSERE RÃœSTUNG
 //-----------------------------------------------------
 instance  GRD_219_Stone_BETTERARMOR (C_INFO)
 {
@@ -244,7 +244,7 @@ func VOID DIA_GRD_219_Stone_Exit_Info()
 //#####################################################################
 
 //---------------------------------------------------------------------
-//  Begrüßung
+//  BegrÃ¼ÃŸung
 //---------------------------------------------------------------------
 instance DIA_GRD_219_Stone (C_INFO)
 {
@@ -366,7 +366,7 @@ func void DIA_GRD_219_Stone2_Info()
 //---------------------------------------------------------------------
 //  Info Stone4
 //---------------------------------------------------------------------
-// Rüstung verbessern lassen
+// RÃ¼stung verbessern lassen
 instance DIA_GRD_219_Stone4 (C_INFO)
 {
     npc             = GRD_219_Stone;

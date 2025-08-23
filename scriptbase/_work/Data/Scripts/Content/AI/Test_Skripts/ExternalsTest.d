@@ -364,7 +364,7 @@ func void ExternalsTest ()
 //
 //  if (Npc_GetTrueGuild ( self) == GIL_SLD )
 //  {
-//      PrintDebug ("Npc_GetTrueGuild Söldner");
+//      PrintDebug ("Npc_GetTrueGuild SÃ¶ldner");
 //  };
 //
 //  Npc_SetAttitude ( self, ATT_ANGRY);
@@ -481,7 +481,7 @@ func void ExternalsTest ()
 //// -------------------------------------------------------------------------------------------
 //  AI_ASK      ( self, ExternalsTestJa, ExternalsTestNo ) ;
 //
-//  //FUNC VOID     AI_WaitForQuestion          (VAR C_NPC self, VAR FUNC scriptFunc) { }; Wird über die Loops in ZS_Talk gemacht
+//  //FUNC VOID     AI_WaitForQuestion          (VAR C_NPC self, VAR FUNC scriptFunc) { }; Wird Ã¼ber die Loops in ZS_Talk gemacht
 //
 //};
 //

@@ -1,7 +1,7 @@
 // *************************************************************************************
 //                                      KONSTANTEN
 // *************************************************************************************
-// SN: Sind aus Gründen der nötigen Compile-Reihenfolge in AI_INTERN\AI_MM_CONSTANTS.D gewandert
+// SN: Sind aus GrÃ¼nden der nÃ¶tigen Compile-Reihenfolge in AI_INTERN\AI_MM_CONSTANTS.D gewandert
 
 
 
@@ -122,15 +122,15 @@ func void B_MM_AssessEnemy()
     PrintDebugNpc(PD_MST_FRAME,"B_MM_AssessEnemy");
 
     if (    (Npc_GetDistToNpc(self, other) < self.aivar[AIV_MM_PercRange])
-    &&      Npc_CanSeeNpcFreeLOS(self,other)                                    )   //SN 08.01.01: Vermeidung von Entdeckung des Spieler durch Wände hindurch
+    &&      Npc_CanSeeNpcFreeLOS(self,other)                                    )   //SN 08.01.01: Vermeidung von Entdeckung des Spieler durch WÃ¤nde hindurch
     {
-        if (C_PreyToPredator(other,self))   //Jäger greift Beute immer direkt an
+        if (C_PreyToPredator(other,self))   //JÃ¤ger greift Beute immer direkt an
         {
             Npc_SetTarget   (self,other);
             Npc_ClearAIQueue(self);
             AI_StartState   (self, ZS_MM_Attack, 0, "");
         }
-        else if (C_PreyToPredator(self,other))  // Beute flieht immer vor Jäger
+        else if (C_PreyToPredator(self,other))  // Beute flieht immer vor JÃ¤ger
         {
             Npc_SetTarget   (self,other);
             Npc_ClearAIQueue(self);
@@ -139,8 +139,8 @@ func void B_MM_AssessEnemy()
         else if (Wld_GetGuildAttitude(self.guild,other.guild) != ATT_HOSTILE)
         {
             //SN: wenn Spieler in Monster verwandelt, sind die Monster immer noch hostile, nicht aber nach Gildentabelle!
-            //  -> vermeidet z.B. daß ein SC-Snapper von anderen Snappern attackiert wird
-            //  -> wird später durch Aufruf von B_InitMonsterAttitudes() nach der Verwandlung dauerhaft und sauber gelöst!
+            //  -> vermeidet z.B. daÃŸ ein SC-Snapper von anderen Snappern attackiert wird
+            //  -> wird spÃ¤ter durch Aufruf von B_InitMonsterAttitudes() nach der Verwandlung dauerhaft und sauber gelÃ¶st!
             return;
         }
         else
@@ -217,7 +217,7 @@ func int ZS_MM_AssessEnemy_loop()
                 AI_TurnToNpc    (self,other);
                 AI_PlayAni      (self, "T_WARN");
 
-                Npc_SendPassivePerc (self, PERC_ASSESSWARN, other, self); // Opfer, Täter
+                Npc_SendPassivePerc (self, PERC_ASSESSWARN, other, self); // Opfer, TÃ¤ter
             };
         };
 
@@ -261,17 +261,17 @@ func void B_MM_ReactToDamage ()
     if (C_PreyToPredator(self,other))
     {
         PrintDebugNpc   (PD_MST_FRAME,"...Monster ist Beute");
-        Npc_SetTarget   (self, other);  //für AI_Flee
+        Npc_SetTarget   (self, other);  //fÃ¼r AI_Flee
         Npc_ClearAIQueue(self);
-        Npc_PercDisable (self,  PERC_ASSESSENEMY);      // SN:da diese Wahrnehmung sonst die Ausführung des folgenden AI_StartState verhindert!
+        Npc_PercDisable (self,  PERC_ASSESSENEMY);      // SN:da diese Wahrnehmung sonst die AusfÃ¼hrung des folgenden AI_StartState verhindert!
         AI_StartState   (self, ZS_MM_Flee, 0, "");
     }
-    else //Kein Jäger
+    else //Kein JÃ¤ger
     {
-        PrintDebugNpc   (PD_MST_FRAME,"...Monster ist Jäger");
+        PrintDebugNpc   (PD_MST_FRAME,"...Monster ist JÃ¤ger");
         Npc_SetTarget   (self, other);
         Npc_ClearAIQueue(self);
-        Npc_PercDisable (self,  PERC_ASSESSENEMY);      // SN:da diese Wahrnehmung sonst die Ausführung des folgenden AI_StartState verhindert!
+        Npc_PercDisable (self,  PERC_ASSESSENEMY);      // SN:da diese Wahrnehmung sonst die AusfÃ¼hrung des folgenden AI_StartState verhindert!
         AI_StartState   (self, ZS_MM_Attack, 0, "");
     };
 };
@@ -287,7 +287,7 @@ func void B_MM_ReactToOthersDamage ()
 
     if (C_PreyToPredator(self,other))
     {
-        Npc_SetTarget   (self, other);  //für AI_Flee
+        Npc_SetTarget   (self, other);  //fÃ¼r AI_Flee
         Npc_ClearAIQueue(self);
         AI_StartState   (self, ZS_MM_Flee, 0, "");
     };
@@ -320,7 +320,7 @@ func void B_MM_ReactToCombatDamage ()
 
     if (C_PreyToPredator (self,other))
     {
-        Npc_SetTarget   (self, other);  //für AI_Flee
+        Npc_SetTarget   (self, other);  //fÃ¼r AI_Flee
         Npc_ClearAIQueue(self);
         AI_StartState   (self, ZS_MM_Flee, 0, "");
     };
@@ -364,7 +364,7 @@ func void ZS_MM_Attack ()
 
     Npc_GetTarget   (self);
 
-    Npc_SendPassivePerc (self, PERC_ASSESSWARN, other, self); //Opfer,Täter
+    Npc_SendPassivePerc (self, PERC_ASSESSWARN, other, self); //Opfer,TÃ¤ter
 };
 
 func int ZS_MM_Attack_Loop ()
@@ -384,7 +384,7 @@ func int ZS_MM_Attack_Loop ()
         if  C_BodyStateContains(other,BS_RUN)
         ||  C_BodyStateContains(other,BS_JUMP)
         {
-            PrintDebugNpc   (PD_MST_LOOP, "...Ziel läuft oder springt!");
+            PrintDebugNpc   (PD_MST_LOOP, "...Ziel lÃ¤uft oder springt!");
             if (Npc_GetStateTime (self) > self.aivar[AIV_MM_FollowTime]) // x Sekunden verfolgen
             {
                 PrintDebugNpc(PD_MST_CHECK, "...Ziel schon zu lange verfolgt!");
@@ -410,7 +410,7 @@ func int ZS_MM_Attack_Loop ()
     }
     else // GetTarget = FALSE
     {
-        PrintDebugNpc   (PD_ZS_CHECK,   "...Ziel ist ungültig oder kampf-unfähig!");
+        PrintDebugNpc   (PD_ZS_CHECK,   "...Ziel ist ungÃ¼ltig oder kampf-unfÃ¤hig!");
 
         if (self.aivar[AIV_MM_Behaviour] == HUNTER)
         {
@@ -419,7 +419,7 @@ func int ZS_MM_Attack_Loop ()
         }
         else    // Monster NICHT auf der Jagd - weitere Feinde Attacken
         {
-            Npc_PerceiveAll     (self);     // nötig, da Npc_GetNextTarget() auf der Liste der zuletzt Wahrgenommenen VOBs beruht
+            Npc_PerceiveAll     (self);     // nÃ¶tig, da Npc_GetNextTarget() auf der Liste der zuletzt Wahrgenommenen VOBs beruht
             Npc_GetNextTarget   (self);
             PrintGlobals        (PD_ZS_DETAIL);
             if (Hlp_IsValidNpc(other) && !C_NpcIsDown(other))
@@ -485,18 +485,18 @@ func void ZS_MM_Flee_End ()
 
 func void B_MM_AssessWarn ()
 {
-    // MH: BEACHTEN: Wenn Warns andere NSCs dureinanderbringen, müssen diese die Sender FILTERN!
+    // MH: BEACHTEN: Wenn Warns andere NSCs dureinanderbringen, mÃ¼ssen diese die Sender FILTERN!
 
     PrintDebugNpc       (PD_MST_FRAME, "B_MM_AssessWarn");
 
-    // ---------------- Beute von Jäger gewarnt -------------------
+    // ---------------- Beute von JÃ¤ger gewarnt -------------------
     if (C_PreyToPredator(self,other))
     {
-        Npc_SetTarget   (self, other);              //für AI_Flee
+        Npc_SetTarget   (self, other);              //fÃ¼r AI_Flee
         Npc_ClearAIQueue(self);
         AI_StartState   (self, ZS_MM_Flee, 0, "");
     };
-    // ---------------- PACKHUNTER greift an ODER ruft Verstärkung -----------------
+    // ---------------- PACKHUNTER greift an ODER ruft VerstÃ¤rkung -----------------
     if ( (Wld_GetGuildAttitude(self.guild,other.guild)==ATT_FRIENDLY) && (self.aivar[AIV_MM_Behaviour]==PACKHUNTER) )
     {
         if (Npc_IsInState(other, ZS_MM_Attack))
@@ -509,7 +509,7 @@ func void B_MM_AssessWarn ()
         else // Kein Attack, also AssessEnemy
         {
             AI_SetWalkmode  (self, NPC_RUN);
-            AI_GotoNpc      (self, other);      // Gehe zu Jäger-Freund
+            AI_GotoNpc      (self, other);      // Gehe zu JÃ¤ger-Freund
             if (Wld_DetectNpc   (self, victim, NOFUNC, -1)) // victim --> other
             {
                 AI_StartState   (self, ZS_MM_AssessEnemy, 0, "");
@@ -611,7 +611,7 @@ func void B_MM_AssessQuietSound_Sleep()
     };
     */
 
-    if (Npc_GetDistToNpc(self, other) <= self.aivar[AIV_MM_DrohRange])  //Drohrange > INTERMEDIAT bringt natürlich nix wegen QuietSound-Distanz
+    if (Npc_GetDistToNpc(self, other) <= self.aivar[AIV_MM_DrohRange])  //Drohrange > INTERMEDIAT bringt natÃ¼rlich nix wegen QuietSound-Distanz
     {
         if (Wld_GetGuildAttitude(self.guild,other.guild)==ATT_HOSTILE)  //(Npc_GetAttitude(self, other)==ATT_HOSTILE)
         {

@@ -23,7 +23,7 @@ FUNC VOID DIA_BaalNamib_EXIT_Info()
 };
 
 // ************************************************************
-//                  NICHT ansprechbar (Ungl‰ubiger)
+//                  NICHT ansprechbar (Ungl√§ubiger)
 // ************************************************************
 // ************************************************************
 
@@ -129,7 +129,7 @@ func void DIA_BaalNamib_FirstTalk_Sleeper()
 };
 
 //-----------------------------------------------------
-// BESSERE R‹STUNG NOVIZEN
+// BESSERE R√úSTUNG NOVIZEN
 //-----------------------------------------------------
 instance  GUR_1204_BaalNamib_ARMOR (C_INFO)
 {

@@ -45,7 +45,7 @@ func int ZS_AssessQuietSound_Loop ()
         }
         else
         {
-            PrintDebugNpc   (PD_ZS_LOOP, "...SC auﬂerhalb Fluchtradius oder in Gespr‰ch!" );
+            PrintDebugNpc   (PD_ZS_LOOP, "...SC au√üerhalb Fluchtradius oder in Gespr√§ch!" );
             //B_Say         (self,  other,  "$WHATSTHISSUPPOSEDTOBE");
             return      LOOP_END;
         };

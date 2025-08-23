@@ -18,14 +18,14 @@ func void B_CombatAssessMurder ()
                 PrintDebugNpc           (PD_ZS_CHECK,   "...NSC ist in ZS_ProclaimAndPunish!" );
                 if (Hlp_GetInstanceID(victim) == Hlp_GetInstanceID(hero))
                 {
-                    PrintDebugNpc       (PD_ZS_CHECK,   "...Getöteter ist auch eigenes Ziel!" );
+                    PrintDebugNpc       (PD_ZS_CHECK,   "...GetÃ¶teter ist auch eigenes Ziel!" );
                     B_FullStop          (self);
                     AI_ContinueRoutine  (self);
                 };
             };
         };
         /****************************************************************************
-        // Monster dürfen bei Tod die Attitüde der Nsc´s zum Spieler nicht verändern deshalb der Part ab &&
+        // Monster dÃ¼rfen bei Tod die AttitÃ¼de der NscÂ´s zum Spieler nicht verÃ¤ndern deshalb der Part ab &&
         /****************************************************************************/
         if (Npc_GetTempAttitude (self,victim) == ATT_FRIENDLY && (!C_NpcIsHuman(victim)) )
         {
@@ -33,7 +33,7 @@ func void B_CombatAssessMurder ()
             Npc_SetTempAttitude (self, ATT_HOSTILE);
         };
     }
-    //JP: auch wenn der Täter nicht gesehen wird, sollten nur bei menschlichen Opfern Murder_News gemerkt werden
+    //JP: auch wenn der TÃ¤ter nicht gesehen wird, sollten nur bei menschlichen Opfern Murder_News gemerkt werden
     else if (C_NpcIsHuman(other) && C_NpcIsHuman(victim))
     {
         PrintDebugNpc       (PD_ZS_CHECK, "B_CombatAssessMurder // only heard");

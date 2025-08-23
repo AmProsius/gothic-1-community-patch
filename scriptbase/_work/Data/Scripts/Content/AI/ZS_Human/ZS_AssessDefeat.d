@@ -1,11 +1,11 @@
 //////////////////////////////////////////////////////////////////////////
 //  ZS_AssessDefeat
 //  ===============
-//  Wird ausschließlich von der aktiven Wahrnehmung
+//  Wird ausschlieÃŸlich von der aktiven Wahrnehmung
 //
 //  - PERC_ASSESSDEFEAT
 //
-//  angesprungen. Folgende Voraussetzungen müssen erfüllt sein:
+//  angesprungen. Folgende Voraussetzungen mÃ¼ssen erfÃ¼llt sein:
 //
 //  - keine
 //
@@ -14,7 +14,7 @@
 //      ->  ZS_AssessMonster
 //  2.  Sieg ohne Monsterbeteiligung
 //      ->  News-Eintrag generieren
-//      ->  Wachen, deren Schützlinge besiegt wurden    -> ZS_ProclaimAndPunish
+//      ->  Wachen, deren SchÃ¼tzlinge besiegt wurden    -> ZS_ProclaimAndPunish
 //      ->  NSC nach Defeat-Bewertung HOSTILE           -> B_AssessEnemy
 //      ->  sonst passenden Kommentar abgeben
 //////////////////////////////////////////////////////////////////////////
@@ -38,7 +38,7 @@ func void ZS_AssessDefeat ()
         //-------- Sieg von Monster ! --------
         if (C_NpcIsMonster(other))
         {
-            PrintDebugNpc       (PD_ZS_CHECK,   "...Sieg von oder über Monster!");
+            PrintDebugNpc       (PD_ZS_CHECK,   "...Sieg von oder Ã¼ber Monster!");
             AI_StartState       (self,  ZS_AssessMonster,   0,  "");
             return;
         }
@@ -59,10 +59,10 @@ func void ZS_AssessDefeat ()
 
 
 
-        //-------- Schützling einer Wache wurde umgehauen ! --------
+        //-------- SchÃ¼tzling einer Wache wurde umgehauen ! --------
         if (C_ChargeWasAttacked(self, victim, other))
         {
-            PrintDebugNpc       (PD_ZS_CHECK,   "...NSC ist Wache und ein Schützling wurde besiegt!" );
+            PrintDebugNpc       (PD_ZS_CHECK,   "...NSC ist Wache und ein SchÃ¼tzling wurde besiegt!" );
             B_DrawWeapon        (self,  other);
             AI_StartState       (self,  ZS_ProclaimAndPunish, 0, "");
             return;

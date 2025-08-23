@@ -1,5 +1,5 @@
 /***********************************************
-*    NSC läuft um Bezugs-WP auf Waynet rum     *
+*    NSC lÃ¤uft um Bezugs-WP auf Waynet rum     *
 ***********************************************/
 
 func void ZS_WalkAround ()
@@ -7,7 +7,7 @@ func void ZS_WalkAround ()
     PrintDebugNpc (PD_TA_FRAME,"ZS_WalkAround");
 
     B_SetPerception (self);
-    AI_SetWalkmode (self,NPC_WALK); // Walkmode für den Zustand
+    AI_SetWalkmode (self,NPC_WALK); // Walkmode fÃ¼r den Zustand
     AI_GotoWP (self,self.wp);       // Gehe zum Tagesablaufstart
     AI_AlignToWP (self);            //Richte Dich aus
 

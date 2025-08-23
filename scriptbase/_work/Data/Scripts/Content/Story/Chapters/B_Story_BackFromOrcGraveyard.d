@@ -2,7 +2,7 @@
 //##
 //##                            KAPITEL 3
 //##                            =========
-//##    Der Spieler kehrt vom Ork-Friedhof zurück und berichtet
+//##    Der Spieler kehrt vom Ork-Friedhof zurÃ¼ck und berichtet
 //##    von Baal-Lukor und den Ereignissen dort.
 //##
 //#####################################################################

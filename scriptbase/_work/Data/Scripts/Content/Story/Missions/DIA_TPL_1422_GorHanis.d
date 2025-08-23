@@ -77,7 +77,7 @@ func VOID Info_GorHanis_Arena_Info()
 };
 
 // **************************************************
-//                  Schl‰fer
+//                  Schl√§fer
 // **************************************************
 
 instance Info_GorHanis_Sleeper(C_INFO)
@@ -108,7 +108,7 @@ func VOID Info_GorHanis_Sleeper_Info()
 };
 
 // **************************************************
-//                  Groﬂe Anrufung
+//                  Gro√üe Anrufung
 // **************************************************
 
 instance Info_GorHanis_Summoning (C_INFO)
@@ -191,7 +191,7 @@ func VOID Info_GorHanis_Charge_Info()
     AI_Output (other, self,"Info_GorHanis_Charge_15_00"); //I challenge you to a duel in the arena!
     AI_Output (self, other,"Info_GorHanis_Charge_08_01"); //It will not serve the glory of the Sleeper if I slaughter just any bum in front of the audience.
     AI_Output (self, other,"Info_GorHanis_Charge_08_02"); //I'll only fight against you when you've become a worthy opponent.
-    AI_Output (self, other,"Info_GorHanis_Charge_08_03"); //But I'm sure that the fighters from the Old or New Camp aren't all men of principleÖ
+    AI_Output (self, other,"Info_GorHanis_Charge_08_03"); //But I'm sure that the fighters from the Old or New Camp aren't all men of principle‚Ä¶
 };
 
 // **************************************************
@@ -276,7 +276,7 @@ instance Info_TPL_1422_GorHanis1 (C_INFO)
     information     = Info_TPL_1422_GorHanis1_Info;
     important           = 0;
     permanent       = 0;
-    description     = "Ich will helfen den Schl‰fer zu erwecken.";
+    description     = "Ich will helfen den Schl√§fer zu erwecken.";
 };
 
 FUNC int Info_TPL_1422_GorHanis1_Condition()
@@ -288,8 +288,8 @@ FUNC int Info_TPL_1422_GorHanis1_Condition()
 
 func void Info_TPL_1422_GorHanis1_Info()
 {
-    AI_Output (other, self,"Info_TPL_1422_GorHanis1_15_01"); //Ich will helfen den Schl‰fer zu erwecken.
-    AI_Output (self, other,"Info_TPL_1422_GorHanis1_08_02"); //Hmm, siehst gar nicht so aus, als wolltest Du wirklich helfen wollen. Geh aber ruhig weiter, ich halte dich nicht auf, falls du l¸gst, wird der Hohenpriester dir schon eine Lektion erteilen.
+    AI_Output (other, self,"Info_TPL_1422_GorHanis1_15_01"); //Ich will helfen den Schl√§fer zu erwecken.
+    AI_Output (self, other,"Info_TPL_1422_GorHanis1_08_02"); //Hmm, siehst gar nicht so aus, als wolltest Du wirklich helfen wollen. Geh aber ruhig weiter, ich halte dich nicht auf, falls du l√ºgst, wird der Hohenpriester dir schon eine Lektion erteilen.
 };
 
 
@@ -338,7 +338,7 @@ FUNC int Info_TPL_1422_GorHanis3_Condition()
 func void Info_TPL_1422_GorHanis3_Info()
 {
     AI_Output (other, self,"Info_TPL_1422_GorHanis3_15_01"); //Wie seit ihr an dem Priester vorbei gekommen?
-    AI_Output (self, other,"Info_TPL_1422_GorHanis3_08_02"); //Ich sage es dir, es wird dir eh nicht nutzen. Der Priester hat uns nur passieren lassen, weil Meister Kalom mit im gesprochen hat, dass Gl¸ck wirst du nicht haben. Geh nur (lacht).
+    AI_Output (self, other,"Info_TPL_1422_GorHanis3_08_02"); //Ich sage es dir, es wird dir eh nicht nutzen. Der Priester hat uns nur passieren lassen, weil Meister Kalom mit im gesprochen hat, dass Gl√ºck wirst du nicht haben. Geh nur (lacht).
 };
 
 */

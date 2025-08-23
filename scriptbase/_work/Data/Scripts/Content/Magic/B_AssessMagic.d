@@ -1,7 +1,7 @@
 // B_AssessMagic. Wird auf dem Opfer einmalig aufgerufen, wenn die Perception MAGIC (ASSESSMAGIC) aktiviert wird
 
-// FIXME:   hier müssen für jeden Spruch noch Fallunterscheidungen für MAIN / IMMORTAL Characters
-//          berücksichtigt werden, die evtl. nicht von den Sprüchen beeinflußt werden sollen!
+// FIXME:   hier mÃ¼ssen fÃ¼r jeden Spruch noch Fallunterscheidungen fÃ¼r MAIN / IMMORTAL Characters
+//          berÃ¼cksichtigt werden, die evtl. nicht von den SprÃ¼chen beeinfluÃŸt werden sollen!
 
 
 /*******************************************************************************************/
@@ -9,7 +9,7 @@ func void B_AssessMagic_Firebolt()
 {
     PrintDebugNpc( PD_MAGIC, "B_AssessMagic_Firebolt" );
 
-    //  Damit andere NSCs den Angriff wahrnehmen können
+    //  Damit andere NSCs den Angriff wahrnehmen kÃ¶nnen
     Npc_SendPassivePerc(self, PERC_ASSESSFIGHTSOUND, self, other);
 };
 
@@ -18,7 +18,7 @@ func void B_AssessMagic_FireBall()
 {
     PrintDebugNpc( PD_MAGIC, "B_AssessMagic_FireBall" );
 
-    //  Damit andere NSCs den Angriff wahrnehmen können
+    //  Damit andere NSCs den Angriff wahrnehmen kÃ¶nnen
     Npc_SendPassivePerc(self, PERC_ASSESSFIGHTSOUND, self, other);
 };
 
@@ -27,7 +27,7 @@ func void B_AssessMagic_Firestorm()
 {
     PrintDebugNpc( PD_MAGIC, "B_AssessMagic_Firestorm" );
 
-    //  Damit andere NSCs den Angriff wahrnehmen können
+    //  Damit andere NSCs den Angriff wahrnehmen kÃ¶nnen
     Npc_SendPassivePerc(self, PERC_ASSESSFIGHTSOUND, self, other);
 };
 
@@ -36,7 +36,7 @@ func void B_AssessMagic_Firerain()
 {
     PrintDebugNpc( PD_MAGIC, "B_AssessMagic_Firerain" );
 
-    //  Damit andere NSCs den Angriff wahrnehmen können
+    //  Damit andere NSCs den Angriff wahrnehmen kÃ¶nnen
     Npc_SendPassivePerc(self, PERC_ASSESSFIGHTSOUND, self, other);
 };
 
@@ -48,7 +48,7 @@ func void B_AssessMagic_ChainLightning()
 
     Npc_PercDisable     (self,  PERC_ASSESSCASTER);
 
-    //  Damit andere NSCs den Angriff wahrnehmen können
+    //  Damit andere NSCs den Angriff wahrnehmen kÃ¶nnen
     Npc_SendPassivePerc(self, PERC_ASSESSFIGHTSOUND, self, other);
 
     Npc_ClearAIQueue(self);
@@ -65,7 +65,7 @@ func void B_AssessMagic_Thunderbolt()
 {
     PrintDebugNpc( PD_MAGIC, "B_AssessMagic_Thunderbolt" );
 
-    //  Damit andere NSCs den Angriff wahrnehmen können
+    //  Damit andere NSCs den Angriff wahrnehmen kÃ¶nnen
     Npc_SendPassivePerc(self, PERC_ASSESSFIGHTSOUND, self, other);
 };
 
@@ -74,7 +74,7 @@ func void B_AssessMagic_ThunderBall()
 {
     PrintDebugNpc( PD_MAGIC, "B_AssessMagic ...Thunderball" );
 
-    //  Damit andere NSCs den Angriff wahrnehmen können
+    //  Damit andere NSCs den Angriff wahrnehmen kÃ¶nnen
     Npc_SendPassivePerc(self, PERC_ASSESSFIGHTSOUND, self, other);
 
     Npc_ClearAIQueue(self);
@@ -89,7 +89,7 @@ func void B_AssessMagic_IceCube()
 {
     PrintDebugNpc( PD_MAGIC, "B_AssessMagic ...IceCube oder IceWave" );
 
-    //  Damit andere NSCs den Angriff wahrnehmen können
+    //  Damit andere NSCs den Angriff wahrnehmen kÃ¶nnen
     Npc_SendPassivePerc(self, PERC_ASSESSFIGHTSOUND, self, other);
 
 
@@ -112,10 +112,10 @@ func void B_AssessMagic_Fear()
 {
     PrintDebugNpc( PD_MAGIC, "B_AssessMagic_Fear" );
 
-    //  Damit andere NSCs den Angriff wahrnehmen können
+    //  Damit andere NSCs den Angriff wahrnehmen kÃ¶nnen
     Npc_SendPassivePerc(self, PERC_ASSESSFIGHTSOUND, self, other);
 
-    // Immunität für SLEEPER, TROLL, SWAMPSHARK, DEMON, SKELETONS, ZOMBIES, GOLEM
+    // ImmunitÃ¤t fÃ¼r SLEEPER, TROLL, SWAMPSHARK, DEMON, SKELETONS, ZOMBIES, GOLEM
     if (    (self.guild == GIL_SLF)         ||
             (self.guild == GIL_TROLL)       ||
             (self.guild == GIL_SWAMPSHARK)  ||
@@ -147,7 +147,7 @@ func void B_Assessmagic_Massdeath()
 {
     PrintDebugNpc( PD_MAGIC, "B_Assessmagic_Massdeath" );
 
-    //  Damit andere NSCs den Angriff wahrnehmen können
+    //  Damit andere NSCs den Angriff wahrnehmen kÃ¶nnen
     Npc_SendPassivePerc(self, PERC_ASSESSFIGHTSOUND, self, other);
 };
 
@@ -156,7 +156,7 @@ func void B_AssessMagic_Destroyundead()
 {
     PrintDebugNpc( PD_MAGIC, "B_AssessMagic_Destroyundead" );
 
-    //  Damit andere NSCs den Angriff wahrnehmen können
+    //  Damit andere NSCs den Angriff wahrnehmen kÃ¶nnen
     Npc_SendPassivePerc(self, PERC_ASSESSFIGHTSOUND, self, other);
 };
 
@@ -165,7 +165,7 @@ func void B_AssessMagic_Windfist()
 {
     PrintDebugNpc( PD_MAGIC, "B_AssessMagic_Windfist" );
 
-    //  Damit andere NSCs den Angriff wahrnehmen können
+    //  Damit andere NSCs den Angriff wahrnehmen kÃ¶nnen
     Npc_SendPassivePerc(self, PERC_ASSESSFIGHTSOUND, self, other);
 };
 
@@ -174,7 +174,7 @@ func void B_AssessMagic_Stormfist()
 {
     PrintDebugNpc( PD_MAGIC, "B_AssessMagic_Stormfist" );
 
-    //  Damit andere NSCs den Angriff wahrnehmen können
+    //  Damit andere NSCs den Angriff wahrnehmen kÃ¶nnen
     Npc_SendPassivePerc(self, PERC_ASSESSFIGHTSOUND, self, other);
 };
 
@@ -183,14 +183,14 @@ func void B_AssessMagic_Charm()
 {
     PrintDebugNpc( PD_ZS_CHECK, "B_AssessMagic Charm");
 
-    //  Damit andere NSCs den Angriff wahrnehmen können
+    //  Damit andere NSCs den Angriff wahrnehmen kÃ¶nnen
     Npc_SendPassivePerc(self, PERC_ASSESSFIGHTSOUND, self, other);
 
     Npc_ClearAIQueue        (self);     // alle AI Befehle entfernen
 
     if (!Npc_IsInState(self, ZS_Unconscious))
     {
-        PrintDebugNpc       (PD_ZS_CHECK,   "...NSC ist ein Mensch bei bewußtsein!");
+        PrintDebugNpc       (PD_ZS_CHECK,   "...NSC ist ein Mensch bei bewuÃŸtsein!");
 
         Npc_SetTempAttitude (self,  ATT_FRIENDLY) ;
         B_FullStop          (self);
@@ -214,11 +214,11 @@ func void B_AssessMagic_Pyrokinesis()
     Npc_ClearAIQueue    (self);
     Npc_PercDisable     (self,  PERC_ASSESSCASTER);
 
-    //  Damit andere NSCs den Angriff wahrnehmen können
+    //  Damit andere NSCs den Angriff wahrnehmen kÃ¶nnen
     Npc_SendPassivePerc (self,  PERC_ASSESSFIGHTSOUND, self, other);
     if ( !Npc_IsDead(self) && !Npc_IsInState(self,ZS_Unconscious))
     {
-        PrintDebugNpc   (PD_MAGIC,  "...weder bewußtlos noch tot!" );
+        PrintDebugNpc   (PD_MAGIC,  "...weder bewuÃŸtlos noch tot!" );
         AI_StartState   (self,  ZS_Pyro, 0, "");
     };
 };
@@ -228,7 +228,7 @@ func void B_AssessMagic_Berzerk()
 {
     PrintDebugNpc       (PD_MAGIC, "...Berzerk" );
 
-    //  Damit andere NSCs den Angriff wahrnehmen können
+    //  Damit andere NSCs den Angriff wahrnehmen kÃ¶nnen
     Npc_SendPassivePerc (self, PERC_ASSESSFIGHTSOUND, self, other);
 
 // FIXME: was soll mit Immortals/Main chars.  passieren?
@@ -245,7 +245,7 @@ func void B_AssessMagic_Breathofdeath()
 {
     PrintDebugNpc( PD_MAGIC, "B_AssessMagic_Breathofdeath" );
 
-    //  Damit andere NSCs den Angriff wahrnehmen können
+    //  Damit andere NSCs den Angriff wahrnehmen kÃ¶nnen
     Npc_SendPassivePerc(self, PERC_ASSESSFIGHTSOUND, self, other);
 };
 
@@ -254,7 +254,7 @@ func void B_AssessMagic_New1()
 {
     PrintDebugNpc( PD_MAGIC, "B_AssessMagic_New1" );
 
-    //  Damit andere NSCs den Angriff wahrnehmen können
+    //  Damit andere NSCs den Angriff wahrnehmen kÃ¶nnen
     Npc_SendPassivePerc(self, PERC_ASSESSFIGHTSOUND, self, other);
 };
 
@@ -263,7 +263,7 @@ func void B_AssessMagic_Shrink()
 {
     PrintDebugNpc( PD_MAGIC, "...Shrink" );
 
-    //  Damit andere NSCs den Angriff wahrnehmen können
+    //  Damit andere NSCs den Angriff wahrnehmen kÃ¶nnen
     Npc_SendPassivePerc (self, PERC_ASSESSFIGHTSOUND, self, other);
 
     Npc_ClearAIQueue    (self);
@@ -275,7 +275,7 @@ func void B_AssessMagic_Control()
 {
     PrintDebugNpc( PD_MAGIC, "...Control" );
 
-    //  Damit andere NSCs den Angriff wahrnehmen können
+    //  Damit andere NSCs den Angriff wahrnehmen kÃ¶nnen
     Npc_SendPassivePerc (self, PERC_ASSESSFIGHTSOUND, self, other);
 };
 
@@ -316,7 +316,7 @@ func void B_AssessMagic ()
     else if ( Npc_GetActiveSpell    (other) == SPL_SHRINK           )       {   B_AssessMagic_Shrink        (); };
 
 
-// Folgende Sprüche brauchen keinen B_AssessMagic weil sie nicht auf einen NSC wirken:
+// Folgende SprÃ¼che brauchen keinen B_AssessMagic weil sie nicht auf einen NSC wirken:
 
 //   ( Npc_GetActiveSpell   (other) == SPL_LIGHT        )           {   B_AssessMagic_Light();          }
 //   ( Npc_GetActiveSpell   (other) == SPL_TELEPORT1    )           {   B_AssessMagic_TELEPORT1();      }

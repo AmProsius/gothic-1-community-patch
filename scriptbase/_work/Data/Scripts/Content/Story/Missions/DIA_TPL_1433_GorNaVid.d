@@ -120,7 +120,7 @@ FUNC void  Tpl_1433_GorNaVid_HEALTH_SUC_Info()
     }
     else
     {
-        PrintDebugNpc (PD_MISSION, "KEINE POTION= UNMÖGLICH");
+        PrintDebugNpc (PD_MISSION, "KEINE POTION= UNMÃ–GLICH");
     };
 
     Npc_ExchangeRoutine (self,"GATE");

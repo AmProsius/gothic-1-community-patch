@@ -49,13 +49,13 @@ instance STT_330_Schatten (Npc_Default)
 };
 
 
-FUNC VOID Rtn_PreStart_330 () //Südtor Unten
+FUNC VOID Rtn_PreStart_330 () //SÃ¼dtor Unten
 {
     TA_Smalltalk        (08,00,20,00,"OCR_OUTSIDE_HUT_44"); //mit Org_827_Fox
     TA_Smalltalk        (20,00,08,00,"OCR_OUTSIDE_HUT_44");
 };
 
-FUNC VOID Rtn_start_330 () //Südtor Unten
+FUNC VOID Rtn_start_330 () //SÃ¼dtor Unten
 {
     TA_Sleep            (23,00,07,30,"OCR_HUT_44");
     TA_SitAround        (07,30,10,00,"OCR_OUTSIDE_HUT_44");

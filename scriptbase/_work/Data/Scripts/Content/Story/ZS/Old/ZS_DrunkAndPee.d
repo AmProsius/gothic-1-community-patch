@@ -1,6 +1,6 @@
 /*******************************************
-*             NSC h‰ngt besoffen rum,      *
-*               s‰uft und pinkelt          *
+*             NSC h√§ngt besoffen rum,      *
+*               s√§uft und pinkelt          *
 *******************************************/
 
 
@@ -11,7 +11,7 @@ func void ZS_DrunkandPee ()
     B_SetPerception (self);
     Npc_PercEnable      (self,  PERC_ASSESSTALK         ,   B_RefuseTalk    );
 
-    AI_SetWalkmode (self,NPC_WALK);     // Walkmode f¸r den Zustand
+    AI_SetWalkmode (self,NPC_WALK);     // Walkmode f√ºr den Zustand
     Mdl_ApplyOverlayMds (self, "HUMANS_DRUNKEN.MDS" );
     if !(Npc_IsOnFP(self,"DRUNK"))
     {

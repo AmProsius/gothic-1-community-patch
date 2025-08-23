@@ -1,9 +1,9 @@
 func void B_Story_FoundUrShak()
 {
-    //-------- Missionsgegenst‰nde --------
+    //-------- Missionsgegenst√§nde --------
 
 
-    //-------- Tagebucheintr‰ge --------
+    //-------- Tagebucheintr√§ge --------
     B_LogEntry          (CH4_FindOrcShaman,"I saved the Orc shaman called Ur-Shak from his own people. He was so grateful that he told me the remaining part of the Sleeper's story. Now I can return to Xardas to fulfill my quest.");
 
     Log_CreateTopic     (CH4_UluMulu,       LOG_MISSION);
@@ -13,7 +13,7 @@ func void B_Story_FoundUrShak()
     //-------- Erfahrung --------
     B_GiveXP            (XP_FoundOrcShaman);
 
-    //-------- Tagesabl‰ufe ‰ndern --------
+    //-------- Tagesabl√§ufe √§ndern --------
     var C_NPC riordian; riordian= Hlp_GetNpc(KDW_605_Riordian); Npc_ExchangeRoutine(riordian,   "FoundUrShak");
 
 

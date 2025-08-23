@@ -304,8 +304,8 @@ FUNC VOID  DIA_Joru_GetMagic_Info()
 Sit_1_PSI_Joru_SmokingTeacher
 
 Joru: Du bist neu hier. Hast Du schon unser Kraut genossen?
-Das solltest du unbedingt tun. Weißt du, es ist ziemlich gut. Es öffnet deinen Geist für die Worte des Schläfers.
-Komm, komm zu uns und lasse deinen Geist frei. Mach dich bereit für eine Reise.
+Das solltest du unbedingt tun. WeiÃŸt du, es ist ziemlich gut. Es Ã¶ffnet deinen Geist fÃ¼r die Worte des SchlÃ¤fers.
+Komm, komm zu uns und lasse deinen Geist frei. Mach dich bereit fÃ¼r eine Reise.
 Eine spirituelle Reise. Lerne die Macht des Geistes zu nutzen. Lerne sie zu kontrollieren.
 Komm zu uns in die Gemeinschaft der Erwachten und gleichzeitig Erwecker. Teile mit uns deine Kraft, wie wir unsere Kraft mit dir teilen.
 Mach dich frei von Suche und beginne zu finden. Entdecke die Wahrheit. Das alles kannst du erreichen, wenn du zu uns kommst.

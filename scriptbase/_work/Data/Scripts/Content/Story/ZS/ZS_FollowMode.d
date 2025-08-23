@@ -2,14 +2,14 @@
 //  ZS_Position
 //  ===========
 //  Dieser TA-Zustand wartet am im TA angegebenen Waypoint beharrlich
-//  darauf, daﬂ der Spieler ihn anredet. ‹ber Infos/Missions dieses
+//  darauf, da√ü der Spieler ihn anredet. √úber Infos/Missions dieses
 //  NSCs geht dann die Handlung weiter. Meistens geht es in den
 //  Zustand ZS_FollowMode.
 //
-//  NSC reagiert auﬂerdem auf:
-//  - angegriffen werden    ->  ein "entsch‰rfter" Kampf
-//  - bezaubert werden      ->  nˆtig f¸r das korrekte Funktionieren
-//                              des Magiesystems (-> Opfer-Zust‰nde...)
+//  NSC reagiert au√üerdem auf:
+//  - angegriffen werden    ->  ein "entsch√§rfter" Kampf
+//  - bezaubert werden      ->  n√∂tig f√ºr das korrekte Funktionieren
+//                              des Magiesystems (-> Opfer-Zust√§nde...)
 //  - gerufen werden        ->  winkt SC zu sich heraun
 //////////////////////////////////////////////////////////////////////////
 func void ZS_Position ()
@@ -33,7 +33,7 @@ func void ZS_Position ()
     Npc_PercEnable      (self,  PERC_ASSESSTALK         ,   B_AssessTalk                );
     Npc_PercEnable      (self,  PERC_ASSESSPLAYER       ,   B_AssessSC);
 
-    AI_SetWalkmode      (self,  NPC_WALK);                          // Walkmode f¸r den Zustand
+    AI_SetWalkmode      (self,  NPC_WALK);                          // Walkmode f√ºr den Zustand
     AI_GotoWP           (self,  self.wp);                           // Gehe zum Tagesablaufstart
     AI_AlignToWP        (self);                                     // Richte Dich aus
 };
@@ -68,7 +68,7 @@ func void B_FriendlyAssessCall ()
 //////////////////////////////////////////////////////////////////////////
 //  B_FriendlyAttack
 //  ================
-//  Sorgt daf¸r, daﬂ ohne Umschweife sofort in den ZS_FriendlyAttack
+//  Sorgt daf√ºr, da√ü ohne Umschweife sofort in den ZS_FriendlyAttack
 //  gesprungen wird.
 //////////////////////////////////////////////////////////////////////////
 func void B_FriendlyAttack ()
@@ -82,18 +82,18 @@ func void B_FriendlyAttack ()
 //////////////////////////////////////////////////////////////////////////
 //  ZS_FriendlyAttack
 //  =================
-//  Dies ist ein "entsch‰rfter" ZS_Attack, der davon ausgeht, daﬂ der
-//  NSC gerade wichtig f¸r die Fortf¸hrung der Spielhandlung ist und
-//  grunds‰tzlich an Kampf nicht interessiert ist.
+//  Dies ist ein "entsch√§rfter" ZS_Attack, der davon ausgeht, da√ü der
+//  NSC gerade wichtig f√ºr die Fortf√ºhrung der Spielhandlung ist und
+//  grunds√§tzlich an Kampf nicht interessiert ist.
 //
 //  Der Kampf folgt folgenden Regeln:
-//  -   NSC wird den SC so schnell wie mˆglich bewuﬂtlos schlagen,
-//      nie aber tˆten
-//  -   Hat der NSC den SC bewuﬂtlos geschlagen, wird er ihn NICHT
-//      pl¸ndern
+//  -   NSC wird den SC so schnell wie m√∂glich bewu√ütlos schlagen,
+//      nie aber t√∂ten
+//  -   Hat der NSC den SC bewu√ütlos geschlagen, wird er ihn NICHT
+//      pl√ºndern
 //  -   Steckt der Spieler im Kampf die Waffe weg, wird auch der NSC
 //      den Kampf beenden
-//  -   L‰uft der Spieler weg, wird der NSC keine Verfolgung aufnehmen,
+//  -   L√§uft der Spieler weg, wird der NSC keine Verfolgung aufnehmen,
 //      sondern den Kampf sehr schnell beenden. -> ZS_Position
 //  -   Der NSC wird NIE fliehen
 //////////////////////////////////////////////////////////////////////////
@@ -116,7 +116,7 @@ func int ZS_FriendlyAttack_Loop()
 
     Npc_GetTarget       (self);
 
-    //-------- Ist SC bereits bewuﬂtlos ? --------
+    //-------- Ist SC bereits bewu√ütlos ? --------
     if (Npc_IsInState   (other, ZS_Unconscious))
     {
         PrintGlobals    (PD_ZS_CHECK);
@@ -125,7 +125,7 @@ func int ZS_FriendlyAttack_Loop()
     };
 
 
-    //-------- Anschmeiﬂen der FAI f¸r diesen Frame --------
+    //-------- Anschmei√üen der FAI f√ºr diesen Frame --------
     //PrintGlobals      (PD_ZS_CHECK);
     Npc_GetNextTarget   (self);
     //PrintDebugNpc     (PD_ZS_CHECK,   "...Npc_GetNextTarget() done!");
@@ -144,7 +144,7 @@ func int ZS_FriendlyAttack_Loop()
         return          1;                                          // Loop abbrechen
     };
 
-    //-------- L‰uft SC weg ? --------
+    //-------- L√§uft SC weg ? --------
     if (Npc_GetDistToNpc(self, other ) > 1000)
     {
         PrintDebugNpc   (PD_ZS_FRAME,   "...SC weiter als 10m entfernt!");
@@ -200,16 +200,16 @@ func void B_FriendlyAttackRemoveWeapon ()
 //  Der NSC bewegt sich zu dem im TA angegebenen Waypoint, wartet dabei
 //  aber auf den Spieler, falls dieser zu weit entfernt ist.
 //
-//  NSC reagiert auﬂerdem auf:
-//  - angegriffen werden    ->  ein "entsch‰rfter" Kampf
-//  - bezaubert werden      ->  nˆtig f¸r das korrekte Funktionieren
-//                              des Magiesystems (-> Opfer-Zust‰nde...)
+//  NSC reagiert au√üerdem auf:
+//  - angegriffen werden    ->  ein "entsch√§rfter" Kampf
+//  - bezaubert werden      ->  n√∂tig f√ºr das korrekte Funktionieren
+//                              des Magiesystems (-> Opfer-Zust√§nde...)
 //  - gerufen werden        ->  winkt SC zu sich heraun
 //  - angesprochen werden   ->  winkt SC ebenfalls nur zu sich heran
 //
-//  WICHTIG:    Der NSC der diesen FollowMode bekommt muﬂ SENSE_SMELL
-//              verpaﬂt bekommen, da er sonst den zur¸ckbleibenden
-//              Spieler in seinem R¸cken nicht erkennt
+//  WICHTIG:    Der NSC der diesen FollowMode bekommt mu√ü SENSE_SMELL
+//              verpa√üt bekommen, da er sonst den zur√ºckbleibenden
+//              Spieler in seinem R√ºcken nicht erkennt
 //
 //  B_FollowMode
 //  ============
@@ -247,8 +247,8 @@ func void ZS_FollowMode ()
 //////////////////////////////////////////////////////////////////////////
 //  B_CheckDistToPlayer
 //  ===================
-//  ‹berpr¸ft innerhalb der ZS_Followmode regelm‰ﬂig die Entfernung zum
-//  Spieler und schaltet bei ¸berschreiten der Maximaldistanz den Zustand.
+//  √úberpr√ºft innerhalb der ZS_Followmode regelm√§√üig die Entfernung zum
+//  Spieler und schaltet bei √ºberschreiten der Maximaldistanz den Zustand.
 //  ZS_FollowModeWait ein.
 //////////////////////////////////////////////////////////////////////////
 func void B_CheckDistToPlayer ()
@@ -257,7 +257,7 @@ func void B_CheckDistToPlayer ()
 
     if (Hlp_StrCmp (Npc_GetNearestWP(self), self.WP))
     {
-        // Hier ist der NPC angekommen - keine Reaktion erw¸nscht
+        // Hier ist der NPC angekommen - keine Reaktion erw√ºnscht
     }
     else if (Npc_GetDistToNpc(self, other) > PERC_DIST_INTERMEDIAT)
     {
@@ -275,13 +275,13 @@ func void B_CheckDistToPlayer ()
 //  ZS_FollowModeWait
 //  =================
 //  Wird aus ZS_FollowMode heraus aufgerufen, wenn der SC sich zu weit
-//  vom zu begleitenden NSC entfernt (SC bleibt zur¸ck oder sprintet
+//  vom zu begleitenden NSC entfernt (SC bleibt zur√ºck oder sprintet
 //  voraus).
 //
-//  NSC reagiert auﬂerdem auf:
-//  - angegriffen werden    ->  ein "entsch‰rfter" Kampf
-//  - bezaubert werden      ->  nˆtig f¸r das korrekte Funktionieren
-//                              des Magiesystems (-> Opfer-Zust‰nde...)
+//  NSC reagiert au√üerdem auf:
+//  - angegriffen werden    ->  ein "entsch√§rfter" Kampf
+//  - bezaubert werden      ->  n√∂tig f√ºr das korrekte Funktionieren
+//                              des Magiesystems (-> Opfer-Zust√§nde...)
 //////////////////////////////////////////////////////////////////////////
 func void ZS_FollowModeWait ()
 {

@@ -11,7 +11,7 @@ const int ATR_HITPOINTS_MAX         =  1;   // Max. Lbenspunkte
 const int ATR_MANA                  =  2;   // Mana Mana
 const int ATR_MANA_MAX              =  3;   // Mana Max
 
-const int ATR_STRENGTH              =  4;   // Stärke
+const int ATR_STRENGTH              =  4;   // StÃ¤rke
 const int ATR_DEXTERITY             =  5;   // Geschick
 const int ATR_REGENERATEHP          =  6;   // Regenerierung von HP alle x sekunden
 const int ATR_REGENERATEMANA        =  7;   // Regenerierung von Mana alle x sekunden
@@ -93,7 +93,7 @@ CONST INT ITEM_KAT_NONE                                 = 1 <<  0               
 CONST INT ITEM_KAT_NF                                   = 1 <<  1               ;       //  Alle Nahkampfwaffen
 CONST INT ITEM_KAT_FF                                   = 1 <<  2               ;       //  Alle Fernkampfwaffen
 CONST INT ITEM_KAT_MUN                                  = 1 <<  3               ;       //  Jede Art von Munition (->MultiSlot)
-CONST INT ITEM_KAT_ARMOR                                = 1 <<  4               ;       //  Rüstungen und Helme
+CONST INT ITEM_KAT_ARMOR                                = 1 <<  4               ;       //  RÃ¼stungen und Helme
 CONST INT ITEM_KAT_FOOD                                 = 1 <<  5               ;       //  Alle Nahrungsmittel (->MultiSlot)
 CONST INT ITEM_KAT_DOCS                                 = 1 <<  6               ;       //  Alle Dokumente
 CONST INT ITEM_KAT_POTIONS                              = 1 <<  7               ;       //  Traenke
@@ -116,7 +116,7 @@ CONST INT ITEM_THROW                                    = 1 << 29               
 //
 CONST INT ITEM_SWD                                      = 1 << 14               ;       //  Waffe wird wie ein Schwert behandelt
 CONST INT ITEM_AXE                                      = 1 << 15               ;       //  Waffe wird wie eine Axt behandelt
-CONST INT ITEM_2HD_SWD                                  = 1 << 16               ;       //  Waffe wird wie ein Zweihänder behandelt
+CONST INT ITEM_2HD_SWD                                  = 1 << 16               ;       //  Waffe wird wie ein ZweihÃ¤nder behandelt
 CONST INT ITEM_2HD_AXE                                  = 1 << 17               ;       //  Waffe wird wie eine Streitaxt behandelt
 CONST INT ITEM_BOW                                      = 1 << 19               ;       //  Waffe wird wie ein Bogen behandelt
 CONST INT ITEM_CROSSBOW                                 = 1 << 20               ;       //  Waffe wird wie eine Armbrust behandelt
@@ -285,11 +285,11 @@ CONST INT INF_UNKNOWN                                   = 2                     
 //
 //const INT MIS_FREE                                        = 0                     ;       //  Mission wurde noch nicht vergeben
 //const INT MIS_REFUSED                                 = 2                     ;       //  Mission wurde abgelehnt
-//const INT MIS_RUNNING                                 = 3                     ;       //  Mission läuft gerade
+//const INT MIS_RUNNING                                 = 3                     ;       //  Mission lÃ¤uft gerade
 //const INT MIS_SUCCESS                                 = 4                     ;       //  Mission erfolgreich beendet
 //const INT MIS_FAILED                                  = 7                     ;       //  Mission wurde abgebrochen
 
-CONST INT LOG_RUNNING                                   = 1                     ;       //  Mission läuft gerade
+CONST INT LOG_RUNNING                                   = 1                     ;       //  Mission lÃ¤uft gerade
 CONST INT LOG_SUCCESS                                   = 2                     ;       //  Mission erfolgreich beendet
 CONST INT LOG_FAILED                                    = 3                     ;       //  Mission wurde abgebrochen
 CONST INT LOG_OBSOLETE                                  = 4                     ;       //  Mission ist hinfaellig
@@ -308,7 +308,7 @@ CONST INT ATT_HOSTILE                                   = 0                     
 CONST INT GIL_NONE                                      =  0                    ;       //  gildenlose
 CONST INT GIL_HUMAN                                     =  1                    ;       //  Special Guild -> Set Constants for all Human Guilds
 CONST INT GIL_EBR                                       =  1                    ;       //  Erzbarone 6* +3Babes
-CONST INT GIL_GRD                                       =  2                    ;       //  Söldner
+CONST INT GIL_GRD                                       =  2                    ;       //  SÃ¶ldner
 CONST INT GIL_STT                                       =  3                    ;       //  Schatten 10
 CONST INT GIL_KDF                                       =  4                    ;       //  Kreis des Feuers 6
 CONST INT GIL_VLK                                       =  5                    ;       //  Volk/Buddler 10
@@ -316,11 +316,11 @@ CONST INT GIL_KDW                                       =  6                    
 CONST INT GIL_SLD                                       =  7                    ;       //  Garde 8-9svm
 CONST INT GIL_ORG                                       =  8                    ;       //  Organisatoren 9-10svm
 CONST INT GIL_BAU                                       =  9                    ;       //  Bauern 6 svm
-CONST INT GIL_SFB                                       = 10                    ;       //  Schürferbund 9-10 svm
+CONST INT GIL_SFB                                       = 10                    ;       //  SchÃ¼rferbund 9-10 svm
 CONST INT GIL_GUR                                       = 11                    ;       //  Gurus 5 svm
 CONST INT GIL_NOV                                       = 12                    ;       //  Novizen 10- svm
 CONST INT GIL_TPL                                       = 13                    ;       //  Templer 10 svm
-CONST INT GIL_DMB                                       = 14                    ;       //  Dämonenbeschwörer 1
+CONST INT GIL_DMB                                       = 14                    ;       //  DÃ¤monenbeschwÃ¶rer 1
 CONST INT GIL_BAB                                       = 15                    ;       //  Die Meister
 CONST INT GIL_SEPERATOR_HUM                             = 16                    ;
 CONST INT MAX_GUILDS                                    = 16                    ;
@@ -329,14 +329,14 @@ CONST INT MAX_GUILDS                                    = 16                    
 //  MONSTER GUILDS
 //
 CONST INT GIL_WARAN                                     = 17                    ;       //  Waran
-CONST INT GIL_SLF                                       = 18                    ;       //  Schläfer
-CONST INT GIL_GOBBO                                     = 19                    ;       //  Gobbo (Höhlen und Oberwelt)
+CONST INT GIL_SLF                                       = 18                    ;       //  SchlÃ¤fer
+CONST INT GIL_GOBBO                                     = 19                    ;       //  Gobbo (HÃ¶hlen und Oberwelt)
 CONST INT GIL_TROLL                                     = 20                    ;       //  Troll
 CONST INT GIL_SNAPPER                                   = 21                    ;       //  Snapper (neu)
 CONST INT GIL_MINECRAWLER                               = 22                    ;       //  Minecrawler & Queen
 CONST INT GIL_MEATBUG                                   = 23                    ;       //  Meatbugs
 CONST INT GIL_SCAVENGER                                 = 24                    ;       //  Attack Chicken
-CONST INT GIL_DEMON                                     = 25                    ;       //  der Geflügel(te) Dämon
+CONST INT GIL_DEMON                                     = 25                    ;       //  der GeflÃ¼gel(te) DÃ¤mon
 CONST INT GIL_WOLF                                      = 26                    ;       //  Oberwelt Wolf
 CONST INT GIL_SHADOWBEAST                               = 27                    ;       //  Unsere Miezekatz'
 CONST INT GIL_BLOODFLY                                  = 28                    ;       //  Scorpionlibelle
@@ -344,7 +344,7 @@ CONST INT GIL_SWAMPSHARK                                = 29                    
 CONST INT GIL_ZOMBIE                                    = 30                    ;       //  "Menschen" Zombies
 CONST INT GIL_UNDEADORC                                 = 31                    ;       //  Untote Orcs (Krieger & Hohepriester)
 CONST INT GIL_SKELETON                                  = 32                    ;       //  "Menschen" Skelette
-CONST INT GIL_ORCDOG                                    = 33                    ;       //  Orc-Wachhund (Zähne auf Beinen)
+CONST INT GIL_ORCDOG                                    = 33                    ;       //  Orc-Wachhund (ZÃ¤hne auf Beinen)
 CONST INT GIL_MOLERAT                                   = 34                    ;       //  Der Nacktmole
 CONST INT GIL_GOLEM                                     = 35                    ;       //  Lapidor
 CONST INT GIL_LURKER                                    = 36                    ;
@@ -383,7 +383,7 @@ CLASS C_GILVALUES
     VAR INT     FIGHT_RANGE_2HS                         [GIL_MAX]               ;
     VAR INT     FIGHT_RANGE_2HA                         [GIL_MAX]               ;
     VAR INT     FALLDOWN_HEIGHT                         [GIL_MAX]               ;       //                                  Wie tief Fallen ohne Schaden ?
-    VAR INT     FALLDOWN_DAMAGE                         [GIL_MAX]               ;       //                                  Schaden für jeden weiteren angefangenen Meter.
+    VAR INT     FALLDOWN_DAMAGE                         [GIL_MAX]               ;       //                                  Schaden fÃ¼r jeden weiteren angefangenen Meter.
     VAR INT     BLOOD_DISABLED                          [GIL_MAX]               ;       //  DEFAULT = 0                 ;   Blut ganz ausschalten (z.B. bei Sekletten) ?
     VAR INT     BLOOD_MAX_DISTANCE                      [GIL_MAX]               ;       //  DEFAULT = 1000              ;   Wie weit spritzt das Blut (in cm) ?
     VAR INT     BLOOD_AMOUNT                            [GIL_MAX]               ;       //  DEFAULT = 10                ;   Wie viel Blut ?

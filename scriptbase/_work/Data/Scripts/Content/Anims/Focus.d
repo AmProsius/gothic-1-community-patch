@@ -32,7 +32,7 @@ INSTANCE Focus_Melee (C_Focus)
 
     npc_range1  = 0.0;
     npc_range2  = 500.0;
-    npc_azi     = 45.0;         //    - geändert von 30 auf 45 -- Mike
+    npc_azi     = 45.0;         //    - geÃ¤ndert von 30 auf 45 -- Mike
     npc_elevup  = 45.0;
     npc_elevdo  = -60.0;
     npc_prio    = 1;                    // NPCs(1) before MOBs(0)
@@ -118,8 +118,8 @@ INSTANCE Focus_Throw_Mob (C_Focus)
     mob_elevdo  = -45.0;
 };
 
-// ACHTUNG!!!!!!!: Der Magie Fokus sollte nicht verändert werden. Alle spezifischen Focus Modes sind PRO SPELL in der Spell_Params.d einstellbar.
-// Diese Magie Focus Instanz trifft die Vorentscheidung, welche Vobs überhaupt in Frage kommen. Der eigentlich Test findet in den einzelnen Spells statt!
+// ACHTUNG!!!!!!!: Der Magie Fokus sollte nicht verÃ¤ndert werden. Alle spezifischen Focus Modes sind PRO SPELL in der Spell_Params.d einstellbar.
+// Diese Magie Focus Instanz trifft die Vorentscheidung, welche Vobs Ã¼berhaupt in Frage kommen. Der eigentlich Test findet in den einzelnen Spells statt!
 INSTANCE Focus_Magic(C_Focus)
 {
     // NSCs

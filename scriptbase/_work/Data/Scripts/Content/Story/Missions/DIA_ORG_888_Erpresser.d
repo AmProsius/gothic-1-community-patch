@@ -66,7 +66,7 @@ FUNC VOID Info_Erpresser_Choice_Zahlen()
     AI_StopProcessInfos (self);
 };
 
-// ****************** für HAS_ERPRESSED == 1 (gezahlt) *********************
+// ****************** fÃ¼r HAS_ERPRESSED == 1 (gezahlt) *********************
 
 INSTANCE Info_BereitsErpresst (C_INFO)
 {
@@ -91,7 +91,7 @@ FUNC VOID Info_BereitsErpresst_Info()
     AI_Output (self, other,"Info_BereitsErpresst_Info_13_02"); //You've paid. You may pass. Now go before I change my mind.
 };
 
-// ****************** für HAS_ERPRESSED == 2 (Aufs Maul) *********************
+// ****************** fÃ¼r HAS_ERPRESSED == 2 (Aufs Maul) *********************
 
 INSTANCE Info_BereitsAufsMaul (C_INFO)
 {

@@ -1,15 +1,15 @@
 //////////////////////////////////////////////////////////////////////////
 //  C_WantItem
 //  ==========
-//  Stellt fest, ob 'item' für 'self' interessant genug ist und gibt dann
-//  TRUE, andernfalls FALSE zurück. Die Kriterien sind:
-//  ->  Item gehört Nsc persönlich (Besitz-Flag!)
+//  Stellt fest, ob 'item' fÃ¼r 'self' interessant genug ist und gibt dann
+//  TRUE, andernfalls FALSE zurÃ¼ck. Die Kriterien sind:
+//  ->  Item gehÃ¶rt Nsc persÃ¶nlich (Besitz-Flag!)
 //  ->  kein Missionsgegenstand
-//  ->  Rüstung nur, wenn sie der Gilde des NSCs, nicht aber der Gilde des
-//      des Körpers gehören
+//  ->  RÃ¼stung nur, wenn sie der Gilde des NSCs, nicht aber der Gilde des
+//      des KÃ¶rpers gehÃ¶ren
 //  ->  wertvoll genug
 //  ->  Erznugget
-//  ->  Runen & Scrolls nur für Magier interessant
+//  ->  Runen & Scrolls nur fÃ¼r Magier interessant
 //////////////////////////////////////////////////////////////////////////
 func int C_WantItem ()
 {
@@ -26,7 +26,7 @@ func int C_WantItem ()
 
         if (Npc_OwnedByNpc(item, self) || Npc_OwnedByGuild(item, selfGuild))
         {
-            PrintDebugNpc(PD_ZS_DETAIL, "...'item' gehört NSC oder seiner Gilde -> JA!");
+            PrintDebugNpc(PD_ZS_DETAIL, "...'item' gehÃ¶rt NSC oder seiner Gilde -> JA!");
             return TRUE;
         };
 
@@ -43,7 +43,7 @@ func int C_WantItem ()
                     )
                 )
         {
-            PrintDebugNpc( PD_ZS_DETAIL, "...'item' ist Rüstung und geht micht nichts an -> NEIN!");
+            PrintDebugNpc( PD_ZS_DETAIL, "...'item' ist RÃ¼stung und geht micht nichts an -> NEIN!");
             return FALSE;
         }
         else if ((item.mainflag==ITEM_KAT_RUNE)&&(!C_NpcIsMage(self)))
@@ -74,7 +74,7 @@ func int C_WantItem ()
     }
     else
     {
-        PrintDebugNpc( PD_ZS_DETAIL, "...'item' ist ungültig -> NEIN!");
+        PrintDebugNpc( PD_ZS_DETAIL, "...'item' ist ungÃ¼ltig -> NEIN!");
         return FALSE;
     };
 };

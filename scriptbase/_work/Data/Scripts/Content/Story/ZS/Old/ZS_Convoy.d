@@ -2,7 +2,7 @@
 *    NSC hebt Tragekorb auf, geht         *
 * zum angegebenen WP und legt ihn dort ab *
 *  Achtung! UrsprungsWP muss Tragekorb    *
-*         in der Nähe haben!              *
+*         in der NÃ¤he haben!              *
 ******************************************/
 
 FUNC VOID ZS_Convoy ()
@@ -11,7 +11,7 @@ FUNC VOID ZS_Convoy ()
 
     B_SetPerception (self);
 
-    AI_SetWalkmode (self,NPC_WALK);     // Walkmode für den Zustand
+    AI_SetWalkmode (self,NPC_WALK);     // Walkmode fÃ¼r den Zustand
     AI_TakeMob(self,"BACKPACK");
 
     AI_GotoWP(self, self.wp);           // Gehe zum Tagesablaufstart

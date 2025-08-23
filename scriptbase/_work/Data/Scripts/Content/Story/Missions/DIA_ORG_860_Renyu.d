@@ -22,7 +22,7 @@ FUNC VOID Info_Renyu_EXIT_Info()
 };
 
 //*****************************************************************
-//                      Verpiﬂ dich
+//                      Verpi√ü dich
 //*****************************************************************
 
 instance ORG_860_Renyu_GetLost (C_INFO)
@@ -78,7 +78,7 @@ FUNC void  ORG_860_Renyu_DEAL_Info()
 {
     AI_Output (other, self,"ORG_860_Renyu_DEAL_Info_15_01"); //Ich bin hier, um euch ein Angebot zu unterbreiten.
     AI_Output (self, other,"ORG_860_Renyu_DEAL_Info_06_02"); //Da bin ich ja mal gespannt, um was gehts?
-    AI_Output (other, self,"ORG_860_Renyu_DEAL_Info_15_03"); //Die Bruderschaft weiﬂ, was ihr hier veranstaltet.Sie schicken mich um daf¸r zu sorgen das ihr aufhˆrt!
+    AI_Output (other, self,"ORG_860_Renyu_DEAL_Info_15_03"); //Die Bruderschaft wei√ü, was ihr hier veranstaltet.Sie schicken mich um daf√ºr zu sorgen das ihr aufh√∂rt!
     AI_Output (self, other,"ORG_860_Renyu_DEAL_Info_06_04"); //Komm zur Sache!
 
     Info_ClearChoices (ORG_860_Renyu_DEAL);
@@ -87,10 +87,10 @@ FUNC void  ORG_860_Renyu_DEAL_Info()
 };
 func void   ORG_860_Renyu_DEAL_500()
 {
-    AI_Output (other, self,"ORG_860_Renyu_DEAL_500_Info_15_01"); //Gebt mir 500 Erz dann sorge ich daf¸r, das die Bruderschaft euch in Ruhe l‰sst.!
+    AI_Output (other, self,"ORG_860_Renyu_DEAL_500_Info_15_01"); //Gebt mir 500 Erz dann sorge ich daf√ºr, das die Bruderschaft euch in Ruhe l√§sst.!
     AI_Output (self, other,"ORG_860_Renyu_DEAL_500_Info_06_02"); //Und wenn wir nicht zahlen? Was machst du dann?
     AI_Output (other, self,"ORG_860_Renyu_DEAL_500_Info_15_03"); //Dann schicke ich euch ein paar Templer vorbei, die bekommen alle einen dicken Sack Kraut von mir, wenn sich euch fertigmachen!
-    AI_Output (self, other,"ORG_860_Renyu_DEAL_500_Info_06_04"); //Weiﬂt du, ich denke wir sollten der Bruderschaft zeigen,das wir es ernst meinen. Wir schicken ihnen deine ‹berreste, als Warnung!
+    AI_Output (self, other,"ORG_860_Renyu_DEAL_500_Info_06_04"); //Wei√üt du, ich denke wir sollten der Bruderschaft zeigen,das wir es ernst meinen. Wir schicken ihnen deine √úberreste, als Warnung!
     AI_StopProcessInfos (self);
     Npc_SetTarget       (self,  hero);
     AI_StartState       (self,  ZS_Attack,  1,  "");
@@ -108,8 +108,8 @@ func void   ORG_860_Renyu_DEAL_500()
 };
 func void   ORG_860_Renyu_DEAL_250()
 {
-    AI_Output (other, self,"ORG_860_Renyu_DEAL_250_Info_15_01"); //Gebt mir 250 erz, dann sorge ich daf¸r, das die Bruderschaft euch in ruhe l‰sst.
-    AI_Output (self, other,"ORG_860_Renyu_DEAL_250_Info_06_02"); //Hmmm.... nun gut. Einverstanden.Aber wenn du versuchst, mich reinzulegen, dann wirst du dri w¸nschen mich nie getroffen zu haben.Habn wir eine Abmachung?
+    AI_Output (other, self,"ORG_860_Renyu_DEAL_250_Info_15_01"); //Gebt mir 250 erz, dann sorge ich daf√ºr, das die Bruderschaft euch in ruhe l√§sst.
+    AI_Output (self, other,"ORG_860_Renyu_DEAL_250_Info_06_02"); //Hmmm.... nun gut. Einverstanden.Aber wenn du versuchst, mich reinzulegen, dann wirst du dri w√ºnschen mich nie getroffen zu haben.Habn wir eine Abmachung?
     AI_Output (other, self,"ORG_860_Renyu_DEAL_250_Info_15_03"); //Klar, her mit dem Erz!
     CreateInvItems (self,ItMinugget,250);
     B_GiveInvItems  (self, other, itminugget, 250);
@@ -127,7 +127,7 @@ instance  ORG_860_Renyu_LOST (C_INFO)
     information     = ORG_860_Renyu_LOST_Info;
     important       = 0;
     permanent       = 0;
-    description     = "Was sagst du jetzt? Du mieser Schw‰chling! ";
+    description     = "Was sagst du jetzt? Du mieser Schw√§chling! ";
 };
 
 FUNC int  ORG_860_Renyu_LOST_Condition()
@@ -146,8 +146,8 @@ FUNC int  ORG_860_Renyu_LOST_Condition()
 };
 FUNC void  ORG_860_Renyu_LOST_Info()
 {
-    AI_Output (other, self,"ORG_860_Renyu_LOST_Info_15_01"); //Was sagst du jetzt? Du mieser Schw‰chling!
-    AI_Output (self, other,"ORG_860_Renyu_LOST_Info_06_02"); //In Ordnung, mann du hast gewonnen! Wir werden aufhˆren! Das Kraut gehˆrt dir!
+    AI_Output (other, self,"ORG_860_Renyu_LOST_Info_15_01"); //Was sagst du jetzt? Du mieser Schw√§chling!
+    AI_Output (self, other,"ORG_860_Renyu_LOST_Info_06_02"); //In Ordnung, mann du hast gewonnen! Wir werden aufh√∂ren! Das Kraut geh√∂rt dir!
     Kalom_DrugMonopol = LOG_SUCCESS;
     Npc_ExchangeRoutine (self,"ARBEITSLOS");
 

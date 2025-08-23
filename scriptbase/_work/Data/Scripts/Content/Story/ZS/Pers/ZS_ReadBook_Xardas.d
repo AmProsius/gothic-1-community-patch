@@ -39,7 +39,7 @@ func void ZS_ReadBook_Xardas ()
     Npc_SetPercTime     (self,  1);
 
 
-    AI_SetWalkmode      (self,NPC_WALK);        // Walkmode für den Zustand
+    AI_SetWalkmode      (self,NPC_WALK);        // Walkmode fÃ¼r den Zustand
     if (!C_BodyStateContains(self,BS_MOBINTERACT))
     {
         AI_GotoWP       (self, self.wp);

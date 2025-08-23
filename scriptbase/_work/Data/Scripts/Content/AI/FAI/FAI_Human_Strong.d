@@ -1,6 +1,6 @@
 /// Nahkampf - AI
-// Combos für NSC-AI enabled. neues Skript "FAI.D" wird benötigt, darin
-/*neue Moves für NSCs definiert :
+// Combos fÃ¼r NSC-AI enabled. neues Skript "FAI.D" wird benÃ¶tigt, darin
+/*neue Moves fÃ¼r NSCs definiert :
 
 
      MOVE_SIDEATTACK  :         Left --> Right
