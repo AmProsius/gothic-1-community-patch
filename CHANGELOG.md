@@ -19,7 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <a name="v120-2021-10-31"></a>
 
-## [1.2.0](https://g1cp.org/releases/tag/v1.2.0) - 2021-10-31
+## [1.2.0] - 2021-10-31
 
 ### General
 
@@ -46,7 +46,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <a name="v110-2021-05-01"></a>
 
-## [1.1.0](https://g1cp.org/releases/tag/v1.1.0) - 2021-05-01
+## [1.1.0] - 2021-05-01
 
 ### General
 
@@ -91,7 +91,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <a name="v100-2021-03-15"></a>
 
-## [1.0.0](https://github.com/AmProsius/gothic-1-community-patch/releases/tag/v1.0.0) - 2021-03-15
+## [1.0.0] - 2021-03-15
 
 ### General
 
@@ -152,6 +152,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Fix [#163](https://g1cp.org/issues/163): The castle gate of the Old Camp is no longer blocked and can properly be closed.
 
 [unreleased]: https://g1cp.org/compare/v1.2.0...HEAD
-[1.2.0]: https://g1cp.org/compare/v1.1.0...v1.2.0
-[1.1.0]: https://g1cp.org/compare/v1.0.0...v1.1.0
+[1.2.0]: https://g1cp.org/releases/tag/v1.2.0
+[1.1.0]: https://g1cp.org/releases/tag/v1.1.0
 [1.0.0]: https://g1cp.org/releases/tag/v1.0.0

@@ -17,7 +17,7 @@ und dieses Projekt h‰lt die [Semantische Versionierung](https://semver.org/spec/
 
 <a name="v120-2021-10-31"></a>
 
-## [v1.2.0](https://g1cp.org/releases/tag/v1.2.0) (31.10.2021)
+## [1.2.0] - 2021-10-31
 
 ### General
 
@@ -50,7 +50,7 @@ und dieses Projekt h‰lt die [Semantische Versionierung](https://semver.org/spec/
 
 <a name="v110-2021-05-01"></a>
 
-## [v1.1.0](https://g1cp.org/releases/tag/v1.1.0) (01.05.2021)
+## [1.1.0] - 2021-05-01
 
 ### General
 
@@ -110,7 +110,7 @@ und dieses Projekt h‰lt die [Semantische Versionierung](https://semver.org/spec/
 
 <a name="v100-2021-03-15"></a>
 
-## [v1.0.0](https://g1cp.org/releases/tag/v1.0.0) (15.03.2021)
+## [1.0.0] - 2021-03-15
 
 ### General
 
@@ -170,6 +170,6 @@ und dieses Projekt h‰lt die [Semantische Versionierung](https://semver.org/spec/
 * Fix [#163](https://g1cp.org/issues/163): Das Burgtor des Alten Lagers ist nicht mehr blockiert und l‰sst sich korrekt schlieﬂen.
 
 [unreleased]: https://g1cp.org/compare/v1.2.0...HEAD
-[1.2.0]: https://g1cp.org/compare/v1.1.0...v1.2.0
-[1.1.0]: https://g1cp.org/compare/v1.0.0...v1.1.0
+[1.2.0]: https://g1cp.org/releases/tag/v1.2.0
+[1.1.0]: https://g1cp.org/releases/tag/v1.1.0
 [1.0.0]: https://g1cp.org/releases/tag/v1.0.0
