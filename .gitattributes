@@ -1,2 +1,56 @@
-.github/actions/initFix/dist/** linguist-generated
-.github/** -linguist-detectable
+# Checkout line endings based on OS (do not force crlf where not necessary)
+* text=auto
+
+# Github files
+/.github/actions/initFix/dist/** linguist-generated
+/.github/** -linguist-detectable
+
+# Checkout Windows-style line endings and ensure correct encoding
+# Encoding is not localization but fixed zSTRING::Upper code page handling!
+# See https://forum.worldofplayers.de/forum/threads/1537187/page3
+# and https://forum.worldofplayers.de/forum/threads/759496
+*.[dD] text working-tree-encoding=CP1252 eol=crlf
+*.[cC][sS][lL] text working-tree-encoding=CP1252 linguist-detectable=false
+
+# Exclude (semi-) binary resources from linguist stats
+
+# Output units
+*.[bB][iI][nN] binary linguist-detectable=false
+
+# Animation files
+*.[aA][sS][cC] text linguist-detectable=false
+*.[mM][dD][sS] text linguist-detectable=false
+*.[mM][aA][nN] binary linguist-detectable=false
+*.[mM][dD][hH] binary linguist-detectable=false
+*.[mM][dD][lL] binary linguist-detectable=false
+*.[mM][dD][mM] binary linguist-detectable=false
+*.[mM][mM][bB] binary linguist-detectable=false
+*.[mM][sS][bB] binary linguist-detectable=false
+*.[sS][sS][cC] binary linguist-detectable=false
+
+# Graphic files
+*.[tT][gG][aA] binary linguist-detectable=false
+*.[tT][eE][xX] binary linguist-detectable=false
+*.[fF][nN][tT] binary linguist-detectable=false
+
+# Mesh files (ZEN might be ASCII or binary)
+*.3[dD][sS]    binary linguist-detectable=false
+*.[mM][rR][mM] binary linguist-detectable=false
+*.[mM][sS][hH] binary linguist-detectable=false
+*.[zZ][eE][nN] text=auto linguist-detectable=false
+
+# Music files
+*.[dD][lL][sS] binary linguist-detectable=false
+*.[sS][tT][yY] binary linguist-detectable=false
+*.[sS][gG][tT] binary linguist-detectable=false
+
+# Sound files
+*.[wW][aA][vV] binary linguist-detectable=false
+*.[oO][gG][gG] binary linguist-detectable=false
+*.[mM][pP]3    binary linguist-detectable=false
+
+# Video files
+*.[bB][iI][kK] binary linguist-detectable=false
+
+# VDF in case committed (mixed binary and text)
+*.[vV][dD][fF] binary linguist-detectable=false
