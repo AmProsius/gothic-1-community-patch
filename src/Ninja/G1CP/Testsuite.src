@@ -1,6 +1,8 @@
+Content\Testsuite\tests.d
 Content\Testsuite\error.d
 Content\Testsuite\testsuite.d
 Content\Testsuite\check.d
+Content\Testsuite\assert.d
 Content\Testsuite\get.d
 Content\Testsuite\find.d
 Content\Testsuite\create.d

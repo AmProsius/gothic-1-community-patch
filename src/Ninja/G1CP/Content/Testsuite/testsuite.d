@@ -22,6 +22,9 @@ const int G1CP_TestsuiteAllowManual = FALSE;
 /* Check if test passes */
 const int G1CP_TestsuiteStatusPassed = TRUE;
 
+/* Assertion counter within each test */
+const int G1CP_TestsuiteAssertNum = 0;
+
 /* Keep track of the next symbol index for iterating over tests */
 const int G1CP_TestsuiteNext_SymbId = 0;
 
@@ -53,6 +56,7 @@ func int G1CP_TestsuiteRun(var int id) {
 
     // Reset test status
     G1CP_TestsuiteStatusPassed = TRUE;
+    G1CP_TestsuiteAssertNum = 0;
 
     // Find test function
     var string funcName; funcName = ConcatStrings("G1CP_Test_", idName);
@@ -121,6 +125,7 @@ func string G1CP_TestsuiteRunMultiple(var int appliedOnly) {
 
             // Reset test status before every test
             G1CP_TestsuiteStatusPassed = TRUE;
+            G1CP_TestsuiteAssertNum = 0;
 
             // Reset the data stack position and call the test function
             MEM_Parser.datastack_sptr = stkPosBefore;

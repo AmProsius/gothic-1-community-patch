@@ -40,7 +40,7 @@ func void G1CP_ReportFuncToSpy() {
         concatstrings_id = MEM_GetFuncId(ConcatStrings);
         mem_readstring_offset = MEM_GetFuncOffset(MEM_ReadString);
         printdebug_ch_id = MEM_GetFuncId(PrintDebugCh);
-        set_caller_2fr_offset = MEM_GetFuncOffset(G1CP_ReportFuncToSpy_SetCaller2FStackPos);
+        set_caller_2fr_offset = MEM_GetFuncOffset(G1CP_SetCaller2FStackPos);
         str_id = MEM_GetSymbolIndex("G1CP_ReportFuncToSpy.str");
     };
 
@@ -84,11 +84,4 @@ func void G1CP_ReportFuncToSpy() {
 
     // Finally, jump before the call to this very function to execute the just overwritten bytes and continue there
     MEM_SetCallerStackPos(posStart-5);
-};
-
-/*
- * Copy of MEM_SetCallerStackPos but for two more frames up
- */
-func void G1CP_ReportFuncToSpy_SetCaller2FStackPos(var int popPos) {
-    MEM_WriteInt(MEM_GetFrameBoundary() + 4*MEMINT_DoStackFrameSize - MEMINT_DoStackPopPosOffset, popPos);
 };

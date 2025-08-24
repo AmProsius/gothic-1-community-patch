@@ -22,6 +22,7 @@ Content\Symbols\inst.d
 Content\Symbols\callable.d
 Content\Symbols\general.d
 
+Content\Bytecode\jumps.d
 Content\Bytecode\funcRanges.d
 Content\Bytecode\findAndReplace.d
 Content\Bytecode\call.d

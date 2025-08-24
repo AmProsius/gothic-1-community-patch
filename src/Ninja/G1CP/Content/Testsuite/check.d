@@ -2,17 +2,8 @@
  * Check if running automatic test
  */
 func void G1CP_Testsuite_CheckManual() {
-    // Do not move this code
-    if (FALSE) {
-        // This emulates the end of the caller function and forces it to return false
-        FALSE;
-        return;
-    };
-
-    // Check if manual tests are currently allowed
     if (!G1CP_TestsuiteAllowManual) {
-        // Return into the if-block above as if it was the caller function
-        MEM_SetCallerStackPos(MEM_GetFuncOffset(G1CP_Testsuite_CheckManual)+10); // 5 push + 5 jumpf
+        G1CP_Testsuite_ForceTestToReturn(FALSE);
     };
 };
 
@@ -20,17 +11,8 @@ func void G1CP_Testsuite_CheckManual() {
  * Check status of test and abort if it does not pass
  */
 func void G1CP_Testsuite_CheckPassed() {
-    // Do not move this code
-    if (FALSE) {
-        // This emulates the end of the caller function and forces it to return false
-        FALSE;
-        return;
-    };
-
-    // Check test status
     if (!G1CP_TestsuiteStatusPassed) {
-        // Return into the if-block above as if it was the caller function
-        MEM_SetCallerStackPos(MEM_GetFuncOffset(G1CP_Testsuite_CheckPassed)+10); // 5 push + 5 jumpf
+        G1CP_Testsuite_ForceTestToReturn(FALSE);
     };
 };
 
@@ -38,18 +20,6 @@ func void G1CP_Testsuite_CheckPassed() {
  * Check localization of the game and abort if it does not match
  */
  func void G1CP_Testsuite_CheckLang(var int lang) {
-    // Do not move this code
-    /* Popping the parameter takes 6 bytes
-    zPAR_TOK_PUSHVAR  G1CP_Testsuite_CheckLang.lang
-    zPAR_OP_IS
-    */
-    if (FALSE) {
-        // This emulates the end of the caller function and forces it to return true
-        TRUE;
-        return;
-    };
-
-    // Check test status
     if (!(G1CP_Lang & lang)) {
         // Get language name by given parameter
         var string langNames; langNames = "";
@@ -66,9 +36,7 @@ func void G1CP_Testsuite_CheckPassed() {
             langNames = ConcatStrings(langNames, " Russian");
         };
         G1CP_TestsuiteErrorDetailSSS("Test applicable for", langNames, " localization only");
-
-        // Return into the if-block above as if it was the caller function
-        MEM_SetCallerStackPos(MEM_GetFuncOffset(G1CP_Testsuite_CheckLang)+16); // 5 push + 1 is + 5 push + 5 jumpf
+        G1CP_Testsuite_ForceTestToReturn(TRUE);
     };
  };
 
