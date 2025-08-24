@@ -74,3 +74,15 @@ func void G1CP_Testsuite_NpcTeleportToWorld(var C_Npc slf, var string world, var
         AI_Teleport(slf, waypoint);
     };
 };
+
+
+/*
+ * Set an item in the inventory of an NPC to an exact amount.
+ */
+func void G1CP_Testsuite_NpcSetInvItemAmount(var C_Npc slf, var int itemId, var int amount) {
+    var int r; // Dump return values to keep the data stack clean
+    r = Npc_RemoveInvItems(slf, itemId, Npc_HasItems(slf, itemId)); // Remove all
+    if (amount > 0) {
+        CreateInvItems(slf, itemId, amount); // Add the required amount
+    };
+};
