@@ -29,7 +29,7 @@ on:
 
 jobs:
   init:
-    if: ${{ github.ref_name == 'master' }}  # Only available from master branch
+    if: ${{ github.ref_name == github.event.repository.default_branch }}  # Only available from main/master branch
     runs-on: ubuntu-latest
     name: Initialize fix files
     steps:
