@@ -12,37 +12,27 @@ func int G1CP_Test_0026() {
     var int aiVarId; aiVarId = G1CP_Testsuite_CheckIntConst("AIV_GUARDPASSAGE_STATUS");
     G1CP_Testsuite_CheckPassed();
 
-    // Define possibly missing symbols locally
     const int ATT_NEUTRAL = 2;
     const int AIV_GPS_FIRSTWARN = 1;
 
-    // Backup values
     var int guildBak; guildBak = hero.guild;
     var int attitBak; attitBak = Npc_GetAttitude(npc, hero);
     var int aiVarBak; aiVarBak = G1CP_NpcGetAiVarI(hero, aiVarId, -1);
     var string wpBak; wpBak = npc.wp;
+    if (final()) {
+        hero.guild = guildBak;
+        Npc_SetTempAttitude(npc, attitBak);
+        G1CP_NpcSetAiVarI(hero, aiVarId, aiVarBak);
+        npc.wp = wpBak;
+    };
 
-    // Set new values
     Npc_SetTempAttitude(npc, ATT_NEUTRAL);
     G1CP_NpcSetAiVarI(hero, aiVarId, AIV_GPS_FIRSTWARN);
     hero.guild = GIL_GRD;
     npc.wp = Npc_GetNearestWp(npc);
 
-    // Call dialog condition function
     G1CP_Testsuite_Call(funcId, npc, hero, FALSE);
-    var int ret; ret = MEM_PopIntResult();
+    G1CP_Testsuite_Assert(MEM_PopIntResult(), FALSE);
 
-    // Restore values
-    hero.guild = guildBak;
-    Npc_SetTempAttitude(npc, attitBak);
-    G1CP_NpcSetAiVarI(hero, aiVarId, aiVarBak);
-    npc.wp = wpBak;
-
-    // Check return value
-    if (ret) {
-        G1CP_TestsuiteErrorDetail("Dialog condition failed");
-        return FALSE;
-    } else {
-        return TRUE;
-    };
+    return TRUE;
 };

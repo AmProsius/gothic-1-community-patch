@@ -12,30 +12,21 @@ func int G1CP_Test_0019() {
     var int chptrId; chptrId = G1CP_Testsuite_CheckIntVar("Kapitel");
     G1CP_Testsuite_CheckPassed();
 
-    // Backup values
     var int chapterBak; chapterBak = G1CP_GetIntVarI(chptrId, 0, 0);
     var int guildBak; guildBak = Npc_GetTrueGuild(hero);
     var int toldBak; toldBak = Npc_KnowsInfo(hero, infoId);
+    if (final()) {
+        G1CP_SetIntVarI(chptrId, 0, chapterBak);
+        Npc_SetTrueGuild(hero, guildBak);
+        G1CP_SetInfoToldI(infoId, toldBak);
+    };
 
-    // Set new values
     G1CP_SetIntVarI(chptrId, 0, 4);
     Npc_SetTrueGuild(hero, GIL_NONE);
     G1CP_SetInfoToldI(infoId, TRUE);
 
-    // Call dialog condition function
     G1CP_Testsuite_Call(funcId, 0, 0, FALSE);
-    var int ret; ret = MEM_PopIntResult();
+    G1CP_Testsuite_Assert(MEM_PopIntResult(), FALSE);
 
-    // Restore values
-    G1CP_SetIntVarI(chptrId, 0, chapterBak);
-    Npc_SetTrueGuild(hero, guildBak);
-    G1CP_SetInfoToldI(infoId, toldBak);
-
-    // Check return value
-    if (ret) {
-        G1CP_TestsuiteErrorDetail("Dialog condition failed");
-        return FALSE;
-    } else {
-        return TRUE;
-    };
+    return TRUE;
 };

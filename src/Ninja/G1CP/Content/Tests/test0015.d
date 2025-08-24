@@ -9,34 +9,22 @@ func int G1CP_Test_0015() {
     var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc("DIA_Horatio_HelpSTR_LEARN_NOW");
     G1CP_Testsuite_CheckPassed();
 
-    // Define possibly missing symbols locally
     const int ATR_STRENGTH = 4;
 
-    // Check status of the test
-    var int passed; passed = TRUE;
-
-    // Backup values
     var int strengthBak; strengthBak = hero.attribute[ATR_STRENGTH];
+    if (final()) {
+        hero.attribute[ATR_STRENGTH] = strengthBak;
+    };
 
-    // First pass: strength < 100
+    // Strength should increase when strength < 100
     hero.attribute[ATR_STRENGTH] = 10;
     G1CP_Testsuite_Call(funcId, 0, 0, TRUE);
-    if (hero.attribute[ATR_STRENGTH] <= 10) {
-        G1CP_TestsuiteErrorDetail("Strength was not increased when below 100");
-        passed = FALSE;
-    };
+    G1CP_Testsuite_AssertGt(hero.attribute[ATR_STRENGTH], 10);
 
-    // Second pass: strength > 100
+    // Strength should not decrease when strength > 100
     hero.attribute[ATR_STRENGTH] = 1000;
     G1CP_Testsuite_Call(funcId, 0, 0, TRUE);
-    if (hero.attribute[ATR_STRENGTH] < 1000) {
-        G1CP_TestsuiteErrorDetail("Strength was decreased when above 100");
-        passed = FALSE;
-    };
+    G1CP_Testsuite_AssertGe(hero.attribute[ATR_STRENGTH], 1000);
 
-    // Restore original strength
-    hero.attribute[ATR_STRENGTH] = strengthBak;
-
-    // At last
-    return passed;
+    return TRUE;
 };

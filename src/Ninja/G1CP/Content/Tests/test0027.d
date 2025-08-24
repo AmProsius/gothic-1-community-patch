@@ -14,84 +14,37 @@ func int G1CP_Test_0027() {
     var int topicId; topicId = G1CP_Testsuite_CheckStringConst("GE_TeacherOW");
     G1CP_Testsuite_CheckPassed();
 
-    // Get constant values
-    const string TOPIC = ""; TOPIC = G1CP_GetStringConstI(topicId, 0, TOPIC);
-
     // Rename the log topic if it already exists
+    const string TOPIC = ""; TOPIC = G1CP_GetStringConstI(topicId, 0, TOPIC);
     G1CP_LogRenameTopic(TOPIC, TEMP_TOPIC_NAME);
 
-    // Backup values
     var int beersBefore; beersBefore = Npc_HasItems(hero, itemId);
     var int beerGivenBak; beerGivenBak = G1CP_GetIntVarI(var1Id, 0, 0);
     var int teachingBak; teachingBak = G1CP_GetIntVarI(var2Id, 0, 0);
-
-    // Do two passes
-    var int pass1passed;
-    var int pass2passed;
-    var int topicCreated;
-    var int teachingUnlocked;
-
-    // First pass: No beer, variable should remain false and log entry not created
-
-    // Set variables
-    if (beersBefore > 0) {
-        Npc_RemoveInvItems(hero, itemId, beersBefore);
+    if (final()) {
+        G1CP_LogRemoveTopic(TOPIC);
+        G1CP_LogRenameTopic(TEMP_TOPIC_NAME, TOPIC);
+        G1CP_SetIntVarI(var1Id, 0, beerGivenBak);
+        G1CP_SetIntVarI(var2Id, 0, teachingBak);
+        G1CP_Testsuite_NpcSetInvItemAmount(hero, itemId, beersBefore);
     };
+
+    // No beer, variable should remain false and log entry not created
+    G1CP_Testsuite_NpcSetInvItemAmount(hero, itemId, 0);
     G1CP_SetIntVarI(var1Id, 0, FALSE);
     G1CP_SetIntVarI(var2Id, 0, FALSE);
-
-    // Just run the dialog and see what happens
     G1CP_Testsuite_Call(funcId, 0, 0, TRUE);
+    G1CP_Testsuite_Assert(G1CP_LogGetTopic(TOPIC), 0);
+    G1CP_Testsuite_Assert(G1CP_GetIntVarI(var2Id, 0, 0), FALSE);
 
-    // Check the variable and log topic
-    topicCreated = G1CP_LogGetTopic(TOPIC) != 0;
-    teachingUnlocked = G1CP_GetIntVarI(var2Id, 0, 0);
-    if (topicCreated) {
-        G1CP_TestsuiteErrorDetailSSS("Log note '", G1CP_GetSymbolName(topicId), "' was wrongfully created");
-    };
-    if (teachingUnlocked) {
-        G1CP_TestsuiteErrorDetailSSS("Variable '", G1CP_GetSymbolName(var2Id), "' was wrongfully set to true");
-    };
-    pass1passed = (!topicCreated) && (!teachingUnlocked);
-
-    // Remove possibly created log topic
+    // Has beer, variable should be set to true and log entry should be created
     G1CP_LogRemoveTopic(TOPIC);
-
-    // Second pass: Has beer, variable should be set to true and log entry should be created
-
-    // Set variables
-    CreateInvItem(hero, itemId);
+    G1CP_Testsuite_NpcSetInvItemAmount(hero, itemId, 1);
     G1CP_SetIntVarI(var1Id, 0, FALSE);
     G1CP_SetIntVarI(var2Id, 0, FALSE);
-
-    // Just run the dialog and see what happens
     G1CP_Testsuite_Call(funcId, 0, 0, TRUE);
+    G1CP_Testsuite_AssertNe(G1CP_LogGetTopic(TOPIC), 0);
+    G1CP_Testsuite_AssertNe(G1CP_GetIntVarI(var2Id, 0, 0), FALSE);
 
-    // Check the variable and log topic
-    topicCreated = G1CP_LogGetTopic(TOPIC) != 0;
-    teachingUnlocked = G1CP_GetIntVarI(var2Id, 0, 0);
-    if (!topicCreated) {
-        G1CP_TestsuiteErrorDetailSSS("Log note '", G1CP_GetSymbolName(topicId), "' was not created");
-    };
-    if (!teachingUnlocked) {
-        G1CP_TestsuiteErrorDetailSSS("Variable '", G1CP_GetSymbolName(var2Id), "' was not set to true");
-    };
-    pass2passed = (topicCreated) && (teachingUnlocked);
-
-    // Remove possibly created log topic and remove any beers
-    G1CP_LogRemoveTopic(TOPIC);
-    Npc_RemoveInvItems(hero, itemId, Npc_HasItems(hero, itemId));
-
-    // Clean up
-
-    // Restore values
-    G1CP_SetIntVarI(var1Id, 0, beerGivenBak);
-    G1CP_SetIntVarI(var2Id, 0, teachingBak);
-    G1CP_LogRenameTopic(TEMP_TOPIC_NAME, TOPIC);
-    if (beersBefore > 0) {
-        CreateInvItems(hero, itemId, beersBefore);
-    };
-
-    // Confirm the fix
-    return (pass1passed) && (pass2passed);
+    return TRUE;
 };

@@ -11,29 +11,20 @@ func int G1CP_Test_0025() {
     var int itemId; itemId = G1CP_Testsuite_CheckItem("KDW_ARMOR_H");
     G1CP_Testsuite_CheckPassed();
 
-    // Backup values
     var int guildBak; guildBak = hero.guild;
     var int trueGuildBak; trueGuildBak = Npc_GetTrueGuild(hero);
+    if (final()) {
+        var int r; r = Npc_RemoveInvItems(hero, itemId, 1);
+        Npc_SetTrueGuild(hero, trueGuildBak);
+        hero.guild = guildBak;
+    };
 
-    // Set new values
     CreateInvItem(hero, itemId);
     Npc_SetTrueGuild(hero, GIL_KDW);
     hero.guild = GIL_KDW;
 
-    // Call dialog condition function
     G1CP_Testsuite_Call(funcId, 0, 0, FALSE);
-    var int ret; ret = MEM_PopIntResult();
+    G1CP_Testsuite_Assert(MEM_PopIntResult(), FALSE);
 
-    // Restore values
-    Npc_RemoveInvItems(hero, itemId, 1);
-    Npc_SetTrueGuild(hero, trueGuildBak);
-    hero.guild = guildBak;
-
-    // Check return value
-    if (ret) {
-        G1CP_TestsuiteErrorDetail("Dialog condition failed");
-        return FALSE;
-    } else {
-        return TRUE;
-    };
+    return TRUE;
 };

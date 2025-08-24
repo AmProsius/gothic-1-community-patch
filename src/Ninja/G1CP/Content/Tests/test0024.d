@@ -14,42 +14,23 @@ func int G1CP_Test_0024() {
     var int krautId; krautId = G1CP_Testsuite_CheckIntVar("Kalom_Krautbote");
     G1CP_Testsuite_CheckPassed();
 
-    // Define possibly missing symbols locally
     const int LOG_RUNNING = 1;
     const int LOG_SUCCESS = 2;
 
-    // Check status of the test
-    var int passed; passed = TRUE;
-
-    // Backup values
     var int drugMonopolBak; drugMonopolBak = G1CP_GetIntVarI(drugId, 0, 0);
     var int krautboteBak; krautboteBak = G1CP_GetIntVarI(krautId, 0, 0);
+    if (final()) {
+        G1CP_SetIntVarI(drugId, 0, drugMonopolBak);
+        G1CP_SetIntVarI(krautId, 0, krautboteBak);
+    };
 
-    // Set new variables
     G1CP_SetIntVarI(drugId, 0, LOG_RUNNING);
     G1CP_SetIntVarI(krautId, 0, LOG_RUNNING);
-    CreateInvItems(hero, itemId, 500); // Add 500 ore for the condition within the dialog
+    CreateInvItems(hero, itemId, 500);
 
-    // Just run the dialog and see what happens
     G1CP_Testsuite_Call(funcId, npc, hero, TRUE);
+    G1CP_Testsuite_Assert(G1CP_GetIntVarI(drugId, 0, 0), LOG_RUNNING);
+    G1CP_Testsuite_Assert(G1CP_GetIntVarI(krautId, 0, 0), LOG_SUCCESS);
 
-    // Check the variables now
-    var int drugMonopolAfter; drugMonopolAfter = G1CP_GetIntVarI(drugId, 0, 0);
-    var int krautboteAfter; krautboteAfter = G1CP_GetIntVarI(krautId, 0, 0);
-
-    // Restore the variables
-    G1CP_SetIntVarI(drugId, 0, drugMonopolBak);
-    G1CP_SetIntVarI(krautId, 0, krautboteBak);
-
-    // Confirm the fix
-    if (drugMonopolAfter != LOG_RUNNING) {
-        G1CP_TestsuiteErrorDetailSSS("Mission '", G1CP_GetSymbolName(drugId), "' was wrongfully closed");
-        passed = FALSE;
-    };
-    if (krautboteAfter != LOG_SUCCESS) {
-        G1CP_TestsuiteErrorDetailSSS("Mission '", G1CP_GetSymbolName(krautId), "' is still open");
-        passed = FALSE;
-    };
-
-    return passed;
+    return TRUE;
 };

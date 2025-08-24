@@ -12,34 +12,15 @@ func int G1CP_Test_0020() {
     var int beerId; beerId = G1CP_Testsuite_CheckItem("ItFoBeer");
     G1CP_Testsuite_CheckPassed();
 
-    // Remember the number of beers the player has before
+    var int r;
     CreateInvItem(hero, beerId); // Have at least one (to see if the number decreases)
     var int beersBefore; beersBefore = Npc_HasItems(hero, beerId);
+    if (final()) {
+        G1CP_Testsuite_NpcSetInvItemAmount(hero, beerId, beersBefore-1);
+    };
 
-    // Just run the dialog and see what happens
     G1CP_Testsuite_Call(funcId, npc, hero, TRUE);
+    G1CP_Testsuite_Assert(Npc_HasItems(hero, beerId), beersBefore+1);
 
-    // Check how many beers the player has now
-    var int beersAfter; beersAfter = Npc_HasItems(hero, beerId);
-
-    // Revert to the previous number
-    if (beersAfter < beersBefore-1) {
-        CreateInvItems(hero, beerId, (beersBefore-1) - beersAfter);
-    } else if (beersAfter > beersBefore-1) {
-        Npc_RemoveInvItems(hero, beerId, beersAfter - (beersBefore-1));
-    };
-
-    // Confirm that the fix worked
-    if (beersAfter == beersBefore) {
-        G1CP_TestsuiteErrorDetail("The hero did not receive a beer");
-        return FALSE;
-    } else if (beersAfter > beersBefore+1) {
-        G1CP_TestsuiteErrorDetailSIS("The hero received ", beersAfter - (beersBefore+1), " beers too many");
-        return FALSE;
-    } else if (beersAfter < beersBefore) {
-        G1CP_TestsuiteErrorDetailSIS("The hero lost ", beersBefore - beersAfter, " beers");
-        return FALSE;
-    } else { // (beersAfter == beersBefore+1)
-        return TRUE;
-    };
+    return TRUE;
 };

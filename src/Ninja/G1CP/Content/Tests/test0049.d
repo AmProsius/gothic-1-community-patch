@@ -13,11 +13,12 @@ func int G1CP_Test_0049() {
     // Static string arrays cannot be read directly
     var string itm_text_1; itm_text_1 = MEM_ReadStatStringArr(itm.text, 1);
 
-    if ((Hlp_StrCmp(itm.text, "Opens the dungeons")) && (Hlp_StrCmp(itm_text_1, "of the old camp.")))    // EN
-    || ((Hlp_StrCmp(itm.text, "öffnet den Kerker"))  && (Hlp_StrCmp(itm_text_1, "des Alten Lagers."))) { // DE
-        return TRUE;
-    } else {
-        G1CP_TestsuiteErrorDetailSSSSS("Text incorrect: text[0] = '", itm.text, "' and text[1] = '", itm_text_1, "'");
-        return FALSE;
+    if (G1CP_Lang & G1CP_Lang_EN) {
+        G1CP_Testsuite_AssertS(itm.text, "Opens the dungeons");
+        G1CP_Testsuite_AssertS(itm_text_1, "of the old camp.");
+    } else if (G1CP_Lang & G1CP_Lang_DE) {
+        G1CP_Testsuite_AssertS(itm.text, "öffnet den Kerker");
+        G1CP_Testsuite_AssertS(itm_text_1, "des Alten Lagers.");
     };
+    return TRUE;
 };

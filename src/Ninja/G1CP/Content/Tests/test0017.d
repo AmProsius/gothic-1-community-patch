@@ -9,24 +9,15 @@ func int G1CP_Test_0017() {
     var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("Info_Jackal_Hello_Condition");
     G1CP_Testsuite_CheckPassed();
 
-    // Backup values
     var int guildBak; guildBak = Npc_GetTrueGuild(hero);
+    if (final()) {
+        Npc_SetTrueGuild(hero, guildBak);
+    };
 
-    // Set new values
     Npc_SetTrueGuild(hero, 4); // Random guild
 
-    // Call dialog condition function
     G1CP_Testsuite_Call(funcId, 0, 0, FALSE);
-    var int ret; ret = MEM_PopIntResult();
+    G1CP_Testsuite_Assert(MEM_PopIntResult(), FALSE);
 
-    // Restore values
-    Npc_SetTrueGuild(hero, guildBak);
-
-    // Check return value
-    if (ret) {
-        G1CP_TestsuiteErrorDetail("Dialog condition failed");
-        return FALSE;
-    } else {
-        return TRUE;
-    };
+    return TRUE;
 };
