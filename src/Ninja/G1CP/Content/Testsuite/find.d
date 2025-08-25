@@ -7,7 +7,7 @@ func C_Npc G1CP_Testsuite_FindNpc(var string name) {
         var C_Npc npc; npc = Hlp_GetNpc(symbId);
         if (!Hlp_IsValidNpc(npc)) {
             G1CP_TestsuiteErrorDetailSSS("NPC of instance '", name, "' not found");
-            G1CP_TestsuiteStatusPassed = FALSE;
+            G1CP_Testsuite_FailTest();
             MEM_NullToInst();
         } else {
             MEMINT_StackPushInst(npc);
@@ -25,7 +25,7 @@ func oCInfo G1CP_Testsuite_FindInfo(var string name) {
         var int infoPtr; infoPtr = G1CP_GetInfo(name);
         if (!infoPtr) {
             G1CP_TestsuiteErrorDetailSSS("Info of instance '", name, "' not found");
-            G1CP_TestsuiteStatusPassed = FALSE;
+            G1CP_Testsuite_FailTest();
             MEM_NullToInst();
         } else {
             _^(infoPtr);
@@ -42,7 +42,7 @@ func zCWaypoint G1CP_Testsuite_FindWaypoint(var string name) {
     var int wpPtr; wpPtr = G1CP_GetWaypoint(name);
     if (!wpPtr) {
         G1CP_TestsuiteErrorDetailSSS("Waypoint '", name, "' not found");
-        G1CP_TestsuiteStatusPassed = FALSE;
+        G1CP_Testsuite_FailTest();
         MEM_NullToInst();
     } else {
         _^(wpPtr);
@@ -56,7 +56,7 @@ func zCVob G1CP_Testsuite_FindVob(var string name) {
     var int vobPtr; vobPtr = MEM_SearchVobByName(STR_Upper(name));
     if (!vobPtr) {
         G1CP_TestsuiteErrorDetailSSS("VOB with name '", name, "' not found");
-        G1CP_TestsuiteStatusPassed = FALSE;
+        G1CP_Testsuite_FailTest();
         MEM_NullToInst();
     } else {
         _^(vobPtr);

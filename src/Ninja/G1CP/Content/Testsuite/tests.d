@@ -1,3 +1,7 @@
+
+/* Check if test passes */
+const int G1CP_TestsuiteStatusPassed = TRUE;
+
 /*
  * Find the stack position of the origin test function that the call originated from.
  */
@@ -62,6 +66,18 @@ func int G1CP_Testsuite_FindCallerTestId() {
 /*
  * Make the calling test immediately return, either false (FALSE) or true (TRUE) or nothing (-1).
  */
-func void G1CP_Testsuite_ForceTestToReturn(var int ret) {
-    G1CP_ForceNthCallerToReturn(ret, G1CP_Testsuite_FindCallerTestStackPos());
+func void G1CP_Testsuite_ForceTestToReturn() {
+    G1CP_ForceNthCallerToReturn(-1, G1CP_Testsuite_FindCallerTestStackPos());
+};
+func void G1CP_Testsuite_FailTest() {
+    G1CP_TestsuiteStatusPassed = FALSE;
+    G1CP_Testsuite_ForceTestToReturn();
+};
+
+
+/*
+ * Inspect a test to determine if it is a manual test.
+ */
+func int G1CP_Testsuite_TestIsManualBySymb(var zCPar_Symbol symb) {
+    return MEM_ReadInt(currParserStackAddress + symb.content + 1) == MEM_GetFuncOffset(G1CP_Testsuite_CheckManual);
 };

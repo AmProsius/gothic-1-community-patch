@@ -12,7 +12,7 @@ func void G1CP_Testsuite_Assert(var int actual, var int expected) {
             G1CP_TestsuiteErrorDetail(SB_ToString());
             SB_Destroy();
         };
-        G1CP_Testsuite_ForceTestToReturn(FALSE);
+        G1CP_Testsuite_FailTest();
     };
 };
 
@@ -31,7 +31,7 @@ func void G1CP_Testsuite_AssertS(var string actual, var string expected) {
             G1CP_TestsuiteErrorDetail(SB_ToString());
             SB_Destroy();
         };
-        G1CP_Testsuite_ForceTestToReturn(FALSE);
+        G1CP_Testsuite_FailTest();
     };
 };
 
@@ -50,7 +50,7 @@ func void G1CP_Testsuite_AssertNe(var int actual, var int expected) {
             G1CP_TestsuiteErrorDetail(SB_ToString());
             SB_Destroy();
         };
-        G1CP_Testsuite_ForceTestToReturn(FALSE);
+        G1CP_Testsuite_FailTest();
     };
 };
 func void G1CP_Testsuite_AssertGt(var int actual, var int expected) {
@@ -64,7 +64,7 @@ func void G1CP_Testsuite_AssertGt(var int actual, var int expected) {
             G1CP_TestsuiteErrorDetail(SB_ToString());
             SB_Destroy();
         };
-        G1CP_Testsuite_ForceTestToReturn(FALSE);
+        G1CP_Testsuite_FailTest();
     };
 };
 func void G1CP_Testsuite_AssertGe(var int actual, var int expected) {
@@ -78,7 +78,7 @@ func void G1CP_Testsuite_AssertGe(var int actual, var int expected) {
             G1CP_TestsuiteErrorDetail(SB_ToString());
             SB_Destroy();
         };
-        G1CP_Testsuite_ForceTestToReturn(FALSE);
+        G1CP_Testsuite_FailTest();
     };
 };
 func void G1CP_Testsuite_AssertLt(var int actual, var int expected) {
@@ -92,7 +92,7 @@ func void G1CP_Testsuite_AssertLt(var int actual, var int expected) {
             G1CP_TestsuiteErrorDetail(SB_ToString());
             SB_Destroy();
         };
-        G1CP_Testsuite_ForceTestToReturn(FALSE);
+        G1CP_Testsuite_FailTest();
     };
 };
 func void G1CP_Testsuite_AssertLe(var int actual, var int expected) {
@@ -106,6 +106,6 @@ func void G1CP_Testsuite_AssertLe(var int actual, var int expected) {
             G1CP_TestsuiteErrorDetail(SB_ToString());
             SB_Destroy();
         };
-        G1CP_Testsuite_ForceTestToReturn(FALSE);
+        G1CP_Testsuite_FailTest();
     };
 };

@@ -5,10 +5,7 @@
  *
  * Expected behavior: The dialog is permanent.
  */
-func int G1CP_Test_0030() {
+func void G1CP_Test_0030() {
     var oCInfo info; info = G1CP_Testsuite_FindInfo("DIA_Silas_Trade");
-    G1CP_Testsuite_CheckPassed();
-
     G1CP_Testsuite_Assert(info.permanent, TRUE);
-    return TRUE;
 };

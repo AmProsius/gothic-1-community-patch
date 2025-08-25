@@ -3,16 +3,7 @@
  */
 func void G1CP_Testsuite_CheckManual() {
     if (!G1CP_TestsuiteAllowManual) {
-        G1CP_Testsuite_ForceTestToReturn(FALSE);
-    };
-};
-
-/*
- * Check status of test and abort if it does not pass
- */
-func void G1CP_Testsuite_CheckPassed() {
-    if (!G1CP_TestsuiteStatusPassed) {
-        G1CP_Testsuite_ForceTestToReturn(FALSE);
+        G1CP_Testsuite_ForceTestToReturn();
     };
 };
 
@@ -36,7 +27,7 @@ func void G1CP_Testsuite_CheckPassed() {
             langNames = ConcatStrings(langNames, " Russian");
         };
         G1CP_TestsuiteErrorDetailSSS("Test applicable for", langNames, " localization only");
-        G1CP_Testsuite_ForceTestToReturn(TRUE);
+        G1CP_Testsuite_ForceTestToReturn();
     };
  };
 
@@ -46,7 +37,7 @@ func void G1CP_Testsuite_CheckPassed() {
 func int G1CP_Testsuite_CheckIntVar(var string name) {
     if (!G1CP_IsIntVar(name)) {
         G1CP_TestsuiteErrorDetailSSS("Integer variable '", name, "' not found");
-        G1CP_TestsuiteStatusPassed = FALSE;
+        G1CP_Testsuite_FailTest();
         return -1;
     };
     return G1CP_GetIntVarId(name); // Needed to handle array name decomposition "name[x]"
@@ -58,7 +49,7 @@ func int G1CP_Testsuite_CheckIntVar(var string name) {
 func int G1CP_Testsuite_CheckIntConst(var string name) {
     if (!G1CP_IsIntConst(name)) {
         G1CP_TestsuiteErrorDetailSSS("Integer constant '", name, "' not found");
-        G1CP_TestsuiteStatusPassed = FALSE;
+        G1CP_Testsuite_FailTest();
         return -1;
     };
     return G1CP_GetIntConstId(name);
@@ -70,7 +61,7 @@ func int G1CP_Testsuite_CheckIntConst(var string name) {
 func int G1CP_Testsuite_CheckStringVar(var string name) {
     if (!G1CP_IsStringVar(name)) {
         G1CP_TestsuiteErrorDetailSSS("String variable '", name, "' not found");
-        G1CP_TestsuiteStatusPassed = FALSE;
+        G1CP_Testsuite_FailTest();
         return -1;
     };
     return G1CP_GetStringVarId(name);
@@ -82,7 +73,7 @@ func int G1CP_Testsuite_CheckStringVar(var string name) {
 func int G1CP_Testsuite_CheckStringConst(var string name) {
     if (!G1CP_IsStringConst(name)) {
         G1CP_TestsuiteErrorDetailSSS("String constant '", name, "' not found");
-        G1CP_TestsuiteStatusPassed = FALSE;
+        G1CP_Testsuite_FailTest();
         return -1;
     };
     return G1CP_GetStringConstId(name);
@@ -94,7 +85,7 @@ func int G1CP_Testsuite_CheckStringConst(var string name) {
 func int G1CP_Testsuite_CheckInfo(var string name) {
     if (!G1CP_IsInfoInst(name)) {
         G1CP_TestsuiteErrorDetailSSS("Info instance '", name, "' not found");
-        G1CP_TestsuiteStatusPassed = FALSE;
+        G1CP_Testsuite_FailTest();
         return -1;
     };
     return MEM_GetSymbolIndex(name);
@@ -106,7 +97,7 @@ func int G1CP_Testsuite_CheckInfo(var string name) {
 func int G1CP_Testsuite_CheckItem(var string name) {
     if (!G1CP_IsItemInst(name)) {
         G1CP_TestsuiteErrorDetailSSS("Item instance '", name, "' not found");
-        G1CP_TestsuiteStatusPassed = FALSE;
+        G1CP_Testsuite_FailTest();
         return -1;
     };
     return MEM_GetSymbolIndex(name);
@@ -118,7 +109,7 @@ func int G1CP_Testsuite_CheckItem(var string name) {
 func int G1CP_Testsuite_CheckNpc(var string name) {
     if (!G1CP_IsNpcInst(name)) {
         G1CP_TestsuiteErrorDetailSSS("NPC instance '", name, "' not found");
-        G1CP_TestsuiteStatusPassed = FALSE;
+        G1CP_Testsuite_FailTest();
         return -1;
     };
     return MEM_GetSymbolIndex(name);
@@ -133,7 +124,7 @@ func int G1CP_Testsuite_CheckFunc(var string name, var string signature, var str
     };
     if (!G1CP_IsFunc(name, signature)) {
         G1CP_TestsuiteErrorDetailSSSS(funcType, " '", name, "' not found");
-        G1CP_TestsuiteStatusPassed = FALSE;
+        G1CP_Testsuite_FailTest();
         return -1;
     };
     return MEM_GetSymbolIndex(name);
@@ -198,7 +189,7 @@ func int G1CP_Testsuite_CheckOu(var string name) {
     var int ptr; ptr = G1CP_GetOu(name);
     if (!ptr) {
         G1CP_TestsuiteErrorDetailSSS("Output unit '", name, "' not found");
-        G1CP_TestsuiteStatusPassed = FALSE;
+        G1CP_Testsuite_FailTest();
         return 0;
     };
     return ptr;

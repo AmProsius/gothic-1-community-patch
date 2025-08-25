@@ -11,7 +11,7 @@ func C_Item G1CP_Testsuite_CreateItem(var string name) {
         var int itmPtr; itmPtr = Itm_GetPtr(symbId);
         if (!itmPtr) {
             G1CP_TestsuiteErrorDetailSSS("Item of instance '", name, "' could not be created");
-            G1CP_TestsuiteStatusPassed = FALSE;
+            G1CP_Testsuite_FailTest();
             MEM_NullToInst();
         } else {
             _^(itmPtr);
@@ -41,7 +41,7 @@ func C_Npc G1CP_Testsuite_CreateNpc(var string name) {
 
         if (Hlp_GetInstanceId(self) != symbId) {
             G1CP_TestsuiteErrorDetailSSS("NPC of instance '", name, "' could not be created");
-            G1CP_TestsuiteStatusPassed = FALSE;
+            G1CP_Testsuite_FailTest();
             MEM_NullToInst();
         } else {
             // Set the NPC to non-persistent

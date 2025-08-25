@@ -19,9 +19,6 @@
 /* Allow or disallow manual tests */
 const int G1CP_TestsuiteAllowManual = FALSE;
 
-/* Check if test passes */
-const int G1CP_TestsuiteStatusPassed = TRUE;
-
 /* Assertion counter within each test */
 const int G1CP_TestsuiteAssertNum = 0;
 
@@ -64,16 +61,17 @@ func int G1CP_TestsuiteRun(var int id) {
     if (!symbPtr) {
         return -1;
     };
+    var zCPar_Symbol symb; symb = _^(symbPtr);
 
     // Update the iterator
     G1CP_TestsuiteNext_SymbId = MEM_GetSymbolIndex(funcName) + 1;
 
     // Call test function and return
     MEM_CallByString(funcName);
-    if (MEM_ReadInt(symbPtr+zCParSymbol_offset_offset) == (zPAR_TYPE_INT >> 12)) {
-        return MEM_PopIntResult();
+    if (G1CP_Testsuite_TestIsManualBySymb(symb)) {
+        return 2;
     };
-    return 2; // = No output
+    return G1CP_TestsuiteStatusPassed;
 };
 
 /*
@@ -102,12 +100,14 @@ func string G1CP_TestsuiteRunMultiple(var int appliedOnly) {
     var int stkPosBefore; stkPosBefore = MEM_Parser.datastack_sptr;
 
     // Iterate over and call all tests
-    repeat(i, G1CP_SymbEnd); var int i; if (!i) { i = G1CP_SymbStart; }; // From SymbStart to SymbEnd
-
+    var int i; i = G1CP_SymbStart;
+    while(i < G1CP_SymbEnd);
         var zCPar_Symbol symb; symb = _^(MEM_GetSymbolByIndex(i));
-        if (STR_StartsWith(symb.name, "G1CP_TEST_"))
-        && (STR_Len(symb.name) == 10 + G1CP_ID_LENGTH)
-        && ((symb.bitfield & zCPar_Symbol_bitfield_type) == zPAR_TYPE_FUNC) {
+        i += 1;
+
+        if (STR_Len(symb.name) == 10 + G1CP_ID_LENGTH) {
+        if (STR_StartsWith(symb.name, "G1CP_TEST_")) {
+        if ((symb.bitfield & zCPar_Symbol_bitfield_type) == zPAR_TYPE_FUNC) {
             // Test name
             msg = STR_SubStr(symb.name, 5, G1CP_ID_LENGTH + 5);
 
@@ -129,24 +129,20 @@ func string G1CP_TestsuiteRunMultiple(var int appliedOnly) {
 
             // Reset the data stack position and call the test function
             MEM_Parser.datastack_sptr = stkPosBefore;
-            MEM_CallById(i);
+            MEM_CallById(i-1);
 
-            if (symb.offset == (zPAR_TYPE_INT >> 12)) {
-                if (MEM_PopIntResult()) {
-                    msg = ConcatStrings(msg, "[PASSED]|");
-                    infos = ConcatStrings(infos, msg);
-                    passed += 1;
-                } else {
-                    msg = ConcatStrings(msg, "[FAILED]|");
-                    infos = ConcatStrings(infos, msg);
-                    failed += 1;
-                };
-            } else {
+            if (G1CP_Testsuite_TestIsManualBySymb(symb)) {
                 msg = ConcatStrings(msg, "[MANUAL]|");
-                infos = ConcatStrings(infos, msg);
                 manual += 1;
+            } else if (G1CP_TestsuiteStatusPassed) {
+                msg = ConcatStrings(msg, "[PASSED]|");
+                passed += 1;
+            } else {
+                msg = ConcatStrings(msg, "[FAILED]|");
+                failed += 1;
             };
-        };
+            infos = ConcatStrings(infos, msg);
+        }; }; };
     end;
 
     // Restore logging level
@@ -225,19 +221,14 @@ func string G1CP_TestsuiteNext(var string _) {
 
     // Iterate over symbols and find next manual test
     while(G1CP_TestsuiteNext_SymbId < G1CP_SymbEnd);
-        // Compare symbol name
         var zCPar_Symbol symb; symb = _^(MEM_GetSymbolByIndex(G1CP_TestsuiteNext_SymbId));
-        if (STR_StartsWith(symb.name, "G1CP_TEST_"))
-        && (STR_Len(symb.name) == 13)
-        && ((symb.bitfield & zCPar_Symbol_bitfield_type) == zPAR_TYPE_FUNC) {
-            // Get test ID
+        if (STR_Len(symb.name) == 10 + G1CP_ID_LENGTH) { // Nested if-blocks for performance
+        if (STR_StartsWith(symb.name, "G1CP_TEST_")) {
+        if ((symb.bitfield & zCPar_Symbol_bitfield_type) == zPAR_TYPE_FUNC) {
+        if (G1CP_Testsuite_TestIsManualBySymb(symb)) {
             var int id; id = STR_ToInt(STR_SubStr(symb.name, 10, G1CP_ID_LENGTH));
-
-            // Check if manual or automatic
-            if (symb.offset == (zPAR_TYPE_VOID >> 12)) {
-                break;
-            };
-        };
+            break;
+        }; }; }; };
         G1CP_TestsuiteNext_SymbId += 1;
     end;
 
@@ -263,13 +254,12 @@ func string G1CP_TestsuiteList(var string _) {
     var string manual;    manual    = "Manual:    ";
 
     // Iterate over and call all tests
-    repeat(i, G1CP_SymbEnd); var int i; if (!i) { i = G1CP_SymbStart; }; // From SymbStart to SymbEnd
-
-        // Compare symbol name
+    var int i; i = G1CP_SymbStart;
+    while(i < G1CP_SymbEnd);
         var zCPar_Symbol symb; symb = _^(MEM_GetSymbolByIndex(i));
-        if (STR_StartsWith(symb.name, "G1CP_TEST_"))
-        && (STR_Len(symb.name) == 13)
-        && ((symb.bitfield & zCPar_Symbol_bitfield_type) == zPAR_TYPE_FUNC) {
+        if (STR_Len(symb.name) == 10 + G1CP_ID_LENGTH) {
+        if (STR_StartsWith(symb.name, "G1CP_TEST_")) {
+        if ((symb.bitfield & zCPar_Symbol_bitfield_type) == zPAR_TYPE_FUNC) {
             var string msg;
 
             // Get test ID
@@ -281,13 +271,13 @@ func string G1CP_TestsuiteList(var string _) {
                 msg = ConcatStrings(ConcatStrings("(", msg), ")");
             };
 
-            // Check if manual or automatic
-            if (symb.offset == (zPAR_TYPE_INT >> 12)) {
-                automatic = ConcatStrings(ConcatStrings(automatic, msg), " ");
-            } else {
+            if (G1CP_Testsuite_TestIsManualBySymb(symb)) {
                 manual = ConcatStrings(ConcatStrings(manual, msg), " ");
+            } else {
+                automatic = ConcatStrings(ConcatStrings(automatic, msg), " ");
             };
-        };
+        }; }; };
+        i += 1;
     end;
 
     // Remove trailing commas
