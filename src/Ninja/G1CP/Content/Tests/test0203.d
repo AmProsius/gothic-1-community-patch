@@ -45,7 +45,9 @@ func int G1CP_Test_0203() {
     G1CP_SetInfoToldI(infoId, TRUE);
 
     // Re-apply the fix
-    r = G1CP_0203_LogEntryGrahamMerchant();
+    if (G1CP_GetFixStatus(203) > G1CP_FIX_DISABLED) {
+        r = G1CP_0203_LogEntryGrahamMerchant();
+    };
 
     // Check if the topic was created
     if (!G1CP_LogGetTopic(GE_TraderOC)) {
@@ -56,7 +58,9 @@ func int G1CP_Test_0203() {
     // Revert everything
     r = G1CP_0203_LogEntryGrahamMerchantRevert();
     G1CP_SetInfoToldI(infoId, toldBak);
-    r = G1CP_0203_LogEntryGrahamMerchant();
+    if (G1CP_GetFixStatus(203) > G1CP_FIX_DISABLED) {
+        r = G1CP_0203_LogEntryGrahamMerchant();
+    };
     G1CP_LogRemoveTopic(GE_TraderOC);
     G1CP_LogRenameTopic(TEMP_TOPIC_NAME, GE_TraderOC);
 

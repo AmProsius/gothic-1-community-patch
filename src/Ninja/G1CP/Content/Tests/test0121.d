@@ -38,7 +38,9 @@ func int G1CP_Test_0121() {
     var int topicTempPtr; topicTempPtr = G1CP_LogGetTopic(CH1_ShrikesHut);
 
     // Apply the fix again (careful now, don't overwrite the fix status!)
-    r = G1CP_0121_DE_LogTopicShrikeHut();
+    if (G1CP_GetFixStatus(121) > G1CP_FIX_DISABLED) {
+        r = G1CP_0121_DE_LogTopicShrikeHut();
+    };
 
     // Check if - for some reason - the log topic was not created
     if (!topicTempPtr) {

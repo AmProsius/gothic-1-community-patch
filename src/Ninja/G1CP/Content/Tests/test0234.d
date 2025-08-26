@@ -29,28 +29,7 @@ func int G1CP_Test_0234() {
     // Check status of the test
     var int passed; passed = TRUE;
 
-    // First pass: Create the log topic with the faulty entry and see if the fix will update it
-
-    // Create the topic
-    Log_CreateTopic(GE_AnimalTrophies, LOG_MISSION);
-    Log_SetTopicStatus(GE_AnimalTrophies, LOG_RUNNING);
-    Log_AddEntry(GE_AnimalTrophies, logEntryWrong);
-
-    // Trigger the fix (careful now, don't overwrite the fix status!)
-    var int r; r = G1CP_0234_DE_LogEntryDrax();
-
-    // Check if it was updated
-    if (G1CP_LogHasEntry(GE_AnimalTrophies, logEntryWrong)) {
-        G1CP_TestsuiteErrorDetail("Log topic entry (incorrect) remained unchanged");
-        passed = FALSE;
-    };
-    if (!G1CP_LogHasEntry(GE_AnimalTrophies, logEntryRight)) {
-        G1CP_TestsuiteErrorDetail("Log topic entry (correct) does not exist");
-        passed = FALSE;
-    };
-    G1CP_LogRemoveTopic(GE_AnimalTrophies);
-
-    // Second pass: Call the dialog function and observe if it creates the corrected entry
+    // First pass: Call the dialog function and observe if it creates the corrected entry
 
     // Backup values
     var int skillBak; skillBak = G1CP_GetIntVarI(skillId, 0, 0);
@@ -88,6 +67,32 @@ func int G1CP_Test_0234() {
     if (oreBefore > 0) {
         CreateInvItems(hero, oreId, oreBefore);
     };
+
+    // Second pass: Create the log topic with the faulty entry and see if the fix will update it
+
+    // Create the topic
+    Log_CreateTopic(GE_AnimalTrophies, LOG_MISSION);
+    Log_SetTopicStatus(GE_AnimalTrophies, LOG_RUNNING);
+    Log_AddEntry(GE_AnimalTrophies, logEntryWrong);
+
+    // Trigger the fix (careful now, don't overwrite the fix status!)
+    if (G1CP_GetFixStatus(234) > G1CP_FIX_DISABLED) {
+        var int r; r = G1CP_0234_DE_LogEntryDrax();
+    };
+
+    // Check if it was updated
+    if (G1CP_LogHasEntry(GE_AnimalTrophies, logEntryWrong)) {
+        G1CP_TestsuiteErrorDetail("Log topic entry (incorrect) remained unchanged");
+        passed = FALSE;
+    };
+    if (!G1CP_LogHasEntry(GE_AnimalTrophies, logEntryRight)) {
+        G1CP_TestsuiteErrorDetail("Log topic entry (correct) does not exist");
+        passed = FALSE;
+    };
+    G1CP_LogRemoveTopic(GE_AnimalTrophies);
+
+    // Restore the topic to how it was before
+    G1CP_LogRenameTopic(TEMP_TOPIC_NAME, GE_AnimalTrophies);
 
     // Return success
     return passed;

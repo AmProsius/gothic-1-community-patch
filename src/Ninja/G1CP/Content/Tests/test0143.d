@@ -26,28 +26,7 @@ func int G1CP_Test_0143() {
     // Check status of the test
     var int passed; passed = TRUE;
 
-    // First pass: Create the log topic with the faulty entry and see if the fix will update it
-
-    // Create the topic
-    Log_CreateTopic(GE_TeacherNC, LOG_MISSION);
-    Log_SetTopicStatus(GE_TeacherNC, LOG_RUNNING);
-    Log_AddEntry(GE_TeacherNC, logEntryWrong);
-
-    // Trigger the fix (careful now, don't overwrite the fix status!)
-    var int r; r = G1CP_0143_DE_LogEntryBuster();
-
-    // Check if it was updated
-    if (G1CP_LogHasEntry(GE_TeacherNC, logEntryWrong)) {
-        G1CP_TestsuiteErrorDetail("Log topic entry (incorrect) remained unchanged");
-        passed = FALSE;
-    };
-    if (!G1CP_LogHasEntry(GE_TeacherNC, logEntryRight)) {
-        G1CP_TestsuiteErrorDetail("Log topic entry (correct) does not exist");
-        passed = FALSE;
-    };
-    G1CP_LogRemoveTopic(GE_TeacherNC);
-
-    // Second pass: Call the dialog function and observe if it creates the corrected entry
+    // First pass: Call the dialog function and observe if it creates the corrected entry
 
     G1CP_Testsuite_Call(funcId, 0, 0, TRUE);
 
@@ -58,6 +37,29 @@ func int G1CP_Test_0143() {
     };
     if (!G1CP_LogHasEntry(GE_TeacherNC, logEntryRight)) {
         G1CP_TestsuiteErrorDetail("Log topic entry was not added by the dialog function");
+        passed = FALSE;
+    };
+    G1CP_LogRemoveTopic(GE_TeacherNC);
+
+    // Second pass: Create the log topic with the faulty entry and see if the fix will update it
+
+    // Create the topic
+    Log_CreateTopic(GE_TeacherNC, LOG_MISSION);
+    Log_SetTopicStatus(GE_TeacherNC, LOG_RUNNING);
+    Log_AddEntry(GE_TeacherNC, logEntryWrong);
+
+    // Trigger the fix (careful now, don't overwrite the fix status!)
+    if (G1CP_GetFixStatus(143) > G1CP_FIX_DISABLED) {
+        var int r; r = G1CP_0143_DE_LogEntryBuster();
+    };
+
+    // Check if it was updated
+    if (G1CP_LogHasEntry(GE_TeacherNC, logEntryWrong)) {
+        G1CP_TestsuiteErrorDetail("Log topic entry (incorrect) remained unchanged");
+        passed = FALSE;
+    };
+    if (!G1CP_LogHasEntry(GE_TeacherNC, logEntryRight)) {
+        G1CP_TestsuiteErrorDetail("Log topic entry (correct) does not exist");
         passed = FALSE;
     };
     G1CP_LogRemoveTopic(GE_TeacherNC);
