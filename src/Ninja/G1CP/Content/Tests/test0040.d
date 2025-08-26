@@ -6,7 +6,7 @@
  * Expected behavior: The condition function will return FALSE.
  */
 func int G1CP_Test_0040() {
-    var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("Info_Org_804_FirstWarn_Condition");
+    var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("VLK_585_Aleph_DIRTY_Condition");
     var int ulbertId; ulbertId = G1CP_Testsuite_CheckInfo("GRD_271_ULBERT_DRUNK");
     var int brandickId; brandickId = G1CP_Testsuite_CheckInfo("GRD_261_Brandick_ALEPH");
     var int alephId; alephId = G1CP_Testsuite_CheckInfo("VLK_585_Aleph_SCHUPPEN");
