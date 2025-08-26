@@ -7,7 +7,6 @@
  */
 func int G1CP_Test_0126() {
     var oCInfo info; info = G1CP_Testsuite_FindInfo("Org_843_Sharky_Fisk");
-    G1CP_Testsuite_CheckPassed();
 
     if (info.trade) {
         G1CP_TestsuiteErrorDetail("Dialog is a trade dialog");

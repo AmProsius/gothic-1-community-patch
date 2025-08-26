@@ -5,7 +5,6 @@ func int G1CP_Test_{ISSUE_NUM_PAD}() {
     /* ### TODO: Replace dialog condition name of "XXX_Dialog_Condition_Name" ### */
     var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("XXX_Dialog_Condition_Name");
     /* ### TODO: Optional: Add additional checks ### */
-    G1CP_Testsuite_CheckPassed();
 
     /* ### TODO: Optional: Backup values ### */
     /* ### TODO: Optional: Set new values ### */
@@ -20,6 +19,6 @@ func int G1CP_Test_{ISSUE_NUM_PAD}() {
         G1CP_TestsuiteErrorDetail("Dialog condition failed");
         return FALSE;
     }
-   
+
     return TRUE;
 }

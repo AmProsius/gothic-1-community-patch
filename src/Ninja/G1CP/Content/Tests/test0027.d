@@ -12,7 +12,6 @@ func int G1CP_Test_0027() {
     var int var1Id; var1Id = G1CP_Testsuite_CheckIntVar("drax_bierbekommen");
     var int var2Id; var2Id = G1CP_Testsuite_CheckIntVar("drax_Lehrer_frei");
     var int topicId; topicId = G1CP_Testsuite_CheckStringConst("GE_TeacherOW");
-    G1CP_Testsuite_CheckPassed();
 
     // Rename the log topic if it already exists
     const string TOPIC = ""; TOPIC = G1CP_GetStringConstI(topicId, 0, TOPIC);

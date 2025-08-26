@@ -17,7 +17,6 @@ func void G1CP_Test_0046() {
     var int skipId; skipId = G1CP_Testsuite_CheckInfo("GRD_211_Skip_WELCOME");
     var zCWaypoint cellarWp; cellarWp = G1CP_Testsuite_FindWaypoint("OCC_CELLAR_BACK_LEFT_CELL");
     var zCWaypoint staircaseWp; staircaseWp = G1CP_Testsuite_FindWaypoint("OCC_STABLE_STAIRCASE_TOP");
-    G1CP_Testsuite_CheckPassed();
 
     // Two passes
     if (!Npc_HasItems(hero, G1CP_0046_SmithDoor_Item)) {

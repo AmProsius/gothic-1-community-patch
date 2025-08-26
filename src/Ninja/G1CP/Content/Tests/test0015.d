@@ -7,7 +7,6 @@
  */
 func int G1CP_Test_0015() {
     var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc("DIA_Horatio_HelpSTR_LEARN_NOW");
-    G1CP_Testsuite_CheckPassed();
 
     const int ATR_STRENGTH = 4;
 

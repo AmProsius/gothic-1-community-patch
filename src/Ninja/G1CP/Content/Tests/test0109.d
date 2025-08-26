@@ -8,7 +8,6 @@
 func int G1CP_Test_0109() {
     var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc("Info_Bloodwyn_PayDay_PayAgain");
     var int oreId; oreId = G1CP_Testsuite_CheckItem("ItMiNugget");
-    G1CP_Testsuite_CheckPassed();
 
     // Backup values
     var int amountBefore; amountBefore = Npc_HasItems(hero, oreId);

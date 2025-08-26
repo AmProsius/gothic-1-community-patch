@@ -10,7 +10,6 @@ func int G1CP_Test_0037() {
     const string GE_TraderOC = ""; GE_TraderOC = G1CP_Testsuite_GetStringConst("GE_TraderOC");
     var int infoId; infoId = G1CP_Testsuite_CheckInfo("DIA_Gravo_HelpHow");
     var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc("DIA_Gravo_HelpHow_Info");
-    G1CP_Testsuite_CheckPassed();
 
     // Check status of the test
     var int passed; passed = TRUE;

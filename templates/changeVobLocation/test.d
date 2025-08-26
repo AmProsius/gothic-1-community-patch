@@ -7,7 +7,6 @@
  */
 func void G1CP_Test_{ISSUE_NUM_PAD}() {
     G1CP_Testsuite_CheckManual();
-    G1CP_Testsuite_CheckPassed();
 
     // ### TODO Check teleport location. If bad, use G1CP_Testsuite_FindWaypoint and AI_Teleport ###
     G1CP_Testsuite_NpcBeamToNearestWpPosPtr(hero, _@f(G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}_PosNew));

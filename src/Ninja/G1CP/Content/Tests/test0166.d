@@ -11,7 +11,6 @@ func void G1CP_Test_0166() {
     var int joint1Id; joint1Id = G1CP_Testsuite_CheckItem("ItMiJoint_1");
     var int joint2Id; joint2Id = G1CP_Testsuite_CheckItem("ItMiJoint_2");
     var int joint3Id; joint3Id = G1CP_Testsuite_CheckItem("ItMiJoint_3");
-    G1CP_Testsuite_CheckPassed();
 
     // Give the player an item to check
     if (!Npc_HasItems(hero, joint1Id)) {

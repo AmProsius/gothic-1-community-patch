@@ -13,7 +13,6 @@ func int G1CP_Test_0234() {
     var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc("Org_819_Drax_Creatures_Zahn");
     var int skillId; skillId = G1CP_Testsuite_CheckIntVar("Knows_GetTeeth");
     var int oreId; oreId = G1CP_Testsuite_CheckItem("ItMinugget");
-    G1CP_Testsuite_CheckPassed();
 
     // Define variables for specific test
     // I'm sorry for not breaking the line at 120 characters

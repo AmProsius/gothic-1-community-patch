@@ -9,7 +9,6 @@ func void G1CP_Test_0127() {
     G1CP_Testsuite_CheckManual();
     var zCWaypoint wp; wp = G1CP_Testsuite_FindWaypoint("NC_HUT28_OUT");
     var int itemId; itemId = G1CP_Testsuite_CheckItem("ITKELOCKPICK");
-    G1CP_Testsuite_CheckPassed();
 
     // Give the player an item to check
     if (!Npc_HasItems(hero, itemId)) {

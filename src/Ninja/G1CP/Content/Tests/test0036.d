@@ -10,7 +10,6 @@ func int G1CP_Test_0036() {
     var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("Stt_311_Fisk_MordragKO_Condition");
     var C_Npc npc; npc = G1CP_Testsuite_FindNpc("Org_826_Mordrag");
     var int varId; varId = G1CP_Testsuite_CheckIntVar("MordragKO_HauAb");
-    G1CP_Testsuite_CheckPassed();
 
     // Define possibly missing symbols locally
     const int ATR_HITPOINTS = 0;

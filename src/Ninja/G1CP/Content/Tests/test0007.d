@@ -14,7 +14,6 @@ func void G1CP_Test_0007() {
     G1CP_Testsuite_CheckAiStateStartFunc("ZS_PracticeSword");
     G1CP_Testsuite_CheckItem("ItRw_Bow_Small_01");
     G1CP_Testsuite_CheckItem("Scars_Schwert");
-    G1CP_Testsuite_CheckPassed();
 
     // Two passes
     G1CP_Test_0007_Pass = 0;

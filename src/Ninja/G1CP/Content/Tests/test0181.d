@@ -11,7 +11,6 @@ func void G1CP_Test_0181() {
     var int helloId; helloId = G1CP_Testsuite_CheckInfo("Info_Swiney_Hello");
     var int diggerId; diggerId = G1CP_Testsuite_CheckInfo("Info_Swiney_Schuerfer");
     var C_Npc npc; npc = G1CP_Testsuite_FindNpc("SFB_1037_Swiney");
-    G1CP_Testsuite_CheckPassed();
 
     // Set unlock the dialog
     G1CP_SetInfoToldI(helloId, TRUE);

@@ -10,7 +10,6 @@ func int G1CP_Test_0184() {
     var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("Info_Bartholo_Krautbote_Condition");
     var int currierId; currierId = G1CP_Testsuite_CheckIntVar("Kalom_Krautbote");
     var int deliveredId; deliveredId = G1CP_Testsuite_CheckIntVar("Kalom_DeliveredWeed");
-    G1CP_Testsuite_CheckPassed();
 
     // Define possibly missing symbols locally
     const int LOG_RUNNING = 1;

@@ -8,7 +8,6 @@
 func void G1CP_Test_0052() {
     G1CP_Testsuite_CheckManual();
     var zCWaypoint wp; wp = G1CP_Testsuite_FindWaypoint("NC_HUT03_OUT_MOVEMENT");
-    G1CP_Testsuite_CheckPassed();
 
     // Get that mercenary out of the way
     Wld_SetTime(3, 0);

@@ -11,7 +11,6 @@ func int G1CP_Test_0241() {
     var int logId; logId = G1CP_Testsuite_CheckIntVar("CorKalom_BringMCQBalls");
     var int infoId; infoId = G1CP_Testsuite_CheckInfo("GRD_200_Thorus_WANNABEMAGE");
     var int kdfId; kdfId = G1CP_Testsuite_CheckIntVar("Corristo_KDFAufnahme");
-    G1CP_Testsuite_CheckPassed();
 
     // Define possibly missing symbols locally
     const int LOG_SUCCESS = 2;

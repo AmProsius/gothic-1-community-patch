@@ -8,7 +8,6 @@
 func int G1CP_Test_0220() {
     var int chptId; chptId = G1CP_Testsuite_CheckIntVar("Kapitel");
     var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("Info_TPL_1405_GorNaRan_Condition");
-    G1CP_Testsuite_CheckPassed();
 
     // Backup values
     var int chapterBak; chapterBak = G1CP_GetIntVarI(chptId, 0, 0);

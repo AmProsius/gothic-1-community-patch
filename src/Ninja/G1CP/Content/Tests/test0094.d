@@ -13,7 +13,6 @@ func void G1CP_Test_0094() {
     var int funcId; funcId = G1CP_Testsuite_CheckInfo("DIA_Horatio_PleaseTeachSTR");
     var int varId; varId = G1CP_Testsuite_CheckIntVar("horatio_StrFree");
     var C_Npc npc; npc = G1CP_Testsuite_FindNpc("Bau_901_Horatio");
-    G1CP_Testsuite_CheckPassed();
 
     // Set unlock the dialog
     G1CP_SetInfoToldI(funcId, TRUE);

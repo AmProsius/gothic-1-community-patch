@@ -8,7 +8,6 @@
 func int G1CP_Test_0031_RunDialog(var int itemId, var int num, var string dialogName) {
     var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc(dialogName);
     var int infoId; infoId = G1CP_Testsuite_CheckInfo("Info_Wolf_MCPLATESENOUGH");
-    G1CP_Testsuite_CheckPassed();
 
     // Backup values
     var int toldBak; toldBak = Npc_KnowsInfo(hero, infoId);
@@ -36,7 +35,6 @@ func int G1CP_Test_0031_RunDialog(var int itemId, var int num, var string dialog
 func int G1CP_Test_0031() {
     var int varId; varId = G1CP_Testsuite_CheckIntVar("Knows_GetMCPlates");
     var int itemId; itemId = G1CP_Testsuite_CheckItem("ItAt_Crawler_02");
-    G1CP_Testsuite_CheckPassed();
 
     // Backup values
     var int varBak; varBak = G1CP_GetIntVarI(varId, 0, 0);

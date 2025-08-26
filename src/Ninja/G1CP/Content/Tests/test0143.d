@@ -11,7 +11,6 @@ func int G1CP_Test_0143() {
     const string TEMP_TOPIC_NAME = "G1CP Test 143"; // Has to be a unique name with absolute certainty
     const string GE_TeacherNC = ""; GE_TeacherNC = G1CP_Testsuite_GetStringConst("GE_TeacherNC");
     var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc("DIA_ORG_833_Buster3_Info");
-    G1CP_Testsuite_CheckPassed();
 
     // Define variables for specific test
     const string logEntryWrong = "Buster der Bandit unterichtet das Talent AKROBATIK.";

@@ -13,7 +13,6 @@ func void G1CP_Test_0124() {
     var zCWaypoint wp; wp = G1CP_Testsuite_FindWaypoint("OCR_THORUS");
     var int fncChptrId; fncChptrId = G1CP_Testsuite_CheckFunc("B_Kapitelwechsel", "void|int", "");
     var int fncFmTakenId; fncFmTakenId = G1CP_Testsuite_CheckFunc("B_Story_FMTaken", "void|none", "");
-    G1CP_Testsuite_CheckPassed();
 
     // First get the player away from the camp, in case Diego is still there. He would be attacked and mess up the test
     G1CP_Testsuite_NpcBeamTo(hero, "START"); // "START" is the start point, no need to check if it exists

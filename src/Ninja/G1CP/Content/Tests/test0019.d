@@ -10,7 +10,6 @@ func int G1CP_Test_0019() {
     var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("DIA_Scorpio_REFUSETRAIN_Condition");
     var int infoId; infoId = G1CP_Testsuite_CheckInfo("DIA_Scorpio_Hello");
     var int chptrId; chptrId = G1CP_Testsuite_CheckIntVar("Kapitel");
-    G1CP_Testsuite_CheckPassed();
 
     var int chapterBak; chapterBak = G1CP_GetIntVarI(chptrId, 0, 0);
     var int guildBak; guildBak = Npc_GetTrueGuild(hero);

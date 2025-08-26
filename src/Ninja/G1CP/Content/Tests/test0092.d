@@ -14,7 +14,6 @@ func void G1CP_Test_0092() {
     var int storyId; storyId = G1CP_Testsuite_CheckInfo("DIA_Horatio_Story");
     var int horatioId; horatioId = G1CP_Testsuite_CheckInfo("DIA_Jeremiah_Horatio");
     var C_Npc npc; npc = G1CP_Testsuite_FindNpc("Bau_901_Horatio");
-    G1CP_Testsuite_CheckPassed();
 
     // Set unlock the dialog
     G1CP_SetInfoToldI(helloId, TRUE); // Optional

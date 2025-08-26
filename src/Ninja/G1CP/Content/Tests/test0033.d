@@ -11,7 +11,6 @@ func int G1CP_Test_0033() {
     var C_Npc npc; npc = G1CP_Testsuite_FindNpc("ORG_842_Shrike");
     var int aiVarId; aiVarId = G1CP_Testsuite_CheckIntConst("AIV_WASDEFEATEDBYSC");
     var int varId; varId = G1CP_Testsuite_CheckIntVar("Gorn_ShrikesHut");
-    G1CP_Testsuite_CheckPassed();
 
     // Define possibly missing symbols locally
     const int LOG_SUCCESS = 2;

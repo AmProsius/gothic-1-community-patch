@@ -8,7 +8,6 @@ func int G1CP_Test_{ISSUE_NUM_PAD}() {
     const string correctedString = "### TODO: Corrected string ###";
     const int targetInt = 0; targetInt = G1CP_Testsuite_GetIntConst(targetName, 0);
     var string name; name = G1CP_Testsuite_GetStringConst(arrayName, targetInt);
-    G1CP_Testsuite_CheckPassed();
 
     if (!Hlp_StrCmp(name, correctedString)) {
         G1CP_TestsuiteErrorDetailSSSSSSS("String incorrect: ", arrayName, "[", targetName, "] = '", name, "'");

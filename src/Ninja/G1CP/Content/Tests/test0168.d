@@ -9,7 +9,6 @@ func int G1CP_Test_0168() {
     const int GIL_NONE = 0; GIL_NONE = G1CP_Testsuite_GetIntConst("GIL_NONE");
     var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("Tpl_1400_GorNaBar_VICTORY_Condition");
     var int itemId; itemId = G1CP_Testsuite_CheckItem("ItAt_Crawlerqueen");
-    G1CP_Testsuite_CheckPassed();
 
     // Backup values
     var int guildBak; guildBak = Npc_GetTrueGuild(hero);

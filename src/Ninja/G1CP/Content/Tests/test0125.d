@@ -8,7 +8,6 @@
 func int G1CP_Test_0125() {
     G1CP_Testsuite_CheckLang(G1CP_Lang_EN | G1CP_Lang_DE);
     var C_Item itm; itm = G1CP_Testsuite_CreateItem("ItMw_1H_Sword_Bastard_02");
-    G1CP_Testsuite_CheckPassed();
 
     // Static string arrays cannot be read directly
     var string itmText; itmText = MEM_ReadStatStringArr(itm.text, 4);

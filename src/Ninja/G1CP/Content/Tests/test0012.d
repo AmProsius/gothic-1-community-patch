@@ -11,7 +11,6 @@ func void G1CP_Test_0012() {
     G1CP_Testsuite_CheckIntConst("AIV_WASDEFEATEDBYSC");
     var int bowId; bowId = G1CP_Testsuite_CheckItem("ItRw_Bow_Small_01");
     var int arrowId; arrowId = G1CP_Testsuite_CheckItem("ItAmArrow");
-    G1CP_Testsuite_CheckPassed();
 
     // Insert test NPC
     var string wp; wp = Npc_GetNearestWp(hero);

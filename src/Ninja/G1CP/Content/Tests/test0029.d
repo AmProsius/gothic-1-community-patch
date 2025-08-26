@@ -9,7 +9,6 @@ func int G1CP_Test_0029() {
     var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("DIA_ORG_833_Buster3_Condition");
     var int infoId; infoId = G1CP_Testsuite_CheckInfo("DIA_ORG_833_Buster");
     const int NPC_TALENT_ACROBAT = 0; NPC_TALENT_ACROBAT = G1CP_Testsuite_GetIntConst("NPC_TALENT_ACROBAT");
-    G1CP_Testsuite_CheckPassed();
 
     var int toldBak; toldBak = Npc_KnowsInfo(hero, infoId);
     var int talentBak; talentBak = Npc_GetTalentSkill(hero, NPC_TALENT_ACROBAT);

@@ -10,7 +10,6 @@ func int G1CP_Test_0026() {
     var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("Info_Org_804_FirstWarn_Condition");
     var C_Npc npc; npc = G1CP_Testsuite_FindNpc("Org_804_Organisator");
     var int aiVarId; aiVarId = G1CP_Testsuite_CheckIntConst("AIV_GUARDPASSAGE_STATUS");
-    G1CP_Testsuite_CheckPassed();
 
     const int ATT_NEUTRAL = 2;
     const int AIV_GPS_FIRSTWARN = 1;

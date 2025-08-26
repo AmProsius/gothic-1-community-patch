@@ -8,7 +8,6 @@
 func void G1CP_Test_0050() {
     G1CP_Testsuite_CheckManual();
     var zCVob pillar; pillar = G1CP_Testsuite_FindVob("MOBSISEULE");
-    G1CP_Testsuite_CheckPassed();
 
     // Visualize or remove bounding box
     if (pillar.bitfield[0] & zCVob_bitfield0_drawBBox3D) {

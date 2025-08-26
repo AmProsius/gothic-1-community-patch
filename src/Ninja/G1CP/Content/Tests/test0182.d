@@ -13,7 +13,6 @@ func int G1CP_Test_0182() {
     var int oreId; oreId = G1CP_Testsuite_CheckItem("ItMiNugget");
     var C_Npc npc; npc = G1CP_Testsuite_FindNpc("Vlk_524_Dusty");
     var int aiVarId; aiVarId = G1CP_Testsuite_CheckIntConst("AIV_PARTYMEMBER");
-    G1CP_Testsuite_CheckPassed();
 
     // Define possibly missing symbols locally
     const int LOG_MISSION = 0;

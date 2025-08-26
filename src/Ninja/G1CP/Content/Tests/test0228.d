@@ -11,7 +11,6 @@ func int G1CP_Test_0228() {
     var C_Npc npc; npc = G1CP_Testsuite_FindNpc("PC_Fighter");
     var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc("ORG_801_Lares_BringListAnteil_Info");
     var int aiVarId; aiVarId = G1CP_Testsuite_CheckIntConst("AIV_FINDABLE");
-    G1CP_Testsuite_CheckPassed();
 
     // Backup values
     G1CP_LogRenameTopic(CH1_JoinNC, TEMP_TOPIC_NAME);

@@ -8,7 +8,6 @@ func int G1CP_Test_0235() {
     var string expected; expected = "Verwandlung Orkhund";
     var string strName; strName = G1CP_ComposeArraySymbolName("TXT_SPELLS", SPL_TRF_ORCDOG);
     var string name; name = G1CP_Testsuite_GetStringConst(strName);
-    G1CP_Testsuite_CheckPassed();
 
     if (!Hlp_StrCmp(name, expected)) {
         G1CP_TestsuiteErrorDetailSSSSS("String incorrect: TXT_SPELLS[", SPELL_NAME, "] = '", name, "'");

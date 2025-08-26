@@ -9,7 +9,6 @@ func int G1CP_Test_0191() {
     var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("SLD_709_Cord_TRAINAGAIN_Condition");
     var int infoId; infoId = G1CP_Testsuite_CheckInfo("SLD_709_Cord_TRAINAGAIN");
     const int NPC_TALENT_1H = 0; NPC_TALENT_1H = G1CP_Testsuite_GetIntConst("NPC_TALENT_1H");
-    G1CP_Testsuite_CheckPassed();
 
     // Backup values
     var int toldBak; toldBak = Npc_KnowsInfo(hero, infoId);

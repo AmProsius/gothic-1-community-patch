@@ -12,7 +12,6 @@ func void G1CP_Test_0193() {
     var zCWaypoint wp; wp = G1CP_Testsuite_FindWaypoint("OCC_MAINGATE_VWHEEL");
     var C_Npc npc; npc = G1CP_Testsuite_FindNpc("GRD_230_Gardist");
     G1CP_Testsuite_CheckFunc("Rtn_OMFull_230", "void|none", "Daily routine function");
-    G1CP_Testsuite_CheckPassed();
 
     // Change the routine of the NPC to leave the player alone
     Npc_ExchangeRoutine(npc, ROUTINE);

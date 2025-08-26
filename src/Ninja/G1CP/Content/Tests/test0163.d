@@ -10,7 +10,6 @@ func void G1CP_Test_0163() {
     G1CP_Testsuite_CheckManual();
     const int GIL_GRD = 0; GIL_GRD = G1CP_Testsuite_GetIntConst("GIL_GRD");
     var zCWaypoint wp; wp = G1CP_Testsuite_FindWaypoint("OCC_GATE_VWHEEL");
-    G1CP_Testsuite_CheckPassed();
 
     // Change the player's guild to not be attacked
     hero.guild = GIL_GRD;

@@ -8,7 +8,6 @@
 func void G1CP_Test_0116() {
     G1CP_Testsuite_CheckManual();
     var zCWaypoint wp; wp = G1CP_Testsuite_FindWaypoint("LOCATION_23_CAVE_1_02");
-    G1CP_Testsuite_CheckPassed();
 
     // Optional: Make sure Jacko is not attacking (if he is present)
     const int LOG_SUCCESS = 2;

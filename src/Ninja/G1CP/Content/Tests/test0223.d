@@ -61,7 +61,6 @@ func int G1CP_Test_0223() {
     var int ncQuestId; ncQuestId = G1CP_Testsuite_CheckIntVar("Mordrag_GotoKalom");
     var int ocQuestId; ocQuestId = G1CP_Testsuite_CheckIntVar("Raven_SpySect");
     G1CP_Testsuite_FindNpc("Org_826_Mordrag");
-    G1CP_Testsuite_CheckPassed();
 
     // Define possibly missing symbols locally
     const int ATR_HITPOINTS = 0;

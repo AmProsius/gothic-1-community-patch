@@ -10,7 +10,6 @@ func int G1CP_Test_0205() {
     const string GE_TraderNC = ""; GE_TraderNC = G1CP_Testsuite_GetStringConst("GE_TraderNC");
     var int infoId; infoId = G1CP_Testsuite_CheckInfo("DIA_Wolf_Hello");
     var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc("DIA_Wolf_Hello_Info");
-    G1CP_Testsuite_CheckPassed();
 
     // Check status of the test
     var int passed; passed = TRUE;

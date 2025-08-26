@@ -12,7 +12,6 @@ func int G1CP_Test_0024() {
     var int itemId; itemId = G1CP_Testsuite_CheckItem("ItMiNugget");
     var int drugId; drugId = G1CP_Testsuite_CheckIntVar("Kalom_DrugMonopol");
     var int krautId; krautId = G1CP_Testsuite_CheckIntVar("Kalom_Krautbote");
-    G1CP_Testsuite_CheckPassed();
 
     const int LOG_RUNNING = 1;
     const int LOG_SUCCESS = 2;

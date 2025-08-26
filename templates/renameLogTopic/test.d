@@ -6,7 +6,6 @@ func int G1CP_Test_{ISSUE_NUM_PAD}() {
     const string symbolName = "### TODO: Symbol name ###";
     const string correctedString = "### TODO: Corrected string ###";
     var int symbId; symbId = G1CP_Testsuite_GetStringConst(symbolName, 0);
-    G1CP_Testsuite_CheckPassed();
 
     const int LOG_MISSION = 0;
 

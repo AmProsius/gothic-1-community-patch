@@ -9,7 +9,6 @@
 func void G1CP_Test_0045() {
     G1CP_Testsuite_CheckManual();
     var zCWaypoint wp; wp = G1CP_Testsuite_FindWaypoint("OW_MONSTER_NAVIGATE_02");
-    G1CP_Testsuite_CheckPassed();
 
     // Define possibly missing symbols locally
     const int NPC_FLAG_IMMORTAL = 1 << 1;

@@ -10,7 +10,6 @@ func int G1CP_Test_0102() {
     var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc("Info_Bloodwyn_PayForJesse_Info");
     var int questId; questId = G1CP_Testsuite_CheckIntVar("Jesse_PayForMe");
     var int oreId; oreId = G1CP_Testsuite_CheckItem("ItMiNugget");
-    G1CP_Testsuite_CheckPassed();
 
     // Create possibly missing symbols locally
     const int LOG_RUNNING = 1;

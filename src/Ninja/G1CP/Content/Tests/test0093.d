@@ -12,7 +12,6 @@ func int G1CP_Test_0093() {
     const string CH1_HoratiosTeachings = "";
     CH1_HoratiosTeachings = G1CP_Testsuite_GetStringConst("CH1_HoratiosTeachings");
     var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc("DIA_Horatio_PleaseTeachSTR_Info");
-    G1CP_Testsuite_CheckPassed();
 
     // Define variables for specific test
     // I'm sorry for not breaking the line at 120 characters

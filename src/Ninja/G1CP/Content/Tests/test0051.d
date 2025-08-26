@@ -8,7 +8,6 @@
  */
 func void G1CP_Test_0051() {
     G1CP_Testsuite_CheckManual();
-    G1CP_Testsuite_CheckPassed();
 
     // Set PC to invincible to not be killed
     const int NPC_FLAG_IMMORTAL = 1 << 1;

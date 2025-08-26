@@ -9,7 +9,6 @@ func void G1CP_Test_0011() {
     G1CP_Testsuite_CheckManual();
     var int weapId; weapId = G1CP_Testsuite_CheckItem("ItMw_1H_Sword_Old_01");
     var zCWaypoint wp; wp = G1CP_Testsuite_FindWaypoint("OCR_BEHIND_HUT_1");
-    G1CP_Testsuite_CheckPassed();
 
     // Supply a weapon
     if (!Npc_HasEquippedWeapon(hero))

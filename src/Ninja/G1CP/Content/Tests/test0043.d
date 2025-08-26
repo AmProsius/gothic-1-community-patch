@@ -8,7 +8,6 @@
 func int G1CP_Test_0043() {
     G1CP_Testsuite_CheckLang(G1CP_Lang_EN);
     var int funcId; funcId = G1CP_Testsuite_CheckFunc("B_BuildLearnString", "string|string|int|int", "");
-    G1CP_Testsuite_CheckPassed();
 
     // Call the function
     MEM_PushStringParam("Test 43"); // text

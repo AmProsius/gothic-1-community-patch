@@ -15,7 +15,6 @@ func int G1CP_Test_0188() {
     } else {
         questId = G1CP_Testsuite_CheckIntVar("Kalom_DrugMonopol");
     };
-    G1CP_Testsuite_CheckPassed();
 
     // Define possibly missing symbols locally
     const int LOG_SUCCESS = 2;

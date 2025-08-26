@@ -8,7 +8,6 @@ func int G1CP_Test_0122() {
     var zCWaypoint newWpA; newWpA = G1CP_Testsuite_FindWaypoint("OW_SAWHUT_SLEEP_01");
     var zCWaypoint newWpB; newWpB = G1CP_Testsuite_FindWaypoint("OW_CAVALORN_01");
     var C_Npc npc; npc = G1CP_Testsuite_FindNpc("STT_336_Cavalorn");
-    G1CP_Testsuite_CheckPassed();
 
     // Backup daily routine function and current world time
     var int rtnBak; rtnBak = G1CP_NpcGetRoutine(npc);

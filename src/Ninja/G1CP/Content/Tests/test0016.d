@@ -13,7 +13,6 @@ func int G1CP_Test_0016() {
     var int info1Id; info1Id = G1CP_Testsuite_CheckInfo("Info_Thorus_BribeGuard");
     var int info2Id; info2Id = G1CP_Testsuite_CheckInfo("Info_Thorus_EnterCastle");
     var int aiVarId; aiVarId = G1CP_Testsuite_CheckIntConst("AIV_PASSGATE");
-    G1CP_Testsuite_CheckPassed();
 
     var int aiVarBak; aiVarBak = G1CP_NpcGetAiVarI(npc, aiVarId, 0);
     var int told1Bak; told1Bak = Npc_KnowsInfo(hero, info1Id);

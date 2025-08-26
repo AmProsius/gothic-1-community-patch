@@ -9,7 +9,6 @@ func void G1CP_Test_0194() {
     G1CP_Testsuite_CheckManual();
     G1CP_Testsuite_CheckAiStateStartFunc("ZS_AssessBody_RecoverWeapon");
     var int swordId; swordId = G1CP_Testsuite_CheckItem("Whistlers_Schwert");
-    G1CP_Testsuite_CheckPassed();
 
     // Insert test NPC
     var string wp; wp = Npc_GetNearestWp(hero);

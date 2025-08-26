@@ -10,7 +10,6 @@ func int G1CP_Test_{ISSUE_NUM_PAD}() {
     const string topicName = ""; topicName = G1CP_Testsuite_GetStringConst("XX_TopicName", 0);
     var int infoId; infoId = G1CP_Testsuite_CheckInfo("DIA_Info_Name");
     var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc("DIA_Function_Name_Info");
-    G1CP_Testsuite_CheckPassed();
 
     // Check status of the test
     var int passed; passed = TRUE;

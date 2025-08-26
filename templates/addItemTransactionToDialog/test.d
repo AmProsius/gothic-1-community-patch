@@ -6,7 +6,6 @@ func int G1CP_Test_{ISSUE_NUM_PAD}() {
     // ### TODO: Replace item name of "ItName" ###
     var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc("Info_Dialog_Function_Name");
     var int itemId; itemId = G1CP_Testsuite_CheckItem("ItName");
-    G1CP_Testsuite_CheckPassed();
 
     // ### TODO: Replace desired amount int value of 0 ###
     const int amountDesired = 0;

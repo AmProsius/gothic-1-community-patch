@@ -19,7 +19,6 @@ func void G1CP_Test_0078() {
     var int ulumuluId; ulumuluId = G1CP_Testsuite_CheckItem("UluMulu");
     G1CP_Testsuite_CheckItem("Scars_Schwert");
     G1CP_Testsuite_CheckFunc("B_AssessEnemy", "void|none", "");
-    G1CP_Testsuite_CheckPassed();
 
     // Insert test NPC
     var string wp; wp = Npc_GetNearestWp(hero);

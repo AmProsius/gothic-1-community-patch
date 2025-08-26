@@ -7,7 +7,6 @@
  */
 func int G1CP_Test_0044() {
     var C_Item itm; itm = G1CP_Testsuite_CreateItem("ItAt_Meatbug_01");
-    G1CP_Testsuite_CheckPassed();
 
     // Define possibly missing symbols locally
     const int ITEM_KAT_FOOD = 1 << 5;

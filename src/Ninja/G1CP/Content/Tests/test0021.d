@@ -9,7 +9,6 @@ func int G1CP_Test_0021() {
     const int GIL_NONE = 0; GIL_NONE = G1CP_Testsuite_GetIntConst("GIL_NONE");
     const string CH1_LostNek = ""; CH1_LostNek = G1CP_Testsuite_GetStringConst("CH1_LostNek");
     var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc("DIA_Fletcher_WoNek_Info");
-    G1CP_Testsuite_CheckPassed();
 
     const int LOG_MISSION = 0;
     const int LOG_RUNNING = 1;

@@ -7,7 +7,6 @@
  */
 func int G1CP_Test_0017() {
     var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("Info_Jackal_Hello_Condition");
-    G1CP_Testsuite_CheckPassed();
 
     var int guildBak; guildBak = Npc_GetTrueGuild(hero);
     if (final()) {

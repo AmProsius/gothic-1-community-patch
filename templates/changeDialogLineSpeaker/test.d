@@ -10,7 +10,6 @@ func int G1CP_Test_{ISSUE_NUM_PAD}() {
     G1CP_Testsuite_CheckManual();
     var C_Npc npc; npc = G1CP_Testsuite_FindNpc("Xxx_Npc");
     // ### TODO: Optional: Add checks to unlock the dialog ###
-    G1CP_Testsuite_CheckPassed();
 
     // ### TODO: Optional: Unlock the dialog ###
 

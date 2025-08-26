@@ -8,7 +8,6 @@ func int G1CP_Test_0236() {
     var string expected; expected = "Orkhund";
     var string strName; strName = G1CP_ComposeArraySymbolName("TXT_GUILDS", GIL_ORCDOG);
     var string name; name = G1CP_Testsuite_GetStringConst(strName);
-    G1CP_Testsuite_CheckPassed();
 
     if (!Hlp_StrCmp(name, expected)) {
         G1CP_TestsuiteErrorDetailSSSSS("String incorrect: TXT_GUILDS[", GUILD_NAME, "] = '", name, "'");

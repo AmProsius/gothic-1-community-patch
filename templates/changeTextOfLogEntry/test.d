@@ -11,7 +11,6 @@ func int G1CP_Test_{ISSUE_NUM_PAD}() {
     const string symbId = ""; symbId = G1CP_Testsuite_GetStringConst(symbolName, 0);
     var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc(dialogName);
     /* ### TODO: Optional: Additional checks ### */
-    G1CP_Testsuite_CheckPassed();
 
     const int LOG_MISSION = 0;
     const int LOG_RUNNING = 1;

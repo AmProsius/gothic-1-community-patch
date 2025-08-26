@@ -9,7 +9,6 @@ func void G1CP_Test_0010() {
     G1CP_Testsuite_CheckManual();
     var int symbId; symbId = G1CP_Testsuite_CheckAiStateStartFunc("ZS_FollowPC");
     G1CP_Testsuite_CheckAiStateStartFunc("ZS_Talk");
-    G1CP_Testsuite_CheckPassed();
 
     // Insert test NPC
     var string wp; wp = Npc_GetNearestWp(hero);

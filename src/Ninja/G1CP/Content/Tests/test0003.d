@@ -14,7 +14,6 @@ func void G1CP_Test_0003() {
     G1CP_Testsuite_CheckItem("Diegos_Bogen");
     G1CP_Testsuite_CheckItem("ItRw_Bow_Small_01");
     G1CP_Testsuite_CheckFunc("B_RegainDroppedWeapon", "void|inst", "");
-    G1CP_Testsuite_CheckPassed();
 
     // Insert test NPC
     var string wp; wp = Npc_GetNearestWp(hero);

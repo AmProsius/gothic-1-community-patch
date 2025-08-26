@@ -10,7 +10,6 @@ func int G1CP_Test_0040() {
     var int ulbertId; ulbertId = G1CP_Testsuite_CheckInfo("GRD_271_ULBERT_DRUNK");
     var int brandickId; brandickId = G1CP_Testsuite_CheckInfo("GRD_261_Brandick_ALEPH");
     var int alephId; alephId = G1CP_Testsuite_CheckInfo("VLK_585_Aleph_SCHUPPEN");
-    G1CP_Testsuite_CheckPassed();
 
     // Backup values
     var int ulberBak; ulberBak = Npc_KnowsInfo(hero, ulbertId);

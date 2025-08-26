@@ -9,7 +9,6 @@
 func void G1CP_Test_0014() {
     G1CP_Testsuite_CheckManual();
     var zCWaypoint wp; wp = G1CP_Testsuite_FindWaypoint("NC_HUT21_OUT");
-    G1CP_Testsuite_CheckPassed();
 
     // Define possibly missing symbols locally
     const int NPC_FLAG_IMMORTAL = 1 << 1;

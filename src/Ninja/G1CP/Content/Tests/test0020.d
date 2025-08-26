@@ -10,7 +10,6 @@ func int G1CP_Test_0020() {
     var C_Npc npc; npc = G1CP_Testsuite_FindNpc("Grd_251_Kirgo");
     var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc("Info_Kirgo_Charge_Beer");
     var int beerId; beerId = G1CP_Testsuite_CheckItem("ItFoBeer");
-    G1CP_Testsuite_CheckPassed();
 
     var int r;
     CreateInvItem(hero, beerId); // Have at least one (to see if the number decreases)

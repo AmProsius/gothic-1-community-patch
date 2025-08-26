@@ -16,7 +16,6 @@ instance G1CP_Test_0192_Npc(C_Npc) {
 };
 func int G1CP_Test_0192() {
     G1CP_Testsuite_CheckItem("Thorus_Schwert");
-    G1CP_Testsuite_CheckPassed();
 
     // Insert test NPC
     var string wp; wp = Npc_GetNearestWp(hero);

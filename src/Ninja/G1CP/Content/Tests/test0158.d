@@ -8,7 +8,6 @@
 func int G1CP_Test_0158() {
     var C_Item itm; itm = G1CP_Testsuite_CreateItem("ItFo_Potion_Haste_03");
     const int Value_Haste3 = 0; Value_Haste3 = G1CP_Testsuite_GetIntConst("Value_Haste3");
-    G1CP_Testsuite_CheckPassed();
 
     if (itm.value == Value_Haste3) {
         return TRUE;

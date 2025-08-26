@@ -9,7 +9,6 @@ func int G1CP_Test_0028() {
     var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("Org_826_Mordrag_GotoNewcamp_Condition");
     var int infoId; infoId = G1CP_Testsuite_CheckInfo("Org_826_Mordrag_JoinNewcamp");
     var int varId; varId = G1CP_Testsuite_CheckIntVar("MordragKO_HauAb");
-    G1CP_Testsuite_CheckPassed();
 
     var int toldBak; toldBak = Npc_KnowsInfo(hero, infoId);
     var int varBak; varBak = G1CP_GetIntVarI(varId, 0, 0);

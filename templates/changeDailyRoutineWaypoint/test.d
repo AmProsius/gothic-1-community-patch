@@ -8,7 +8,6 @@ func int G1CP_Test_{ISSUE_NUM_PAD}() {
     const string rtnName = "start";
     var zCWaypoint newWp; newWp = G1CP_Testsuite_FindWaypoint(correctedWpName);
     var C_Npc npc; npc = G1CP_Testsuite_FindNpc(npcName);
-    G1CP_Testsuite_CheckPassed();
 
     // Backup daily routine function and current world time
     var int rtnBak; rtnBak = G1CP_NpcGetRoutine(npc);
