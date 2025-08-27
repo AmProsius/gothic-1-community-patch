@@ -39,6 +39,9 @@ func int G1CP_Testsuite() {
     MEM_Game.debugChannels = MEM_Game.debugChannels | 31;
     MEM_SetShowDebug(TRUE);
 
+    // Initialize backup buffer
+    G1CP_Testsuite_BackupInit();
+
     // Confirm registration
     return ((CC_Active(G1CP_TestsuiteList))
          && (CC_Active(G1CP_TestsuiteAll))
@@ -68,6 +71,7 @@ func int G1CP_TestsuiteRun(var int id) {
 
     // Call test function and return
     MEM_CallByString(funcName);
+    G1CP_Testsuite_Restore();
     if (G1CP_Testsuite_TestIsManualBySymb(symb)) {
         return 2;
     };
@@ -130,6 +134,13 @@ func string G1CP_TestsuiteRunMultiple(var int appliedOnly) {
             // Reset the data stack position and call the test function
             MEM_Parser.datastack_sptr = stkPosBefore;
             MEM_CallById(i-1);
+            G1CP_Testsuite_Restore();
+
+            // DEBUG - TODO remove once tests are refactored -
+            if (G1CP_TestsuiteStatusPassed) && (symb.offset == (zPAR_TYPE_INT >> 12)) {
+                G1CP_TestsuiteStatusPassed = MEM_PopIntResult();
+            };
+            // DEBUG
 
             if (G1CP_Testsuite_TestIsManualBySymb(symb)) {
                 msg = ConcatStrings(msg, "[MANUAL]|");
