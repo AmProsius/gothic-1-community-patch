@@ -5,15 +5,11 @@
  *
  * Expected behavior: The hero never loses strength
  */
-func int G1CP_Test_0015() {
+func void G1CP_Test_0015() {
     var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc("DIA_Horatio_HelpSTR_LEARN_NOW");
-
     const int ATR_STRENGTH = 4;
 
-    var int strengthBak; strengthBak = hero.attribute[ATR_STRENGTH];
-    if (final()) {
-        hero.attribute[ATR_STRENGTH] = strengthBak;
-    };
+    G1CP_Testsuite_BackupIntAddr(_@(hero.attribute[ATR_STRENGTH]));
 
     // Strength should increase when strength < 100
     hero.attribute[ATR_STRENGTH] = 10;
@@ -24,6 +20,4 @@ func int G1CP_Test_0015() {
     hero.attribute[ATR_STRENGTH] = 1000;
     G1CP_Testsuite_Call(funcId, 0, 0, TRUE);
     G1CP_Testsuite_AssertGe(hero.attribute[ATR_STRENGTH], 1000);
-
-    return TRUE;
 };

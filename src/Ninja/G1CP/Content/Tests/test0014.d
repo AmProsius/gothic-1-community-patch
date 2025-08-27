@@ -10,7 +10,6 @@ func void G1CP_Test_0014() {
     G1CP_Testsuite_CheckManual();
     var zCWaypoint wp; wp = G1CP_Testsuite_FindWaypoint("NC_HUT21_OUT");
 
-    // Define possibly missing symbols locally
     const int NPC_FLAG_IMMORTAL = 1 << 1;
 
     // Set PC to invincible to observe the action
@@ -18,7 +17,5 @@ func void G1CP_Test_0014() {
 
     // Make sure NPCs are around
     Wld_SetTime(12, 0);
-
-    // Teleport to a suitable spot
     AI_Teleport(hero, wp.name);
 };

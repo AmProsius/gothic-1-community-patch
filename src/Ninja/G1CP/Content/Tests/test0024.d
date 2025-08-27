@@ -6,22 +6,17 @@
  *
  * Expected behavior: The variable 'Kalom_DrugMonopol' remains as before and 'Kalom_Krautbote' is set to 'LOG_SUCCESS'
  */
-func int G1CP_Test_0024() {
+func void G1CP_Test_0024() {
     var C_Npc npc; npc = G1CP_Testsuite_FindNpc("GUR_1201_CorKalom");
     var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc("Info_Kalom_KrautboteBACK_Info");
     var int itemId; itemId = G1CP_Testsuite_CheckItem("ItMiNugget");
     var int drugId; drugId = G1CP_Testsuite_CheckIntVar("Kalom_DrugMonopol");
     var int krautId; krautId = G1CP_Testsuite_CheckIntVar("Kalom_Krautbote");
-
     const int LOG_RUNNING = 1;
     const int LOG_SUCCESS = 2;
 
-    var int drugMonopolBak; drugMonopolBak = G1CP_GetIntVarI(drugId, 0, 0);
-    var int krautboteBak; krautboteBak = G1CP_GetIntVarI(krautId, 0, 0);
-    if (final()) {
-        G1CP_SetIntVarI(drugId, 0, drugMonopolBak);
-        G1CP_SetIntVarI(krautId, 0, krautboteBak);
-    };
+    G1CP_Testsuite_BackupInt(drugId, 0);
+    G1CP_Testsuite_BackupInt(krautId, 0);
 
     G1CP_SetIntVarI(drugId, 0, LOG_RUNNING);
     G1CP_SetIntVarI(krautId, 0, LOG_RUNNING);
@@ -30,6 +25,4 @@ func int G1CP_Test_0024() {
     G1CP_Testsuite_Call(funcId, npc, hero, TRUE);
     G1CP_Testsuite_Assert(G1CP_GetIntVarI(drugId, 0, 0), LOG_RUNNING);
     G1CP_Testsuite_Assert(G1CP_GetIntVarI(krautId, 0, 0), LOG_SUCCESS);
-
-    return TRUE;
 };

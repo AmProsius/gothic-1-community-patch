@@ -9,7 +9,6 @@ func void G1CP_Test_0009() {
     G1CP_Testsuite_CheckManual();
     G1CP_Testsuite_CheckAiState("ZS_Flee");
     var zCWaypoint wp; wp = G1CP_Testsuite_FindWaypoint("PSI_TEMPLE_COURT_2");
-
     G1CP_Testsuite_NpcBeamTo(hero, wp.name);
     AI_SetNpcsToState(hero, ZS_G1CP_Test_0009_State, 4500);
 };

@@ -5,45 +5,32 @@
  *
  * Expected behavior: The variable "drax_Lehrer_frei" is set/not set and log entry is created/not created accordingly.
  */
-func int G1CP_Test_0027() {
-    const string TEMP_TOPIC_NAME = "G1CP Test 27"; // Has to be a unique name with absolute certainty
+func void G1CP_Test_0027() {
     var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc("Org_819_Drax_Scavenger_Info");
     var int itemId; itemId = G1CP_Testsuite_CheckItem("ItFoBeer");
     var int var1Id; var1Id = G1CP_Testsuite_CheckIntVar("drax_bierbekommen");
     var int var2Id; var2Id = G1CP_Testsuite_CheckIntVar("drax_Lehrer_frei");
-    var int topicId; topicId = G1CP_Testsuite_CheckStringConst("GE_TeacherOW");
+    var string topic; topic = G1CP_Testsuite_GetStringConst("GE_TeacherOW");
 
-    // Rename the log topic if it already exists
-    const string TOPIC = ""; TOPIC = G1CP_GetStringConstI(topicId, 0, TOPIC);
-    G1CP_LogRenameTopic(TOPIC, TEMP_TOPIC_NAME);
-
-    var int beersBefore; beersBefore = Npc_HasItems(hero, itemId);
-    var int beerGivenBak; beerGivenBak = G1CP_GetIntVarI(var1Id, 0, 0);
-    var int teachingBak; teachingBak = G1CP_GetIntVarI(var2Id, 0, 0);
-    if (final()) {
-        G1CP_LogRemoveTopic(TOPIC);
-        G1CP_LogRenameTopic(TEMP_TOPIC_NAME, TOPIC);
-        G1CP_SetIntVarI(var1Id, 0, beerGivenBak);
-        G1CP_SetIntVarI(var2Id, 0, teachingBak);
-        G1CP_Testsuite_NpcSetInvItemAmount(hero, itemId, beersBefore);
-    };
+    G1CP_Testsuite_BackupTopic(topic);
+    G1CP_Testsuite_BackupInvAmount(hero, itemId);
+    G1CP_Testsuite_BackupInt(var1Id, 0);
+    G1CP_Testsuite_BackupInt(var2Id, 0);
 
     // No beer, variable should remain false and log entry not created
     G1CP_Testsuite_NpcSetInvItemAmount(hero, itemId, 0);
     G1CP_SetIntVarI(var1Id, 0, FALSE);
     G1CP_SetIntVarI(var2Id, 0, FALSE);
     G1CP_Testsuite_Call(funcId, 0, 0, TRUE);
-    G1CP_Testsuite_Assert(G1CP_LogGetTopic(TOPIC), 0);
+    G1CP_Testsuite_Assert(G1CP_LogGetTopic(topic), 0);
     G1CP_Testsuite_Assert(G1CP_GetIntVarI(var2Id, 0, 0), FALSE);
 
     // Has beer, variable should be set to true and log entry should be created
-    G1CP_LogRemoveTopic(TOPIC);
+    G1CP_LogRemoveTopic(topic);
     G1CP_Testsuite_NpcSetInvItemAmount(hero, itemId, 1);
     G1CP_SetIntVarI(var1Id, 0, FALSE);
     G1CP_SetIntVarI(var2Id, 0, FALSE);
     G1CP_Testsuite_Call(funcId, 0, 0, TRUE);
-    G1CP_Testsuite_AssertNe(G1CP_LogGetTopic(TOPIC), 0);
+    G1CP_Testsuite_AssertNe(G1CP_LogGetTopic(topic), 0);
     G1CP_Testsuite_AssertNe(G1CP_GetIntVarI(var2Id, 0, 0), FALSE);
-
-    return TRUE;
 };

@@ -8,7 +8,6 @@
 func void G1CP_Test_0001() {
     G1CP_Testsuite_CheckManual();
     var zCWaypoint wp; wp = G1CP_Testsuite_FindWaypoint("PSI_PATH_11_5");
-
     Wld_SetTime(0, 0);
     AI_Teleport(hero, wp.name);
 };
