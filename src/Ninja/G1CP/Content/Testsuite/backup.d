@@ -22,7 +22,7 @@ func void G1CP_Testsuite_Restore() {
     if (SB_Length()) {
         SBc(zPAR_TOK_RET);
         MEM_CallByPtr(SB_GetStream());
-        SB_Clear();
+        SB_SetLength(0); // Keep the memory allocated and just clear the length written
     };
 };
 
