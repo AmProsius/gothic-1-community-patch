@@ -14,10 +14,7 @@ func void G1CP_Test_0194() {
     var string wp; wp = Npc_GetNearestWp(hero);
     Wld_InsertNpc(G1CP_Test_0194_Npc, wp);
     var C_Npc test; test = Hlp_GetNpc(G1CP_Test_0194_Npc);
-    if (!Hlp_IsValidNpc(test)) {
-        G1CP_TestsuiteErrorDetail("Failed to insert NPC");
-        return;
-    };
+    G1CP_Testsuite_Assert(Hlp_IsValidNpc(test), TRUE);
 
     // Insert items
     wp = Npc_GetNearestWp(hero);

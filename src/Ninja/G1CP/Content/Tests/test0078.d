@@ -24,25 +24,16 @@ func void G1CP_Test_0078() {
     var string wp; wp = Npc_GetNearestWp(hero);
     Wld_InsertNpc(G1CP_Test_0078_Npc, wp);
     var C_Npc test; test = Hlp_GetNpc(G1CP_Test_0078_Npc);
-    if (!Hlp_IsValidNpc(test)) {
-        G1CP_TestsuiteErrorDetail("Failed to insert NPC");
-        return;
-    };
+    G1CP_Testsuite_Assert(Hlp_IsValidNpc(test), TRUE);
 
     // Insert the orcs
     wp = Npc_GetNextWp(hero);
     Wld_InsertNpc(warriorId, wp);
     test = Hlp_GetNpc(warriorId);
-    if (!Hlp_IsValidNpc(test)) {
-        G1CP_TestsuiteErrorDetail("NPC 'OrcWarrior1' failed to insert");
-        return;
-    };
+    G1CP_Testsuite_Assert(Hlp_IsValidNpc(test), TRUE);
     Wld_InsertNpc(slaveId, wp);
     test = Hlp_GetNpc(slaveId);
-    if (!Hlp_IsValidNpc(test)) {
-        G1CP_TestsuiteErrorDetail("NPC 'OrcSlave' failed to insert");
-        return;
-    };
+    G1CP_Testsuite_Assert(Hlp_IsValidNpc(test), TRUE);
 
     // Give Ulumulu to player (enough strength too)
     const int ATR_STRENGTH = 4;

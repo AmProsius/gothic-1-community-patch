@@ -10,7 +10,6 @@ Content\Testsuite\find.d
 Content\Testsuite\create.d
 Content\Testsuite\call.d
 Content\Testsuite\npc.d
-Content\Testsuite\inspect.d
 
 Content\Tests\test0001.d
 Content\Tests\test0002.d

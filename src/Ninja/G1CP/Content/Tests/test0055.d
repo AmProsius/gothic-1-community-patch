@@ -13,12 +13,8 @@ func void G1CP_Test_0055() {
     var int chptrId; chptrId = G1CP_Testsuite_CheckIntVar("Kapitel");
     const int CHAPTER_NUM = 2;
 
-    if (G1CP_GetIntVarI(chptrId, 0, 0) >= CHAPTER_NUM) {
-        G1CP_TestsuiteErrorDetail("It must be chapter one to run this test");
-        return;
-    };
-
     // Start the second chapter
+    G1CP_Testsuite_AssertLt(G1CP_GetIntVarI(chptrId, 0, 0), CHAPTER_NUM);
     MEM_PushIntParam(CHAPTER_NUM);
     MEM_CallById(funcId);
 
