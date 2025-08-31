@@ -131,6 +131,23 @@ func void G1CP_LogRemoveTopic(var string topic) {
 };
 
 /*
+ * Count the entries of one log topic
+ */
+func int G1CP_LogCountEntries(var string topic) {
+    var int count; count = -1;
+    var int lt; lt = G1CP_LogGetTopic(topic);
+    if (lt) {
+        var oCLogTopic logTopic; logTopic = _^(lt);
+        if (logTopic.m_lstEntries_next) {
+            count = List_Length(logTopic.m_lstEntries_next);
+        } else {
+            count = 0;
+        };
+    };
+    return count;
+};
+
+/*
  * Get a log entry by its topic and its name
  */
 func int G1CP_LogGetEntry(var string topic, var string entry) {
