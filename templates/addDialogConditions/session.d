@@ -2,23 +2,28 @@
  * #{ISSUE_NUM} {LONGNAME}
  */
 func int G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}() {
-    const string conditionName = "### TODO: Dialog condition name ###";
-    /* ### TODO: Optional: Add conditions for the fix to be applied ### */
-    if (!G1CP_IsFunc(conditionName, "int|none")) {
-        return FALSE
-    }
+    const string conditionFuncName = "### TODO Dialog condition function name ###";
 
-    HookDaedalusFuncS(conditionName, "G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}_Hook");
+    if (!G1CP_IsFunc(conditionFuncName, "int|none"))
+    /*### TODO || (!G1CP_IsIntVar("other_requirements")) ###*/{
+        return FALSE;
+    };
+
+    HookDaedalusFuncS(conditionFuncName, "G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}_Hook");
     return TRUE;
 };
 
 /*
  * This function intercepts the dialog condition to introduce more conditions
  */
-func void G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}_Hook() {
+func int G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}_Hook() {
     G1CP_ReportFuncToSpy();
 
-    /* ### TODO: Write the fix ### */
+    // Add the new conditions (other conditions remain untouched)
+    if (/*### TODO Add conditions that should prevent the dialog ###*/FALSE) {
+        return FALSE;
+    };
 
+    // Continue with the original function
     ContinueCall();
 };

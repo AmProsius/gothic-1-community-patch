@@ -1,24 +1,14 @@
 /*
  * #{ISSUE_NUM} {LONGNAME}
  */
-func int G1CP_Test_{ISSUE_NUM_PAD}() {
-    /* ### TODO: Replace dialog condition name of "XXX_Dialog_Condition_Name" ### */
-    var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("XXX_Dialog_Condition_Name");
-    /* ### TODO: Optional: Add additional checks ### */
+func void G1CP_Test_{ISSUE_NUM_PAD}() {
+    var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("### TODO Dialog condition function name ###");
+    // ### TODO Add additional checks ###
 
-    /* ### TODO: Optional: Backup values ### */
-    /* ### TODO: Optional: Set new values ### */
+    // ### TODO Backup variable values ###
 
-    // Call dialog condition function
+    // ### TODO Set variable values ###
+
     G1CP_Testsuite_Call(funcId, 0, 0, FALSE);
-    var int ret; ret = MEM_PopIntResult();
-
-    /* ### TODO: Optional: Restore values ### */
-
-    if (ret) {
-        G1CP_TestsuiteErrorDetail("Dialog condition failed");
-        return FALSE;
-    }
-
-    return TRUE;
-}
+    G1CP_Testsuite_Assert(MEM_PopIntResult(), FALSE);
+};
