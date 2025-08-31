@@ -147,6 +147,22 @@ func void G1CP_Testsuite_BackupRoutine(var C_Npc slf) {
 };
 
 /*
+ * Backup the rough location of an NPC.
+ */
+func void G1CP_Testsuite_BackupNpcWp(var C_Npc slf) {
+    // Backup the string to a unique address (freed below)
+    var int strCopyAddr; strCopyAddr = MEM_Alloc(sizeof_zString);
+    MEM_WriteString(strCopyAddr, slf.wp);
+
+    SB_Use(G1CP_TestsuiteBackupStream);
+    SBc(zPAR_TOK_PUSHINST);    SBw(Hlp_GetInstanceId(slf));
+    SBc(zPAR_TOK_PUSHINT);     SBw(strCopyAddr);
+    SBc(zPAR_TOK_CALL);        SBw(MEM_GetFuncOffset(G1CP_Testsuite_NpcBeamTo));
+    SBc(zPAR_TOK_PUSHINT);     SBw(strCopyAddr);
+    SBc(zPAR_TOK_CALL);        SBw(MEM_GetFuncOffset(MEM_Free));
+};
+
+/*
  * Backup the status of a log topic. It's better to completely back up the topic instead (below).
  */
 func void G1CP_Testsuite_BackupTopicStatus(var string topic) {
