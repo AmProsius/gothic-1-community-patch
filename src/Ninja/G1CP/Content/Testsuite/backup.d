@@ -190,3 +190,15 @@ func void G1CP_Testsuite_BackupTopic(var string topic) {
     SBc(zPAR_TOK_PUSHINT);     SBw(topicAddr);
     SBc(zPAR_TOK_CALL);        SBw(MEM_GetFuncOffset(MEM_Free));
 };
+
+/*
+ * Backup fix status to later freshly revert and apply the fix. If used, this must always be the LAST backup of a test.
+ */
+func void G1CP_Testsuite_BackupFixStatus() {
+    var int fixId; fixId = G1CP_Testsuite_FindCallerTestId();
+    SB_Use(G1CP_TestsuiteBackupStream);
+    SBc(zPAR_TOK_PUSHINT);     SBw(fixId);
+    SBc(zPAR_TOK_CALL);        SBw(MEM_GetFuncOffset(G1CP_Testsuite_RevertFix));
+    SBc(zPAR_TOK_PUSHINT);     SBw(fixId);
+    SBc(zPAR_TOK_CALL);        SBw(MEM_GetFuncOffset(G1CP_Testsuite_ApplyFix));
+};

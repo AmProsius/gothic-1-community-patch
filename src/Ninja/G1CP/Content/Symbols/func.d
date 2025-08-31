@@ -9,6 +9,7 @@
  *  - "string"
  *  - "func" (only as parameter type)
  *  - "inst" for any kind of instance
+ *  - "none" for no parameters
  * If left blank it serves as a wildcard and is not considered.
  *
  * Example:
