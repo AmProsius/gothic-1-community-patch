@@ -137,6 +137,16 @@ func void G1CP_Testsuite_BackupTalentSkill(var C_Npc slf, var int skill) {
 };
 
 /*
+ * Backup the active routine of an NPC.
+ */
+func void G1CP_Testsuite_BackupRoutine(var C_Npc slf) {
+    SB_Use(G1CP_TestsuiteBackupStream);
+    SBc(zPAR_TOK_PUSHINST);    SBw(Hlp_GetInstanceId(slf));
+    SBc(zPAR_TOK_PUSHINT);     SBw(G1CP_NpcGetRoutine(slf));
+    SBc(zPAR_TOK_CALL);        SBw(MEM_GetFuncOffset(G1CP_NpcExchangeRoutineI));
+};
+
+/*
  * Backup the status of a log topic. It's better to completely back up the topic instead (below).
  */
 func void G1CP_Testsuite_BackupTopicStatus(var string topic) {
@@ -189,6 +199,17 @@ func void G1CP_Testsuite_BackupTopic(var string topic) {
     SBc(zPAR_TOK_CALL);        SBw(MEM_GetFuncOffset(MEM_Free));
     SBc(zPAR_TOK_PUSHINT);     SBw(topicAddr);
     SBc(zPAR_TOK_CALL);        SBw(MEM_GetFuncOffset(MEM_Free));
+};
+
+/*
+ * Backup the world time.
+ */
+func void G1CP_Testsuite_BackupWldTime() {
+    var int timeBak; timeBak = G1CP_GetWorldTime();
+    SB_Use(G1CP_TestsuiteBackupStream);
+    SBc(zPAR_TOK_PUSHINT);     SBw(timeBak / 100);
+    SBc(zPAR_TOK_PUSHINT);     SBw(timeBak % 100);
+    SBc(zPAR_TOK_CALLEXTERN);  SBw(MEM_GetFuncId(Wld_SetTime));
 };
 
 /*
