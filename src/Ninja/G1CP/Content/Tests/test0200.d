@@ -1,9 +1,8 @@
 /*
  * #200 Text of Improved Ore Armor too long (DE)
  */
-func int G1CP_Test_0200() {
+func void G1CP_Test_0200() {
     G1CP_Testsuite_CheckLang(G1CP_Lang_DE);
     var C_Item itm; itm = G1CP_Testsuite_CreateItem("ORE_ARMOR_H");
-
-    return G1CP_Testsuite_InspectItemString(itm, "text[0]", "Stone der Schmied hat sie noch verbessern können!");
+    G1CP_Testsuite_AssertS(itm.text, "Stone der Schmied hat sie noch verbessern können!");
 };

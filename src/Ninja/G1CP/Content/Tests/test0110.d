@@ -8,7 +8,6 @@
 func void G1CP_Test_0110() {
     G1CP_Testsuite_CheckManual();
     var zCWaypoint wp; wp = G1CP_Testsuite_FindWaypoint("OCR_OUTSIDE_MCAMP_01");
-
     Wld_SetTime(4, 0); // Get all the NPCs out of the way
     AI_Teleport(hero, wp.name);
 };

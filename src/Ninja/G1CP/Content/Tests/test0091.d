@@ -21,7 +21,5 @@ func void G1CP_Test_0091() {
     G1CP_SetInfoToldI(teachStrId, TRUE);
     G1CP_SetInfoToldI(horatioId, TRUE);
     G1CP_SetIntVarI(varId, 0, FALSE);
-
-    // Teleport the hero
     AI_Teleport(hero, npc.wp);
 };

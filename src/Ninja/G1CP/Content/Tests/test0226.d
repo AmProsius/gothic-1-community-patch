@@ -10,8 +10,6 @@ func void G1CP_Test_0226() {
     G1CP_Testsuite_CheckManual();
     var int itemId; itemId = G1CP_Testsuite_CheckItem("ItKe_Focus5");
     var zCWaypoint wp; wp = G1CP_Testsuite_FindWaypoint("LOCATION_05_02_STONEHENGE4");
-
-    // Define possibly missing symbols locally
     const int NPC_FLAG_IMMORTAL = 1 << 1;
 
     // Set PC to invincible to not be killed

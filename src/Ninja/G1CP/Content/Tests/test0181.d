@@ -15,7 +15,5 @@ func void G1CP_Test_0181() {
     // Set unlock the dialog
     G1CP_SetInfoToldI(helloId, TRUE);
     G1CP_SetInfoToldI(diggerId, FALSE);
-
-    // Teleport the hero
     AI_Teleport(hero, npc.wp);
 };

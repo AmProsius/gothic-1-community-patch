@@ -8,12 +8,12 @@
  */
 func void G1CP_Test_0055() {
     G1CP_Testsuite_CheckManual();
-    const int CHAPTER_NUM = 2;
     var zCWaypoint wp; wp = G1CP_Testsuite_FindWaypoint("OCR_THORUS");
     var int funcId; funcId = G1CP_Testsuite_CheckFunc("B_Kapitelwechsel", "void|int", "");
     var int chptrId; chptrId = G1CP_Testsuite_CheckIntVar("Kapitel");
+    const int CHAPTER_NUM = 2;
 
-    if (G1CP_GetIntVarI(chptrId, 0, 0) >= 2) {
+    if (G1CP_GetIntVarI(chptrId, 0, 0) >= CHAPTER_NUM) {
         G1CP_TestsuiteErrorDetail("It must be chapter one to run this test");
         return;
     };

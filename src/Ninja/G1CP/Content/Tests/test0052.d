@@ -7,11 +7,6 @@
  */
 func void G1CP_Test_0052() {
     G1CP_Testsuite_CheckManual();
-    var zCWaypoint wp; wp = G1CP_Testsuite_FindWaypoint("NC_HUT03_OUT_MOVEMENT");
-
-    // Get that mercenary out of the way
-    Wld_SetTime(3, 0);
-
-    // Teleport to the nearest waypoint
-    AI_Teleport(hero, wp.name);
+    Wld_SetTime(3, 0); // Get that mercenary out of the way
+    G1CP_Testsuite_NpcBeamToNearestWpPosPtr(hero, _@f(G1CP_0052_UseWithItemNcGrindstone_Pos));
 };

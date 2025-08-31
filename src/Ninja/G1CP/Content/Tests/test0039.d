@@ -13,7 +13,5 @@ func void G1CP_Test_0039() {
 
     // Set unlock the dialog
     G1CP_SetIntVarI(varId, 0, TRUE);
-
-    // Teleport the hero
     AI_Teleport(hero, npc.wp);
 };

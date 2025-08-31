@@ -1,9 +1,8 @@
 /*
  * #232 Spelling - Transform Bloodfly (DE)
  */
-func int G1CP_Test_0232() {
+func void G1CP_Test_0232() {
     G1CP_Testsuite_CheckLang(G1CP_Lang_DE);
     var C_Item itm; itm = G1CP_Testsuite_CreateItem("ItArScrollTrfBloodfly");
-
-    return G1CP_Testsuite_InspectItemString(itm, "description", "Verwandlung Blutfliege");
+    G1CP_Testsuite_AssertS(itm.description, "Verwandlung Blutfliege");
 };

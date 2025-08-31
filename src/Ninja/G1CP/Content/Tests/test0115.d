@@ -7,8 +7,6 @@
  */
 func void G1CP_Test_0115() {
     G1CP_Testsuite_CheckManual();
-
-    // Define possibly missing symbols locally
     const int NPC_FLAG_IMMORTAL = 1 << 1;
 
     // Set PC to invincible to observe the action

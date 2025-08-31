@@ -5,65 +5,23 @@
  *
  * Expected behavior: The log topic is correctly created in both cases.
  */
-func int G1CP_Test_0037() {
-    const string TEMP_TOPIC_NAME = "G1CP Test 37"; // Has to be a unique name with absolute certainty
-    const string GE_TraderOC = ""; GE_TraderOC = G1CP_Testsuite_GetStringConst("GE_TraderOC");
+func void G1CP_Test_0037() {
     var int infoId; infoId = G1CP_Testsuite_CheckInfo("DIA_Gravo_HelpHow");
     var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc("DIA_Gravo_HelpHow_Info");
+    var string topic; topic = G1CP_Testsuite_GetStringConst("GE_TraderOC");
 
-    // Check status of the test
-    var int passed; passed = TRUE;
+    G1CP_Testsuite_BackupTopic(topic);
+    G1CP_Testsuite_BackupTold(infoId);
+    G1CP_Testsuite_BackupFixStatus();
 
-    // First test: Check if the dialog function creates the topic if it did not exist beforehand
-
-    // Rename the log topic if it already exists
-    G1CP_LogRenameTopic(GE_TraderOC, TEMP_TOPIC_NAME);
-
-    // Just run the dialog and see what happens
+    // Check if the dialog function creates the topic if it did not exist beforehand.
     G1CP_Testsuite_Call(funcId, 0, 0, TRUE);
+    G1CP_Testsuite_Assert(G1CP_LogHasTopic(topic), TRUE);
+    G1CP_LogRemoveTopic(topic);
 
-    // Check if the log entry was created
-    if (!G1CP_LogGetTopic(GE_TraderOC)) {
-        G1CP_TestsuiteErrorDetail("Log topic was not created by the dialog function");
-        passed = FALSE;
-    };
-
-    // Clean up
-    G1CP_LogRemoveTopic(GE_TraderOC);
-
-    // Second test: Check if the log entry is created on applying the fix
-    // This second test is specific to how the G1CP fixes the bug and will fail if a mod fixed the issue in another way
-    var int r;
-
-    // Backup the told status of the dialog
-    var int toldBak; toldBak = Npc_KnowsInfo(hero, infoId);
-
-    // Revert the fix
-    r = G1CP_0037_LogEntryGravoMerchantRevert();
-
-    // Set the dialog to told
+    // Check if the log entry is created on applying the fix.
+    // This test is specific to how the G1CP fixes the bug and will fail if a mod fixed the issue in another way.
     G1CP_SetInfoToldI(infoId, TRUE);
-
-    // Re-apply the fix
-    if (G1CP_GetFixStatus(37) > G1CP_FIX_DISABLED) {
-        r = G1CP_0037_LogEntryGravoMerchant();
-    };
-
-    // Check if the topic was created
-    if (!G1CP_LogGetTopic(GE_TraderOC)) {
-        G1CP_TestsuiteErrorDetail("Log topic was not auto-created on applying the fix");
-        passed = FALSE;
-    };
-
-    // Revert everything
-    r = G1CP_0037_LogEntryGravoMerchantRevert();
-    G1CP_SetInfoToldI(infoId, toldBak);
-    if (G1CP_GetFixStatus(37) > G1CP_FIX_DISABLED) {
-        r = G1CP_0037_LogEntryGravoMerchant();
-    };
-    G1CP_LogRemoveTopic(GE_TraderOC);
-    G1CP_LogRenameTopic(TEMP_TOPIC_NAME, GE_TraderOC);
-
-    // Return success
-    return passed;
+    G1CP_Testsuite_ReapplyFix();
+    G1CP_Testsuite_Assert(G1CP_LogHasTopic(topic), TRUE);
 };

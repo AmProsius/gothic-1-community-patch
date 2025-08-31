@@ -5,30 +5,12 @@
  *
  * Expected behavior: The log topic is correctly created.
  */
-func int G1CP_Test_0204() {
-    const string TEMP_TOPIC_NAME = "G1CP Test 204"; // Has to be a unique name with absolute certainty
-    const string GE_TeacherOW = ""; GE_TeacherOW = G1CP_Testsuite_GetStringConst("GE_TeacherOW");
+func void G1CP_Test_0204() {
+    var string topic; topic = G1CP_Testsuite_GetStringConst("GE_TeacherOW");
     var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc("DIA_Fingers_WhereCavalorn_Info");
 
-    // Check status of the test
-    var int passed; passed = TRUE;
+    G1CP_Testsuite_BackupTopic(topic);
 
-    // Rename the log topic if it already exists
-    G1CP_LogRenameTopic(GE_TeacherOW, TEMP_TOPIC_NAME);
-
-    // Just run the dialog and see what happens
     G1CP_Testsuite_Call(funcId, 0, 0, TRUE);
-
-    // Check if the log entry was created
-    if (!G1CP_LogGetTopic(GE_TeacherOW)) {
-        G1CP_TestsuiteErrorDetail("Log topic was not created by the dialog function");
-        passed = FALSE;
-    };
-
-    // Revert everything
-    G1CP_LogRemoveTopic(GE_TeacherOW);
-    G1CP_LogRenameTopic(TEMP_TOPIC_NAME, GE_TeacherOW);
-
-    // Return success
-    return passed;
+    G1CP_Testsuite_Assert(G1CP_LogHasTopic(topic), TRUE);
 };

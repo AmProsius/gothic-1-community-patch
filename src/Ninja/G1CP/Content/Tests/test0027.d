@@ -22,15 +22,15 @@ func void G1CP_Test_0027() {
     G1CP_SetIntVarI(var1Id, 0, FALSE);
     G1CP_SetIntVarI(var2Id, 0, FALSE);
     G1CP_Testsuite_Call(funcId, 0, 0, TRUE);
-    G1CP_Testsuite_Assert(G1CP_LogGetTopic(topic), 0);
+    G1CP_Testsuite_Assert(G1CP_LogHasTopic(topic), 0);
     G1CP_Testsuite_Assert(G1CP_GetIntVarI(var2Id, 0, 0), FALSE);
+    G1CP_LogRemoveTopic(topic);
 
     // Has beer, variable should be set to true and log entry should be created
-    G1CP_LogRemoveTopic(topic);
     G1CP_Testsuite_NpcSetInvItemAmount(hero, itemId, 1);
     G1CP_SetIntVarI(var1Id, 0, FALSE);
     G1CP_SetIntVarI(var2Id, 0, FALSE);
     G1CP_Testsuite_Call(funcId, 0, 0, TRUE);
-    G1CP_Testsuite_AssertNe(G1CP_LogGetTopic(topic), 0);
+    G1CP_Testsuite_AssertNe(G1CP_LogHasTopic(topic), 0);
     G1CP_Testsuite_AssertNe(G1CP_GetIntVarI(var2Id, 0, 0), FALSE);
 };

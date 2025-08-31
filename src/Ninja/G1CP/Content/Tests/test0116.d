@@ -13,6 +13,5 @@ func void G1CP_Test_0116() {
     const int LOG_SUCCESS = 2;
     G1CP_SetIntVar("Kalom_DrugMonopol", LOG_SUCCESS);
 
-    // Teleport the player
     AI_Teleport(hero, wp.name);
 };

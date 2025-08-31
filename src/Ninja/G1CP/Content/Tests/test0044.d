@@ -5,17 +5,8 @@
  *
  * Expected behavior: The item will have the correct mainflag.
  */
-func int G1CP_Test_0044() {
+func void G1CP_Test_0044() {
     var C_Item itm; itm = G1CP_Testsuite_CreateItem("ItAt_Meatbug_01");
-
-    // Define possibly missing symbols locally
     const int ITEM_KAT_FOOD = 1 << 5;
-
-    // Create the item locally
-    if (itm.mainflag == ITEM_KAT_FOOD) {
-        return TRUE;
-    } else {
-        G1CP_TestsuiteErrorDetailSIS("Category incorrect: mainflag = '", itm.mainflag, "'");
-        return FALSE;
-    };
+    G1CP_Testsuite_Assert(itm.mainflag, ITEM_KAT_FOOD);
 };

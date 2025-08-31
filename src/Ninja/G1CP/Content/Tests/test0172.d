@@ -1,9 +1,8 @@
 /*
  * #172 Spelling - Kalom's Recipe (DE)
  */
-func int G1CP_Test_0172() {
+func void G1CP_Test_0172() {
     G1CP_Testsuite_CheckLang(G1CP_Lang_DE);
     var C_Item itm; itm = G1CP_Testsuite_CreateItem("KalomsRecipe");
-
-    return G1CP_Testsuite_InspectItemString(itm, "name", "Kaloms Rezept");
+    G1CP_Testsuite_AssertS(itm.name, "Kaloms Rezept");
 };

@@ -1,6 +1,15 @@
 /*
  * #52 MOBs in New Camp can be used without corresponding items
  */
+
+/*
+ * Make the positions available to the functions below
+ */
+const float G1CP_0052_UseWithItemNcGrindstone_Pos[3] = {-35498.5625, 2331.01416, -13830.9131};
+
+/*
+ * Apply the fix
+ */
 func int G1CP_0052_UseWithItemNcGrindstone() {
     // Make sure the usage item actually exists
     const int symbId = -2;
@@ -12,7 +21,7 @@ func int G1CP_0052_UseWithItemNcGrindstone() {
     };
 
     // Search the VOB
-    var int vobPtr; vobPtr = G1CP_FindVobByPosF(-58212.9141, 3233.08716, 7490.75928, Hlp_Is_oCMobInter);
+    var int vobPtr; vobPtr = G1CP_FindVobByPosPtr(_@f(G1CP_0052_UseWithItemNcGrindstone_Pos), Hlp_Is_oCMobInter);
     if (vobPtr) {
         var oCMobInter mob; mob  = _^(vobPtr);
         if (Hlp_StrCmp(mob.sceme, "BSSHARP"))
@@ -34,7 +43,7 @@ func int G1CP_0052_UseWithItemNcGrindstoneRevert() {
     };
 
     // Search the VOB again
-    var int vobPtr; vobPtr = G1CP_FindVobByPosF(-58212.9141, 3233.08716, 7490.75928, Hlp_Is_oCMobInter);
+    var int vobPtr; vobPtr = G1CP_FindVobByPosPtr(_@f(G1CP_0052_UseWithItemNcGrindstone_Pos), Hlp_Is_oCMobInter);
     if (vobPtr) {
         var oCMobInter mob; mob  = _^(vobPtr);
         if (Hlp_StrCmp(mob.sceme, "BSSHARP"))

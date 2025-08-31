@@ -5,31 +5,17 @@
  *
  * Expected behavior: The condition function will return FALSE.
  */
-func int G1CP_Test_0168() {
-    const int GIL_NONE = 0; GIL_NONE = G1CP_Testsuite_GetIntConst("GIL_NONE");
+func void G1CP_Test_0168() {
     var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("Tpl_1400_GorNaBar_VICTORY_Condition");
     var int itemId; itemId = G1CP_Testsuite_CheckItem("ItAt_Crawlerqueen");
+    const int GIL_NONE = 0; GIL_NONE = G1CP_Testsuite_GetIntConst("GIL_NONE");
 
-    // Backup values
-    var int guildBak; guildBak = Npc_GetTrueGuild(hero);
+    G1CP_Testsuite_BackupTrueGuild(hero);
+    G1CP_Testsuite_BackupInvAmount(hero, itemId);
 
-    // Set new values
-    CreateInvItem(hero, itemId);
+    G1CP_Testsuite_NpcSetInvItemAmount(hero, itemId, 1);
     Npc_SetTrueGuild(hero, GIL_NONE);
 
-    // Call dialog condition function
     G1CP_Testsuite_Call(funcId, 0, 0, FALSE);
-    var int ret; ret = MEM_PopIntResult();
-
-    // Restore values
-    Npc_SetTrueGuild(hero, guildBak);
-    Npc_RemoveInvItems(hero, itemId, 1);
-
-    // Check return value
-    if (ret) {
-        G1CP_TestsuiteErrorDetail("Dialog condition failed");
-        return FALSE;
-    } else {
-        return TRUE;
-    };
+    G1CP_Testsuite_Assert(MEM_PopIntResult(), FALSE);
 };
