@@ -5,7 +5,7 @@
 /*
  * Make the positions available to the functions below
  */
-const float G1CP_0052_UseWithItemNcGrindstone_Pos[3] = {-35498.5625, 2331.01416, -13830.9131};
+const float G1CP_0052_UseWithItemNcGrindstone_Pos[3] = {-58212.9141, 3233.08716, 7490.75928};
 
 /*
  * Apply the fix

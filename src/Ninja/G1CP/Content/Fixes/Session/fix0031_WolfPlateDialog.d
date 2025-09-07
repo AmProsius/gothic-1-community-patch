@@ -8,6 +8,7 @@ func int G1CP_0031_WolfPlateDialog() {
     };
 
     HookDaedalusFuncS("Info_Wolf_MCPLATESFEW_Condition", "G1CP_0031_WolfPlateDialog_Hook");
+    return TRUE;
 };
 
 /*
