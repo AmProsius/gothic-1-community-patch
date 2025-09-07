@@ -12,7 +12,7 @@ func int G1CP_Test_{ISSUE_NUM_PAD}() {
     var int passed; passed = TRUE;
 
     if (!Hlp_StrCmp(symbId, correctedString)) {
-        G1CP_TestsuiteErrorDetailSSS("Topic name string constant has incorrect content: '", symbId, "'");
+        G1CP_TestsuiteErrorDetail3("Topic name string constant has incorrect content: '", symbId, "'");
         passed = FALSE;
     };
 
@@ -29,7 +29,7 @@ func int G1CP_Test_{ISSUE_NUM_PAD}() {
 
     var oCLogTopic topicTemp; topicTemp = _^(topicTempPtr);
     if (!Hlp_StrCmp(topicTemp.m_strDescription, correctedString)) {
-        G1CP_TestsuiteErrorDetailSSS("Log topic name was not updated: '", topicTemp.m_strDescription, "'");
+        G1CP_TestsuiteErrorDetail3("Log topic name was not updated: '", topicTemp.m_strDescription, "'");
         passed = FALSE;
     };
 

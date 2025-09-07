@@ -15,35 +15,8 @@ func void G1CP_TestsuiteErrorDetail(var string msg) {
     G1CP_TestsuiteMsg = ConcatStrings(G1CP_TestsuiteMsg, ": ");
     G1CP_TestsuiteMsg = ConcatStrings(G1CP_TestsuiteMsg, msg);
 };
-func void G1CP_TestsuiteErrorDetailSSS(var string s1, var string s2, var string s3) {
+func void G1CP_TestsuiteErrorDetail3(var string s1, var string s2, var string s3) {
     G1CP_TestsuiteErrorDetail(ConcatStrings(ConcatStrings(s1, s2), s3));
-};
-func void G1CP_TestsuiteErrorDetailSIS(var string s1, var int i2, var string s3) {
-    G1CP_TestsuiteErrorDetail(ConcatStrings(ConcatStrings(s1, IntToString(i2)), s3));
-};
-func void G1CP_TestsuiteErrorDetailSSSS(var string s1, var string s2, var string s3, var string s4) {
-    G1CP_TestsuiteErrorDetail(ConcatStrings(ConcatStrings(ConcatStrings(s1, s2), s3), s4));
-};
-func void G1CP_TestsuiteErrorDetailSSSSS(var string s1, var string s2, var string s3, var string s4, var string s5) {
-    G1CP_TestsuiteErrorDetail(ConcatStrings(ConcatStrings(ConcatStrings(ConcatStrings(s1, s2), s3), s4), s5));
-};
-func void G1CP_TestsuiteErrorDetailSSSSSSS(var string s1, var string s2, var string s3, var string s4, var string s5,
-    var string s6, var string s7) {
-    G1CP_TestsuiteErrorDetail(
-        ConcatStrings(
-            ConcatStrings(ConcatStrings(ConcatStrings(ConcatStrings(ConcatStrings(s1, s2), s3), s4), s5), s6),
-        s7)
-    );
-};
-func void G1CP_TestsuiteErrorDetailSSSISSS(var string s1, var string s2, var string s3, var int i4, var string s5,
-    var string s6, var string s7) {
-    G1CP_TestsuiteErrorDetail(
-        ConcatStrings(
-            ConcatStrings(
-                ConcatStrings(ConcatStrings(ConcatStrings(ConcatStrings(s1, s2), s3), IntToString(i4)), s5),
-            s6),
-        s7)
-    );
 };
 
 /*

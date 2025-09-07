@@ -9,7 +9,7 @@ func int G1CP_Test_{ISSUE_NUM_PAD}() {
 
     var string currentString; currentString = G1CP_GetStringConstI(symbId, correctedString, "G1CP invalid string");
     if (STR_Compare(currentString) != STR_EQUAL) {
-        G1CP_TestsuiteErrorDetailSSS("String constant incorrect: '", currentString, "'");
+        G1CP_TestsuiteErrorDetail3("String constant incorrect: '", currentString, "'");
         return FALSE;
     };
 

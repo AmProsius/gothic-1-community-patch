@@ -10,7 +10,7 @@ func int G1CP_Test_{ISSUE_NUM_PAD}() {
     var string name; name = G1CP_Testsuite_GetStringConst(arrayName, targetInt);
 
     if (!Hlp_StrCmp(name, correctedString)) {
-        G1CP_TestsuiteErrorDetailSSSSSSS("String incorrect: ", arrayName, "[", targetName, "] = '", name, "'");
+        G1CP_TestsuiteErrorDetail3SSSS("String incorrect: ", arrayName, "[", targetName, "] = '", name, "'");
         return FALSE;
     };
 

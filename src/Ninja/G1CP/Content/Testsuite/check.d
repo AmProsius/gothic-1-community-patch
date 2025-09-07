@@ -26,7 +26,7 @@ func void G1CP_Testsuite_CheckManual() {
         if (lang & G1CP_Lang_RU) {
             langNames = ConcatStrings(langNames, " Russian");
         };
-        G1CP_TestsuiteErrorDetailSSS("Test applicable for", langNames, " localization only");
+        G1CP_TestsuiteErrorDetail3("Test applicable for", langNames, " localization only.");
         G1CP_Testsuite_ForceTestToReturn();
     };
  };
@@ -36,7 +36,7 @@ func void G1CP_Testsuite_CheckManual() {
  */
 func int G1CP_Testsuite_CheckIntVar(var string name) {
     if (!G1CP_IsIntVar(name)) {
-        G1CP_TestsuiteErrorDetailSSS("Integer variable '", name, "' not found");
+        G1CP_TestsuiteErrorDetail3("Integer variable '", name, "' not found.");
         G1CP_Testsuite_FailTest();
         return -1;
     };
@@ -48,7 +48,7 @@ func int G1CP_Testsuite_CheckIntVar(var string name) {
  */
 func int G1CP_Testsuite_CheckIntConst(var string name) {
     if (!G1CP_IsIntConst(name)) {
-        G1CP_TestsuiteErrorDetailSSS("Integer constant '", name, "' not found");
+        G1CP_TestsuiteErrorDetail3("Integer constant '", name, "' not found.");
         G1CP_Testsuite_FailTest();
         return -1;
     };
@@ -60,7 +60,7 @@ func int G1CP_Testsuite_CheckIntConst(var string name) {
  */
 func int G1CP_Testsuite_CheckStringVar(var string name) {
     if (!G1CP_IsStringVar(name)) {
-        G1CP_TestsuiteErrorDetailSSS("String variable '", name, "' not found");
+        G1CP_TestsuiteErrorDetail3("String variable '", name, "' not found.");
         G1CP_Testsuite_FailTest();
         return -1;
     };
@@ -72,7 +72,7 @@ func int G1CP_Testsuite_CheckStringVar(var string name) {
  */
 func int G1CP_Testsuite_CheckStringConst(var string name) {
     if (!G1CP_IsStringConst(name)) {
-        G1CP_TestsuiteErrorDetailSSS("String constant '", name, "' not found");
+        G1CP_TestsuiteErrorDetail3("String constant '", name, "' not found.");
         G1CP_Testsuite_FailTest();
         return -1;
     };
@@ -84,7 +84,7 @@ func int G1CP_Testsuite_CheckStringConst(var string name) {
  */
 func int G1CP_Testsuite_CheckInfo(var string name) {
     if (!G1CP_IsInfoInst(name)) {
-        G1CP_TestsuiteErrorDetailSSS("Info instance '", name, "' not found");
+        G1CP_TestsuiteErrorDetail3("Info instance '", name, "' not found.");
         G1CP_Testsuite_FailTest();
         return -1;
     };
@@ -96,7 +96,7 @@ func int G1CP_Testsuite_CheckInfo(var string name) {
  */
 func int G1CP_Testsuite_CheckItem(var string name) {
     if (!G1CP_IsItemInst(name)) {
-        G1CP_TestsuiteErrorDetailSSS("Item instance '", name, "' not found");
+        G1CP_TestsuiteErrorDetail3("Item instance '", name, "' not found.");
         G1CP_Testsuite_FailTest();
         return -1;
     };
@@ -108,7 +108,7 @@ func int G1CP_Testsuite_CheckItem(var string name) {
  */
 func int G1CP_Testsuite_CheckNpc(var string name) {
     if (!G1CP_IsNpcInst(name)) {
-        G1CP_TestsuiteErrorDetailSSS("NPC instance '", name, "' not found");
+        G1CP_TestsuiteErrorDetail3("NPC instance '", name, "' not found.");
         G1CP_Testsuite_FailTest();
         return -1;
     };
@@ -123,7 +123,11 @@ func int G1CP_Testsuite_CheckFunc(var string name, var string signature, var str
         funcType = "Function";
     };
     if (!G1CP_IsFunc(name, signature)) {
-        G1CP_TestsuiteErrorDetailSSSS(funcType, " '", name, "' not found");
+        if (SB_New()) {
+            SB(funcType); SB(" '"); SB(name); SB("' not found.");
+            G1CP_TestsuiteErrorDetail(SB_ToString());
+            SB_Destroy();
+        };
         G1CP_Testsuite_FailTest();
         return -1;
     };
@@ -188,7 +192,7 @@ func void G1CP_Testsuite_CheckAiState(var string name) {
 func int G1CP_Testsuite_CheckOu(var string name) {
     var int ptr; ptr = G1CP_GetOu(name);
     if (!ptr) {
-        G1CP_TestsuiteErrorDetailSSS("Output unit '", name, "' not found");
+        G1CP_TestsuiteErrorDetail3("Output unit '", name, "' not found.");
         G1CP_Testsuite_FailTest();
         return 0;
     };

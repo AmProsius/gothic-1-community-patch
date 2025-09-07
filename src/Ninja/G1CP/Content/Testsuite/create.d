@@ -10,7 +10,7 @@ func C_Item G1CP_Testsuite_CreateItem(var string name) {
         // Create the item locally using the Item_Helper
         var int itmPtr; itmPtr = Itm_GetPtr(symbId);
         if (!itmPtr) {
-            G1CP_TestsuiteErrorDetailSSS("Item of instance '", name, "' could not be created");
+            G1CP_TestsuiteErrorDetail3("Item of instance '", name, "' could not be created");
             G1CP_Testsuite_FailTest();
             MEM_NullToInst();
         } else {
@@ -40,7 +40,7 @@ func C_Npc G1CP_Testsuite_CreateNpc(var string name) {
         Wld_InsertNpc(symbId, "G1CP_NOWHERE");
 
         if (Hlp_GetInstanceId(self) != symbId) {
-            G1CP_TestsuiteErrorDetailSSS("NPC of instance '", name, "' could not be created");
+            G1CP_TestsuiteErrorDetail3("NPC of instance '", name, "' could not be created");
             G1CP_Testsuite_FailTest();
             MEM_NullToInst();
         } else {

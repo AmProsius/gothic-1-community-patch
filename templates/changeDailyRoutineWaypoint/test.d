@@ -18,7 +18,7 @@ func int G1CP_Test_{ISSUE_NUM_PAD}() {
     Wld_SetTime(timeToCheck / 100, timeToCheck % 100);
     var int passed; passed = STR_Compare(npc.wp, newWp.name) == STR_EQUAL;
     if (!passed) {
-        G1CP_TestsuiteErrorDetailSSS("Incorrect waypoint '", npc.wp, "'");
+        G1CP_TestsuiteErrorDetail3("Incorrect waypoint '", npc.wp, "'");
     };
 
     // Restore time and daily routine
