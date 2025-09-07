@@ -64,7 +64,7 @@ func string G1CP_ComposeArraySymbolName(var string name, var int arrIdx) {
     };
 
     SB_Use(s);
-    SB_Clear();
+    SB_SetLength(0); // Keep the memory allocated and just clear the length written
 
     SB(name); SB("["); SBi(arrIdx); SB("]"); // E.g. "count[4]"
 

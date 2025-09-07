@@ -30,7 +30,7 @@ func void G1CP_ByteCodeToSpy(var int posStart, var int posEnd) {
             msg = ConcatStrings(msg, G1CP_GetSymbolName(par));
             // Array index
             msg = ConcatStrings(msg, "[");
-            msg = ConcatStrings(msg, IntToString(MEM_ReadByte(pos+5)));
+            msg = ConcatStrings(msg, IntToString(MEM_ReadByte(MEM_Parser.stack_stack + pos+5)));
             msg = ConcatStrings(msg, "]");
             pos += 5;
         } else if (tok == zPAR_TOK_CALL) {

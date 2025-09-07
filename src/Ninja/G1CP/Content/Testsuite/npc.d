@@ -26,8 +26,11 @@ func void G1CP_Testsuite_NpcBeamToPosPtr(var C_Npc slf, var int posPtr) {
         return;
     };
 
-    // Abuse a random waypoint
-    var zCWaypoint wp; wp = _^(MEM_GetAnyWPPtr());
+    // Abuse the nearest waypoint to give a chance for controlling the rotation.
+    var zCWaypoint wp; wp = _^(G1CP_GetWaypoint(Npc_GetNearestWP(slf)));
+    if (!wp) {
+        wp = _^(MEM_GetAnyWPPtr()); // Fallback to random waypoint.
+    };
     var int posBak[3]; MEM_CopyWords(_@(wp.pos), _@(posBak), 3);
 
     MEM_CopyWords(posPtr, _@(wp.pos), 3);
@@ -71,7 +74,7 @@ func void G1CP_Testsuite_NpcTeleportToWorld(var C_Npc slf, var string world, var
         CALL_zStringPtrParam(world);
         CALL__thiscall(_@(MEM_Game), oCGame__TriggerChangeLevel);
     } else {
-        AI_Teleport(slf, waypoint);
+        G1CP_Testsuite_NpcBeamTo(slf, waypoint);
     };
 };
 

@@ -136,11 +136,11 @@ func string G1CP_TestsuiteRunMultiple(var int appliedOnly) {
             MEM_CallById(i-1);
             G1CP_Testsuite_Restore();
 
-            // DEBUG - TODO remove once tests are refactored -
-            if (G1CP_TestsuiteStatusPassed) && (symb.offset == (zPAR_TYPE_INT >> 12)) {
-                G1CP_TestsuiteStatusPassed = MEM_PopIntResult();
-            };
-            // DEBUG
+            // // DEBUG - TODO remove once tests are refactored -
+            // if (G1CP_TestsuiteStatusPassed) && (symb.offset == (zPAR_TYPE_INT >> 12)) {
+            //     G1CP_TestsuiteStatusPassed = MEM_PopIntResult();
+            // };
+            // // DEBUG
 
             if (G1CP_Testsuite_TestIsManualBySymb(symb)) {
                 msg = ConcatStrings(msg, "[MANUAL]|");
