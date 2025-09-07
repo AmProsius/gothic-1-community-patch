@@ -146,6 +146,7 @@ Content\Fixes\Session\fix0216_DiggerDailyRoutine.d
 Content\Fixes\Session\fix0217_MercenaryDailyRoutine.d
 Content\Fixes\Session\fix0220_GorNaRanDialogMad.d
 Content\Fixes\Session\fix0223_CorKalomSpyQuest.d
+Content\Fixes\Session\fix0224_OrcPriestFallDamage.d
 Content\Fixes\Session\fix0225_MordragNcGetOut.d
 Content\Fixes\Session\fix0228_LaresDialogFindGorn.d
 Content\Fixes\Session\fix0231_DE_TransformOrcDogDescription.d
@@ -177,7 +178,6 @@ Content\Fixes\Gamesave\fix0203_LogEntryGrahamMerchant.d
 Content\Fixes\Gamesave\fix0205_LogEntryWolfMerchant.d
 Content\Fixes\Gamesave\fix0212_UseWithItemNcCauldron1.d
 Content\Fixes\Gamesave\fix0213_UseWithItemNcCauldron2.d
-Content\Fixes\Gamesave\fix0224_OrcPriestFallDamage.d
 Content\Fixes\Gamesave\fix0226_PotionStonehengeChest.d
 Content\Fixes\Gamesave\fix0234_DE_LogEntryDrax.d
 

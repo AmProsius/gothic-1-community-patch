@@ -43,7 +43,6 @@ func void G1CP_GamesaveFixes_Apply() {
         G1CP_0205_LogEntryWolfMerchant();               // #205
         G1CP_0212_UseWithItemNcCauldron1();             // #212
         G1CP_0213_UseWithItemNcCauldron2();             // #213
-        G1CP_0224_OrcPriestFallDamage();                // #224
         G1CP_0226_PotionStonehengeChest();              // #226
         G1CP_0234_DE_LogEntryDrax();                    // #234
     };
@@ -73,7 +72,6 @@ func void G1CP_GamesaveFixes_Revert() {
         G1CP_0205_LogEntryWolfMerchantRevert();         // #205
         G1CP_0212_UseWithItemNcCauldron1Revert();       // #212
         G1CP_0213_UseWithItemNcCauldron2Revert();       // #213
-        G1CP_0224_OrcPriestFallDamageRevert();          // #224
         G1CP_0226_PotionStonehengeChestRevert();        // #226
         G1CP_0234_DE_LogEntryDraxRevert();              // #234
     };
