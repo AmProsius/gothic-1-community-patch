@@ -32,7 +32,6 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
         G1CP_0024_CorKalomWrongQuest();                 // #24
         G1CP_0025_SaturasSellsRobe();                   // #25
         G1CP_0026_LaresGuardAttacks();                  // #26
-        G1CP_0027_DraxTeachingDialog();                 // #27
         G1CP_0028_MordragNoEscort();                    // #28
         G1CP_0029_BusterAcrobatics();                   // #29
         G1CP_0030_SilasTrade();                         // #30
