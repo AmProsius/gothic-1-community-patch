@@ -15,6 +15,7 @@ und dieses Projekt hält die [Semantische Versionierung](https://semver.org/spec
 * Fix [#401](https://g1cp.org/issues/401): Das Monster "Skelett Später" heißt nun korrekt "Skelettspäher".
 * Fix [#402](https://g1cp.org/issues/402): Das Monster "Skelett Krieger" heißt nun korrekt "Skelettkrieger".
 * Fix [#405](https://g1cp.org/issues/405): Das Monster "Goblin Krieger" heißt nun korrekt "Goblinkrieger".
+* Fix [#439](https://g1cp.org/issues/439): Der Gegenstand "rohes Fleisch" heißt nun korrekt "Rohes Fleisch".
 
 ### Story
 
