@@ -3,9 +3,9 @@
  */
 func int G1CP_0399_DE_SkeletonMageName() {
     return G1CP_Tpl_ChangeNpcStrVar(
-        "### TODO NPC instance name ###",
+        "SkeletonMage",
         "name",
-        "### TODO Original name ###",
-        "### TODO Correct name ###"
+        "Skelett Magier",
+        "Skelettmagier"
     );
 };
