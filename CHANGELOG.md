@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Fix [#50](https://g1cp.org/issues/50) (updated): The pillar in the Monastery Ruins additionally spawns tipped over when the player character is on the platform to avoid getting stuck there.
 * Fix [#57](https://g1cp.org/issues/57): The wall texture of the castle of the Old Camp near Gravo does not flicker anymore.
 * Fix [#116](https://g1cp.org/issues/116): There are no longer lens flares in Jacko's swampweed cave.
+* Fix [#266](https://g1cp.org/issues/266): The key to Ulbert's chest now uses proper capitalization.
 
 <a name="v120-2021-10-31"></a>
 
