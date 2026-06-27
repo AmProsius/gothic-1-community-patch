@@ -155,11 +155,14 @@ Content\Fixes\Session\fix0235_DE_OrcDogMagBook.d
 Content\Fixes\Session\fix0236_DE_OrcDogGuild.d
 Content\Fixes\Session\fix0241_GuardAfterTrial.d
 Content\Fixes\Session\fix0244_GuardExitDialog.d
+Content\Fixes\Session\fix0261_DE_OrcHunterName.d
 Content\Fixes\Session\fix0266_DE_EN_StorageChestKey.d
 Content\Fixes\Session\fix0269_DE_EN_SunkenTowerKeyText.d
 Content\Fixes\Session\fix0278_EN_FemaleSvmOuMismatch.d
 Content\Fixes\Session\fix0399_DE_SkeletonMageName.d
 Content\Fixes\Session\fix0400_DE_FogTowerSkeletonMageName.d
+Content\Fixes\Session\fix0401_DE_SkeletonScoutName.d
+Content\Fixes\Session\fix0402_DE_SkeletonWarriorName.d
 Content\Fixes\Session\fix0405_DE_GoblinWarriorName.d
 
 // Game save fixes
