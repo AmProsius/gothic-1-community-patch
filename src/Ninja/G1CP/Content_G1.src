@@ -158,6 +158,7 @@ Content\Fixes\Session\fix0244_GuardExitDialog.d
 Content\Fixes\Session\fix0266_DE_EN_StorageChestKey.d
 Content\Fixes\Session\fix0269_DE_EN_SunkenTowerKeyText.d
 Content\Fixes\Session\fix0278_EN_FemaleSvmOuMismatch.d
+Content\Fixes\Session\fix0405_DE_GoblinWarriorName.d
 
 // Game save fixes
 Content\Fixes\Gamesave\fix0037_LogEntryGravoMerchant.d

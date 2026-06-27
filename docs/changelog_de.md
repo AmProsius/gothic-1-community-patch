@@ -9,6 +9,8 @@ und dieses Projekt hält die [Semantische Versionierung](https://semver.org/spec
 
 ### General
 
+* Fix [#405](https://g1cp.org/issues/405): Das Monster "Goblin Krieger" heißt nun korrekt "Goblinkrieger".
+
 ### Story
 
 * Fix [#27](https://g1cp.org/issues/27) (rückgängig): Drax lehrt wieder Jagdtalente, egal ob der Spieler ihm ein Bier spendiert hat oder nicht.
