@@ -8,6 +8,7 @@ und dieses Projekt hält die [Semantische Versionierung](https://semver.org/spec
 ## [Unreleased]
 
 ### General
+* Fix [#405](https://g1cp.org/issues/405): Das Monster "Goblin Krieger" heißt nun korrekt "Goblinkrieger".
 
 ### Story
 
