@@ -119,6 +119,7 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
         G1CP_0269_DE_EN_SunkenTowerKeyText();           // #269
         G1CP_0278_EN_FemaleSvmOuMismatch();             // #278
         G1CP_0399_DE_SkeletonMageName();                // #399
+        G1CP_0400_DE_FogTowerSkeletonMageName();        // #400
         G1CP_0405_DE_GoblinWarriorName();               // #405
     };
 };
