@@ -54255,7 +54255,7 @@ async function addLineToFile(filePath, newLine, regexStr, number, matchAfter, li
     throw `Could not find suitable line in file ${filePath}`;
 
   try {
-    const dataEnc = iconv_lite_lib_default().encode(lines.join('\n'), encoding);
+    const dataEnc = iconv_lite_lib_default().encode(lines.join('\r\n'), encoding);
     external_node_fs_default().writeFileSync(filePath, dataEnc);
   } catch (error) {
     throw `Could not write to file ${filePath}. ${error.message}`;

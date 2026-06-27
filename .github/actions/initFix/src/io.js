@@ -84,7 +84,7 @@ export async function addLineToFile(filePath, newLine, regexStr, number, matchAf
     throw `Could not find suitable line in file ${filePath}`;
 
   try {
-    const dataEnc = iconvlite.encode(lines.join('\n'), encoding);
+    const dataEnc = iconvlite.encode(lines.join('\r\n'), encoding);
     fs.writeFileSync(filePath, dataEnc);
   } catch (error) {
     throw `Could not write to file ${filePath}. ${error.message}`;
