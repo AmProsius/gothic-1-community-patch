@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Fix [#57](https://g1cp.org/issues/57): The wall texture of the castle of the Old Camp near Gravo does not flicker anymore.
 * Fix [#116](https://g1cp.org/issues/116): There are no longer lens flares in Jacko's swampweed cave.
 * Fix [#266](https://g1cp.org/issues/266): The key to Ulbert's chest now uses proper capitalization.
+* Fix [#269](https://g1cp.org/issues/269): The key in the sunken tower now correctly references chests instead of doors.
 
 <a name="v120-2021-10-31"></a>
 
