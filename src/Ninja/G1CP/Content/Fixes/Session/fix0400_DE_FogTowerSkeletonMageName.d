@@ -3,9 +3,9 @@
  */
 func int G1CP_0400_DE_FogTowerSkeletonMageName() {
     return G1CP_Tpl_ChangeNpcStrVar(
-        "### TODO NPC instance name ###",
+        "SkeletonMage_fogtower",
         "name",
-        "### TODO Original name ###",
-        "### TODO Correct name ###"
+        "Skelett Magier des Nebelturms",
+        "Skelettmagier des Nebelturms"
     );
 };
