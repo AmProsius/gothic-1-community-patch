@@ -16,5 +16,5 @@ func int G1CP_Test_0266() {
         return G1CP_Testsuite_InspectItemString(itm, "text[0]", "Ã–ffnet die Truhen");
     };
 
-    return false;
+    return FALSE;
 };
