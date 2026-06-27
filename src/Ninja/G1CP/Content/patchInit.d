@@ -117,6 +117,7 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
         G1CP_0244_GuardExitDialog();                    // #244
         G1CP_0266_DE_EN_StorageChestKey();              // #266
         G1CP_0278_EN_FemaleSvmOuMismatch();             // #278
+        G1CP_0399_DE_SkeletonMageName();                // #399
     };
 };
 

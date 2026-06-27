@@ -8,6 +8,7 @@ und dieses Projekt hält die [Semantische Versionierung](https://semver.org/spec
 ## [Unreleased]
 
 ### General
+* Fix [#399](https://g1cp.org/issues/399): Das Monster "Skelett Magier" heißt nun korrekt "Skelettmagier".
 
 ### Story
 
