@@ -1,9 +1,13 @@
 /*
  * #338 Spelling - Grilled Meat (DE/EN)
  */
-func int G1CP_Test_0338() {
+func void G1CP_Test_0338() {
     G1CP_Testsuite_CheckLang(G1CP_Lang_DE | G1CP_Lang_EN);
-    var C_Item itm; itm = G1CP_Testsuite_CreateItem("### TODO Item instance name ###");
+    var C_Item itm; itm = G1CP_Testsuite_CreateItem("ItFoMutton");
 
-    return G1CP_Testsuite_InspectItemString(itm, "name", "### TODO Expected string ###");
+    if (G1CP_Lang & G1CP_Lang_EN) {
+        G1CP_Testsuite_AssertS(itm.name, "Grilled Meat");
+    } else if (G1CP_Lang & G1CP_Lang_DE) {
+        G1CP_Testsuite_AssertS(itm.name, "Gebratenes Fleisch");
+    };
 };
