@@ -54200,10 +54200,11 @@ async function getConfig(filePath) {
  * @param     string      regular expression to match neighboring lines
  * @param     integer     number to sort by
  * @param     string      start looking after this match
+ * @param     integer     lines to skip after the match
  * @param     string      character encoding of the file
  * @returns   boolean     false on error, true otherwise
  */
-async function addLineToFile(filePath, newLine, regexStr, number, matchAfter, encoding='win1252') {
+async function addLineToFile(filePath, newLine, regexStr, number, matchAfter, linesAfter=0, encoding='win1252') {
   let lines = [];
   try {
     const data = external_node_fs_default().readFileSync(filePath);
@@ -54216,12 +54217,18 @@ async function addLineToFile(filePath, newLine, regexStr, number, matchAfter, en
   // Iterate over lines
   let isInBounds = false;
   let lineNum = -1;
+  let linesSkipped = 0;
   const regex = new RegExp(regexStr);
   const regexAfter = new RegExp(matchAfter);
   const found = lines.some((line, index) => {
     if (!isInBounds && matchAfter) {
       if (line.match(regexAfter))
         isInBounds = true;
+      return false;
+    }
+
+    if (linesSkipped < linesAfter) {
+      linesSkipped += 1;
       return false;
     }
 
@@ -54608,7 +54615,7 @@ async function main() {
     if (!changelogEn.endsWith('.'))
       changelogEn += '.';
     const clEntry = clPrefix + changelogEn;
-    const line = await addLineToFile(changelogEnPath, clEntry, clMatch, issueNum, clSection, 'utf-8');
+    const line = await addLineToFile(changelogEnPath, clEntry, clMatch, issueNum, clSection, 1, 'utf-8');
     if (changelogEn.startsWith('### TODO ###'))
       add(changelogEnPath, 'Add an entry in the English changelog.', line+1);
   } else {
@@ -54622,7 +54629,7 @@ async function main() {
     if (!changelogDe.endsWith('.'))
       changelogDe += '.';
     const clEntry = clPrefix + changelogDe;
-    const line = await addLineToFile(changelogDePath, clEntry, clMatch, issueNum, clSection, 'utf-8');
+    const line = await addLineToFile(changelogDePath, clEntry, clMatch, issueNum, clSection, 1, 'utf-8');
     if (changelogDe.startsWith('### TODO ###'))
       add(changelogDePath, 'Add an entry in the German changelog.', line+1);
   } else {

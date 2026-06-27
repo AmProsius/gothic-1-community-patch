@@ -29,10 +29,11 @@ export async function getConfig(filePath) {
  * @param     string      regular expression to match neighboring lines
  * @param     integer     number to sort by
  * @param     string      start looking after this match
+ * @param     integer     lines to skip after the match
  * @param     string      character encoding of the file
  * @returns   boolean     false on error, true otherwise
  */
-export async function addLineToFile(filePath, newLine, regexStr, number, matchAfter, encoding='win1252') {
+export async function addLineToFile(filePath, newLine, regexStr, number, matchAfter, linesAfter=0, encoding='win1252') {
   let lines = [];
   try {
     const data = fs.readFileSync(filePath);
@@ -45,12 +46,18 @@ export async function addLineToFile(filePath, newLine, regexStr, number, matchAf
   // Iterate over lines
   let isInBounds = false;
   let lineNum = -1;
+  let linesSkipped = 0;
   const regex = new RegExp(regexStr);
   const regexAfter = new RegExp(matchAfter);
   const found = lines.some((line, index) => {
     if (!isInBounds && matchAfter) {
       if (line.match(regexAfter))
         isInBounds = true;
+      return false;
+    }
+
+    if (linesSkipped < linesAfter) {
+      linesSkipped += 1;
       return false;
     }
 
