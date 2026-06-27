@@ -10,7 +10,7 @@ und dieses Projekt hält die [Semantische Versionierung](https://semver.org/spec
 ### General
 
 * Fix [#261](https://g1cp.org/issues/261): Das Monster "Orc Jäger" heißt nun korrekt "Ork-Jäger".
-* Fix [#338](https://g1cp.org/issues/338): ### TODO ###.
+* Fix [#338](https://g1cp.org/issues/338): Der Gegenstand "gebratenes Fleisch" heißt nun korrekt "Gebratenes Fleisch".
 * Fix [#399](https://g1cp.org/issues/399): Das Monster "Skelett Magier" heißt nun korrekt "Skelettmagier".
 * Fix [#400](https://g1cp.org/issues/400): Das Monster "Skelett Magier des Nebelturms" heißt nun korrekt "Skelettmagier des Nebelturms".
 * Fix [#401](https://g1cp.org/issues/401): Das Monster "Skelett Später" heißt nun korrekt "Skelettspäher".
