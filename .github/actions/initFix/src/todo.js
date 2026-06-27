@@ -1,8 +1,8 @@
-const fs = require('fs');
-const iconvlite = require('iconv-lite');
+import fs from 'node:fs';
+import iconvlite from 'iconv-lite';
 
 // Global to-do list
-const list = [];
+export const list = [];
 
 /**
  * Add line to the to-do list, which will be turned into pull request review comments
@@ -12,7 +12,7 @@ const list = [];
  * @param     integer     start line
  * @param     integer     end line (optional)
  */
-function add(path, comment, start_line, end_line) {
+export function add(path, comment, start_line, end_line) {
   comment = comment.trim();
   if (!comment.endsWith('.'))
     comment += '.';
@@ -55,7 +55,7 @@ function add(path, comment, start_line, end_line) {
  * @param     string      path to updated file
  * @returns   boolean     false on error, true otherwise
  */
-async function parse(path) {
+export async function parse(path) {
   let text = '';
   try {
     const data = fs.readFileSync(path);
@@ -68,6 +68,7 @@ async function parse(path) {
   const nl = /\r?\n/g;
   const matches = text.match(nl);
   const numLines = matches ? matches.length : 1;
+  let match = null
 
   while ((match = regex.exec(text)) !== null) {
       let comment = (match.groups.comment || '').trim();
@@ -93,10 +94,3 @@ async function parse(path) {
 
   return true;
 }
-
-
-module.exports = {
-  list,
-  add,
-  parse,
-};

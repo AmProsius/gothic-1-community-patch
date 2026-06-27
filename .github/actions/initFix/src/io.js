@@ -1,5 +1,5 @@
-const fs = require('fs');
-const iconvlite = require('iconv-lite');
+import fs from 'node:fs';
+import iconvlite from 'iconv-lite';
 
 /**
  * Load configuration at runtime
@@ -7,7 +7,7 @@ const iconvlite = require('iconv-lite');
  * @param     string      path to the configuration file
  * @returns   object      loaded configuration
  */
-async function getConfig(filePath) {
+export async function getConfig(filePath) {
   let cfg = null;
   try {
     const data = fs.readFileSync(filePath);
@@ -32,7 +32,7 @@ async function getConfig(filePath) {
  * @param     string      character encoding of the file
  * @returns   boolean     false on error, true otherwise
  */
-async function addLineToFile(filePath, newLine, regexStr, number, matchAfter, encoding='win1252') {
+export async function addLineToFile(filePath, newLine, regexStr, number, matchAfter, encoding='win1252') {
   let lines = [];
   try {
     const data = fs.readFileSync(filePath);
@@ -95,7 +95,7 @@ async function addLineToFile(filePath, newLine, regexStr, number, matchAfter, en
  * @param     string      character encoding of the file
  * @returns   boolean     false on error, true otherwise
  */
-async function replaceInFile(srcPath, dstPath, pairs, encoding='win1252') {
+export async function replaceInFile(srcPath, dstPath, pairs, encoding='win1252') {
   let text = '';
   try {
     const data = fs.readFileSync(srcPath);
@@ -115,11 +115,4 @@ async function replaceInFile(srcPath, dstPath, pairs, encoding='win1252') {
   };
 
   return true;
-}
-
-
-module.exports = {
-  getConfig,
-  addLineToFile,
-  replaceInFile,
 }

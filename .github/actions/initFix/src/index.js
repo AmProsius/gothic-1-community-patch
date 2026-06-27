@@ -1,11 +1,11 @@
-const path = require('path');
-const fs = require('fs');
-const shell = require('shelljs');
-const core = require('@actions/core');
+import path from 'node:path';
+import fs from 'node:fs';
+import * as shell from 'shelljs';
+import * as core from '@actions/core';
 
-const gh = require('./gh');
-const io = require('./io');
-const todo = require('./todo');
+import * as gh from './gh';
+import * as io from './io';
+import * as todo from './todo';
 
 const G1CP_ID_LENGTH = 4;  // Number of digits making up a valid fix ID
 
@@ -183,10 +183,10 @@ async function main() {
   }
 
   // Attempt to infer changelog from issue body
-  issue_body = issue.body ? issue.body : '';
+  const issue_body = issue.body ?? '';
   const match = issue_body.match(/[\r\n]###\s(Changelog|Expected behavior|Expected spelling)[\r\n]{2,4}(?<text>[^\r\n]+)/);
   let changelogFromIssue = match ? match.groups.text : null;
-  inferChgDe = langFlags.length === 1 && langFlags.includes("DE");  // Only assume German if it's an exclusively(!) German language bug
+  const inferChgDe = langFlags.length === 1 && langFlags.includes("DE");  // Only assume German if it's an exclusively(!) German language bug
 
   // Apply changelog depending on language
   let changelogDeInferred = '';
