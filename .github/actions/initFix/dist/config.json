@@ -16,7 +16,7 @@
     "changelogDe": "leave empty to initialize empty"
   },
   "funcPrefix": "G1CP_",
-  "shortnameMax": 36,
+  "shortnameMax": 35,
   "languageLabel": "language dependent",
   "labelColor": "bfd4f2"
 }

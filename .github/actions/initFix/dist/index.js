@@ -54556,7 +54556,7 @@ async function main() {
   fixFuncCall = '        ' + fixFuncCall + `// #${issueNum}`;
 
   if (fixType == 'session') {
-    // Add fix function call to initPatch.d
+    // Add fix function call to patchInit.d
     await addLineToFile(sessionInitPath, fixFuncCall, '^\\s{8}' + cfg.funcPrefix + `(?<num>[0-9]{${G1CP_ID_LENGTH}})_`, issueNum);
   } else {
     // Add fix function call to gamesave.d
