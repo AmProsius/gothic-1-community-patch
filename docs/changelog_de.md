@@ -8,6 +8,7 @@ und dieses Projekt hält die [Semantische Versionierung](https://semver.org/spec
 ## [Unreleased]
 
 ### General
+* Fix [#261](https://g1cp.org/issues/261): ### TODO ###.
 
 * Fix [#399](https://g1cp.org/issues/399): Das Monster "Skelett Magier" heißt nun korrekt "Skelettmagier".
 * Fix [#405](https://g1cp.org/issues/405): Das Monster "Goblin Krieger" heißt nun korrekt "Goblinkrieger".
