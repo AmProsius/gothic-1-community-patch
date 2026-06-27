@@ -11,6 +11,7 @@ und dieses Projekt hält die [Semantische Versionierung](https://semver.org/spec
 
 ### Story
 
+* Fix [#27](https://g1cp.org/issues/27) (rückgängig): Drax lehrt wieder Jagdtalente, egal ob der Spieler ihm ein Bier spendiert hat oder nicht.
 * Fix [#50](https://g1cp.org/issues/50) (aktualisiert): Die Säule in der Klosterruine lädt zusätzlich im Liegen, wenn sich der Spielercharakter auf der Platform befindet, um dort nicht zu stranden.
 * Fix [#57](https://g1cp.org/issues/57): Die Mauertextur der Burg des Alten Lagers in der Nähe von Gravo flackert nicht mehr.
 * Fix [#116](https://g1cp.org/issues/116): Die Blendenflecke (Lens Flares) in der Hähle der Krautmischer sind nun entfernt.
