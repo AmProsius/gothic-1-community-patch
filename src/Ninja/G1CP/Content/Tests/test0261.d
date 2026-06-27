@@ -1,8 +1,8 @@
 /*
- * #261 Spelling - Orc Jäger (DE)
+ * #261 Spelling - Orc Hunter (DE)
  */
 func int G1CP_Test_0261() {
     G1CP_Testsuite_CheckLang(G1CP_Lang_DE);
-    var C_Npc npc; npc = G1CP_Testsuite_CreateNpc("### TODO NPC instance ###");
-    G1CP_Testsuite_AssertS(npc.name, "### TODO Correct name ###");
+    var C_Npc npc; npc = G1CP_Testsuite_CreateNpc("Mst_Default_OrcScout");
+    G1CP_Testsuite_AssertS(npc.name, "Ork-Jäger");
 };
