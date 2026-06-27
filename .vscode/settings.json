@@ -1,0 +1,17 @@
+{
+    "daedalusLanguageServer.projectFiles": [
+        "src/Ninja/G1CP/Content_G1.src"
+    ],
+    "makefile.configureOnOpen": false,
+    "[daedalus]": {
+        "files.encoding": "windows1252",
+        "files.eol": "\r\n",
+        "files.trimTrailingWhitespace": true,
+        "files.trimFinalNewlines": true,
+        "files.insertFinalNewline": true,
+        "editor.rulers": [120],
+        "editor.tabSize": 4,
+        "editor.insertSpaces": true,
+        "editor.detectIndentation": false
+    },
+}
