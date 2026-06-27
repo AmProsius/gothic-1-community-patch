@@ -13,10 +13,5 @@ func int G1CP_0266_DE_EN_StorageChestKey() {
         replace = "Opens the chests in the";
     };
 
-    return G1CP_Tpl_ChangeItemStrVar(
-        "ItKe_OM_03",
-        "text[0]",
-        needle,
-        replace
-    );
+    return G1CP_Tpl_ChangeItemStrVar("ItKe_OM_03", "text", needle, replace);
 };

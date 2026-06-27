@@ -13,6 +13,6 @@ func void G1CP_Test_0266() {
     if (G1CP_Lang & G1CP_Lang_EN) {
         G1CP_Testsuite_AssertS(itm.text, "Opens the chests in the");
     } else if (G1CP_Lang & G1CP_Lang_DE) {
-        G1CP_Testsuite_AssertS(itm.text, "Ã–ffnet die Truhen");
+        G1CP_Testsuite_AssertS(itm.text, "Öffnet die Truhen");
     };
 };
