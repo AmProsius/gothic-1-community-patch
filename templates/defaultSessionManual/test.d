@@ -7,7 +7,8 @@
  */
 func void G1CP_Test_{ISSUE_NUM_PAD}() {
     G1CP_Testsuite_CheckManual();
-    {LANGCHECK}/* ### TODO: Write checks ### */
+    {LANGCHECK}
+    /* ### TODO: Write checks ### */
 
     /* ### TODO: Write the test ### */
 };
