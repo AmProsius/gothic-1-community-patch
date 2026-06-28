@@ -28,7 +28,7 @@ und dieses Projekt hält die [Semantische Versionierung](https://semver.org/spec
 * Fix [#116](https://g1cp.org/issues/116): Die Blendenflecke (Lens Flares) in der Hähle der Krautmischer sind nun entfernt.
 * Fix [#266](https://g1cp.org/issues/266): Die Beschreibung des Schlüssels zu Ulberts Truhe ist nun richtigerweise am Satzanfang großgeschrieben.
 * Fix [#269](https://g1cp.org/issues/269): Die Beschreibung des Schlüssel im versunkenen Turm referenziert nun korrekterweise die Truhen, nicht die Türen.
-* Fix [#270](https://g1cp.org/issues/270): ### TODO ###.
+* Fix [#270](https://g1cp.org/issues/270): Rechtschreibfehler im Text des Gegenstands "Lagerschlüssel" korrigiert.
 
 <a name="v120-2021-10-31"></a>
 
