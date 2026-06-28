@@ -11,10 +11,5 @@ func int G1CP_0338_DE_EN_GrilledMeatName() {
         needle  = "Grilled meat";
         replace = "Grilled Meat";
     };
-    return G1CP_Tpl_ChangeItemStrVar(
-        "ItFoMutton",
-        "name",
-        needle,
-        replace
-    );
+    return G1CP_Tpl_ChangeItemStrVar("ItFoMutton", "name", needle, replace);
 };
