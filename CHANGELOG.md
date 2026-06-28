@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### General
 
 * Fix [#278](https://g1cp.org/issues/278): The standard voice subtitles of female NPCs when approaching them now match the audio.
+* Fix [#338](https://g1cp.org/issues/338): The item "Grilled meat" is now correctly labelled as "Grilled Meat".
 
 ### Story
 
