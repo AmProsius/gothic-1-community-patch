@@ -3,9 +3,9 @@
  */
 func int G1CP_0343_EN_ArmorPlateDescription() {
     return G1CP_Tpl_ChangeItemStrVar(
-        "### TODO Item instance name ###",
+        "ItAt_Crawler_02",
         "description",
-        "### TODO Original description ###",
-        "### TODO Correct description ###"
+        "The armor plate of a minecrawler warrior",
+        "The Armor Plate of a Minecrawler Warrior"
     );
 };
