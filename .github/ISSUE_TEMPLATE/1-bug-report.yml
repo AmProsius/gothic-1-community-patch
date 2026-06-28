@@ -9,6 +9,20 @@ body:
       - label: I have searched [existing issues](https://github.com/AmProsius/gothic-1-community-patch/issues?q=) for duplicates
         required: true
 
+  - type: dropdown
+    id: section
+    attributes:
+      label: Bug type
+      description: |
+        Is this a story-bug (dialogs, quests, NPC) or is it a general bug that also affects mods?
+      multiple: false
+      options:
+        - General
+        - Story
+      default: 0
+    validations:
+      required: true
+
   - type: textarea
     id: description
     attributes:
@@ -60,6 +74,16 @@ body:
       placeholder: |
         I have the GOG retail version and I am playing with the D3D11 renderer version 17.8.15 and a custom texture pack.
         Here is a screenshot of the item in the hut ![image](../assets/upload)
+    validations:
+      required: false
+
+  - type: input
+    id: shortname
+    attributes:
+      label: Shortname of the fix
+      description: |
+        This field will be filled later by the maintainers. **Please leave it blank**.
+      placeholder: 'Only for maintainers, please leave blank'
     validations:
       required: false
 

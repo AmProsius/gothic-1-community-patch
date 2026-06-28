@@ -10,6 +10,20 @@ body:
       - label: I have searched [existing spelling issues](https://github.com/AmProsius/gothic-1-community-patch/issues?q=Spelling) for duplicates
         required: true
 
+  - type: dropdown
+    id: section
+    attributes:
+      label: Bug type
+      description: |
+        Is this a story-bug (dialogs, quests, NPC) or is it a general bug that also affects mods?
+      multiple: false
+      options:
+        - General
+        - Story
+      default: 0
+    validations:
+      required: true
+
   - type: textarea
     id: description
     attributes:
@@ -32,6 +46,16 @@ body:
       placeholder: Changed the ... (of ...) from "..." to "...".
     validations:
       required: true
+
+  - type: input
+    id: shortname
+    attributes:
+      label: Shortname of the fix
+      description: |
+        This field will be filled later by the maintainers. **Please leave it blank**.
+      placeholder: 'Only for maintainers, please leave blank'
+    validations:
+      required: false
 
   - type: markdown
     attributes:
