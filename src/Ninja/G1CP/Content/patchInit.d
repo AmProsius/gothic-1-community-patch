@@ -127,6 +127,7 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
         G1CP_0403_DE_SkeletonWarriorName();             // #403
         G1CP_0404_DE_SkeletonWarriorName();             // #404
         G1CP_0405_DE_GoblinWarriorName();               // #405
+        G1CP_0439_DE_RawMeatName();                     // #439
     };
 };
 

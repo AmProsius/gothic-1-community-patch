@@ -17,6 +17,7 @@ und dieses Projekt hält die [Semantische Versionierung](https://semver.org/spec
 * Fix [#403](https://g1cp.org/issues/403): Das Monster "Skelett Krieger", das vom Spieler beschworen werden kann, heißt nun korrekt "Skelettkrieger".
 * Fix [#404](https://g1cp.org/issues/404): Das Monster "Skelett Krieger", das von NSCs beschworen werden kann, heißt nun korrekt "Skelettkrieger".
 * Fix [#405](https://g1cp.org/issues/405): Das Monster "Goblin Krieger" heißt nun korrekt "Goblinkrieger".
+* Fix [#439](https://g1cp.org/issues/439): Der Gegenstand "rohes Fleisch" heißt nun korrekt "Rohes Fleisch".
 
 ### Story
 
