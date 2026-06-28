@@ -31,10 +31,14 @@ on:
 jobs:
   init:
     if: >
-      contains(fromJSON('["OWNER", "MEMBER", "COLLABORATOR"]'), github.event.comment.author_association) &&
       (
-        (github.event_name == 'workflow_dispatch' && github.ref_name == github.event.repository.default_branch) ||
-        (github.event_name == 'issue_comment' && !github.event.issue.pull_request && github.event.comment.body == '/init')
+        github.event_name == 'workflow_dispatch' &&
+        github.ref_name == github.event.repository.default_branch
+      ) || (
+        github.event_name == 'issue_comment' &&
+        (!github.event.issue.pull_request) &&
+        contains(fromJSON('["OWNER", "MEMBER", "COLLABORATOR"]'), github.event.comment.author_association) &&
+        github.event.comment.body == '/init'
       )
     runs-on: ubuntu-latest
     name: Initialize fix files
