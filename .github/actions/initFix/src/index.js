@@ -18,7 +18,7 @@ async function main() {
 
   // Get inputs
   const issueNum = +core.getInput('issue_num');
-  const changelogSection = core.getInput('changelog_section');
+  let changelogSection = core.getInput('changelog_section');
   let changelogEn = core.getInput('changelog_en');
   let changelogDe = core.getInput('changelog_de');
   let shortname = core.getInput('shortname');
@@ -66,8 +66,19 @@ async function main() {
     throw `Branch ${branchName} already exists`;
   } catch (error) { }
 
+  // Get issue body for inference of fields
+  const issue_body = issue.body ?? '';
+
+  // Read shortname from issue body
+  const match0 = issue_body.match(/[\r\n]###\s(Shortname of the fix|Shortname)[\r\n]{2,4}(?<text>[^\r\n]+)/);
+  let shortnameFromIssue = match0 ? match0.groups.text : '';
+  if (shortname == '' || shortname == cfg.default.shortname)
+    shortname = shortnameFromIssue;
+
   // Validate short name
-  if (shortname.length > cfg.shortnameMax)
+  if (shortname == '')
+    throw 'Fix shortname is missing';
+  else if (shortname.length > cfg.shortnameMax)
     throw 'Fix shortname is too long';
   else if (!shortname.match(/^[A-Z][a-zA-Z0-9]*$/))
     throw 'Fix shortname can only contain alpha numeric characters, starting with an upper case letter';
@@ -137,6 +148,15 @@ async function main() {
   if (fixType == 'gamesave' && shortname.length + ('Revert').length > cfg.shortnameMax)
     throw 'Fix shortname is too long with the revert suffix';
 
+  // Read bug type (changelog section) from issue body
+  const match1 = issue_body.match(/[\r\n]###\s(Changelog section|Bug type)[\r\n]{2,4}(?<text>[^\r\n]+)/);
+  let changelogSectionFromIssue = match1 ? match1.groups.text : '';
+  if (changelogSection == '') {
+    if (changelogSectionFromIssue != 'Story' && changelogSectionFromIssue != 'General')
+      throw 'Changelog section must be either Story or General';
+    changelogSection = changelogSectionFromIssue;
+  }
+
   core.notice('Issue and inputs successfully verified', { title: 'Parameters verified' });
 
   // =========================
@@ -183,7 +203,6 @@ async function main() {
   }
 
   // Attempt to infer changelog from issue body
-  const issue_body = issue.body ?? '';
   const match = issue_body.match(/[\r\n]###\s(Changelog|Expected behavior|Expected spelling)[\r\n]{2,4}(?<text>[^\r\n]+)/);
   let changelogFromIssue = match ? match.groups.text : null;
   const inferChgDe = langFlags.length === 1 && langFlags.includes("DE");  // Only assume German if it's an exclusively(!) German language bug

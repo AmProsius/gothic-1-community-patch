@@ -9,7 +9,6 @@ on:
       shortname:
         description: Shortname
         type: string
-        required: true
         default: 'alpha-numeric, max. 35 length' # Length equals 39 - G1CP_ID_LENGTH
       changelog_section:
         description: Changelog section
@@ -26,10 +25,17 @@ on:
         description: German changelog
         type: string
         default: leave empty to initialize empty
+  issue_comment:
+    types: [created, edited]
 
 jobs:
   init:
-    if: ${{ github.ref_name == github.event.repository.default_branch }}  # Only available from main/master branch
+    if: >
+      contains(fromJSON('["OWNER", "MEMBER", "COLLABORATOR"]'), github.event.comment.author_association) &&
+      (
+        (github.event_name == 'workflow_dispatch' && github.ref_name == github.event.repository.default_branch) ||
+        (github.event_name == 'issue_comment' && !github.event.issue.pull_request && github.event.comment.body == '/init')
+      )
     runs-on: ubuntu-latest
     name: Initialize fix files
     steps:
@@ -55,7 +61,7 @@ jobs:
         id: initialize
         with:
           token: ${{ steps.app-token.outputs.token }}
-          issue_num: ${{ github.event.inputs.issue }}
+          issue_num: ${{ case(github.event_name == 'issue_comment', github.event.issue.number, github.event.inputs.issue) }}
           shortname: ${{ github.event.inputs.shortname }}
           changelog_section: ${{ github.event.inputs.changelog_section }}
           changelog_en: ${{ github.event.inputs.changelog_en }}

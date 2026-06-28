@@ -12,6 +12,7 @@
     "tests": ["Content", "Tests"]
   },
   "default": {
+    "shortname": "alpha-numeric, max. 35 length",
     "changelogEn": "leave empty to guess from issue",
     "changelogDe": "leave empty to initialize empty"
   },
