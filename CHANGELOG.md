@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 * Fix [#278](https://g1cp.org/issues/278): The standard voice subtitles of female NPCs when approaching them now match the audio.
 * Fix [#338](https://g1cp.org/issues/338): The item "Grilled meat" is now correctly labelled as "Grilled Meat".
+* Fix [#343](https://g1cp.org/issues/343): The item "Armor Plate" now uses proper capitalization.
 
 ### Story
 
