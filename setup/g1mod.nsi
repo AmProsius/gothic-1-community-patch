@@ -483,6 +483,7 @@ LangString TextVerifyGothicVersion ${LANG_ENGLISH} "Please update your version."
 LangString TextVerifyNinja ${LANG_ENGLISH} "An installation of Ninja is required."
 LangString TextVerifyNinjaInvalid ${LANG_ENGLISH} "The Ninja installation is invalid or corrupted."
 LangString TextVerifyNinjaVersion ${LANG_ENGLISH} "Please update your version. Currently"
+LangString TextVerifyToolkit ${LANG_ENGLISH} "An installation of Toolkit is required."
 LangString TextVerifySPUnion ${LANG_ENGLISH} "Either SystemPack or Union is highly recommended."
 LangString TextVerifyNotInProgFiles ${LANG_ENGLISH} "Gothic not in 'Program Files'"
 LangString TextVerifyBadDir ${LANG_ENGLISH} "These directories may cause issues for the game."
@@ -510,6 +511,7 @@ LangString TextVerifyGothicVersion ${LANG_GERMAN} "Bitte aktualisieren Sie Ihre 
 LangString TextVerifyNinja ${LANG_GERMAN} "Eine Installation von Ninja wird vorrausgesetzt."
 LangString TextVerifyNinjaInvalid ${LANG_GERMAN} "Die Installation von Ninja ist ungültig oder beschädigt."
 LangString TextVerifyNinjaVersion ${LANG_GERMAN} "Bitte aktualisieren Sie Ihre Installation. Derzeit"
+LangString TextVerifyToolkit ${LANG_GERMAN} "Eine Installation von Toolkit wird vorrausgesetzt."
 LangString TextVerifySPUnion ${LANG_GERMAN} "Das SystemPack oder Union wird empfohlen."
 LangString TextVerifyNotInProgFiles ${LANG_GERMAN} "Gothic nicht in 'Progamme' Verzeichnis"
 LangString TextVerifyBadDir ${LANG_GERMAN} "Diese Verzeichnisse können Probleme verursachen."
@@ -526,6 +528,7 @@ Var RequirementsInvalid
 Var RequirementsRecommended
 Var RequirementGothic
 Var RequirementNinja
+Var RequirementToolkit
 Var RequirementDep
 Var RequirementSpUnion
 Var RequirementProgFiles
@@ -537,6 +540,7 @@ Function PageCheckRequirements
   StrCpy $RequirementsRecommended ""
   StrCpy $RequirementGothic ""
   StrCpy $RequirementNinja ""
+  StrCpy $RequirementToolkit ""
   StrCpy $RequirementDep ""
   StrCpy $RequirementSpUnion ""
   StrCpy $RequirementProgFiles ""
@@ -554,7 +558,7 @@ Function PageCheckRequirements
   IfFileExists $INSTDIR\System\Ninja.dll +4
     StrCpy $RequirementsInvalid "invalid"
     StrCpy $RequirementNinja $(TextVerifyNinja)
-    Goto dep
+    Goto toolkit
 
   ; Check if Ninja is valid
   MoreInfo::GetFileVersion $INSTDIR\System\Ninja.dll
@@ -564,7 +568,7 @@ Function PageCheckRequirements
   IntCmp $R1 3 +4
     StrCpy $RequirementsInvalid "invalid"
     StrCpy $RequirementNinja $(TextVerifyNinjaInvalid)
-    Goto dep
+    Goto toolkit
 
   ; Check Ninja version
   StrCpy $InstalledNinjaVersion $R0
@@ -577,6 +581,14 @@ Function PageCheckRequirements
   IntCmp $R0 $R1 +3 +3
     StrCpy $RequirementsInvalid "invalid"
     StrCpy $RequirementNinja "$(TextVerifyNinjaVersion) $InstalledNinjaVersion."
+
+  toolkit:
+
+  ; Check for Toolkit
+  IfFileExists $INSTDIR\Data\Toolkit.vdf +4
+    StrCpy $RequirementsInvalid "invalid"
+    StrCpy $RequirementToolkit $(TextVerifyToolkit)
+    Goto dep
 
   dep:
 
@@ -638,8 +650,8 @@ Function PageCheckRequirements
     !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 3" "Text" "${U+26A0} $(TextVerifyWarning)"
     Goto +2
   !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 3" "Text" ""
-  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 14" "Text" $(TextVerifyOptionalRecom)
-  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 19" "Text" $(TextVerifyOptionalRecom)
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 17" "Text" $(TextVerifyOptionalRecom)
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 22" "Text" $(TextVerifyOptionalRecom)
 
   ; Links
   !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 6" "Text" $(TextVerifyDownload)
@@ -648,29 +660,32 @@ Function PageCheckRequirements
   !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 9" "Text" $(TextVerifyDownload)
   !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 9" "State" "https://github.com/szapp/Ninja/releases"
 
-  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 12" "Text" $(TextVerifyInstructions)
-  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 12" "State" "https://clockwork-origins.com/spine/#faq-question-1576926774006"
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 12" "Text" $(TextVerifyDownload)
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 12" "State" "https://github.com/szapp/Toolkit/releases"
 
-  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 16" "Text" $(TextVerifyDownloadSp)
-  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 16" "State" "https://github.com/GothicFixTeam/GothicFix/releases"
-  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 17" "Text" $(TextVerifyDownloadUnion)
-  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 17" "State" "https://worldofplayers.ru/threads/40376/"
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 15" "Text" $(TextVerifyInstructions)
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 15" "State" "https://clockwork-origins.com/spine/#faq-question-1576926774006"
+
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 19" "Text" $(TextVerifyDownloadSp)
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 19" "State" "https://github.com/GothicFixTeam/GothicFix/releases"
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 20" "Text" $(TextVerifyDownloadUnion)
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 20" "State" "https://worldofplayers.ru/threads/40376/"
 
   ; Language dependent arrangement
   StrCmp $LANGUAGE "1033" 0 +7
-    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 13" "Right" 193
-    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 14" "Left" 196
-    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 16" "Right" 190
-    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 17" "Left" 193
-    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 18" "Right" 220
-    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 19" "Left" 223
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 16" "Right" 193
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 17" "Left" 196
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 19" "Right" 190
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 20" "Left" 193
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 21" "Right" 220
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 22" "Left" 223
   StrCmp $LANGUAGE "1031" 0 +7
-    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 13" "Right" 205
-    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 14" "Left" 208
-    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 16" "Right" 202
-    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 17" "Left" 205
-    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 18" "Right" 260
-    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 19" "Left" 263
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 16" "Right" 205
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 17" "Left" 208
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 19" "Right" 202
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 20" "Left" 205
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 21" "Right" 260
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 22" "Left" 263
 
   ; Gothic
   StrCmp $RequirementGothic "" 0 +8
@@ -704,57 +719,73 @@ Function PageCheckRequirements
   !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 9" "Flags" "NOTABSTOP"
   !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 9" "Type" "Link"
 
-  ; DEP
-  StrCmp $RequirementDep "" 0 +8
-    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 10" "Text" "${U+2713} Data Execution Prevention (DEP) $(TextVerifyDisabled)"
-    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 11" "Text" "DEP $(TextVerifyIsDisabled)."
+  ; Toolkit
+  StrCmp $RequirementToolkit "" 0 +8
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 10" "Text" "${U+2713} Toolkit"
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 11" "Text" "Toolkit $(TextVerifyIsInstalled)."
     !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 10" "Flags" "DISABLED"
     !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 11" "Flags" "DISABLED"
     !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 12" "Flags" "DISABLED"
     !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 12" "Type" "Label"
     Goto +7
-  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 10" "Text" "${U+274C} Data Execution Prevention (DEP) $(TextVerifyDisabled)"
-  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 11" "Text" $RequirementDep
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 10" "Text" "${U+274C} Toolkit"
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 11" "Text" $RequirementToolkit
   !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 10" "Flags" ""
   !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 11" "Flags" ""
   !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 12" "Flags" "NOTABSTOP"
   !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 12" "Type" "Link"
 
-  ; SystemPack or Union
-  StrCmp $RequirementSpUnion "" 0 +11
-    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 13" "Text" "${U+2713} SystemPack $(TextVerifyOr) Union"
-    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 15" "Text" "$InstalledSpUnion $(TextVerifyIsInstalled)."
+  ; DEP
+  StrCmp $RequirementDep "" 0 +8
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 13" "Text" "${U+2713} Data Execution Prevention (DEP) $(TextVerifyDisabled)"
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 14" "Text" "DEP $(TextVerifyIsDisabled)."
     !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 13" "Flags" "DISABLED"
     !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 14" "Flags" "DISABLED"
     !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 15" "Flags" "DISABLED"
-    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 16" "Flags" "DISABLED"
-    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 17" "Flags" "DISABLED"
-    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 16" "Type" "Label"
-    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 17" "Type" "Label"
-    Goto +10
-  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 13" "Text" "${U+274C} SystemPack $(TextVerifyOr) Union"
-  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 15" "Text" $RequirementSpUnion
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 15" "Type" "Label"
+    Goto +7
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 13" "Text" "${U+274C} Data Execution Prevention (DEP) $(TextVerifyDisabled)"
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 14" "Text" $RequirementDep
   !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 13" "Flags" ""
   !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 14" "Flags" ""
-  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 15" "Flags" ""
-  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 16" "Flags" "NOTABSTOP"
-  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 17" "Flags" "NOTABSTOP"
-  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 16" "Type" "Link"
-  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 17" "Type" "Link"
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 15" "Flags" "NOTABSTOP"
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 15" "Type" "Link"
 
-  ; Program Files
-  StrCmp $RequirementProgFiles "" 0 +7
-    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 18" "Text" "${U+2713} $(TextVerifyNotInProgFiles)"
-    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 20" "Text" $(TextVerifyProgFilesGood)
+  ; SystemPack or Union
+  StrCmp $RequirementSpUnion "" 0 +11
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 16" "Text" "${U+2713} SystemPack $(TextVerifyOr) Union"
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 18" "Text" "$InstalledSpUnion $(TextVerifyIsInstalled)."
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 16" "Flags" "DISABLED"
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 17" "Flags" "DISABLED"
     !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 18" "Flags" "DISABLED"
     !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 19" "Flags" "DISABLED"
     !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 20" "Flags" "DISABLED"
-    Goto +6
-  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 18" "Text" "${U+274C} $(TextVerifyNotInProgFiles)"
-  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 20" "Text" $RequirementProgFiles
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 19" "Type" "Label"
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 20" "Type" "Label"
+    Goto +10
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 16" "Text" "${U+274C} SystemPack $(TextVerifyOr) Union"
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 18" "Text" $RequirementSpUnion
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 16" "Flags" ""
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 17" "Flags" ""
   !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 18" "Flags" ""
-  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 19" "Flags" ""
-  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 20" "Flags" ""
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 19" "Flags" "NOTABSTOP"
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 20" "Flags" "NOTABSTOP"
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 19" "Type" "Link"
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 20" "Type" "Link"
+
+  ; Program Files
+  StrCmp $RequirementProgFiles "" 0 +7
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 21" "Text" "${U+2713} $(TextVerifyNotInProgFiles)"
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 23" "Text" $(TextVerifyProgFilesGood)
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 21" "Flags" "DISABLED"
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 22" "Flags" "DISABLED"
+    !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 23" "Flags" "DISABLED"
+    Goto +6
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 21" "Text" "${U+274C} $(TextVerifyNotInProgFiles)"
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 23" "Text" $RequirementProgFiles
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 21" "Flags" ""
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 22" "Flags" ""
+  !insertmacro MUI_INSTALLOPTIONS_WRITE "checks.ini" "Field 23" "Flags" ""
 
   ; Update the checkbox according to urgency of the issues
   StrCmp $RequirementsInvalid "" +3
@@ -789,17 +820,78 @@ Function PageCheckRequirements
   CreateFont $FONT $(^Font) $(^FontSize) 700
   SendMessage $DLGITEM ${WM_SETFONT} $FONT 0
 
-  !insertmacro INSTALLOPTIONS_READ $DLGITEM "checks.ini" "Field 18" "HWND"
+  !insertmacro INSTALLOPTIONS_READ $DLGITEM "checks.ini" "Field 16" "HWND"
   CreateFont $FONT $(^Font) $(^FontSize) 700
   SendMessage $DLGITEM ${WM_SETFONT} $FONT 0
 
-  ; Set optional to italic
+  !insertmacro INSTALLOPTIONS_READ $DLGITEM "checks.ini" "Field 21" "HWND"
+  CreateFont $FONT $(^Font) $(^FontSize) 700
+  SendMessage $DLGITEM ${WM_SETFONT} $FONT 0
+
+  ; Subtext at smaller font size
+  !insertmacro INSTALLOPTIONS_READ $DLGITEM "checks.ini" "Field 5" "HWND"
+  CreateFont $FONT "Tahoma" "7"
+  SendMessage $DLGITEM ${WM_SETFONT} $FONT 0
+
+  !insertmacro INSTALLOPTIONS_READ $DLGITEM "checks.ini" "Field 6" "HWND"
+  CreateFont $FONT "Tahoma" "7"
+  SendMessage $DLGITEM ${WM_SETFONT} $FONT 0
+
+  !insertmacro INSTALLOPTIONS_READ $DLGITEM "checks.ini" "Field 8" "HWND"
+  CreateFont $FONT "Tahoma" "7"
+  SendMessage $DLGITEM ${WM_SETFONT} $FONT 0
+
+  !insertmacro INSTALLOPTIONS_READ $DLGITEM "checks.ini" "Field 9" "HWND"
+  CreateFont $FONT "Tahoma" "7"
+  SendMessage $DLGITEM ${WM_SETFONT} $FONT 0
+
+  !insertmacro INSTALLOPTIONS_READ $DLGITEM "checks.ini" "Field 11" "HWND"
+  CreateFont $FONT "Tahoma" "7"
+  SendMessage $DLGITEM ${WM_SETFONT} $FONT 0
+
+  !insertmacro INSTALLOPTIONS_READ $DLGITEM "checks.ini" "Field 12" "HWND"
+  CreateFont $FONT "Tahoma" "7"
+  SendMessage $DLGITEM ${WM_SETFONT} $FONT 0
+
   !insertmacro INSTALLOPTIONS_READ $DLGITEM "checks.ini" "Field 14" "HWND"
-  CreateFont $FONT $(^Font) $(^FontSize) "" /ITALIC
+  CreateFont $FONT "Tahoma" "7"
+  SendMessage $DLGITEM ${WM_SETFONT} $FONT 0
+
+  !insertmacro INSTALLOPTIONS_READ $DLGITEM "checks.ini" "Field 15" "HWND"
+  CreateFont $FONT "Tahoma" "7"
+  SendMessage $DLGITEM ${WM_SETFONT} $FONT 0
+
+  !insertmacro INSTALLOPTIONS_READ $DLGITEM "checks.ini" "Field 17" "HWND"
+  CreateFont $FONT "Tahoma" "7"
+  SendMessage $DLGITEM ${WM_SETFONT} $FONT 0
+
+  !insertmacro INSTALLOPTIONS_READ $DLGITEM "checks.ini" "Field 18" "HWND"
+  CreateFont $FONT "Tahoma" "7"
   SendMessage $DLGITEM ${WM_SETFONT} $FONT 0
 
   !insertmacro INSTALLOPTIONS_READ $DLGITEM "checks.ini" "Field 19" "HWND"
-  CreateFont $FONT $(^Font) $(^FontSize) "" /ITALIC
+  CreateFont $FONT "Tahoma" "7"
+  SendMessage $DLGITEM ${WM_SETFONT} $FONT 0
+
+  !insertmacro INSTALLOPTIONS_READ $DLGITEM "checks.ini" "Field 20" "HWND"
+  CreateFont $FONT "Tahoma" "7"
+  SendMessage $DLGITEM ${WM_SETFONT} $FONT 0
+
+  !insertmacro INSTALLOPTIONS_READ $DLGITEM "checks.ini" "Field 22" "HWND"
+  CreateFont $FONT "Tahoma" "7"
+  SendMessage $DLGITEM ${WM_SETFONT} $FONT 0
+
+  !insertmacro INSTALLOPTIONS_READ $DLGITEM "checks.ini" "Field 23" "HWND"
+  CreateFont $FONT "Tahoma" "7"
+  SendMessage $DLGITEM ${WM_SETFONT} $FONT 0
+
+  ; Set optional to italic
+  !insertmacro INSTALLOPTIONS_READ $DLGITEM "checks.ini" "Field 17" "HWND"
+  CreateFont $FONT "Tahoma" "7" "" /ITALIC
+  SendMessage $DLGITEM ${WM_SETFONT} $FONT 0
+
+  !insertmacro INSTALLOPTIONS_READ $DLGITEM "checks.ini" "Field 22" "HWND"
+  CreateFont $FONT "Tahoma" "7" "" /ITALIC
   SendMessage $DLGITEM ${WM_SETFONT} $FONT 0
 
   ; Set keyboard focus
