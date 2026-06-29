@@ -32,7 +32,8 @@ Please note that this is the first release of the G1CP. Work on the patch contin
 
 ## Requirements 
 * Gothic version [1.08k_mod](https://www.worldofgothic.de/dl/download_34.htm)
-* [Ninja](https://github.com/szapp/Ninja/releases) >= 2.3.08
+* [Ninja](https://github.com/szapp/Ninja/releases) >= 4.1.16
+* [Toolkit](https://github.com/szapp/Toolkit/releases) >= 16
 
 ## Recommendations 
 * [Union](https://www.worldofgothic.de/dl/download_651.htm): Union (formerly Systempack) is highly recommended as it fixes several engine bugs while the G1CP focuses on fixing script bugs. Bugs that are already fixed by Union are not in the scope of the G1CP.
