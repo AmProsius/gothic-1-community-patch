@@ -3,25 +3,10 @@
  */
 func int G1CP_0270_DE_OreBaronCellarKeyText() {
     const int count = 0;
-
     var int itemId; itemId = G1CP_GetItemInstId("ItKe_Storage_01");
-    if (
-        STR_Compare(
-            G1CP_GetStringI(itemId, 0, "G1CP invalid string"),
-            "Öffnet Haupttür der Lagerräume "
-        ) == STR_EQUAL
-    ) {
-        count += 1;
-    };
 
-    if (
-        STR_Compare(
-            G1CP_GetStringI(itemId, 1, "G1CP invalid string"),
-            "im Keller der Erzbarone"
-        ) == STR_EQUAL
-    ) {
-        count += 1;
-    };
+    count += G1CP_FindAssignStr(itemId, 0, "C_Item.text", "Öffnet Haupttür der Lagerräume ");
+    count += G1CP_FindAssignStr(itemId, 0, "C_Item.text[1]", "im Keller der Erzbarone");
 
     if (count <= 2) {
         return FALSE;
