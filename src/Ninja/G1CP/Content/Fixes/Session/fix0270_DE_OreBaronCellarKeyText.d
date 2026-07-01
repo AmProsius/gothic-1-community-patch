@@ -2,7 +2,9 @@
  * #270 Spelling - Key to the main door of the storage rooms in the cellar of the ore barons (DE)
  */
 func int G1CP_0270_DE_OreBaronCellarKeyText() {
-    const int count = 0;
+    var int count; count = 0;
+    var int applied1;
+    var int applied2;
     var int itemId; itemId = G1CP_GetItemInstId("ItKe_Storage_01");
 
     count += G1CP_FindAssignStr(itemId, 0, "C_Item.text", "Öffnet Haupttür der Lagerräume ");
@@ -12,18 +14,18 @@ func int G1CP_0270_DE_OreBaronCellarKeyText() {
         return FALSE;
     };
 
-    G1CP_Tpl_ChangeItemStrVar(
+    applied1 = G1CP_Tpl_ChangeItemStrVar(
         "ItKe_Storage_01",
         "text[0]",
         "Öffnet Haupttür der Lagerräume ",
         "Öffnet die Haupttür der Lager-"
     );
-    G1CP_Tpl_ChangeItemStrVar(
+    applied2 = G1CP_Tpl_ChangeItemStrVar(
         "ItKe_Storage_01",
         "text[1]",
         "im Keller der Erzbarone",
         "räume im Keller der Erzbarone."
     );
 
-    return TRUE;
+    return (applied1 && applied2);
 };
