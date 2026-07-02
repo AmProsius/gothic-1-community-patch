@@ -1,5 +1,6 @@
 .idea
 /build/*
+/tmp.vm
 
 /scriptbase/_work/Data/Scripts/_compiled
 

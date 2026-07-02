@@ -1,6 +1,6 @@
 [BEGINVDF]
 
-; Do not use this file - run make instead
+; Do not use this file - run 'just build' instead
 
 [FILES]
 ; Resources (list the specific files from _work here)
@@ -10,8 +10,8 @@ _work\* -r
 Ninja\G1CP\* -r
 
 [EXCLUDE]
+placeholder
 _work\Data\Scripts\* -r
-Ninja\G1CP\TestsuiteDev.src
 *.vm
 *.vdf
 *.bat

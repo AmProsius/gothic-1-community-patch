@@ -1,5 +1,6 @@
 {
     "recommendations": [
         "marcinbar.vscode-daedalus",
+        "nefrob.vscode-just-syntax"
     ]
 }

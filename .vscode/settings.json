@@ -2,7 +2,8 @@
     "daedalusLanguageServer.projectFiles": [
         "src/Ninja/G1CP/Content_G1.src"
     ],
-    "makefile.configureOnOpen": false,
+    "files.encoding": "utf8",
+    "files.eol": "\n",
     "[daedalus]": {
         "files.encoding": "windows1252",
         "files.eol": "\r\n",
@@ -14,4 +15,14 @@
         "editor.insertSpaces": true,
         "editor.detectIndentation": false
     },
+    "[just]": {
+        "editor.defaultFormatter": "nefrob.vscode-just-syntax",
+        "editor.formatOnSave": true,
+    },
+    "vscode-just.runInTerminal": true,
+    "vscode-just.useSingleTerminal": true,
+    "[markdown]": {
+        "files.trimTrailingWhitespace": false,
+        "editor.renderWhitespace": "boundary"
+    }
 }

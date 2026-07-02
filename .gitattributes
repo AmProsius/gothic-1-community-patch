@@ -5,6 +5,9 @@
 /.github/actions/initFix/dist/** linguist-generated
 /.github/** -linguist-detectable
 
+# Setup
+*.nsi text working-tree-encoding=CP1252
+
 # Checkout Windows-style line endings and ensure correct encoding
 # Encoding is not localization but fixed zSTRING::Upper code page handling!
 # See https://forum.worldofplayers.de/forum/threads/1537187/page3
