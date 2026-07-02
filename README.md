@@ -73,12 +73,19 @@ Please note that this is the first release of the G1CP. Work on the patch contin
 ---
 
 ## Building
-Building the project is fully automated. VDF and NSIS setup are created in the sub-directory `build` by running Make in the Windows command prompt. The rules `make`, `make all`, and `make remake` invoke `make dev` which builds the development version of the VDF. The development version includes the test suite. To build the release version (including building the NSIS setup) use `make release`.
 
-To build, the paths to the following software are required to be in the `PATH` environment variable:
+Building the project is fully automated. VDF and NSIS setup are created in the sub-directory `build` using [just](https://just.systems).
 
- - [Make](http://gnuwin32.sourceforge.net/packages/make.htm)
- - [GothicVDFS](http://www.bendlins.de/nico/gothic2/)
- - [NSIS (Nullsoft Scriptable Install System)](https://nsis.sourceforge.io/) including the [MoreInfo plug-in](https://nsis.sourceforge.io/MoreInfo_plug-in)
+Available recipes are `build`, `bundle`, `bump` and `clean`. Without parameter, `build` creates the development version of the VDF. The development version includes the test suite. The release version including a NSIS setup is created with `bundle`. `bump` increase either base, major or minor version. Due to NSIS, creating the setup is only supported on Windows. Details are available by invoking `just`.
 
-The Makefile is written and supported for Windows only.
+Just recipes are run in `sh`, either available by invoking just in git-bash or by adding the `bin` directory of git-bash to the `PATH` environment variable. Git-bash is provided by [Git for Windows](https://git-scm.com/install/windows).
+Furthermore, the paths to the following software are required to be in the `PATH` environment variable:
+
+- [GothicVDFS](http://www.bendlins.de/nico/gothic2/)
+- [NSIS (Nullsoft Scriptable Install System)](https://nsis.sourceforge.io/) including the [MoreInfo plug-in](https://nsis.sourceforge.io/MoreInfo_plug-in)
+
+Alternatives to GothicVDFS can be used by specifying their path in the environment variable `GOTHIC_VDFS`, e.g.
+
+```sh
+GOTHIC_VDFS="path/to/vdfsbuilder" just bundle
+```

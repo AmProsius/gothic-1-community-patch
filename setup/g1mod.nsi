@@ -45,8 +45,8 @@ CRCCheck force
 !define MOD_LINK "$%WEBSITE%"   ; Herausgeber-Link
 !define MOD_COPY "$%AUTHOR%"    ; Copyright
 
-!define SRC_BASEDIR "..\build\$%BTYPE%"
-!define OUTDIR "..\build\$%BTYPE%"
+!define SRC_BASEDIR "..\build\release"
+!define OUTDIR "..\build\release"
 
 !define NINJA_MIN_TEXT $%NINJAMIN%
 
@@ -142,7 +142,7 @@ VIAddVersionKey /LANG=1200 "OriginalFilename" "${MOD_FILE}-${VER_FILE}.exe"
 
 
 LangString NameInstFull ${LANG_ENGLISH} "Complete"
-LangString NameInstFull ${LANG_GERMAN} "Vollständig"
+LangString NameInstFull ${LANG_GERMAN} "VollstÃ¤ndig"
 InstType $(NameInstFull)
 
 
@@ -161,9 +161,9 @@ LangString TextInsuffRights ${LANG_ENGLISH} "Setting up the uninstalling option 
 LangString WelcomeText ${LANG_ENGLISH} "This wizard will guide you through the installation of $(^Name).\r\n\r\nBefore installation you may close all other programs.\r\n\r\n$_CLICK"
 LangString UnWelcomeText ${LANG_ENGLISH} "This wizard will guide you through the uninstallation of $(^Name).\r\n\r\nPlease close Gothic and any associated tools,\r\nbefore you proceed with the uninstallation.\r\n\r\n$_CLICK"
 
-LangString TextInsuffRights ${LANG_GERMAN} "Beim Schreiben der Werte für die spätere Deinstallation trat ein Fehler auf.$\r$\nStellen Sie sicher, dass Ihr Benutzerkonto über die notwendigen Rechte verfügt.$\r$\n$\r$\n(HKLM\$R0)"
-LangString WelcomeText ${LANG_GERMAN} "Dieser Assistent wird Sie durch die Installation von $(^Name) führen.\r\n\r\nEs wird empfohlen, vor der Installation alle anderen Programme zu schließen.\r\n\r\n$_CLICK"
-LangString UnWelcomeText ${LANG_GERMAN} "Dieser Assistent wird Sie durch die Deinstallation von $(^Name) führen.\r\n\r\nBitte beenden Sie Gothic und alle verwandten Programme, bevor Sie mit der Deinstallation fortfahren.\r\n\r\n$_CLICK"
+LangString TextInsuffRights ${LANG_GERMAN} "Beim Schreiben der Werte fÃ¼r die spÃ¤tere Deinstallation trat ein Fehler auf.$\r$\nStellen Sie sicher, dass Ihr Benutzerkonto Ã¼ber die notwendigen Rechte verfÃ¼gt.$\r$\n$\r$\n(HKLM\$R0)"
+LangString WelcomeText ${LANG_GERMAN} "Dieser Assistent wird Sie durch die Installation von $(^Name) fÃ¼hren.\r\n\r\nEs wird empfohlen, vor der Installation alle anderen Programme zu schlieÃŸen.\r\n\r\n$_CLICK"
+LangString UnWelcomeText ${LANG_GERMAN} "Dieser Assistent wird Sie durch die Deinstallation von $(^Name) fÃ¼hren.\r\n\r\nBitte beenden Sie Gothic und alle verwandten Programme, bevor Sie mit der Deinstallation fortfahren.\r\n\r\n$_CLICK"
 
 
 Section -pre
@@ -215,7 +215,7 @@ LangString NameRemoveMod ${LANG_GERMAN} "${MOD_NAME} entfernen"
 
 Section !$(NameSecModFiles) SecModFiles
 
-  SectionIn RO ; nicht abwählbar
+  SectionIn RO ; nicht abwÃ¤hlbar
 
   SetDetailsPrint textonly
   DetailPrint $(TextSecModFiles)
@@ -229,7 +229,7 @@ Section !$(NameSecModFiles) SecModFiles
   SetOutPath "$INSTDIR\Data"
   File      "${SRC_BASEDIR}\${MOD_FILE}.vdf"
 
-  ; Einträge im Startmenü
+  ; EintrÃ¤ge im StartmenÃ¼
   SetShellVarContext current
   !insertmacro g2mod_CreateDirectory "$SMPROGRAMS\Piranha Bytes\Gothic\Mods"
   CreateShortCut "$SMPROGRAMS\Piranha Bytes\Gothic\Mods\$(NameRemoveMod)" \
@@ -242,13 +242,13 @@ SectionEnd
 
 Section !un.$(NameSecModFiles) unSecModFiles
 
-  SectionIn RO  ; nicht abwählbar
+  SectionIn RO  ; nicht abwÃ¤hlbar
 
   ; Mod-Volume und Mod-Volume-Map entfernen
   !insertmacro g2mod_DeleteFile "$INSTDIR\vdfs_${MOD_FILE}.dmp"
   !insertmacro g2mod_DeleteFile "$INSTDIR\Data\${MOD_FILE}.vdf"
 
-  ; Einträge im Startmenü entfernen
+  ; EintrÃ¤ge im StartmenÃ¼ entfernen
   SetShellVarContext current
   !insertmacro g2mod_DeleteFile "$SMPROGRAMS\Piranha Bytes\Gothic\Mods\$(NameRemoveMod).lnk"
   ; Werden nur entfernt, falls die Verzeihcnisse leer sind...
@@ -312,14 +312,14 @@ Function .onInit
   ; Kein 'unsichtbares' Setup
   SetSilent normal
 
-  ; $INSTDIR bereits gültig?
+  ; $INSTDIR bereits gÃ¼ltig?
   IfFileExists "$INSTDIR\system\Gothic.exe" done
 
   ; Sonst Add-ON Installation suchen (Registrierung)
   Call g2mod_GetInstallLocation
   Pop $R0
   StrCmp $R0 "" done
-  ; Übernehmen
+  ; Ãœbernehmen
   StrCpy $INSTDIR $R0
 
   done:
@@ -330,12 +330,12 @@ FunctionEnd
 ; Uninstaller (Init)
 
 LangString TextInvalidUninstall ${LANG_ENGLISH} "The installation directory is invalid.$\r$\nContinue uninstalling anyway?"
-LangString TextInvalidUninstall ${LANG_GERMAN} "Das Installationsverzeichnis scheint ungültig zu sein.$\r$\nSoll die Deinstallation trotzdem fortgesetzt werden?"
+LangString TextInvalidUninstall ${LANG_GERMAN} "Das Installationsverzeichnis scheint ungÃ¼ltig zu sein.$\r$\nSoll die Deinstallation trotzdem fortgesetzt werden?"
 
 Function un.onInit
   Push $R0
 
-  ; $INSTDIR gültig?
+  ; $INSTDIR gÃ¼ltig?
   IfFileExists "$INSTDIR\system\Gothic.exe" done
 
   ; Mod-Installation suchen (Registrierung)
@@ -369,15 +369,15 @@ LangString TextReinstNewer ${LANG_ENGLISH} "A newer version is already installed
 LangString TextReinstEqual ${LANG_ENGLISH} "$(^Name) is already installed."
 
 LangString TextReinstTitle ${LANG_GERMAN} "Vorherige Installation"
-LangString TextReinstHead1 ${LANG_GERMAN} "Wählen Sie aus, wie $(^Name) installiert werden soll."
+LangString TextReinstHead1 ${LANG_GERMAN} "WÃ¤hlen Sie aus, wie $(^Name) installiert werden soll."
 LangString TextReinstOpt1A ${LANG_GERMAN} "Vorher deinstallieren"
 LangString TextReinstOpt1B ${LANG_GERMAN} "Nicht deinstallieren"
-LangString TextReinstHead2 ${LANG_GERMAN} "Wählen Sie die auszuführende Wartungsoption aus."
+LangString TextReinstHead2 ${LANG_GERMAN} "WÃ¤hlen Sie die auszufÃ¼hrende Wartungsoption aus."
 LangString TextReinstOpt2A ${LANG_GERMAN} "Erneut installieren"
 LangString TextReinstOpt2B ${LANG_GERMAN} "$(^Name) deinstallieren"
 LangString TextReinstWrong ${LANG_GERMAN} "Eine inkompatible Version ist bereits installiert!\r\nWenn Sie diese Version wirklich installieren wollen,\r\nsollten Sie die aktuelle Version vorher deinstallieren."
-LangString TextReinstOlder ${LANG_GERMAN} "Eine ältere Version ist auf Ihrem System installiert.\r\nEs wird empfohlen die aktuelle Version vorher zu deinstallieren."
-LangString TextReinstNewer ${LANG_GERMAN} "Eine neuere Version ist bereits auf Ihrem System installiert!\r\nEs wird empfohlen die ältere Version nicht zu installieren. Wenn Sie diese ältere Version wirklich installieren wollen, sollten Sie die aktuelle Version vorher deinstallieren."
+LangString TextReinstOlder ${LANG_GERMAN} "Eine Ã¤ltere Version ist auf Ihrem System installiert.\r\nEs wird empfohlen die aktuelle Version vorher zu deinstallieren."
+LangString TextReinstNewer ${LANG_GERMAN} "Eine neuere Version ist bereits auf Ihrem System installiert!\r\nEs wird empfohlen die Ã¤ltere Version nicht zu installieren. Wenn Sie diese Ã¤ltere Version wirklich installieren wollen, sollten Sie die aktuelle Version vorher deinstallieren."
 LangString TextReinstEqual ${LANG_GERMAN} "$(^Name) ist bereits installiert."
 
 Function PageReinstall
@@ -387,7 +387,7 @@ Function PageReinstall
   StrCmp $R0 "" 0 +2
   Abort
 
-  ; Version überprüfen
+  ; Version Ã¼berprÃ¼fen
   ReadRegDWORD $R0 HKLM "${MOD_RKEY}" "VersionFlags"
   IntCmp $R0 ${VER_FLAGS} major wrong wrong
   major:
@@ -458,7 +458,7 @@ FunctionEnd
 ; Add note to directory selection page
 
 LangString DirectoryTextTop ${LANG_ENGLISH} "Setup will install $(^NameDA) in the following folder. To install in a different folder, click Browse and select another folder.$\r$\n$\r$\nChoose the installation directory of Gothic.$\r$\n$\r$\n$_CLICK"
-LangString DirectoryTextTop ${LANG_GERMAN} "$(^NameDA) wird in das unten angegebene Verzeichnis installiert. Falls Sie in ein anderes Verzeichnis installieren möchten, klicken Sie auf Durchsuchen und wählen Sie ein anderes Verzeichnis aus.$\r$\n$\r$\nWählen Sie das Verzeichnis aus, in welchem sich Gothic befindet.$\r$\n$\r$\n$_CLICK"
+LangString DirectoryTextTop ${LANG_GERMAN} "$(^NameDA) wird in das unten angegebene Verzeichnis installiert. Falls Sie in ein anderes Verzeichnis installieren mÃ¶chten, klicken Sie auf Durchsuchen und wÃ¤hlen Sie ein anderes Verzeichnis aus.$\r$\n$\r$\nWÃ¤hlen Sie das Verzeichnis aus, in welchem sich Gothic befindet.$\r$\n$\r$\n$_CLICK"
 
 
 ; Verify install requirements
@@ -489,29 +489,29 @@ LangString TextVerifyDEPisOn ${LANG_ENGLISH} "Please disable DEP or add exceptio
 LangString TextVerifyDEPexclude ${LANG_ENGLISH} "Make sure Gothic is listed as exception."
 
 LangString TextVerifyTitle ${LANG_GERMAN} "Installationsvoraussetzungen"
-LangString TextVerifySubtitle ${LANG_GERMAN} "Bitte prüfen Sie die Voraussetzungen."
+LangString TextVerifySubtitle ${LANG_GERMAN} "Bitte prÃ¼fen Sie die Voraussetzungen."
 LangString TextVerifyNextButton ${LANG_GERMAN} "Installieren"
-LangString TextVerifyNotMet ${LANG_GERMAN} "Nicht alle Voraussetzungen sind erfüllt.\r\n\r\nBitte unternehmen Sie die nötigen Schritte."
+LangString TextVerifyNotMet ${LANG_GERMAN} "Nicht alle Voraussetzungen sind erfÃ¼llt.\r\n\r\nBitte unternehmen Sie die nÃ¶tigen Schritte."
 LangString TextVerifyContinue ${LANG_GERMAN} "&Trotzdem fortfahren?"
 LangString TextVerifyWarning ${LANG_GERMAN} "Achtung: ${MOD_FILE} wird in dieser Konfiguration nicht funktionieren."
 LangString TextVerifyDownload ${LANG_GERMAN} "Herunterladen"
 LangString TextVerifyInstructions ${LANG_GERMAN} "Anleitung"
 LangString TextVerifyOptionalRecom ${LANG_GERMAN} "empfohlen"
-LangString TextVerifyOrHigher ${LANG_GERMAN} "oder höher"
+LangString TextVerifyOrHigher ${LANG_GERMAN} "oder hÃ¶her"
 LangString TextVerifyDisabled ${LANG_GERMAN} "deaktiviert"
 LangString TextVerifyIsInstalled ${LANG_GERMAN} "ist installiert"
 LangString TextVerifyIsDisabled ${LANG_GERMAN} "ist deaktiviert"
 LangString TextVerifyGothicVersion ${LANG_GERMAN} "Bitte aktualisieren Sie Ihre Installation."
 LangString TextVerifyNinja ${LANG_GERMAN} "Eine Installation von Ninja wird vorrausgesetzt."
-LangString TextVerifyNinjaInvalid ${LANG_GERMAN} "Die Installation von Ninja ist ungültig oder beschädigt."
+LangString TextVerifyNinjaInvalid ${LANG_GERMAN} "Die Installation von Ninja ist ungÃ¼ltig oder beschÃ¤digt."
 LangString TextVerifyNinjaVersion ${LANG_GERMAN} "Bitte aktualisieren Sie Ihre Installation. Derzeit"
 LangString TextVerifyToolkit ${LANG_GERMAN} "Eine Installation von Toolkit wird vorrausgesetzt."
 LangString TextVerifyUnion ${LANG_GERMAN} "Eine Installation von Union wird empfohlen."
 LangString TextVerifyNotInProgFiles ${LANG_GERMAN} "Gothic nicht in 'Progamme' Verzeichnis"
-LangString TextVerifyBadDir ${LANG_GERMAN} "Diese Verzeichnisse können Probleme verursachen."
-LangString TextVerifyProgFilesGood ${LANG_GERMAN} "Gothic ist außerhalb installiert."
-LangString TextVerifyDEPisOn ${LANG_GERMAN} "Deaktivieren Sie DEP oder fügen Sie Ausnahmen hinzu."
-LangString TextVerifyDEPexclude ${LANG_GERMAN} "Prüfen Sie, ob Gothic als Ausnahme hinzugefügt ist."
+LangString TextVerifyBadDir ${LANG_GERMAN} "Diese Verzeichnisse kÃ¶nnen Probleme verursachen."
+LangString TextVerifyProgFilesGood ${LANG_GERMAN} "Gothic ist auÃŸerhalb installiert."
+LangString TextVerifyDEPisOn ${LANG_GERMAN} "Deaktivieren Sie DEP oder fÃ¼gen Sie Ausnahmen hinzu."
+LangString TextVerifyDEPexclude ${LANG_GERMAN} "PrÃ¼fen Sie, ob Gothic als Ausnahme hinzugefÃ¼gt ist."
 
 
 Var HWND
