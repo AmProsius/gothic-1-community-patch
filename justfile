@@ -89,5 +89,5 @@ VDFName=build/@TARGET@/$PROJECT_SLUG.vdf
 
 # Testsuite is excluded in release build
 VM_EXCLUDE := '''
-Ninja\\\$PROJECT_SLUG\\Content\\Tests* -r
-Ninja\\\$PROJECT_SLUG\\Tests* -r'''
+Ninja\\\$PROJECT_SLUG\\Testsuite.src
+Ninja\\\$PROJECT_SLUG\\Content\\Tests* -r'''
