@@ -31,24 +31,24 @@ CRCCheck force
 ; Definitionen
 
 ; TODO: Version der Modifikation
-!define VER_MAJOR $%VBASE%
-!define VER_MINOR $%VMAJOR%
-!define VER_PATCH $%VMINOR%
+!define VER_MAJOR $%VERSION_MAJOR%
+!define VER_MINOR $%VERSION_MINOR%
+!define VER_PATCH $%VERSION_PATCH%
 !define VER_FLAGS 0
 !define VER_FILE  "${VER_MAJOR}.${VER_MINOR}.${VER_PATCH}"
 !define VER_TEXT  "${VER_MAJOR}.${VER_MINOR}.${VER_PATCH}"
 
 ; TODO: Eigenschaften der Modifikation
-!define MOD_FILE "$%PATCHNAME%" ; Mod-Dateiname (KEINE Leer- oder Sonderzeichen!)
-!define MOD_NAME "$%LONGNAME%"  ; Mod-Titel
-!define MOD_COMP "$%AUTHOR%"    ; Mod-Herausgeber
-!define MOD_LINK "$%WEBSITE%"   ; Herausgeber-Link
-!define MOD_COPY "$%AUTHOR%"    ; Copyright
+!define MOD_FILE "$%PROJECT_SLUG%" ; Mod-Dateiname (KEINE Leer- oder Sonderzeichen!)
+!define MOD_NAME "$%PROJECT_NAME%" ; Mod-Titel
+!define MOD_COMP "$%AUTHOR%"       ; Mod-Herausgeber
+!define MOD_LINK "$%WEBSITE%"      ; Herausgeber-Link
+!define MOD_COPY "$%AUTHOR%"       ; Copyright
 
 !define SRC_BASEDIR "..\build\release"
 !define OUTDIR "..\build\release"
 
-!define NINJA_MIN_TEXT $%NINJAMIN%
+!define NINJA_MIN_TEXT $%NINJA_VERSION_MIN%
 
 ;===============================================================================
 ;
