@@ -1,3 +1,5 @@
+# This release is manually triggered to bump the version and draft a release.
+# After manually publishing the release, a git tag is created and the 'deploy' workflow is triggered.
 name: release
 
 on:
