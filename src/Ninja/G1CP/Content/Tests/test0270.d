@@ -6,6 +6,6 @@ func int G1CP_Test_0270() {
     var C_Item itm; itm = G1CP_Testsuite_CreateItem("ItKe_Storage_01");
     var string itm_text_1; itm_text_1 = MEM_ReadStatStringArr(itm.text, 1); // itm.text[1]
 
-    G1CP_Testsuite_AssertS(itm.text, "Öffnet die Haupttür der Lager-");
-    G1CP_Testsuite_AssertS(itm_text_1, "räume im Keller der Erzbarone.");
+    G1CP_Testsuite_AssertS(itm.text, "Öffnet die Haupttür der Lagerräume");
+    G1CP_Testsuite_AssertS(itm_text_1, "im Keller der Erzbarone.");
 };
