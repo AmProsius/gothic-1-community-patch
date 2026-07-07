@@ -122,6 +122,7 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
         G1CP_0270_DE_OreBaronCellarKeyText();           // #270
         G1CP_0278_EN_FemaleSvmOuMismatch();             // #278
         G1CP_0338_DE_EN_GrilledMeatName();              // #338
+        G1CP_0341_EN_CorCalomSubtitleQuotes();          // #341
         G1CP_0343_EN_ArmorPlateDescription();           // #343
         G1CP_0382_EN_LesterSubtitleQuotes();            // #382
         G1CP_0399_DE_SkeletonMageName();                // #399
