@@ -157,6 +157,7 @@ Content\Fixes\Session\fix0241_GuardAfterTrial.d
 Content\Fixes\Session\fix0244_GuardExitDialog.d
 Content\Fixes\Session\fix0261_DE_OrcHunterName.d
 Content\Fixes\Session\fix0266_DE_EN_StorageChestKey.d
+Content\Fixes\Session\fix0268_DE_LaboratoryKeyText.d
 Content\Fixes\Session\fix0269_DE_EN_SunkenTowerKeyText.d
 Content\Fixes\Session\fix0270_DE_OreBaronCellarKeyText.d
 Content\Fixes\Session\fix0278_EN_FemaleSvmOuMismatch.d
