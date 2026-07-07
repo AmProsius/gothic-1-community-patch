@@ -117,6 +117,7 @@ func void Ninja_G1CP_Menu(var int menuPtr) {
         G1CP_0244_GuardExitDialog();                    // #244
         G1CP_0261_DE_OrcHunterName();                   // #261
         G1CP_0266_DE_EN_StorageChestKey();              // #266
+        G1CP_0268_DE_LaboratoryKeyText();               // #268
         G1CP_0269_DE_EN_SunkenTowerKeyText();           // #269
         G1CP_0270_DE_OreBaronCellarKeyText();           // #270
         G1CP_0278_EN_FemaleSvmOuMismatch();             // #278
