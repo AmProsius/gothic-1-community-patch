@@ -1,0 +1,188 @@
+# This workflow is automatically triggered when publishing a new release.
+# It will build and bundle the project and attach the setup to the GitHub release.
+# Additionally, the VDF is deployed to Steam. Necessary files for a manual Spine
+# release are made available as downloadable workflow artifacts.
+name: deploy
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: windows-latest
+    name: Deploy release semi-automatically
+    steps:
+      - name: Get token
+        uses: actions/create-github-app-token@v3
+        id: app-token
+        with:
+          client-id: ${{ vars.BOTWYN_ID }}
+          private-key: ${{ secrets.BOTWYN_KEY }}
+
+      - name: Determine tag from specified release
+        if: github.event_name == 'release'
+        shell: bash
+        run: |
+            tag=$(jq -r '.release.tag_name' "$GITHUB_EVENT_PATH")
+            echo "TAG=$tag" >> $GITHUB_ENV
+
+      - name: Determine tag from latest release
+        if: github.event_name == 'workflow_dispatch'
+        shell: bash
+        run: |
+            tag=$(gh release view --json tagName --jq .tagName --repo ${{ github.repository }})
+            echo "TAG=$tag" >> $GITHUB_ENV
+        env:
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+
+      - name: Verify release
+        shell: bash
+        run: |
+          tag=${{ env.TAG }}
+          release_info=$(gh release view $tag --json isPrerelease,assets,publishedAt --repo ${{ github.repository }})
+          is_prerelease=$(echo $release_info | jq -r '.isPrerelease')
+          num_assets=$(echo $release_info | jq '.assets | length')
+          if [ "$is_prerelease" == "true" ]; then
+            echo "::error title=Invalid Release::Deployment only on full releases. Tag $tag is not a full release."
+            exit 1
+          fi
+          if [ "$num_assets" -ne 0 ]; then
+            echo "::error title=Unexpected Attachments::Release $tag has unexpected assets."
+            exit 1
+          fi
+        env:
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ env.TAG }}
+
+      - name: Install just
+        uses: taiki-e/install-action@v2
+        with:
+          tool: just
+
+      - name: Install NSIS
+        id: nsis
+        uses: negrutiu/nsis-install@v3
+        with:
+          distro: official
+
+      - name: Download NSIS Plugin MoreInfo
+        shell: bash
+        run: |
+          curl -sLO https://github.com/user-attachments/files/29673474/MoreInfo.1.0.1.2.zip
+          unzip -j MoreInfo.1.0.1.2.zip MoreInfo/Plugins/Ansi/MoreInfo.dll -d "${{ steps.nsis.outputs.instdir }}/Plugins/x86-ansi/"
+          unzip -j MoreInfo.1.0.1.2.zip MoreInfo/Plugins/Unicode/MoreInfo.dll -d "${{ steps.nsis.outputs.instdir }}/Plugins/x86-unicode/"
+          rm MoreInfo.1.0.1.2.zip
+
+      - name: Download VDFS builder
+        shell: bash
+        run: |
+          curl -sLO http://bendlins.de/nico/gothic2/GothicVDFS.zip
+          unzip GothicVDFS.zip GothicVDFS.exe -d .tools
+          rm -rf GothicVDFS.zip
+          echo "$GITHUB_WORKSPACE/.tools" >> $GITHUB_PATH
+
+      - name: Bundle project
+        shell: bash
+        run: just bundle
+
+      - name: Upload VDF for manual releases as workflow artifact
+        uses: actions/upload-artifact@v7
+        with:
+          path: build/release/*.vdf
+          archive: false
+          retention-days: 3
+
+      - name: Upload dependency file for Spine release as workflow artifact
+        uses: actions/upload-artifact@v7
+        with:
+          path: build/release/tool.cfg
+          archive: false
+          retention-days: 3
+
+      - name: Attach setup to GitHub release
+        run: |
+          gh release upload ${{ env.TAG }} build/release/*.exe --clobber --repo ${{ github.repository }} || echo "::error title=Uploading Release Asset failed::Could not upload setup to GitHub release for tag ${{ env.TAG }}"
+        env:
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+
+  # Only runs on linux runner
+  deploy-steam:
+    runs-on: ubuntu-latest
+    name: Deploy on Steam Workshop
+    needs: deploy
+    steps:
+      - name: Get token
+        uses: actions/create-github-app-token@v3
+        id: app-token
+        with:
+          client-id: ${{ vars.BOTWYN_ID }}
+          private-key: ${{ secrets.BOTWYN_KEY }}
+
+      - name: Determine tag from specified release
+        if: github.event_name == 'release'
+        shell: bash
+        run: |
+            tag=$(jq -r '.release.tag_name' "$GITHUB_EVENT_PATH")
+            echo "TAG=$tag" >> $GITHUB_ENV
+
+      - name: Determine tag from latest release
+        if: github.event_name == 'workflow_dispatch'
+        shell: bash
+        run: |
+            tag=$(gh release view --json tagName --jq .tagName --repo ${{ github.repository }})
+            echo "TAG=$tag" >> $GITHUB_ENV
+        env:
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+
+      - name: Get release info
+        shell: bash
+        run: |
+          # Fetch release info
+          tag=${{ env.TAG }}
+          release_info=$(gh release view $tag --json publishedAt --repo ${{ github.repository }})
+          release_date=$(echo $release_info | jq -r '.publishedAt')
+          # Format properties
+          version="${tag#v}"
+          changelogdate=$(date -d ${release_date} +"%Y-%m-%d")
+          changelogid="${tag//./}-${changelogdate}"
+          # Export variables
+          echo "VERSION=$version" >> $GITHUB_ENV
+          echo "CHANGELOGID=${changelogid}" >> $GITHUB_ENV
+        env:
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ env.TAG }}
+
+      - name: Retrieve Steam Workshop ID
+        shell: bash
+        run: |
+          source metadata.env
+          echo "STEAM_WORKSHOP_ID=${STEAM_WORKSHOP_ID}" >> $GITHUB_ENV
+
+      - name: Download VDF from workflow artifact
+        uses: actions/download-artifact@v8
+        with:
+          path: content/Data
+          pattern: "*.vdf"
+
+      - name: Update in Gothic 1 Steam workshop
+        uses: m00nl1ght-dev/steam-workshop-deploy@v4
+        with:
+          username: ${{ secrets.STEAM_USERNAME }}
+          configVdf: ${{ secrets.STEAM_CONFIG_VDF }}
+          path: content
+          appId: 65540
+          publishedFileId: ${{ env.STEAM_WORKSHOP_ID }}
+          changeNote: |
+            Version ${{ env.VERSION }}
+
+            https://github.com/AmProsius/gothic-1-community-patch/blob/master/CHANGELOG.md#${{ env.CHANGELOGID }}
