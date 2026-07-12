@@ -22,13 +22,13 @@ func int G1CP_0193_GateSwitchesStuck_InferState(var string targetVobName) {
 
     // Filter out empty targets
     if (Hlp_StrCmp(targetVobName, "")) {
-        return 0;
+        return -1;
     };
 
     // Obtain trigger-target VOB
     var int targetPtr; targetPtr = MEM_SearchVobByName(targetVobName);
     if (!targetPtr) {
-        return 0;
+        return -1;
     };
 
     // Check if mover
@@ -46,7 +46,7 @@ func int G1CP_0193_GateSwitchesStuck_InferState(var string targetVobName) {
     };
 
     // No target or non-triggerable (== another oCMobInter)
-    return 0;
+    return -1;
 };
 
 /*
@@ -77,6 +77,11 @@ func int G1CP_0193_GateSwitchesStuck() {
 
         // Infer the state from potential trigger targets (if none, zero)
         var int state; state = G1CP_0193_GateSwitchesStuck_InferState(mob.triggerTarget);
+
+        // Ignore non-target states
+        if (state == -1) {
+            continue;
+        };
 
         // Update animation and state
         if (state != mob.state) {
