@@ -2,7 +2,9 @@
  * #166 Ambient dialogs of rogue not available
  */
 func int G1CP_0166_RogueWeedDialog() {
-    if (!G1CP_IsFunc("Info_ORG_829_SpecialInfo_Condition", "int|none"))
+    var int condFunc1Id; condFunc1Id = G1CP_GetFuncId("Info_ORG_829_SpecialInfo_Condition", "int|none");
+    var int condFunc2Id; condFunc2Id = G1CP_GetFuncId("Info_ORG_829_PERM_Condition", "int|none");
+    if ((condFunc1Id == -1) && (condFunc2Id == -1)) // Either one exists
     || (!G1CP_IsIntVar("Org_829_GotJoint"))
     || (!G1CP_IsInfoInst("Info_ORG_829_OfferJoint"))
     || (!G1CP_IsItemInst("ItMiJoint_1"))
@@ -11,84 +13,35 @@ func int G1CP_0166_RogueWeedDialog() {
         return FALSE;
     };
 
-    HookDaedalusFuncS("Info_ORG_829_SpecialInfo_Condition", "G1CP_0166_RogueWeedDialog_Hook1");
-    HookDaedalusFuncS("Info_ORG_829_PERM_Condition", "G1CP_0166_RogueWeedDialog_Hook2");
-    return TRUE;
+    // Replace all reads of 'Org_829_GotJoint' with the return value of 'G1CP_0166_RogueWeedDialog_VarContent'
+    var int contentFuncId; contentFuncId = MEM_GetFuncID(G1CP_0166_RogueWeedDialog_VarContent);
+    var int count; count = 0;
+    if (condFunc1Id != -1) {
+        count += G1CP_ReplaceIntRef(condFunc1Id, 0, "Org_829_GotJoint", contentFuncId);
+    };
+    if (condFunc2Id != -1) {
+        count += G1CP_ReplaceIntRef(condFunc2Id, 0, "Org_829_GotJoint", contentFuncId);
+    };
+
+    return (count > 0);
 };
 
 /*
- * This function intercepts the dialog condition to introduce more conditions
+ * Return a manipulated content of 'Org_829_GotJoint' during all reads within the dialog condition functions
  */
-func int G1CP_0166_RogueWeedDialog_Hook1() {
-    G1CP_ReportFuncToSpy();
+func int G1CP_0166_RogueWeedDialog_VarContent() {
+    // All symbols exist as established above
+    var int Org_829_GotJoint; Org_829_GotJoint = G1CP_GetIntVar("Org_829_GotJoint", 0);
+    var int Info_ORG_829_OfferJoint; Info_ORG_829_OfferJoint = MEM_GetSymbolIndex("Info_ORG_829_OfferJoint");
+    var int ItMiJoint_1; ItMiJoint_1 = MEM_GetSymbolIndex("ItMiJoint_1");
+    var int ItMiJoint_2; ItMiJoint_2 = MEM_GetSymbolIndex("ItMiJoint_2");
+    var int ItMiJoint_3; ItMiJoint_3 = MEM_GetSymbolIndex("ItMiJoint_3");
 
-    // Symbol indices (existence confirmed by function above)
-    var int joint1Id; joint1Id = MEM_GetSymbolIndex("ItMiJoint_1");
-    var int joint2Id; joint2Id = MEM_GetSymbolIndex("ItMiJoint_2");
-    var int joint3Id; joint3Id = MEM_GetSymbolIndex("ItMiJoint_3");
-    var int gotJointId; gotJointId = MEM_GetSymbolIndex("Org_829_GotJoint");
+    // Additional conditions
+    var int offeredJoint; var int hasJoint;
+    offeredJoint = Npc_KnowsInfo(hero, Info_ORG_829_OfferJoint);
+    hasJoint = Npc_HasItems(self, ItMiJoint_1) || Npc_HasItems(self, ItMiJoint_2) || Npc_HasItems(self, ItMiJoint_3);
 
-    // Add the new conditions (other conditions remain untouched)
-    var int cond1;
-    var int cond2;
-    var int cond3;
-    var int cond4;
-
-    // Check if dialog was told (check if symbol exists first!)
-    cond1 = !Npc_KnowsInfo(hero, MEM_GetSymbolIndex("Info_ORG_829_OfferJoint"));
-
-    // Check if NPC has a joint
-    cond2 = !Npc_HasItems(self, joint1Id);
-    cond3 = !Npc_HasItems(self, joint2Id);
-    cond4 = !Npc_HasItems(self, joint3Id);
-
-    // Return false if either of the conditions is true
-    if (cond1) || (cond2 && cond3 && cond4) {
-        return FALSE;
-    };
-
-    // Set the variable
-    G1CP_SetIntVarI(gotJointId, 0, TRUE);
-
-    // Continue with the original function
-    ContinueCall();
-};
-
-/*
- * Exact copy of the function above. Need unique functions for both because of the way Daedalus hooks work
- */
-
-func int G1CP_0166_RogueWeedDialog_Hook2() {
-    G1CP_ReportFuncToSpy();
-
-    // Symbol indices (existence confirmed by function above)
-    var int joint1Id; joint1Id = MEM_GetSymbolIndex("ItMiJoint_1");
-    var int joint2Id; joint2Id = MEM_GetSymbolIndex("ItMiJoint_2");
-    var int joint3Id; joint3Id = MEM_GetSymbolIndex("ItMiJoint_3");
-    var int gotJointId; gotJointId = MEM_GetSymbolIndex("Org_829_GotJoint");
-
-    // Add the new conditions (other conditions remain untouched)
-    var int cond1;
-    var int cond2;
-    var int cond3;
-    var int cond4;
-
-    // Check if dialog was told (check if symbol exists first!)
-    cond1 = !Npc_KnowsInfo(hero, MEM_GetSymbolIndex("Info_ORG_829_OfferJoint"));
-
-    // Check if NPC has a joint
-    cond2 = !Npc_HasItems(self, joint1Id);
-    cond3 = !Npc_HasItems(self, joint2Id);
-    cond4 = !Npc_HasItems(self, joint3Id);
-
-    // Return false if either of the conditions is true
-    if (cond1) || (cond2 && cond3 && cond4) {
-        return FALSE;
-    };
-
-    // Set the variable
-    G1CP_SetIntVarI(gotJointId, 0, TRUE);
-
-    // Continue with the original function
-    ContinueCall();
+    // Return updated truth value instead of original
+    return Org_829_GotJoint || (offeredJoint && hasJoint);
 };
