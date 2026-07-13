@@ -18,11 +18,9 @@ func int G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}() {
 func int G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}_Hook() {
     G1CP_ReportFuncToSpy();
 
-    // Add the new conditions (other conditions remain untouched)
     if (/*### TODO Add conditions that should prevent the dialog ###*/FALSE) {
         return FALSE;
     };
 
-    // Continue with the original function
     ContinueCall();
 };

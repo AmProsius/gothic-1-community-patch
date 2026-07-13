@@ -1,10 +1,5 @@
 /*
  * #184 Bartholo can be given weed multiple times
- *
- * The quest "Taking Weeds to Gomez" is set to LOG_RUNNING, the variable Kalom_DeliveredWeed is set to TRUE and the
- * condition function of the dialog is called.
- *
- * Expected behavior: The condition function will return FALSE.
  */
 func void G1CP_Test_0184() {
     var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("Info_Bartholo_Krautbote_Condition");

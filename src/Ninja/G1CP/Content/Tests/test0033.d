@@ -1,9 +1,5 @@
 /*
  * #33 Shrike's Hut quest
- *
- * A variable and dialog are temporarily set and the condition function of the dialog is called.
- *
- * Expected behavior: The condition function will return FALSE.
  */
 func void G1CP_Test_0033() {
     var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("DIA_Shrike_GetLost_Condition");

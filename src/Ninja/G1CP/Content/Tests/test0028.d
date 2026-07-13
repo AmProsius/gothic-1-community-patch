@@ -1,9 +1,5 @@
 /*
  * #28 Mordrag doesn't refuse to escort the player
- *
- * A variable is temporarily set and the condition function of the dialog is called.
- *
- * Expected behavior: The condition function will return FALSE.
  */
 func void G1CP_Test_0028() {
     var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("Org_826_Mordrag_GotoNewcamp_Condition");

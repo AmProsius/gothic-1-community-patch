@@ -1,9 +1,5 @@
 /*
  * #225 Mordrag can be told to "get out" in New Camp
- *
- * A variable and dialog are temporarily set and the condition function of the dialog is called.
- *
- * Expected behavior: The condition function will return FALSE.
  */
 func void G1CP_Test_0225() {
     var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("Org_826_Mordrag_HauAb_Condition");

@@ -2,13 +2,14 @@
  * #38 Snaf's Nek dialog disappears
  */
 func int G1CP_0038_SnafDialogNek() {
-    if (G1CP_IsFunc("DIA_Snaf_WhereNek_Condition", "int|none"))
-    && (G1CP_IsIntVar("Snaf_Zutaten")) {
-        HookDaedalusFuncS("DIA_Snaf_WhereNek_Condition", "G1CP_0038_SnafDialogNek_Hook");
-        return TRUE;
-    } else {
+    const string conditionFuncName = "DIA_Snaf_WhereNek_Condition";
+    if (!G1CP_IsFunc(conditionFuncName, "int|none"))
+    || (!G1CP_IsIntVar("Snaf_Zutaten")) {
         return FALSE;
     };
+
+    HookDaedalusFuncS(conditionFuncName, "G1CP_0038_SnafDialogNek_Hook");
+    return TRUE;
 };
 
 /*
@@ -17,7 +18,6 @@ func int G1CP_0038_SnafDialogNek() {
 func int G1CP_0038_SnafDialogNek_Hook() {
     G1CP_ReportFuncToSpy();
 
-    // Define possibly missing symbols locally
     const int LOG_RUNNING = 1;
     const int LOG_SUCCESS = 2;
 
