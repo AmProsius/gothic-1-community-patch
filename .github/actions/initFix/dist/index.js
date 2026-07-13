@@ -7746,6 +7746,8 @@ module.exports = {
 
   hebrew: "iso88598",
   hebrew8: "iso88598",
+  iso88598i: "iso88598",
+  iso88598e: "iso88598",
 
   turkish: "iso88599",
   turkish8: "iso88599",
@@ -8049,7 +8051,9 @@ function Utf32Encoder (options, codec) {
 
 Utf32Encoder.prototype.write = function (str) {
   var src = Buffer.from(str, "ucs2")
-  var dst = Buffer.alloc(src.length * 2)
+  // src.length * 2 covers this chunk's code units (4 bytes each); the extra 4 bytes leave room for a
+  // high surrogate held over from a previous chunk, which is flushed ahead of this chunk's units.
+  var dst = Buffer.alloc(src.length * 2 + 4)
   var write32 = this.isLE ? dst.writeUInt32LE : dst.writeUInt32BE
   var offset = 0
 
@@ -8131,9 +8135,9 @@ Utf32Decoder.prototype.write = function (src) {
       // NOTE: codepoint is a signed int32 and can be negative.
       // NOTE: We copied this block from below to help V8 optimize it (it works with array, not buffer).
       if (isLE) {
-        codepoint = overflow[i] | (overflow[i + 1] << 8) | (overflow[i + 2] << 16) | (overflow[i + 3] << 24)
+        codepoint = overflow[0] | (overflow[1] << 8) | (overflow[2] << 16) | (overflow[3] << 24)
       } else {
-        codepoint = overflow[i + 3] | (overflow[i + 2] << 8) | (overflow[i + 1] << 16) | (overflow[i] << 24)
+        codepoint = overflow[3] | (overflow[2] << 8) | (overflow[1] << 16) | (overflow[0] << 24)
       }
       overflow.length = 0
 
@@ -8187,7 +8191,12 @@ function _writeCodepoint (dst, offset, codepoint, badChar) {
 };
 
 Utf32Decoder.prototype.end = function () {
+  if (this.overflow.length === 0) { return }
+
+  // A leftover, incomplete 4-byte code unit at the end of the input is ill-formed. Substitute a
+  // single U+FFFD (Unicode Standard conformance clause C10) instead of silently dropping the bytes.
   this.overflow.length = 0
+  return String.fromCharCode(this.badChar)
 }
 
 // == UTF-32 Auto codec =============================================================
@@ -54661,11 +54670,11 @@ async function main() {
   if (isLangDependent)
     langCheckCode = 'G1CP_Testsuite_CheckLang(' + langFlags.map(v => 'G1CP_Lang_' + v).join(' | ') + ');';
   const replacements = new Map([
-    ['{ISSUE_NUM}', issueNum],
-    ['{ISSUE_NUM_PAD}', issueNumPad],
-    ['{SHORTNAME}', shortname],
-    ['{LONGNAME}', issue.title.trim()],
-    ['{LANGCHECK}', langCheckCode],
+    ['@ISSUE_NUM@', issueNum],
+    ['@ISSUE_NUM_PAD@', issueNumPad],
+    ['@SHORTNAME@', shortname],
+    ['@LONGNAME@', issue.title.trim()],
+    ['@LANGCHECK@', langCheckCode],
   ]);
 
   // Create fix file from template
@@ -54741,6 +54750,7 @@ async function main() {
     `Fix type            | **${fixType}**\r\n` +
     `Language dependent  | **${isLangDependent ? langFlags.join(', ') : 'no'}**\r\n` +
     `Branch name         | **${branchName}**\r\n` +
+    `Changelog section   | **${changelogSection}**\r\n` +
     `Changelog En        | **${changelogEn}**${changelogEnInferred}\r\n` +
     `Changelog De        | **${changelogDe}**${changelogDeInferred}\r\n`
   );

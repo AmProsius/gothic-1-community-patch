@@ -265,11 +265,11 @@ async function main() {
   if (isLangDependent)
     langCheckCode = 'G1CP_Testsuite_CheckLang(' + langFlags.map(v => 'G1CP_Lang_' + v).join(' | ') + ');';
   const replacements = new Map([
-    ['{ISSUE_NUM}', issueNum],
-    ['{ISSUE_NUM_PAD}', issueNumPad],
-    ['{SHORTNAME}', shortname],
-    ['{LONGNAME}', issue.title.trim()],
-    ['{LANGCHECK}', langCheckCode],
+    ['@ISSUE_NUM@', issueNum],
+    ['@ISSUE_NUM_PAD@', issueNumPad],
+    ['@SHORTNAME@', shortname],
+    ['@LONGNAME@', issue.title.trim()],
+    ['@LANGCHECK@', langCheckCode],
   ]);
 
   // Create fix file from template
@@ -345,6 +345,7 @@ async function main() {
     `Fix type            | **${fixType}**\r\n` +
     `Language dependent  | **${isLangDependent ? langFlags.join(', ') : 'no'}**\r\n` +
     `Branch name         | **${branchName}**\r\n` +
+    `Changelog section   | **${changelogSection}**\r\n` +
     `Changelog En        | **${changelogEn}**${changelogEnInferred}\r\n` +
     `Changelog De        | **${changelogDe}**${changelogDeInferred}\r\n`
   );

@@ -1,18 +1,15 @@
 /*
- * #{ISSUE_NUM} {LONGNAME}
+ * #@ISSUE_NUM@ @LONGNAME@
  */
-func int G1CP_Test_{ISSUE_NUM_PAD}() {
-    {LANGCHECK}
-    const string targetName = "### TODO: The target's name ###";
-    const string arrayName = "### TODO: Array name ###";
-    const string correctedString = "### TODO: Corrected string ###";
-    const int targetInt = 0; targetInt = G1CP_Testsuite_GetIntConst(targetName, 0);
-    var string name; name = G1CP_Testsuite_GetStringConst(arrayName, targetInt);
+func void G1CP_Test_@ISSUE_NUM_PAD@() {
+    @LANGCHECK@
+    const string ARRAY_NAME = "### TODO Name of the array ###"
+    const string INDEX_NAME = "### TODO Name of the index ###";
+    const string expected = "### TODO Expected string ###";
 
-    if (!Hlp_StrCmp(name, correctedString)) {
-        G1CP_TestsuiteErrorDetail3SSSS("String incorrect: ", arrayName, "[", targetName, "] = '", name, "'");
-        return FALSE;
-    };
+    var int index; index = G1CP_Testsuite_GetIntConst(INDEX_NAME);
+    var string strName; strName = G1CP_ComposeArraySymbolName(ARRAY_NAME, index);
+    var string actual; actual = G1CP_Testsuite_GetStringConst(strName);
 
-    return TRUE;
+    G1CP_Testsuite_AssertS(actual, expected);
 };

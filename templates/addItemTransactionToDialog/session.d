@@ -1,21 +1,21 @@
 /*
- * #{ISSUE_NUM} {LONGNAME}
+ * #@ISSUE_NUM@ @LONGNAME@
  */
-func int G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}() {
+func int G1CP_@ISSUE_NUM_PAD@_@SHORTNAME@() {
     const string dialogName = "### TODO Dialog function name ###";
     if (!G1CP_IsFunc(dialogName, "void|none"))
     || (!G1CP_IsItemInst("### TODO Item instance name ###")) {
         return FALSE;
     };
 
-    HookDaedalusFuncS(dialogName, "G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}_Hook");
+    HookDaedalusFuncS(dialogName, "G1CP_@ISSUE_NUM_PAD@_@SHORTNAME@_Hook");
     return TRUE;
 };
 
 /*
  * This function intercepts the dialog to introduce more actions
  */
-func void G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}_Hook() {
+func void G1CP_@ISSUE_NUM_PAD@_@SHORTNAME@_Hook() {
     G1CP_ReportFuncToSpy();
 
     // Symbol indices (existence confirmed by function above)

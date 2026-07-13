@@ -1,7 +1,7 @@
 /*
- * #{ISSUE_NUM} {LONGNAME}
+ * #@ISSUE_NUM@ @LONGNAME@
  */
-func int G1CP_Test_{ISSUE_NUM_PAD}() {
+func int G1CP_Test_@ISSUE_NUM_PAD@() {
     const string npcName = "### TODO: NPC name ###";
     const string correctedWpName = "### TODO: Corrected waypoint name ###";
     const int timeToCheck = 2330; // ### TODO: Time slightly after start ###

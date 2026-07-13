@@ -1,11 +1,11 @@
 /*
- * #{ISSUE_NUM} {LONGNAME}
+ * #@ISSUE_NUM@ @LONGNAME@
  *
 * The dialog function is called (the dialog lines are aborted) and the transaction is checked.
  *
  * Expected behavior: The player will give the correct number of items during the dialog function.
  */
-func int G1CP_Test_{ISSUE_NUM_PAD}() {
+func int G1CP_Test_@ISSUE_NUM_PAD@() {
     var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc("### TODO Dialog function name ###");
     var int itemId; itemId = G1CP_Testsuite_CheckItem("### TODO Item instance name ###");
 

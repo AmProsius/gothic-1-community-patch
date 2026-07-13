@@ -1,7 +1,7 @@
 /*
- * #{ISSUE_NUM} {LONGNAME}
+ * #@ISSUE_NUM@ @LONGNAME@
  */
-func int G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}() {
+func int G1CP_@ISSUE_NUM_PAD@_@SHORTNAME@() {
     /* ### TODO: Write the fix and adjust the return value ### */
     return FALSE;
 };
@@ -9,8 +9,8 @@ func int G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}() {
 /*
  * This function reverts the changes
  */
-func int G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}Revert() {
-    if (!G1CP_IsFixApplied({ISSUE_NUM})) {
+func int G1CP_@ISSUE_NUM_PAD@_@SHORTNAME@Revert() {
+    if (!G1CP_IsFixApplied(@ISSUE_NUM@)) {
         return FALSE;
     };
 
