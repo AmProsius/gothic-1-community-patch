@@ -54668,7 +54668,7 @@ async function main() {
   // Template replacements
   let langCheckCode = '';
   if (isLangDependent)
-    langCheckCode = 'G1CP_Testsuite_CheckLang(' + langFlags.map(v => 'G1CP_Lang_' + v).join(' | ') + ');';
+    langCheckCode = 'G1CP_Testsuite_CheckLang(' + langFlags.map(v => 'G1CP_Lang_' + v).join(' | ') + ')';
   const replacements = new Map([
     ['@ISSUE_NUM@', issueNum],
     ['@ISSUE_NUM_PAD@', issueNumPad],

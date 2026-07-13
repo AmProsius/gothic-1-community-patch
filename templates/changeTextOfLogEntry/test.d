@@ -2,7 +2,7 @@
  * #@ISSUE_NUM@ @LONGNAME@
  */
 func int G1CP_Test_@ISSUE_NUM_PAD@() {
-    @LANGCHECK@
+    @LANGCHECK@;
     const string symbolName = "### TODO: Symbol name ###";
     const string dialogName = "### TODO: Dialog name ###";
     const string originalString = "### TODO: Original string ###";
