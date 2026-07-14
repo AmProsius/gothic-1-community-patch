@@ -2,7 +2,9 @@
  * #344 Spelling - There are quotation marks in Ian's subtitles (EN)
  */
 func int G1CP_0344_EN_IanSubtitleQuotes() {
+    // Create one character string with containing one double quote
     const int DOUBLE_QUOTE = 34;
+    const string quote = " "; MEM_WriteByte(STR_toChar(quote), DOUBLE_QUOTE);
     const string cleaned = "";
     if (SB_New()) {
         SB("Just tell him ");
