@@ -31,6 +31,7 @@ const int G1CP_TestsuiteNext_SymbId = 0;
 func int G1CP_Testsuite() {
     CC_Register(G1CP_TestsuiteList, "test list", "List all tests of G1CP");
     CC_Register(G1CP_TestsuiteNext, "test next", "Execute next manual test of G1CP");
+    CC_Register(G1CP_TestsuiteAgain, "test again", "Execute previous manual test of G1CP again");
     CC_Register(G1CP_TestsuiteAll, "test all", "Run complete test suite for G1CP");
     CC_Register(G1CP_TestsuiteActive, "test active", "Run test suite on all active fixes of G1CP");
     CC_Register(G1CP_TestsuiteCmd, "test ", "Run test from test suite for G1CP");
@@ -260,6 +261,11 @@ func string G1CP_TestsuiteNext(var string _) {
     msg = ConcatStrings(msg, G1CP_GetFixShortName(id));
     msg = ConcatStrings(msg, "'");
     return msg;
+};
+
+func string G1CP_TestsuiteAgain(var string _) {
+    G1CP_TestsuiteNext_SymbId -= 1;
+    return G1CP_TestsuiteNext(_);
 };
 
 func string G1CP_TestsuiteList(var string _) {
