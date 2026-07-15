@@ -1,13 +1,12 @@
 /*
  * #55 Reactivate In Extremo concert
- *
- * There does not seem an easy way to test this fix programmatically, so this test relies on manual confirmation.
- * Caution: This test will break the game. Save the game beforehand.
- *
- * Expected behavior: InExtremo is playing and Grim (if available) will talk to the player about it.
  */
 func void G1CP_Test_0055() {
-    G1CP_Testsuite_CheckManual();
+    const string instr[2] = {
+        "The hero is teleported in front of the stage in the Old Camp in chapter 2.",
+        "Expected behavior: InExtremo is playing and Grim (if available) will talk to the player about it."
+    };
+    G1CP_Testsuite_CheckManual(instr);
     var zCWaypoint wp; wp = G1CP_Testsuite_FindWaypoint("OCR_THORUS");
     var int funcId; funcId = G1CP_Testsuite_CheckFunc("B_Kapitelwechsel", "void|int", "");
     var int chptrId; chptrId = G1CP_Testsuite_CheckIntVar("Kapitel");

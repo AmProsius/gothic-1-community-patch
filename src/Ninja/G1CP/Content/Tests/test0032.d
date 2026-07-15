@@ -1,12 +1,14 @@
 /*
  * #32 Gorn attacks the player in the Free Mine
- *
-  * There does not seem an easy way to test this fix programmatically, so this test relies on manual confirmation.
-  *
-  * Expected behavior: Gorn no longer attacks the player or comments on a death during the raid of the Free Mine.
-  */
+ */
 func void G1CP_Test_0032() {
-    G1CP_Testsuite_CheckManual();
+    const string instr[4] = {
+        "The hero is set to immortal, given a lot of strength, and teleported into the free mine in chapter four.",
+        "Kill some guards of the Old Camp and observe Gorn's reaction.",
+        "Expected behavior: Gorn no longer attacks the player or comments on a death during the raid of the Free Mine.",
+        "Because of the world change, it's best to leave the world when continuing with more tests."
+    };
+    G1CP_Testsuite_CheckManual(instr);
     var int chptrId; chptrId = G1CP_Testsuite_CheckIntVar("Kapitel");
     var int weapId; weapId = G1CP_Testsuite_CheckItem("ItMw_1H_Sword_Old_01");
     const int NPC_FLAG_IMMORTAL = 1 << 1;

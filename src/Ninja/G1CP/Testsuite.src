@@ -3,6 +3,7 @@ Content\Testsuite\error.d
 Content\Testsuite\apply.d
 Content\Testsuite\backup.d
 Content\Testsuite\testsuite.d
+Content\Testsuite\help.d
 Content\Testsuite\check.d
 Content\Testsuite\assert.d
 Content\Testsuite\get.d

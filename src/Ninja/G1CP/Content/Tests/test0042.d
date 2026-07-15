@@ -1,12 +1,12 @@
 /*
  * #42 Guard has duplicated END dialog
- *
- * There does not seem an easy way to test this fix programmatically, so this test relies on manual confirmation.
- *
- * Expected behavior: Both guards at the door to the ore barons house should only have one END dialog.
  */
 func void G1CP_Test_0042() {
-    G1CP_Testsuite_CheckManual();
+    const string instr[2] = {
+        "The hero is teleported to the front of the guard to the left of the ore barons' house.",
+        "Expected behavior: The guard at the door (left) to the ore barons house should only have one END dialog."
+    };
+    G1CP_Testsuite_CheckManual(instr);
     var zCWaypoint wp; wp = G1CP_Testsuite_FindWaypoint("OCC_BARONS_LEFT_GUARD_CHANGE");
     AI_Teleport(hero, wp.name);
 };

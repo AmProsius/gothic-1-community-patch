@@ -1,12 +1,12 @@
 /*
  * #10 Companions don't adjust their walking speed
- *
- * A test NPC is inserted in the ZS_FollowPC state
- *
- * Expected behavior: The NPC will pick up on the hero's walking mode
  */
 func void G1CP_Test_0010() {
-    G1CP_Testsuite_CheckManual();
+    const string instr[2] = {
+        "A test NPC is inserted in the ZS_FollowPC state. Walk and run and observe their behavior.",
+        "Expected behavior: The NPC will pick up on and mimic the hero's walking mode."
+    };
+    G1CP_Testsuite_CheckManual(instr);
     var int symbId; symbId = G1CP_Testsuite_CheckAiStateStartFunc("ZS_FollowPC");
     G1CP_Testsuite_CheckAiStateStartFunc("ZS_Talk");
 

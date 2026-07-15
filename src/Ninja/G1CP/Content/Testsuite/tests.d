@@ -88,6 +88,9 @@ func void G1CP_Testsuite_SkipTest() {
 /*
  * Inspect a test to determine if it is a manual test.
  */
-func int G1CP_Testsuite_TestIsManualBySymb(var zCPar_Symbol symb) {
-    return MEM_ReadInt(currParserStackAddress + symb.content + 1) == MEM_GetFuncOffset(G1CP_Testsuite_CheckManual);
+func int G1CP_Testsuite_TestIsManualById(var int funcId) {
+    var int arr; arr = G1CP_FindCall(funcId, 0, MEM_GetFuncId(G1CP_Testsuite_CheckManual));
+    var int count; count = MEM_ArraySize(arr);
+    MEM_ArrayFree(arr);
+    return (count > 0);
 };

@@ -1,12 +1,12 @@
 /*
  * #194 NPCs do not collect the weapon after defeating an opponent
- *
- * A test NPC is inserted with the state ZS_AssessBody_RecoverWeapon and a weapon is placed on the ground
- *
- * Expected behavior: The NPC will pick up the weapon
  */
 func void G1CP_Test_0194() {
-    G1CP_Testsuite_CheckManual();
+    const string instr[2] = {
+        "A test NPC is inserted with the state ZS_AssessBody_RecoverWeapon and a weapon is placed on the ground.",
+        "Expected behavior: The NPC will pick up the weapon."
+    };
+    G1CP_Testsuite_CheckManual(instr);
     G1CP_Testsuite_CheckAiStateStartFunc("ZS_AssessBody_RecoverWeapon");
     var int swordId; swordId = G1CP_Testsuite_CheckItem("Whistlers_Schwert");
 

@@ -1,12 +1,12 @@
 /*
  * #116 Lens flares in the swampweed cave
- *
- * There does not seem an easy way to test this fix programmatically, so this test relies on manual confirmation.
- *
- * Expected behavior: There are no lens flares in the cave.
  */
 func void G1CP_Test_0116() {
-    G1CP_Testsuite_CheckManual();
+    const string instr[2] = {
+        "The hero is teleported to the smuggle grave. Look around and move the camera back and forth.",
+        "Expected behavior: There are no lens flares in the cave."
+    };
+    G1CP_Testsuite_CheckManual(instr);
     var zCWaypoint wp; wp = G1CP_Testsuite_FindWaypoint("LOCATION_23_CAVE_1_02");
 
     // Optional: Make sure Jacko is not attacking (if he is present)

@@ -1,12 +1,12 @@
 /*
  * #11 Player can pass guards in combat mode
- *
- * There does not seem an easy way to test this fix programmatically, so this test relies on manual confirmation.
- *
- * Expected behavior: Guards will now no longer react to drawing a weapon if the player has no access to enter.
  */
 func void G1CP_Test_0011() {
-    G1CP_Testsuite_CheckManual();
+    const string instr[2] = {
+        "Draw your equipped weapon and try to pass the gate guards to the castle.",
+        "Expected behavior: Guards will now no longer react to drawing a weapon if the player has no access to enter."
+    };
+    G1CP_Testsuite_CheckManual(instr);
     var int weapId; weapId = G1CP_Testsuite_CheckItem("ItMw_1H_Sword_Old_01");
     var zCWaypoint wp; wp = G1CP_Testsuite_FindWaypoint("OCR_BEHIND_HUT_1");
 

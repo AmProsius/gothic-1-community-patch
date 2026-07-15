@@ -1,12 +1,13 @@
 /*
  * #115 Dummy Templars survive in orc graveyard
- *
- * There does not seem an easy way to test this fix programmatically, so this test relies on manual confirmation.
- *
- * Expected behavior: The templars will be dead or reliably dying when walking through the orc graveyard.
  */
 func void G1CP_Test_0115() {
-    G1CP_Testsuite_CheckManual();
+    const string instr[3] = {
+        "The hero is set to immortal and teleported into the orc graveyard.",
+        "Expected behavior: The templars will be dead or reliably dying when walking through the orc graveyard.",
+        "Because of the world change, it's best to leave the world when continuing with more tests."
+    };
+    G1CP_Testsuite_CheckManual(instr);
     const int NPC_FLAG_IMMORTAL = 1 << 1;
 
     // Set PC to invincible to observe the action

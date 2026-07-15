@@ -1,13 +1,12 @@
 /*
  * #45 Snappers don't spawn outside the Monastery ruins
- *
- * There does not seem an easy way to test this fix programmatically, so this test relies on manual confirmation.
- * Caution: This test will break the game. Save the game beforehand.
- *
- * Expected behavior: The snappers appear at the waypoint, identifiable by bounding boxes.
  */
 func void G1CP_Test_0045() {
-    G1CP_Testsuite_CheckManual();
+    const string instr[2] = {
+        "The hero is teleported to the ruins to the missing snappers.",
+        "Expected behavior: The snappers appear at the waypoint, identifiable by colored bounding boxes."
+    };
+    G1CP_Testsuite_CheckManual(instr);
     var zCWaypoint wp; wp = G1CP_Testsuite_FindWaypoint("OW_MONSTER_NAVIGATE_02");
     const int NPC_FLAG_IMMORTAL = 1 << 1;
 

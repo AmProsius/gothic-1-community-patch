@@ -1,13 +1,13 @@
 /*
  * #51 Chest in crypt behind wall
- *
- * There does not seem an easy way to test this fix programmatically, so this test relies on manual confirmation.
- * Caution: The player character will be made immortal for this test. Save the game beforehand.
- *
- * Expected behavior: The chest is now accessible.
  */
 func void G1CP_Test_0051() {
-    G1CP_Testsuite_CheckManual();
+    const string instr[3] = {
+        "The hero is set to immortal and teleported to the crypt.",
+        "Check if there are two chests now, i.e. one of them is no longer behind the wall.",
+        "Expected behavior: The chest is now accessible."
+    };
+    G1CP_Testsuite_CheckManual(instr);
 
     // Set PC to invincible to not be killed
     const int NPC_FLAG_IMMORTAL = 1 << 1;

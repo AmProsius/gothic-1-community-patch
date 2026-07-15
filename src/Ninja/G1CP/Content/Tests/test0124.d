@@ -1,13 +1,13 @@
 /*
  * #124 Gate guard doesn't close castle gate in chapter 4
- *
- * The chapter four is started and the hero is teleported in front of castle gate.
- * Caution: This test will break the game. Save the game beforehand.
- *
- * Expected behavior: The castle gate should be closed (or closing?).
  */
 func void G1CP_Test_0124() {
-    G1CP_Testsuite_CheckManual();
+    const string instr[3] = {
+        "The hero is teleported in front of castle gate in chapter four.",
+        "Observe that the guard is now able to the gate.",
+        "Expected behavior: The castle gate should be closed (or closing)."
+    };
+    G1CP_Testsuite_CheckManual(instr);
     var zCWaypoint wp; wp = G1CP_Testsuite_FindWaypoint("OCR_THORUS");
     var int fncChptrId; fncChptrId = G1CP_Testsuite_CheckFunc("B_Kapitelwechsel", "void|int", "");
     var int fncFmTakenId; fncFmTakenId = G1CP_Testsuite_CheckFunc("B_Story_FMTaken", "void|none", "");

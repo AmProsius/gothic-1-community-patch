@@ -61,19 +61,18 @@ func int G1CP_TestsuiteRun(var int id) {
 
     // Find test function
     var string funcName; funcName = ConcatStrings("G1CP_Test_", idName);
-    var int symbPtr; symbPtr = MEM_GetSymbol(funcName);
-    if (!symbPtr) {
+    var int funcId; funcId = MEM_GetSymbolIndex(funcName);
+    if (funcId == -1) {
         return -1;
     };
-    var zCPar_Symbol symb; symb = _^(symbPtr);
 
     // Update the iterator
-    G1CP_TestsuiteNext_SymbId = MEM_GetSymbolIndex(funcName) + 1;
+    G1CP_TestsuiteNext_SymbId = funcId + 1;
 
     // Call test function and return
     MEM_CallByString(funcName);
     G1CP_Testsuite_Restore();
-    if (G1CP_Testsuite_TestIsManualBySymb(symb)) && (G1CP_TestsuiteStatusPassed == G1CP_TEST_PASSED) {
+    if (G1CP_Testsuite_TestIsManualById(funcId)) && (G1CP_TestsuiteStatusPassed == G1CP_TEST_PASSED) {
         return G1CP_TEST_MANUAL;
     };
     return G1CP_TestsuiteStatusPassed;
@@ -224,6 +223,19 @@ func string G1CP_TestsuiteCmd(var string command) {
     // Print error details
     G1CP_TestsuitePrintErrors();
 
+    // Print to screen if console was closed
+    if (CALL_Begin(call)) {
+        const int call = 0;
+        const int consoleOpen = 0;
+        const int zCConsole__IsVisible = 7186192; //0x6DA710
+        CALL_PutRetValTo(_@(consoleOpen));
+        CALL__thiscall(_@(zcon_address), zCConsole__IsVisible);
+        call = CALL_End();
+    };
+    if (!consoleOpen) && (retInt != G1CP_TEST_PASSED) && (retInt != G1CP_TEST_MANUAL) {
+        Print(retStr);
+    };
+
     return retStr;
 };
 
@@ -239,7 +251,7 @@ func string G1CP_TestsuiteNext(var string _) {
         if (STR_Len(symb.name) == 10 + G1CP_ID_LENGTH) { // Nested if-blocks for performance
         if (STR_StartsWith(symb.name, "G1CP_TEST_")) {
         if ((symb.bitfield & zCPar_Symbol_bitfield_type) == zPAR_TYPE_FUNC) {
-        if (G1CP_Testsuite_TestIsManualBySymb(symb)) {
+        if (G1CP_Testsuite_TestIsManualById(G1CP_TestsuiteNext_SymbId)) {
             var int id; id = STR_ToInt(STR_SubStr(symb.name, 10, G1CP_ID_LENGTH));
             break;
         }; }; }; };
@@ -290,7 +302,7 @@ func string G1CP_TestsuiteList(var string _) {
                 msg = ConcatStrings(ConcatStrings("(", msg), ")");
             };
 
-            if (G1CP_Testsuite_TestIsManualBySymb(symb)) {
+            if (G1CP_Testsuite_TestIsManualById(i)) {
                 manual = ConcatStrings(ConcatStrings(manual, msg), " ");
             } else {
                 automatic = ConcatStrings(ConcatStrings(automatic, msg), " ");

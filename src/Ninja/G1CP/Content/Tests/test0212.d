@@ -1,12 +1,13 @@
 /*
  * #212 Cauldron in the New Camp can be used without a scoop pt. 1
- *
- * There does not seem an easy way to test this fix programmatically, so this test relies on manual confirmation.
- *
- * Expected behavior: The cauldron is not usable anymore (without a spoon).
  */
 func void G1CP_Test_0212() {
-    G1CP_Testsuite_CheckManual();
+    const string instr[3] = {
+        "The hero is teleported to a faulty cauldron. (part 1)", // Needs to be unique!
+        "Interact with the cauldron without the now necessary item.",
+        "Expected behavior: The cauldron is not usable anymore (without a spoon)."
+    };
+    G1CP_Testsuite_CheckManual(instr);
     var zCWaypoint wp; wp = G1CP_Testsuite_FindWaypoint("NC_HUT13_OUT");
     var int itemId; itemId = G1CP_Testsuite_CheckItem("ITMISCOOP");
 

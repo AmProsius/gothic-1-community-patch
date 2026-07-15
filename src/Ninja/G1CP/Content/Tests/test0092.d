@@ -1,13 +1,12 @@
 /*
  * #92 Spelling - Horatio: "den Reislord" (DE)
- *
- * There does not seem an easy way to test this fix programmatically, so this test relies on manual confirmation.
- * Caution: This test will break the game. Be sure to save the game before.
- *
- * Expected behavior: The hero is merely teleported there, the dialog choice has the correct wording.
  */
 func void G1CP_Test_0092() {
-    G1CP_Testsuite_CheckManual();
+    const string instr[2] = {
+        "The hero is teleported to Horatio to check the missing article in the dialog choice.",
+        "Expected behavior: The dialog choice has the correct spelling of 'den Reislord'."
+    };
+    G1CP_Testsuite_CheckManual(instr);
     G1CP_Testsuite_CheckLang(G1CP_Lang_DE);
     G1CP_Testsuite_CheckInfo("DIA_Horatio_PleaseTeachSTR");
     var int helloId; helloId = G1CP_Testsuite_CheckInfo("DIA_Horatio_Hello");

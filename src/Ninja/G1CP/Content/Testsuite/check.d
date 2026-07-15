@@ -1,10 +1,22 @@
 /*
  * Check if running automatic test
  */
-func void G1CP_Testsuite_CheckManual() {
+func void G1CP_Testsuite_CheckManual(var string instructions) {
     if (!G1CP_TestsuiteAllowManual) {
         G1CP_Testsuite_ForceTestToReturn();
+        return;
     };
+
+    // Obtain fix ID and short name
+    var int fixId; fixId = G1CP_Testsuite_FindCallerTestId();
+    var string fixName; fixName = G1CP_GetFixShortName(fixId);
+    if (SB_New()) {
+        SB("#"); SBi(fixId); SB(" "); SB(fixName);
+        var string title; title = SB_ToString();
+        SB_Destroy();
+    };
+
+    G1CP_Testsuite_OpenInfoScreen(title, instructions);
 };
 
 /*

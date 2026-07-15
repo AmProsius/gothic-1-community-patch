@@ -1,14 +1,14 @@
 /*
  * #@ISSUE_NUM@ @LONGNAME@
- *
- * There does not seem an easy way to test this fix programmatically, so this test relies on manual confirmation.
- *
- * Expected behavior: ### TODO: Describe what will happen during the test ###
  */
 func void G1CP_Test_@ISSUE_NUM_PAD@() {
-    G1CP_Testsuite_CheckManual();
+    const string instr[2] = {
+        "### TODO Provide instructions for manual test. Make sure first line is unique string ###",
+        "Expected behavior: ### TODO Add actions to observe ###"
+    };
+    G1CP_Testsuite_CheckManual(instr);
     @LANGCHECK@;
-    /* ### TODO: Write checks ### */
+    /*### TODO Write checks ###*/
 
-    /* ### TODO: Write the test ### */
+    /*### TODO Write the test ###*/
 };

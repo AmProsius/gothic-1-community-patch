@@ -1,12 +1,12 @@
 /*
  * #9 NPCs freeze when fleeing
- *
- * Any NPC in the area is set to the ZS_Flee state
- *
- * Expected behavior: The NPCs will flee from the player without freezing (might be hard to determine when the run away)
  */
 func void G1CP_Test_0009() {
-    G1CP_Testsuite_CheckManual();
+    const string instr[2] = {
+        "All NPC in the area is set to the ZS_Flee state.",
+        "Expected behavior: The NPCs will flee from the player without freezing."
+    };
+    G1CP_Testsuite_CheckManual(instr);
     G1CP_Testsuite_CheckAiState("ZS_Flee");
     var zCWaypoint wp; wp = G1CP_Testsuite_FindWaypoint("PSI_TEMPLE_COURT_2");
     G1CP_Testsuite_NpcBeamTo(hero, wp.name);
