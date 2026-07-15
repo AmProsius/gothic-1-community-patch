@@ -27,7 +27,7 @@ func void G1CP_Testsuite_CheckManual() {
             langNames = ConcatStrings(langNames, " Russian");
         };
         G1CP_TestsuiteErrorDetail3("Test applicable for", langNames, " localization only.");
-        G1CP_Testsuite_ForceTestToReturn();
+        G1CP_Testsuite_SkipTest();
     };
  };
 

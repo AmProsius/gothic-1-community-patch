@@ -55,7 +55,7 @@ func int G1CP_TestsuiteRun(var int id) {
     var string idName; idName = G1CP_LFill(IntToString(id), "0", G1CP_ID_LENGTH);
 
     // Reset test status
-    G1CP_TestsuiteStatusPassed = TRUE;
+    G1CP_TestsuiteStatusPassed = G1CP_TEST_PASSED;
     G1CP_TestsuiteAssertNum = 0;
 
     // Find test function
@@ -72,8 +72,8 @@ func int G1CP_TestsuiteRun(var int id) {
     // Call test function and return
     MEM_CallByString(funcName);
     G1CP_Testsuite_Restore();
-    if (G1CP_Testsuite_TestIsManualBySymb(symb)) {
-        return 2;
+    if (G1CP_Testsuite_TestIsManualBySymb(symb)) && (G1CP_TestsuiteStatusPassed == G1CP_TEST_PASSED) {
+        return G1CP_TEST_MANUAL;
     };
     return G1CP_TestsuiteStatusPassed;
 };
@@ -86,6 +86,7 @@ func string G1CP_TestsuiteRunMultiple(var int appliedOnly) {
     var int passed; passed = 0;
     var int failed; failed = 0;
     var int manual; manual = 0;
+    var int skipped; skipped = 0;
     var string msg;
     var string infos; infos = "";
 
@@ -128,7 +129,7 @@ func string G1CP_TestsuiteRunMultiple(var int appliedOnly) {
             msg = ConcatStrings(msg, "... ");
 
             // Reset test status before every test
-            G1CP_TestsuiteStatusPassed = TRUE;
+            G1CP_TestsuiteStatusPassed = G1CP_TEST_PASSED;
             G1CP_TestsuiteAssertNum = 0;
 
             // Reset the data stack position and call the test function
@@ -136,18 +137,15 @@ func string G1CP_TestsuiteRunMultiple(var int appliedOnly) {
             MEM_CallById(i-1);
             G1CP_Testsuite_Restore();
 
-            // // DEBUG - TODO remove once tests are refactored -
-            // if (G1CP_TestsuiteStatusPassed) && (symb.offset == (zPAR_TYPE_INT >> 12)) {
-            //     G1CP_TestsuiteStatusPassed = MEM_PopIntResult();
-            // };
-            // // DEBUG
-
-            if (G1CP_Testsuite_TestIsManualBySymb(symb)) {
+            if (G1CP_Testsuite_TestIsManualById(i-1)) {
                 msg = ConcatStrings(msg, "[MANUAL]|");
                 manual += 1;
-            } else if (G1CP_TestsuiteStatusPassed) {
+            } else if (G1CP_TestsuiteStatusPassed == G1CP_TEST_PASSED) {
                 msg = ConcatStrings(msg, "[PASSED]|");
                 passed += 1;
+            } else if (G1CP_TestsuiteStatusPassed == G1CP_TEST_SKIPPED) {
+                msg = ConcatStrings(msg, "[EXEMPT]|");
+                skipped += 1;
             } else {
                 msg = ConcatStrings(msg, "[FAILED]|");
                 failed += 1;
@@ -181,6 +179,8 @@ func string G1CP_TestsuiteRunMultiple(var int appliedOnly) {
     msg = ConcatStrings(msg, " passed, ");
     msg = ConcatStrings(msg, IntToString(failed));
     msg = ConcatStrings(msg, " failed, ");
+    msg = ConcatStrings(msg, IntToString(skipped));
+    msg = ConcatStrings(msg, " skipped, ");
     msg = ConcatStrings(msg, IntToString(manual));
     msg = ConcatStrings(msg, " require manual confirmation. See zSpy for details.");
     return msg;
@@ -210,10 +210,12 @@ func string G1CP_TestsuiteCmd(var string command) {
     retInt = G1CP_TestsuiteRun(STR_ToInt(command));
     if (retInt == -1) {
         retStr = "";
-    } else if (retInt == 2) {
+    } else if (retInt == G1CP_TEST_MANUAL) {
         retStr = "EXECUTED. Manual confirmation needed.";
-    } else if (retInt == TRUE) {
+    } else if (retInt == G1CP_TEST_PASSED) {
         retStr = "PASSED";
+    } else if (retInt == G1CP_TEST_SKIPPED) {
+        retStr = "SKIPPED";
     } else {
         retStr = "FAILED";
     };

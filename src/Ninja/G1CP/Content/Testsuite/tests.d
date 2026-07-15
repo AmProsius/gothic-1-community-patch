@@ -1,6 +1,10 @@
 
 /* Check if test passes */
-const int G1CP_TestsuiteStatusPassed = TRUE;
+const int G1CP_TEST_FAILED  = 0;
+const int G1CP_TEST_PASSED  = 1;
+const int G1CP_TEST_SKIPPED = 2;
+const int G1CP_TEST_MANUAL  = 3;
+const int G1CP_TestsuiteStatusPassed = G1CP_TEST_PASSED;
 
 /*
  * Find the stack position of the origin test function that the call originated from.
@@ -70,7 +74,13 @@ func void G1CP_Testsuite_ForceTestToReturn() {
     G1CP_ForceNthCallerToReturn(-1, G1CP_Testsuite_FindCallerTestStackPos());
 };
 func void G1CP_Testsuite_FailTest() {
-    G1CP_TestsuiteStatusPassed = FALSE;
+    G1CP_TestsuiteStatusPassed = G1CP_TEST_FAILED;
+    G1CP_Testsuite_ForceTestToReturn();
+};
+func void G1CP_Testsuite_SkipTest() {
+    if (G1CP_TestsuiteStatusPassed != G1CP_TEST_FAILED) {
+        G1CP_TestsuiteStatusPassed = G1CP_TEST_SKIPPED;
+    };
     G1CP_Testsuite_ForceTestToReturn();
 };
 
