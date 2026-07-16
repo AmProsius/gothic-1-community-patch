@@ -2,6 +2,7 @@
  * #33 Shrike's Hut quest
  */
 func void G1CP_Test_0033() {
+    G1CP_Testsuite_CheckWorld(G1CP_WLD_MAIN);
     var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("DIA_Shrike_GetLost_Condition");
     var int infoId; infoId = G1CP_Testsuite_CheckInfo("DIA_Gorn_Hut");
     var C_Npc npc; npc = G1CP_Testsuite_FindNpc("ORG_842_Shrike");

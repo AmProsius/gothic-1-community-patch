@@ -3,6 +3,7 @@
  */
 func void G1CP_Test_@ISSUE_NUM_PAD@() {
     G1CP_Tpl_TestNpcRtnWP(
+        /*### TODO Replace 'G1CP_WLD_MAIN' with the appropriate level ###*/G1CP_WLD_MAIN,
         "### TODO Corrected waypoint name ###",
         "### TODO NPC name ###",
         "### TODO Raw routine name without prefix ###",

@@ -8,6 +8,7 @@ func void G1CP_Test_0127() {
         "Expected behavior: The chest can be picked with the combination 'LRL'."
     };
     G1CP_Testsuite_CheckManual(instr);
+    G1CP_Testsuite_CheckWorld(G1CP_WLD_MAIN);
     var zCWaypoint wp; wp = G1CP_Testsuite_FindWaypoint("NC_HUT28_IN");
     var int itemId; itemId = G1CP_Testsuite_CheckItem("ITKELOCKPICK");
 
@@ -21,5 +22,5 @@ func void G1CP_Test_0127() {
     };
 
     // Teleport the player to the hut
-    AI_Teleport(hero, wp.name);
+    G1CP_Testsuite_NpcBeamTo(hero, wp.name);
 };

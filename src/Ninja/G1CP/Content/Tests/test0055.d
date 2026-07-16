@@ -7,6 +7,7 @@ func void G1CP_Test_0055() {
         "Expected behavior: InExtremo is playing and Grim (if available) will talk to the player about it."
     };
     G1CP_Testsuite_CheckManual(instr);
+    G1CP_Testsuite_CheckWorld(G1CP_WLD_MAIN);
     var zCWaypoint wp; wp = G1CP_Testsuite_FindWaypoint("OCR_THORUS");
     var int funcId; funcId = G1CP_Testsuite_CheckFunc("B_Kapitelwechsel", "void|int", "");
     var int chptrId; chptrId = G1CP_Testsuite_CheckIntVar("Kapitel");
@@ -19,5 +20,5 @@ func void G1CP_Test_0055() {
 
     // Teleport the player
     Wld_SetTime(10, 0);
-    AI_Teleport(hero, wp.name);
+    G1CP_Testsuite_NpcBeamTo(hero, wp.name);
 };

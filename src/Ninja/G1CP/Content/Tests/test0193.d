@@ -7,6 +7,7 @@ func void G1CP_Test_0193() {
         "Expected behavior: The gate can be opened again after closing it, saving and loading."
     };
     G1CP_Testsuite_CheckManual(instr);
+    G1CP_Testsuite_CheckWorld(G1CP_WLD_MAIN);
     var zCWaypoint wp; wp = G1CP_Testsuite_FindWaypoint("OCC_MAINGATE_VWHEEL");
     var C_Npc npc; npc = G1CP_Testsuite_FindNpc("GRD_230_Gardist");
     G1CP_Testsuite_CheckFunc("Rtn_OMFull_230", "void|none", "Daily routine function");
@@ -14,5 +15,5 @@ func void G1CP_Test_0193() {
 
     // Change the routine of the NPC to leave the player alone
     Npc_ExchangeRoutine(npc, ROUTINE);
-    AI_Teleport(hero, wp.name);
+    G1CP_Testsuite_NpcBeamTo(hero, wp.name);
 };

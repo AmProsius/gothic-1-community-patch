@@ -8,6 +8,7 @@ func void G1CP_Test_0051() {
         "Expected behavior: The chest is now accessible."
     };
     G1CP_Testsuite_CheckManual(instr);
+    G1CP_Testsuite_CheckWorld(G1CP_WLD_MAIN);
 
     // Set PC to invincible to not be killed
     const int NPC_FLAG_IMMORTAL = 1 << 1;

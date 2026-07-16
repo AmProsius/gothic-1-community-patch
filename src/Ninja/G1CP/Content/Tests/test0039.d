@@ -8,6 +8,7 @@ func void G1CP_Test_0039() {
         "Expected behavior: Fingers's available dialog choices should not appear before learning each prior."
     };
     G1CP_Testsuite_CheckManual(instr);
+    G1CP_Testsuite_CheckWorld(G1CP_WLD_MAIN);
     G1CP_Testsuite_CheckDialogFunc("DIA_Fingers_Lehrer_Info");
     var C_Npc npc; npc = G1CP_Testsuite_FindNpc("STT_331_Fingers");
     var int varId; varId = G1CP_Testsuite_CheckIntVar("Fingers_CanTeach");
@@ -19,5 +20,5 @@ func void G1CP_Test_0039() {
 
     // Set unlock the dialog
     G1CP_SetIntVarI(varId, 0, TRUE);
-    AI_Teleport(hero, npc.wp);
+    G1CP_Testsuite_NpcBeamTo(hero, npc.wp);
 };

@@ -7,6 +7,7 @@ func void G1CP_Test_0011() {
         "Expected behavior: Guards will now no longer react to drawing a weapon if the player has no access to enter."
     };
     G1CP_Testsuite_CheckManual(instr);
+    G1CP_Testsuite_CheckWorld(G1CP_WLD_MAIN);
     var int weapId; weapId = G1CP_Testsuite_CheckItem("ItMw_1H_Sword_Old_01");
     var zCWaypoint wp; wp = G1CP_Testsuite_FindWaypoint("OCR_BEHIND_HUT_1");
 
@@ -18,5 +19,5 @@ func void G1CP_Test_0011() {
     };
 
     // Teleport the player in front of the gate guards
-    AI_Teleport(hero, wp.name);
+    G1CP_Testsuite_NpcBeamTo(hero, wp.name);
 };

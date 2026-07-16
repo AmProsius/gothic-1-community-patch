@@ -8,6 +8,7 @@ func void G1CP_Test_0046() {
         "Expected behavior: The key is on the ground in the cell. The key opens the door."
     };
     G1CP_Testsuite_CheckManual(instr);
+    G1CP_Testsuite_CheckWorld(G1CP_WLD_MAIN);
     const int GIL_GRD = 0; GIL_GRD = G1CP_Testsuite_GetIntConst("GIL_GRD");
     var int funcId; funcId = G1CP_Testsuite_CheckFunc("B_Story_ExploreSunkenTower", "void|none", "");
     var int bartholoId; bartholoId = G1CP_Testsuite_CheckInfo("DIA_EBR_106_Bartholo_Wait4SC");
@@ -27,7 +28,7 @@ func void G1CP_Test_0046() {
         G1CP_SetInfoToldI(skipId, TRUE);
 
         // Teleport to the cell
-        AI_Teleport(hero, cellarWp.name);
+        G1CP_Testsuite_NpcBeamTo(hero, cellarWp.name);
 
         // Change the player's guild to not be attacked (just in case)
         hero.guild = GIL_GRD;
@@ -40,7 +41,7 @@ func void G1CP_Test_0046() {
         // Second function cell (PC does have the key): Teleport
 
         // Allow the player to confirm
-        AI_Teleport(hero, staircaseWp.name);
+        G1CP_Testsuite_NpcBeamTo(hero, staircaseWp.name);
 
         // Some information
         Print("Drop the key first and check if the door is unlocked already. Confirm that the key opens the door.");

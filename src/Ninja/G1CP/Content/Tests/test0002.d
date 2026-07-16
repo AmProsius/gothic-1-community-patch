@@ -8,7 +8,8 @@ func void G1CP_Test_0002() {
         "Expected behavior: The NPC is able to open the door and properly go through the door."
     };
     G1CP_Testsuite_CheckManual(instr);
+    G1CP_Testsuite_CheckWorld(G1CP_WLD_MAIN);
     var zCWaypoint wp; wp = G1CP_Testsuite_FindWaypoint("OCC_MERCS_LEFT_ROOM_BED1");
     Wld_SetTime(5, 59);
-    AI_Teleport(hero, wp.name);
+    G1CP_Testsuite_NpcBeamTo(hero, wp.name);
 };

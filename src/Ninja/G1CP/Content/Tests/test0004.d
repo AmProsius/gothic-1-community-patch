@@ -7,6 +7,7 @@ func void G1CP_Test_0004() {
         "Expected behavior: Cronos should say 'May I pass through here?' instead of 'Step aside!'."
     };
     G1CP_Testsuite_CheckManual(instr);
+    G1CP_Testsuite_CheckWorld(G1CP_WLD_MAIN);
     var C_Npc npc; npc = G1CP_Testsuite_FindNpc("KDW_604_Cronos");
     var zCWaypoint wp; wp = G1CP_Testsuite_FindWaypoint("NC_PATH_AROUND_PIT_01");
     var int aiVarId; aiVarId = G1CP_Testsuite_CheckIntConst("AIV_WASDEFEATEDBYSC");
@@ -15,6 +16,6 @@ func void G1CP_Test_0004() {
     G1CP_NpcSetAiVarI(npc, aiVarId, TRUE);
 
     // Exactly in the way
-    Wld_SetTime(12,0);
-    AI_Teleport(hero, wp.name);
+    Wld_SetTime(12, 0);
+    G1CP_Testsuite_NpcBeamTo(hero, wp.name);
 };

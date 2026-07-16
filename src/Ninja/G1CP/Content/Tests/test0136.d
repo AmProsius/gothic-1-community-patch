@@ -2,18 +2,21 @@
  * #136 NPCs cannot use ladders when following the player
  */
 func void G1CP_Test_0136() {
-    const string instr[4] = {
-        "The hero is teleported into the Free Mine in front of a ladder.",
-        "Climb up the ladder and observe Gorn following.",
-        "Expected behavior: Gorn should be able to climb up the ladder to reach the PC without interruptions.",
-        "Because of the world change, it's best to leave the world when continuing with more tests."
+    const string instr[3] = {
+        "The hero is teleported into the Free Mine at the top of a ladder.",
+        "Wait for Gorn to catch up and climb the ladder reaching the top. A bounding box helps to spot Gorn.",
+        "Expected behavior: Gorn should be able to climb up the ladder to reach the PC without interruptions."
     };
     G1CP_Testsuite_CheckManual(instr);
-    const int GIL_GRD = 0; GIL_GRD = G1CP_Testsuite_GetIntConst("GIL_GRD");
+    G1CP_Testsuite_CheckWorld(G1CP_WLD_FREEMINE);
+    var C_Npc npc; npc = G1CP_Testsuite_FindNpc("PC_FighterFM");
+    var zCWaypoint wpBottom; wpBottom = G1CP_Testsuite_FindWaypoint("FM_20");
+    var zCWaypoint wpTop; wpTop = G1CP_Testsuite_FindWaypoint("FM_19");
 
-    // Change the player's guild to not be attacked
-    hero.guild = GIL_GRD;
-    Npc_SetTrueGuild(hero, GIL_GRD);
+    // Draw bounding box around Gorn for visual aid
+    var zCVob vob; vob = Hlp_GetNpc(npc);
+    vob.bitfield[0] = vob.bitfield[0] | zCVob_bitfield0_drawBBox3D;
 
-    G1CP_Testsuite_NpcTeleportToWorld(hero, "FREEMINE.ZEN", "FM_20");
+    G1CP_Testsuite_NpcBeamTo(hero, wpTop.name);
+    G1CP_Testsuite_NpcBeamTo(npc, wpBottom.name);
 };

@@ -7,7 +7,8 @@ func void G1CP_Test_@ISSUE_NUM_PAD@() {
         "Expected behavior: ### TODO Add actions to observe ###"
     };
     G1CP_Testsuite_CheckManual(instr);
+    G1CP_Testsuite_CheckWorld("### TODO Affected world, default is 'WORLD' ###");
 
-    /*### TODO Check teleport location. If bad, use G1CP_Testsuite_FindWaypoint and AI_Teleport ###*/
+    /*### TODO Check teleport location. If bad, use G1CP_Testsuite_FindWaypoint ###*/
     G1CP_Testsuite_NpcBeamToNearestWpPosPtr(hero, _@f(G1CP_@ISSUE_NUM_PAD@_@SHORTNAME@_PosNew));
 };

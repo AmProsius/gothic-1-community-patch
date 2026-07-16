@@ -7,7 +7,8 @@ func void G1CP_Test_0001() {
         "Expected behavior: The NPCs should be able to sleep."
     };
     G1CP_Testsuite_CheckManual(instr);
+    G1CP_Testsuite_CheckWorld(G1CP_WLD_MAIN);
     var zCWaypoint wp; wp = G1CP_Testsuite_FindWaypoint("PSI_PATH_11_5");
     Wld_SetTime(0, 0);
-    AI_Teleport(hero, wp.name);
+    G1CP_Testsuite_NpcBeamTo(hero, wp.name);
 };

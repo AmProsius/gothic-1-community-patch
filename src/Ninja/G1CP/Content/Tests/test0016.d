@@ -7,6 +7,7 @@
  * Expected behavior: The condition functions will return FALSE.
  */
 func void G1CP_Test_0016() {
+    G1CP_Testsuite_CheckWorld(G1CP_WLD_MAIN);
     var C_Npc npc; npc = G1CP_Testsuite_FindNpc("Grd_212_Torwache");
     var int func1Id; func1Id = G1CP_Testsuite_CheckDialogConditionFunc("Info_Thorus_Give1000Ore_Condition");
     var int func2Id; func2Id = G1CP_Testsuite_CheckDialogConditionFunc("Info_Thorus_LetterForMages_Condition");

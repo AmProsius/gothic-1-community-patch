@@ -1,5 +1,6 @@
 /*
  * Check if NPC exists and return it
+ * Note: Always run 'G1CP_Testsuite_CheckWorld' prior to ensure correct world.
  */
 func C_Npc G1CP_Testsuite_FindNpc(var string name) {
     var int symbId; symbId = G1CP_Testsuite_CheckNpc(name);
@@ -37,6 +38,7 @@ func oCInfo G1CP_Testsuite_FindInfo(var string name) {
 
 /*
  * Check if waypoint exists and return it as zCWaypoint
+ * Note: Always run 'G1CP_Testsuite_CheckWorld' prior to ensure correct world.
  */
 func zCWaypoint G1CP_Testsuite_FindWaypoint(var string name) {
     var int wpPtr; wpPtr = G1CP_GetWaypoint(name);
@@ -51,6 +53,7 @@ func zCWaypoint G1CP_Testsuite_FindWaypoint(var string name) {
 
 /*
  * Check (by name) if a VOB exists and return it as any class inheriting from zCVob
+ * Note: Always run 'G1CP_Testsuite_CheckWorld' prior to ensure correct world.
  */
 func zCVob G1CP_Testsuite_FindVob(var string name) {
     var int vobPtr; vobPtr = MEM_SearchVobByName(STR_Upper(name));

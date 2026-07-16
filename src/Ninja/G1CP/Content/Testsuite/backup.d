@@ -27,6 +27,17 @@ func void G1CP_Testsuite_Restore() {
 };
 
 /*
+ * Hero-safe version of Hlp_GetInstanceId: PC_Hero is invalid after level change
+ */
+func int G1CP_Testsuite_ResolveNpcInst(var C_Npc slf) {
+    if (Npc_IsPlayer(slf)) {
+        return hero + 0;
+    } else {
+        return Hlp_GetInstanceId(slf);
+    };
+};
+
+/*
  * Backup an integer value at a certain address.
  */
 func void G1CP_Testsuite_BackupIntAddr(var int addr) {
@@ -78,7 +89,7 @@ func void G1CP_Testsuite_BackupStr(var int symbId, var int arrIdx) {
  */
 func void G1CP_Testsuite_BackupTrueGuild(var C_Npc slf) {
     SB_Use(G1CP_TestsuiteBackupStream);
-    SBc(zPAR_TOK_PUSHINST);    SBw(Hlp_GetInstanceId(slf));
+    SBc(zPAR_TOK_PUSHINST);    SBw(G1CP_Testsuite_ResolveNpcInst(slf));
     SBc(zPAR_TOK_PUSHINT);     SBw(Npc_GetTrueGuild(hero));
     SBc(zPAR_TOK_CALLEXTERN);  SBw(MEM_GetFuncId(Npc_SetTrueGuild));
 };
@@ -98,7 +109,7 @@ func void G1CP_Testsuite_BackupTold(var int infoId) {
  */
 func void G1CP_Testsuite_BackupAiVar(var C_Npc slf, var int aiVarId) {
     SB_Use(G1CP_TestsuiteBackupStream);
-    SBc(zPAR_TOK_PUSHINST);    SBw(Hlp_GetInstanceId(slf));
+    SBc(zPAR_TOK_PUSHINST);    SBw(G1CP_Testsuite_ResolveNpcInst(slf));
     SBc(zPAR_TOK_PUSHINT);     SBw(aiVarId);
     SBc(zPAR_TOK_PUSHINT);     SBw(G1CP_NpcGetAiVarI(slf, aiVarId, 0));
     SBc(zPAR_TOK_CALL);        SBw(MEM_GetFuncOffset(G1CP_NpcSetAiVarI));
@@ -109,7 +120,7 @@ func void G1CP_Testsuite_BackupAiVar(var C_Npc slf, var int aiVarId) {
  */
 func void G1CP_Testsuite_BackupAttitude(var C_Npc slf, var C_Npc oth) {
     SB_Use(G1CP_TestsuiteBackupStream);
-    SBc(zPAR_TOK_PUSHINST);    SBw(Hlp_GetInstanceId(slf));
+    SBc(zPAR_TOK_PUSHINST);    SBw(G1CP_Testsuite_ResolveNpcInst(slf));
     SBc(zPAR_TOK_PUSHINST);    SBw(Npc_GetAttitude(slf, oth));
     SBc(zPAR_TOK_CALLEXTERN);  SBw(MEM_GetFuncId(Npc_SetTempAttitude));
 };
@@ -119,7 +130,7 @@ func void G1CP_Testsuite_BackupAttitude(var C_Npc slf, var C_Npc oth) {
  */
 func void G1CP_Testsuite_BackupInvAmount(var C_Npc slf, var int itemId) {
     SB_Use(G1CP_TestsuiteBackupStream);
-    SBc(zPAR_TOK_PUSHINST);    SBw(Hlp_GetInstanceId(slf));
+    SBc(zPAR_TOK_PUSHINST);    SBw(G1CP_Testsuite_ResolveNpcInst(slf));
     SBc(zPAR_TOK_PUSHINT);     SBw(itemId);
     SBc(zPAR_TOK_PUSHINT);     SBw(Npc_HasItems(slf, itemId));
     SBc(zPAR_TOK_CALL);        SBw(MEM_GetFuncOffset(G1CP_Testsuite_NpcSetInvItemAmount));
@@ -130,7 +141,7 @@ func void G1CP_Testsuite_BackupInvAmount(var C_Npc slf, var int itemId) {
  */
 func void G1CP_Testsuite_BackupTalentSkill(var C_Npc slf, var int skill) {
     SB_Use(G1CP_TestsuiteBackupStream);
-    SBc(zPAR_TOK_PUSHINST);    SBw(Hlp_GetInstanceId(slf));
+    SBc(zPAR_TOK_PUSHINST);    SBw(G1CP_Testsuite_ResolveNpcInst(slf));
     SBc(zPAR_TOK_PUSHINT);     SBw(skill);
     SBc(zPAR_TOK_PUSHINT);     SBw(Npc_GetTalentSkill(slf, skill));
     SBc(zPAR_TOK_CALLEXTERN);  SBw(MEM_GetFuncId(Npc_SetTalentSkill));
@@ -141,7 +152,7 @@ func void G1CP_Testsuite_BackupTalentSkill(var C_Npc slf, var int skill) {
  */
 func void G1CP_Testsuite_BackupRoutine(var C_Npc slf) {
     SB_Use(G1CP_TestsuiteBackupStream);
-    SBc(zPAR_TOK_PUSHINST);    SBw(Hlp_GetInstanceId(slf));
+    SBc(zPAR_TOK_PUSHINST);    SBw(G1CP_Testsuite_ResolveNpcInst(slf));
     SBc(zPAR_TOK_PUSHINT);     SBw(G1CP_NpcGetRoutine(slf));
     SBc(zPAR_TOK_CALL);        SBw(MEM_GetFuncOffset(G1CP_NpcExchangeRoutineI));
 };
@@ -155,7 +166,7 @@ func void G1CP_Testsuite_BackupNpcWp(var C_Npc slf) {
     MEM_WriteString(strCopyAddr, slf.wp);
 
     SB_Use(G1CP_TestsuiteBackupStream);
-    SBc(zPAR_TOK_PUSHINST);    SBw(Hlp_GetInstanceId(slf));
+    SBc(zPAR_TOK_PUSHINST);    SBw(G1CP_Testsuite_ResolveNpcInst(slf));
     SBc(zPAR_TOK_PUSHINT);     SBw(strCopyAddr);
     SBc(zPAR_TOK_CALL);        SBw(MEM_GetFuncOffset(G1CP_Testsuite_NpcBeamTo));
     SBc(zPAR_TOK_PUSHINT);     SBw(strCopyAddr);
