@@ -54668,13 +54668,13 @@ async function main() {
   // Template replacements
   let langCheckCode = '';
   if (isLangDependent)
-    langCheckCode = 'G1CP_Testsuite_CheckLang(' + langFlags.map(v => 'G1CP_Lang_' + v).join(' | ') + ')';
+    langCheckCode = '$1G1CP_Testsuite_CheckLang(' + langFlags.map(v => 'G1CP_Lang_' + v).join(' | ') + ');$2';
   const replacements = new Map([
     ['@ISSUE_NUM@', issueNum],
     ['@ISSUE_NUM_PAD@', issueNumPad],
     ['@SHORTNAME@', shortname],
     ['@LONGNAME@', issue.title.trim()],
-    ['@LANGCHECK@', langCheckCode],
+    [/(\s*)@LANGCHECK@;?(\r?\n?)/g, langCheckCode],
   ]);
 
   // Create fix file from template
