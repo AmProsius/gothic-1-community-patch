@@ -40,6 +40,9 @@ func int G1CP_Testsuite() {
     MEM_Game.debugChannels = MEM_Game.debugChannels | 31;
     MEM_SetShowDebug(TRUE);
 
+    // Minimize spy initially for performance
+    G1CP_ShowSpy(FALSE);
+
     // Initialize backup buffer
     G1CP_Testsuite_BackupInit();
 
@@ -91,6 +94,7 @@ func string G1CP_TestsuiteRunMultiple(var int appliedOnly) {
     var string infos; infos = "";
 
     MEM_Info("Reducing logging level to speed up tests.");
+    G1CP_ShowSpy(FALSE);
     var zERROR zerr; zerr = _^(zerrPtr);
     var int lvlBackup; lvlBackup = zerr.filter_level;
     zerr.filter_level = 0;
@@ -156,6 +160,7 @@ func string G1CP_TestsuiteRunMultiple(var int appliedOnly) {
 
     // Restore logging level
     zerr.filter_level = lvlBackup;
+    G1CP_ShowSpy(TRUE);
 
     // Print infos (afterwards all together)
     MEM_Info("");
@@ -207,6 +212,7 @@ func string G1CP_TestsuiteCmd(var string command) {
     // Reset error details
     G1CP_TestsuiteMsg = "";
 
+    G1CP_ShowSpy(FALSE);
     retInt = G1CP_TestsuiteRun(STR_ToInt(command));
     if (retInt == -1) {
         retStr = "";
@@ -221,6 +227,7 @@ func string G1CP_TestsuiteCmd(var string command) {
     };
 
     // Print error details
+    G1CP_ShowSpy(TRUE);
     G1CP_TestsuitePrintErrors();
 
     // Print to screen if console was closed
