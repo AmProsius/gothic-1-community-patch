@@ -52,10 +52,7 @@ func int G1CP_NpcGetRoutine(var C_Npc slf) {
 func int G1CP_NpcIsInRoutineI(var C_Npc slf, var int dailyRoutine) {
     return (G1CP_NpcGetRoutine(slf) == dailyRoutine) && (dailyRoutine != -1);
 };
-func int G1CP_NpcIsInRoutine(var C_Npc slf, var func dailyRoutine) {
-    return G1CP_NpcIsInRoutineI(self, MEM_GetFuncId(dailyRoutine));
-};
-func int G1CP_NpcIsInRoutineByName(var C_Npc slf, var string routineName) {
+func int G1CP_NpcIsInRoutine(var C_Npc slf, var string routineName) {
     var string name; name = ConcatStrings(ConcatStrings(ConcatStrings("RTN_", routineName), "_"), IntToString(slf.id));
     return G1CP_NpcIsInRoutineI(slf, MEM_GetSymbolIndex(name));
 };

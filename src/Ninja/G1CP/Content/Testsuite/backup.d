@@ -105,6 +105,15 @@ func void G1CP_Testsuite_BackupTold(var int infoId) {
 };
 
 /*
+ * Backup (= clear) the choice list of a C_Info.
+ */
+func void G1CP_Testsuite_BackupInfoChoices(var int infoId) {
+    SB_Use(G1CP_TestsuiteBackupStream);
+    SBc(zPAR_TOK_PUSHINT);     SBw(infoId);
+    SBc(zPAR_TOK_CALLEXTERN);  SBw(MEM_GetFuncId(Info_ClearChoices));
+};
+
+/*
  * Backup an AI-variable of an NPC.
  */
 func void G1CP_Testsuite_BackupAiVar(var C_Npc slf, var int aiVarId) {

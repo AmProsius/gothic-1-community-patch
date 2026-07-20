@@ -2,6 +2,7 @@
  * #@ISSUE_NUM@ @LONGNAME@
  */
 func void G1CP_Test_@ISSUE_NUM_PAD@() {
+    @LANGCHECK@;
     var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("### TODO Dialog condition function name ###");
     /*### TODO Add additional checks ###*/
 

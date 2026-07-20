@@ -2,6 +2,7 @@
  * #@ISSUE_NUM@ @LONGNAME@
  */
 func void G1CP_Test_@ISSUE_NUM_PAD@() {
+    @LANGCHECK@;
     var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc("### TODO Dialog function name ###");
     var int itemId; itemId = G1CP_Testsuite_CheckItem("### TODO Item instance name ###");
     const int transactionAmount = /*### TODO Replace '-10' with the desired amount ###*/-10;
