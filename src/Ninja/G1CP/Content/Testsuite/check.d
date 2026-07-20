@@ -26,6 +26,7 @@ func void G1CP_Testsuite_CheckManual(var string instructions) {
     };
 
     G1CP_Testsuite_OpenInfoScreen(title, instructions);
+    G1CP_Testsuite_PrintScreenNow("LOADING TEST", -1, 1, PF_Font, 1);
 
     // Reset the time if nighttime for better visibility
     var int time; time = G1CP_GetWorldTime();

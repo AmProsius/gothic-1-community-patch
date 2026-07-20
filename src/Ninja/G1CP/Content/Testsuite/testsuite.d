@@ -94,6 +94,7 @@ func string G1CP_TestsuiteRunMultiple(var int appliedOnly) {
     var string infos; infos = "";
 
     MEM_Info("Reducing logging level to speed up tests.");
+    G1CP_Testsuite_PrintScreenNow("LOADING TESTS", -1, -1, PF_Font, 1);
     G1CP_ShowSpy(FALSE);
     var zERROR zerr; zerr = _^(zerrPtr);
     var int lvlBackup; lvlBackup = zerr.filter_level;

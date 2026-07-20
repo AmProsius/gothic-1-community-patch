@@ -15,7 +15,6 @@ func void G1CP_Testsuite_OpenInfoScreen(var string title, var string text) {
         const int IT_MULTILINE = 2048;
         const int MENU_ITEM_TEXT = 1;
         const string BACK_PIC = "LOG_PAPER.TGA";
-        const string FONT_NAME = "FONT_OLD_10_WHITE.TGA";
 
         // Pointers
         const int statusScreenPtr = 0;
@@ -57,7 +56,7 @@ func void G1CP_Testsuite_OpenInfoScreen(var string title, var string text) {
         MEM_ArrayPush(_@(statusMenu.m_listItems_array), menuItemPtr);
         var zCMenuItem menuItem; menuItem = _^(menuItemPtr);
         menuItem.m_parType = MENU_ITEM_TEXT;
-        menuItem.m_parFontName = FONT_NAME;
+        menuItem.m_parFontName = PF_Font;
         menuItem.m_parDimx = PS_VMax;
 	    menuItem.m_parDimy = PS_VMax;
         menuItem.m_parFrameSizeX = 800;
@@ -100,13 +99,52 @@ func void G1CP_Testsuite_OpenInfoScreen(var string title, var string text) {
         SB_Destroy();
     };
 
-    // Open the screen
+    // Open the screen (and hide console and hud elements)
     if (CALL_Begin(call)) {
         const int call = 0;
+        const int hudBack = 0;
         const int oCStatusScreen__Show = 4683824; //0x477830
         const int zCConsole__Hide = 7185712; //0x6DA530
+        const int oCGame__GetShowPlayerStatus = 6523968; //0x638C40
+        const int oCGame__SetShowPlayerStatus = 6523872; //0x638BE0
+        const int oCNpc__SetFocusVob = 6881136; //0x68FF70
+        const int oCNpc__player = 9288624; //0x8DBBB0
+
+        CALL_PutRetValTo(_@(hudBack));
+        CALL__thiscall(MEMINT_oGame_Pointer_Address, oCGame__GetShowPlayerStatus);
+        CALL_PutRetValTo(0);
+
+        CALL_IntParam(_@(FALSE));
+        CALL__thiscall(MEMINT_oGame_Pointer_Address, oCGame__SetShowPlayerStatus);
+
+        CALL_PtrParam(_@(FALSE));
+        CALL__thiscall(oCNpc__player, oCNpc__SetFocusVob);
+
         CALL__thiscall(_@(zcon_address), zCConsole__Hide);
+
         CALL__thiscall(_@(statusScreenPtr), oCStatusScreen__Show);
+
+        CALL_IntParam(_@(hudBack));
+        CALL__thiscall(MEMINT_oGame_Pointer_Address, oCGame__SetShowPlayerStatus);
+
+        call = CALL_End();
+    };
+};
+
+/*
+ * Copy of PrintScreen but printing immediately within the running frame
+ */
+func void G1CP_Testsuite_PrintScreenNow(var string msg, var int posx, var int posy, var string font, var int timesec) {
+    PrintScreen(msg, posx, posy, font, timesec);
+    if (CALL_Begin(call)) {
+        const int call = 0;
+        const int zCView__DrawItems = 7326672; //0x6FCBD0
+        const int zCRnd_D3D__Vid_Blit = 7466400; //0x71EDA0
+        CALL__thiscall(screen, zCView__DrawItems);
+        CALL_IntParam(_@(FALSE));
+        CALL_IntParam(_@(FALSE));
+        CALL_IntParam(_@(FALSE));
+        CALL__thiscall(zrenderer_adr, zCRnd_D3D__Vid_Blit);
         call = CALL_End();
     };
 };
