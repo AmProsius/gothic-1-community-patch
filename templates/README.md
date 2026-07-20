@@ -4,10 +4,10 @@ The templates are collected in directories corresponding to the camel-case forma
 
 | Pattern           | Replacement              |                                                   Example |
 |-------------------|--------------------------|----------------------------------------------------------:|
-| `{ISSUE_NUM}`     | Issue number             |                                                      `16` |
-| `{ISSUE_NUM_PAD}` | Issue number zero padded |                                                    `0016` |
-| `{SHORTNAME}`     | Short name of the fix    |                                       `RavenWelcomDialog` |
-| `{LONGNAME}`      | Description of the fix   |                           `Raven's dialog is unavailable` |
-| `{LANGCHECK}`     | Code for language check  | `G1CP_Testsuite_CheckLang(G1CP_Lang_DE \| G1CP_Lang_EN);` |
+| `@ISSUE_NUM@`     | Issue number             |                                                      `16` |
+| `@ISSUE_NUM_PAD@` | Issue number zero padded |                                                    `0016` |
+| `@SHORTNAME@`     | Short name of the fix    |                                       `RavenWelcomDialog` |
+| `@LONGNAME@`      | Description of the fix   |                           `Raven's dialog is unavailable` |
+| `@LANGCHECK@;`    | Code for language check  | `G1CP_Testsuite_CheckLang(G1CP_Lang_DE \| G1CP_Lang_EN);` |
 
 New templates can be added with ease, without adjusting any code. The directory names only have to match an issue label (mind the correct color).

@@ -1,9 +1,5 @@
 /*
  * #31 Wolf's minecrawler plate dialog doesn't disappear
- *
- * A required dialog is set to 'told' and the condition function of the dialog is called.
- *
- * Expected behavior: The condition function will return FALSE.
  */
 func void G1CP_Test_0031() {
     var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("Info_Wolf_MCPLATESFEW_Condition");

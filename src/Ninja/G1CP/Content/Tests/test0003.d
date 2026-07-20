@@ -1,12 +1,13 @@
 /*
  * #3 NPCs don't collect weapons after fight
- *
- * A test NPC is inserted along with some weapons (bow equipped), before the script B_RegainDroppedWeapon is triggered
- *
- * Expected behavior: The NPC will pick up and equip the sword, leave the bow, draw the sword and show it
  */
 func void G1CP_Test_0003() {
-    G1CP_Testsuite_CheckManual();
+    const string instr[3] = {
+        "A test NPC is inserted along with some weapons (bow equipped).",
+        "Then the script B_RegainDroppedWeapon is triggered.",
+        "Expected behavior: The NPC will pick up and equip the sword, leave the bow, draw the sword and show it."
+    };
+    G1CP_Testsuite_CheckManual(instr);
     G1CP_Testsuite_CheckAiStateStartFunc("ZS_PracticeSword");
     var int swordId; swordId = G1CP_Testsuite_CheckItem("Whistlers_Schwert");
     var int bowId; bowId = G1CP_Testsuite_CheckItem("Wolfs_Bogen");

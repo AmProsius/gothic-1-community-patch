@@ -49,12 +49,12 @@ func int G1CP_NpcGetRoutine(var C_Npc slf) {
 /*
  * Functional version of the external engine function Npc_IsInRoutine
  */
-func int G1CP_NpcIsInRoutine(var C_Npc slf, var func dailyRoutine) {
-    if (Hlp_IsValidNpc(slf)) {
-        return (MEM_GetFuncId(dailyRoutine) == MEM_ReadInt(_@(slf.bodymass)+4)); // Read daily_routine function as int
-    } else {
-        return FALSE;
-    };
+func int G1CP_NpcIsInRoutineI(var C_Npc slf, var int dailyRoutine) {
+    return (G1CP_NpcGetRoutine(slf) == dailyRoutine) && (dailyRoutine != -1);
+};
+func int G1CP_NpcIsInRoutine(var C_Npc slf, var string routineName) {
+    var string name; name = ConcatStrings(ConcatStrings(ConcatStrings("RTN_", routineName), "_"), IntToString(slf.id));
+    return G1CP_NpcIsInRoutineI(slf, MEM_GetSymbolIndex(name));
 };
 
 

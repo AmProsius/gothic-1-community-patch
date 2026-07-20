@@ -42,7 +42,7 @@ func void G1CP_SetInfoTold(var string infoName, var int isTold) {
 };
 
 /*
- * Check if an NPC has an info with a specific description
+ * Check if an NPC has an info with a specific description (only available infos, i.e. conditions are met)
  */
 func int G1CP_HasInfoWithDesc(var C_Npc slf, var string infoDesc) {
     MEM_InitGlobalInst();
@@ -66,7 +66,7 @@ func int G1CP_HasInfoWithDesc(var C_Npc slf, var string infoDesc) {
 
     while(ret);
         var oCInfo info; info = _^(ret);
-        if (Hlp_StrCmp(info.description, infoDesc)) {
+        if (STR_Compare(info.description, infoDesc) == STR_EQUAL) {
             return TRUE;
         };
         count += 1;
@@ -74,4 +74,30 @@ func int G1CP_HasInfoWithDesc(var C_Npc slf, var string infoDesc) {
     end;
 
     return FALSE;
+};
+
+
+/*
+ * Check if an info has a info-choice with a specific description
+ */
+func int G1CP_InfoHasChoiceWithDesc(var oCInfo info, var string choiceDesc) {
+    var int listPtr; listPtr = info.listChoices_next;
+    while(listPtr);
+        var zCList list; list = _^(listPtr);
+        var oCInfoChoice choice; choice = _^(list.data);
+        if (STR_Compare(choice.text, choiceDesc) == STR_EQUAL) {
+            return TRUE;
+        };
+        listPtr = list.next;
+    end;
+
+    return FALSE;
+};
+func int G1CP_InfoHasChoiceWithDescI(var int symbId, var string choiceDesc) {
+    var int infoPtr; infoPtr = G1CP_GetInfoI(symbId);
+    if (!infoPtr) {
+        return FALSE;
+    };
+    var oCInfo info; info = _^(infoPtr);
+    return G1CP_InfoHasChoiceWithDesc(info, choiceDesc);
 };

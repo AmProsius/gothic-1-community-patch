@@ -2,6 +2,7 @@
  * #166 Ambient dialogs of rogue not available
  */
 func void G1CP_Test_0166() {
+    G1CP_Testsuite_CheckWorld(G1CP_WLD_MAIN);
     var int func1Id; func1Id = G1CP_Testsuite_CheckDialogConditionFunc("Info_ORG_829_SpecialInfo_Condition");
     var int func2Id; func2Id = G1CP_Testsuite_CheckDialogConditionFunc("Info_ORG_829_PERM_Condition");
     var int infoId; infoId = G1CP_Testsuite_CheckInfo("Info_ORG_829_OfferJoint");

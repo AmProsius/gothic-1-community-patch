@@ -1,11 +1,11 @@
 /*
- * #{ISSUE_NUM} {LONGNAME}
+ * #@ISSUE_NUM@ @LONGNAME@
  */
-func int G1CP_Test_{ISSUE_NUM_PAD}() {
-    {LANGCHECK}
+func int G1CP_Test_@ISSUE_NUM_PAD@() {
+    @LANGCHECK@;
     const string symbolName = "### TODO: Symbol name ###";
     const string correctedString = "### TODO: Corrected string ###";
-    var int symbId; symbId = G1CP_Testsuite_GetStringConst(symbolName, 0);
+    var int symbId; symbId = G1CP_Testsuite_GetStringConst(symbolName);
 
     const int LOG_MISSION = 0;
 
@@ -17,10 +17,10 @@ func int G1CP_Test_{ISSUE_NUM_PAD}() {
     };
 
     var int topicBakPtr; topicBakPtr = G1CP_LogGetTopic(symbId);
-    var int r; r = G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}Revert();
+    var int r; r = G1CP_@ISSUE_NUM_PAD@_@SHORTNAME@Revert();
     Log_CreateTopic(symbId, LOG_MISSION);
     var int topicTempPtr; topicTempPtr = G1CP_LogGetTopic(symbId);
-    r = G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}();
+    r = G1CP_@ISSUE_NUM_PAD@_@SHORTNAME@();
 
     if (!topicTempPtr) {
         G1CP_TestsuiteErrorDetail("Log topic could not be created");

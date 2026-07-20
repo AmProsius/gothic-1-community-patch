@@ -1,9 +1,5 @@
 /*
  * #17 Jackal doesn't recognize the player's camp membership
- *
- * The hero is given a new guild and the condition function of the dialog is called.
- *
- * Expected behavior: The condition function will return FALSE.
  */
 func void G1CP_Test_0017() {
     var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("Info_Jackal_Hello_Condition");

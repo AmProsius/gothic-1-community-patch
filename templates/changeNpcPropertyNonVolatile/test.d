@@ -1,17 +1,17 @@
 /*
- * #{ISSUE_NUM} {LONGNAME}
- *
- * There does not seem an easy way to test this fix programmatically, so this test relies on manual confirmation.
- *
- * Expected behavior: ### TODO: Describe what will happen during the test ###
+ * #@ISSUE_NUM@ @LONGNAME@
  */
-func int G1CP_Test_{ISSUE_NUM_PAD}() {
-    // ### TODO: Replace waypoint name of "WAYPOINT_NAME" ###
-    G1CP_Testsuite_CheckManual();
-    var zCWaypoint wp; wp = G1CP_Testsuite_FindWaypoint("WAYPOINT_NAME");
-    /* ### TODO: Optional: Add additional checks ### */
+func int G1CP_Test_@ISSUE_NUM_PAD@() {
+    const string instr[2] = {
+        "The hero ist teleported to ### TODO Specify location. Make sure first line is unique string ###",
+        "Expected behavior: ### TODO Add actions to observe ###"
+    };
+    G1CP_Testsuite_CheckManual(instr);
+    G1CP_Testsuite_CheckWorld("### TODO Affected world, default is 'WORLD' ###");
+    var zCWaypoint wp; wp = G1CP_Testsuite_FindWaypoint("### TODO Waypoint name ###");
+    /*### TODO Add additional checks ###*/
 
-    // ### TODO: Optional: Set values ###
+    /*### TODO Set values ###*/
 
-    AI_Teleport(hero, wp.name);
+    G1CP_Testsuite_NpcBeamTo(hero, wp.name);
 };

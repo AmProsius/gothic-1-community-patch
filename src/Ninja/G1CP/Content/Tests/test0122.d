@@ -5,6 +5,7 @@ func void G1CP_Test_0122() {
     const int timeToCheckA = 2330; // Time slightly after start
     const int timeToCheckB = 0700;
     const string rtnName = "start";
+    G1CP_Testsuite_CheckWorld(G1CP_WLD_MAIN);
     var zCWaypoint newWpA; newWpA = G1CP_Testsuite_FindWaypoint("OW_SAWHUT_SLEEP_01");
     var zCWaypoint newWpB; newWpB = G1CP_Testsuite_FindWaypoint("OW_CAVALORN_01");
     var C_Npc npc; npc = G1CP_Testsuite_FindNpc("STT_336_Cavalorn");

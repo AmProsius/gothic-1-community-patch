@@ -1,16 +1,14 @@
 /*
  * #46 Smith's door has wrong key instance
- *
- * There does not seem an easy way to test this fix programmatically, so this test relies on manual confirmation. The
- * function should be called twice: On first function call to find and pick up the key, on second function call to try
- * it on the door.
- * Caution: This test will break the game. Save the game beforehand.
- *
- * Expected behavior: First function call: The key is on the ground in the cell. Second function call: The key opens the
- * door.
  */
 func void G1CP_Test_0046() {
-    G1CP_Testsuite_CheckManual();
+    const string instr[3] = {
+        "Run the test twice: On first run, find and pick up the key.",
+        "On second run, to try it on the door.",
+        "Expected behavior: The key is on the ground in the cell. The key opens the door."
+    };
+    G1CP_Testsuite_CheckManual(instr);
+    G1CP_Testsuite_CheckWorld(G1CP_WLD_MAIN);
     const int GIL_GRD = 0; GIL_GRD = G1CP_Testsuite_GetIntConst("GIL_GRD");
     var int funcId; funcId = G1CP_Testsuite_CheckFunc("B_Story_ExploreSunkenTower", "void|none", "");
     var int bartholoId; bartholoId = G1CP_Testsuite_CheckInfo("DIA_EBR_106_Bartholo_Wait4SC");
@@ -30,7 +28,7 @@ func void G1CP_Test_0046() {
         G1CP_SetInfoToldI(skipId, TRUE);
 
         // Teleport to the cell
-        AI_Teleport(hero, cellarWp.name);
+        G1CP_Testsuite_NpcBeamTo(hero, cellarWp.name);
 
         // Change the player's guild to not be attacked (just in case)
         hero.guild = GIL_GRD;
@@ -43,7 +41,7 @@ func void G1CP_Test_0046() {
         // Second function cell (PC does have the key): Teleport
 
         // Allow the player to confirm
-        AI_Teleport(hero, staircaseWp.name);
+        G1CP_Testsuite_NpcBeamTo(hero, staircaseWp.name);
 
         // Some information
         Print("Drop the key first and check if the door is unlocked already. Confirm that the key opens the door.");

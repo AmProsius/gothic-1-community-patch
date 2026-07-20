@@ -1,9 +1,5 @@
 /*
  * #78 Humans don't recognise orcs as monsters
- *
- * A human NPC, an orc warrior and an orc slave are inserted
- *
- * Expected behavior: The human NPC will attack the orc warrior (before the orc attacks), but leaves the orc slave alone
  */
 
 /* Strength of the player */
@@ -13,7 +9,11 @@ const int G1CP_Test_0078_HeroStrengthBak = 0;
  * Test function
  */
 func void G1CP_Test_0078() {
-    G1CP_Testsuite_CheckManual();
+    const string instr[2] = {
+        "A human NPC, an orc warrior, and an orc slave are inserted and the hero is given the ulu-mulu to observe.",
+        "Expected behavior: The human will attack the orc warrior (before the orc attacks), but ignores the orc slave."
+    };
+    G1CP_Testsuite_CheckManual(instr);
     var int warriorId; warriorId = G1CP_Testsuite_CheckNpc("OrcWarrior1");
     var int slaveId; slaveId = G1CP_Testsuite_CheckNpc("OrcSlave");
     var int ulumuluId; ulumuluId = G1CP_Testsuite_CheckItem("UluMulu");

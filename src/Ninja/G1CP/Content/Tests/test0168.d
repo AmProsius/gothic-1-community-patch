@@ -1,9 +1,5 @@
 /*
  * #168 Gor Na Bar offers to become a templar to anyone
- *
- * The player's guild is temporarily removed and the condition function of the dialog is called.
- *
- * Expected behavior: The condition function will return FALSE.
  */
 func void G1CP_Test_0168() {
     var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("Tpl_1400_GorNaBar_VICTORY_Condition");

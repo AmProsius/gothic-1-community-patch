@@ -31,6 +31,7 @@ const int G1CP_TestsuiteNext_SymbId = 0;
 func int G1CP_Testsuite() {
     CC_Register(G1CP_TestsuiteList, "test list", "List all tests of G1CP");
     CC_Register(G1CP_TestsuiteNext, "test next", "Execute next manual test of G1CP");
+    CC_Register(G1CP_TestsuiteAgain, "test again", "Execute previous manual test of G1CP again");
     CC_Register(G1CP_TestsuiteAll, "test all", "Run complete test suite for G1CP");
     CC_Register(G1CP_TestsuiteActive, "test active", "Run test suite on all active fixes of G1CP");
     CC_Register(G1CP_TestsuiteCmd, "test ", "Run test from test suite for G1CP");
@@ -38,6 +39,9 @@ func int G1CP_Testsuite() {
     // Enable debug channel and show debug messages
     MEM_Game.debugChannels = MEM_Game.debugChannels | 31;
     MEM_SetShowDebug(TRUE);
+
+    // Minimize spy initially for performance
+    G1CP_ShowSpy(FALSE);
 
     // Initialize backup buffer
     G1CP_Testsuite_BackupInit();
@@ -55,25 +59,24 @@ func int G1CP_TestsuiteRun(var int id) {
     var string idName; idName = G1CP_LFill(IntToString(id), "0", G1CP_ID_LENGTH);
 
     // Reset test status
-    G1CP_TestsuiteStatusPassed = TRUE;
+    G1CP_TestsuiteStatusPassed = G1CP_TEST_PASSED;
     G1CP_TestsuiteAssertNum = 0;
 
     // Find test function
     var string funcName; funcName = ConcatStrings("G1CP_Test_", idName);
-    var int symbPtr; symbPtr = MEM_GetSymbol(funcName);
-    if (!symbPtr) {
+    var int funcId; funcId = MEM_GetSymbolIndex(funcName);
+    if (funcId == -1) {
         return -1;
     };
-    var zCPar_Symbol symb; symb = _^(symbPtr);
 
     // Update the iterator
-    G1CP_TestsuiteNext_SymbId = MEM_GetSymbolIndex(funcName) + 1;
+    G1CP_TestsuiteNext_SymbId = funcId + 1;
 
     // Call test function and return
     MEM_CallByString(funcName);
     G1CP_Testsuite_Restore();
-    if (G1CP_Testsuite_TestIsManualBySymb(symb)) {
-        return 2;
+    if (G1CP_Testsuite_TestIsManualById(funcId)) && (G1CP_TestsuiteStatusPassed == G1CP_TEST_PASSED) {
+        return G1CP_TEST_MANUAL;
     };
     return G1CP_TestsuiteStatusPassed;
 };
@@ -86,10 +89,13 @@ func string G1CP_TestsuiteRunMultiple(var int appliedOnly) {
     var int passed; passed = 0;
     var int failed; failed = 0;
     var int manual; manual = 0;
+    var int skipped; skipped = 0;
     var string msg;
     var string infos; infos = "";
 
     MEM_Info("Reducing logging level to speed up tests.");
+    G1CP_Testsuite_PrintScreenNow("LOADING TESTS", -1, -1, PF_Font, 1);
+    G1CP_ShowSpy(FALSE);
     var zERROR zerr; zerr = _^(zerrPtr);
     var int lvlBackup; lvlBackup = zerr.filter_level;
     zerr.filter_level = 0;
@@ -128,7 +134,7 @@ func string G1CP_TestsuiteRunMultiple(var int appliedOnly) {
             msg = ConcatStrings(msg, "... ");
 
             // Reset test status before every test
-            G1CP_TestsuiteStatusPassed = TRUE;
+            G1CP_TestsuiteStatusPassed = G1CP_TEST_PASSED;
             G1CP_TestsuiteAssertNum = 0;
 
             // Reset the data stack position and call the test function
@@ -136,18 +142,15 @@ func string G1CP_TestsuiteRunMultiple(var int appliedOnly) {
             MEM_CallById(i-1);
             G1CP_Testsuite_Restore();
 
-            // // DEBUG - TODO remove once tests are refactored -
-            // if (G1CP_TestsuiteStatusPassed) && (symb.offset == (zPAR_TYPE_INT >> 12)) {
-            //     G1CP_TestsuiteStatusPassed = MEM_PopIntResult();
-            // };
-            // // DEBUG
-
-            if (G1CP_Testsuite_TestIsManualBySymb(symb)) {
+            if (G1CP_Testsuite_TestIsManualById(i-1)) {
                 msg = ConcatStrings(msg, "[MANUAL]|");
                 manual += 1;
-            } else if (G1CP_TestsuiteStatusPassed) {
+            } else if (G1CP_TestsuiteStatusPassed == G1CP_TEST_PASSED) {
                 msg = ConcatStrings(msg, "[PASSED]|");
                 passed += 1;
+            } else if (G1CP_TestsuiteStatusPassed == G1CP_TEST_SKIPPED) {
+                msg = ConcatStrings(msg, "[EXEMPT]|");
+                skipped += 1;
             } else {
                 msg = ConcatStrings(msg, "[FAILED]|");
                 failed += 1;
@@ -158,6 +161,7 @@ func string G1CP_TestsuiteRunMultiple(var int appliedOnly) {
 
     // Restore logging level
     zerr.filter_level = lvlBackup;
+    G1CP_ShowSpy(TRUE);
 
     // Print infos (afterwards all together)
     MEM_Info("");
@@ -181,6 +185,8 @@ func string G1CP_TestsuiteRunMultiple(var int appliedOnly) {
     msg = ConcatStrings(msg, " passed, ");
     msg = ConcatStrings(msg, IntToString(failed));
     msg = ConcatStrings(msg, " failed, ");
+    msg = ConcatStrings(msg, IntToString(skipped));
+    msg = ConcatStrings(msg, " skipped, ");
     msg = ConcatStrings(msg, IntToString(manual));
     msg = ConcatStrings(msg, " require manual confirmation. See zSpy for details.");
     return msg;
@@ -207,19 +213,36 @@ func string G1CP_TestsuiteCmd(var string command) {
     // Reset error details
     G1CP_TestsuiteMsg = "";
 
+    G1CP_ShowSpy(FALSE);
     retInt = G1CP_TestsuiteRun(STR_ToInt(command));
     if (retInt == -1) {
         retStr = "";
-    } else if (retInt == 2) {
+    } else if (retInt == G1CP_TEST_MANUAL) {
         retStr = "EXECUTED. Manual confirmation needed.";
-    } else if (retInt == TRUE) {
+    } else if (retInt == G1CP_TEST_PASSED) {
         retStr = "PASSED";
+    } else if (retInt == G1CP_TEST_SKIPPED) {
+        retStr = "SKIPPED";
     } else {
         retStr = "FAILED";
     };
 
     // Print error details
+    G1CP_ShowSpy(TRUE);
     G1CP_TestsuitePrintErrors();
+
+    // Print to screen if console was closed
+    if (CALL_Begin(call)) {
+        const int call = 0;
+        const int consoleOpen = 0;
+        const int zCConsole__IsVisible = 7186192; //0x6DA710
+        CALL_PutRetValTo(_@(consoleOpen));
+        CALL__thiscall(_@(zcon_address), zCConsole__IsVisible);
+        call = CALL_End();
+    };
+    if (!consoleOpen) && (retInt != G1CP_TEST_PASSED) && (retInt != G1CP_TEST_MANUAL) {
+        Print(retStr);
+    };
 
     return retStr;
 };
@@ -236,7 +259,7 @@ func string G1CP_TestsuiteNext(var string _) {
         if (STR_Len(symb.name) == 10 + G1CP_ID_LENGTH) { // Nested if-blocks for performance
         if (STR_StartsWith(symb.name, "G1CP_TEST_")) {
         if ((symb.bitfield & zCPar_Symbol_bitfield_type) == zPAR_TYPE_FUNC) {
-        if (G1CP_Testsuite_TestIsManualBySymb(symb)) {
+        if (G1CP_Testsuite_TestIsManualById(G1CP_TestsuiteNext_SymbId)) {
             var int id; id = STR_ToInt(STR_SubStr(symb.name, 10, G1CP_ID_LENGTH));
             break;
         }; }; }; };
@@ -258,6 +281,11 @@ func string G1CP_TestsuiteNext(var string _) {
     msg = ConcatStrings(msg, G1CP_GetFixShortName(id));
     msg = ConcatStrings(msg, "'");
     return msg;
+};
+
+func string G1CP_TestsuiteAgain(var string _) {
+    G1CP_TestsuiteNext_SymbId -= 1;
+    return G1CP_TestsuiteNext(_);
 };
 
 func string G1CP_TestsuiteList(var string _) {
@@ -282,7 +310,7 @@ func string G1CP_TestsuiteList(var string _) {
                 msg = ConcatStrings(ConcatStrings("(", msg), ")");
             };
 
-            if (G1CP_Testsuite_TestIsManualBySymb(symb)) {
+            if (G1CP_Testsuite_TestIsManualById(i)) {
                 manual = ConcatStrings(ConcatStrings(manual, msg), " ");
             } else {
                 automatic = ConcatStrings(ConcatStrings(automatic, msg), " ");
