@@ -1,0 +1,12 @@
+name: Review fix initialization
+description: Add an review to a generated fix initialization
+inputs:
+  pr_num:
+    description: Pull request number
+    required: true
+  token:
+    description: Authentication token
+    required: true
+runs:
+  using: node24
+  main: 'dist/index.js'

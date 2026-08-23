@@ -55,7 +55,7 @@ export function add(path, comment, start_line, end_line) {
  * @param     string      path to updated file
  * @returns   boolean     false on error, true otherwise
  */
-export async function parse(path) {
+export async function parse(path, comment_default='Adjust this part.') {
   let text = '';
   try {
     const data = fs.readFileSync(path);
@@ -73,7 +73,7 @@ export async function parse(path) {
   while ((match = regex.exec(text)) !== null) {
       let comment = (match.groups.comment || '').trim();
       if (!comment.length)
-        comment = 'Adjust this part.';
+        comment = comment_default;
 
       // Find lines
       const char_start = match.index;

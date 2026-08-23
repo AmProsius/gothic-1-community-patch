@@ -7746,6 +7746,8 @@ module.exports = {
 
   hebrew: "iso88598",
   hebrew8: "iso88598",
+  iso88598i: "iso88598",
+  iso88598e: "iso88598",
 
   turkish: "iso88599",
   turkish8: "iso88599",
@@ -8049,7 +8051,9 @@ function Utf32Encoder (options, codec) {
 
 Utf32Encoder.prototype.write = function (str) {
   var src = Buffer.from(str, "ucs2")
-  var dst = Buffer.alloc(src.length * 2)
+  // src.length * 2 covers this chunk's code units (4 bytes each); the extra 4 bytes leave room for a
+  // high surrogate held over from a previous chunk, which is flushed ahead of this chunk's units.
+  var dst = Buffer.alloc(src.length * 2 + 4)
   var write32 = this.isLE ? dst.writeUInt32LE : dst.writeUInt32BE
   var offset = 0
 
@@ -8131,9 +8135,9 @@ Utf32Decoder.prototype.write = function (src) {
       // NOTE: codepoint is a signed int32 and can be negative.
       // NOTE: We copied this block from below to help V8 optimize it (it works with array, not buffer).
       if (isLE) {
-        codepoint = overflow[i] | (overflow[i + 1] << 8) | (overflow[i + 2] << 16) | (overflow[i + 3] << 24)
+        codepoint = overflow[0] | (overflow[1] << 8) | (overflow[2] << 16) | (overflow[3] << 24)
       } else {
-        codepoint = overflow[i + 3] | (overflow[i + 2] << 8) | (overflow[i + 1] << 16) | (overflow[i] << 24)
+        codepoint = overflow[3] | (overflow[2] << 8) | (overflow[1] << 16) | (overflow[0] << 24)
       }
       overflow.length = 0
 
@@ -8187,7 +8191,12 @@ function _writeCodepoint (dst, offset, codepoint, badChar) {
 };
 
 Utf32Decoder.prototype.end = function () {
+  if (this.overflow.length === 0) { return }
+
+  // A leftover, incomplete 4-byte code unit at the end of the input is ill-formed. Substitute a
+  // single U+FFFD (Unicode Standard conformance clause C10) instead of silently dropping the bytes.
   this.overflow.length = 0
+  return String.fromCharCode(this.badChar)
 }
 
 // == UTF-32 Auto codec =============================================================
@@ -18264,7 +18273,7 @@ const { setGlobalOrigin, getGlobalOrigin } = __nccwpck_require__(1059)
 module.exports.setGlobalOrigin = setGlobalOrigin
 module.exports.getGlobalOrigin = getGlobalOrigin
 
-const { CacheStorage } = __nccwpck_require__(3245)
+const { CacheStorage } = __nccwpck_require__(5626)
 const { kConstruct } = __nccwpck_require__(109)
 
 // Cache & CacheStorage are tightly coupled with fetch. Even if it may run
@@ -30693,7 +30702,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 3245:
+/***/ 5626:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 "use strict";
@@ -54295,106 +54304,7 @@ async function replaceInFile(srcPath, dstPath, pairs, encoding='win1252') {
   return true;
 }
 
-;// CONCATENATED MODULE: ./src/todo.js
-
-
-
-// Global to-do list
-const list = [];
-
-/**
- * Add line to the to-do list, which will be turned into pull request review comments
- *
- * @param     string      path to updated file
- * @param     string      review comment
- * @param     integer     start line
- * @param     integer     end line (optional)
- */
-function add(path, comment, start_line, end_line) {
-  comment = comment.trim();
-  if (!comment.endsWith('.'))
-    comment += '.';
-  if (end_line == null) {
-    end_line = start_line + 1;
-    start_line -= 1;
-  }
-
-  // Check to merge with existing elements
-  for (var i = list.length - 1; i >= 0; i--) {
-    if (list[i].path != path)
-      continue;
-
-    if (list[i].start_line-1 <= start_line && end_line <= list[i].line+1) {
-      list[i].body = list[i].body + '\r\n' + comment;
-
-      if (start_line < list[i].start_line)
-        list[i].start_line = start_line;
-      if (end_line > list[i].line)
-        list[i].line = end_line;
-
-      return;
-    }
-  }
-
-  // Otherwise add new element
-  list.push({
-    path: path,
-    body: comment,
-    start_line: start_line,
-    start_side: 'RIGHT',
-    line: end_line,
-    side: 'RIGHT',
-  });
-}
-
-/**
- * Parse a file to find all mentions of ### TODO ###
- *
- * @param     string      path to updated file
- * @returns   boolean     false on error, true otherwise
- */
-async function todo_parse(path) {
-  let text = '';
-  try {
-    const data = external_node_fs_default().readFileSync(path);
-    text = iconv_lite_lib_default().decode(data, 'win1252');
-  } catch (error) {
-    throw `Could not read file ${path}. ${error.message}`;
-  }
-
-  const regex = /###\s*TODO:?\s*(?<comment>[^#]*)?###/igm;
-  const nl = /\r?\n/g;
-  const matches = text.match(nl);
-  const numLines = matches ? matches.length : 1;
-  let match = null
-
-  while ((match = regex.exec(text)) !== null) {
-      let comment = (match.groups.comment || '').trim();
-      if (!comment.length)
-        comment = 'Adjust this part.';
-
-      // Find lines
-      const char_start = match.index;
-      const char_end = match.index + match[0].length;
-      let m = text.slice(0, char_start).match(nl);
-      let line_start = m ? (m.length + 1) : 1;
-      m = text.slice(0, char_end).match(nl);
-      let line_end = m ? (m.length + 1) : 1;
-
-      // Start and end line cannot be the same
-      if (line_end <= line_start) {
-        line_start = Math.max(0, line_start-1);
-        line_end = Math.min(numLines, line_start+2);
-      }
-
-      add(path, comment, line_start, line_end);
-  }
-
-  return true;
-}
-
 ;// CONCATENATED MODULE: ./src/index.js
-
 
 
 
@@ -54634,9 +54544,7 @@ async function main() {
     if (!changelogEn.endsWith('.'))
       changelogEn += '.';
     const clEntry = clPrefix + changelogEn;
-    const line = await addLineToFile(changelogEnPath, clEntry, clMatch, issueNum, clSection, 1, 'utf-8');
-    if (changelogEn.startsWith('### TODO ###'))
-      add(changelogEnPath, 'Add an entry in the English changelog.', line+1);
+     await addLineToFile(changelogEnPath, clEntry, clMatch, issueNum, clSection, 1, 'utf-8');
   } else {
     changelogEn = '-'
     changelogEnInferred = '';
@@ -54648,9 +54556,7 @@ async function main() {
     if (!changelogDe.endsWith('.'))
       changelogDe += '.';
     const clEntry = clPrefix + changelogDe;
-    const line = await addLineToFile(changelogDePath, clEntry, clMatch, issueNum, clSection, 1, 'utf-8');
-    if (changelogDe.startsWith('### TODO ###'))
-      add(changelogDePath, 'Add an entry in the German changelog.', line+1);
+    await addLineToFile(changelogDePath, clEntry, clMatch, issueNum, clSection, 1, 'utf-8');
   } else {
     changelogDe = '-'
     changelogDeInferred = '';
@@ -54671,12 +54577,10 @@ async function main() {
   // Create fix file from template
   const fixDstPath = external_node_path_default().join(scriptPath, ...cfg.path.fixes, fixFileName);
   await replaceInFile(fixSrcPath, fixDstPath, replacements);
-  await todo_parse(fixDstPath);
 
   // Create test file from template
   const testDstPath = external_node_path_default().join(scriptPath, ...cfg.path.tests, testFileName);
   await replaceInFile(testSrcPath, testDstPath, replacements);
-  await todo_parse(testDstPath);
 
   notice('Local file manipulations successful', { title: 'File operations successful'});
 
@@ -54725,6 +54629,13 @@ async function main() {
   const fixApplyLink  = `[${fixFuncName}](${sourceUrl + fixDstPath})`;
   const fixRevertLink = `[${fixFuncNameRev}](${sourceUrl + fixDstPath})`;
   const testLink = `[G1CP_Test_${issueNumPad}](${sourceUrl + testDstPath})`;
+  const pullLink = (
+    '[pull request](' + 
+    `${baseUrl}/compare/${sourceBranch}...${branchName}/?expand=1` + 
+    `&title=Fix:%20${encodeURIComponent(issue.title.trim())}` +
+    `&body=Closes%20%23${issueNum}.` + 
+    ')'
+  )
 
   const comment = (
     'Initializing fix files with\r\n' +
@@ -54742,7 +54653,9 @@ async function main() {
     `Language dependent  | **${isLangDependent ? langFlags.join(', ') : 'no'}**\r\n` +
     `Branch name         | **${branchName}**\r\n` +
     `Changelog En        | **${changelogEn}**${changelogEnInferred}\r\n` +
-    `Changelog De        | **${changelogDe}**${changelogDeInferred}\r\n`
+    `Changelog De        | **${changelogDe}**${changelogDeInferred}\r\n` +
+    '\r\n' +
+    `Please open the ${pullLink}.\r\n`
   );
   await octokit.rest.issues.createComment({
     ...gh_context.repo,
@@ -54766,53 +54679,9 @@ async function main() {
    * If something goes wrong now, so be it.
    */
 
-  // ==========================
-  // Adjust Github environment
-  // ==========================
-
-  // Create pull request from issue
-  let prNum = null;
-  if (!issue.pull_request) {
-    const msg = 'pull request from issue';
-    try {
-      const response = await octokit.rest.pulls.create({
-        ...gh_context.repo,
-        head: branchName,
-        base: sourceBranch,
-        title: `Fix: ${issue.title.trim()}`,
-        body: `Closes #${issueNum}.`,
-        draft: (gh_context.payload.repository.private ? false : true)
-      });
-      prNum = response.data.number;
-      notice(`Created ${msg}`, { title: 'Pull request' });
-    } catch (error) {
-      setFailed(`Failed to create ${msg}. ${error.message}`);
-      // Continue anyway
-    }
-  }
-
-  // Create pull request review or at least comments with TODO items
-  if (list.length) {
-    notice(`Found ${list.length} TODO items for PR ${prNum}.`, { title: 'To-do list' });
-    const msg = 'pull request review with to-do list';
-    try {
-      await octokit.rest.pulls.createReview({
-        ...gh_context.repo,
-        pull_number: prNum,
-        event: 'COMMENT',
-        body: 'The following are the remaining necessary adjustments.',
-        comments: list
-      });
-      notice(`Added ${msg}`, { title: 'Pull request review' });
-    } catch (error) {
-      setFailed(`Failed to add ${msg}. ${error.message}`);
-      // Continue anyway
-    }
-  }
-
-  // Add link to issue/pull-request
+  // Add link to issue
   notice(`For summary and details see ${gh_context.payload.repository.html_url}/issues/${issueNum}`,
-              { title: 'Pull-request' });
+              { title: 'Issue' });
 }
 
 

@@ -1,6 +1,6 @@
-# Initialize Fix
+# Review initialized fix
 
-This action initializes fixes from Github issues in a new branch.
+This action reviews the fix initialized from the initFix GitHub Action.
 
 ## Configuration
 

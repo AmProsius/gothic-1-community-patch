@@ -5,7 +5,6 @@ import * as core from '@actions/core';
 
 import * as gh from './gh';
 import * as io from './io';
-import * as todo from './todo';
 
 const G1CP_ID_LENGTH = 4;  // Number of digits making up a valid fix ID
 
@@ -238,9 +237,7 @@ async function main() {
     if (!changelogEn.endsWith('.'))
       changelogEn += '.';
     const clEntry = clPrefix + changelogEn;
-    const line = await io.addLineToFile(changelogEnPath, clEntry, clMatch, issueNum, clSection, 1, 'utf-8');
-    if (changelogEn.startsWith('### TODO ###'))
-      todo.add(changelogEnPath, 'Add an entry in the English changelog.', line+1);
+     await io.addLineToFile(changelogEnPath, clEntry, clMatch, issueNum, clSection, 1, 'utf-8');
   } else {
     changelogEn = '-'
     changelogEnInferred = '';
@@ -252,9 +249,7 @@ async function main() {
     if (!changelogDe.endsWith('.'))
       changelogDe += '.';
     const clEntry = clPrefix + changelogDe;
-    const line = await io.addLineToFile(changelogDePath, clEntry, clMatch, issueNum, clSection, 1, 'utf-8');
-    if (changelogDe.startsWith('### TODO ###'))
-      todo.add(changelogDePath, 'Add an entry in the German changelog.', line+1);
+    await io.addLineToFile(changelogDePath, clEntry, clMatch, issueNum, clSection, 1, 'utf-8');
   } else {
     changelogDe = '-'
     changelogDeInferred = '';
@@ -275,12 +270,10 @@ async function main() {
   // Create fix file from template
   const fixDstPath = path.join(scriptPath, ...cfg.path.fixes, fixFileName);
   await io.replaceInFile(fixSrcPath, fixDstPath, replacements);
-  await todo.parse(fixDstPath);
 
   // Create test file from template
   const testDstPath = path.join(scriptPath, ...cfg.path.tests, testFileName);
   await io.replaceInFile(testSrcPath, testDstPath, replacements);
-  await todo.parse(testDstPath);
 
   core.notice('Local file manipulations successful', { title: 'File operations successful'});
 
@@ -329,6 +322,13 @@ async function main() {
   const fixApplyLink  = `[${fixFuncName}](${sourceUrl + fixDstPath})`;
   const fixRevertLink = `[${fixFuncNameRev}](${sourceUrl + fixDstPath})`;
   const testLink = `[G1CP_Test_${issueNumPad}](${sourceUrl + testDstPath})`;
+  const pullLink = (
+    '[pull request](' + 
+    `${baseUrl}/compare/${sourceBranch}...${branchName}/?expand=1` + 
+    `&title=Fix:%20${encodeURIComponent(issue.title.trim())}` +
+    `&body=Closes%20%23${issueNum}.` + 
+    ')'
+  )
 
   const comment = (
     'Initializing fix files with\r\n' +
@@ -346,7 +346,9 @@ async function main() {
     `Language dependent  | **${isLangDependent ? langFlags.join(', ') : 'no'}**\r\n` +
     `Branch name         | **${branchName}**\r\n` +
     `Changelog En        | **${changelogEn}**${changelogEnInferred}\r\n` +
-    `Changelog De        | **${changelogDe}**${changelogDeInferred}\r\n`
+    `Changelog De        | **${changelogDe}**${changelogDeInferred}\r\n` +
+    '\r\n' +
+    `Please open the ${pullLink}.\r\n`
   );
   await gh.octokit.rest.issues.createComment({
     ...gh.context.repo,
@@ -370,53 +372,9 @@ async function main() {
    * If something goes wrong now, so be it.
    */
 
-  // ==========================
-  // Adjust Github environment
-  // ==========================
-
-  // Create pull request from issue
-  let prNum = null;
-  if (!issue.pull_request) {
-    const msg = 'pull request from issue';
-    try {
-      const response = await gh.octokit.rest.pulls.create({
-        ...gh.context.repo,
-        head: branchName,
-        base: sourceBranch,
-        title: `Fix: ${issue.title.trim()}`,
-        body: `Closes #${issueNum}.`,
-        draft: (gh.context.payload.repository.private ? false : true)
-      });
-      prNum = response.data.number;
-      core.notice(`Created ${msg}`, { title: 'Pull request' });
-    } catch (error) {
-      core.setFailed(`Failed to create ${msg}. ${error.message}`);
-      // Continue anyway
-    }
-  }
-
-  // Create pull request review or at least comments with TODO items
-  if (todo.list.length) {
-    core.notice(`Found ${todo.list.length} TODO items for PR ${prNum}.`, { title: 'To-do list' });
-    const msg = 'pull request review with to-do list';
-    try {
-      await gh.octokit.rest.pulls.createReview({
-        ...gh.context.repo,
-        pull_number: prNum,
-        event: 'COMMENT',
-        body: 'The following are the remaining necessary adjustments.',
-        comments: todo.list
-      });
-      core.notice(`Added ${msg}`, { title: 'Pull request review' });
-    } catch (error) {
-      core.setFailed(`Failed to add ${msg}. ${error.message}`);
-      // Continue anyway
-    }
-  }
-
-  // Add link to issue/pull-request
+  // Add link to issue
   core.notice(`For summary and details see ${gh.context.payload.repository.html_url}/issues/${issueNum}`,
-              { title: 'Pull-request' });
+              { title: 'Issue' });
 }
 
 

@@ -1,0 +1,7 @@
+{
+  "path": {
+    "changelogEn": ["CHANGELOG.md"],
+    "changelogDe": ["docs", "changelog_de.md"],
+    "script": ["src", "Ninja", "G1CP"]
+  }
+}
