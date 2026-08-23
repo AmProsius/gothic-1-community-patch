@@ -173,6 +173,15 @@ func void G1CP_Testsuite_BackupRoutine(var int slf) {
 };
 
 /*
+ * * Backup (= clear) the AI queue of an NPC.
+ */
+func void G1CP_Testsuite_BackupAiQueue(var int slf) {
+    SB_Use(G1CP_TestsuiteBackupStream);
+    SBc(zPAR_TOK_PUSHINST);    SBw(G1CP_Testsuite_ResolveNpcInst(slf));
+    SBc(zPAR_TOK_CALLEXTERN);  SBw(MEM_GetFuncId(Npc_ClearAiQueue));
+};
+
+/*
  * Backup the rough location of an NPC.
  */
 func void G1CP_Testsuite_BackupNpcWp(var int slf) {

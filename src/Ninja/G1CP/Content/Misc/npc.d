@@ -218,3 +218,45 @@ func void G1CP_NpcSetAiVarI(var int slf, var int aiVarId, var int value) {
 func void G1CP_NpcSetAiVar(var int slf, var string aiVarName, var int value) {
     G1CP_NpcSetAiVarI(slf, MEM_GetSymbolIndex(aiVarName), value);
 };
+
+
+/*
+ * Check if an NPC has an output unit or SVM in their AI queue
+ * Note: The parameter is the name of the OU (see AI_Output), not the filename (no suffix).
+ */
+func int G1CP_NpcHasQueuedOu(var int slf, var string ouName) {
+    var zCVob npc; npc = Hlp_GetNpc(slf);
+    if (!Hlp_IsValidNpc(npc)) {
+        return FALSE;
+    };
+    if (!npc.eventManager) {
+        return FALSE;
+    };
+
+    const int zCEventManager_messageList_array_offset = 48; //0x30
+    const int zCEventManager_messageList_numInArray_offset = 56; //0x38
+    const int zCEventMessage_subType_offset = 36; //0x24
+    const int oCMsgConversation_name_offset = 88; //0x58
+    const int oCMsgConversation__EV_OUTPUT = 4;
+    const int oCMsgConversation__EV_OUTPUTSVM = 5;
+
+    // Iterate over all queued messages
+    var int msgArr; msgArr = MEM_ReadInt(npc.eventManager + zCEventManager_messageList_array_offset);
+    var int total; total = MEM_ReadInt(npc.eventManager + zCEventManager_messageList_numInArray_offset);
+    repeat(i, total); var int i;
+        var int msgPtr; msgPtr = MEM_ReadIntArray(msgArr, i);
+        // Check if output unit or SVM
+        var int subType; subType = MEM_ReadInt(msgPtr + zCEventMessage_subType_offset);
+        if (subType != oCMsgConversation__EV_OUTPUT) && (subType != oCMsgConversation__EV_OUTPUTSVM) {
+            continue;
+        };
+        // Retrieve and compare name of output unit or SVM
+        var string name; name = MEM_ReadString(msgPtr + oCMsgConversation_name_offset);
+        if (Hlp_StrCmp(ouName, name)) {
+            return TRUE;
+        };
+    end;
+
+    // No match found
+    return FALSE;
+};
