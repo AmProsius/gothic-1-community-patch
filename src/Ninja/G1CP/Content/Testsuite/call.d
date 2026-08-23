@@ -10,12 +10,12 @@ func void G1CP_Testsuite_Call(var int funcId, var int slf, var int oth, var int 
 
     // Set self and other for the function
     if (slf) {
-        self  = MEM_CpyInst(slf);
+        self  = Hlp_GetNpc(slf);
     } else {
         self  = MEM_CpyInst(hero);
     };
     if (oth) {
-        other = MEM_CpyInst(oth);
+        other = Hlp_GetNpc(oth);
     } else {
         other = MEM_CpyInst(hero);
     };

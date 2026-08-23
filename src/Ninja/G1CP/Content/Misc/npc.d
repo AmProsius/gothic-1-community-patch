@@ -1,27 +1,30 @@
 /*
  * Copy of C_BodyStateContains to ensure it exists as expected
  */
-func int G1CP_BodyStateContains(var C_Npc slf, var int bodystate) {
+func int G1CP_BodyStateContains(var int slf, var int bodystate) {
     // Define possibly missing symbols locally
     const int BS_MAX                = 31;
     const int BS_FLAG_INTERRUPTABLE = 32768;
     const int BS_FLAG_FREEHANDS     = 65536;
 
     const int mod = BS_MAX | BS_FLAG_INTERRUPTABLE | BS_FLAG_FREEHANDS;
-    return ((Npc_GetBodyState(slf) & mod) == (bodystate & mod));
+
+    var C_Npc npc; npc = Hlp_GetNpc(slf);
+    return ((Npc_GetBodyState(npc) & mod) == (bodystate & mod));
 };
 
 
 /*
  * Copy of the external engine function Npc_ExchangeRoutine but taking a function symbol index
  */
-func void G1CP_NpcExchangeRoutineI(var C_Npc slf, var int fncId) {
-    if (!Hlp_IsValidNpc(slf)) {
+func void G1CP_NpcExchangeRoutineI(var int slf, var int fncId) {
+    var C_Npc npc; npc = Hlp_GetNpc(slf);
+    if (!Hlp_IsValidNpc(npc)) {
         return;
     };
 
     const int oCNpc_state_offset = 1136; //0x0470
-    var int npcStatePtr; npcStatePtr = _@(slf)+oCNpc_state_offset;
+    var int npcStatePtr; npcStatePtr = _@(npc)+oCNpc_state_offset;
 
     const int oCNpc_States__ChangeRoutine = 7105008; //0x6C69F0
     const int call = 0;
@@ -36,24 +39,30 @@ func void G1CP_NpcExchangeRoutineI(var C_Npc slf, var int fncId) {
 /*
  * Get daily routine function symbol index
  */
-func int G1CP_NpcGetRoutine(var C_Npc slf) {
-    if (!Hlp_IsValidNpc(slf)) {
+func int G1CP_NpcGetRoutine(var int slf) {
+    var C_Npc npc; npc = Hlp_GetNpc(slf);
+    if (!Hlp_IsValidNpc(npc)) {
         return -1;
     };
 
     // Detour to read the function as integer
-    return MEM_ReadInt(_@(slf.bodymass)+4);
+    return MEM_ReadInt(_@(npc.bodymass)+4);
 };
 
 
 /*
  * Functional version of the external engine function Npc_IsInRoutine
  */
-func int G1CP_NpcIsInRoutineI(var C_Npc slf, var int dailyRoutine) {
+func int G1CP_NpcIsInRoutineI(var int slf, var int dailyRoutine) {
     return (G1CP_NpcGetRoutine(slf) == dailyRoutine) && (dailyRoutine != -1);
 };
-func int G1CP_NpcIsInRoutine(var C_Npc slf, var string routineName) {
-    var string name; name = ConcatStrings(ConcatStrings(ConcatStrings("RTN_", routineName), "_"), IntToString(slf.id));
+func int G1CP_NpcIsInRoutine(var int slf, var string routineName) {
+    var C_Npc npc; npc = Hlp_GetNpc(slf);
+    if (!Hlp_IsValidNpc(npc)) {
+        return FALSE;
+    };
+
+    var string name; name = ConcatStrings(ConcatStrings(ConcatStrings("RTN_", routineName), "_"), IntToString(npc.id));
     return G1CP_NpcIsInRoutineI(slf, MEM_GetSymbolIndex(name));
 };
 
@@ -84,9 +93,11 @@ func int G1CP_NpcCanSeeVob(var int npcPtr, var int vobPtr, var int withAngles) {
 /*
  * Equivalent function of Npc_CanSeeNpcFreeLos for Items
  */
-func int G1CP_NpcCanSeeItemFreeLos(var C_Npc slf, var C_Item itm) {
-    if (Hlp_IsValidNpc(slf)) && (Hlp_IsValidItem(itm)) {
-        return G1CP_NpcCanSeeVob(_@(slf), _@(itm), TRUE);
+func int G1CP_NpcCanSeeItemFreeLos(var int slf, var int itm) {
+    var C_Npc npc; npc = Hlp_GetNpc(slf);
+    var C_Item citm; citm = MEM_CpyInst(itm);
+    if (Hlp_IsValidNpc(npc)) && (Hlp_IsValidItem(citm)) {
+        return G1CP_NpcCanSeeVob(_@(npc), _@(citm), TRUE);
     } else {
         return FALSE;
     };
@@ -96,9 +107,10 @@ func int G1CP_NpcCanSeeItemFreeLos(var C_Npc slf, var C_Item itm) {
 /*
  * Check if an NPC is visible on the screen
  */
-func int G1CP_NpcIsVisibleOnScreen(var C_Npc slf) {
-    if (Hlp_IsValidNpc(slf)) {
-        return G1CP_VobIsVisibleOnScreen(_@(slf));
+func int G1CP_NpcIsVisibleOnScreen(var int slf) {
+    var C_Npc npc; npc = Hlp_GetNpc(slf);
+    if (Hlp_IsValidNpc(npc)) {
+        return G1CP_VobIsVisibleOnScreen(_@(npc));
     } else {
         return FALSE;
     };
@@ -108,9 +120,10 @@ func int G1CP_NpcIsVisibleOnScreen(var C_Npc slf) {
 /*
  * Get the oTSpawnNode of an NPC, if currently in the spawn manager
  */
-func int G1CP_NpcGetSpawnNode(var C_Npc slf) {
+func int G1CP_NpcGetSpawnNode(var int slf) {
     // NPC must be valid
-    if (!Hlp_IsValidNpc(slf)) {
+    var C_Npc npc; npc = Hlp_GetNpc(slf);
+    if (!Hlp_IsValidNpc(npc)) {
         return 0;
     };
 
@@ -147,7 +160,7 @@ func int G1CP_NpcGetSpawnNode(var C_Npc slf) {
     };
 
     // Execute the code
-    npcPtr = _@(slf);
+    npcPtr = _@(npc);
     ASM_Run(code);
     return +ret;
 };
@@ -156,7 +169,7 @@ func int G1CP_NpcGetSpawnNode(var C_Npc slf) {
 /*
  * Check if an NPC is in the spawn manager. That is not the case if they are currently spawned, dead or lost.
  */
-func int G1CP_NpcIsInSpawnMan(var C_Npc slf) {
+func int G1CP_NpcIsInSpawnMan(var int slf) {
     return (G1CP_NpcGetSpawnNode(slf) != 0);
 };
 
@@ -164,9 +177,10 @@ func int G1CP_NpcIsInSpawnMan(var C_Npc slf) {
 /*
  * Safe way to obtain the content of an AI-variable
  */
-func int G1CP_NpcGetAiVarI(var C_Npc slf, var int aiVarId, var int dflt) {
+func int G1CP_NpcGetAiVarI(var int slf, var int aiVarId, var int dflt) {
     // Check if NPC exists
-    if (!Hlp_IsValidNpc(slf)) {
+    var C_Npc npc; npc = Hlp_GetNpc(slf);
+    if (!Hlp_IsValidNpc(npc)) {
         return dflt;
     };
 
@@ -176,27 +190,20 @@ func int G1CP_NpcGetAiVarI(var C_Npc slf, var int aiVarId, var int dflt) {
     };
 
     // Read AI variable
-    return MEM_ReadStatArr(slf.aivar, G1CP_GetIntConstI(aiVarId, 0, 0));
+    return MEM_ReadStatArr(npc.aivar, G1CP_GetIntConstI(aiVarId, 0, 0));
 };
-func int G1CP_NpcGetAiVar(var C_Npc slf, var string aiVarName, var int dflt) {
+func int G1CP_NpcGetAiVar(var int slf, var string aiVarName, var int dflt) {
     return G1CP_NpcGetAiVarI(slf, MEM_GetSymbolIndex(aiVarName), dflt);
-};
-func int G1CP_NpcIdGetAiVarI(var int npcInstance, var int aiVarId, var int dflt) {
-    var C_Npc slf; slf = Hlp_GetNpc(npcInstance);
-    return G1CP_NpcGetAiVarI(slf, aiVarId, dflt);
-};
-func int G1CP_NpcIdGetAiVar(var int npcInstance, var string aiVarName, var int dflt) {
-    var C_Npc slf; slf = Hlp_GetNpc(npcInstance);
-    return G1CP_NpcGetAiVar(slf, aiVarName, dflt);
 };
 
 
 /*
  * Safe way to set the content of an AI-variable
  */
-func void G1CP_NpcSetAiVarI(var C_Npc slf, var int aiVarId, var int value) {
+func void G1CP_NpcSetAiVarI(var int slf, var int aiVarId, var int value) {
     // Check if NPC exists
-    if (!Hlp_IsValidNpc(slf)) {
+    var C_Npc npc; npc = Hlp_GetNpc(slf);
+    if (!Hlp_IsValidNpc(npc)) {
         return;
     };
 
@@ -206,16 +213,8 @@ func void G1CP_NpcSetAiVarI(var C_Npc slf, var int aiVarId, var int value) {
     };
 
     // Write AI-variable
-    MEM_WriteStatArr(slf.aivar, G1CP_GetIntConstI(aiVarId, 0, 0), value);
+    MEM_WriteStatArr(npc.aivar, G1CP_GetIntConstI(aiVarId, 0, 0), value);
 };
-func void G1CP_NpcSetAiVar(var C_Npc slf, var string aiVarName, var int value) {
+func void G1CP_NpcSetAiVar(var int slf, var string aiVarName, var int value) {
     G1CP_NpcSetAiVarI(slf, MEM_GetSymbolIndex(aiVarName), value);
-};
-func void G1CP_NpcIdSetAiVarI(var int npcInstance, var int aiVarId, var int value) {
-    var C_Npc slf; slf = Hlp_GetNpc(npcInstance);
-    G1CP_NpcSetAiVarI(slf, aiVarId, value);
-};
-func void G1CP_NpcIdSetAiVar(var int npcInstance, var string aiVarName, var int value) {
-    var C_Npc slf; slf = Hlp_GetNpc(npcInstance);
-    G1CP_NpcSetAiVar(slf, aiVarName, value);
 };

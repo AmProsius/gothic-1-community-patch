@@ -117,6 +117,7 @@ func string G1CP_TestsuiteRunMultiple(var int appliedOnly) {
         if ((symb.bitfield & zCPar_Symbol_bitfield_type) == zPAR_TYPE_FUNC) {
             // Test name
             msg = STR_SubStr(symb.name, 5, G1CP_ID_LENGTH + 5);
+            MEM_Info(ConcatStrings("Debug ", msg)); // For debugging during test issues (turn on level above)
 
             // Check if currently applied or not
             var int id; id = STR_ToInt(STR_SubStr(symb.name, 10, G1CP_ID_LENGTH));

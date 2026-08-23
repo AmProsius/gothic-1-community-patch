@@ -5,7 +5,12 @@
  * - The teleport is instant
  * Note: Always run 'G1CP_Testsuite_CheckWorld' prior to ensure correct world.
  */
-func void G1CP_Testsuite_NpcBeamTo(var C_Npc slf, var string destination) {
+func void G1CP_Testsuite_NpcBeamTo(var int slf, var string destination) {
+    var C_Npc npc; npc = Hlp_GetNpc(slf);
+    if (!Hlp_IsValidNpc(npc)) {
+        return;
+    };
+
     if (Hlp_StrCmp(destination, "")) || (Hlp_StrCmp(destination, "START")) {
         destination = "START";
         // Edge case: Find the start point without name and use the nearest waypoint
@@ -32,7 +37,8 @@ func void G1CP_Testsuite_NpcBeamTo(var C_Npc slf, var string destination) {
             };
         };
     };
-    var int slfPtr; slfPtr = _@(slf);
+
+    var int slfPtr; slfPtr = _@(npc);
     const int oCNpc__BeamTo = 6896400; //0x693B10
     const int strPtr = 0;
     const int call = 0;
@@ -49,7 +55,7 @@ func void G1CP_Testsuite_NpcBeamTo(var C_Npc slf, var string destination) {
  * Instant teleport (for the testsuite functions) to an exact position (rotation not considered)
  * Note: Always run 'G1CP_Testsuite_CheckWorld' prior to ensure correct world.
  */
-func void G1CP_Testsuite_NpcBeamToPosPtr(var C_Npc slf, var int posPtr) {
+func void G1CP_Testsuite_NpcBeamToPosPtr(var int slf, var int posPtr) {
     if (!posPtr) {
         return;
     };
@@ -65,14 +71,14 @@ func void G1CP_Testsuite_NpcBeamToPosPtr(var C_Npc slf, var int posPtr) {
     G1CP_Testsuite_NpcBeamTo(slf, wp.name);
     MEM_CopyWords(_@(posBak), _@(wp.pos), 3);
 };
-func void G1CP_Testsuite_NpcBeamToPos(var C_Npc slf, var int x, var int y, var int z) { // Integer-floats!
+func void G1CP_Testsuite_NpcBeamToPos(var int slf, var int x, var int y, var int z) { // Integer-floats!
     var int pos[3];
     pos[0] = x;
     pos[1] = y;
     pos[2] = z;
     G1CP_Testsuite_NpcBeamToPosPtr(slf, _@(pos));
 };
-func void G1CP_Testsuite_NpcBeamToPosF(var C_Npc slf, var float x, var float y, var float z) {
+func void G1CP_Testsuite_NpcBeamToPosF(var int slf, var float x, var float y, var float z) {
     MEM_PushInstParam(slf);
     castToIntf(x); // Just to repush
     castToIntf(y);
@@ -85,7 +91,7 @@ func void G1CP_Testsuite_NpcBeamToPosF(var C_Npc slf, var float x, var float y, 
  * Instant teleport (for the testsuite functions) to the nearest waypoint from a position
  * Note: Always run 'G1CP_Testsuite_CheckWorld' prior to ensure correct world.
  */
-func void G1CP_Testsuite_NpcBeamToNearestWpPosPtr(var C_Npc slf, var int posPtr) {
+func void G1CP_Testsuite_NpcBeamToNearestWpPosPtr(var int slf, var int posPtr) {
     var string wpName; wpName = G1CP_GetNearestWpPosPtr(posPtr);
     if (Hlp_StrCmp(wpName, "")) {
         G1CP_Testsuite_NpcBeamToPosPtr(slf, posPtr); // Fallback to position
@@ -97,10 +103,15 @@ func void G1CP_Testsuite_NpcBeamToNearestWpPosPtr(var C_Npc slf, var int posPtr)
 /*
  * Set an item in the inventory of an NPC to an exact amount.
  */
-func void G1CP_Testsuite_NpcSetInvItemAmount(var C_Npc slf, var int itemId, var int amount) {
+func void G1CP_Testsuite_NpcSetInvItemAmount(var int slf, var int itemId, var int amount) {
+    var C_Npc npc; npc = Hlp_GetNpc(slf);
+    if (!Hlp_IsValidNpc(npc)) {
+        return;
+    };
+
     var int r; // Dump return values to keep the data stack clean
-    r = Npc_RemoveInvItems(slf, itemId, Npc_HasItems(slf, itemId)); // Remove all
+    r = Npc_RemoveInvItems(npc, itemId, Npc_HasItems(npc, itemId)); // Remove all
     if (amount > 0) {
-        CreateInvItems(slf, itemId, amount); // Add the required amount
+        CreateInvItems(npc, itemId, amount); // Add the required amount
     };
 };

@@ -29,11 +29,12 @@ func void G1CP_Testsuite_Restore() {
 /*
  * Hero-safe version of Hlp_GetInstanceId: PC_Hero is invalid after level change
  */
-func int G1CP_Testsuite_ResolveNpcInst(var C_Npc slf) {
-    if (Npc_IsPlayer(slf)) {
-        return hero + 0;
+func int G1CP_Testsuite_ResolveNpcInst(var int slf) {
+    var C_Npc npc; npc = Hlp_GetNpc(slf);
+    if (Npc_IsPlayer(npc)) {
+        return +hero;
     } else {
-        return Hlp_GetInstanceId(slf);
+        return Hlp_GetInstanceId(npc);
     };
 };
 
@@ -87,10 +88,11 @@ func void G1CP_Testsuite_BackupStr(var int symbId, var int arrIdx) {
 /*
  * Backup the "true" guild of an NPC.
  */
-func void G1CP_Testsuite_BackupTrueGuild(var C_Npc slf) {
+func void G1CP_Testsuite_BackupTrueGuild(var int slf) {
+    var C_Npc npc; npc = Hlp_GetNpc(slf);
     SB_Use(G1CP_TestsuiteBackupStream);
     SBc(zPAR_TOK_PUSHINST);    SBw(G1CP_Testsuite_ResolveNpcInst(slf));
-    SBc(zPAR_TOK_PUSHINT);     SBw(Npc_GetTrueGuild(hero));
+    SBc(zPAR_TOK_PUSHINT);     SBw(Npc_GetTrueGuild(npc));
     SBc(zPAR_TOK_CALLEXTERN);  SBw(MEM_GetFuncId(Npc_SetTrueGuild));
 };
 
@@ -116,9 +118,9 @@ func void G1CP_Testsuite_BackupInfoChoices(var int infoId) {
 /*
  * Backup an AI-variable of an NPC.
  */
-func void G1CP_Testsuite_BackupAiVar(var C_Npc slf, var int aiVarId) {
+func void G1CP_Testsuite_BackupAiVar(var int slf, var int aiVarId) {
     SB_Use(G1CP_TestsuiteBackupStream);
-    SBc(zPAR_TOK_PUSHINST);    SBw(G1CP_Testsuite_ResolveNpcInst(slf));
+    SBc(zPAR_TOK_PUSHINT);     SBw(G1CP_Testsuite_ResolveNpcInst(slf));
     SBc(zPAR_TOK_PUSHINT);     SBw(aiVarId);
     SBc(zPAR_TOK_PUSHINT);     SBw(G1CP_NpcGetAiVarI(slf, aiVarId, 0));
     SBc(zPAR_TOK_CALL);        SBw(MEM_GetFuncOffset(G1CP_NpcSetAiVarI));
@@ -127,41 +129,45 @@ func void G1CP_Testsuite_BackupAiVar(var C_Npc slf, var int aiVarId) {
 /*
  * Backup the (temporary) attitude of an NPC towards another NPC.
  */
-func void G1CP_Testsuite_BackupAttitude(var C_Npc slf, var C_Npc oth) {
+func void G1CP_Testsuite_BackupAttitude(var int slf, var int oth) {
+    var C_Npc npc1; npc1 = Hlp_GetNpc(slf);
+    var C_Npc npc2; npc2 = Hlp_GetNpc(oth);
     SB_Use(G1CP_TestsuiteBackupStream);
     SBc(zPAR_TOK_PUSHINST);    SBw(G1CP_Testsuite_ResolveNpcInst(slf));
-    SBc(zPAR_TOK_PUSHINST);    SBw(Npc_GetAttitude(slf, oth));
+    SBc(zPAR_TOK_PUSHINST);    SBw(Npc_GetAttitude(npc1, npc2));
     SBc(zPAR_TOK_CALLEXTERN);  SBw(MEM_GetFuncId(Npc_SetTempAttitude));
 };
 
 /*
  * Backup the exact number of an item in an NPC's inventory.
  */
-func void G1CP_Testsuite_BackupInvAmount(var C_Npc slf, var int itemId) {
+func void G1CP_Testsuite_BackupInvAmount(var int slf, var int itemId) {
+    var C_Npc npc; npc = Hlp_GetNpc(slf);
     SB_Use(G1CP_TestsuiteBackupStream);
-    SBc(zPAR_TOK_PUSHINST);    SBw(G1CP_Testsuite_ResolveNpcInst(slf));
+    SBc(zPAR_TOK_PUSHINT);    SBw(G1CP_Testsuite_ResolveNpcInst(slf));
     SBc(zPAR_TOK_PUSHINT);     SBw(itemId);
-    SBc(zPAR_TOK_PUSHINT);     SBw(Npc_HasItems(slf, itemId));
+    SBc(zPAR_TOK_PUSHINT);     SBw(Npc_HasItems(npc, itemId));
     SBc(zPAR_TOK_CALL);        SBw(MEM_GetFuncOffset(G1CP_Testsuite_NpcSetInvItemAmount));
 };
 
 /*
  * Backup the talent skill of an NPC.
  */
-func void G1CP_Testsuite_BackupTalentSkill(var C_Npc slf, var int skill) {
+func void G1CP_Testsuite_BackupTalentSkill(var int slf, var int skill) {
+    var C_Npc npc; npc = Hlp_GetNpc(slf);
     SB_Use(G1CP_TestsuiteBackupStream);
     SBc(zPAR_TOK_PUSHINST);    SBw(G1CP_Testsuite_ResolveNpcInst(slf));
     SBc(zPAR_TOK_PUSHINT);     SBw(skill);
-    SBc(zPAR_TOK_PUSHINT);     SBw(Npc_GetTalentSkill(slf, skill));
+    SBc(zPAR_TOK_PUSHINT);     SBw(Npc_GetTalentSkill(npc, skill));
     SBc(zPAR_TOK_CALLEXTERN);  SBw(MEM_GetFuncId(Npc_SetTalentSkill));
 };
 
 /*
  * Backup the active routine of an NPC.
  */
-func void G1CP_Testsuite_BackupRoutine(var C_Npc slf) {
+func void G1CP_Testsuite_BackupRoutine(var int slf) {
     SB_Use(G1CP_TestsuiteBackupStream);
-    SBc(zPAR_TOK_PUSHINST);    SBw(G1CP_Testsuite_ResolveNpcInst(slf));
+    SBc(zPAR_TOK_PUSHINT);    SBw(G1CP_Testsuite_ResolveNpcInst(slf));
     SBc(zPAR_TOK_PUSHINT);     SBw(G1CP_NpcGetRoutine(slf));
     SBc(zPAR_TOK_CALL);        SBw(MEM_GetFuncOffset(G1CP_NpcExchangeRoutineI));
 };
@@ -169,13 +175,14 @@ func void G1CP_Testsuite_BackupRoutine(var C_Npc slf) {
 /*
  * Backup the rough location of an NPC.
  */
-func void G1CP_Testsuite_BackupNpcWp(var C_Npc slf) {
+func void G1CP_Testsuite_BackupNpcWp(var int slf) {
     // Backup the string to a unique address (freed below)
+    var C_Npc npc; npc = Hlp_GetNpc(slf);
     var int strCopyAddr; strCopyAddr = MEM_Alloc(sizeof_zString);
-    MEM_WriteString(strCopyAddr, slf.wp);
+    MEM_WriteString(strCopyAddr, npc.wp);
 
     SB_Use(G1CP_TestsuiteBackupStream);
-    SBc(zPAR_TOK_PUSHINST);    SBw(G1CP_Testsuite_ResolveNpcInst(slf));
+    SBc(zPAR_TOK_PUSHINT);     SBw(G1CP_Testsuite_ResolveNpcInst(slf));
     SBc(zPAR_TOK_PUSHINT);     SBw(strCopyAddr);
     SBc(zPAR_TOK_CALL);        SBw(MEM_GetFuncOffset(G1CP_Testsuite_NpcBeamTo));
     SBc(zPAR_TOK_PUSHINT);     SBw(strCopyAddr);
