@@ -69,9 +69,17 @@ func int G1CP_Testsuite_FindCallerTestId() {
 
 /*
  * Make the calling test immediately return, either false (FALSE) or true (TRUE) or nothing (-1).
+ * The function forces to return all functions between itself and the test function.
  */
 func void G1CP_Testsuite_ForceTestToReturn() {
-    G1CP_ForceNthCallerToReturn(-1, G1CP_Testsuite_FindCallerTestStackPos());
+    var int testStackPos; testStackPos = G1CP_Testsuite_FindCallerTestStackPos();
+    var int stackPos; stackPos = 0;
+    var int ESP; ESP = MEM_GetFrameBoundary();
+    while(MEMINT_IsFrameBoundary(ESP) && (stackPos != testStackPos));
+        ESP += MEMINT_DoStackFrameSize;
+        stackPos = ESP - MEMINT_DoStackPopPosOffset;
+        G1CP_ForceNthCallerToReturn(-1, stackPos);
+    end;
 };
 func void G1CP_Testsuite_FailTest() {
     G1CP_TestsuiteStatusPassed = G1CP_TEST_FAILED;
