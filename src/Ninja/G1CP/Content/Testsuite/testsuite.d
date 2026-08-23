@@ -106,9 +106,6 @@ func string G1CP_TestsuiteRunMultiple(var int appliedOnly) {
     // Reset error details
     G1CP_TestsuiteMsg = "";
 
-    // Remember the data stack position
-    var int stkPosBefore; stkPosBefore = MEM_Parser.datastack_sptr;
-
     // Iterate over and call all tests
     var int i; i = G1CP_SymbStart;
     while(i < G1CP_SymbEnd);
@@ -138,7 +135,7 @@ func string G1CP_TestsuiteRunMultiple(var int appliedOnly) {
             G1CP_TestsuiteAssertNum = 0;
 
             // Reset the data stack position and call the test function
-            MEM_Parser.datastack_sptr = stkPosBefore;
+            MEM_Parser.datastack_sptr = 0;
             MEM_CallById(i-1);
             G1CP_Testsuite_Restore();
 
