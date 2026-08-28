@@ -11,8 +11,9 @@ Content\Testsuite\find.d
 Content\Testsuite\create.d
 Content\Testsuite\call.d
 Content\Testsuite\npc.d
-Content\Testsuite\Templates\info.d
 Content\Testsuite\Templates\npc.d
+Content\Testsuite\Templates\item.d
+Content\Testsuite\Templates\info.d
 Content\Testsuite\Templates\ou.d
 
 Content\Tests\test0001.d
