@@ -21,3 +21,27 @@ func void G1CP_Tpl_TestInfoDescription(var string infoInstName, var string corre
     var oCInfo info; info = G1CP_Testsuite_FindInfo(infoInstName);
     G1CP_Testsuite_AssertS(info.description, correctStr);
 };
+
+/*
+ * Test the updated permanent-status of a dialog.
+ */
+func void G1CP_Tpl_TestInfoPermanent(var string infoInstName, var int correctVal) {
+    var oCInfo info; info = G1CP_Testsuite_FindInfo(infoInstName);
+    G1CP_Testsuite_Assert(info.permanent, correctVal);
+};
+
+/*
+ * Test the updated trade-status of a dialog.
+ */
+func void G1CP_Tpl_TestInfoTrade(var string infoInstName, var int correctVal) {
+    var oCInfo info; info = G1CP_Testsuite_FindInfo(infoInstName);
+    G1CP_Testsuite_Assert(info.trade, correctVal);
+};
+
+/*
+ * Test the updated trade-status of a dialog.
+ */
+func void G1CP_Tpl_TestInfoNum(var string infoInstName, var int correctVal) {
+    var oCInfo info; info = G1CP_Testsuite_FindInfo(infoInstName);
+    G1CP_Testsuite_Assert(info.nr, correctVal);
+};
