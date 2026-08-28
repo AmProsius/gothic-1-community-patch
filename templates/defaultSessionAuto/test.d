@@ -1,7 +1,7 @@
 /*
  * #@ISSUE_NUM@ @LONGNAME@
  */
-func int G1CP_Test_@ISSUE_NUM_PAD@() {
+func void G1CP_Test_@ISSUE_NUM_PAD@() {
     @LANGCHECK@;
     /* ### TODO: Write checks ### */
 

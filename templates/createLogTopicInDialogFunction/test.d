@@ -1,7 +1,7 @@
 /*
  * #@ISSUE_NUM@ @LONGNAME@
  */
-func int G1CP_Test_@ISSUE_NUM_PAD@() {
+func void G1CP_Test_@ISSUE_NUM_PAD@() {
     /* ### TODO: Replace topic name of "XX_TopicName" ### */
     /* ### TODO: Replace info name of "DIA_Info_Name" ### */
     /* ### TODO: Replace info function name of "DIA_Function_Name_Info" ### */

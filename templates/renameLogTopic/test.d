@@ -1,7 +1,7 @@
 /*
  * #@ISSUE_NUM@ @LONGNAME@
  */
-func int G1CP_Test_@ISSUE_NUM_PAD@() {
+func void G1CP_Test_@ISSUE_NUM_PAD@() {
     @LANGCHECK@;
     const string symbolName = "### TODO: Symbol name ###";
     const string correctedString = "### TODO: Corrected string ###";
