@@ -3,8 +3,8 @@
  */
 func void G1CP_Test_@ISSUE_NUM_PAD@() {
     @LANGCHECK@;
-    const string symbolName = "### TODO: Symbol name ###";
-    const string correctedString = "### TODO: Corrected string ###";
+    const string symbolName = "### TODO Symbol name ###";
+    const string correctedString = "### TODO Corrected string ###";
     var int symbId; symbId = G1CP_Testsuite_GetStringConst(symbolName);
 
     const int LOG_MISSION = 0;

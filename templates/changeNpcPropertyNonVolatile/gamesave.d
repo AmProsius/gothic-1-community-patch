@@ -4,7 +4,7 @@
  * Retrieve the symbol index of the NPC
  */
 func int G1CP_@ISSUE_NUM_PAD@_@SHORTNAME@_GetInst() {
-    const string npcName = "### TODO: NPC name ###";
+    const string npcName = "### TODO NPC instance name ###";
     const int npcId = -2; // -1 is reserved for invalid symbols
 
     if (npcId == -2) {
@@ -24,9 +24,9 @@ func int G1CP_@ISSUE_NUM_PAD@_@SHORTNAME@() {
         return FALSE;
     };
 
-    // ### TODO: Add additional early return for desired property ###
+    /*### TODO Add additional early return for desired property ###*/
 
-    // ### TODO: Change desired property ###
+    /*### TODO Change desired property ###*/
 
     return TRUE;
  };
@@ -46,9 +46,9 @@ func int G1CP_@ISSUE_NUM_PAD@_@SHORTNAME@Revert() {
         return FALSE;
     };
 
-    // ### TODO: Add additional early return for changed property ###
+    /*### TODO Add additional early return for changed property ###*/
 
-    // ### TODO: Revert changed property ###
+    /*### TODO Revert changed property ###*/
 
     return TRUE;
 };

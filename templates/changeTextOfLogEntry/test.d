@@ -3,14 +3,14 @@
  */
 func void G1CP_Test_@ISSUE_NUM_PAD@() {
     @LANGCHECK@;
-    const string symbolName = "### TODO: Symbol name ###";
-    const string dialogName = "### TODO: Dialog name ###";
-    const string originalString = "### TODO: Original string ###";
-    const string correctedString = "### TODO: Corrected string ###";
+    const string symbolName = "### TODO Symbol name ###";
+    const string dialogName = "### TODO Dialog name ###";
+    const string originalString = "### TODO Original string ###";
+    const string correctString = "### TODO Corrected string ###";
     const string tempTopicName = "G1CP Test @ISSUE_NUM@";
-    const string symbId = ""; symbId = G1CP_Testsuite_GetStringConst(symbolName);
+    var string symbId; symbId = G1CP_Testsuite_GetStringConst(symbolName);
     var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc(dialogName);
-    /* ### TODO: Optional: Additional checks ### */
+    /*### TODO Additional checks ###*/
 
     const int LOG_MISSION = 0;
     const int LOG_RUNNING = 1;
@@ -29,14 +29,14 @@ func void G1CP_Test_@ISSUE_NUM_PAD@() {
         G1CP_TestsuiteErrorDetail("Log topic entry (incorrect) remained unchanged");
         passed = FALSE;
     };
-    if (!G1CP_LogHasEntry(symbId, correctedString)) {
+    if (!G1CP_LogHasEntry(symbId, correctString)) {
         G1CP_TestsuiteErrorDetail("Log topic entry (correct) does not exist");
         passed = FALSE;
     };
     G1CP_LogRemoveTopic(symbId);
 
-    /* ### TODO: Optional: Backup values ### */
-    /* ### TODO: Optional: Set new values ### */
+    /*### TODO Backup values ###*/
+    /*### TODO Set new values ###*/
 
     G1CP_Testsuite_Call(funcId, 0, 0, TRUE);
 
@@ -44,12 +44,12 @@ func void G1CP_Test_@ISSUE_NUM_PAD@() {
         G1CP_TestsuiteErrorDetail("Log topic entry was created with incorrect wording");
         passed = FALSE;
     };
-    if (!G1CP_LogHasEntry(symbId, correctedString)) {
+    if (!G1CP_LogHasEntry(symbId, correctString)) {
         G1CP_TestsuiteErrorDetail("Log topic entry was not added by the dialog function");
         passed = FALSE;
     };
 
-    /* ### TODO: Optional: Restore values ### */
+    /*### TODO Restore values ###*/
 
     G1CP_LogRemoveTopic(symbId);
     G1CP_LogRenameTopic(tempTopicName, symbId);

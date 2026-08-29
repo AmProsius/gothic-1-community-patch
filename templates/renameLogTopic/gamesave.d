@@ -2,9 +2,9 @@
  * #@ISSUE_NUM@ @LONGNAME@
  */
 func int G1CP_@ISSUE_NUM_PAD@_@SHORTNAME@() {
-    const string symbolName = "### TODO: Symbol name ###";
-    const string originalString = "### TODO: Original string ###";
-    const string correctedString = "### TODO: Corrected string ###";
+    const string symbolName = "### TODO Symbol name ###";
+    const string originalString = "### TODO Original string ###";
+    const string correctedString = "### TODO Corrected string ###";
     var string currentString; currentString = G1CP_GetStringConst(symbolName, "G1CP invalid string");
 
     if (!Hlp_StrCmp(currentString, originalString)) {
@@ -23,9 +23,9 @@ func int G1CP_@ISSUE_NUM_PAD@_@SHORTNAME@Revert() {
         return FALSE;
     };
 
-    const string symbolName = "### TODO: Symbol name ###";
-    const string originalString = "### TODO: Original string ###";
-    const string correctedString = "### TODO: Corrected string ###";
+    const string symbolName = "### TODO Symbol name ###";
+    const string originalString = "### TODO Original string ###";
+    const string correctedString = "### TODO Corrected string ###";
     var string currentString; currentString = G1CP_GetStringConst(symbolName, "G1CP invalid string");
 
     if (!Hlp_StrCmp(currentString, correctedString)) {

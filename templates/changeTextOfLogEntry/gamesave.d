@@ -5,15 +5,15 @@
 /*
  * Make the topic and strings available to the functions below
  */
-const string G1CP_@ISSUE_NUM_PAD@_@SHORTNAME@_Topic = "### TODO: Topic name ###";
-const string G1CP_@ISSUE_NUM_PAD@_@SHORTNAME@_OrginialStr = "### TODO: Original string ###";
-const string G1CP_@ISSUE_NUM_PAD@_@SHORTNAME@_CorrectedStr = "### TODO: Corrected string ###";
+const string G1CP_@ISSUE_NUM_PAD@_@SHORTNAME@_Topic = "### TODO Topic name ###";
+const string G1CP_@ISSUE_NUM_PAD@_@SHORTNAME@_OrginialStr = "### TODO Original string ###";
+const string G1CP_@ISSUE_NUM_PAD@_@SHORTNAME@_CorrectedStr = "### TODO Corrected string ###";
 
 /*
  * Apply the fix
  */
 func int G1CP_@ISSUE_NUM_PAD@_@SHORTNAME@() {
-    const string symbolName = "### TODO: Symbol name ###";
+    const string symbolName = "### TODO Symbol name ###";
     const string topicName = "";
     const int topicId = -2;
     const int count = -1;

@@ -3,16 +3,15 @@
  */
 
 func int G1CP_@ISSUE_NUM_PAD@_@SHORTNAME@_Toggle(var int apply) {
-    /* ### TODO: Replace topic section constant of TOPIC_SECTION and adjust value ### */
-    /* ### TODO: Replace topic name of "XX_TopicName" ### */
-    /* ### TODO: Replace info name of "DIA_Info_Name" ### */
-    /* ### TODO: Replace info function name of "DIA_Function_Name_Info" ### */
-
-    // Define possibly missing symbols locally
-    const int TOPIC_SECTION = 0;
-
-    return G1CP_LogCreateTopicInDialog(TOPIC_SECTION, "XX_TopicName", "DIA_Info_Name", "DIA_Function_Name_Info",
-                                       "G1CP_@ISSUE_NUM_PAD@_@SHORTNAME@_Intercept", apply);
+    const int TOPIC_SECTION = /*### TODO Topic section constant ###*/0;
+    return G1CP_LogCreateTopicInDialog(
+        TOPIC_SECTION,
+        "### TODO Topic name ###",
+        "### TODO Info instance name ###",
+        "### TODO Info function name ###",
+        "G1CP_@ISSUE_NUM_PAD@_@SHORTNAME@_Intercept",
+        apply
+    );
 };
 
 /*
@@ -20,14 +19,9 @@ func int G1CP_@ISSUE_NUM_PAD@_@SHORTNAME@_Toggle(var int apply) {
  */
 func void G1CP_037_LogEntryGravoMerchant_Intercept(var string topic, var string entry) {
     G1CP_ReportFuncToSpy();
-
-    /* ### TODO: Replace topic section constant of TOPIC_SECTION and adjust value ### */
-    // Define possibly missing symbols locally
-    const int TOPIC_SECTION = 0;
-
-    /* ### TODO: Replace topic name of "XX_TopicName" ### */
-    G1CP_LogInterceptEntry("XX_TopicName", topic, TOPIC_SECTION, entry, @ISSUE_NUM@);
-}
+    const int TOPIC_SECTION = /*### TODO Topic section constant ###*/0;
+    G1CP_LogInterceptEntry("### TODO Topic name ###", topic, TOPIC_SECTION, entry, @ISSUE_NUM@);
+};
 
 /*
  * This function applies the changes

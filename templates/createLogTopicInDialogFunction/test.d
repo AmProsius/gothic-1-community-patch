@@ -2,14 +2,10 @@
  * #@ISSUE_NUM@ @LONGNAME@
  */
 func void G1CP_Test_@ISSUE_NUM_PAD@() {
-    /* ### TODO: Replace topic name of "XX_TopicName" ### */
-    /* ### TODO: Replace info name of "DIA_Info_Name" ### */
-    /* ### TODO: Replace info function name of "DIA_Function_Name_Info" ### */
-
     const string TEMP_TOPIC_NAME = "G1CP Test @ISSUE_NUM@"; // Has to be a unique name with absolute certainty
-    const string topicName = ""; topicName = G1CP_Testsuite_GetStringConst("XX_TopicName");
-    var int infoId; infoId = G1CP_Testsuite_CheckInfo("DIA_Info_Name");
-    var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc("DIA_Function_Name_Info");
+    var string topicName; topicName = G1CP_Testsuite_GetStringConst("### TODO Topic name ###");
+    var int infoId; infoId = G1CP_Testsuite_CheckInfo("### TODO Info instance name ###");
+    var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc("### TODO Info function name ###");
 
     // Check status of the test
     var int passed; passed = TRUE;
