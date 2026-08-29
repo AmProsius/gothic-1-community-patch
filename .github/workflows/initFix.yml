@@ -1,4 +1,4 @@
-name: Initialize bug fix from issue
+name: initialize
 on:
   workflow_dispatch:
     inputs:

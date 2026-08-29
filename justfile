@@ -48,6 +48,7 @@ bump WHICH:
             VERSION_PATCH=0
             ;;
     esac
+    echo "Bump version to $VERSION_MAJOR.$VERSION_MINOR.$VERSION_PATCH"
     perl -i -pe "s/^VERSION_MAJOR=.*$/VERSION_MAJOR=$VERSION_MAJOR/" metadata.env
     perl -i -pe "s/^VERSION_MINOR=.*$/VERSION_MINOR=$VERSION_MINOR/" metadata.env
     perl -i -pe "s/^VERSION_PATCH=.*$/VERSION_PATCH=$VERSION_PATCH/" metadata.env
@@ -89,5 +90,5 @@ VDFName=build/@TARGET@/$PROJECT_SLUG.vdf
 
 # Testsuite is excluded in release build
 VM_EXCLUDE := '''
-Ninja\\\$PROJECT_SLUG\\Content\\Tests* -r
-Ninja\\\$PROJECT_SLUG\\Tests* -r'''
+Ninja\\\$PROJECT_SLUG\\Testsuite.src
+Ninja\\\$PROJECT_SLUG\\Content\\Tests* -r'''

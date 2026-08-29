@@ -1,0 +1,101 @@
+# This release is manually triggered to bump the version and draft a release.
+# After manually publishing the release, a git tag is created and the 'deploy' workflow is triggered.
+name: release
+
+on:
+  workflow_dispatch:
+    inputs:
+      bump:
+        description: Bump major.minor.patch version?
+        type: choice
+        options:
+          - major
+          - minor
+          - patch
+        default: minor
+      dry_run:
+        description: Perform a dry run
+        type: boolean
+        default: true
+        required: false
+
+jobs:
+  release:
+    if: github.ref_name == github.event.repository.default_branch
+    runs-on: ubuntu-latest
+    name: Bump version for new release
+    steps:
+      - name: Get token
+        uses: actions/create-github-app-token@v3
+        id: app-token
+        with:
+          client-id: ${{ vars.BOTWYN_ID }}
+          private-key: ${{ secrets.BOTWYN_KEY }}
+
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          token: ${{ steps.app-token.outputs.token }}  # Make sure it is Botwyn who performs all actions
+          fetch-tags: true
+          fetch-depth: 0
+
+      - name: Setup git author
+        run: |
+          git config --global user.email '98276391+botwyn[bot]@users.noreply.github.com'
+          git config --global user.name 'Botwyn'
+
+      - name: Install just
+        uses: taiki-e/install-action@v2
+        with:
+          tool: just
+
+      - name: Bump version
+        run: just bump ${{ inputs.bump }}
+
+      - name: Verify version
+        run: |
+          source metadata.env
+          ver=$VERSION_MAJOR.$VERSION_MINOR.$VERSION_PATCH
+          tag=v$ver
+          echo "VERSION=$ver" >> $GITHUB_ENV
+          echo "TAG=$tag" >> $GITHUB_ENV
+
+          tagexists=$(git tag | grep -oP "^${tag}$" | wc -l)
+          if [ $tagexists -gt 0 ]; then
+            echo "::error title=Invalid version::A tag with the version $tag already exists!"
+            exit 1
+          fi
+
+          changes="$(git diff -U0 -- metadata.env | tail -n +6)"
+          echo "### Version changes
+          \`\`\`diff
+          $changes
+          \`\`\`
+          " >> $GITHUB_STEP_SUMMARY
+
+      # Commit changes but do not create git tag to allow further adjustments or easy reverting
+      - name: Commit changes
+        if: ${{ !inputs.dry_run }}
+        run: |
+          git add .
+          git commit -m "Bump version number"
+          git push
+
+      # Create tag when publishing the release
+      - name: Draft release
+        if: ${{ !inputs.dry_run }}
+        run: |
+          tag=${{ env.TAG }}
+          changelogdate=$(date +"%Y-%m-%d")
+          changelogid="${tag//./}-${changelogdate}"
+          notes="<!-- <div align=\"center\"><table width=\"100%\"><td><b>This version is outdated. Please find the <a href=\"../../releases\">latest version here.</a></b></td></table></div></br> -->
+
+          This is the next iteration of the G1CP with additional fixes.
+
+          - [Changelog](../master/CHANGELOG.md#$changelogid)
+          - [Installation instructions](../../#requirements)
+          - [FAQ](../../#faq)
+          "
+          gh release create $tag -R ${{ github.repository }} -d --title "Gothic 1 Community Patch ${{ env.VERSION }}" --notes "$notes" || echo "::error title=Release failed::Could not draft release for tag $tag"
+        env:
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
