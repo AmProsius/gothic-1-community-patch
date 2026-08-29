@@ -1,10 +1,6 @@
 /*
  * #@ISSUE_NUM@ @LONGNAME@
  */
-
-/*
- * Make the topic and strings available to the functions below
- */
 const string G1CP_@ISSUE_NUM_PAD@_@SHORTNAME@_Topic = "### TODO Topic name ###";
 const string G1CP_@ISSUE_NUM_PAD@_@SHORTNAME@_OrginialStr = "### TODO Original string ###";
 const string G1CP_@ISSUE_NUM_PAD@_@SHORTNAME@_CorrectedStr = "### TODO Corrected string ###";

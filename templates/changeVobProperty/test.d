@@ -9,7 +9,6 @@ func void G1CP_Test_@ISSUE_NUM_PAD@() {
     G1CP_Testsuite_CheckManual(instr);
     @LANGCHECK@;
     G1CP_Testsuite_CheckWorld(/*### TODO Replace 'G1CP_WLD_MAIN' with the appropriate level ###*/G1CP_WLD_MAIN);
-    /*### TODO Write checks ###*/
-
-    /*### TODO Write the test ###*/
+    /*### TODO Check teleport location. Alternatively use G1CP_Testsuite_FindWaypoint ###*/
+    G1CP_Testsuite_NpcBeamToNearestWpPosPtr(hero, _@f(G1CP_@ISSUE_NUM_PAD@_@SHORTNAME@_Pos));
 };
