@@ -2,13 +2,14 @@
  * #26 Lares's guard doesn't attack the player
  */
 func int G1CP_0026_LaresGuardAttacks() {
-    if (G1CP_IsFunc("Info_Org_804_FirstWarn_Condition", "int|none"))
-    && (G1CP_IsIntConst("AIV_GUARDPASSAGE_STATUS")) {
-        HookDaedalusFuncS("Info_Org_804_FirstWarn_Condition", "G1CP_0026_LaresGuardAttacks_Hook");
-        return TRUE;
-    } else {
+    const string conditionFuncName = "Info_Org_804_FirstWarn_Condition";
+    if (!G1CP_IsFunc(conditionFuncName, "int|none"))
+    || (!G1CP_IsIntConst("AIV_GUARDPASSAGE_STATUS")) {
         return FALSE;
     };
+
+    HookDaedalusFuncS(conditionFuncName, "G1CP_0026_LaresGuardAttacks_Hook");
+    return TRUE;
 };
 
 /*
@@ -17,11 +18,9 @@ func int G1CP_0026_LaresGuardAttacks() {
 func int G1CP_0026_LaresGuardAttacks_Hook() {
     G1CP_ReportFuncToSpy();
 
-    // Add the new condition (other conditions remain untouched)
     if (G1CP_NpcGetAiVar(hero, "AIV_GUARDPASSAGE_STATUS", 0)) {
         return FALSE;
     };
 
-    // Continue with the original function
     ContinueCall();
 };

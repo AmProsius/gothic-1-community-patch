@@ -6,6 +6,7 @@
  * Expected behavior: There will be exactly one entry in the log topic in both cases.
  */
 func void G1CP_Test_0223() {
+    G1CP_Testsuite_CheckWorld(G1CP_WLD_MAIN);
     var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc("Info_CorKalom_BringMCQBalls_Success_Info");
     G1CP_Testsuite_CheckStringConst("CH1_GoToPsi");
     var string topic; topic = G1CP_Testsuite_GetStringConst("CH1_GotoPsiCamp");

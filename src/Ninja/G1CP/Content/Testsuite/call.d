@@ -10,14 +10,27 @@ func void G1CP_Testsuite_Call(var int funcId, var int slf, var int oth, var int 
 
     // Set self and other for the function
     if (slf) {
-        self  = MEM_CpyInst(slf);
+        self  = Hlp_GetNpc(slf);
     } else {
         self  = MEM_CpyInst(hero);
     };
     if (oth) {
-        other = MEM_CpyInst(oth);
+        other = Hlp_GetNpc(oth);
     } else {
         other = MEM_CpyInst(hero);
+    };
+
+    // Clear queues to prevent leakage for subsequent queue checks
+    var zCVob npc;
+    npc = MEM_CpyInst(self);
+    if (npc.homeworld) { // Fails on non-initialized NPC
+        G1CP_Testsuite_BackupAiQueue(self);
+        Npc_ClearAIQueue(self);
+    };
+    npc = MEM_CpyInst(other);
+    if (npc.homeworld) {
+        G1CP_Testsuite_BackupAiQueue(other);
+        Npc_ClearAIQueue(other);
     };
 
     // Call the function
@@ -29,7 +42,7 @@ func void G1CP_Testsuite_Call(var int funcId, var int slf, var int oth, var int 
     other = MEM_CpyInst(othBak);
     self = MEM_CpyInst(slfBak);
 
-    // Optionally reset the PC (e.g. to stop any output units)
+    // Optionally reset the PC immediately (e.g. to stop any output units)
     if (interrupt) {
         Npc_ClearAiQueue(hero);
         AI_StandUpQuick(hero);

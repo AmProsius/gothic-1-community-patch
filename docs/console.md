@@ -14,3 +14,4 @@ Command                | Description
 `TEST ACTIVE`          | Run test suite for active fixes only
 `TEST `                | Run test from test suite for G1CP by [id]
 `TEST NEXT`            | Execute next manual test of G1CP
+`TEST AGAIN`           | Execute previous manual test of G1CP again

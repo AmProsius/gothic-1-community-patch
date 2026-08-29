@@ -1,17 +1,12 @@
 /*
- * #{ISSUE_NUM} {LONGNAME}
- *
- * There does not seem an easy way to test this fix programmatically, so this test relies on manual confirmation.
- *
- * Expected behavior: ### TODO: Describe what will happen during the test ###
+ * #@ISSUE_NUM@ @LONGNAME@
  */
-func int G1CP_Test_{ISSUE_NUM_PAD}() {
-    // ### TODO: Replace NPC name of "Xxx_Npc" ###
-    G1CP_Testsuite_CheckManual();
-    var C_Npc npc; npc = G1CP_Testsuite_FindNpc("Xxx_Npc");
-    // ### TODO: Optional: Add checks to unlock the dialog ###
-
-    // ### TODO: Optional: Unlock the dialog ###
-
-    AI_Teleport(hero, npc.wp);
+func void G1CP_Test_@ISSUE_NUM_PAD@() {
+    @LANGCHECK@;
+    /*### TODO Additional check, backup and setter to ensure clean dialog execution ###*/
+    G1CP_Tpl_TestOuSpeaker(
+        "### TODO Info instance name ###",
+        "### TODO Output unit / SVM instance name ###",
+        /*### TODO Replace TRUE with FALSE if other is speaker ###*/TRUE
+    );
 };

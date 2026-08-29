@@ -7,6 +7,7 @@
  * Expected behavior: The variable 'Kalom_DrugMonopol' remains as before and 'Kalom_Krautbote' is set to 'LOG_SUCCESS'
  */
 func void G1CP_Test_0024() {
+    G1CP_Testsuite_CheckWorld(G1CP_WLD_MAIN);
     var C_Npc npc; npc = G1CP_Testsuite_FindNpc("GUR_1201_CorKalom");
     var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc("Info_Kalom_KrautboteBACK_Info");
     var int itemId; itemId = G1CP_Testsuite_CheckItem("ItMiNugget");

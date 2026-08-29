@@ -130,14 +130,14 @@ func void G1CP_0203_LogEntryGrahamMerchant_Intercept(var string topic, var strin
 };
 
 /*
- * This function applies the changes
+ * Apply the fix
  */
 func int G1CP_0203_LogEntryGrahamMerchant() {
     return G1CP_0203_LogEntryGrahamMerchant_Toggle(TRUE);
 };
 
 /*
- * This function reverts the changes
+ * Revert the changes
  */
 func int G1CP_0203_LogEntryGrahamMerchantRevert() {
     // Only revert if it was applied by the G1CP

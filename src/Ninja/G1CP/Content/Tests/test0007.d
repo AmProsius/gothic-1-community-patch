@@ -1,16 +1,16 @@
 /*
  * #7 NPCs practice sword training without a weapon
- *
- * Two test NPCs are spawned to perform the sword practice. One of them has a sword in their inventory, the other one
- * doesn't. For technical reasons the hero will be locked and turning to one of the NPCs. It might be difficult to watch
- * both of them.
- *
- * Expected behavior: One NPC will equip and draw their weapon to perform the practice. The other will stand still.
  */
 const int G1CP_Test_0007_Pass = 0;
 
 func void G1CP_Test_0007() {
-    G1CP_Testsuite_CheckManual();
+    const string instr[4] = {
+        "Two test NPCs are spawned to perform the sword practice.",
+        "One of them has a sword in their inventory. The other one doesn't.",
+        "For technical reasons the hero will be locked and turning to one of the NPCs.",
+        "Expected behavior: One NPC will equip and draw their weapon to perform practice. The other will stand still."
+    };
+    G1CP_Testsuite_CheckManual(instr);
     G1CP_Testsuite_CheckAiStateStartFunc("ZS_PracticeSword");
     G1CP_Testsuite_CheckItem("ItRw_Bow_Small_01");
     G1CP_Testsuite_CheckItem("Scars_Schwert");

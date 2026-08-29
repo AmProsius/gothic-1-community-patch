@@ -3,6 +3,5 @@
  */
 func void G1CP_Test_0400() {
     G1CP_Testsuite_CheckLang(G1CP_Lang_DE);
-    var C_Npc npc; npc = G1CP_Testsuite_CreateNpc("SkeletonMage_fogtower");
-    G1CP_Testsuite_AssertS(npc.name, "Skelettmagier des Nebelturms");
+    G1CP_Tpl_TestNpcStringVar("SkeletonMage_fogtower", "name", "Skelettmagier des Nebelturms");
 };

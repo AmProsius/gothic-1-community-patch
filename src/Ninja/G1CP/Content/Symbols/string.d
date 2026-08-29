@@ -290,7 +290,7 @@ func int G1CP_ReplaceStringConstArrElem(var string name, var string needle, var 
  * when handed around, its char is not duplicated. That allows this function to find all constants that reference the
  * exact char by its address.
  *
- * This function is not very useful by itself, see G1CP_FindUniqueSourceStringSymbId for a practical function.
+ * This function is not very useful by itself, see G1CP_GetStringSourceId for a practical function.
  */
 func int G1CP_GetAllStringSourceIds(var string needle) {
     var int array; array = MEM_ArrayCreate();

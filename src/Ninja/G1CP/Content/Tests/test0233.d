@@ -3,6 +3,5 @@
  */
 func void G1CP_Test_0233() {
     G1CP_Testsuite_CheckLang(G1CP_Lang_DE);
-    var C_Npc npc; npc = G1CP_Testsuite_CreateNpc("OrcDog");
-    G1CP_Testsuite_AssertS(npc.name, "Orkhund");
+    G1CP_Tpl_TestNpcStringVar("OrcDog", "name", "Orkhund");
 };

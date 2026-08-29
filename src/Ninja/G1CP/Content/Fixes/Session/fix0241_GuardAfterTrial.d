@@ -2,13 +2,14 @@
  * #241 The player can become a guard after passing the fire mage trial
  */
 func int G1CP_0241_GuardAfterTrial() {
-    if (G1CP_IsFunc("GRD_200_Thorus_GARDIST_Condition", "int|none"))
-    && (G1CP_IsIntVar("Corristo_KDFAufnahme")) {
-        HookDaedalusFuncS("GRD_200_Thorus_GARDIST_Condition", "G1CP_0241_GuardAfterTrial_Hook");
-        return TRUE;
-    } else {
+    const string conditionFuncName = "GRD_200_Thorus_GARDIST_Condition";
+    if (!G1CP_IsFunc(conditionFuncName, "int|none"))
+    || (!G1CP_IsIntVar("Corristo_KDFAufnahme")) {
         return FALSE;
     };
+
+    HookDaedalusFuncS(conditionFuncName, "G1CP_0241_GuardAfterTrial_Hook");
+    return TRUE;
 };
 
 /*
@@ -17,11 +18,9 @@ func int G1CP_0241_GuardAfterTrial() {
 func int G1CP_0241_GuardAfterTrial_Hook() {
     G1CP_ReportFuncToSpy();
 
-    // Add the new condition (other conditions remain untouched)
     if (G1CP_GetIntVar("Corristo_KDFAufnahme", 0) >= 4) {
         return FALSE;
     };
 
-    // Continue with the original function
     ContinueCall();
 };

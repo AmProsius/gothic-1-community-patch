@@ -1,6 +1,10 @@
 
 /* Check if test passes */
-const int G1CP_TestsuiteStatusPassed = TRUE;
+const int G1CP_TEST_FAILED  = 0;
+const int G1CP_TEST_PASSED  = 1;
+const int G1CP_TEST_SKIPPED = 2;
+const int G1CP_TEST_MANUAL  = 3;
+const int G1CP_TestsuiteStatusPassed = G1CP_TEST_PASSED;
 
 /*
  * Find the stack position of the origin test function that the call originated from.
@@ -65,12 +69,26 @@ func int G1CP_Testsuite_FindCallerTestId() {
 
 /*
  * Make the calling test immediately return, either false (FALSE) or true (TRUE) or nothing (-1).
+ * The function forces to return all functions between itself and the test function.
  */
 func void G1CP_Testsuite_ForceTestToReturn() {
-    G1CP_ForceNthCallerToReturn(-1, G1CP_Testsuite_FindCallerTestStackPos());
+    var int testStackPos; testStackPos = G1CP_Testsuite_FindCallerTestStackPos();
+    var int stackPos; stackPos = 0;
+    var int ESP; ESP = MEM_GetFrameBoundary();
+    while(MEMINT_IsFrameBoundary(ESP) && (stackPos != testStackPos));
+        ESP += MEMINT_DoStackFrameSize;
+        stackPos = ESP - MEMINT_DoStackPopPosOffset;
+        G1CP_ForceNthCallerToReturn(-1, stackPos);
+    end;
 };
 func void G1CP_Testsuite_FailTest() {
-    G1CP_TestsuiteStatusPassed = FALSE;
+    G1CP_TestsuiteStatusPassed = G1CP_TEST_FAILED;
+    G1CP_Testsuite_ForceTestToReturn();
+};
+func void G1CP_Testsuite_SkipTest() {
+    if (G1CP_TestsuiteStatusPassed != G1CP_TEST_FAILED) {
+        G1CP_TestsuiteStatusPassed = G1CP_TEST_SKIPPED;
+    };
     G1CP_Testsuite_ForceTestToReturn();
 };
 
@@ -78,6 +96,9 @@ func void G1CP_Testsuite_FailTest() {
 /*
  * Inspect a test to determine if it is a manual test.
  */
-func int G1CP_Testsuite_TestIsManualBySymb(var zCPar_Symbol symb) {
-    return MEM_ReadInt(currParserStackAddress + symb.content + 1) == MEM_GetFuncOffset(G1CP_Testsuite_CheckManual);
+func int G1CP_Testsuite_TestIsManualById(var int funcId) {
+    var int arr; arr = G1CP_FindCall(funcId, 0, MEM_GetFuncId(G1CP_Testsuite_CheckManual));
+    var int count; count = MEM_ArraySize(arr);
+    MEM_ArrayFree(arr);
+    return (count > 0);
 };

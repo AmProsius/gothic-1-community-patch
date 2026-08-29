@@ -1,16 +1,13 @@
 /*
- * #{ISSUE_NUM} {LONGNAME}
- *
- * There does not seem an easy way to test this fix programmatically, so this test relies on manual confirmation.
- *
- * Expected behavior: ### TODO: Describe what will happen during the test ###
+ * #@ISSUE_NUM@ @LONGNAME@
  */
-func void G1CP_Test_{ISSUE_NUM_PAD}() {
-    G1CP_Testsuite_CheckManual();
-    {LANGCHECK}
-    /* ### TODO: Write checks ### */
-
-    /* ### TODO: Write the test and adjust the return value ### */
-
-    return FALSE;
+func void G1CP_Test_@ISSUE_NUM_PAD@() {
+    const string instr[2] = {
+        "### TODO Provide instructions for manual test. Make sure first line is unique string ###",
+        "Expected behavior: ### TODO Add actions to observe ###"
+    };
+    G1CP_Testsuite_CheckManual(instr);
+    @LANGCHECK@;
+    G1CP_Testsuite_CheckWorld(/*### TODO Replace 'G1CP_WLD_MAIN' with the appropriate level ###*/G1CP_WLD_MAIN);
+    /*### TODO Write the manual test or start from scratch with an automatic test ###*/
 };

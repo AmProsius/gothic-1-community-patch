@@ -1,9 +1,5 @@
 /*
  * #186 Corristo can be asked to join the mages multiple times
- *
- * A variable is temporarily set and the condition function of the dialog is called.
- *
- * Expected behavior: The condition function will return FALSE.
  */
 func void G1CP_Test_0186() {
     var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("KDF_402_Corristo_WANNBEKDF_Condition");

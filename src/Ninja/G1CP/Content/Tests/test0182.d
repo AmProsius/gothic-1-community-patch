@@ -1,11 +1,8 @@
 /*
  * #182 The gate guard can be bribed multiple times with Dusty as a follower
- *
- * The bribe function is executed and the dialog condition is called.
- *
- * Expected behavior: The dialog condition function returns false.
  */
 func void G1CP_Test_0182() {
+    G1CP_Testsuite_CheckWorld(G1CP_WLD_MAIN);
     var string topic; topic = G1CP_Testsuite_GetStringConst("CH1_RecruitDusty");
     var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc("DIA_Grd_216_DustyZoll_LittleWalk");
     var int condId; condId = G1CP_Testsuite_CheckDialogConditionFunc("DIA_Grd_216_DustyZoll_Condition");

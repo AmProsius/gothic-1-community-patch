@@ -1,16 +1,11 @@
 /*
- * #{ISSUE_NUM} {LONGNAME}
- *
- * There does not seem an easy way to test this fix programmatically, so this test relies on manual confirmation.
- *
- * Expected behavior: ### TODO: Describe what will happen during the test ###
+ * #@ISSUE_NUM@ @LONGNAME@
  */
-func int G1CP_Test_{ISSUE_NUM_PAD}() {
-    G1CP_Testsuite_CheckManual();
-    var zCWaypoint wp; wp = G1CP_Testsuite_FindWaypoint("### TODO Waypoint name ###");
-    /* ### TODO Optional: Add additional checks ### */
-
-    // ### TODO Optional: Set values ###
-
-    AI_Teleport(hero, wp.name);
+func void G1CP_Test_@ISSUE_NUM_PAD@() {
+    @LANGCHECK@;
+    G1CP_Tpl_TestNpcIntVar(
+        "### TODO NPC instance name ###",
+        "### TODO Class variable name, e.g. id, voice, etc. ###",
+        /*### TODO Correct value ###*/1
+    );
 };

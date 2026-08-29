@@ -31,7 +31,7 @@ func int G1CP_0143_DE_LogEntryBuster() {
 };
 
 /*
- * This function reverts the changes of #143
+ * Revert the changes
  */
 func int G1CP_0143_DE_LogEntryBusterRevert() {
     const string oldString = "Buster der Bandit unterichtet das Talent AKROBATIK.";

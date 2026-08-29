@@ -1,9 +1,5 @@
 /*
  * #29 Buster trains Acrobatics multiple times
- *
- * The hero is given the acrobatics talent and the condition function of the dialog is called.
- *
- * Expected behavior: The condition function will return FALSE.
  */
 func void G1CP_Test_0029() {
     var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("DIA_ORG_833_Buster3_Condition");

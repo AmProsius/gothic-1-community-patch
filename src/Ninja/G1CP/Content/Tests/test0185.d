@@ -1,10 +1,5 @@
 /*
  * #185 Scorpio offers to teach crossbow multiple times
- *
- * The hero's guild is reset and assigned to the Old Camp. The hero is given the crossbow level 1 talent and the
- * condition function of the dialog is called.
- *
- * Expected behavior: The condition function will return FALSE.
  */
 func void G1CP_Test_0185() {
     var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("GRD_205_Scorpio_CROSSBOW_Condition");

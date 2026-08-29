@@ -1,13 +1,13 @@
 /*
  * #110 Weird camera distance when sitting on a bench
- *
- * This test relies on manual confirmation. The PC is teleported to a bench to verify the camera distance.
- *
- * Expected behavior: The camera definition is suitable.
  */
 func void G1CP_Test_0110() {
-    G1CP_Testsuite_CheckManual();
-    var zCWaypoint wp; wp = G1CP_Testsuite_FindWaypoint("OCR_OUTSIDE_MCAMP_01");
-    Wld_SetTime(4, 0); // Get all the NPCs out of the way
-    AI_Teleport(hero, wp.name);
+    const string instr[2] = {
+        "The hero teleported to a bench to verify the camera distance. Sit down and observe the camera distance.",
+        "Expected behavior: The camera definition is suitable."
+    };
+    G1CP_Testsuite_CheckManual(instr);
+    G1CP_Testsuite_CheckWorld(G1CP_WLD_MAIN);
+    var zCWaypoint wp; wp = G1CP_Testsuite_FindWaypoint("OCR_OUTSIDE_HUT_71");
+    G1CP_Testsuite_NpcBeamTo(hero, wp.name);
 };
