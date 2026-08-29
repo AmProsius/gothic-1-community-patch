@@ -24,3 +24,11 @@ func void G1CP_Tpl_TestNpcIntVar(var string npcInstName, var string prop, var in
     var C_Npc npc; npc = G1CP_Testsuite_CreateNpc(npcInstName);
     G1CP_Testsuite_Assert(G1CP_Testsuite_GetInstIntVar(npc, prop), correctVal);
 };
+
+/*
+ * Test the updated string variable (e.g. name, wp, etc.) of an NPC.
+ */
+func void G1CP_Tpl_TestNpcStringVar(var string npcInstName, var string prop, var string correctStr) {
+    var C_Npc npc; npc = G1CP_Testsuite_CreateNpc(npcInstName);
+    G1CP_Testsuite_AssertS(G1CP_Testsuite_GetInstStringVar(npc, prop), correctStr);
+};
