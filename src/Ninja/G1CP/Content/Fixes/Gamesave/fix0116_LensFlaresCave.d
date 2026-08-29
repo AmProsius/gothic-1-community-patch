@@ -1,8 +1,13 @@
 /*
  * #116 Lens flares in the swampweed cave
  */
+const float G1CP_0116_LensFlaresCave_Pos[3] = {-43824.2109, 240.022049, -3729.67432};
+
+/*
+ * Apply the fix
+ */
 func int G1CP_0116_LensFlaresCave() {
-    var int vobPtr; vobPtr = G1CP_FindLightVobByPosF(-43824.2109, 240.022049, -3729.67432, NOFUNC);
+    var int vobPtr; vobPtr = G1CP_FindLightVobByPosPtr(_@f(G1CP_0116_LensFlaresCave_Pos), NOFUNC);
     if (vobPtr) {
         var zCVobLight vob; vob  = _^(vobPtr);
         if (vob.lensflareFX) { // Ensure it has a lens flare object before checking its name
@@ -16,7 +21,7 @@ func int G1CP_0116_LensFlaresCave() {
 };
 
 /*
- * This function reverts the changes
+ * Revert the changes
  */
 func int G1CP_0116_LensFlaresCaveRevert() {
     // Only revert if it was applied by the G1CP
@@ -24,8 +29,7 @@ func int G1CP_0116_LensFlaresCaveRevert() {
         return FALSE;
     };
 
-    // Find the VOB again
-    var int vobPtr; vobPtr = G1CP_FindLightVobByPosF(-43824.2109, 240.022049, -3729.67432, NOFUNC);
+    var int vobPtr; vobPtr = G1CP_FindLightVobByPosPtr(_@f(G1CP_0116_LensFlaresCave_Pos), NOFUNC);
     if (vobPtr) {
         var zCVobLight vob; vob  = _^(vobPtr);
         if (!vob.lensflareFX) { // No lens flare effect present

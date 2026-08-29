@@ -50,7 +50,7 @@ func int G1CP_0193_GateSwitchesStuck_InferState(var string targetVobName) {
 };
 
 /*
- * This function applies the changes
+ * Apply the fix
  */
 func int G1CP_0193_GateSwitchesStuck() {
     var int vobTreePtr; vobTreePtr = _@(MEM_Vobtree);

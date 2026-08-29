@@ -24,14 +24,14 @@ func void G1CP_037_LogEntryGravoMerchant_Intercept(var string topic, var string 
 };
 
 /*
- * This function applies the changes
+ * Apply the fix
  */
 func int G1CP_@ISSUE_NUM_PAD@_@SHORTNAME@() {
     return G1CP_@ISSUE_NUM_PAD@_@SHORTNAME@_Toggle(TRUE);
 };
 
 /*
- * This function reverts the changes
+ * Revert the changes
  */
 func int G1CP_@ISSUE_NUM_PAD@_@SHORTNAME@Revert() {
     if (!G1CP_IsFixApplied(@ISSUE_NUM@)) {

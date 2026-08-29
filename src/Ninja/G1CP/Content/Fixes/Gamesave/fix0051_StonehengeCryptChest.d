@@ -20,7 +20,7 @@ func int G1CP_0051_StonehengeCryptChest() {
 };
 
 /*
- * This function reverts the changes
+ * Revert the changes
  */
 func int G1CP_0051_StonehengeCryptChestRevert() {
     if (!G1CP_IsFixApplied(51)) {

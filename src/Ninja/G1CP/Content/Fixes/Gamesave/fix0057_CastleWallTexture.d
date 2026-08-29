@@ -29,7 +29,7 @@ func int G1CP_0057_CastleWallTexture() {
 };
 
 /*
- * This function reverts the changes
+ * Revert the changes
  */
 func int G1CP_0057_CastleWallTextureRevert() {
     if (!G1CP_IsFixApplied(57)) {

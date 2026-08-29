@@ -7,7 +7,7 @@ func int G1CP_@ISSUE_NUM_PAD@_@SHORTNAME@() {
 };
 
 /*
- * This function reverts the changes
+ * Revert the changes
  */
 func int G1CP_@ISSUE_NUM_PAD@_@SHORTNAME@Revert() {
     // Only revert if it was applied by the G1CP

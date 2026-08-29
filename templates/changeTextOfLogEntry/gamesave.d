@@ -37,7 +37,7 @@ func int G1CP_@ISSUE_NUM_PAD@_@SHORTNAME@() {
 };
 
 /*
- * This function reverts the changes of #@ISSUE_NUM@
+ * Revert the changes
  */
 func int G1CP_@ISSUE_NUM_PAD@_@SHORTNAME@Revert() {
     if (!G1CP_IsFixApplied(@ISSUE_NUM@)) {

@@ -144,7 +144,7 @@ func int G1CP_0046_SmithDoor() {
 };
 
 /*
- * This function reverts the changes
+ * Revert the changes
  */
 func int G1CP_0046_SmithDoorRevert() {
     // Find the door in the world

@@ -15,7 +15,7 @@ func int G1CP_@ISSUE_NUM_PAD@_@SHORTNAME@_GetInst() {
 };
 
 /*
- * This function applies the changes
+ * Apply the fix
  */
 func int G1CP_@ISSUE_NUM_PAD@_@SHORTNAME@() {
     var oCNpc npc; npc = Hlp_GetNpc(G1CP_@ISSUE_NUM_PAD@_@SHORTNAME@_GetInst());
@@ -32,7 +32,8 @@ func int G1CP_@ISSUE_NUM_PAD@_@SHORTNAME@() {
  };
 
 /*
- * This function reverts the changes. Not necessary here, but for completeness and proper applied-status.
+ * Revert the changes
+ * Not strictly necessary here, but for completeness and proper applied-status
  */
 func int G1CP_@ISSUE_NUM_PAD@_@SHORTNAME@Revert() {
     // Only revert if it was applied by the G1CP

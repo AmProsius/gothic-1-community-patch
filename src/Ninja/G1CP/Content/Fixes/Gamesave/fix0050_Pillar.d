@@ -187,7 +187,7 @@ func void G1CP_0050_Pillar_ForceDown(var int vobPtr) {
 };
 
 /*
- * This function applies the changes of #50
+ * Apply the fix
  */
 func int G1CP_0050_Pillar() {
     // Before anything else, check if the memory was modified
@@ -239,7 +239,7 @@ func int G1CP_0050_Pillar() {
 };
 
 /*
- * This function reverts the changes of #50
+ * Revert the changes
  */
 func int G1CP_0050_PillarRevert() {
     // Save some time by checking if even applied
