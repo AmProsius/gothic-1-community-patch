@@ -43,10 +43,11 @@ func int G1CP_Testsuite_GetInstIntVar(var int inst, var string prop) {
     var zCPar_Symbol symb; symb = _PM_ToClass(inst);
     var string symbName; symbName = ConcatStrings(ConcatStrings(symb.name, "."), prop);
     var int symbId; symbId = G1CP_Testsuite_CheckIntVar(symbName);
+    var int arrIdx; arrIdx = G1CP_DecomposeArraySymbolName(_@s(symbName));
 
     // Read property
     symb = _^(MEM_GetSymbolByIndex(symbId));
-    return MEM_ReadInt(addr + symb.offset);
+    return MEM_ReadIntArray(addr + symb.offset, arrIdx);
 };
 
 /*
@@ -62,8 +63,9 @@ func string G1CP_Testsuite_GetInstStringVar(var int inst, var string prop) {
     var zCPar_Symbol symb; symb = _PM_ToClass(inst);
     var string symbName; symbName = ConcatStrings(ConcatStrings(symb.name, "."), prop);
     var int symbId; symbId = G1CP_Testsuite_CheckStringVar(symbName);
+    var int arrIdx; arrIdx = G1CP_DecomposeArraySymbolName(_@s(symbName));
 
     // Read property
     symb = _^(MEM_GetSymbolByIndex(symbId));
-    return MEM_ReadString(addr + symb.offset);
+    return MEM_ReadStringArray(addr + symb.offset, arrIdx);
 };

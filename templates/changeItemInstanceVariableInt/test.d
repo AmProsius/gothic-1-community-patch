@@ -2,15 +2,10 @@
  * #@ISSUE_NUM@ @LONGNAME@
  */
 func void G1CP_Test_@ISSUE_NUM_PAD@() {
-    var C_Item itm; itm = G1CP_Testsuite_CreateItem("### TODO Item instance name ###");
-    const int expected = 0; // ### TODO Expected value ###
-
-    var int actual; actual = itm.property; // ### TODO Adjust "property" ###
-
-    if (actual != expected) {
-        G1CP_TestsuiteErrorDetailSIS("Property incorrect: ### TODO Class variable ### = '", actual, "'");
-        return FALSE;
-    };
-
-    return TRUE;
+    @LANGCHECK@;
+    G1CP_Tpl_TestItemIntVar(
+        "### TODO Item instance name ###",
+        "### TODO Class variable name, e.g. value, count[2], etc. ###",
+        /*### TODO Correct value ###*/1
+    );
 };
