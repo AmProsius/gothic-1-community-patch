@@ -9,7 +9,5 @@ func void G1CP_Test_@ISSUE_NUM_PAD@() {
     G1CP_Testsuite_CheckManual(instr);
     @LANGCHECK@;
     G1CP_Testsuite_CheckWorld(/*### TODO Replace 'G1CP_WLD_MAIN' with the appropriate level ###*/G1CP_WLD_MAIN);
-    /*### TODO Write checks ###*/
-
-    /*### TODO Write the test ###*/
+    /*### TODO Write the manual test or start from scratch with an automatic test ###*/
 };

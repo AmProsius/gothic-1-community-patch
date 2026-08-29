@@ -30,7 +30,6 @@ func void G1CP_Test_0003() {
 };
 
 
-
 /*
  * The actual test will run through the NPC's AI state (see below)
  */
