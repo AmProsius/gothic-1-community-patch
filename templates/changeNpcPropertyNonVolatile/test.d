@@ -7,11 +7,13 @@ func void G1CP_Test_@ISSUE_NUM_PAD@() {
         "Expected behavior: ### TODO Add actions to observe ###"
     };
     G1CP_Testsuite_CheckManual(instr);
-    G1CP_Testsuite_CheckWorld("### TODO Affected world, default is 'WORLD' ###");
-    var zCWaypoint wp; wp = G1CP_Testsuite_FindWaypoint("### TODO Waypoint name ###");
+    @LANGCHECK@;
+    G1CP_Testsuite_CheckWorld(/*### TODO Replace 'G1CP_WLD_MAIN' with the appropriate level ###*/G1CP_WLD_MAIN);
+    var C_Npc npc; npc = G1CP_Testsuite_FindNpc("### TODO NPC instance name ###");
     /*### TODO Add additional checks ###*/
 
     /*### TODO Set values ###*/
 
-    G1CP_Testsuite_NpcBeamTo(hero, wp.name);
+    /*### TODO Check teleport location. Alternatively use G1CP_Testsuite_FindWaypoint ###*/
+    G1CP_Testsuite_NpcBeamTo(hero, _PM_InstName(npc));
 };

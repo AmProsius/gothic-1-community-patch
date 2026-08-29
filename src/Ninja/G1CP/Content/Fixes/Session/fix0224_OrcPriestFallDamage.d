@@ -23,7 +23,7 @@ func int G1CP_0224_OrcPriestFallDamage_Hook1() {
     G1CP_0224_OrcPriestFallDamage_HookBase();
     ContinueCall();
 };
-func int G1CP_0224_OrcPriestFallDamage_Hook2() {
+func int G1CP_0224_OrcPriestFallDamage_Hook2() { // Unique function per hook!
     G1CP_ReportFuncToSpy();
     G1CP_0224_OrcPriestFallDamage_HookBase();
     ContinueCall();
