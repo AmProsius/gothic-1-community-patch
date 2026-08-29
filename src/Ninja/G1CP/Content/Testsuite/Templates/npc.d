@@ -16,3 +16,11 @@ func void G1CP_Tpl_TestNpcRtnWP(var string correctWpName, var string npcName, va
     G1CP_Testsuite_Assert(G1CP_NpcIsInRoutine(npc, rtnName), TRUE);
     G1CP_Testsuite_AssertS(npc.wp, newWp.name);
 };
+
+/*
+ * Test the updated integer variable (e.g. id, voice, etc.) of an NPC.
+ */
+func void G1CP_Tpl_TestNpcIntVar(var string npcInstName, var string prop, var int correctVal) {
+    var C_Npc npc; npc = G1CP_Testsuite_CreateNpc(npcInstName);
+    G1CP_Testsuite_Assert(G1CP_Testsuite_GetInstIntVar(npc, prop), correctVal);
+};

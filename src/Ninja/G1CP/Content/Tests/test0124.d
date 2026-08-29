@@ -2,6 +2,7 @@
  * #124 Gate guard doesn't close castle gate in chapter 4
  */
 func void G1CP_Test_0124() {
+    // Special test: Instead of checking the id of the NPC programmatically, test its implications on the story!
     const string instr[3] = {
         "The hero is teleported in front of castle gate in chapter four.",
         "Observe that the guard is now able to the gate.",
