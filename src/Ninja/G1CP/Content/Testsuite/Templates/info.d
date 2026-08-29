@@ -15,7 +15,7 @@ func void G1CP_Tpl_TestInfoChoiceText(var string infoInstName, var string npcIns
 };
 
 /*
- * Test the updated dialog description.
+ * Test the updated info description.
  */
 func void G1CP_Tpl_TestInfoDescription(var string infoInstName, var string correctStr) {
     var oCInfo info; info = G1CP_Testsuite_FindInfo(infoInstName);
@@ -23,25 +23,9 @@ func void G1CP_Tpl_TestInfoDescription(var string infoInstName, var string corre
 };
 
 /*
- * Test the updated permanent-status of a dialog.
+ * Test the updated integer variable (e.g. permanent, trade, etc.) of an info.
  */
-func void G1CP_Tpl_TestInfoPermanent(var string infoInstName, var int correctVal) {
+func void G1CP_Tpl_TestInfoIntVar(var string infoInstName, var string prop, var int correctVal) {
     var oCInfo info; info = G1CP_Testsuite_FindInfo(infoInstName);
-    G1CP_Testsuite_Assert(info.permanent, correctVal);
-};
-
-/*
- * Test the updated trade-status of a dialog.
- */
-func void G1CP_Tpl_TestInfoTrade(var string infoInstName, var int correctVal) {
-    var oCInfo info; info = G1CP_Testsuite_FindInfo(infoInstName);
-    G1CP_Testsuite_Assert(info.trade, correctVal);
-};
-
-/*
- * Test the updated trade-status of a dialog.
- */
-func void G1CP_Tpl_TestInfoNum(var string infoInstName, var int correctVal) {
-    var oCInfo info; info = G1CP_Testsuite_FindInfo(infoInstName);
-    G1CP_Testsuite_Assert(info.nr, correctVal);
+    G1CP_Testsuite_Assert(G1CP_Testsuite_GetInstIntVar(info, prop), correctVal);
 };

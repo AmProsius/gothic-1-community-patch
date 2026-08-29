@@ -3,8 +3,9 @@
  */
 func void G1CP_Test_@ISSUE_NUM_PAD@() {
     @LANGCHECK@;
-    /*### TODO Choose the relevant function
-    G1CP_Tpl_TestInfoNum(
-    G1CP_Tpl_TestInfoTrade(*/
-    G1CP_Tpl_TestInfoPermanent("### TODO Info instance name ###", /*### TODO Adjust the value ###*/FALSE);
+    G1CP_Tpl_TestInfoIntVar(
+        "### TODO Info instance name ###",
+        "### TODO Class variable name, e.g. permanent, trade, etc. ###",
+        /*### TODO Correct value ###*/1
+    );
 };

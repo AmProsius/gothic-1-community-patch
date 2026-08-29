@@ -4,8 +4,8 @@
 func int G1CP_@ISSUE_NUM_PAD@_@SHORTNAME@() {
     return G1CP_Tpl_ChangeInfoIntVar(
         "### TODO Info instance name ###",
-        "### TODO Class variable name ###",
+        "### TODO Class variable name, e.g. permanent, trade, etc. ###",
         /*### TODO Original value ###*/0,
-        /*### TODO Correct value ###*/0
+        /*### TODO Correct value ###*/1
     );
 };
