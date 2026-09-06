@@ -2,13 +2,14 @@
  * #225 Mordrag can be told to "get out" in New Camp
  */
 func int G1CP_0225_MordragNcGetOut() {
-    if (!G1CP_IsFunc("Org_826_Mordrag_HauAb_Condition", "int|none"))
+    const string conditionFuncName = "Org_826_Mordrag_HauAb_Condition";
+    if (!G1CP_IsFunc(conditionFuncName, "int|none"))
     || (!G1CP_IsInfoInst("Org_826_Mordrag_GotoNewcamp"))
     || (!G1CP_IsIntVar("Thorus_MordragKo")) {
         return FALSE;
     };
 
-    HookDaedalusFuncS("Org_826_Mordrag_HauAb_Condition", "G1CP_0225_MordragNcGetOut_Hook");
+    HookDaedalusFuncS(conditionFuncName, "G1CP_0225_MordragNcGetOut_Hook");
     return TRUE;
 };
 
@@ -18,24 +19,13 @@ func int G1CP_0225_MordragNcGetOut() {
 func int G1CP_0225_MordragNcGetOut_Hook() {
     G1CP_ReportFuncToSpy();
 
-    // Define possibly missing symbols locally
     const int LOG_RUNNING = 1;
+    var int infoId; infoId = MEM_GetSymbolIndex("Org_826_Mordrag_GotoNewcamp");
+    var int logStatus; logStatus = G1CP_GetIntVar("Thorus_MordragKo", LOG_RUNNING);
 
-    // Add the new conditions (other conditions remain untouched)
-    var int cond1;
-    var int cond2;
-
-    // Check if dialog was told (check if symbol exists first!)
-    cond1 = Npc_KnowsInfo(hero, MEM_GetSymbolIndex("Org_826_Mordrag_GotoNewcamp"));
-
-    // Check if quest is running (If that variable does not even exist take no chances)
-    cond2 = (G1CP_GetIntVar("Thorus_MordragKo", LOG_RUNNING) != LOG_RUNNING);
-
-    // Return false if either of the conditions is true
-    if (cond1) || (cond2) {
+    if (Npc_KnowsInfo(hero, infoId)) || (logStatus != LOG_RUNNING) {
         return FALSE;
     };
 
-    // Continue with the original function
     ContinueCall();
 };

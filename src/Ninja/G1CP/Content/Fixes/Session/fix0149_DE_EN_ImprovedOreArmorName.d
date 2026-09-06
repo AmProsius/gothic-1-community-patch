@@ -2,15 +2,11 @@
  * #149 Spelling - Improved Ore Armor (DE/EN)
  */
 func int G1CP_0149_DE_EN_ImprovedOreArmorName() {
-    var int itemId; itemId = G1CP_GetItemInstId("ORE_ARMOR_H");
-    const string needle = "G1CP invalid string";
-    var string replace; // Use a variable instead of a constant to have a unique string on re-assignment below
     if (G1CP_Lang & G1CP_Lang_DE) {
-        needle  = "verbesserte Erzrüstung";
-        replace = "Verbesserte Erzrüstung";
+        return G1CP_Tpl_ChangeItemStrVar("ORE_ARMOR_H", "name", "verbesserte Erzrüstung", "Verbesserte Erzrüstung");
     } else if (G1CP_Lang & G1CP_Lang_EN) {
-        needle  = "Improved ore Armor";
-        replace = "Improved Ore Armor";
+        return G1CP_Tpl_ChangeItemStrVar("ORE_ARMOR_H", "name", "Improved ore Armor", "Improved Ore Armor");
+    } else {
+        return FALSE;
     };
-    return (G1CP_ReplaceAssignStr(itemId, 0, "C_Item.name", needle, replace) > 0);
 };

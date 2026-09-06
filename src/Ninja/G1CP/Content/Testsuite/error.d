@@ -35,3 +35,33 @@ func void G1CP_TestsuitePrintErrors() {
     MEM_Info("");
     G1CP_TestsuiteMsg = "";
 };
+
+/*
+ * Minimize and restore the spy on demand for performance/information
+ */
+func void G1CP_ShowSpy(var int show) {
+    const int zerrPtr = 8821208; //0x8699D8
+    var zERROR zerr; zerr = _^(zerrPtr);
+    if (!zerr.spyHandle) {
+        return;
+    };
+
+    const int SW_SHOWNOACTIVATE = 4;
+    const int SW_MINIMIZE = 6;
+    const int toggle = 0;
+
+    if (show) {
+        toggle = SW_SHOWNOACTIVATE;
+    } else {
+        toggle = SW_MINIMIZE;
+    };
+
+    if (CALL_Begin(call)) {
+        const int call = 0;
+        const int ShowWindow = 7713406; //0x75B27E
+        CALL_IntParam(_@(toggle));
+        CALL_IntParam(_@(zerr.spyHandle));
+        CALL__stdcall(ShowWindow);
+        call = CALL_End();
+    };
+};

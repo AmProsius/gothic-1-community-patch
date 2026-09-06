@@ -1,20 +1,49 @@
 /*
- * #{ISSUE_NUM} {LONGNAME}
+ * #@ISSUE_NUM@ @LONGNAME@
  */
-func int G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}() {
-    /* ### TODO: Write the fix and adjust the return value ### */
+const float G1CP_@ISSUE_NUM_PAD@_@SHORTNAME@_Pos[3] = /*### TODO Coordinates for finding the VOB ###*/{0.0, 0.0, 0.0};
+
+/*
+ * Callback function to narrow down the found VOBs
+ */
+func int G1CP_@ISSUE_NUM_PAD@_@SHORTNAME@Check(var int vobPtr) {
+    var zCVob vob; vob = _^(vobPtr);
+    /*### TODO Uniquely identify the VOB or remove this function when using existing function as callback ###*/
+    return TRUE;
+};
+
+/*
+ * Apply the fix
+ */
+func int G1CP_@ISSUE_NUM_PAD@_@SHORTNAME@() {
+    var int vobPtr; vobPtr = G1CP_FindVobByPosPtr(
+        _@f(G1CP_@ISSUE_NUM_PAD@_@SHORTNAME@_Pos),
+        /*### TODO Custom callback, Hlp_Is_* function or NOFUNC ###*/G1CP_@ISSUE_NUM_PAD@_@SHORTNAME@Check
+    );
+    if (vobPtr) {
+        /*### TODO Adjust the VOB properties ###*/
+        var zCVob vob; vob = _^(vobPtr);
+        return TRUE;
+    };
     return FALSE;
 };
 
 /*
- * This function reverts the changes
+ * Revert the changes
  */
-func int G1CP_{ISSUE_NUM_PAD}_{SHORTNAME}Revert() {
-    if (!G1CP_IsFixApplied({ISSUE_NUM})) {
+func int G1CP_@ISSUE_NUM_PAD@_@SHORTNAME@Revert() {
+    if (!G1CP_IsFixApplied(@ISSUE_NUM@)) {
         return FALSE;
     };
 
-    /* ### TODO: Write the fix reversal and adjust the return value ###
-     * Mind that the check above may not be necessary/desired depending on the fix */
+    var int vobPtr; vobPtr = G1CP_FindVobByPosPtr(
+        _@f(G1CP_@ISSUE_NUM_PAD@_@SHORTNAME@_Pos),
+        /*### TODO Custom callback, Hlp_Is_* function or NOFUNC ###*/G1CP_@ISSUE_NUM_PAD@_@SHORTNAME@Check
+    );
+    if (vobPtr) {
+        /*### TODO Reverse the VOB properties to their original state ###*/
+        var zCVob vob; vob = _^(vobPtr);
+        return TRUE;
+    };
     return FALSE;
 };

@@ -1,9 +1,5 @@
 /*
  * #183 Corristo sells High Robe multiple times
- *
- * The hero is given the heavy robe and the KDF guild and the condition function of the dialog is called.
- *
- * Expected behavior: The condition function will return FALSE.
  */
 func void G1CP_Test_0183() {
     var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("KDF_402_Corristo_HEAVYARMOR_Condition");

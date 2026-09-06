@@ -32,7 +32,7 @@ func int G1CP_0133_DE_LogEntryScatty() {
 };
 
 /*
- * This function reverts the changes of #133
+ * Revert the changes
  */
 func int G1CP_0133_DE_LogEntryScattyRevert() {
     const string oldString = "Meinem Niederlage gegen Kirgo hat Scatty nicht sehr beeindruckt.";

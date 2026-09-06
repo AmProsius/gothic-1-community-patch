@@ -21,8 +21,8 @@ func int G1CP_0016_ThorusBribeDialog_Hook1() {
     G1CP_ReportFuncToSpy();
 
     // Check if passage to the castle is granted
-    var int passGate1; passGate1 = G1CP_NpcIdGetAiVar(MEM_GetSymbolIndex("Grd_212_Torwache"), "AIV_PASSGATE", 0);
-    var int passGate2; passGate2 = G1CP_NpcIdGetAiVar(MEM_GetSymbolIndex("Grd_213_Torwache"), "AIV_PASSGATE", 0);
+    var int passGate1; passGate1 = G1CP_NpcGetAiVar(MEM_GetSymbolIndex("Grd_212_Torwache"), "AIV_PASSGATE", 0);
+    var int passGate2; passGate2 = G1CP_NpcGetAiVar(MEM_GetSymbolIndex("Grd_213_Torwache"), "AIV_PASSGATE", 0);
 
     // Add the new condition (other conditions remain untouched)
     if (passGate1) || (passGate2) {
@@ -40,8 +40,8 @@ func int G1CP_0016_ThorusBribeDialog_Hook2() {
     G1CP_ReportFuncToSpy();
 
     // Check if passage to the castle is granted
-    var int passGate1; passGate1 = G1CP_NpcIdGetAiVar(MEM_GetSymbolIndex("Grd_212_Torwache"), "AIV_PASSGATE", 0);
-    var int passGate2; passGate2 = G1CP_NpcIdGetAiVar(MEM_GetSymbolIndex("Grd_213_Torwache"), "AIV_PASSGATE", 0);
+    var int passGate1; passGate1 = G1CP_NpcGetAiVar(MEM_GetSymbolIndex("Grd_212_Torwache"), "AIV_PASSGATE", 0);
+    var int passGate2; passGate2 = G1CP_NpcGetAiVar(MEM_GetSymbolIndex("Grd_213_Torwache"), "AIV_PASSGATE", 0);
 
     // Add the new condition (other conditions remain untouched)
     if (passGate1) || (passGate2) {

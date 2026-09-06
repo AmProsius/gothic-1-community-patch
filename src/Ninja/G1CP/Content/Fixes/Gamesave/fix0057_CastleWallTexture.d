@@ -1,10 +1,6 @@
 /*
  * #57 Misplaced texture near Gravo
  */
-
-/*
- * Make the positions available to the functions below
- */
 const float G1CP_0057_CastleWallTexture_PosOld[3] = {-5893.91455, -664.270386, 78.9339142};
 const float G1CP_0057_CastleWallTexture_PosNew[3] = {-5902.01807, -664.270386, 82.8507462};
 
@@ -29,7 +25,7 @@ func int G1CP_0057_CastleWallTexture() {
 };
 
 /*
- * This function reverts the changes
+ * Revert the changes
  */
 func int G1CP_0057_CastleWallTextureRevert() {
     if (!G1CP_IsFixApplied(57)) {

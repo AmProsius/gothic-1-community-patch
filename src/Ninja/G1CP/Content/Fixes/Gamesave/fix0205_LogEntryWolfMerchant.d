@@ -130,14 +130,14 @@ func void G1CP_0205_LogEntryWolfMerchant_Intercept(var string topic, var string 
 };
 
 /*
- * This function applies the changes
+ * Apply the fix
  */
 func int G1CP_0205_LogEntryWolfMerchant() {
     return G1CP_0205_LogEntryWolfMerchant_Toggle(TRUE);
 };
 
 /*
- * This function reverts the changes
+ * Revert the changes
  */
 func int G1CP_0205_LogEntryWolfMerchantRevert() {
     // Only revert if it was applied by the G1CP

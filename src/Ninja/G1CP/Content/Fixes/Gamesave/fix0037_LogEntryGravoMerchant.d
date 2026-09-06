@@ -130,14 +130,14 @@ func void G1CP_0037_LogEntryGravoMerchant_Intercept(var string topic, var string
 };
 
 /*
- * This function applies the changes
+ * Apply the fix
  */
 func int G1CP_0037_LogEntryGravoMerchant() {
     return G1CP_0037_LogEntryGravoMerchant_Toggle(TRUE);
 };
 
 /*
- * This function reverts the changes
+ * Revert the changes
  */
 func int G1CP_0037_LogEntryGravoMerchantRevert() {
     // Only revert if it was applied by the G1CP

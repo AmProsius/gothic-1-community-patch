@@ -1,9 +1,5 @@
 /*
  * #192 Mages auto-equip melee/ranged weapons
- *
- * A test NPC (magic user) is inserted without any weapon equipped but Thorus's sword in the inventory (strong weapon).
- *
- * Expected behavior: The NPC does not auto-equip the weapon.
  */
 instance G1CP_Test_0192_Npc(C_Npc) {
     const int FAI_HUMAN_MAGE = 25;

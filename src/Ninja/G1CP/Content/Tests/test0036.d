@@ -6,12 +6,11 @@
  * Expected behavior: The condition functions will return TRUE.
  */
 func void G1CP_Test_0036() {
+    G1CP_Testsuite_CheckWorld(G1CP_WLD_MAIN);
     var int funcId; funcId = G1CP_Testsuite_CheckDialogConditionFunc("Stt_311_Fisk_MordragKO_Condition");
     var C_Npc npc; npc = G1CP_Testsuite_FindNpc("Org_826_Mordrag");
     var int varId; varId = G1CP_Testsuite_CheckIntVar("MordragKO_HauAb");
     const int GIL_NONE = 0; GIL_NONE = G1CP_Testsuite_GetIntConst("GIL_NONE");
-    const int ATR_HITPOINTS = 0;
-    const int ATR_HITPOINTS_MAX = 1;
 
     G1CP_Testsuite_BackupInt(varId, 0);
     G1CP_Testsuite_BackupTrueGuild(hero);

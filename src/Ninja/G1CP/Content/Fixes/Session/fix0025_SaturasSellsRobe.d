@@ -2,13 +2,14 @@
  * #25 Saturas sells High Robe twice
  */
 func int G1CP_0025_SaturasSellsRobe() {
-    if (G1CP_IsFunc("KDW_600_Saturas_HEAVYARMOR_Condition", "int|none"))
-    && (G1CP_IsItemInst("KDW_ARMOR_H")) {
-        HookDaedalusFuncS("KDW_600_Saturas_HEAVYARMOR_Condition", "G1CP_0025_SaturasSellsRobe_Hook");
-        return TRUE;
-    } else {
+    const string conditionFuncName = "KDW_600_Saturas_HEAVYARMOR_Condition";
+    if (!G1CP_IsFunc(conditionFuncName, "int|none"))
+    || (!G1CP_IsItemInst("KDW_ARMOR_H")) {
         return FALSE;
     };
+
+    HookDaedalusFuncS(conditionFuncName, "G1CP_0025_SaturasSellsRobe_Hook");
+    return TRUE;
 };
 
 /*
@@ -17,14 +18,9 @@ func int G1CP_0025_SaturasSellsRobe() {
 func int G1CP_0025_SaturasSellsRobe_Hook() {
     G1CP_ReportFuncToSpy();
 
-    // Obtain symbol
-    var int symbId; symbId = MEM_GetSymbolIndex("KDW_ARMOR_H");
-    if (symbId != -1) {
-        if (Npc_HasItems(hero, symbId)) {
-            return FALSE;
-        };
+    if (Npc_HasItems(hero, MEM_GetSymbolIndex("KDW_ARMOR_H"))) {
+        return FALSE;
     };
 
-    // Continue with the original function
     ContinueCall();
 };

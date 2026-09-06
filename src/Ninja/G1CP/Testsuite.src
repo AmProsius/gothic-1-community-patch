@@ -2,6 +2,7 @@ Content\Testsuite\tests.d
 Content\Testsuite\error.d
 Content\Testsuite\apply.d
 Content\Testsuite\backup.d
+Content\Testsuite\help.d
 Content\Testsuite\testsuite.d
 Content\Testsuite\check.d
 Content\Testsuite\assert.d
@@ -10,6 +11,10 @@ Content\Testsuite\find.d
 Content\Testsuite\create.d
 Content\Testsuite\call.d
 Content\Testsuite\npc.d
+Content\Testsuite\Templates\npc.d
+Content\Testsuite\Templates\item.d
+Content\Testsuite\Templates\info.d
+Content\Testsuite\Templates\ou.d
 
 Content\Tests\test0001.d
 Content\Tests\test0002.d

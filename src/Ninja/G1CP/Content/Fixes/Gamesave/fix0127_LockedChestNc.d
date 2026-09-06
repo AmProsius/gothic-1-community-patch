@@ -1,8 +1,13 @@
 /*
  * #127 One chest in NC cannot be opened
  */
+const float G1CP_0127_LockedChestNc_Pos[3] = {-55158.1367, 2919.41309, 1144.36926};
+
+/*
+ * Apply the fix
+ */
 func int G1CP_0127_LockedChestNc() {
-    var int vobPtr; vobPtr = G1CP_FindVobByPosF(-55158.1367, 2919.41309, 1144.36926, Hlp_Is_oCMobContainer);
+    var int vobPtr; vobPtr = G1CP_FindVobByPosPtr(_@f(G1CP_0127_LockedChestNc_Pos), Hlp_Is_oCMobContainer);
     if (vobPtr) {
         var oCMobContainer mob; mob = _^(vobPtr);
         if (Hlp_StrCmp(mob._oCMobLockable_keyInstance, "LRL"))
@@ -17,7 +22,7 @@ func int G1CP_0127_LockedChestNc() {
 };
 
 /*
- * This function reverts the changes
+ * Revert the changes
  */
 func int G1CP_0127_LockedChestNcRevert() {
     // Only revert if it was applied by the G1CP
@@ -25,8 +30,7 @@ func int G1CP_0127_LockedChestNcRevert() {
         return FALSE;
     };
 
-    // Find the VOB again
-    var int vobPtr; vobPtr = G1CP_FindVobByPosF(-55158.1367, 2919.41309, 1144.36926, Hlp_Is_oCMobContainer);
+    var int vobPtr; vobPtr = G1CP_FindVobByPosPtr(_@f(G1CP_0127_LockedChestNc_Pos), Hlp_Is_oCMobContainer);
     if (vobPtr) {
         var oCMobContainer mob; mob = _^(vobPtr);
         if (Hlp_StrCmp(mob._oCMobLockable_keyInstance, ""))

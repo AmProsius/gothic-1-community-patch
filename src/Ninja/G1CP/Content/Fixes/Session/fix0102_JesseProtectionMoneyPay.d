@@ -2,14 +2,15 @@
  * #102 The player doesn't lose ore when paying for Jesse
  */
 func int G1CP_0102_JesseProtectionMoneyPay() {
-    if (G1CP_IsFunc("Info_Bloodwyn_PayForJesse_Info", "void|none"))
-    && (G1CP_IsIntVar("Jesse_PayForMe"))
-    && (G1CP_IsItemInst("ItMiNugget")) {
-        HookDaedalusFuncS("Info_Bloodwyn_PayForJesse_Info", "G1CP_0102_JesseProtectionMoneyPay_Hook");
-        return TRUE;
-    } else {
+    const string dialogFuncName = "Info_Bloodwyn_PayForJesse_Info";
+    if (!G1CP_IsFunc(dialogFuncName, "void|none"))
+    || (!G1CP_IsIntVar("Jesse_PayForMe"))
+    || (!G1CP_IsItemInst("ItMiNugget")) {
         return FALSE;
     };
+
+    HookDaedalusFuncS(dialogFuncName, "G1CP_0102_JesseProtectionMoneyPay_Hook");
+    return TRUE;
 };
 
 /*
@@ -18,35 +19,17 @@ func int G1CP_0102_JesseProtectionMoneyPay() {
 func void G1CP_0102_JesseProtectionMoneyPay_Hook() {
     G1CP_ReportFuncToSpy();
 
-    // Define possibly missing symbols locally
     const int LOG_SUCCESS = 2;
+    var int itemId; itemId = MEM_GetSymbolIndex("ItMiNugget");
+    var int questId; questId = MEM_GetSymbolIndex("Jesse_PayForMe");
+    var int itemAmountBefore; itemAmountBefore = Npc_HasItems(hero, itemId);
+    var int topicStatusBefore; topicStatusBefore = G1CP_GetIntVarI(questId, 0, LOG_SUCCESS);
 
-    // Status before
-    var int amountOreBefore;
-    var int topicStatusBefore;
-
-    // Remember how much ore the player has before the dialog
-    var int oreId; oreId = MEM_GetSymbolIndex("ItMiNugget");
-    if (oreId != -1) {
-        amountOreBefore = Npc_HasItems(hero, oreId);
-    };
-
-    // Remember the log topic status before the dialog
-    var int topicPtr; topicPtr = MEM_GetSymbol("Jesse_PayForMe");
-    if (topicPtr) {
-        topicPtr += zCParSymbol_content_offset;
-        topicStatusBefore = MEM_ReadInt(topicPtr);
-    };
-
-    // Continue with the original function
     ContinueCall();
 
-    // Check if the topic was changed to successful, but no ore was deduced
-    if (topicPtr) && (oreId != -1) {
-        var int topicStatusAfter; topicStatusAfter = MEM_ReadInt(topicPtr);
-        if (topicStatusAfter == LOG_SUCCESS) && (topicStatusAfter != topicStatusBefore)
-        && (Npc_HasItems(hero, oreId) == amountOreBefore) {
-            G1CP_GiveInvItems(hero, self, oreId, 10);
-        };
+    var int topicStatusAfter; topicStatusAfter = G1CP_GetIntVarI(questId, 0, LOG_SUCCESS);
+    if (Npc_HasItems(hero, itemId) == itemAmountBefore)
+    && (topicStatusAfter == LOG_SUCCESS) && (topicStatusAfter != topicStatusBefore) {
+        G1CP_GiveInvItems(hero, self, itemId, 10);
     };
 };

@@ -1,12 +1,13 @@
 /*
  * #12 Double exp when killing an NPC with a ranged weapon
- *
- * A test NPC is inserted and the hero is given a bow and some arrows
- *
- * Expected behavior: The NPC will not give XP again when first downed by hand and then killed with bow and arrow
  */
 func void G1CP_Test_0012() {
-    G1CP_Testsuite_CheckManual();
+    const string instr[3] = {
+        "A test NPC is inserted and the hero is given a bow and some arrows.",
+        "Knock the NPC unconscious. After they get up, kill them with the bow and arrow.",
+        "Expected behavior: The NPC will not give XP again when first downed and then killed with bow and arrow."
+    };
+    G1CP_Testsuite_CheckManual(instr);
     G1CP_Testsuite_CheckFunc("B_DeathXP", "void|none", "");
     G1CP_Testsuite_CheckIntConst("AIV_WASDEFEATEDBYSC");
     var int bowId; bowId = G1CP_Testsuite_CheckItem("ItRw_Bow_Small_01");

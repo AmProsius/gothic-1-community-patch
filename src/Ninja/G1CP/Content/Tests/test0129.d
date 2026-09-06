@@ -1,11 +1,12 @@
 /*
  * #129 Drake has wrong body skin color
- *
- * There does not seem an easy way to test this fix programmatically, so this test relies on manual confirmation.
- *
- * Expected behavior: Drake's body has the same color as his head.
  */
 func void G1CP_Test_0129() {
-    G1CP_Testsuite_CheckManual();
-    G1CP_Testsuite_NpcTeleportToWorld(hero, "OLDMINE.ZEN", "OM_CAVE1_13A");
+    const string instr[2] = {
+        "The hero is teleported to the Old Mine in front of Drake to check his appearance.",
+        "Expected behavior: Drake's body has the same color as his head."
+    };
+    G1CP_Testsuite_CheckManual(instr);
+    G1CP_Testsuite_CheckWorld(G1CP_WLD_OLDMINE);
+    G1CP_Testsuite_NpcBeamTo(hero, "OM_CAVE1_13A");
 };

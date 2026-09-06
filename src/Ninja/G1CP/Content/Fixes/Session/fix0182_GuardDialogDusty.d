@@ -1,10 +1,6 @@
 /*
  * #182 The gate guard can be bribed multiple times with Dusty as a follower
  */
-
-/*
- * Make the topic and entry available to the functions below
- */
 const string G1CP_0182_GuardDialogDusty_Topic = "G1CP invalid string";
 const string G1CP_0182_GuardDialogDusty_Entry = "G1CP invalid string";
 

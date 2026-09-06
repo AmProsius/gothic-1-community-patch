@@ -22,5 +22,5 @@ func void G1CP_0228_LaresDialogFindGorn_Hook() {
     ContinueCall();
 
     // Set Gorn to be "findable"
-    G1CP_NpcIDSetAIVar(MEM_GetSymbolIndex("PC_Fighter"), "AIV_FINDABLE", TRUE);
+    G1CP_NpcSetAIVar(MEM_GetSymbolIndex("PC_Fighter"), "AIV_FINDABLE", TRUE);
 };

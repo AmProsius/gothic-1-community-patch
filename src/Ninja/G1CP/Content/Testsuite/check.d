@@ -1,10 +1,42 @@
 /*
+ * World names
+ */
+const string G1CP_WLD_MAIN = "WORLD";
+const string G1CP_WLD_OLDMINE = "OLDMINE";
+const string G1CP_WLD_FREEMINE = "FREEMINE";
+const string G1CP_WLD_ORCTEMPEL = "ORCTEMPEL";
+const string G1CP_WLD_ORCGRAVEYARD = "ORCGRAVEYARD";
+
+/*
  * Check if running automatic test
  */
-func void G1CP_Testsuite_CheckManual() {
+func void G1CP_Testsuite_CheckManual(var string instructions) {
     if (!G1CP_TestsuiteAllowManual) {
         G1CP_Testsuite_ForceTestToReturn();
+        return;
     };
+
+    // Obtain fix ID and short name
+    var int fixId; fixId = G1CP_Testsuite_FindCallerTestId();
+    var string fixName; fixName = G1CP_GetFixShortName(fixId);
+    if (SB_New()) {
+        SB("#"); SBi(fixId); SB(" "); SB(fixName);
+        var string title; title = SB_ToString();
+        SB_Destroy();
+    };
+
+    G1CP_Testsuite_OpenInfoScreen(title, instructions);
+    G1CP_Testsuite_PrintScreenNow("LOADING TEST", -1, 1, PF_Font, 1);
+
+    // Reset the time if nighttime for better visibility
+    var int time; time = G1CP_GetWorldTime();
+    if (time < 800) || (1880 < time) {
+        Wld_SetTime(9, 0);
+    };
+
+    // Reset attitudes to initial state
+    Wld_ExchangeGuildAttitudes("GIL_ATTITUDES");
+    G1CP_SetIntVarI(MEM_GetSymbolIndex("Kapitel"), 0, 1); // Set the chapter to reset attitudes on any level change
 };
 
 /*
@@ -27,9 +59,76 @@ func void G1CP_Testsuite_CheckManual() {
             langNames = ConcatStrings(langNames, " Russian");
         };
         G1CP_TestsuiteErrorDetail3("Test applicable for", langNames, " localization only.");
-        G1CP_Testsuite_ForceTestToReturn();
+        G1CP_Testsuite_SkipTest();
     };
  };
+
+/*
+ * Check and ensure that the test takes place in the correct level
+ */
+func void G1CP_Testsuite_CheckWorld(var string world) {
+    if (!Hlp_StrCmp(MEM_World.worldName, world)) {
+        var string zen; zen = ConcatStrings(world, ".ZEN");
+
+        const int DIR_WORLD                    = 13; //0xD
+        const int zCOption__ChangeDir          = 4586240; //0x45FB00
+        const int zfactory                     = 8863624; //0x873F88
+        const int zCObjectFactory__CreateZFile = 5815648; //0x58BD60
+        const int zFILE_VDFS__Exists           = 4476816; //0x444F90
+        const int zFILE_VDFS__delete           = 4476272; //0x444D70
+        const int oCGame__ChangeLevel          = 6540640; //0x63CD60
+
+        if (CALL_Begin(call)) {
+            const int call = 0;
+            const int filePtr = 0;
+            const int fileExists = 0;
+            const int wpStrPtr = 0; wpStrPtr = _@s("");
+            const int wldStrPtr = 0; wldStrPtr = _@s(zen);
+
+            // Check if world file exists to avoid crash and instead fail the test with a descriptive message
+            CALL_IntParam(_@(DIR_WORLD));
+            CALL__thiscall(zoptions_Pointer_Address, zCOption__ChangeDir);
+            CALL_PtrParam(_@(wldStrPtr));
+            CALL_PutRetValTo(_@(filePtr));
+            CALL__thiscall(zfactory, zCObjectFactory__CreateZFile);
+            CALL_PutRetValTo(_@(fileExists));
+            CALL__thiscall(_@(filePtr), zFILE_VDFS__Exists);
+            ASM_1(ASMINT_OP_pushEAX); // Keep return value
+            CALL_IntParam(_@(TRUE));
+            CALL_PutRetValTo(_@(filePtr)); // Dump eax
+            CALL__thiscall(_@(filePtr), zFILE_VDFS__delete);
+
+            // Skip over loading if file does not exist
+            ASM_1(ASMINT_OP_popEAX);
+            ASM_2(49285);            // test   eax, eax
+            ASM_1(117); ASM_1(1);    // jnz    .load
+            ASM_1(ASMINT_OP_retn);
+
+            // .load:
+            CALL_PtrParam(_@(wpStrPtr));
+            CALL_PtrParam(_@(wldStrPtr));
+            CALL__thiscall(MEMINT_oGame_Pointer_Address, oCGame__ChangeLevel);
+            call = CALL_End();
+        };
+
+        if (!fileExists) {
+            G1CP_TestsuiteErrorDetail3("World '", world, "' not found.");
+            G1CP_Testsuite_FailTest();
+            return;
+        };
+    } else {
+        // If already in the world, call the init function and reset the time to instantly update NPC attitudes
+        MEM_CallByString(ConcatStrings("INIT_", world));
+        Wld_SetTime(9, 0);
+    };
+
+    // Clear instances to avoid crash on invalid addresses from the previous world/state
+    HookOverwriteInstances = TRUE;
+    self = MEM_NullToInst();
+    other = MEM_NullToInst();
+    item = MEM_NullToInst();
+    victim = MEM_NullToInst();
+};
 
 /*
  * Check if integer variable exists

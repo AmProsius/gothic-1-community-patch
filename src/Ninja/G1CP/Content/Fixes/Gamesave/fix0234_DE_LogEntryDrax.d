@@ -32,7 +32,7 @@ func int G1CP_0234_DE_LogEntryDrax() {
 };
 
 /*
- * This function reverts the changes of #234
+ * Revert the changes
  */
 func int G1CP_0234_DE_LogEntryDraxRevert() {
     // Only revert if it was applied by the G1CP

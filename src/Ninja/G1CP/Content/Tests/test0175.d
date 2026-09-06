@@ -3,6 +3,5 @@
  */
 func void G1CP_Test_0175() {
     G1CP_Testsuite_CheckLang(G1CP_Lang_EN);
-    var C_Item itm; itm = G1CP_Testsuite_CreateItem("ItKey_RB_01");
-    G1CP_Testsuite_AssertS(itm.name, "Rice Lord's Key");
+    G1CP_Tpl_TestItemStringVar("ItKey_RB_01", "name", "Rice Lord's Key");
 };

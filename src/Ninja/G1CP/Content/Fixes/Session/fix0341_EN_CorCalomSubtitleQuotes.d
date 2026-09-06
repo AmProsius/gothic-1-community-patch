@@ -3,7 +3,6 @@
  */
 func int G1CP_0341_EN_CorCalomSubtitleQuotes() {
     const int DOUBLE_QUOTE = 34;
-    const string original = "";
     const string cleaned = "That was it? No welcome, no nothing?";
     if (SB_New()) {
         SBc(DOUBLE_QUOTE);
@@ -13,7 +12,7 @@ func int G1CP_0341_EN_CorCalomSubtitleQuotes() {
         SBc(DOUBLE_QUOTE); SBc(DOUBLE_QUOTE);
         SB(", no nothing?");
         SBc(DOUBLE_QUOTE);
-        original = SB_ToString();
+        var string original; original = SB_ToString();
         SB_Destroy();
     };
 

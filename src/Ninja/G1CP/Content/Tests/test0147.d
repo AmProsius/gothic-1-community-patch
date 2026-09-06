@@ -3,6 +3,5 @@
  */
 func void G1CP_Test_0147() {
     G1CP_Testsuite_CheckLang(G1CP_Lang_DE);
-    var C_Item itm; itm = G1CP_Testsuite_CreateItem("CRW_ARMOR_H");
-    G1CP_Testsuite_AssertS(itm.name, "Crawlerplatten-Rüstung");
+    G1CP_Tpl_TestItemStringVar("CRW_ARMOR_H", "name", "Crawlerplatten-Rüstung");
 };

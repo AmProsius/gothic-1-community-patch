@@ -6,6 +6,7 @@
  * Expected behavior: The AI variable is updated correctly after talking to Lares.
  */
 func void G1CP_Test_0228() {
+    G1CP_Testsuite_CheckWorld(G1CP_WLD_MAIN);
     var string topic; topic = G1CP_Testsuite_GetStringConst("CH1_JoinNC");
     var C_Npc npc; npc = G1CP_Testsuite_FindNpc("PC_Fighter");
     var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc("ORG_801_Lares_BringListAnteil_Info");

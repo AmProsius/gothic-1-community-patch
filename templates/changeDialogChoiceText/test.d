@@ -1,18 +1,13 @@
 /*
- * #{ISSUE_NUM} {LONGNAME}
- *
- * There does not seem an easy way to test this fix programmatically, so this test relies on manual confirmation.
- *
- * Expected behavior: ### TODO: Describe what will happen during the test ###
+ * #@ISSUE_NUM@ @LONGNAME@
  */
-func int G1CP_Test_{ISSUE_NUM_PAD}() {
-    G1CP_Testsuite_CheckManual();
-    {LANGCHECK}
-    G1CP_Testsuite_CheckInfo("### TODO Info instance name ###");
-    var C_Npc npc; npc = G1CP_Testsuite_FindNpc("### TODO NPC instance name ###");
-    // ### TODO Add checks to unlock the dialog ###
-
-    // ### TODO Unlock the dialog ###
-
-    AI_Teleport(hero, npc.wp);
+func void G1CP_Test_@ISSUE_NUM_PAD@() {
+    @LANGCHECK@;
+    G1CP_Testsuite_CheckWorld(/*### TODO Replace 'G1CP_WLD_MAIN' with the appropriate level ###*/G1CP_WLD_MAIN);
+    /*### TODO Additional check, backup and setter to ensure clean dialog execution ###*/
+    G1CP_Tpl_TestInfoChoiceText(
+        "### TODO Info instance name ###",
+        "### TODO NPC instance name ###",
+        "### TODO Correct choice text ###"
+    );
 };

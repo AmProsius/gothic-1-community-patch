@@ -1,13 +1,14 @@
 /*
  * #226 Missing mana potion in stonehenge crypt chest
- *
- * There does not seem an easy way to test this fix programmatically, so this test relies on manual confirmation.
- * Caution: This test will break the game. Save the game beforehand.
- *
- * Expected behavior: The potion is now in the chest.
  */
 func void G1CP_Test_0226() {
-    G1CP_Testsuite_CheckManual();
+    const string instr[3] = {
+        "The hero is set to immortal and teleported to the chest in the stonehenge crypt.",
+        "Open the chest and check its contents. The hero has the key in the inventory.",
+        "Expected behavior: The potion is now in the chest."
+    };
+    G1CP_Testsuite_CheckManual(instr);
+    G1CP_Testsuite_CheckWorld(G1CP_WLD_MAIN);
     var int itemId; itemId = G1CP_Testsuite_CheckItem("ItKe_Focus5");
     var zCWaypoint wp; wp = G1CP_Testsuite_FindWaypoint("LOCATION_05_02_STONEHENGE4");
     const int NPC_FLAG_IMMORTAL = 1 << 1;
@@ -19,5 +20,5 @@ func void G1CP_Test_0226() {
     CreateInvItem(hero, itemId);
 
     // Teleport to the nearest waypoint
-    AI_Teleport(hero, wp.name);
+    G1CP_Testsuite_NpcBeamTo(hero, wp.name);
 };

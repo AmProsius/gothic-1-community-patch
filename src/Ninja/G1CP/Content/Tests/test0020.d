@@ -7,6 +7,7 @@
  * Expected behavior: The hero will receive one beer from Kirgo (automatically removed after the test is complete)
  */
 func void G1CP_Test_0020() {
+    G1CP_Testsuite_CheckWorld(G1CP_WLD_MAIN);
     var C_Npc npc; npc = G1CP_Testsuite_FindNpc("Grd_251_Kirgo");
     var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc("Info_Kirgo_Charge_Beer");
     var int beerId; beerId = G1CP_Testsuite_CheckItem("ItFoBeer");

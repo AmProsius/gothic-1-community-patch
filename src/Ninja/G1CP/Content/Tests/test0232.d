@@ -3,6 +3,5 @@
  */
 func void G1CP_Test_0232() {
     G1CP_Testsuite_CheckLang(G1CP_Lang_DE);
-    var C_Item itm; itm = G1CP_Testsuite_CreateItem("ItArScrollTrfBloodfly");
-    G1CP_Testsuite_AssertS(itm.description, "Verwandlung Blutfliege");
+    G1CP_Tpl_TestItemStringVar("ItArScrollTrfBloodfly", "description", "Verwandlung Blutfliege");
 };

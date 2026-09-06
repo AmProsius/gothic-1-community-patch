@@ -8,6 +8,7 @@
  */
 func void G1CP_Test_0133() {
     G1CP_Testsuite_CheckLang(G1CP_Lang_DE);
+    G1CP_Testsuite_CheckWorld(G1CP_WLD_MAIN);
     var int funcId; funcId = G1CP_Testsuite_CheckDialogFunc("DIA_Scatty_KirgoSuccess_Info");
     var C_Npc npc; npc = G1CP_Testsuite_FindNpc("GRD_251_KIRGO");
     var int aiVarId; aiVarId = G1CP_Testsuite_CheckIntConst("AIV_HASDEFEATEDSC");

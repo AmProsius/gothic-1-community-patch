@@ -1,9 +1,5 @@
 /*
  * #59 Vendors equip strongest weapon
- *
- * A test NPC is inserted with a scythe equipped (weak weapon) and Thorus's sword in the inventory (strong weapon).
- *
- * Expected behavior: The NPC still has the scythe equipped.
  */
 instance G1CP_Test_0059_Npc(C_Npc) {
     name         = "Test 59";

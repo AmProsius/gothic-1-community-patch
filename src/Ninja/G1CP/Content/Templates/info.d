@@ -7,12 +7,11 @@ func int G1CP_Tpl_ChangeInfoIntVar(var string infoInst, var string prop, var int
 };
 
 /*
- * Change the description of a C_Info instance. Returns true on success.
+ * Change the value of a C_Info instance description. Returns true on success.
  */
-func int G1CP_Tpl_ChangeInfoStrVar(var string infoInst, var string prop, var string originalVal, var string correctVal)
-{
+func int G1CP_Tpl_ChangeInfoDescription(var string infoInst, var string originalStr, var string correctStr) {
     var int infoId; infoId = G1CP_GetInfoInstId(infoInst);
-    return (G1CP_ReplaceAssignStr(infoId, 0, ConcatStrings("C_Info.", prop), originalVal, correctVal) > 0);
+    return (G1CP_ReplaceAssignStr(infoId, 0, "C_Info.description", originalStr, correctStr) > 0);
 };
 
 /*

@@ -33,7 +33,7 @@ func int G1CP_0093_DE_LogEntryHoratio() {
 };
 
 /*
- * This function reverts the changes of #93
+ * Revert the changes
  */
 func int G1CP_0093_DE_LogEntryHoratioRevert() {
     // I'm sorry for not breaking the line at 120 characters
