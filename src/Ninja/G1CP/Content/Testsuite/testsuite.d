@@ -37,7 +37,7 @@ func int G1CP_Testsuite() {
     CC_Register(G1CP_TestsuiteCmd, "test ", "Run test from test suite for G1CP");
 
     // Enable debug channel and show debug messages
-    MEM_Game.debugChannels = MEM_Game.debugChannels | 31;
+    MEM_Game.debugChannels = MEM_Game.debugChannels | (1 << (31 - 1));
     MEM_SetShowDebug(TRUE);
 
     // Minimize spy initially for performance
